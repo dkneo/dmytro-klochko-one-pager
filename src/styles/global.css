@@ -108,7 +108,10 @@ img {
 }
 
 .say-hi {
+  display: inline-flex;
+  align-items: center;
   width: max-content;
+  min-height: 2.75rem;
   padding: 0.55rem 0;
 }
 
@@ -131,7 +134,11 @@ img {
 }
 
 .menu summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 5.25rem;
+  min-height: 2.75rem;
   padding: 0.62rem 1rem;
   border: 1px solid var(--ink);
   border-radius: 999px;
