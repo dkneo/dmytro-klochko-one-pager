@@ -1,0 +1,20 @@
+---
+interface Props {
+  href: string;
+  image: string;
+  alt: string;
+  label: string;
+  class: string;
+}
+
+const { href, image, alt, label, class: className } = Astro.props;
+---
+
+<a class={className} href={href} target="_blank" rel="noreferrer">
+  <span class="media-image">
+    <img src={image} alt={alt} loading="lazy" />
+  </span>
+  <span class="media-label">
+    {label} <span aria-hidden="true">↗</span>
+  </span>
+</a>

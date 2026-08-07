@@ -1,0 +1,398 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionTag from "../components/SectionTag.astro";
+import ExternalLink from "../components/ExternalLink.astro";
+import MediaCard from "../components/MediaCard.astro";
+import FramedPhoto from "../components/FramedPhoto.astro";
+import PhotoFill from "../components/PhotoFill.astro";
+
+type LinkItem = {
+  readonly label: string;
+  readonly href: string;
+};
+
+type MediaLink = LinkItem & {
+  readonly image: string;
+  readonly alt: string;
+  readonly className: string;
+};
+
+const upbringing = [
+  "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy (sans voir).",
+  "6 yo – onwards: multiple olympiads winner: math, humanities {later: coding, economics}.",
+  "9 yo: best kid actor award.",
+  "11 yo: first song. poetry contest winner.",
+  "14 yo: toured neighboring countries as band leader.",
+  "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
+  "to this day: designing fashion items. writing. doing film photography.",
+] as const;
+
+const vlogLinks = [
+  { label: "youtube channel (main)", href: "https://youtube.com/@dmytroklochko" },
+  { label: "vlog with giorgio", href: "https://www.instagram.com/p/DYm87SroZHJ/" },
+  { label: "in paris", href: "https://www.instagram.com/p/DYheZtSNZxM/" },
+  { label: "kbs interview (korea)", href: "https://www.instagram.com/p/DYhL6c9Ti8M/" },
+  { label: "vienna", href: "https://www.instagram.com/p/DYXLh6rI2JI/" },
+  { label: "short reel", href: "https://www.instagram.com/p/DYj9W6yITif/" },
+] as const satisfies readonly LinkItem[];
+
+const featuredVlogs = [
+  {
+    label: "kbs interview (korea)",
+    href: "https://www.instagram.com/p/DYhL6c9Ti8M/",
+    image: "/images/vlog-kbs.png",
+    alt: "Dmytro speaking to camera in a green cap and glasses",
+    className: "media-card media-card--portrait",
+  },
+  {
+    label: "vienna",
+    href: "https://www.instagram.com/p/DYXLh6rI2JI/",
+    image: "/images/vlog-vienna.jpg",
+    alt: "Vienna's Votivkirche under a cloudy sky",
+    className: "media-card media-card--landscape",
+  },
+  {
+    label: "in paris",
+    href: "https://www.instagram.com/p/DYheZtSNZxM/",
+    image: "/images/vlog-paris.png",
+    alt: "Dmytro filming a vlog by the Eiffel Tower",
+    className: "media-card media-card--tall",
+  },
+] as const satisfies readonly MediaLink[];
+
+const socialLinks = [
+  { label: "manifesto", href: "https://replika.com/manifesto" },
+  { label: "x (twitter)", href: "https://x.com/dkreplika" },
+  { label: "instagram", href: "https://instagram.com/dmytrotoday" },
+  { label: "youtube", href: "https://youtube.com/@dmytroklochko" },
+  { label: "linkedin", href: "https://www.linkedin.com/in/heydmytro/" },
+] as const satisfies readonly LinkItem[];
+
+const books = [
+  "the lord of the rings — j.r.r. tolkien",
+  "upstream — mary oliver",
+  "gaspard de la nuit — aloysius bertrand (also the ravel suite)",
+  "man's search for meaning — viktor frankl",
+] as const;
+
+const records = ["rumours — fleetwood mac", "gaspard de la nuit — ravel"] as const;
+
+const title = "dmytro klochko — art & technology";
+const description =
+  "dmytro klochko — jaywalker at the intersection of art and technology. tech entrepreneur & tinkerer.";
+---
+
+<Layout title={title} description={description}>
+  <a class="skip-link" href="#main-content"> skip to content </a>
+
+  <header class="site-header" aria-label="primary navigation">
+    <a class="say-hi" href="https://instagram.com/dmytrotoday" target="_blank" rel="noreferrer">
+      say hi ↗
+    </a>
+
+    <a class="masthead" href="#top" aria-label="dmytro klochko, home">
+      <span>dmytro</span> <em>klochko</em>
+    </a>
+
+    <details class="menu">
+      <summary>menu</summary>
+      <nav aria-label="main menu">
+        <a href="#bio">bio</a>
+        <a href="#career">career</a>
+        <a href="#watch">vlog</a>
+        <a href="#perso">perso ref</a>
+        <a href="#press">press + socials</a>
+      </nav>
+    </details>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-collage" aria-hidden="true">
+        <PhotoFill
+          class="hero-photo hero-photo--left"
+          src="/images/dmytro-lawn.png"
+          alt=""
+          eager
+        />
+        <PhotoFill
+          class="hero-photo hero-photo--center"
+          src="/images/dmytro-city.png"
+          alt=""
+          eager
+        />
+        <PhotoFill class="hero-photo hero-photo--right" src="/images/dmytro-detail.jpg" alt="" />
+      </div>
+
+      <div class="hero-copy">
+        <SectionTag>intro</SectionTag>
+        <h1 id="hero-title">
+          jaywalker at the intersection of <em>art and technology.</em>
+        </h1>
+        <div class="hero-notes">
+          <p>relentless pursuer. beholder of cathedrals all around. tech entrepreneur &amp; tinkerer.</p>
+          <p>based between nyc, paris &amp; sf.</p>
+        </div>
+      </div>
+
+      <span class="scribble scribble--hero" aria-hidden="true"></span>
+    </section>
+
+    <section class="about" id="bio" aria-labelledby="bio-title">
+      <div class="about-inner">
+        <SectionTag>about me</SectionTag>
+        <div class="about-title">
+          <h2 id="bio-title">about <em>me</em></h2>
+          <p>born &amp; raised in donetsk, eastern ukraine.</p>
+        </div>
+        <PhotoFill
+          class="about-photo"
+          src="/images/dmytro-speaking.jpg"
+          alt="Dmytro speaking during a presentation"
+        />
+        <p class="about-story">
+          very poor household. fled war as a teenager. slept on the streets for weeks.
+        </p>
+        <p class="about-note">still curious. still moving. still making.</p>
+      </div>
+    </section>
+
+    <section class="upbringing page-shell" aria-labelledby="upbringing-title">
+      <SectionTag>bio</SectionTag>
+      <div class="upbringing-heading">
+        <h2 id="upbringing-title">upbringing</h2>
+        <p>a life shaped by making things early — and often.</p>
+      </div>
+
+      <ol class="timeline">
+        {upbringing.map((item, index) => (
+          <li>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <p>{item}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div class="childhood-collage">
+        <FramedPhoto
+          class="childhood-photo childhood-photo--chess"
+          src="/images/childhood-chess.jpg"
+          alt="A childhood photograph beside a chess board"
+          caption="first obsession"
+        />
+        <FramedPhoto
+          class="childhood-photo childhood-photo--piano"
+          src="/images/childhood-piano.jpg"
+          alt="A childhood photograph at the piano"
+          caption="practice / play"
+        />
+        <FramedPhoto
+          class="childhood-photo childhood-photo--now"
+          src="/images/dmytro-park.png"
+          alt="Dmytro wearing a cap in a city park"
+          caption="ongoing →"
+        />
+        <span class="hand-arrow" aria-hidden="true">↗</span>
+      </div>
+    </section>
+
+    <section class="career page-shell" id="career" aria-labelledby="career-title">
+      <SectionTag>career</SectionTag>
+      <div class="career-copy">
+        <h2 id="career-title">career</h2>
+        <p>
+          first job at 6 yo {"{busking, improv}"}. first filmmaking gig at 13 yo. a hundred gigs and strange little jobs in between.
+        </p>
+        <p>
+          10 years of product management. 6 years building ml-powered products {"{incl. 400m mau products}"}. 5 years hands-on gtm across global ai &amp; social products.
+        </p>
+        <p>former founder.</p>
+        <p class="career-lede">
+          now ceo at replika {"{42m+ users worldwide, #1 ai friend}"}. research with stanford, harvard, princeton.
+        </p>
+        <p>lecturer at the university of vienna.</p>
+      </div>
+
+      <FramedPhoto
+        class="career-art"
+        src="/images/art-abstract.jpg"
+        alt="A colorful abstract painting"
+        caption="taste, action, magic"
+      />
+
+      <div class="career-marker" aria-hidden="true">
+        <span>support your local</span>
+        <strong>monkey business</strong>
+        <span>🐒</span>
+      </div>
+    </section>
+
+    <section class="ways" aria-labelledby="ways-title">
+      <div class="page-shell ways-inner">
+        <SectionTag>approach</SectionTag>
+        <h2 id="ways-title">ways of <em>working</em></h2>
+        <div class="ways-grid">
+          <p>
+            natural aptitude for taste, action bias, &amp; having too much fun shipping.<br />
+            clairvoyance, aggressive optimism. following my nose.<br />
+            very fucking clean and direct in my comms.
+          </p>
+          <p>
+            culture in my teams is something i'm incredibly proud of: violent intolerance for mediocre work. anime-level fellowship &amp; camaraderie. fearlessness. relentless pursuit of the mission.
+          </p>
+          <p>
+            unhealthy excitement about customers {"{i have 3x more users than team members in slack lol}"}. making my product feel like magic. extensive experience working with the world's best brand agencies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="watch page-shell" id="watch" aria-labelledby="watch-title">
+      <SectionTag>vlog</SectionTag>
+      <div class="watch-heading">
+        <h2 id="watch-title">watch &amp; <em>listen</em></h2>
+        <p>field notes, interviews and conversations from everywhere.</p>
+      </div>
+
+      <div class="media-grid">
+        {featuredVlogs.map((item) => (
+          <MediaCard
+            href={item.href}
+            image={item.image}
+            alt={item.alt}
+            label={item.label}
+            class={item.className}
+          />
+        ))}
+      </div>
+
+      <div class="watch-links" aria-label="more video links">
+        {vlogLinks.map((item, index) => (
+          <ExternalLink
+            class="text-link"
+            href={item.href}
+            label={`${String(index + 1).padStart(2, "0")} / ${item.label}`}
+          />
+        ))}
+      </div>
+    </section>
+
+    <section class="personal" id="perso" aria-labelledby="perso-title">
+      <div class="page-shell personal-inner">
+        <SectionTag>perso ref</SectionTag>
+        <div class="personal-heading">
+          <h2 id="perso-title">favorites /<br /><em>taste / shelf</em></h2>
+          <div class="swatches" aria-label="favorite colors">
+            <span style="background: #a7cbe8"></span>
+            <span style="background: #717c4c"></span>
+            <span style="background: #d7a1bb"></span>
+            <span style="background: #cc9d5d"></span>
+            <span style="background: #202f62"></span>
+          </div>
+        </div>
+
+        <div class="shelf-grid">
+          <div class="shelf-list">
+            <h3>books</h3>
+            <ol>
+              {books.map((book) => <li>{book}</li>)}
+            </ol>
+          </div>
+          <div class="shelf-list">
+            <h3>records</h3>
+            <ol>
+              {records.map((record) => <li>{record}</li>)}
+            </ol>
+          </div>
+          <FramedPhoto
+            class="museum-photo"
+            src="/images/dmytro-museum.jpg"
+            alt="Dmytro standing in a museum in front of a large painting"
+          />
+          <FramedPhoto
+            class="water-lilies"
+            src="/images/art-water-lilies.jpg"
+            alt="Detail of water lilies in deep blue"
+          />
+        </div>
+
+        <div class="poems" aria-labelledby="poems-title">
+          <h3 id="poems-title">poems</h3>
+          <blockquote class="poem poem--one">
+            <p>
+              i am lost in sorrento<br />
+              for i am the taste of its lemons and its women's feet<br />
+              i'm the salt of its breeze<br />
+              i'm so glad i can't breathe<br />
+              i'm so tall i am whole twelve feet
+            </p>
+          </blockquote>
+          <blockquote class="poem poem--two">
+            <p>
+              This girl is the warm sensation of young sun on my bare chest;<br /><br />
+              her chestnut irises, and the greens in them, glimmer with playful unrest.<br /><br />
+              When she whispers her spells, her tricks, and her promises,<br />I couldn't get any slumber.<br /><br />
+              For she carries inside her an eternal summer,<br />an eternal summer.
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="press page-shell" id="press" aria-labelledby="press-title">
+      <SectionTag>interview page</SectionTag>
+      <div class="press-title-row">
+        <h2 id="press-title">finding <em>connection.</em></h2>
+        <p>cph:dox 2026 (documentary on shared drive)</p>
+      </div>
+
+      <div class="press-collage">
+        <FramedPhoto
+          class="press-interview"
+          src="/images/interview-poetry.png"
+          alt="Interview still of Dmytro speaking about poetry"
+        />
+        <FramedPhoto
+          class="press-flower"
+          src="/images/art-sunflowers.jpg"
+          alt="A painting of sunflowers"
+        />
+        <FramedPhoto
+          class="press-lecture"
+          src="/images/dmytro-lecture.png"
+          alt="Dmytro lecturing at a university"
+        />
+        <p class="press-caption">poetry, the human condition, and making technology feel a little more alive.</p>
+      </div>
+
+      <ExternalLink
+        class="press-link"
+        label="bloomberg — 'going viral: replika, the ai companion app'"
+        href="https://www.bloomberg.com/news/videos/2023-01-14/going-viral-replika-the-ai-companion-app-video"
+      />
+    </section>
+
+    <section class="social" aria-labelledby="social-title">
+      <div class="page-shell social-inner">
+        <SectionTag>social media</SectionTag>
+        <h2 id="social-title">come say <em>hi.</em></h2>
+
+        <PhotoFill class="social-cutout" src="/images/dmytro-cutout.png" alt="" hidden />
+        <PhotoFill class="social-reading" src="/images/dmytro-reading-cutout.png" alt="" hidden />
+
+        <div class="social-links">
+          {socialLinks.map((item) => (
+            <ExternalLink class="text-link" href={item.href} label={item.label} />
+          ))}
+        </div>
+        <span class="scribble scribble--social" aria-hidden="true"></span>
+      </div>
+
+      <footer class="page-shell footer">
+        <p>© 2026 dmytro klochko</p>
+        <p>art × technology × monkey business</p>
+        <a href="#top">back to top ↑</a>
+      </footer>
+    </section>
+  </main>
+</Layout>

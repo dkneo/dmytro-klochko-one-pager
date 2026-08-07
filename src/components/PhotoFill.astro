@@ -1,0 +1,19 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  class: string;
+  hidden?: boolean;
+  eager?: boolean;
+}
+
+const { src, alt, class: className, hidden = false, eager = false } = Astro.props;
+---
+
+<div class={className} aria-hidden={hidden ? "true" : undefined}>
+  {eager ? (
+    <img src={src} alt={alt} loading="eager" fetchpriority="high" />
+  ) : (
+    <img src={src} alt={alt} loading="lazy" />
+  )}
+</div>
