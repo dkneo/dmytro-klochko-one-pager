@@ -41,6 +41,22 @@ img {
   display: block;
 }
 
+.hero-photo img,
+.about-photo img,
+.childhood-photo img,
+.career-art img,
+.media-image img,
+.museum-photo img,
+.water-lilies img,
+.press-collage img,
+.social-cutout img,
+.social-reading img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 ::selection {
   background: var(--pink);
   color: var(--ink);
