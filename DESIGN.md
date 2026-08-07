@@ -8,13 +8,15 @@ colors:
   blush-grey: "#e9e3e2"
   ink: "#11120f"
   soft-ink: "#343630"
-  muted: "#737369"
+  muted: "#707067"
   rule: "#cfcfc5"
   overcast-blue: "#a7cbe8"
   ink-navy: "#202f62"
-  olive-fatigue: "#717c4c"
+  olive-fatigue: "#6b7648"
   dusty-rose: "#d7a1bb"
-  worn-ochre: "#cc9d5d"
+  worn-ochre: "#90672d"
+  personal-heading-pink: "#ba688f"
+  poem-rose: "#a14674"
 typography:
   display:
     fontFamily: "Iowan Old Style, Baskerville, 'Times New Roman', serif"
@@ -102,14 +104,16 @@ A warm off-white paper ground carries most sections; five muted, slightly desatu
 ### Secondary
 - **Ink Navy** (`#202f62`): the hero's `<em>` highlight color, and the full-bleed background of the "ways of working" section — the only accent promoted to a section background.
 - **Overcast Blue** (`#a7cbe8`): `<em>` highlight in the "about" and "ways" sections; also the selection (`::selection`) highlight color's near-neighbor family (selection actually uses Dusty Rose, see below).
-- **Olive Fatigue** (`#717c4c`): `<em>` highlight in "watch & listen," and the color of the hand-lettered "support your local / monkey business" career marker.
-- **Dusty Rose** (`#d7a1bb`): `<em>` highlight in "favorites/taste," the text-selection color, and the color of the decorative scribble shapes. A deeper unnamed variant (`#b24f81`) is used once, for the first poem's text.
-- **Worn Ochre** (`#cc9d5d`): `<em>` highlight in the press section, and the italic pull-quote caption color there.
+- **Olive Fatigue** (`#6b7648`): `<em>` highlight in "watch & listen," and the color of the hand-lettered "support your local / monkey business" career marker. Darkened from the original `#717c4c` (4.14:1 on paper) to `#6b7648` (4.51:1) to clear WCAG AA at the career-marker's smaller text sizes.
+- **Dusty Rose** (`#d7a1bb`): the text-selection color and the color of the decorative scribble shapes. The "favorites/taste" heading `<em>` uses a distinct, unrelated deeper pink (`#ba688f`, see below) — not this token; and the first poem's text uses a third, still deeper variant (`#a14674`, see below).
+- **Worn Ochre** (`#90672d`): `<em>` highlight in the press section, and the italic pull-quote caption color there. Darkened from the original `#cc9d5d` (2.27:1 on paper — a hard AA failure even at the large-text threshold) to `#90672d` (4.66:1).
 
 ### Neutral
 - **Deep Ink** (`#11120f`): primary text color and the default border/rule color for hard edges (pills, dividers, focus outlines).
 - **Soft Ink** (`#343630`): unused as a standalone token today beyond definition — reserved for a secondary-but-not-muted text weight; treat as available headroom, not yet load-bearing.
-- **Faded Graphite** (`#737369`): secondary/muted text — captions, sub-heads under section titles, timeline index numbers.
+- **Faded Graphite** (`#707067`): secondary/muted text — captions, sub-heads under section titles, timeline index numbers. Darkened from `#737369` (4.43:1) to `#707067` (4.62:1) to clear the 4.5:1 AA threshold at the small sizes it's actually used at.
+- **Personal-Heading Pink** (`#ba688f`): a one-off, distinct from Dusty Rose, used only for the "favorites/taste" heading `<em>`. Darkened from `#bd6f94` (2.82:1 on Blush Grey) to `#ba688f` (3.03:1) — sufficient since this usage is always huge display text (large-text AA threshold is 3:1).
+- **Poem Rose** (`#a14674`): a one-off, distinct from both Dusty Rose and Personal-Heading Pink, used only for the first poem's text. Darkened from `#b24f81` (3.82:1 on Blush Grey) to `#a14674` (4.54:1) since poem text runs closer to body size, needing the stricter 4.5:1 threshold.
 - **Hairline Grey** (`#cfcfc5`): all light-mode divider and border-bottom rules (timeline rows, text-link rows).
 - **Near Black** (`#050505`): the "about" section's full-bleed background.
 - **True Black** (`#000000`): the "social" section and footer's full-bleed background.

@@ -10,13 +10,15 @@
       "blush-grey": { "role": "neutral", "displayName": "Blush Grey", "canonical": "#e9e3e2", "tonalRamp": ["#2b2221", "#51403e", "#775e5a", "#9a7e7a", "#b6a39f", "#cfc1bf", "#e2dbd9", "#f4f1f1"] },
       "ink": { "role": "neutral", "displayName": "Deep Ink", "canonical": "#11120f", "tonalRamp": ["#272a23", "#4a4e41", "#6c725f", "#8d947f", "#adb3a3", "#c9ccc2", "#dfe1db", "#f3f3f1"] },
       "soft-ink": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#343630", "tonalRamp": ["#272924", "#494c43", "#6b6f62", "#8c9183", "#adb0a6", "#c8cac4", "#dfe0dc", "#f3f3f2"] },
-      "muted": { "role": "neutral", "displayName": "Faded Graphite", "canonical": "#737369", "tonalRamp": ["#282825", "#4b4b44", "#6d6d64", "#8f8f84", "#afafa7", "#c9c9c4", "#dfdfdc", "#f3f3f2"] },
+      "muted": { "role": "neutral", "displayName": "Faded Graphite", "canonical": "#707067", "tonalRamp": ["#282825", "#4a4a44", "#6d6d64", "#8f8f85", "#aeaea7", "#c9c9c5", "#dfdfdc", "#f3f3f2"] },
       "rule": { "role": "neutral", "displayName": "Hairline Grey", "canonical": "#cfcfc5", "tonalRamp": ["#2a2a23", "#4e4e41", "#72725f", "#95957f", "#b3b3a3", "#ccccc2", "#e1e1db", "#f3f3f1"] },
       "overcast-blue": { "role": "secondary", "displayName": "Overcast Blue", "canonical": "#a7cbe8", "tonalRamp": ["#10293d", "#1e4c71", "#2b6fa6", "#4591ce", "#7ab0dc", "#a6cae8", "#cae0f1", "#ebf3fa"] },
       "ink-navy": { "role": "secondary", "displayName": "Ink Navy", "canonical": "#202f62", "tonalRamp": ["#131c3a", "#23346c", "#334c9e", "#4e69c5", "#8094d6", "#aab7e3", "#cdd5ef", "#eceff9"] },
-      "olive-fatigue": { "role": "secondary", "displayName": "Olive Fatigue", "canonical": "#717c4c", "tonalRamp": ["#2b2f1d", "#515936", "#76824f", "#99a66e", "#b6bf97", "#ced4b9", "#e2e6d6", "#f4f5ef"] },
+      "olive-fatigue": { "role": "secondary", "displayName": "Olive Fatigue", "canonical": "#6b7648", "tonalRamp": ["#2b301d", "#505936", "#76824f", "#99a66d", "#b5bf96", "#ced4b9", "#e2e6d6", "#f4f5ef"] },
       "dusty-rose": { "role": "secondary", "displayName": "Dusty Rose", "canonical": "#d7a1bb", "tonalRamp": ["#361726", "#642b46", "#933e67", "#b95a88", "#cd89aa", "#deb0c6", "#ebd0dd", "#f7edf2"] },
-      "worn-ochre": { "role": "secondary", "displayName": "Worn Ochre", "canonical": "#cc9d5d", "tonalRamp": ["#3a2912", "#6d4d22", "#9f7132", "#c7934d", "#d7b27f", "#e4cbaa", "#efe0cd", "#f9f3ec"] }
+      "worn-ochre": { "role": "secondary", "displayName": "Worn Ochre", "canonical": "#90672d", "tonalRamp": ["#3a2a12", "#6d4e22", "#9f7232", "#c7944c", "#d7b27f", "#e4ccaa", "#efe1cc", "#f9f3ec"] },
+      "personal-heading-pink": { "role": "secondary", "displayName": "Personal-Heading Pink", "canonical": "#ba688f", "tonalRamp": ["#351826", "#622d46", "#904267", "#b55e88", "#ca8ba9", "#dcb2c6", "#ead1dd", "#f7edf2"] },
+      "poem-rose": { "role": "secondary", "displayName": "Poem Rose", "canonical": "#a14674", "tonalRamp": ["#351726", "#642b48", "#923f69", "#b85b8a", "#cc8aab", "#ddb1c7", "#ebd1de", "#f7edf2"] }
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Masthead wordmark and the hero headline only — the single largest text on the page." },
