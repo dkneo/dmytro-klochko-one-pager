@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-07T12:37:20Z",
+  "title": "Design System: dmytro klochko — one-pager",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "primary", "displayName": "Aged Paper", "canonical": "#f7f6f2", "tonalRamp": ["#2f2c1d", "#585236", "#817750", "#a69a6e", "#bfb797", "#d4cfba", "#e6e3d6", "#f5f4ef"] },
+      "near-black": { "role": "neutral", "displayName": "Near Black", "canonical": "#050505", "tonalRamp": ["#262626", "#474747", "#696969", "#8a8a8a", "#ababab", "#c7c7c7", "#dedede", "#f2f2f2"] },
+      "true-black": { "role": "neutral", "displayName": "True Black", "canonical": "#000000", "tonalRamp": ["#262626", "#474747", "#696969", "#8a8a8a", "#ababab", "#c7c7c7", "#dedede", "#f2f2f2"] },
+      "blush-grey": { "role": "neutral", "displayName": "Blush Grey", "canonical": "#e9e3e2", "tonalRamp": ["#2b2221", "#51403e", "#775e5a", "#9a7e7a", "#b6a39f", "#cfc1bf", "#e2dbd9", "#f4f1f1"] },
+      "ink": { "role": "neutral", "displayName": "Deep Ink", "canonical": "#11120f", "tonalRamp": ["#272a23", "#4a4e41", "#6c725f", "#8d947f", "#adb3a3", "#c9ccc2", "#dfe1db", "#f3f3f1"] },
+      "soft-ink": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#343630", "tonalRamp": ["#272924", "#494c43", "#6b6f62", "#8c9183", "#adb0a6", "#c8cac4", "#dfe0dc", "#f3f3f2"] },
+      "muted": { "role": "neutral", "displayName": "Faded Graphite", "canonical": "#737369", "tonalRamp": ["#282825", "#4b4b44", "#6d6d64", "#8f8f84", "#afafa7", "#c9c9c4", "#dfdfdc", "#f3f3f2"] },
+      "rule": { "role": "neutral", "displayName": "Hairline Grey", "canonical": "#cfcfc5", "tonalRamp": ["#2a2a23", "#4e4e41", "#72725f", "#95957f", "#b3b3a3", "#ccccc2", "#e1e1db", "#f3f3f1"] },
+      "overcast-blue": { "role": "secondary", "displayName": "Overcast Blue", "canonical": "#a7cbe8", "tonalRamp": ["#10293d", "#1e4c71", "#2b6fa6", "#4591ce", "#7ab0dc", "#a6cae8", "#cae0f1", "#ebf3fa"] },
+      "ink-navy": { "role": "secondary", "displayName": "Ink Navy", "canonical": "#202f62", "tonalRamp": ["#131c3a", "#23346c", "#334c9e", "#4e69c5", "#8094d6", "#aab7e3", "#cdd5ef", "#eceff9"] },
+      "olive-fatigue": { "role": "secondary", "displayName": "Olive Fatigue", "canonical": "#717c4c", "tonalRamp": ["#2b2f1d", "#515936", "#76824f", "#99a66e", "#b6bf97", "#ced4b9", "#e2e6d6", "#f4f5ef"] },
+      "dusty-rose": { "role": "secondary", "displayName": "Dusty Rose", "canonical": "#d7a1bb", "tonalRamp": ["#361726", "#642b46", "#933e67", "#b95a88", "#cd89aa", "#deb0c6", "#ebd0dd", "#f7edf2"] },
+      "worn-ochre": { "role": "secondary", "displayName": "Worn Ochre", "canonical": "#cc9d5d", "tonalRamp": ["#3a2912", "#6d4d22", "#9f7132", "#c7934d", "#d7b27f", "#e4cbaa", "#efe0cd", "#f9f3ec"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Masthead wordmark and the hero headline only — the single largest text on the page." },
+      "headline": { "displayName": "Headline", "purpose": "Every section's h2 kicker headline." },
+      "title": { "displayName": "Title", "purpose": "Mid-weight serif pull-quotes inside a section, between headline and body." },
+      "body": { "displayName": "Body", "purpose": "Running copy: paragraphs, list items, timeline entries." },
+      "label": { "displayName": "Label", "purpose": "Uppercase chrome: section tags, nav, chips, captions, text-links. Never scales up." }
+    },
+    "shadows": [
+      { "name": "photo-frame-light", "value": "0 0 0 0.55rem #f7f6f2", "purpose": "Solid-color mount around collaged photos on paper-background sections; not a drop shadow." },
+      { "name": "photo-frame-dark", "value": "0 0 0 0.45rem #f7f6f2", "purpose": "Same mount treatment at a smaller frame width, used on the upbringing/childhood collage." },
+      { "name": "nav-dropdown", "value": "0 0.8rem 2rem rgb(17 18 15 / 12%)", "purpose": "Soft elevation shadow on the open nav menu panel — the one conventional UI shadow in the system; unreconciled with the frame-only rule elsewhere (see Elevation & Depth)." },
+      { "name": "swatch-lift", "value": "0 0.4rem 1rem rgb(17 18 15 / 9%)", "purpose": "Soft shadow under the favorite-color swatches — also unreconciled with the frame-only rule." }
+    ],
+    "motion": [
+      { "name": "arrow-nudge", "value": "transform 180ms ease; hover/focus-visible: translate(0.16rem, -0.16rem)", "purpose": "Signature micro-interaction on every outbound link's trailing arrow glyph." },
+      { "name": "card-lift", "value": "transform 220ms ease; hover/focus-visible: translateY(-0.5rem)", "purpose": "Featured media card lift on hover/focus." },
+      { "name": "image-breathe", "value": "transform 400ms ease; hover/focus-visible: scale(1.025)", "purpose": "Paired with card-lift: the thumbnail image inside a hovered media card scales up slightly." },
+      { "name": "skip-link-reveal", "value": "transform 160ms ease; focus: translateY(0) from translateY(-160%)", "purpose": "Accessibility skip-link slides into view on keyboard focus." },
+      { "name": "reduced-motion-override", "value": "transition-duration: 0.01ms !important at prefers-reduced-motion: reduce", "purpose": "Global motion-safety override; applies to all transitions above." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "900px" },
+      { "name": "sm", "value": "680px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Menu Toggle",
+      "kind": "nav",
+      "refersTo": "menu-toggle",
+      "description": "Pill-shaped disclosure toggle for the main nav; inverts to filled ink when open.",
+      "html": "<button class=\"ds-menu-toggle\">menu</button>",
+      "css": ".ds-menu-toggle { min-width: 5.25rem; padding: 0.62rem 1rem; border: 1px solid #11120f; border-radius: 999px; background: #f7f6f2; color: #11120f; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.7rem; font-weight: 650; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; } .ds-menu-toggle:hover, .ds-menu-toggle:focus-visible { background: #11120f; color: #ffffff; } .ds-menu-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }"
+    },
+    {
+      "name": "Label Chip",
+      "kind": "chip",
+      "refersTo": "label-chip",
+      "description": "Pill caption under a featured media thumbnail; label plus a trailing arrow glyph.",
+      "html": "<span class=\"ds-label-chip\">kbs interview (korea) <span class=\"ds-arrow\">↗</span></span>",
+      "css": ".ds-label-chip { display: inline-flex; align-items: center; gap: 0.4rem; width: max-content; padding: 0.55rem 0.8rem; border: 1px solid #11120f; border-radius: 999px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.68rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; } .ds-arrow { display: inline-block; transition: transform 180ms ease; } .ds-label-chip:hover .ds-arrow, .ds-label-chip:focus-visible .ds-arrow { transform: translate(0.16rem, -0.16rem); }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "nav",
+      "refersTo": "text-link",
+      "description": "Outbound link row: label left, arrow right, hairline bottom border. The system's signature link treatment, reused for vlog links, social links, and the press link.",
+      "html": "<a class=\"ds-text-link\" href=\"#\"><span>01 / kbs interview (korea)</span><span class=\"ds-arrow\">↗</span></a>",
+      "css": ".ds-text-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid #cfcfc5; color: #11120f; text-decoration: none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.72rem; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase; } .ds-arrow { display: inline-block; transition: transform 180ms ease; } .ds-text-link:hover .ds-arrow, .ds-text-link:focus-visible .ds-arrow { transform: translate(0.16rem, -0.16rem); } .ds-text-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }"
+    },
+    {
+      "name": "Media Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Signature component: a collaged photo with a label chip beneath it. On hover/focus the whole card lifts while the image scales slightly — two-part motion, not a single flat hover.",
+      "html": "<a class=\"ds-media-card\" href=\"#\"><span class=\"ds-media-card-image\"><img src=\"\" alt=\"\" /></span><span class=\"ds-media-card-label\">vienna <span class=\"ds-arrow\">↗</span></span></a>",
+      "css": ".ds-media-card { display: grid; gap: 0.8rem; text-decoration: none; color: #11120f; transition: transform 220ms ease; } .ds-media-card:hover, .ds-media-card:focus-visible { transform: translateY(-0.5rem); } .ds-media-card-image { position: relative; display: block; overflow: hidden; background: #deded6; aspect-ratio: 1.34; } .ds-media-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 400ms ease; } .ds-media-card:hover .ds-media-card-image img, .ds-media-card:focus-visible .ds-media-card-image img { transform: scale(1.025); } .ds-media-card-label { width: max-content; padding: 0.55rem 0.8rem; border: 1px solid #11120f; border-radius: 999px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.68rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; } .ds-arrow { display: inline-block; transition: transform 180ms ease; }"
+    },
+    {
+      "name": "Scribble",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Signature decorative shape: a hand-drawn-looking blob built from two offset, differently-rotated border-radius layers. Purely decorative, never a container.",
+      "html": "<span class=\"ds-scribble\" aria-hidden=\"true\"></span>",
+      "css": ".ds-scribble { position: relative; display: block; width: 11rem; height: 4.5rem; border: 2px solid #d7a1bb; border-radius: 48% 53% 46% 55%; transform: rotate(-12deg); } .ds-scribble::after { content: ''; position: absolute; inset: -0.4rem -0.25rem 0.2rem -0.55rem; border: 1px solid #d7a1bb; border-radius: 54% 45% 52% 47%; transform: rotate(7deg); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Scrapbook Dossier",
+    "overview": "The system reads as a personal archive treated with the confidence of a press kit. Photography is collaged like a scrapbook — small individual rotations, overlapping z-index, thick solid-color \"frames\" standing in for tape or a mount board — while the type doing the actual talking is enormous, quiet, and precisely tracked: huge serif headlines at regular (400) weight, never bold, letting scale carry authority instead of decoration. The voice is wry, literary, and quietly confident: lowercase copy throughout, two original poems set in italic serif, and section labels that stay small, uppercase, and heavy (650 weight) in contrast to the headlines above them — the loudest elements in the system are the smallest ones.\n\nThe page moves like a sequence of full-bleed magazine spreads rather than a scrolling list of cards: each section is its own tall \"page\" (min-height set in clamp(), often 50–95rem), and the background alternates deliberately — paper, near-black, paper, navy, paper, a dusty blush-grey, paper, true-black — so the scroll itself has editorial rhythm. Section headlines sit indented from the page edge (16.66% / 8.33% margins) rather than flush-left, another small press-layout tell.",
+    "keyCharacteristics": [
+      "Enormous, regular-weight serif display type paired with tiny, heavy-weight uppercase sans labels — the weight hierarchy is inverted from convention.",
+      "Rotated, overlapping photo collages framed with a solid-color \"mount,\" not a drop shadow.",
+      "Full-bleed section backgrounds alternate paper / dark / paper to punctuate the scroll.",
+      "A single recurring micro-interaction: the outbound-link arrow (↗) nudges up-right on hover/focus, everywhere it appears.",
+      "Pill shape reserved for exactly two things (menu toggle, label chip); everything else is hard-edged."
+    ],
+    "rules": [
+      { "name": "The Inverted Weight Rule", "body": "Headlines are always font-weight 400 regardless of size (up to 13rem); only small uppercase labels and chips get font-weight 650. Never bold a headline; never regular-weight a label.", "section": "colors" },
+      { "name": "The One Accent Per Section Rule", "body": "Each full-bleed section gets exactly one accent color for its <em> emphasis — never mix two accents in the same headline.", "section": "colors" },
+      { "name": "The Label Never Grows Rule", "body": "No label, chip, or nav item exceeds ~0.76rem regardless of viewport; labels are the one typographic role that does not scale up on desktop.", "section": "typography" },
+      { "name": "The Pill Exception Rule", "body": "Only the menu toggle and label chips get border-radius: 999px. No other interactive element, card, or container is rounded.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every headline at font-weight 400 no matter how large it gets (up to 13rem) — scale carries emphasis, not boldness (The Inverted Weight Rule).",
+      "Do frame collaged photos with a solid-color box-shadow \"mount\" and a small individual rotation (-5° to 5°); never lay collage photos flush or axis-aligned.",
+      "Do reserve font-weight 650 and uppercase tracking for labels, chips, and nav only — never for headlines or body copy.",
+      "Do animate the outbound-link arrow (↗) with the same translate(0.16rem, -0.16rem) nudge on hover/focus everywhere it appears.",
+      "Do alternate full-bleed section backgrounds (paper / near-black / paper / navy / paper / blush-grey / paper / true-black) so no two consecutive sections share a background.",
+      "Do indent section <h2> headlines from the page-shell edge (8.33% or 16.66% margin-left) rather than flush-left."
+    ],
+    "donts": [
+      "Don't add a conventional drop-shadow for elevation or hierarchy — this system conveys depth through rotation, overlap, and z-index, not shadow (see Elevation & Depth for the two existing exceptions that still need reconciling).",
+      "Don't round corners on anything except the menu toggle and label chips (The Pill Exception Rule) or the decorative scribble.",
+      "Don't set display or headline letter-spacing to normal or positive — serif display type is always tracked tight/negative (-0.065em to -0.075em).",
+      "Don't mix two accent colors in a single section's emphasis — one accent owns one section (The One Accent Per Section Rule)."
+    ]
+  }
+}

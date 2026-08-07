@@ -1,0 +1,210 @@
+---
+name: dmytro klochko — one-pager
+description: art & technology, jaywalker at the intersection.
+colors:
+  paper: "#f7f6f2"
+  near-black: "#050505"
+  true-black: "#000000"
+  blush-grey: "#e9e3e2"
+  ink: "#11120f"
+  soft-ink: "#343630"
+  muted: "#737369"
+  rule: "#cfcfc5"
+  overcast-blue: "#a7cbe8"
+  ink-navy: "#202f62"
+  olive-fatigue: "#717c4c"
+  dusty-rose: "#d7a1bb"
+  worn-ochre: "#cc9d5d"
+typography:
+  display:
+    fontFamily: "Iowan Old Style, Baskerville, 'Times New Roman', serif"
+    fontSize: "clamp(4.5rem, 10vw, 10.8rem)"
+    fontWeight: 400
+    lineHeight: 0.76
+    letterSpacing: "-0.075em"
+  headline:
+    fontFamily: "Iowan Old Style, Baskerville, 'Times New Roman', serif"
+    fontSize: "clamp(4.6rem, 9vw, 13rem)"
+    fontWeight: 400
+    lineHeight: 0.82
+    letterSpacing: "-0.065em"
+  title:
+    fontFamily: "Iowan Old Style, Baskerville, 'Times New Roman', serif"
+    fontSize: "clamp(1.35rem, 3.2vw, 3.25rem)"
+    fontWeight: 400
+    lineHeight: 1.1
+    letterSpacing: "normal"
+  body:
+    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
+    fontSize: "clamp(0.86rem, 1.3vw, 1.14rem)"
+    fontWeight: 400
+    lineHeight: 1.55
+    letterSpacing: "normal"
+  label:
+    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
+    fontSize: "0.7rem"
+    fontWeight: 650
+    lineHeight: 1
+    letterSpacing: "0.08em"
+rounded:
+  none: "0px"
+  pill: "999px"
+components:
+  menu-toggle:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "0.62rem 1rem"
+  menu-toggle-open:
+    backgroundColor: "{colors.ink}"
+    textColor: "#ffffff"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "0.62rem 1rem"
+  label-chip:
+    backgroundColor: "transparent"
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "0.55rem 0.8rem"
+  text-link:
+    backgroundColor: "transparent"
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    padding: "1rem 0"
+---
+
+# Design System: dmytro klochko — one-pager
+
+## Overview
+
+**Creative North Star: "The Scrapbook Dossier"**
+
+The system reads as a personal archive treated with the confidence of a press kit. Photography is collaged like a scrapbook — small individual rotations, overlapping z-index, thick solid-color "frames" standing in for tape or a mount board — while the type doing the actual talking is enormous, quiet, and precisely tracked: huge serif headlines at regular (400) weight, never bold, letting scale carry authority instead of decoration. The voice is wry, literary, and quietly confident: lowercase copy throughout, two original poems set in italic serif, and section labels that stay small, uppercase, and heavy (650 weight) in contrast to the headlines above them — the loudest elements in the system are the smallest ones.
+
+The page moves like a sequence of full-bleed magazine spreads rather than a scrolling list of cards: each section is its own tall "page" (min-height set in clamp(), often 50–95rem), and the background alternates deliberately — paper, near-black, paper, navy, paper, a dusty blush-grey, paper, true-black — so the scroll itself has editorial rhythm. Section headlines sit indented from the page edge (16.66% / 8.33% margins) rather than flush-left, another small press-layout tell.
+
+**Key Characteristics:**
+- Enormous, regular-weight serif display type paired with tiny, heavy-weight uppercase sans labels — the weight hierarchy is inverted from convention.
+- Rotated, overlapping photo collages framed with a solid-color "mount," not a drop shadow.
+- Full-bleed section backgrounds alternate paper / dark / paper to punctuate the scroll.
+- A single recurring micro-interaction: the outbound-link arrow (↗) nudges up-right on hover/focus, everywhere it appears.
+- Pill shape reserved for exactly two things (menu toggle, label chip); everything else is hard-edged.
+
+## Colors
+
+A warm off-white paper ground carries most sections; five muted, slightly desaturated accents each own exactly one section's emphasis color, and three near-black/black surfaces punctuate the scroll.
+
+### Primary
+- **Aged Paper** (`#f7f6f2`): the default page background across most sections and the "frame" color boxed around collaged photos on light sections.
+
+### Secondary
+- **Ink Navy** (`#202f62`): the hero's `<em>` highlight color, and the full-bleed background of the "ways of working" section — the only accent promoted to a section background.
+- **Overcast Blue** (`#a7cbe8`): `<em>` highlight in the "about" and "ways" sections; also the selection (`::selection`) highlight color's near-neighbor family (selection actually uses Dusty Rose, see below).
+- **Olive Fatigue** (`#717c4c`): `<em>` highlight in "watch & listen," and the color of the hand-lettered "support your local / monkey business" career marker.
+- **Dusty Rose** (`#d7a1bb`): `<em>` highlight in "favorites/taste," the text-selection color, and the color of the decorative scribble shapes. A deeper unnamed variant (`#b24f81`) is used once, for the first poem's text.
+- **Worn Ochre** (`#cc9d5d`): `<em>` highlight in the press section, and the italic pull-quote caption color there.
+
+### Neutral
+- **Deep Ink** (`#11120f`): primary text color and the default border/rule color for hard edges (pills, dividers, focus outlines).
+- **Soft Ink** (`#343630`): unused as a standalone token today beyond definition — reserved for a secondary-but-not-muted text weight; treat as available headroom, not yet load-bearing.
+- **Faded Graphite** (`#737369`): secondary/muted text — captions, sub-heads under section titles, timeline index numbers.
+- **Hairline Grey** (`#cfcfc5`): all light-mode divider and border-bottom rules (timeline rows, text-link rows).
+- **Near Black** (`#050505`): the "about" section's full-bleed background.
+- **True Black** (`#000000`): the "social" section and footer's full-bleed background.
+- **Blush Grey** (`#e9e3e2`): the "personal / taste-shelf" section's full-bleed background — the one warm neutral surface that isn't Aged Paper.
+
+### Named Rules
+**The Inverted Weight Rule.** Headlines are always font-weight 400 regardless of size (up to 13rem); only small uppercase labels and chips get font-weight 650. Never bold a headline; never regular-weight a label.
+
+**The One Accent Per Section Rule.** Each full-bleed section gets exactly one accent color for its `<em>` emphasis — never mix two accents in the same headline.
+
+## Typography
+
+**Display Font:** Iowan Old Style, with Baskerville and "Times New Roman" as serif fallbacks
+**Body Font:** Helvetica Neue, with Helvetica and Arial as sans fallbacks
+**Label Font:** the same Helvetica Neue stack as body, distinguished only by weight, size, and letter-spacing, not family
+
+**Character:** A classic editorial pairing — humanist serif for everything meant to be felt, and a plain grotesque sans for everything meant to be scanned (labels, nav, captions, uppercase chrome).
+
+### Hierarchy
+- **Display** (400, clamp(4.5rem, 10vw, 10.8rem), line-height 0.76): the masthead wordmark and the hero `<h1>`; the single largest text on the page.
+- **Headline** (400, clamp(4.6rem, 9vw, 13rem), line-height 0.82, tracked to -0.065em): every section's `<h2>` — "about," "upbringing," "career," "ways of working," "watch & listen," "favorites," "finding connection," "come say hi."
+- **Title** (400, clamp(1.35rem, 3.2vw, 3.25rem), serif): mid-weight pull-quotes inside a section — the about-section story line, the career "lede" statement, the italic press caption. Reads as a spoken aside between the headline and the body copy.
+- **Body** (400, clamp(0.86rem, 1.3vw, 1.14rem), line-height 1.55, sans): running copy — career paragraphs, "ways of working" list, timeline entries, shelf list items.
+- **Label** (650, ~0.61–0.76rem, letter-spacing 0.04–0.13em, uppercase): section tags, nav links, menu toggle, media chips, figure captions, text-link rows. Size and tracking vary slightly by context but the weight and uppercase treatment never do.
+
+The two original poems are a fifth, deliberately separate voice: serif, italic, clamp(1.08rem, 1.65vw, 1.48rem), colored (Dusty Rose's deep variant or Ink Navy) rather than default ink, each block rotated 1.5–2° — set apart from both body copy and headlines.
+
+### Named Rules
+**The Label Never Grows Rule.** No label, chip, or nav item exceeds ~0.76rem regardless of viewport; labels are the one typographic role that does not scale up on desktop.
+
+## Layout
+
+The grid is a `.page-shell` (`width: min(92vw, 90rem)`, centered) reused across sections, with a wider `96vw` variant for the header and a `90vw` variant at the small breakpoint. Within that shell, section grids are consistently asymmetric fractional splits — never 50/50 — for example `2fr 7fr 3fr` (hero copy), `5fr 7fr` (career), `2fr 5fr 5fr` (ways of working), `3fr 3fr 5fr` (taste shelf). Section headlines are indented from the shell's own edge by 16.66% or 8.33% margin-left, separate from where body content starts.
+
+Spacing is fluid rather than a fixed step scale: nearly every gap and block padding is a `clamp()` (e.g. `clamp(2rem, 5vw, 5rem)` for section gaps, `clamp(5rem, 10vw, 9rem)` for section vertical padding), so rhythm compresses and expands continuously with viewport width instead of snapping between fixed sizes.
+
+Each section is sized to feel like a full page rather than a compact block: `min-height` on major sections ranges from ~43rem to ~132rem via clamp(), stacking into a sequence of tall spreads. Two explicit breakpoints reshape this for smaller viewports — 900px mostly adjusts grid column ratios, and 680px collapses most grids to block/stacked layouts, hides secondary decorative photos, and shrinks headline scale substantially (down to `clamp(4rem, 18vw, 6.2rem)` territory). `prefers-reduced-motion` is respected globally, flattening all transitions to near-zero.
+
+## Elevation & Depth
+
+This is an **open gap, not a settled rule.** The system is flat by default — there is no drop-shadow used for hierarchy or lift anywhere in the base styles — but the two places `box-shadow` does appear pull in different directions and haven't been reconciled into one stated philosophy:
+
+- A solid-color "frame" (`box-shadow: 0 0 0 Xrem var(--paper)`, or white on dark sections) is wrapped around every collaged photo, functioning as a mount/border rather than a shadow.
+- Two isolated soft shadows exist outside that pattern: the nav dropdown menu (`0 0.8rem 2rem rgb(17 18 15 / 12%)`) and the color swatches (`0 0.4rem 1rem rgb(17 18 15 / 9%)`) — both read as conventional UI elevation, inconsistent with the frame-not-shadow treatment used everywhere else.
+
+Depth otherwise comes entirely from rotation, overlap, and `z-index` layering of collaged elements, not from shadow. Resolve the nav/swatch shadows deliberately (either extend real elevation to more UI chrome, or convert them to the frame treatment) rather than treating their current form as precedent.
+
+## Shapes
+
+Photos are never plain rectangles: each sits in an overlapping, individually rotated collage (roughly -5° to +5°), varying aspect ratio per image (0.62–1.75), giving a hand-arranged scrapbook feel rather than a grid of uniform tiles. The one soft, organic shape in the system is the decorative "scribble" — an irregular blob built from extreme border-radius percentages (e.g. `48% 53% 46% 55%`) doubled with a rotated `::after` layer to look hand-drawn; it's purely decorative, never a container.
+
+Everything else is hard-edged. Rounding is reserved for exactly two functional shapes: the fully pill-shaped menu toggle and label chip (`border-radius: 999px`), both with a 1px solid ink border. Lists, dividers, and link rows use hairline borders with zero radius.
+
+### Named Rules
+**The Pill Exception Rule.** Only the menu toggle and label chips get `border-radius: 999px`. No other interactive element, card, or container is rounded.
+
+## Components
+
+### Menu Toggle
+- **Shape:** pill (`border-radius: 999px`), 1px solid ink border.
+- **Default:** paper background, ink text, uppercase label typography.
+- **Open state:** inverts to ink background, white text — the only place in the system that flips background/foreground on interaction.
+
+### Label Chip (media captions)
+- **Shape:** pill, 1px solid ink border, transparent background.
+- **Use:** sits under each featured vlog thumbnail; label text plus a trailing arrow glyph.
+
+### Text Link (outbound link rows)
+- **Style:** flat row, label left / arrow (↗) right, hairline border-bottom (`var(--rule)`, or a low-opacity white on dark sections).
+- **Hover / focus:** only the arrow glyph moves — `translate(0.16rem, -0.16rem)` over 180ms. This exact micro-interaction is reused on every outbound link (vlog links, social links, the Bloomberg press link) and is the system's signature tactile detail.
+
+### Media Card (featured vlog thumbnails)
+- **Shape:** image block above a label chip; no border or radius on the image itself.
+- **Hover / focus:** the whole card lifts `translateY(-0.5rem)` while the image scales to `1.025` — a confident, deliberate two-part motion (card lifts, image breathes) rather than a single flat hover state.
+
+### Timeline / Numbered List (upbringing timeline, book/record shelves)
+- **Style:** top-ruled (`border-top: 1px solid ink`), hairline row dividers (`var(--rule)` or 25% black), zero radius.
+- **Index treatment:** small muted sans numerals, zero-padded (`01`, `02`, …), set apart from the row's body copy.
+
+### Navigation
+- Native `<details>/<summary>` disclosure doubles as the menu, even on desktop — no JS-driven dropdown.
+- Nav links inside the open panel are label-typography rows with a hairline bottom border, last item unbordered.
+
+## Do's and Don'ts
+
+### Do:
+- **Do** keep every headline at font-weight 400 no matter how large it gets (up to 13rem) — scale carries emphasis, not boldness (The Inverted Weight Rule).
+- **Do** frame collaged photos with a solid-color box-shadow "mount" and a small individual rotation (-5° to 5°); never lay collage photos flush or axis-aligned.
+- **Do** reserve font-weight 650 and uppercase tracking for labels, chips, and nav only — never for headlines or body copy.
+- **Do** animate the outbound-link arrow (↗) with the same `translate(0.16rem, -0.16rem)` nudge on hover/focus everywhere it appears.
+- **Do** alternate full-bleed section backgrounds (paper / near-black / paper / navy / paper / blush-grey / paper / true-black) so no two consecutive sections share a background.
+- **Do** indent section `<h2>` headlines from the page-shell edge (8.33% or 16.66% margin-left) rather than flush-left.
+
+### Don't:
+- **Don't** add a conventional drop-shadow for elevation or hierarchy — this system conveys depth through rotation, overlap, and z-index, not shadow (see Elevation & Depth for the two existing exceptions that still need reconciling).
+- **Don't** round corners on anything except the menu toggle and label chips (The Pill Exception Rule) or the decorative scribble.
+- **Don't** set display or headline letter-spacing to normal or positive — serif display type is always tracked tight/negative (-0.065em to -0.075em).
+- **Don't** mix two accent colors in a single section's emphasis — one accent owns one section (The One Accent Per Section Rule).
