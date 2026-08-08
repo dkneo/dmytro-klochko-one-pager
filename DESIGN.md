@@ -17,7 +17,6 @@ colors:
   dusty-rose: "#d7a1bb"
   worn-ochre: "#90672d"
   personal-heading-pink: "#ba688f"
-  poem-rose: "#a14674"
 typography:
   display-hero:
     fontFamily: "Iowan Old Style, Baskerville, 'Times New Roman', serif"
@@ -123,17 +122,16 @@ A warm off-white paper ground carries most sections; five muted, slightly desatu
 ### Secondary
 - **Ink Navy** (`#202f62`): the hero's `<em>` highlight color, and the full-bleed background of the "ways of working" section — the only accent promoted to a section background.
 - **Overcast Blue** (`#a7cbe8`): `<em>` highlight in the "about" and "ways" sections; also the selection (`::selection`) highlight color's near-neighbor family (selection actually uses Dusty Rose, see below).
-- **Olive Fatigue** (`#6b7648`): `<em>` highlight in "watch & listen," and the color of the hand-lettered "support your local / monkey business" career marker. Darkened from the original `#717c4c` (4.14:1 on paper) to `#6b7648` (4.51:1) to clear WCAG AA at the career-marker's smaller text sizes.
-- **Dusty Rose** (`#d7a1bb`): the text-selection color and the color of the decorative scribble shapes. The "favorites/taste" heading `<em>` uses a distinct, unrelated deeper pink (`#ba688f`, see below) — not this token; and the first poem's text uses a third, still deeper variant (`#a14674`, see below).
+- **Olive Fatigue** (`#6b7648`): `<em>` highlight in "watch & listen," and the color of the italic press caption. Darkened from the original `#717c4c` (4.14:1 on paper) to `#6b7648` (4.51:1) to clear WCAG AA at smaller text sizes.
+- **Dusty Rose** (`#d7a1bb`): the text-selection color and the color of the decorative scribble shapes. The "favorites/taste" heading `<em>` uses a distinct, unrelated deeper pink (`#ba688f`, see below) — not this token.
 - **Worn Ochre** (`#90672d`): `<em>` highlight in the press section, and the italic pull-quote caption color there. Darkened from the original `#cc9d5d` (2.27:1 on paper — a hard AA failure even at the large-text threshold) to `#90672d` (4.66:1).
 
 ### Neutral
 - **Deep Ink** (`#11120f`): primary text color and the default border/rule color for hard edges (pills, dividers, focus outlines).
-- **Soft Ink** (`#343630`): unused as a standalone token today beyond definition — reserved for a secondary-but-not-muted text weight; treat as available headroom, not yet load-bearing.
+- **Soft Ink** (`#343630`): the quiet-but-readable text weight. Used for the two poems on Blush Grey (9.64:1), where Faded Graphite would fail AA at body size (3.94:1).
 - **Faded Graphite** (`#707067`): secondary/muted text — captions, sub-heads under section titles, timeline index numbers. Darkened from `#737369` (4.43:1) to `#707067` (4.62:1) to clear the 4.5:1 AA threshold at the small sizes it's actually used at.
 - **Faded Graphite on Dark** (`#a7a79f`): the muted counterpart used only on the near-black "about" section, for the rotated "still curious. still moving. still making." aside. Measures 8.42:1 on Near Black. Faded Graphite itself is unreadable on that ground, so this is a genuine second token rather than a variant.
 - **Personal-Heading Pink** (`#ba688f`): a one-off, distinct from Dusty Rose, used only for the "favorites/taste" heading `<em>`. Darkened from `#bd6f94` (2.82:1 on Blush Grey) to `#ba688f` (3.03:1) — sufficient since this usage is always huge display text (large-text AA threshold is 3:1).
-- **Poem Rose** (`#a14674`): a one-off, distinct from both Dusty Rose and Personal-Heading Pink, used only for the first poem's text. Darkened from `#b24f81` (3.82:1 on Blush Grey) to `#a14674` (4.54:1) since poem text runs closer to body size, needing the stricter 4.5:1 threshold.
 - **Hairline Grey** (`#cfcfc5`): all light-mode divider and border-bottom rules (timeline rows, text-link rows).
 - **Near Black** (`#050505`): the "about" section's full-bleed background.
 - **True Black** (`#000000`): the "social" section and footer's full-bleed background.
@@ -160,7 +158,7 @@ Eight steps, all declared as CSS custom properties on `:root` and referenced by 
 - **Display Section** (`--display-section`, 400, clamp(3.2rem, 6.5vw, 6.5rem), line-height 0.86, tracked to -0.065em): every other section `<h2>`.
 - **Statement** (`--text-statement`, serif, clamp(1.9rem, 3vw, 2.9rem)): the largest in-section pull-quotes — the about-title line and the career lede.
 - **Lede** (`--text-lede`, serif, clamp(1.5rem, 2.4vw, 2.2rem)): the about-section story line and the career marker.
-- **Quote** (`--text-quote`, serif, clamp(1.2rem, 1.6vw, 1.5rem)): the two poems, the italic press caption, and the press link.
+- **Quote** (`--text-quote`, serif, clamp(1.2rem, 1.6vw, 1.5rem)): reserved for serif asides at mid scale. The two poems deliberately sit a step below this, at Body.
 - **Body** (`--text-body`, sans, clamp(1rem, 1.05vw, 1.12rem), line-height 1.55): all running copy — career paragraphs and list, "ways of working," timeline entries, shelf list items. Floors at 16px; it was previously as small as 13.8px.
 - **Small** (`--text-small`, sans, 0.88rem): hero notes, section sub-heads, the about-note aside.
 - **Label** (`--text-label`, sans, 0.78rem, 650 weight, uppercase): section tags, nav, menu toggle, media chips, figure captions, text-link rows, footer.
@@ -211,7 +209,7 @@ The second decorative mark is the hand-drawn arrow (↗) that points out of the 
 
 ### Text Link (outbound link rows)
 - **Style:** flat row, label left / arrow (↗) right, hairline border-bottom (`var(--rule)`, or a low-opacity white on dark sections).
-- **Hover / focus:** only the arrow glyph moves — `translate(0.16rem, -0.16rem)` over 180ms. This exact micro-interaction is reused on every outbound link (vlog links, social links, the Bloomberg press link) and is the system's signature tactile detail.
+- **Hover / focus:** only the arrow glyph moves — `translate(0.16rem, -0.16rem)` over 180ms. This exact micro-interaction is reused on every outbound link (vlog links, contact and social links) and is the system's signature tactile detail.
 
 ### Media Card (featured vlog thumbnails)
 - **Shape:** image block above a label chip; no border or radius on the image itself.

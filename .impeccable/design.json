@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-08T10:56:11Z",
+  "generatedAt": "2026-08-08T11:58:13Z",
   "title": "Design System: dmytro klochko — one-pager",
   "extensions": {
     "colorMeta": {
@@ -226,21 +226,6 @@
           "#ca8ba9",
           "#dcb2c6",
           "#ead1dd",
-          "#f7edf2"
-        ]
-      },
-      "poem-rose": {
-        "role": "secondary",
-        "displayName": "Poem Rose",
-        "canonical": "#a14674",
-        "tonalRamp": [
-          "#351726",
-          "#642b48",
-          "#923f69",
-          "#b85b8a",
-          "#cc8aab",
-          "#ddb1c7",
-          "#ebd1de",
           "#f7edf2"
         ]
       }
