@@ -39,9 +39,9 @@ A single static route, no login or dashboard. Visited almost entirely via direct
 
 Real, on-the-record facts: Donetsk upbringing and wartime displacement; childhood chess/theatre/music history; product-management and ML career history; Replika CEO role; research collaborations with Stanford, Harvard, and Princeton; a University of Vienna lectureship. Real assets: photos in `public/images`, two original poems written by him, and working external links (YouTube, Instagram posts, a Bloomberg video, LinkedIn, X).
 
-Open item, not yet resolved: the press section currently reads "cph:dox 2026 (documentary on shared drive)" — this looks like an internal note rather than finished public copy.
+The CV at `contents/DK_CV_Dmytro_Klochko_05.26.docx` is NOT a reliable source. Dmytro has confirmed it is "less correct" than his own account. Specifically it lists a Bachelor's degree in Marketing from Donetsk National University (2017); he is a college dropout, and the site says so. Treat the CV as a rough prompt for questions, never as fact to publish. Its revenue and ARR figures were also deliberately left off the site.
 
-Absence future work must not fill in: no testimonials, press logos beyond the one Bloomberg link, or quantified outcomes exist beyond what's listed above — do not fabricate any.
+Absence future work must not fill in: no testimonials or press logos exist yet. The Bloomberg link was removed at his request (not him). Time and The Atlantic mentions exist but the URLs have not been supplied. Do not fabricate any.
 
 ## Product Principles
 
