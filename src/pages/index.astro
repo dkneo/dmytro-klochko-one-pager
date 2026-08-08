@@ -27,12 +27,11 @@ const upbringing = [
   "to this day: designing fashion items. writing. doing film photography.",
 ] as const;
 
+// The three featured cards below already link to paris / kbs / vienna,
+// so this list only carries what those cards don't.
 const vlogLinks = [
   { label: "youtube channel (main)", href: "https://youtube.com/@dmytroklochko" },
   { label: "vlog with giorgio", href: "https://www.instagram.com/p/DYm87SroZHJ/" },
-  { label: "in paris", href: "https://www.instagram.com/p/DYheZtSNZxM/" },
-  { label: "kbs interview (korea)", href: "https://www.instagram.com/p/DYhL6c9Ti8M/" },
-  { label: "vienna", href: "https://www.instagram.com/p/DYXLh6rI2JI/" },
   { label: "short reel", href: "https://www.instagram.com/p/DYj9W6yITif/" },
 ] as const satisfies readonly LinkItem[];
 
@@ -203,14 +202,31 @@ const description =
         <p>
           first job at 6 yo {"{busking, improv}"}. first filmmaking gig at 13 yo. a hundred gigs and strange little jobs in between.
         </p>
-        <p>
-          10 years of product management. 6 years building ml-powered products {"{incl. 400m mau products}"}. 5 years hands-on gtm across global ai &amp; social products.
-        </p>
-        <p>former founder.</p>
         <p class="career-lede">
-          now ceo at replika {"{42m+ users worldwide, #1 ai friend}"}. research with stanford, harvard, princeton.
+          now ceo at replika {"{42m+ users worldwide, #1 ai friend}"}.
         </p>
-        <p>lecturer at the university of vienna.</p>
+        <ol class="career-list">
+          <li>
+            <span>01</span>
+            <p>replika — joined as coo &amp; cpo, ceo within a year. turned the company profitable. research with stanford, harvard &amp; princeton.</p>
+          </li>
+          <li>
+            <span>02</span>
+            <p>founded homa — a global hr platform for remote teams, backed by silicon valley angels. closed the first 14 enterprise deals myself.</p>
+          </li>
+          <li>
+            <span>03</span>
+            <p>chatfuel {"{meta business partner}"} — head of marketing &amp; expansion across three global markets.</p>
+          </li>
+          <li>
+            <span>04</span>
+            <p>product at hily, vk &amp; skyeng — consumer apps from scrappy startups to 400m-user ecosystems.</p>
+          </li>
+          <li>
+            <span>05</span>
+            <p>lecturer at the university of vienna. previously taught product &amp; marketing at the british higher school of art &amp; design.</p>
+          </li>
+        </ol>
       </div>
 
       <FramedPhoto

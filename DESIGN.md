@@ -18,33 +18,51 @@ colors:
   personal-heading-pink: "#ba688f"
   poem-rose: "#a14674"
 typography:
-  display:
+  display-hero:
     fontFamily: "Iowan Old Style, Baskerville, 'Times New Roman', serif"
-    fontSize: "clamp(4.5rem, 10vw, 10.8rem)"
+    fontSize: "clamp(3.4rem, 7.5vw, 8rem)"
     fontWeight: 400
-    lineHeight: 0.76
+    lineHeight: 0.8
     letterSpacing: "-0.075em"
-  headline:
+  display-section:
     fontFamily: "Iowan Old Style, Baskerville, 'Times New Roman', serif"
-    fontSize: "clamp(4.6rem, 9vw, 13rem)"
+    fontSize: "clamp(3.2rem, 6.5vw, 6.5rem)"
     fontWeight: 400
-    lineHeight: 0.82
+    lineHeight: 0.86
     letterSpacing: "-0.065em"
-  title:
+  statement:
     fontFamily: "Iowan Old Style, Baskerville, 'Times New Roman', serif"
-    fontSize: "clamp(1.35rem, 3.2vw, 3.25rem)"
+    fontSize: "clamp(1.9rem, 3vw, 2.9rem)"
     fontWeight: 400
     lineHeight: 1.1
     letterSpacing: "normal"
+  lede:
+    fontFamily: "Iowan Old Style, Baskerville, 'Times New Roman', serif"
+    fontSize: "clamp(1.5rem, 2.4vw, 2.2rem)"
+    fontWeight: 400
+    lineHeight: 1.25
+    letterSpacing: "normal"
+  quote:
+    fontFamily: "Iowan Old Style, Baskerville, 'Times New Roman', serif"
+    fontSize: "clamp(1.2rem, 1.6vw, 1.5rem)"
+    fontWeight: 400
+    lineHeight: 1.5
+    letterSpacing: "normal"
   body:
     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
-    fontSize: "clamp(0.86rem, 1.3vw, 1.14rem)"
+    fontSize: "clamp(1rem, 1.05vw, 1.12rem)"
+    fontWeight: 400
+    lineHeight: 1.55
+    letterSpacing: "normal"
+  small:
+    fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
+    fontSize: "0.88rem"
     fontWeight: 400
     lineHeight: 1.55
     letterSpacing: "normal"
   label:
     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
-    fontSize: "0.7rem"
+    fontSize: "0.78rem"
     fontWeight: 650
     lineHeight: 1
     letterSpacing: "0.08em"
@@ -133,16 +151,22 @@ A warm off-white paper ground carries most sections; five muted, slightly desatu
 **Character:** A classic editorial pairing — humanist serif for everything meant to be felt, and a plain grotesque sans for everything meant to be scanned (labels, nav, captions, uppercase chrome).
 
 ### Hierarchy
-- **Display** (400, clamp(4.5rem, 10vw, 10.8rem), line-height 0.76): the masthead wordmark and the hero `<h1>`; the single largest text on the page.
-- **Headline** (400, clamp(4.6rem, 9vw, 13rem), line-height 0.82, tracked to -0.065em): every section's `<h2>` — "about," "upbringing," "career," "ways of working," "watch & listen," "favorites," "finding connection," "come say hi."
-- **Title** (400, clamp(1.35rem, 3.2vw, 3.25rem), serif): mid-weight pull-quotes inside a section — the about-section story line, the career "lede" statement, the italic press caption. Reads as a spoken aside between the headline and the body copy.
-- **Body** (400, clamp(0.86rem, 1.3vw, 1.14rem), line-height 1.55, sans): running copy — career paragraphs, "ways of working" list, timeline entries, shelf list items.
-- **Label** (650, ~0.61–0.76rem, letter-spacing 0.04–0.13em, uppercase): section tags, nav links, menu toggle, media chips, figure captions, text-link rows. Size and tracking vary slightly by context but the weight and uppercase treatment never do.
 
-The two original poems are a fifth, deliberately separate voice: serif, italic, clamp(1.08rem, 1.65vw, 1.48rem), colored (Dusty Rose's deep variant or Ink Navy) rather than default ink, each block rotated 1.5–2° — set apart from both body copy and headlines.
+Eight steps, all declared as CSS custom properties on `:root` and referenced by name. This replaced an earlier sprawl of 33 ad-hoc `font-size` values that rendered as visually indistinguishable near-duplicates (eight different sizes between 0.61rem and 0.78rem alone).
+
+- **Display Hero** (`--display-hero`, 400, clamp(3.4rem, 7.5vw, 8rem), line-height 0.8): the masthead wordmark, the hero `<h1>`, and the "about me" `<h2>`.
+- **Display Section** (`--display-section`, 400, clamp(3.2rem, 6.5vw, 6.5rem), line-height 0.86, tracked to -0.065em): every other section `<h2>`.
+- **Statement** (`--text-statement`, serif, clamp(1.9rem, 3vw, 2.9rem)): the largest in-section pull-quotes — the about-title line and the career lede.
+- **Lede** (`--text-lede`, serif, clamp(1.5rem, 2.4vw, 2.2rem)): the about-section story line and the career marker.
+- **Quote** (`--text-quote`, serif, clamp(1.2rem, 1.6vw, 1.5rem)): the two poems, the italic press caption, and the press link.
+- **Body** (`--text-body`, sans, clamp(1rem, 1.05vw, 1.12rem), line-height 1.55): all running copy — career paragraphs and list, "ways of working," timeline entries, shelf list items. Floors at 16px; it was previously as small as 13.8px.
+- **Small** (`--text-small`, sans, 0.88rem): hero notes, section sub-heads, the about-note aside.
+- **Label** (`--text-label`, sans, 0.78rem, 650 weight, uppercase): section tags, nav, menu toggle, media chips, figure captions, text-link rows, footer.
 
 ### Named Rules
-**The Label Never Grows Rule.** No label, chip, or nav item exceeds ~0.76rem regardless of viewport; labels are the one typographic role that does not scale up on desktop.
+**The One Scale Rule.** Every `font-size` in the stylesheet references one of the eight `--text-*` / `--display-*` tokens. A literal `font-size` value is drift — add a step to the scale or reuse one, never inline a new number.
+
+**The Label Never Grows Rule.** No label, chip, or nav item exceeds 0.78rem regardless of viewport; labels are the one typographic role that does not scale up on desktop.
 
 ## Layout
 
