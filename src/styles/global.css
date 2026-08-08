@@ -1510,14 +1510,19 @@ summary:focus-visible {
    hover `transform` on cards, or the static `rotate` on collaged photos.
 --------------------------------------------------------------------------- */
 
+/* Deliberately does NOT drive opacity.
+   @supports only proves the browser PARSES animation-timeline, not that it
+   ADVANCES it. A timeline that attaches but reports out-of-range progress
+   makes `fill: both` pin the element at the `from` keyframe forever — which
+   shipped 30 of 32 content blocks at opacity 0 on production. Driving only
+   `translate` makes the worst case a 20px offset instead of invisible
+   content. Do not add opacity here without a runtime probe. */
 @keyframes reveal {
   from {
-    opacity: 0;
     translate: 0 1.25rem;
   }
 
   to {
-    opacity: 1;
     translate: 0 0;
   }
 }
