@@ -577,40 +577,37 @@ img {
    headline claim; the note is a quieter aside a full type step below it.
    Previously both ran at display sizes and the section read as four
    competing voices. */
+/* Wide enough to sit on two lines. At 20ch it wrapped to three in a narrow
+   well with the whole right half of the section empty. */
 .career-lede {
-  max-width: 20ch;
+  max-width: 30ch;
   margin: 0 0 var(--heading-gap);
   font-family: var(--serif);
   font-size: var(--text-statement);
   line-height: 1.08;
 }
 
-/* Two measured columns rather than one long column beside a photo, which
-   left most of the right-hand side empty once the copy grew. */
-/* Asymmetric on purpose: the left column is the short backstory, the right
-   is the Replika arc and carries most of the words. Equal columns left a
-   deep well of empty space under the left one. */
-.career-cols {
+/* Story left, photo right. The photo now sits beside the copy it belongs to
+   rather than stranded at the foot of the section. */
+.career-main {
   display: grid;
-  grid-template-columns: 4fr 6fr;
-  gap: clamp(2rem, 4vw, 4.5rem);
+  grid-template-columns: 6fr 4fr;
+  gap: clamp(2rem, 4vw, 4rem);
   align-items: start;
 }
 
-.career-cols p {
-  max-width: 34rem;
+.career-story p {
+  max-width: 36rem;
   margin: 0 0 1rem;
   font-size: var(--text-body);
   line-height: 1.55;
 }
 
-.career-cols p:last-child {
-  margin-bottom: 0;
-}
-
-.career-note {
-  max-width: 44rem;
-  margin: clamp(2rem, 3.5vw, 3.5rem) 0 0;
+/* The payoff sits inside the story column, directly under the story it pays
+   off, instead of orphaned beneath a different column. */
+.career-story .career-note {
+  max-width: 36rem;
+  margin: 1.6rem 0 0;
   padding-top: 1.2rem;
   border-top: 1px solid var(--ink);
   font-family: var(--serif);
@@ -619,21 +616,42 @@ img {
   line-height: 1.4;
 }
 
-.career-meta {
-  max-width: 34rem;
-  margin: 1.2rem 0 0;
-  color: var(--muted);
-  font-size: var(--text-small);
-  line-height: 1.55;
+/* Everything before Replika is context, not the headline. Small, muted, and
+   below the rule, so the scan order is claim, story, payoff, then background. */
+.career-before {
+  margin-top: clamp(2.5rem, 4vw, 4rem);
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
 }
 
-/* Sits at the end of the section instead of beside the copy, so it closes
-   the block rather than leaving a tall empty column next to it. */
+.career-before h3 {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: var(--text-label);
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.career-before-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.career-before-cols p {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-small);
+  line-height: 1.6;
+}
+
 .career-art {
   position: relative;
-  width: 44%;
-  aspect-ratio: 1.5;
-  margin: clamp(2.5rem, 4vw, 4rem) 0 0 auto;
+  width: 100%;
+  aspect-ratio: 1.3;
+  margin: 0;
   transform: rotate(1.2deg);
 }
 
@@ -1301,14 +1319,17 @@ summary:focus-visible {
     height: 34%;
   }
 
-  .career-cols {
+  .career-main,
+  .career-before-cols {
     grid-template-columns: 1fr;
-    gap: 0;
+  }
+
+  .career-before-cols {
+    gap: 1rem;
   }
 
   .career-art {
-    width: 100%;
-    aspect-ratio: 1.3;
+    margin-top: 2rem;
   }
 
   .ways-inner {
