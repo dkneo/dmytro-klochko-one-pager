@@ -15,6 +15,6 @@ const { href, image, alt, label, class: className } = Astro.props;
     <img src={image} alt={alt} loading="lazy" />
   </span>
   <span class="media-label">
-    {label} <span aria-hidden="true">↗</span>
+    {label} <span aria-hidden="true" class="arrow">↗</span>
   </span>
 </a>

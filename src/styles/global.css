@@ -777,7 +777,9 @@ img {
 
 .media-image img {
   object-fit: cover;
-  transition: transform var(--dur-slow) var(--ease);
+  /* Staged 60ms behind the card lift, so it reads as the two-part motion
+     DESIGN.md describes — card lifts, then image breathes — rather than one. */
+  transition: transform var(--dur-slow) var(--ease) 60ms;
 }
 
 .media-card:hover .media-image img,
@@ -856,12 +858,11 @@ a:focus-visible .arrow {
   transition: opacity var(--dur) var(--ease);
 }
 
+/* Hover only. On :focus-visible the dim would also fade the focus ring,
+   which is `outline: 2px solid currentColor` and so inherits the opacity. */
 .text-link:hover,
-.text-link:focus-visible,
 .say-hi:hover,
-.say-hi:focus-visible,
-.menu nav a:hover,
-.menu nav a:focus-visible {
+.menu nav a:hover {
   opacity: 0.65;
 }
 
@@ -1136,6 +1137,19 @@ a:focus-visible .arrow {
 
 .footer a {
   justify-self: end;
+}
+
+/* Was a 15px-tall target, under WCAG 2.2 AA's 24x24 minimum. */
+.to-top {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  min-height: 2.75rem;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.to-top:hover {
+  opacity: 0.65;
 }
 
 a:focus-visible,
@@ -1539,25 +1553,21 @@ summary:focus-visible {
 
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) {
-    .about-title,
-    .about-story,
-    .about-note,
-    .career-copy,
-    .career-art,
-    .ways-grid p,
-    .upbringing-heading,
-    .timeline li,
-    .childhood-collage,
-    .watch-heading,
-    .media-card,
-    .watch-links,
-    .personal-heading,
-    .shelf-grid > *,
-    .poems,
-    .press-title-row,
-    .press-feature,
-    .social h2,
-    .social-links {
+    /* The Section Announces Itself Rule: a section's heading arrives, its
+       contents are simply there. One reveal per section, never more.
+       This replaced a hand-picked list of 32 elements that followed no rule —
+       three sections treated heading and body differently from each other,
+       and the fade length varied 6.75x because the range is a percentage of
+       element height. Headings are all one type step, so the range is now
+       consistent by construction. */
+    .about-title h2,
+    .upbringing-heading h2,
+    .career-copy h2,
+    .ways h2,
+    .watch-heading h2,
+    .personal-heading h2,
+    .press-title-row h2,
+    .social h2 {
       /* Longhands, deliberately. The minifier folds the `animation`
          shorthand and `animation-timeline` into `animation: ... view()`,
          which is invalid and silently drops the whole declaration. */
@@ -1565,7 +1575,7 @@ summary:focus-visible {
       animation-timing-function: linear;
       animation-fill-mode: both;
       animation-timeline: view();
-      animation-range: entry 0% entry 45%;
+      animation-range: entry 0% entry 100%;
     }
 
     /* Differential drift: the centre photo travels furthest, so the collage
@@ -1616,5 +1626,13 @@ summary:focus-visible {
   a:hover .arrow,
   a:focus-visible .arrow {
     transform: none;
+  }
+
+  /* The card's only affordance is transform-based, so neutralising movement
+     above leaves it with no hover response at all. Give it the same opacity
+     acknowledgement the link rows get, otherwise a reduced-motion user cannot
+     tell these images are links until the cursor changes. */
+  .media-card:hover {
+    opacity: 0.65;
   }
 }

@@ -174,7 +174,7 @@ The grid is a `.page-shell` (`width: min(92vw, 90rem)`, centered) reused across 
 
 Spacing is fluid rather than a fixed step scale: nearly every gap and block padding is a `clamp()` (e.g. `clamp(2rem, 5vw, 5rem)` for section gaps, `clamp(5rem, 10vw, 9rem)` for section vertical padding), so rhythm compresses and expands continuously with viewport width instead of snapping between fixed sizes.
 
-Each section is sized to feel like a full page rather than a compact block: `min-height` on major sections ranges from ~43rem to ~132rem via clamp(), stacking into a sequence of tall spreads. Two explicit breakpoints reshape this for smaller viewports — 900px mostly adjusts grid column ratios, and 680px collapses most grids to block/stacked layouts, hides secondary decorative photos, and shrinks headline scale substantially (down to `clamp(4rem, 18vw, 6.2rem)` territory). `prefers-reduced-motion` is respected globally, flattening all transitions to near-zero.
+Each section is sized to feel like a full page rather than a compact block: `min-height` on major sections ranges from ~43rem to ~132rem via clamp(), stacking into a sequence of tall spreads. Two explicit breakpoints reshape this for smaller viewports — 900px mostly adjusts grid column ratios, and 680px collapses most grids to block/stacked layouts, hides secondary decorative photos, and shrinks headline scale substantially (down to `clamp(4rem, 18vw, 6.2rem)` territory). `prefers-reduced-motion` is respected globally — see Motion.
 
 ## Elevation & Depth
 
@@ -209,7 +209,7 @@ The second decorative mark is the hand-drawn arrow (↗) that points out of the 
 
 ### Text Link (outbound link rows)
 - **Style:** flat row, label left / arrow (↗) right, hairline border-bottom (`var(--rule)`, or a low-opacity white on dark sections).
-- **Hover / focus:** only the arrow glyph moves — `translate(0.16rem, -0.16rem)` over 180ms. This exact micro-interaction is reused on every outbound link (vlog links, contact and social links) and is the system's signature tactile detail.
+- **Hover / focus:** only the arrow glyph moves — `translate(0.16rem, -0.16rem)` over `--dur` (200ms). This exact micro-interaction is reused on every arrow glyph in the system and is its signature tactile detail.
 
 ### Media Card (featured vlog thumbnails)
 - **Shape:** image block above a label chip; no border or radius on the image itself.
@@ -222,6 +222,33 @@ The second decorative mark is the hand-drawn arrow (↗) that points out of the 
 ### Navigation
 - Native `<details>/<summary>` disclosure doubles as the menu, even on desktop — no JS-driven dropdown.
 - Nav links inside the open panel are label-typography rows with a hairline bottom border, last item unbordered.
+
+## Motion
+
+Two layers, kept strictly apart: micro-interactions respond to the pointer, scroll-driven motion responds to the scroll. Both are `transform`/`translate`/`opacity` only, so everything stays on the compositor.
+
+**Tokens.** One easing curve, `--ease` `cubic-bezier(0.2, 0, 0.2, 1)`, and three durations: `--dur-fast` 160ms, `--dur` 200ms, `--dur-slow` 250ms. No transition in the stylesheet may invent its own timing.
+
+### Micro-interactions
+- **Arrow nudge** (`--dur`): the signature. Every arrow glyph is `<span class="arrow">` and translates `0.16rem, -0.16rem` on hover/focus.
+- **Row acknowledgement** (`--dur`): link rows, nav items and the footer link dim to `opacity: 0.65` on **hover only** — not on `:focus-visible`, because the focus ring is `outline: 2px solid currentColor` and would dim with it.
+- **Media card** (`--dur-slow`): the card lifts `translateY(-0.5rem)` and the image scales to `1.025` staged 60ms behind it, so it reads as two motions rather than one.
+- **Menu toggle** (`--dur`): the one colour transition in the system. A bordered pill needs a real affordance; dimming it reads as disabled.
+
+### Scroll-driven
+No JavaScript. Gated on both `@supports (animation-timeline: scroll())` and `prefers-reduced-motion: no-preference`.
+
+- **Section headings** slide up 1.25rem across their `entry` range.
+- **Hero photos** drift differentially (1.5 / 2.75 / 0.9rem, left / centre / right) across their `cover` range, so the collage separates as the hero scrolls past. The photos use the independent `rotate` property so `translate` can animate without clobbering their tilt.
+
+### Named Rules
+
+**The Section Announces Itself Rule.** A section's heading arrives; its contents are simply there. One reveal per section, never more. An earlier version animated 32 hand-picked elements with no statable rule — three sections treated heading and body differently from one another, and because the range is a percentage of element height the fade length varied 6.75x.
+
+**The Never Animate Opacity On A Timeline Rule.** Scroll-driven animations may drive `translate` only. `@supports` proves a browser *parses* `animation-timeline`, not that it *advances* it; a timeline that attaches but reports out-of-range progress makes `animation-fill-mode: both` pin the element at its `from` keyframe permanently. This shipped 30 of 32 content blocks at `opacity: 0` in production. With `translate` the worst case is a 20px offset; with `opacity` it is invisible content. Re-introducing a fade requires a runtime probe, which means JavaScript.
+
+**The Feedback Survives Reduced Motion Rule.** `prefers-reduced-motion: reduce` neutralises movement but deliberately preserves `opacity`, `background-color`, `color` and `border-color` transitions at 120ms. A blanket `transition-duration: 0.01ms` also destroys the feedback that tells a keyboard user where focus is. Any control whose only affordance is a transform needs an opacity fallback under `reduce` — the media cards do.
+
 
 ## Do's and Don'ts
 
