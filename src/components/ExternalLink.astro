@@ -7,7 +7,7 @@ interface Props {
 
 const { href, label, class: className } = Astro.props;
 
-// mailto: links stay in the same context — a new tab would just open a blank window.
+// mailto: links stay in the same context; a new tab would just open a blank window.
 const isExternal = href.startsWith("http");
 ---
 

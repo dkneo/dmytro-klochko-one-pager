@@ -252,6 +252,13 @@ No JavaScript. Gated on both `@supports (animation-timeline: scroll())` and `pre
 
 ## Do's and Don'ts
 
+### Named Rules
+
+**The No Dash Rule.** No em dashes (U+2014) or en dashes (U+2013) anywhere in **site copy** — body text, headings, alt text, captions, link labels and page metadata. Use a full stop when the clauses stand alone, a colon when the second half explains the first, a comma in lists, and "·" only as a separator in the page title.
+
+This is a voice decision, not a typographic one. The em dash is the house style of AI-written prose, and this page's entire claim is that a person wrote it. Scope is deliberately site copy only: this document and the code comments are internal and may use whatever punctuation reads clearest.
+
+
 ### Do:
 - **Do** keep every headline at font-weight 400 no matter how large it gets (up to 13rem) — scale carries emphasis, not boldness (The Inverted Weight Rule).
 - **Do** frame collaged photos with a solid-color box-shadow "mount" and a small individual rotation (-5° to 5°); never lay collage photos flush or axis-aligned.

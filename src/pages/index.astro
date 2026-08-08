@@ -18,7 +18,7 @@ type MediaLink = LinkItem & {
 
 const upbringing = [
   "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy (sans voir).",
-  "6 yo – onwards: multiple olympiads winner: math, humanities {later: coding, economics}.",
+  "6 yo onwards: multiple olympiads winner: math, humanities {later: coding, economics}.",
   "9 yo: best kid actor award.",
   "11 yo: first song. poetry contest winner.",
   "14 yo: toured neighboring countries as band leader.",
@@ -72,17 +72,17 @@ const socialLinks = [
 ] as const satisfies readonly LinkItem[];
 
 const books = [
-  "the lord of the rings — j.r.r. tolkien",
-  "upstream — mary oliver",
-  "gaspard de la nuit — aloysius bertrand (also the ravel suite)",
-  "man's search for meaning — viktor frankl",
+  "the lord of the rings, j.r.r. tolkien",
+  "upstream, mary oliver",
+  "gaspard de la nuit, aloysius bertrand (also the ravel suite)",
+  "man's search for meaning, viktor frankl",
 ] as const;
 
-const records = ["rumours — fleetwood mac", "gaspard de la nuit — ravel"] as const;
+const records = ["rumours, fleetwood mac", "gaspard de la nuit, ravel"] as const;
 
-const title = "dmytro klochko — art & technology";
+const title = "dmytro klochko · art & technology";
 const description =
-  "dmytro klochko — jaywalker at the intersection of art and technology. tech entrepreneur & tinkerer.";
+  "dmytro klochko: jaywalker at the intersection of art and technology. tech entrepreneur & tinkerer.";
 ---
 
 <Layout title={title} description={description}>
@@ -159,29 +159,35 @@ const description =
     </section>
 
     <section class="career page-shell" id="career" aria-labelledby="career-title">
-      <div class="career-copy">
-        <h2 id="career-title">career</h2>
-        <p>
-          first job at 6 yo {"{busking, improv}"}. first filmmaking gig at 13 yo. a hundred gigs and strange little jobs in between.
-        </p>
-        <p>
-          10 years of product management. 6 years building ml-powered products {"{incl. 400m mau products}"}. 5 years hands-on gtm across global ai &amp; social products. former founder.
-        </p>
-        <p class="career-lede">
-          now ceo at replika {"{42m+ users worldwide, #1 ai friend}"}.
-        </p>
-        <p>joined as coo &amp; cpo. ceo within the year.</p>
-        <p>
-          rebuilt the product from the ground up until it worked — retention skyrocketed. revamped the brand with studio dumbar &amp; ellis hamburger. rehired the team into an a-team: phds, true artists, pirates.
-        </p>
-        <p>
-          zero managers — everyone reports to me. i'm my own chief product, technology &amp; marketing officer. every feature starts with me, i wrote most of the product copy myself, and i've sat through 400+ user interviews to get 0→1 right.
-        </p>
-        <p class="career-note">
-          i ship against a/b tests and against what users say they want more often than i don't. long-term, that call keeps turning out right.
-        </p>
-        <p>research with stanford, harvard, princeton. lecturer at the university of vienna.</p>
+      <h2 id="career-title">career</h2>
+
+      <p class="career-lede">now ceo at replika {"{42m+ users worldwide, #1 ai friend}"}.</p>
+
+      <div class="career-cols">
+        <div>
+          <p>
+            first job at 6 yo {"{busking, improv}"}. first filmmaking gig at 13 yo. a hundred gigs and strange little jobs in between.
+          </p>
+          <p>
+            10 years of product management. 6 years building ml-powered products {"{incl. 400m mau products}"}. 5 years hands-on gtm across global ai &amp; social products. former founder.
+          </p>
+        </div>
+        <div>
+          <p>joined as coo &amp; cpo. ceo within the year.</p>
+          <p>
+            rebuilt the product from the ground up until it worked. retention skyrocketed. revamped the brand with studio dumbar &amp; ellis hamburger. rehired the team into an a-team: phds, true artists, pirates.
+          </p>
+          <p>
+            zero managers. everyone reports to me. i'm my own chief product, technology &amp; marketing officer. every feature starts with me, i wrote most of the product copy myself, and i've sat through 400+ user interviews to get 0→1 right.
+          </p>
+        </div>
       </div>
+
+      <p class="career-note">
+        i ship against a/b tests and against what users say they want more often than i don't. long-term, that call keeps turning out right.
+      </p>
+
+      <p class="career-meta">research with stanford, harvard, princeton. lecturer at the university of vienna.</p>
 
       <FramedPhoto
         class="career-art"
@@ -274,7 +280,7 @@ const description =
         <div class="press-copy">
           <h3>finding connection.</h3>
           <p class="press-caption">poetry, the human condition, and making technology feel a little more alive.</p>
-          <p class="press-meta">a documentary — cph:dox, copenhagen 2026.</p>
+          <p class="press-meta">a documentary at cph:dox, copenhagen 2026.</p>
         </div>
       </div>
 
@@ -335,10 +341,12 @@ const description =
           </blockquote>
           <blockquote class="poem poem--two">
             <p>
-              This girl is the warm sensation of young sun on my bare chest;<br /><br />
-              her chestnut irises, and the greens in them, glimmer with playful unrest.<br /><br />
-              When she whispers her spells, her tricks, and her promises,<br />I couldn't get any slumber.<br /><br />
-              For she carries inside her an eternal summer,<br />an eternal summer.
+              this girl is the warm sensation of young sun on my bare chest;<br />
+              her chestnut irises, and the greens in them, glimmer with playful unrest.<br />
+              when she whispers her spells, her tricks, and her promises,<br />
+              i couldn't get any slumber.<br />
+              for she carries inside her an eternal summer,<br />
+              an eternal summer.
             </p>
           </blockquote>
         </div>
