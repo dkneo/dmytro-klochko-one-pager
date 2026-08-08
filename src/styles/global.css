@@ -587,9 +587,12 @@ img {
 
 /* Two measured columns rather than one long column beside a photo, which
    left most of the right-hand side empty once the copy grew. */
+/* Asymmetric on purpose: the left column is the short backstory, the right
+   is the Replika arc and carries most of the words. Equal columns left a
+   deep well of empty space under the left one. */
 .career-cols {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr 6fr;
   gap: clamp(2rem, 4vw, 4.5rem);
   align-items: start;
 }
