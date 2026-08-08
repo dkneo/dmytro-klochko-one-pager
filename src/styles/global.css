@@ -29,6 +29,13 @@
 
   /* Decorative marks. Sized to their container, not to the type scale. */
   --glyph-arrow: 4rem;
+
+  /* Motion. One easing curve, three durations — transform and opacity only,
+     so every transition stays on the compositor. */
+  --ease: cubic-bezier(0.2, 0, 0.2, 1);
+  --dur-fast: 160ms;
+  --dur: 200ms;
+  --dur-slow: 250ms;
 }
 
 * {
@@ -36,13 +43,17 @@
 }
 
 html {
+  /* The horizontal clip lives here rather than on body: on body, overflow-x
+     makes overflow-y compute to auto, turning body into a scroll container
+     that never actually scrolls. html is the real scroller, which is the
+     safer host for scroll-driven timelines. */
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
@@ -97,7 +108,7 @@ img {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transform: translateY(-160%);
-  transition: transform 160ms ease;
+  transition: transform var(--dur-fast) var(--ease);
 }
 
 .skip-link:focus {
@@ -169,6 +180,15 @@ img {
   display: none;
 }
 
+/* The one colour transition in the system. A bordered pill needs a real
+   affordance; dimming it with opacity reads as disabled, not hoverable. */
+.menu summary {
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.menu summary:hover,
 .menu[open] summary {
   background: var(--ink);
   color: white;
@@ -229,7 +249,7 @@ img {
   z-index: 1;
   width: 29%;
   height: 69%;
-  transform: rotate(-4deg);
+  rotate: -4deg;
 }
 
 .hero-photo--center {
@@ -238,7 +258,7 @@ img {
   z-index: 3;
   width: 48%;
   height: 82%;
-  transform: rotate(1.6deg);
+  rotate: 1.6deg;
 }
 
 .hero-photo--right {
@@ -247,7 +267,7 @@ img {
   z-index: 2;
   width: 28%;
   height: 65%;
-  transform: rotate(5deg);
+  rotate: 5deg;
 }
 
 .hero-photo--right img {
@@ -740,7 +760,7 @@ img {
 .media-card {
   display: grid;
   gap: 0.8rem;
-  transition: transform 220ms ease;
+  transition: transform var(--dur-slow) var(--ease);
 }
 
 .media-card:hover,
@@ -757,7 +777,7 @@ img {
 
 .media-image img {
   object-fit: cover;
-  transition: transform 400ms ease;
+  transition: transform var(--dur-slow) var(--ease);
 }
 
 .media-card:hover .media-image img,
@@ -820,12 +840,29 @@ img {
 
 .arrow {
   display: inline-block;
-  transition: transform 180ms ease;
+  transition: transform var(--dur) var(--ease);
 }
 
 a:hover .arrow,
 a:focus-visible .arrow {
   transform: translate(0.16rem, -0.16rem);
+}
+
+/* Row-level acknowledgement on link lists. Opacity only — The Arrow Rule
+   says the glyph is the only thing that may move. */
+.text-link,
+.say-hi,
+.menu nav a {
+  transition: opacity var(--dur) var(--ease);
+}
+
+.text-link:hover,
+.text-link:focus-visible,
+.say-hi:hover,
+.say-hi:focus-visible,
+.menu nav a:hover,
+.menu nav a:focus-visible {
+  opacity: 0.65;
 }
 
 .personal {
@@ -1459,15 +1496,120 @@ summary:focus-visible {
   }
 }
 
+/* ---------------------------------------------------------------------------
+   Scroll-driven motion. No JavaScript.
+
+   Double-gated on purpose:
+     @supports  — Firefox and older browsers never see the hidden start state,
+                  so they get static, fully-visible content rather than blank
+                  blocks. This is why the `opacity: 0` lives in here and not
+                  on the elements themselves.
+     @media     — reduced-motion users skip the whole layer for the same reason.
+
+   Reveal animates `translate` (not `transform`) so it cannot clobber the
+   hover `transform` on cards, or the static `rotate` on collaged photos.
+--------------------------------------------------------------------------- */
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 1.25rem;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes hero-drift {
+  from {
+    translate: 0 var(--drift);
+  }
+
+  to {
+    translate: 0 calc(var(--drift) * -1);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .about-title,
+    .about-story,
+    .about-note,
+    .career-copy,
+    .career-art,
+    .ways-grid p,
+    .upbringing-heading,
+    .timeline li,
+    .childhood-collage,
+    .watch-heading,
+    .media-card,
+    .watch-links,
+    .personal-heading,
+    .shelf-grid > *,
+    .poems,
+    .press-title-row,
+    .press-feature,
+    .social h2,
+    .social-links {
+      /* Longhands, deliberately. The minifier folds the `animation`
+         shorthand and `animation-timeline` into `animation: ... view()`,
+         which is invalid and silently drops the whole declaration. */
+      animation-name: reveal;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+
+    /* Differential drift: the centre photo travels furthest, so the collage
+       separates slightly as the hero scrolls past. */
+    .hero-photo {
+      animation-name: hero-drift;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+
+    .hero-photo--left {
+      --drift: 1.5rem;
+    }
+
+    .hero-photo--center {
+      --drift: 2.75rem;
+    }
+
+    .hero-photo--right {
+      --drift: 0.9rem;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
+  /* Movement off, feedback kept. A blanket `transition-duration: 0.01ms`
+     would also kill the opacity and colour changes that tell a keyboard user
+     where focus is, so only the moving properties are neutralised. */
   *,
   *::before,
   *::after {
+    animation: none !important;
     scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    transition-property: opacity, background-color, color, border-color !important;
+    transition-duration: 120ms !important;
+  }
+
+  .media-card:hover,
+  .media-card:focus-visible,
+  .media-card:hover .media-image img,
+  .media-card:focus-visible .media-image img,
+  a:hover .arrow,
+  a:focus-visible .arrow {
+    transform: none;
   }
 }
