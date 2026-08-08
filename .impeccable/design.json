@@ -1,48 +1,349 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-07T12:37:20Z",
+  "generatedAt": "2026-08-08T10:56:11Z",
   "title": "Design System: dmytro klochko — one-pager",
   "extensions": {
     "colorMeta": {
-      "paper": { "role": "primary", "displayName": "Aged Paper", "canonical": "#f7f6f2", "tonalRamp": ["#2f2c1d", "#585236", "#817750", "#a69a6e", "#bfb797", "#d4cfba", "#e6e3d6", "#f5f4ef"] },
-      "near-black": { "role": "neutral", "displayName": "Near Black", "canonical": "#050505", "tonalRamp": ["#262626", "#474747", "#696969", "#8a8a8a", "#ababab", "#c7c7c7", "#dedede", "#f2f2f2"] },
-      "true-black": { "role": "neutral", "displayName": "True Black", "canonical": "#000000", "tonalRamp": ["#262626", "#474747", "#696969", "#8a8a8a", "#ababab", "#c7c7c7", "#dedede", "#f2f2f2"] },
-      "blush-grey": { "role": "neutral", "displayName": "Blush Grey", "canonical": "#e9e3e2", "tonalRamp": ["#2b2221", "#51403e", "#775e5a", "#9a7e7a", "#b6a39f", "#cfc1bf", "#e2dbd9", "#f4f1f1"] },
-      "ink": { "role": "neutral", "displayName": "Deep Ink", "canonical": "#11120f", "tonalRamp": ["#272a23", "#4a4e41", "#6c725f", "#8d947f", "#adb3a3", "#c9ccc2", "#dfe1db", "#f3f3f1"] },
-      "soft-ink": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#343630", "tonalRamp": ["#272924", "#494c43", "#6b6f62", "#8c9183", "#adb0a6", "#c8cac4", "#dfe0dc", "#f3f3f2"] },
-      "muted": { "role": "neutral", "displayName": "Faded Graphite", "canonical": "#707067", "tonalRamp": ["#282825", "#4a4a44", "#6d6d64", "#8f8f85", "#aeaea7", "#c9c9c5", "#dfdfdc", "#f3f3f2"] },
-      "rule": { "role": "neutral", "displayName": "Hairline Grey", "canonical": "#cfcfc5", "tonalRamp": ["#2a2a23", "#4e4e41", "#72725f", "#95957f", "#b3b3a3", "#ccccc2", "#e1e1db", "#f3f3f1"] },
-      "overcast-blue": { "role": "secondary", "displayName": "Overcast Blue", "canonical": "#a7cbe8", "tonalRamp": ["#10293d", "#1e4c71", "#2b6fa6", "#4591ce", "#7ab0dc", "#a6cae8", "#cae0f1", "#ebf3fa"] },
-      "ink-navy": { "role": "secondary", "displayName": "Ink Navy", "canonical": "#202f62", "tonalRamp": ["#131c3a", "#23346c", "#334c9e", "#4e69c5", "#8094d6", "#aab7e3", "#cdd5ef", "#eceff9"] },
-      "olive-fatigue": { "role": "secondary", "displayName": "Olive Fatigue", "canonical": "#6b7648", "tonalRamp": ["#2b301d", "#505936", "#76824f", "#99a66d", "#b5bf96", "#ced4b9", "#e2e6d6", "#f4f5ef"] },
-      "dusty-rose": { "role": "secondary", "displayName": "Dusty Rose", "canonical": "#d7a1bb", "tonalRamp": ["#361726", "#642b46", "#933e67", "#b95a88", "#cd89aa", "#deb0c6", "#ebd0dd", "#f7edf2"] },
-      "worn-ochre": { "role": "secondary", "displayName": "Worn Ochre", "canonical": "#90672d", "tonalRamp": ["#3a2a12", "#6d4e22", "#9f7232", "#c7944c", "#d7b27f", "#e4ccaa", "#efe1cc", "#f9f3ec"] },
-      "personal-heading-pink": { "role": "secondary", "displayName": "Personal-Heading Pink", "canonical": "#ba688f", "tonalRamp": ["#351826", "#622d46", "#904267", "#b55e88", "#ca8ba9", "#dcb2c6", "#ead1dd", "#f7edf2"] },
-      "poem-rose": { "role": "secondary", "displayName": "Poem Rose", "canonical": "#a14674", "tonalRamp": ["#351726", "#642b48", "#923f69", "#b85b8a", "#cc8aab", "#ddb1c7", "#ebd1de", "#f7edf2"] }
+      "paper": {
+        "role": "primary",
+        "displayName": "Aged Paper",
+        "canonical": "#f7f6f2",
+        "tonalRamp": [
+          "#2f2c1d",
+          "#585236",
+          "#817750",
+          "#a69a6e",
+          "#bfb797",
+          "#d4cfba",
+          "#e6e3d6",
+          "#f5f4ef"
+        ]
+      },
+      "near-black": {
+        "role": "neutral",
+        "displayName": "Near Black",
+        "canonical": "#050505",
+        "tonalRamp": [
+          "#262626",
+          "#474747",
+          "#696969",
+          "#8a8a8a",
+          "#ababab",
+          "#c7c7c7",
+          "#dedede",
+          "#f2f2f2"
+        ]
+      },
+      "true-black": {
+        "role": "neutral",
+        "displayName": "True Black",
+        "canonical": "#000000",
+        "tonalRamp": [
+          "#262626",
+          "#474747",
+          "#696969",
+          "#8a8a8a",
+          "#ababab",
+          "#c7c7c7",
+          "#dedede",
+          "#f2f2f2"
+        ]
+      },
+      "blush-grey": {
+        "role": "neutral",
+        "displayName": "Blush Grey",
+        "canonical": "#e9e3e2",
+        "tonalRamp": [
+          "#2b2221",
+          "#51403e",
+          "#775e5a",
+          "#9a7e7a",
+          "#b6a39f",
+          "#cfc1bf",
+          "#e2dbd9",
+          "#f4f1f1"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "canonical": "#11120f",
+        "tonalRamp": [
+          "#272a23",
+          "#4a4e41",
+          "#6c725f",
+          "#8d947f",
+          "#adb3a3",
+          "#c9ccc2",
+          "#dfe1db",
+          "#f3f3f1"
+        ]
+      },
+      "soft-ink": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#343630",
+        "tonalRamp": [
+          "#272924",
+          "#494c43",
+          "#6b6f62",
+          "#8c9183",
+          "#adb0a6",
+          "#c8cac4",
+          "#dfe0dc",
+          "#f3f3f2"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Faded Graphite",
+        "canonical": "#707067",
+        "tonalRamp": [
+          "#282825",
+          "#4a4a44",
+          "#6d6d64",
+          "#8f8f85",
+          "#aeaea7",
+          "#c9c9c5",
+          "#dfdfdc",
+          "#f3f3f2"
+        ]
+      },
+      "muted-on-dark": {
+        "role": "neutral",
+        "displayName": "Faded Graphite on Dark",
+        "canonical": "#a7a79f",
+        "tonalRamp": [
+          "#282825",
+          "#4b4b44",
+          "#6d6d64",
+          "#8f8f85",
+          "#afafa7",
+          "#c9c9c4",
+          "#dfdfdc",
+          "#f3f3f2"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Grey",
+        "canonical": "#cfcfc5",
+        "tonalRamp": [
+          "#2a2a23",
+          "#4e4e41",
+          "#72725f",
+          "#95957f",
+          "#b3b3a3",
+          "#ccccc2",
+          "#e1e1db",
+          "#f3f3f1"
+        ]
+      },
+      "overcast-blue": {
+        "role": "secondary",
+        "displayName": "Overcast Blue",
+        "canonical": "#a7cbe8",
+        "tonalRamp": [
+          "#10293d",
+          "#1e4c71",
+          "#2b6fa6",
+          "#4591ce",
+          "#7ab0dc",
+          "#a6cae8",
+          "#cae0f1",
+          "#ebf3fa"
+        ]
+      },
+      "ink-navy": {
+        "role": "secondary",
+        "displayName": "Ink Navy",
+        "canonical": "#202f62",
+        "tonalRamp": [
+          "#131c3a",
+          "#23346c",
+          "#334c9e",
+          "#4e69c5",
+          "#8094d6",
+          "#aab7e3",
+          "#cdd5ef",
+          "#eceff9"
+        ]
+      },
+      "olive-fatigue": {
+        "role": "secondary",
+        "displayName": "Olive Fatigue",
+        "canonical": "#6b7648",
+        "tonalRamp": [
+          "#2b301d",
+          "#505936",
+          "#76824f",
+          "#99a66d",
+          "#b5bf96",
+          "#ced4b9",
+          "#e2e6d6",
+          "#f4f5ef"
+        ]
+      },
+      "dusty-rose": {
+        "role": "secondary",
+        "displayName": "Dusty Rose",
+        "canonical": "#d7a1bb",
+        "tonalRamp": [
+          "#361726",
+          "#642b46",
+          "#933e67",
+          "#b95a88",
+          "#cd89aa",
+          "#deb0c6",
+          "#ebd0dd",
+          "#f7edf2"
+        ]
+      },
+      "worn-ochre": {
+        "role": "secondary",
+        "displayName": "Worn Ochre",
+        "canonical": "#90672d",
+        "tonalRamp": [
+          "#3a2a12",
+          "#6d4e22",
+          "#9f7232",
+          "#c7944c",
+          "#d7b27f",
+          "#e4ccaa",
+          "#efe1cc",
+          "#f9f3ec"
+        ]
+      },
+      "personal-heading-pink": {
+        "role": "secondary",
+        "displayName": "Personal-Heading Pink",
+        "canonical": "#ba688f",
+        "tonalRamp": [
+          "#351826",
+          "#622d46",
+          "#904267",
+          "#b55e88",
+          "#ca8ba9",
+          "#dcb2c6",
+          "#ead1dd",
+          "#f7edf2"
+        ]
+      },
+      "poem-rose": {
+        "role": "secondary",
+        "displayName": "Poem Rose",
+        "canonical": "#a14674",
+        "tonalRamp": [
+          "#351726",
+          "#642b48",
+          "#923f69",
+          "#b85b8a",
+          "#cc8aab",
+          "#ddb1c7",
+          "#ebd1de",
+          "#f7edf2"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Masthead wordmark and the hero headline only — the single largest text on the page." },
-      "headline": { "displayName": "Headline", "purpose": "Every section's h2 kicker headline." },
-      "title": { "displayName": "Title", "purpose": "Mid-weight serif pull-quotes inside a section, between headline and body." },
-      "body": { "displayName": "Body", "purpose": "Running copy: paragraphs, list items, timeline entries." },
-      "label": { "displayName": "Label", "purpose": "Uppercase chrome: section tags, nav, chips, captions, text-links. Never scales up." }
+      "display-hero": {
+        "displayName": "Display Hero",
+        "purpose": "Masthead wordmark, hero h1, and the 'about me' h2 — the largest text on the page."
+      },
+      "display-section": {
+        "displayName": "Display Section",
+        "purpose": "Every other section h2."
+      },
+      "statement": {
+        "displayName": "Statement",
+        "purpose": "Largest in-section serif pull-quotes: the about-title line and the career lede."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The about-section story line and the career marker."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "The two poems, the italic press caption, and the press link."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running copy: paragraphs, career list, timeline entries, shelf items. Floors at 16px."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Hero notes, section sub-heads, the about-note aside."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase chrome: section tags, nav, chips, captions, text-links, footer. Never scales up."
+      }
     },
+    "decorative": [
+      {
+        "name": "glyph-arrow",
+        "value": "4rem",
+        "purpose": "The hand-drawn ↗ pointing out of the childhood collage. A drawn mark scaled to its collage, deliberately outside the --text-* ramp."
+      }
+    ],
     "shadows": [
-      { "name": "photo-frame-light", "value": "0 0 0 0.55rem #f7f6f2", "purpose": "Solid-color mount around collaged photos on paper-background sections; not a drop shadow." },
-      { "name": "photo-frame-dark", "value": "0 0 0 0.45rem #f7f6f2", "purpose": "Same mount treatment at a smaller frame width, used on the upbringing/childhood collage." },
-      { "name": "nav-dropdown", "value": "0 0.8rem 2rem rgb(17 18 15 / 12%)", "purpose": "Soft elevation shadow on the open nav menu panel — the one conventional UI shadow in the system; unreconciled with the frame-only rule elsewhere (see Elevation & Depth)." },
-      { "name": "swatch-lift", "value": "0 0.4rem 1rem rgb(17 18 15 / 9%)", "purpose": "Soft shadow under the favorite-color swatches — also unreconciled with the frame-only rule." }
+      {
+        "name": "photo-frame-light",
+        "value": "0 0 0 0.55rem #f7f6f2",
+        "purpose": "Solid-color mount around collaged photos on paper-background sections; not a drop shadow."
+      },
+      {
+        "name": "photo-frame-dark",
+        "value": "0 0 0 0.45rem #f7f6f2",
+        "purpose": "Same mount treatment at a smaller frame width, used on the upbringing/childhood collage."
+      },
+      {
+        "name": "nav-dropdown",
+        "value": "0 0.8rem 2rem rgb(17 18 15 / 12%)",
+        "purpose": "Soft elevation shadow on the open nav menu panel — the one conventional UI shadow in the system; unreconciled with the frame-only rule elsewhere (see Elevation & Depth)."
+      },
+      {
+        "name": "swatch-lift",
+        "value": "0 0.4rem 1rem rgb(17 18 15 / 9%)",
+        "purpose": "Soft shadow under the favorite-color swatches — also unreconciled with the frame-only rule."
+      }
     ],
     "motion": [
-      { "name": "arrow-nudge", "value": "transform 180ms ease; hover/focus-visible: translate(0.16rem, -0.16rem)", "purpose": "Signature micro-interaction on every outbound link's trailing arrow glyph." },
-      { "name": "card-lift", "value": "transform 220ms ease; hover/focus-visible: translateY(-0.5rem)", "purpose": "Featured media card lift on hover/focus." },
-      { "name": "image-breathe", "value": "transform 400ms ease; hover/focus-visible: scale(1.025)", "purpose": "Paired with card-lift: the thumbnail image inside a hovered media card scales up slightly." },
-      { "name": "skip-link-reveal", "value": "transform 160ms ease; focus: translateY(0) from translateY(-160%)", "purpose": "Accessibility skip-link slides into view on keyboard focus." },
-      { "name": "reduced-motion-override", "value": "transition-duration: 0.01ms !important at prefers-reduced-motion: reduce", "purpose": "Global motion-safety override; applies to all transitions above." }
+      {
+        "name": "arrow-nudge",
+        "value": "transform 180ms ease; hover/focus-visible: translate(0.16rem, -0.16rem)",
+        "purpose": "Signature micro-interaction on every outbound link's trailing arrow glyph."
+      },
+      {
+        "name": "card-lift",
+        "value": "transform 220ms ease; hover/focus-visible: translateY(-0.5rem)",
+        "purpose": "Featured media card lift on hover/focus."
+      },
+      {
+        "name": "image-breathe",
+        "value": "transform 400ms ease; hover/focus-visible: scale(1.025)",
+        "purpose": "Paired with card-lift: the thumbnail image inside a hovered media card scales up slightly."
+      },
+      {
+        "name": "skip-link-reveal",
+        "value": "transform 160ms ease; focus: translateY(0) from translateY(-160%)",
+        "purpose": "Accessibility skip-link slides into view on keyboard focus."
+      },
+      {
+        "name": "reduced-motion-override",
+        "value": "transition-duration: 0.01ms !important at prefers-reduced-motion: reduce",
+        "purpose": "Global motion-safety override; applies to all transitions above."
+      }
     ],
     "breakpoints": [
-      { "name": "md", "value": "900px" },
-      { "name": "sm", "value": "680px" }
+      {
+        "name": "md",
+        "value": "900px"
+      },
+      {
+        "name": "sm",
+        "value": "680px"
+      }
     ]
   },
   "components": [
@@ -98,10 +399,26 @@
       "Pill shape reserved for exactly two things (menu toggle, label chip); everything else is hard-edged."
     ],
     "rules": [
-      { "name": "The Inverted Weight Rule", "body": "Headlines are always font-weight 400 regardless of size (up to 13rem); only small uppercase labels and chips get font-weight 650. Never bold a headline; never regular-weight a label.", "section": "colors" },
-      { "name": "The One Accent Per Section Rule", "body": "Each full-bleed section gets exactly one accent color for its <em> emphasis — never mix two accents in the same headline.", "section": "colors" },
-      { "name": "The Label Never Grows Rule", "body": "No label, chip, or nav item exceeds ~0.76rem regardless of viewport; labels are the one typographic role that does not scale up on desktop.", "section": "typography" },
-      { "name": "The Pill Exception Rule", "body": "Only the menu toggle and label chips get border-radius: 999px. No other interactive element, card, or container is rounded.", "section": "elevation" }
+      {
+        "name": "The Inverted Weight Rule",
+        "body": "Headlines are always font-weight 400 regardless of size (up to 13rem); only small uppercase labels and chips get font-weight 650. Never bold a headline; never regular-weight a label.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Accent Per Section Rule",
+        "body": "Each full-bleed section gets exactly one accent color for its <em> emphasis — never mix two accents in the same headline.",
+        "section": "colors"
+      },
+      {
+        "name": "The Label Never Grows Rule",
+        "body": "No label, chip, or nav item exceeds ~0.76rem regardless of viewport; labels are the one typographic role that does not scale up on desktop.",
+        "section": "typography"
+      },
+      {
+        "name": "The Pill Exception Rule",
+        "body": "Only the menu toggle and label chips get border-radius: 999px. No other interactive element, card, or container is rounded.",
+        "section": "elevation"
+      }
     ],
     "dos": [
       "Do keep every headline at font-weight 400 no matter how large it gets (up to 13rem) — scale carries emphasis, not boldness (The Inverted Weight Rule).",

@@ -9,6 +9,7 @@ colors:
   ink: "#11120f"
   soft-ink: "#343630"
   muted: "#707067"
+  muted-on-dark: "#a7a79f"
   rule: "#cfcfc5"
   overcast-blue: "#a7cbe8"
   ink-navy: "#202f62"
@@ -130,6 +131,7 @@ A warm off-white paper ground carries most sections; five muted, slightly desatu
 - **Deep Ink** (`#11120f`): primary text color and the default border/rule color for hard edges (pills, dividers, focus outlines).
 - **Soft Ink** (`#343630`): unused as a standalone token today beyond definition — reserved for a secondary-but-not-muted text weight; treat as available headroom, not yet load-bearing.
 - **Faded Graphite** (`#707067`): secondary/muted text — captions, sub-heads under section titles, timeline index numbers. Darkened from `#737369` (4.43:1) to `#707067` (4.62:1) to clear the 4.5:1 AA threshold at the small sizes it's actually used at.
+- **Faded Graphite on Dark** (`#a7a79f`): the muted counterpart used only on the near-black "about" section, for the rotated "still curious. still moving. still making." aside. Measures 8.42:1 on Near Black. Faded Graphite itself is unreadable on that ground, so this is a genuine second token rather than a variant.
 - **Personal-Heading Pink** (`#ba688f`): a one-off, distinct from Dusty Rose, used only for the "favorites/taste" heading `<em>`. Darkened from `#bd6f94` (2.82:1 on Blush Grey) to `#ba688f` (3.03:1) — sufficient since this usage is always huge display text (large-text AA threshold is 3:1).
 - **Poem Rose** (`#a14674`): a one-off, distinct from both Dusty Rose and Personal-Heading Pink, used only for the first poem's text. Darkened from `#b24f81` (3.82:1 on Blush Grey) to `#a14674` (4.54:1) since poem text runs closer to body size, needing the stricter 4.5:1 threshold.
 - **Hairline Grey** (`#cfcfc5`): all light-mode divider and border-bottom rules (timeline rows, text-link rows).
@@ -190,6 +192,8 @@ Depth otherwise comes entirely from rotation, overlap, and `z-index` layering of
 Photos are never plain rectangles: each sits in an overlapping, individually rotated collage (roughly -5° to +5°), varying aspect ratio per image (0.62–1.75), giving a hand-arranged scrapbook feel rather than a grid of uniform tiles. The one soft, organic shape in the system is the decorative "scribble" — an irregular blob built from extreme border-radius percentages (e.g. `48% 53% 46% 55%`) doubled with a rotated `::after` layer to look hand-drawn; it's purely decorative, never a container.
 
 Everything else is hard-edged. Rounding is reserved for exactly two functional shapes: the fully pill-shaped menu toggle and label chip (`border-radius: 999px`), both with a 1px solid ink border. Lists, dividers, and link rows use hairline borders with zero radius.
+
+The second decorative mark is the hand-drawn arrow (↗) that points out of the childhood collage, set in the serif at `--glyph-arrow` (4rem) and rotated -22°. It carries a size token of its own because it is a drawn mark scaled to its collage, not text — it is deliberately outside the `--text-*` ramp, and The One Scale Rule does not govern it.
 
 ### Named Rules
 **The Pill Exception Rule.** Only the menu toggle and label chips get `border-radius: 999px`. No other interactive element, card, or container is rounded.

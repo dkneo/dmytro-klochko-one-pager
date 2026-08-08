@@ -3,6 +3,7 @@
   --ink: #11120f;
   --soft-ink: #343630;
   --muted: #707067;
+  --muted-on-dark: #a7a79f;
   --rule: #cfcfc5;
   --blue: #a7cbe8;
   --navy: #202f62;
@@ -25,6 +26,9 @@
   /* Vertical rhythm. */
   --section-pad: clamp(2.5rem, 4.5vw, 4rem);
   --heading-gap: clamp(1.5rem, 2.5vw, 2.5rem);
+
+  /* Decorative marks. Sized to their container, not to the type scale. */
+  --glyph-arrow: 4rem;
 }
 
 * {
@@ -416,7 +420,7 @@ img {
   grid-column: 11 / -1;
   align-self: end;
   margin: 0 0 2rem;
-  color: #a7a79f;
+  color: var(--muted-on-dark);
   font-size: var(--text-small);
   line-height: 1.5;
   transform: rotate(5deg);
@@ -569,9 +573,7 @@ img {
   z-index: 5;
   color: var(--pink);
   font-family: var(--serif);
-  /* Decorative glyph, not type — sized to the collage, so it is
-     deliberately outside the --text-* scale. */
-  font-size: 4rem;
+  font-size: var(--glyph-arrow);
   transform: rotate(-22deg);
 }
 
