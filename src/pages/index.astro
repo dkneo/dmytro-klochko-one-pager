@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SectionTag from "../components/SectionTag.astro";
 import ExternalLink from "../components/ExternalLink.astro";
 import MediaCard from "../components/MediaCard.astro";
 import FramedPhoto from "../components/FramedPhoto.astro";
@@ -29,7 +28,8 @@ const upbringing = [
 
 // The three featured cards below already link to paris / kbs / vienna,
 // so this list only carries what those cards don't.
-const vlogLinks = [
+const watchLinks = [
+  { label: "the replika manifesto", href: "https://replika.com/manifesto" },
   { label: "youtube channel (main)", href: "https://youtube.com/@dmytroklochko" },
   { label: "vlog with giorgio", href: "https://www.instagram.com/p/DYm87SroZHJ/" },
   { label: "short reel", href: "https://www.instagram.com/p/DYj9W6yITif/" },
@@ -65,7 +65,6 @@ const contactLinks = [
 ] as const satisfies readonly LinkItem[];
 
 const socialLinks = [
-  { label: "manifesto", href: "https://replika.com/manifesto" },
   { label: "x (twitter)", href: "https://x.com/dkreplika" },
   { label: "instagram", href: "https://instagram.com/dmytrotoday" },
   { label: "youtube", href: "https://youtube.com/@dmytroklochko" },
@@ -103,10 +102,9 @@ const description =
       <nav aria-label="main menu">
         <a href="#about">about</a>
         <a href="#career">career</a>
-        <a href="#early">early years</a>
-        <a href="#watch">vlog</a>
+        <a href="#upbringing">upbringing</a>
+        <a href="#watch">watch</a>
         <a href="#taste">taste</a>
-        <a href="#press">press</a>
         <a href="#contact">contact</a>
       </nav>
     </details>
@@ -131,7 +129,6 @@ const description =
       </div>
 
       <div class="hero-copy">
-        <SectionTag>intro</SectionTag>
         <h1 id="hero-title">
           jaywalker at the intersection of <em>art and technology.</em>
         </h1>
@@ -146,7 +143,6 @@ const description =
 
     <section class="about" id="about" aria-labelledby="about-title">
       <div class="about-inner">
-        <SectionTag>about me</SectionTag>
         <div class="about-title">
           <h2 id="about-title">about <em>me</em></h2>
           <p>born &amp; raised in donetsk, eastern ukraine.</p>
@@ -159,26 +155,32 @@ const description =
         <p class="about-story">
           very poor household. fled war as a teenager. slept on the streets for weeks.
         </p>
-        <p class="about-note">still curious. still moving. still making.</p>
       </div>
     </section>
 
     <section class="career page-shell" id="career" aria-labelledby="career-title">
-      <SectionTag>career</SectionTag>
       <div class="career-copy">
         <h2 id="career-title">career</h2>
         <p>
           first job at 6 yo {"{busking, improv}"}. first filmmaking gig at 13 yo. a hundred gigs and strange little jobs in between.
         </p>
         <p>
-          10 years of product management. 6 years building ml-powered products {"{incl. 400m mau products}"}. 5 years hands-on gtm across global ai &amp; social products.
+          10 years of product management. 6 years building ml-powered products {"{incl. 400m mau products}"}. 5 years hands-on gtm across global ai &amp; social products. former founder.
         </p>
-        <p>former founder.</p>
         <p class="career-lede">
-          now ceo at replika {"{42m+ users worldwide, #1 ai friend}"}. research with stanford, harvard, princeton.
+          now ceo at replika {"{42m+ users worldwide, #1 ai friend}"}.
         </p>
-        <p>joined as coo, ceo within a year. took the company profitable.</p>
-        <p>lecturer at the university of vienna.</p>
+        <p>joined as coo &amp; cpo. ceo within the year.</p>
+        <p>
+          rebuilt the product from the ground up until it worked — retention skyrocketed. revamped the brand with studio dumbar &amp; ellis hamburger. rehired the team into an a-team: phds, true artists, pirates.
+        </p>
+        <p>
+          zero managers — everyone reports to me. i'm my own chief product, technology &amp; marketing officer. every feature starts with me, i wrote most of the product copy myself, and i've sat through 400+ user interviews to get 0→1 right.
+        </p>
+        <p class="career-note">
+          i ship against a/b tests and against what users say they want more often than i don't. long-term, that call keeps turning out right.
+        </p>
+        <p>research with stanford, harvard, princeton. lecturer at the university of vienna.</p>
       </div>
 
       <FramedPhoto
@@ -191,7 +193,6 @@ const description =
 
     <section class="ways" aria-labelledby="ways-title">
       <div class="page-shell ways-inner">
-        <SectionTag>approach</SectionTag>
         <h2 id="ways-title">ways of <em>working</em></h2>
         <div class="ways-grid">
           <p>
@@ -203,17 +204,15 @@ const description =
             culture in my teams is something i'm incredibly proud of: violent intolerance for mediocre work. anime-level fellowship &amp; camaraderie. fearlessness. relentless pursuit of the mission.
           </p>
           <p>
-            unhealthy excitement about customers {"{i have 3x more users than team members in slack lol}"}. making my product feel like magic. extensive experience working with the world's best brand agencies.
+            unhealthy excitement about customers {"{more users in my slack than team members lol}"}. making my product feel like magic. extensive experience working with the world's best brand agencies.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="upbringing page-shell" id="early" aria-labelledby="upbringing-title">
-      <SectionTag>early years</SectionTag>
+    <section class="upbringing page-shell" id="upbringing" aria-labelledby="upbringing-title">
       <div class="upbringing-heading">
         <h2 id="upbringing-title">upbringing</h2>
-        <p>a life shaped by making things early — and often.</p>
       </div>
 
       <ol class="timeline">
@@ -249,7 +248,6 @@ const description =
     </section>
 
     <section class="watch page-shell" id="watch" aria-labelledby="watch-title">
-      <SectionTag>vlog</SectionTag>
       <div class="watch-heading">
         <h2 id="watch-title">watch &amp; <em>listen</em></h2>
         <p>field notes, interviews and conversations from everywhere.</p>
@@ -267,8 +265,21 @@ const description =
         ))}
       </div>
 
-      <div class="watch-links" aria-label="more video links">
-        {vlogLinks.map((item, index) => (
+      <div class="press-feature">
+        <FramedPhoto
+          class="press-interview"
+          src="/images/interview-connection.jpg"
+          alt="Dmytro mid-sentence during a filmed interview, boom microphone overhead"
+        />
+        <div class="press-copy">
+          <h3>finding connection.</h3>
+          <p class="press-caption">poetry, the human condition, and making technology feel a little more alive.</p>
+          <p class="press-meta">a documentary — cph:dox, copenhagen 2026.</p>
+        </div>
+      </div>
+
+      <div class="watch-links" aria-label="more to read and watch">
+        {watchLinks.map((item, index) => (
           <ExternalLink
             class="text-link"
             href={item.href}
@@ -280,9 +291,8 @@ const description =
 
     <section class="personal" id="taste" aria-labelledby="taste-title">
       <div class="page-shell personal-inner">
-        <SectionTag>taste</SectionTag>
         <div class="personal-heading">
-          <h2 id="taste-title">favorites /<br /><em>taste / shelf</em></h2>
+          <h2 id="taste-title"><em>taste.</em></h2>
           <div class="swatches" aria-label="favorite colors">
             <span style="background: #a7cbe8"></span>
             <span style="background: #6b7648"></span>
@@ -310,11 +320,6 @@ const description =
             src="/images/dmytro-museum.jpg"
             alt="Dmytro standing in a museum in front of a large Monet painting"
           />
-          <FramedPhoto
-            class="water-lilies"
-            src="/images/art-water-lilies.jpg"
-            alt="Detail of Monet's water lilies in deep blue"
-          />
         </div>
 
         <div class="poems" aria-labelledby="poems-title">
@@ -340,26 +345,8 @@ const description =
       </div>
     </section>
 
-    <section class="press page-shell" id="press" aria-labelledby="press-title">
-      <SectionTag>press</SectionTag>
-      <div class="press-title-row">
-        <h2 id="press-title">finding <em>connection.</em></h2>
-        <p>a documentary — cph:dox, copenhagen 2026.</p>
-      </div>
-
-      <div class="press-feature">
-        <FramedPhoto
-          class="press-interview"
-          src="/images/interview-connection.jpg"
-          alt="Dmytro mid-sentence during a filmed interview, boom microphone overhead"
-        />
-        <p class="press-caption">poetry, the human condition, and making technology feel a little more alive.</p>
-      </div>
-    </section>
-
     <section class="social" id="contact" aria-labelledby="social-title">
       <div class="page-shell social-inner">
-        <SectionTag>contact</SectionTag>
         <h2 id="social-title">come say <em>hi.</em></h2>
 
         <PhotoFill class="social-cutout" src="/images/dmytro-cutout.png" alt="" hidden />
