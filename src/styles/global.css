@@ -9,14 +9,14 @@
 :root {
   /* Noir ground, bone type, one cold accent and one hot one. The hot accent
      is rationed to a single appearance per session. */
-  --void: #0b0b0d;
-  --deck: #141416;
+  --void: #0e0a11;
+  --deck: #171120;
   --bone: #e9e5d8;
-  --dim: #90908c;
-  --faint: #5a5a58;
-  --rule: rgb(233 229 216 / 13%);
-  --cold: #c9c4b4;
-  --hot: #e0603a;
+  --dim: #9b90a4;
+  --faint: #6b6076;
+  --rule: rgb(233 229 216 / 12%);
+  --cold: #d8cfe0;
+  --hot: #ff6fae;
 
   --mono:
     ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono",
@@ -31,8 +31,16 @@
   --t-lg: clamp(1.15rem, 1.5vw, 1.45rem);
   --display: clamp(1.9rem, 4.6vw, 3.9rem);
 
+  /* One scale. Every vertical gap on the site is one of these five, so the
+     page has a rhythm instead of seven unrelated margins. */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.75rem;
+  --sp-4: 3rem;
+  --sp-5: clamp(4rem, 7vw, 6.5rem);
+
   --gutter: clamp(1.25rem, 5vw, 5rem);
-  --stack: clamp(3.5rem, 7vw, 7rem);
+  --stack: var(--sp-5);
   --measure: min(100%, 74ch);
 
   --ease: cubic-bezier(0.2, 0, 0.2, 1);
@@ -188,7 +196,7 @@ img {
   grid-template-columns: auto 1fr;
   gap: 0.6rem 1.5rem;
   align-items: baseline;
-  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: var(--sp-4);
 }
 
 .card-no {
@@ -211,7 +219,7 @@ img {
 .card-what {
   grid-column: 2;
   margin: 0;
-  color: var(--dim);
+  color: var(--hot);
   font-size: var(--t-sm);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -231,8 +239,8 @@ img {
 }
 
 .lede {
-  max-width: 32ch;
-  margin: 0 0 2rem;
+  max-width: 34ch;
+  margin: 0 0 var(--sp-3);
   font-size: var(--t-lg);
   line-height: 1.45;
 }
@@ -295,7 +303,7 @@ img {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem 2.5rem;
-  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  margin: var(--sp-4) 0 0;
   padding: 0;
   list-style: none;
 }
@@ -362,7 +370,7 @@ img {
 .outs {
   display: grid;
   width: 100%;
-  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  margin: var(--sp-4) 0 0;
   padding: 0;
   border-top: 1px solid var(--rule);
   list-style: none;
@@ -413,7 +421,7 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
   gap: clamp(2rem, 4vw, 3.5rem);
-  margin-top: clamp(2rem, 4vw, 3rem);
+  margin-top: var(--sp-4);
 }
 
 .poem {
@@ -428,6 +436,7 @@ img {
 
 .say {
   max-width: 52ch;
+  margin: 0;
   font-size: var(--t-lg);
   line-height: 1.55;
 }
@@ -487,8 +496,8 @@ img {
 .reel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  gap: clamp(1rem, 2vw, 1.75rem);
-  margin-top: clamp(2rem, 4vw, 3rem);
+  gap: var(--sp-2);
+  margin-top: var(--sp-4);
 }
 
 .reel figure,
@@ -525,7 +534,7 @@ img {
 
 .cap {
   display: block;
-  margin-top: 0.6rem;
+  margin-top: var(--sp-1);
   color: var(--dim);
   font-size: var(--t-xs);
   letter-spacing: 0.14em;
@@ -600,11 +609,20 @@ img {
    left the right-hand half of the screen empty. Sections are two columns
    now: the writing on the left, the picture on the right, both real widths. */
 
+/* The picture used to size itself and stretch the row, leaving 724px of empty
+   column beside a 304px bio. The row is now set by the writing, and the
+   photograph fills whatever height that turns out to be. */
 .bay {
   display: grid;
   grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
+  gap: var(--sp-4);
+  align-items: stretch;
+}
+
+.bay > figure.shot {
+  height: 100%;
+  min-height: 18rem;
+  max-height: 34rem;
 }
 
 /* ── photographs ────────────────────────────────────────────────────────────
@@ -620,6 +638,7 @@ img {
 }
 
 .shot img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -631,12 +650,18 @@ img {
   filter: none;
 }
 
+/* Old family photographs stay in colour. Desaturated, they read as a memorial
+   rather than as a childhood. */
+.shot--colour img {
+  filter: contrast(1.04) saturate(1.05);
+}
+
 .shot figcaption,
 .shot-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
-  gap: clamp(0.8rem, 2vw, 1.5rem);
-  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
 }
 
 /* ── the torus ──────────────────────────────────────────────────────────────
@@ -648,11 +673,13 @@ img {
   position: relative;
   container-type: inline-size;
   max-width: 100%;
-  aspect-ratio: 78 / 29;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0;
   color: var(--bone);
 }
 
+/* The first frame stays in flow and sets the box height; the rest stack on
+   top of it. Declaring an aspect-ratio instead meant guessing how tall 26
+   rows of text are, and the guess was wrong, so the caption sat on the art. */
 .torus pre {
   position: absolute;
   inset: 0;
@@ -665,6 +692,10 @@ img {
   white-space: pre;
   animation: flip 3.2s linear infinite;
   animation-delay: calc(var(--i) * 80ms);
+}
+
+.torus pre:first-child {
+  position: relative;
 }
 
 @keyframes flip {
@@ -681,7 +712,7 @@ img {
 
 .torus-cap {
   display: block;
-  margin-top: 0.9rem;
+  margin-top: var(--sp-2);
   color: var(--faint);
   font-size: var(--t-xs);
   letter-spacing: 0.2em;
@@ -703,4 +734,87 @@ img {
   .bay {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* ── atmosphere ─────────────────────────────────────────────────────────────
+   The page was reading as "just black" because it was: one flat fill, no
+   depth, no warmth, nothing between the reader and the text. Three layers fix
+   that, all of them cheap and none of them images.
+
+   1. a nebula, so the black has a light source and a direction
+   2. scanlines, so it reads as a screen rather than a void
+   3. grain, so it is analogue rather than digital-clean                     */
+
+body {
+  background:
+    radial-gradient(120% 80% at 78% -10%, rgb(255 111 174 / 13%) 0%, transparent 55%),
+    radial-gradient(90% 70% at 8% 12%, rgb(150 120 255 / 10%) 0%, transparent 60%),
+    radial-gradient(120% 90% at 50% 108%, rgb(120 90 200 / 12%) 0%, transparent 60%),
+    var(--void);
+  background-attachment: fixed;
+}
+
+/* Scanlines. Three-pixel pitch, barely there; the point is that the surface
+   has a texture at all, not that anyone notices lines. */
+body::after {
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 22%) 0 1px,
+      transparent 1px 3px
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  content: "";
+}
+
+/* Phosphor. A CRT does not render text flat; the accent carries a halo, which
+   is what makes a terminal look warm instead of printed. */
+.card-no,
+.receipt-src,
+.signoff {
+  text-shadow: 0 0 0.5rem rgb(255 111 174 / 45%);
+}
+
+.card-title {
+  text-shadow: 0 0 1.6rem rgb(216 207 224 / 18%);
+}
+
+/* ── the torus, on hover ────────────────────────────────────────────────────
+   No shader, because a shader means shipping WebGL and a runtime. What it
+   does instead: the ring takes the accent, blooms, and doubles its rate.
+   Same forty frames, same zero bytes of script. */
+
+.torus {
+  transition: color var(--dur-slow) var(--ease);
+}
+
+.torus pre {
+  transition: text-shadow var(--dur-slow) var(--ease);
+}
+
+.torus:hover {
+  color: var(--hot);
+}
+
+.torus:hover pre {
+  text-shadow:
+    0 0 0.6rem rgb(255 111 174 / 70%),
+    0 0 1.8rem rgb(255 111 174 / 35%);
+  animation-duration: 1.4s;
+}
+
+.torus-wrap:hover .torus-cap {
+  color: var(--hot);
+}
+
+/* Beside the torus there is one column, not two. */
+.receipts--stack {
+  grid-template-columns: 1fr;
+  margin-top: var(--sp-4);
 }
