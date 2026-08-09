@@ -132,10 +132,6 @@ const description =
         <h1 id="hero-title">
           jaywalker at the intersection of <em>art and technology.</em>
         </h1>
-        <div class="hero-notes">
-          <p>relentless pursuer. beholder of cathedrals all around. tech entrepreneur &amp; tinkerer.</p>
-          <p>based between nyc, paris &amp; sf.</p>
-        </div>
       </div>
 
       <span class="scribble scribble--hero" aria-hidden="true"></span>
@@ -145,7 +141,7 @@ const description =
       <div class="about-inner">
         <div class="about-title">
           <h2 id="about-title">about <em>me</em></h2>
-          <p>born &amp; raised in donetsk, eastern ukraine.</p>
+          <p>product &amp; engineering guy with a background in art, chess and theatre.</p>
         </div>
         <PhotoFill
           class="about-photo"
@@ -153,7 +149,20 @@ const description =
           alt="Dmytro speaking during a presentation"
         />
         <p class="about-story">
-          very poor household. fled war as a teenager. slept on the streets for weeks.
+          relentless pursuer. beholder of cathedrals all around. tech entrepreneur &amp; tinkerer.
+        </p>
+        <p class="about-note">based between nyc, paris &amp; sf.</p>
+      </div>
+    </section>
+
+    <section class="before page-shell" id="before" aria-labelledby="before-title">
+      <h2 id="before-title">before <em>replika</em></h2>
+      <div class="before-cols">
+        <p>
+          first job at 6 yo {"{busking, improv}"}. first filmmaking gig at 13 yo. a hundred gigs and strange little jobs in between.
+        </p>
+        <p>
+          10 years of product management. 6 years building ml-powered products {"{incl. 400m mau products}"}. 5 years hands-on gtm across global ai &amp; social products. former founder.
         </p>
       </div>
     </section>
@@ -189,17 +198,6 @@ const description =
 
     </section>
 
-    <section class="before page-shell" id="before" aria-labelledby="before-title">
-      <h2 id="before-title">before <em>replika</em></h2>
-      <div class="before-cols">
-        <p>
-          first job at 6 yo {"{busking, improv}"}. first filmmaking gig at 13 yo. a hundred gigs and strange little jobs in between.
-        </p>
-        <p>
-          10 years of product management. 6 years building ml-powered products {"{incl. 400m mau products}"}. 5 years hands-on gtm across global ai &amp; social products. former founder.
-        </p>
-      </div>
-    </section>
 
     <section class="ways" aria-labelledby="ways-title">
       <div class="page-shell ways-inner">
@@ -224,6 +222,10 @@ const description =
       <div class="upbringing-heading">
         <h2 id="upbringing-title">upbringing</h2>
       </div>
+
+      <p class="upbringing-lede">
+        born &amp; raised in donetsk, eastern ukraine. very poor household. fled war as a teenager. slept on the streets for weeks.
+      </p>
 
       <ol class="timeline">
         {upbringing.map((item, index) => (

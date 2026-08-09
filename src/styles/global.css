@@ -220,7 +220,7 @@ img {
   position: relative;
   min-height: clamp(34rem, 52vw, 46rem);
   /* Extra bottom room so the decorative scribble has somewhere to sit
-     without colliding with the intro tag or the notes column. */
+     without colliding with the headline. */
   padding-bottom: calc(var(--section-pad) + 3.5rem);
 }
 
@@ -278,18 +278,17 @@ img {
   z-index: 6;
   display: grid;
   width: min(92vw, 82rem);
-  grid-template-columns: 2fr 7fr 3fr;
+  grid-template-columns: 2fr 10fr;
   gap: clamp(1.5rem, 3vw, 3rem);
   align-items: end;
   margin: clamp(-4rem, -4vw, -2rem) auto 0;
 }
 
-/* The first column used to hold the section tag. It stays as an empty gutter
-   so the headline keeps its indent; but placement must now be explicit,
-   or the h1 falls into the narrow gutter and wraps to pieces. */
+/* Column 1 is an empty gutter that preserves the headline's indent. Placement
+   must stay explicit or the h1 drops into that gutter and shreds. */
 .hero-copy h1 {
   grid-column: 2;
-  max-width: 13ch;
+  max-width: 15ch;
   margin: 0;
   font-family: var(--serif);
   font-size: var(--display-hero);
@@ -303,22 +302,7 @@ img {
   font-weight: 400;
 }
 
-.hero-notes {
-  grid-column: 3;
-  display: grid;
-  gap: 1.4rem;
-}
 
-.hero-notes p {
-  max-width: 18rem;
-  margin: 0;
-  font-size: var(--text-small);
-  line-height: 1.55;
-}
-
-.hero-notes p:last-child {
-  color: var(--muted);
-}
 
 .scribble {
   position: absolute;
@@ -354,7 +338,9 @@ img {
 .about-inner {
   display: grid;
   width: min(92vw, 82rem);
-  min-height: clamp(28rem, 40vw, 38rem);
+  /* Sized for the short bio that lives here now. The old value was tuned for
+     the longer origin story, which moved to upbringing. */
+  min-height: clamp(21rem, 29vw, 28rem);
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto 1fr auto;
   gap: 1.5rem;
@@ -409,11 +395,21 @@ img {
 
 .about-story {
   grid-column: 7 / 11;
-  align-self: end;
+  align-self: start;
   margin: 0 0 2rem;
   font-family: var(--serif);
   font-size: var(--text-lede);
   line-height: 1.25;
+}
+
+.about-note {
+  grid-column: 11 / -1;
+  align-self: start;
+  margin: 0 0 2rem;
+  color: var(--muted-on-dark);
+  font-size: var(--text-small);
+  line-height: 1.5;
+  transform: rotate(5deg);
 }
 
 .upbringing {
@@ -446,6 +442,16 @@ img {
   color: var(--muted);
   font-size: var(--text-small);
   line-height: 1.55;
+}
+
+.upbringing-lede {
+  position: relative;
+  z-index: 5;
+  max-width: 46%;
+  margin: 0 0 var(--heading-gap);
+  font-family: var(--serif);
+  font-size: var(--text-lede);
+  line-height: 1.25;
 }
 
 .timeline {
@@ -1136,11 +1142,6 @@ summary:focus-visible {
     grid-template-columns: 2fr 7fr;
   }
 
-  .hero-notes {
-    grid-column: 2;
-    grid-template-columns: 1fr 1fr;
-  }
-
   .about-title {
     grid-column: 3 / -1;
   }
@@ -1249,15 +1250,6 @@ summary:focus-visible {
     max-width: 18ch;
   }
 
-  .hero-notes {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-    margin-top: 1.6rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--rule);
-  }
-
   .scribble--hero {
     display: none;
   }
@@ -1306,6 +1298,10 @@ summary:focus-visible {
 
   .watch-heading p {
     margin-top: 1.2rem;
+  }
+
+  .upbringing-lede {
+    max-width: none;
   }
 
   .timeline {
