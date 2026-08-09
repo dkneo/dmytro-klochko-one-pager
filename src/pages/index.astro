@@ -65,6 +65,23 @@ const featuredVlogs = [
   },
 ] as const satisfies readonly MediaLink[];
 
+// Both verified against the source, not paraphrased from memory. The Princeton
+// line is the study the Replika manifesto itself cites.
+const proof = [
+  {
+    source: "time",
+    href: "https://time.com/collections/davos-2026/7339222/ai-predictions-2026/",
+    line: "“what we care about is people getting happier. whether or not it’s good, it’s happening.”",
+    meta: "5 predictions for ai in 2026, davos collection, january 2026",
+  },
+  {
+    source: "princeton",
+    href: "https://arxiv.org/abs/2311.10599",
+    line: "companion chatbot users indicated that these relationships were beneficial to their social health.",
+    meta: "guingrich & graziano, oxford intersections: ai in society, 2025",
+  },
+] as const;
+
 const contactLinks = [
   { label: "1@dmklochko.com", href: "mailto:1@dmklochko.com" },
   { label: "1@replika.com", href: "mailto:1@replika.com" },
@@ -217,6 +234,18 @@ const description =
         />
       </div>
 
+      {/* The lede claims 42m users and research with three universities. These
+          two rows are where a stranger can check it, so they sit under the
+          claim rather than in the press section. */}
+      <ul class="career-proof">
+        {proof.map((item) => (
+          <li>
+            <ExternalLink class="proof-source" href={item.href} label={item.source} />
+            <p>{item.line}</p>
+            <span class="proof-meta">{item.meta}</span>
+          </li>
+        ))}
+      </ul>
     </section>
 
 

@@ -622,6 +622,54 @@ img {
   vertical-align: -0.38em;
 }
 
+/* Two hairline rows closing the career section, borrowing the ways-of-working
+   list shape so this reads as a register rather than a new component. */
+.career-proof {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 clamp(2rem, 4vw, 4rem);
+  margin: clamp(2.5rem, 4.5vw, 4rem) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+  list-style: none;
+}
+
+.career-proof li {
+  padding: 1.1rem 0 1.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.proof-source {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  color: var(--ochre);
+  font-size: var(--text-label);
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.proof-source:hover {
+  opacity: 0.65;
+}
+
+.career-proof p {
+  margin: 0.7rem 0 0;
+  font-family: var(--serif);
+  font-size: var(--text-quote);
+  line-height: 1.3;
+}
+
+.proof-meta {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
 .career-note {
   max-width: 36rem;
   margin: 1.6rem 0 0;
@@ -1406,6 +1454,10 @@ summary:focus-visible {
 
   .career-art {
     margin-top: 2rem;
+  }
+
+  .career-proof {
+    grid-template-columns: 1fr;
   }
 
   .ways-inner {
