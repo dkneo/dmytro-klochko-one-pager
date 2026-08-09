@@ -688,6 +688,12 @@ img {
   top: 0;
   left: 0;
   width: 100%;
+  /* Intrinsic ratio of the asset, declared rather than inferred. With
+     height:auto an unloaded image is 0px tall, and a 0px-tall lazy image
+     never intersects the viewport, so it never loads and stays 0px. Stating
+     the ratio breaks that deadlock and also stops the -52% hover scroll from
+     depending on load order. */
+  aspect-ratio: 1120 / 1884;
   height: auto;
   /* Slow on purpose. The card lift is the feedback, at 250ms like everything
      else; this is the reward, and it has to be readable while it moves.
