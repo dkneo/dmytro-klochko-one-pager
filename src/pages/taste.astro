@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FramedPhoto from "../components/FramedPhoto.astro";
+
+const books = [
+  "the lord of the rings, j.r.r. tolkien",
+  "upstream, mary oliver",
+  "gaspard de la nuit, aloysius bertrand (also the ravel suite)",
+  "man's search for meaning, viktor frankl",
+] as const;
+
+const records = ["rumours, fleetwood mac", "gaspard de la nuit, ravel"] as const;
+
+const title = "taste · dmytro klochko";
+const description = "books, records, colours and two poems.";
+---
+
+<Layout title={title} description={description} current="taste">
+  <section class="page-shell page-head" id="top">
+    <p class="eyebrow">deep dive</p>
+    <h1><em>taste.</em></h1>
+    <p class="page-lede">what i keep going back to.</p>
+  </section>
+
+  <section class="page-shell section" aria-label="books and records">
+    <div class="shelf-grid">
+      <div class="shelf-list">
+        <h2>books</h2>
+        <ol>
+          {books.map((book) => <li>{book}</li>)}
+        </ol>
+      </div>
+      <div class="shelf-list">
+        <h2>records</h2>
+        <ol>
+          {records.map((record) => <li>{record}</li>)}
+        </ol>
+      </div>
+      <FramedPhoto
+        class="museum-photo"
+        src="/images/taste-museum.jpg"
+        alt="Dmytro standing in a gallery in front of a large canvas"
+      />
+    </div>
+  </section>
+
+  <section class="page-shell section" aria-label="colours">
+    <h2 class="section-title">colours</h2>
+    <div class="swatches" aria-label="favorite colors">
+      <span style="background: var(--cobalt)"></span>
+      <span style="background: var(--ultramarine)"></span>
+      <span style="background: var(--violet)"></span>
+      <span style="background: var(--tan)"></span>
+      <span style="background: var(--night)"></span>
+    </div>
+  </section>
+
+  <section class="page-shell section" aria-labelledby="poems-title">
+    <h2 class="section-title" id="poems-title">poems</h2>
+    <div class="poems">
+      <blockquote class="poem poem--one">
+        <p>
+          i am lost in sorrento<br />
+          for i am the taste of its lemons and its women's feet<br />
+          i'm the salt of its breeze<br />
+          i'm so glad i can't breathe<br />
+          i'm so tall i am whole twelve feet
+        </p>
+      </blockquote>
+      <blockquote class="poem poem--two">
+        <p>
+          this girl is the warm sensation of young sun on my bare chest<br />
+          her chestnut irises, and the greens in them, glimmer with playful unrest<br />
+          when she whispers her spells, her tricks, and her promises, i couldn't get any slumber<br />
+          for she carries inside her an eternal summer, an eternal summer
+        </p>
+      </blockquote>
+    </div>
+  </section>
+</Layout>

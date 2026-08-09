@@ -1,21 +1,62 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ExternalLink from "../components/ExternalLink.astro";
-import MediaCard from "../components/MediaCard.astro";
 import FramedPhoto from "../components/FramedPhoto.astro";
 import PhotoFill from "../components/PhotoFill.astro";
 
-type LinkItem = {
-  readonly label: string;
-  readonly href: string;
+// Company names and titles are capitalised; the running copy is not. A
+// credentials list is scanned, not read, and lowercase proper nouns are what
+// made this section hard to parse.
+type Role = {
+  readonly company: string;
+  readonly what: string;
+  readonly title: string;
+  readonly href?: string;
+  readonly logo?: string;
 };
 
-type MediaLink = Partial<LinkItem> & {
-  readonly label: string;
-  readonly video: string;
-  readonly alt: string;
-  readonly className: string;
-};
+const roles = [
+  {
+    company: "Replika",
+    what: "the #1 AI friend. 42m+ users across 145+ countries",
+    title: "Chief Executive Officer. Previously COO, CPO, CTO",
+    href: "https://replika.com",
+    logo: "/images/logos/replika.png",
+  },
+  {
+    company: "Homa Industries",
+    what: "HR platform and marketplace for remote teams",
+    title: "Founder and Chief Executive Officer",
+  },
+  {
+    company: "Chatfuel",
+    what: "marketing AI agents. Meta Business Partner",
+    title: "Head of Marketing and Expansion",
+    href: "https://chatfuel.com",
+    logo: "/images/logos/chatfuel.png",
+  },
+  {
+    company: "Hily",
+    what: "top-3 dating app in the U.S. by downloads",
+    title: "Strategic Product Manager",
+    href: "https://hily.com",
+    logo: "/images/logos/hily.png",
+  },
+  {
+    company: "VK",
+    what: "the largest social network in Russia and the CIS",
+    title: "Senior Product Manager",
+    href: "https://vk.com",
+    logo: "/images/logos/vk.png",
+  },
+  {
+    company: "Skyeng",
+    what: "the largest edtech company in Eastern Europe",
+    title: "Product Manager",
+    href: "https://skyeng.ru",
+    logo: "/images/logos/skyeng.png",
+  },
+] as const satisfies readonly Role[];
 
 const upbringing = [
   "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy (sans voir).",
@@ -26,44 +67,6 @@ const upbringing = [
   "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
   "to this day: designing fashion items. writing. doing film photography.",
 ] as const;
-
-const featuredVlogs = [
-  {
-    label: "kbs interview (korea)",
-    href: "https://www.instagram.com/p/DYhL6c9Ti8M/",
-    video: "vlog-kbs",
-    alt: "A film crew, lights and two cameras set up around Dmytro for a broadcast interview",
-    className: "media-card media-card--portrait",
-  },
-  {
-    label: "vienna",
-    href: "https://www.instagram.com/p/DYXLh6rI2JI/",
-    video: "vlog-vienna",
-    alt: "The opening of Dmytro's Vienna vlog, over the Votivkirche",
-    className: "media-card media-card--landscape",
-  },
-  {
-    label: "in paris",
-    href: "https://www.instagram.com/p/DYheZtSNZxM/",
-    video: "vlog-paris",
-    alt: "Dmytro walking toward the camera in front of Les Invalides in Paris",
-    className: "media-card media-card--tall",
-  },
-  // No href yet on these two. A tile without one renders as a figure, so the
-  // footage still runs and nothing pretends to be a link that goes nowhere.
-  {
-    label: "london",
-    video: "film-london",
-    alt: "Dmytro walking out of Kew Gardens Station in London",
-    className: "media-card media-card--film",
-  },
-  {
-    label: "live on tvnz breakfast",
-    video: "tvnz-live",
-    alt: "Dmytro live from Paris on New Zealand breakfast television, captioned Replika Chief Executive",
-    className: "media-card media-card--broadcast",
-  },
-] as const satisfies readonly MediaLink[];
 
 // Both verified against the source, not paraphrased from memory. The Princeton
 // line is the study the Replika manifesto itself cites.
@@ -82,215 +85,133 @@ const proof = [
   },
 ] as const;
 
-const contactLinks = [
-  { label: "1@dmklochko.com", href: "mailto:1@dmklochko.com" },
-  { label: "1@replika.com", href: "mailto:1@replika.com" },
-] as const satisfies readonly LinkItem[];
-
-const socialLinks = [
-  { label: "x (twitter)", href: "https://x.com/dkreplika" },
+const socials = [
+  { label: "x", href: "https://x.com/dkreplika" },
   { label: "instagram", href: "https://instagram.com/dmytrotoday" },
-  { label: "youtube", href: "https://youtube.com/@dmytroklochko" },
   { label: "linkedin", href: "https://www.linkedin.com/in/heydmytro/" },
-] as const satisfies readonly LinkItem[];
-
-const books = [
-  "the lord of the rings, j.r.r. tolkien",
-  "upstream, mary oliver",
-  "gaspard de la nuit, aloysius bertrand (also the ravel suite)",
-  "man's search for meaning, viktor frankl",
 ] as const;
 
-const records = ["rumours, fleetwood mac", "gaspard de la nuit, ravel"] as const;
-
-const title = "dmytro klochko · art & technology";
+const title = "dmytro klochko";
 const description =
-  "dmytro klochko: jaywalker at the intersection of art and technology. tech entrepreneur & tinkerer.";
+  "ceo at replika. product and engineering, out of art, chess and theatre. based between nyc, paris and sf.";
 ---
 
 <Layout title={title} description={description}>
-  <a class="skip-link" href="#main-content"> skip to content </a>
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-collage" aria-hidden="true">
+      <PhotoFill class="hero-photo hero-photo--left" src="/images/hero-left.jpg" alt="" eager />
+      <PhotoFill class="hero-photo hero-photo--center" src="/images/hero-center.jpg" alt="" eager />
+      <PhotoFill class="hero-photo hero-photo--right" src="/images/hero-right.jpg" alt="" />
+    </div>
 
-  <header class="site-header" aria-label="primary navigation">
-    <a class="say-hi" href="#contact">
-      say hi <span aria-hidden="true" class="arrow">↗</span>
-    </a>
+    <div class="hero-copy">
+      <h1 id="hero-title">
+        jaywalker at the intersection of <em>art and technology.</em>
+      </h1>
+    </div>
+  </section>
 
-    <a class="masthead" href="#top" aria-label="dmytro klochko, home">
-      <span>dmytro</span> <em>klochko</em>
-    </a>
-
-    <details class="menu">
-      <summary>menu</summary>
-      <nav aria-label="main menu">
-        <a href="#about">about</a>
-        <a href="#career">career</a>
-        <a href="#upbringing">upbringing</a>
-        <a href="#watch">watch</a>
-        <a href="#taste">taste</a>
-        <a href="#contact">contact</a>
-      </nav>
-    </details>
-  </header>
-
-  <main id="main-content">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-collage" aria-hidden="true">
-        <PhotoFill
-          class="hero-photo hero-photo--left"
-          src="/images/hero-left.jpg"
-          alt=""
-          eager
-        />
-        <PhotoFill
-          class="hero-photo hero-photo--center"
-          src="/images/hero-center.jpg"
-          alt=""
-          eager
-        />
-        <PhotoFill class="hero-photo hero-photo--right" src="/images/hero-right.jpg" alt="" />
-      </div>
-
-      <div class="hero-copy">
-        <h1 id="hero-title">
-          jaywalker at the intersection of <em>art and technology.</em>
-        </h1>
-      </div>
-
-      <span class="scribble scribble--hero" aria-hidden="true"></span>
-    </section>
-
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div class="about-inner">
-        <PhotoFill
-          class="about-photo"
-          src="/images/about.jpg"
-          alt="Dmytro photographed in a mirror, in a cap and worn denim jacket"
-        />
-        <div class="about-copy">
-          <h2 id="about-title">about <em>me</em></h2>
-          <p class="about-role">
-            <ExternalLink class="role-link" href="https://replika.com" label="ceo, replika" />
-          </p>
-          <p class="about-lede">
-            product &amp; engineering guy with a background in art, chess and theatre.
-          </p>
-          <p class="about-story">
-            relentless pursuer. beholder of cathedrals all around. tech entrepreneur &amp; tinkerer.
-          </p>
-          <p class="about-note">based between nyc, paris &amp; sf.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="before page-shell" id="before" aria-labelledby="before-title">
-      <h2 id="before-title">career <em>before</em></h2>
-      <div class="before-cols">
-        <p>
-          first job at 6 yo {"{busking, improv}"}. first filmmaking gig at 13 yo. a hundred gigs and strange little jobs in between.
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="about-inner">
+      <PhotoFill
+        class="about-photo"
+        src="/images/about.jpg"
+        alt="Dmytro photographed in a mirror, in a cap and worn denim jacket"
+      />
+      <div class="about-copy">
+        <h2 id="about-title">about <em>me</em></h2>
+        <p class="about-role">
+          <ExternalLink class="role-link" href="https://replika.com" label="ceo, replika" />
         </p>
-        <p>
-          10 years of product management. 6 years building ml-powered products {"{incl. 400m mau products}"}. 5 years hands-on gtm across global ai &amp; social products. former founder.
+        <p class="about-lede">
+          product &amp; engineering guy with a background in art, chess and theatre.
         </p>
+        <p class="about-note">based between nyc, paris &amp; sf.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="career page-shell" id="career" aria-labelledby="career-title">
-      <h2 id="career-title">career <em>now</em></h2>
+  <section class="page-shell section" id="career" aria-labelledby="career-title">
+    <p class="eyebrow">01</p>
+    <h2 class="section-title" id="career-title">career</h2>
 
-      <p class="career-lede">
-        42m+ users worldwide. the #1 ai friend. research with stanford, harvard, princeton.
+    <ol class="roles">
+      {
+        roles.map((role) => (
+          <li class="role">
+            <span class="role-mark" aria-hidden="true">
+              {role.logo ? <img src={role.logo} alt="" loading="lazy" /> : <span>H</span>}
+            </span>
+            <span class="role-body">
+              <span class="role-head">
+                {role.href ? (
+                  <a href={role.href} target="_blank" rel="noreferrer">
+                    {role.company} <span aria-hidden="true" class="arrow">↗</span>
+                  </a>
+                ) : (
+                  <span>{role.company}</span>
+                )}
+                <span class="role-what">{role.what}</span>
+              </span>
+              <span class="role-title">{role.title}</span>
+            </span>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="career-note-block">
+      <p>
+        i realized replika could be 100x what it was, so i rebuilt it. replika 2.0 is a ground-up
+        rewrite: i wrote the first prototypes myself, ran 400+ user interviews, and still write the
+        architecture, the prompts and most of the copy.
       </p>
+      <p>
+        i rebuilt the team around it: phds, true artists, pirates<img
+          class="mark-pirate"
+          src="/images/pirate-flag-mark.png"
+          alt=""
+        />. i'm intense and hands-on, so i don't hire managers.
+      </p>
+      <p>
+        college dropout. i lecture at the university of vienna to grok where conversational agentic
+        ai goes next. users love 2.0, retention skyrocketed, and i'm already building the company's
+        next era. in stealth.
+      </p>
+    </div>
 
-      <div class="career-main">
-        <div class="career-story">
-          <p>coo, then cpo, then cto, then ceo, all inside a year.</p>
-          <p>
-            i realized replika could be 100x what it was, so i rebuilt it. replika 2.0 is a ground-up rewrite of the app. i wrote the first prototypes myself and ran 400+ user interviews. i still write the architecture, the prompts, and most of the copy, product and brand both.
-          </p>
-          <p>
-            i rebuilt the team around it: phds, true artists, pirates<img
-              class="mark-pirate"
-              src="/images/pirate-flag-mark.png"
-              alt=""
-            />. i'm intense and hands-on, so i don't hire managers. everyone reports to me directly.
-          </p>
-          <p>
-            i rebranded replika and turned the media around. it's back in the zeitgeist now, making some of the best media in ai.
-          </p>
-          <p>
-            college dropout. i took a lectureship at the university of vienna to grok where conversational agentic ai goes next. teaching it is how i learn it.
-          </p>
-          <p class="career-note">
-            users love 2.0. retention skyrocketed, and replika is more engaging now than at any point in the company's ten years. then the same kind of insight that made 2.0 arrived again, so i'm already building the company's next era. in stealth.
-          </p>
-        </div>
-
-        <FramedPhoto
-          class="career-art"
-          src="/images/dmytro-lecture.png"
-          alt="Dmytro presenting Replika product slides to a lecture room"
-          caption="teaching"
-        />
-      </div>
-
-      {/* The lede claims 42m users and research with three universities. These
-          two rows are where a stranger can check it, so they sit under the
-          claim rather than in the press section. */}
-      <ul class="career-proof">
-        {proof.map((item) => (
+    <ul class="career-proof">
+      {
+        proof.map((item) => (
           <li>
             <ExternalLink class="proof-source" href={item.href} label={item.source} />
             <p>{item.line}</p>
             <span class="proof-meta">{item.meta}</span>
           </li>
-        ))}
-      </ul>
-    </section>
+        ))
+      }
+    </ul>
+  </section>
 
+  <section class="page-shell section" id="upbringing" aria-labelledby="upbringing-title">
+    <p class="eyebrow">02</p>
+    <h2 class="section-title" id="upbringing-title">upbringing</h2>
 
-    <section class="ways" aria-labelledby="ways-title">
-      <div class="page-shell ways-inner">
-        <h2 id="ways-title">ways of <em>working</em></h2>
-        <figure class="ways-inspo">
-          <img
-            src="/images/lynch.jpg"
-            alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
-            loading="lazy"
-          />
-        </figure>
-        <div class="ways-grid">
-          <p>
-            natural aptitude for taste, action bias, &amp; having too much fun shipping.<br />
-            clairvoyance, aggressive optimism. following my nose.<br />
-            very fucking clean and direct in my comms.
-          </p>
-          <p>
-            culture in my teams is something i'm incredibly proud of: violent intolerance for mediocre work. anime-level fellowship &amp; camaraderie. fearlessness. relentless pursuit of the mission.
-          </p>
-          <p>
-            unhealthy excitement about customers {"{more users in my slack than team members lol}"}. making my product feel like magic. extensive experience working with the world's best brand agencies.
-          </p>
-        </div>
-      </div>
-    </section>
+    <p class="section-lede">
+      born &amp; raised in donetsk, eastern ukraine. very poor household. fled war as a teenager.
+      slept on the streets for weeks.
+    </p>
 
-    <section class="upbringing page-shell" id="upbringing" aria-labelledby="upbringing-title">
-      <div class="upbringing-heading">
-        <h2 id="upbringing-title">upbringing</h2>
-      </div>
-
-      <p class="upbringing-lede">
-        born &amp; raised in donetsk, eastern ukraine. very poor household. fled war as a teenager. slept on the streets for weeks.
-      </p>
-
+    <div class="upbringing-body">
       <ol class="timeline">
-        {upbringing.map((item, index) => (
-          <li>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <p>{item}</p>
-          </li>
-        ))}
+        {
+          upbringing.map((item, index) => (
+            <li>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{item}</p>
+            </li>
+          ))
+        }
       </ol>
 
       <div class="childhood-collage">
@@ -309,145 +230,80 @@ const description =
           src="/images/childhood-geese.jpg"
           alt="Dmytro as a toddler running through a garden, laughing, a gaggle of geese behind him"
         />
-        <span class="hand-arrow" aria-hidden="true">↗</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="watch page-shell" id="watch" aria-labelledby="watch-title">
-      <div class="watch-heading">
-        <h2 id="watch-title">watch &amp; <em>listen</em></h2>
-        <p>field notes, interviews and conversations from everywhere.</p>
-      </div>
-
-      <div class="media-grid">
-        {featuredVlogs.map((item) => (
-          <MediaCard
-            href={item.href}
-            video={item.video}
-            alt={item.alt}
-            label={item.label}
-            class={item.className}
-          />
-        ))}
-      </div>
-
-      <div class="press-feature">
-        <FramedPhoto
-          class="press-interview"
-          video="dokfest"
-          alt="Dmytro on stage with a microphone at a film festival Q and A"
-        />
-        <div class="press-copy">
-          <h3>finding connection.</h3>
-          <p class="press-caption">poetry, the human condition, and making technology feel a little more alive.</p>
-          <p class="press-meta">a documentary at cph:dox, copenhagen 2026.</p>
-        </div>
-      </div>
-
-      <a
-        class="manifesto-card"
-        href="https://replika.com/manifesto"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <span class="manifesto-window">
+  <section class="ways" aria-labelledby="ways-title">
+    <div class="page-shell ways-inner">
+      <div class="ways-head">
+        <p class="eyebrow">03</p>
+        <h2 class="section-title" id="ways-title">ways of working</h2>
+        <figure class="ways-inspo">
           <img
-            class="manifesto-shot"
-            src="/images/manifesto.webp"
-            alt="The Replika manifesto, headed in handwriting: AI isn't the problem, it just forgot real life"
+            src="/images/lynch.jpg"
+            alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
             loading="lazy"
           />
-        </span>
-        <span class="manifesto-copy">
-          <span class="manifesto-title">the replika manifesto</span>
-          <span class="manifesto-note">a replika 2.0 manifesto i wrote.</span>
-        </span>
+        </figure>
+      </div>
+      <div class="ways-grid">
+        <p>
+          natural aptitude for taste, action bias, &amp; having too much fun shipping. clairvoyance,
+          aggressive optimism. following my nose. very fucking clean and direct in my comms.
+        </p>
+        <p>
+          culture in my teams is something i'm incredibly proud of: violent intolerance for mediocre
+          work. anime-level fellowship &amp; camaraderie. fearlessness. relentless pursuit of the
+          mission.
+        </p>
+        <p>
+          unhealthy excitement about customers {"{more users in my slack than team members lol}"}.
+          making my product feel like magic. extensive experience working with the world's best
+          brand agencies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-shell section deep-dives" aria-labelledby="more-title">
+    <p class="eyebrow">04</p>
+    <h2 class="section-title" id="more-title">more</h2>
+    <div class="dive-grid">
+      <a class="dive" href="/watch">
+        <span class="dive-name">watch &amp; listen <span aria-hidden="true" class="arrow">↗</span></span>
+        <span class="dive-what">vlogs, broadcast interviews, the documentary, the manifesto.</span>
       </a>
-    </section>
+      <a class="dive" href="/taste">
+        <span class="dive-name">taste <span aria-hidden="true" class="arrow">↗</span></span>
+        <span class="dive-what">books, records, colours and two poems.</span>
+      </a>
+    </div>
+  </section>
 
-    <section class="personal" id="taste" aria-labelledby="taste-title">
-      <div class="page-shell personal-inner">
-        <div class="personal-heading">
-          <h2 id="taste-title"><em>taste.</em></h2>
-          <div class="swatches" aria-label="favorite colors">
-            <span style="background: #a7cbe8"></span>
-            <span style="background: #6b7648"></span>
-            <span style="background: #d7a1bb"></span>
-            <span style="background: #90672d"></span>
-            <span style="background: #202f62"></span>
-          </div>
-        </div>
-
-        <div class="shelf-grid">
-          <div class="shelf-list">
-            <h3>books</h3>
-            <ol>
-              {books.map((book) => <li>{book}</li>)}
-            </ol>
-          </div>
-          <div class="shelf-list">
-            <h3>records</h3>
-            <ol>
-              {records.map((record) => <li>{record}</li>)}
-            </ol>
-          </div>
-          <FramedPhoto
-            class="museum-photo"
-            src="/images/taste-museum.jpg"
-            alt="Dmytro standing in a gallery in front of a large Monet water lilies canvas"
-          />
-        </div>
-
-        <div class="poems" aria-labelledby="poems-title">
-          <h3 id="poems-title">poems</h3>
-          <blockquote class="poem poem--one">
-            <p>
-              i am lost in sorrento<br />
-              for i am the taste of its lemons and its women's feet<br />
-              i'm the salt of its breeze<br />
-              i'm so glad i can't breathe<br />
-              i'm so tall i am whole twelve feet
-            </p>
-          </blockquote>
-          <blockquote class="poem poem--two">
-            <p>
-              this girl is the warm sensation of young sun on my bare chest<br />
-              her chestnut irises, and the greens in them, glimmer with playful unrest<br />
-              when she whispers her spells, her tricks, and her promises, i couldn't get any slumber<br />
-              for she carries inside her an eternal summer, an eternal summer
-            </p>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <section class="social" id="contact" aria-labelledby="social-title">
-      <div class="page-shell social-inner">
-        <h2 id="social-title">come say <em>hi.</em></h2>
-
-        <FramedPhoto
-          class="social-photo"
-          src="/images/elevator.jpg"
-          alt="Dmytro photographed head to toe in a mirrored lift"
-        />
-
-        <div class="social-links">
-          {contactLinks.map((item) => (
-            <ExternalLink class="text-link" href={item.href} label={item.label} />
-          ))}
-          {socialLinks.map((item) => (
-            <ExternalLink class="text-link" href={item.href} label={item.label} />
-          ))}
-        </div>
-      </div>
-
-      <footer class="page-shell footer">
-        <p>© 2026 dmytro klochko</p>
-        <p>space cowboy</p>
-        <a class="to-top" href="#top">
-          back to top <span aria-hidden="true" class="arrow">↑</span>
-        </a>
-      </footer>
-    </section>
-  </main>
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="page-shell contact-inner">
+      <p class="eyebrow">05</p>
+      <h2 class="section-title" id="contact-title">come say <em>hi.</em></h2>
+      <p class="contact-copy">
+        write to me at <a href="mailto:1@dmklochko.com">1@dmklochko.com</a>, or{" "}
+        <a href="mailto:1@replika.com">1@replika.com</a> for anything replika. i answer everything
+        that isn't a pitch deck for a browser extension. i'm also on{" "}{
+          socials.map((s, i) => (
+            <>
+              <a href={s.href} target="_blank" rel="noreferrer">
+                {s.label}
+              </a>
+              {i < socials.length - 2 ? ", " : i === socials.length - 2 ? " and " : "."}
+            </>
+          ))
+        }
+      </p>
+      <FramedPhoto
+        class="contact-photo"
+        src="/images/elevator.jpg"
+        alt="Dmytro photographed head to toe in a mirrored lift"
+      />
+    </div>
+  </section>
 </Layout>

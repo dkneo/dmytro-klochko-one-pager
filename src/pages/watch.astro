@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MediaCard from "../components/MediaCard.astro";
+import FramedPhoto from "../components/FramedPhoto.astro";
+
+type MediaLink = {
+  readonly label: string;
+  readonly href?: string;
+  readonly video: string;
+  readonly alt: string;
+  readonly className: string;
+};
+
+const featuredVlogs = [
+  {
+    label: "kbs interview (korea)",
+    href: "https://www.instagram.com/p/DYhL6c9Ti8M/",
+    video: "vlog-kbs",
+    alt: "A film crew, lights and two cameras set up around Dmytro for a broadcast interview",
+    className: "media-card media-card--portrait",
+  },
+  {
+    label: "vienna",
+    href: "https://www.instagram.com/p/DYXLh6rI2JI/",
+    video: "vlog-vienna",
+    alt: "The opening of Dmytro's Vienna vlog, over the Votivkirche",
+    className: "media-card media-card--landscape",
+  },
+  {
+    label: "in paris",
+    href: "https://www.instagram.com/p/DYheZtSNZxM/",
+    video: "vlog-paris",
+    alt: "Dmytro walking toward the camera in front of Les Invalides in Paris",
+    className: "media-card media-card--tall",
+  },
+  // No href yet on these two. A tile without one renders as a figure, so the
+  // footage still runs and nothing pretends to be a link that goes nowhere.
+  {
+    label: "london",
+    video: "film-london",
+    alt: "Dmytro walking out of Kew Gardens Station in London",
+    className: "media-card media-card--film",
+  },
+  {
+    label: "live on tvnz breakfast",
+    video: "tvnz-live",
+    alt: "Dmytro live from Paris on New Zealand breakfast television, captioned Replika Chief Executive",
+    className: "media-card media-card--broadcast",
+  },
+] as const satisfies readonly MediaLink[];
+
+const title = "watch & listen · dmytro klochko";
+const description =
+  "field notes, interviews and conversations. vlogs from vienna, paris and london, broadcast interviews, and the replika manifesto.";
+---
+
+<Layout title={title} description={description} current="watch">
+  <section class="page-shell page-head" id="top">
+    <p class="eyebrow">deep dive</p>
+    <h1>watch &amp; <em>listen</em></h1>
+    <p class="page-lede">field notes, interviews and conversations from everywhere.</p>
+  </section>
+
+  <section class="page-shell section" aria-label="films and vlogs">
+    <div class="media-grid">
+      {
+        featuredVlogs.map((item) => (
+          <MediaCard
+            href={item.href}
+            video={item.video}
+            alt={item.alt}
+            label={item.label}
+            class={item.className}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="page-shell section" aria-label="documentary">
+    <div class="press-feature">
+      <FramedPhoto
+        class="press-interview"
+        video="dokfest"
+        alt="Dmytro on stage with a microphone at a film festival Q and A"
+      />
+      <div class="press-copy">
+        <h2>finding connection.</h2>
+        <p class="press-caption">
+          poetry, the human condition, and making technology feel a little more alive.
+        </p>
+        <p class="press-meta">a documentary at cph:dox, copenhagen 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-shell section" aria-label="the replika manifesto">
+    <a class="manifesto-card" href="https://replika.com/manifesto" target="_blank" rel="noreferrer">
+      <span class="manifesto-window">
+        <img
+          class="manifesto-shot"
+          src="/images/manifesto.webp"
+          alt="The Replika manifesto, headed in handwriting: AI isn't the problem, it just forgot real life"
+          loading="lazy"
+        />
+      </span>
+      <span class="manifesto-copy">
+        <span class="manifesto-title">the replika manifesto</span>
+        <span class="manifesto-note">a replika 2.0 manifesto i wrote.</span>
+      </span>
+    </a>
+  </section>
+</Layout>

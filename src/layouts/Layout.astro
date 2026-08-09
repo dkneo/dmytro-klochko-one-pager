@@ -4,12 +4,25 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
+  /** Which nav item is the current page. */
+  current?: "home" | "watch" | "taste";
 }
 
-const { title, description } = Astro.props;
+const { title, description, current = "home" } = Astro.props;
 
-const ogTitle = "dmytro klochko · art & technology";
-const ogDescription = "jaywalker at the intersection of art and technology.";
+// One name, said once. The old set repeated "art & technology" in the title,
+// the og:title, the og:description and twice inside the image itself, so a
+// shared link read as a slogan rather than as a person.
+const ogTitle = "dmytro klochko";
+const ogDescription = "ceo at replika. product and engineering, out of art, chess and theatre.";
+
+const nav = [
+  { label: "about", href: "/#about", key: "home" },
+  { label: "career", href: "/#career", key: "home" },
+  { label: "watch", href: "/watch", key: "watch" },
+  { label: "taste", href: "/taste", key: "taste" },
+  { label: "say hi", href: "/#contact", key: "home" },
+];
 ---
 
 <html lang="en">
@@ -17,18 +30,9 @@ const ogDescription = "jaywalker at the intersection of art and technology.";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#f7f6f2" />
+    <meta name="theme-color" content="#f4efe4" />
     <meta name="generator" content={Astro.generator} />
 
-    <!--
-      The mark is a raster drawing, so there is no SVG variant to prefer.
-      The PNGs are listed on their own URLs rather than relying on the .ico
-      alone: browsers cache favicons far more aggressively than pages, so a
-      changed .ico at an unchanged URL keeps serving the old icon through
-      ordinary reloads. These paths are new, so there is nothing to serve.
-      The .ico stays for the bare /favicon.ico request, and carries a real 16
-      alongside the 32 rather than letting the browser downscale.
-    -->
     <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32" />
@@ -46,7 +50,7 @@ const ogDescription = "jaywalker at the intersection of art and technology.";
     <meta property="og:image" content={new URL("/og.png", Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
-    <meta property="og:image:alt" content={ogTitle}/>
+    <meta property="og:image:alt" content="dmytro klochko" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
@@ -54,7 +58,38 @@ const ogDescription = "jaywalker at the intersection of art and technology.";
     <meta name="twitter:image" content={new URL("/og.png", Astro.site)} />
   </head>
   <body>
-    <slot />
+    <a class="skip-link" href="#main-content">skip to content</a>
+
+    <header class="site-header" aria-label="primary navigation">
+      <a class="masthead" href="/" aria-label="dmytro klochko, home">
+        <span>dmytro</span> <em>klochko</em>
+      </a>
+
+      <nav class="site-nav" aria-label="main menu">
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              aria-current={item.key === current && item.key !== "home" ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="page-shell site-footer">
+      <p>© 2026 dmytro klochko</p>
+      <p>space cowboy</p>
+      <a class="to-top" href="#top">
+        back to top <span aria-hidden="true" class="arrow">↑</span>
+      </a>
+    </footer>
 
     <!--
       The only JavaScript on the site, and it exists to remove motion, not add
