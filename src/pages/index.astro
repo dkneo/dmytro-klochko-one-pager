@@ -11,57 +11,54 @@ type Role = {
   readonly company: string;
   readonly what: string;
   readonly title: string;
-  readonly years: string;
   readonly href?: string;
-  readonly logo?: string;
+  readonly mark: string;
 };
 
+// Descriptors and titles are Dmytro's own wording, not the CV's. He was asked
+// and confirmed. The marks are silhouettes tinted in the section ink rather
+// than six brand palettes fighting the page.
 const roles = [
   {
-    company: "Replika",
-    what: "the #1 AI friend. 42m+ users across 145+ countries",
-    title: "Chief Executive Officer since 2024. Previously COO, CPO, CTO",
-    years: "2023 —",
+    company: "replika",
+    what: "#1 ai friend. 42m users worldwide",
+    title: "chief executive, product and technology officer",
     href: "https://replika.com",
-    logo: "/images/logos/replika.png",
+    mark: "/images/marks/replika.png",
   },
   {
-    company: "Homa Industries",
-    what: "HR platform and marketplace for remote teams",
-    title: "Founder and Chief Executive Officer",
-    years: "2022 — 2023",
+    company: "homa",
+    what: "remote team happiness saas",
+    title: "founder and chief executive officer",
+    mark: "/images/marks/homa.png",
   },
   {
-    company: "Chatfuel",
-    what: "marketing AI agents. Meta Business Partner",
-    title: "Head of Marketing and Expansion",
-    years: "2021 — 2022",
+    company: "chatfuel",
+    what: "marketing ai agent. 150k+ businesses. meta business partner",
+    title: "growth",
     href: "https://chatfuel.com",
-    logo: "/images/logos/chatfuel.png",
+    mark: "/images/marks/chatfuel.png",
   },
   {
-    company: "Hily",
-    what: "top-3 dating app in the U.S. by downloads",
-    title: "Strategic Product Manager",
-    years: "2021",
+    company: "hily",
+    what: "top 4 dating app in the u.s.",
+    title: "product and growth",
     href: "https://hily.com",
-    logo: "/images/logos/hily.png",
+    mark: "/images/marks/hily.png",
   },
   {
-    company: "VK",
-    what: "the largest social network in Russia and the CIS",
-    title: "Senior Product Manager",
-    years: "2021",
+    company: "vk",
+    what: "400m mau social network",
+    title: "product and growth",
     href: "https://vk.com",
-    logo: "/images/logos/vk.png",
+    mark: "/images/marks/vk.png",
   },
   {
-    company: "Skyeng",
-    what: "the largest edtech company in Eastern Europe",
-    title: "Product Manager",
-    years: "2018 — 2021",
+    company: "skyeng",
+    what: "top-1 european 1:1 educational platform",
+    title: "product and growth",
     href: "https://skyeng.ru",
-    logo: "/images/logos/skyeng.png",
+    mark: "/images/marks/skyeng.png",
   },
 ] as const satisfies readonly Role[];
 
@@ -146,9 +143,7 @@ const description =
       {
         roles.map((role) => (
           <li class="role">
-            <span class="role-mark" aria-hidden="true">
-              {role.logo ? <img src={role.logo} alt="" loading="lazy" /> : <span>H</span>}
-            </span>
+            <span class="role-mark" style={`--mark: url(${role.mark})`} aria-hidden="true" />
             <span class="role-body">
               <span class="role-head">
                 {role.href ? (
@@ -161,32 +156,30 @@ const description =
                 <span class="role-what">{role.what}</span>
               </span>
               <span class="role-title">{role.title}</span>
+              {role.company === "replika" && (
+                <span class="role-story">
+                  <span>
+                    i realized replika could be 100x what it was, so i rebuilt it. replika 2.0 is a
+                    ground-up rewrite: i wrote the first prototypes myself, ran 400+ user
+                    interviews, and still write the architecture, the prompts and most of the copy.
+                  </span>
+                  <span>
+                    i rebuilt the team around it: phds, true artists, pirates
+                    <img class="mark-pirate" src="/images/pirate-flag-mark.png" alt="" />. i'm
+                    intense and hands-on, so i don't hire managers.
+                  </span>
+                  <span>
+                    college dropout. i lecture at the university of vienna to grok where
+                    conversational agentic ai goes next. users love 2.0, retention skyrocketed, and
+                    i'm already building the company's next era. in stealth.
+                  </span>
+                </span>
+              )}
             </span>
-            <span class="role-years">{role.years}</span>
           </li>
         ))
       }
     </ol>
-
-    <div class="career-note-block">
-      <p>
-        i realized replika could be 100x what it was, so i rebuilt it. replika 2.0 is a ground-up
-        rewrite: i wrote the first prototypes myself, ran 400+ user interviews, and still write the
-        architecture, the prompts and most of the copy.
-      </p>
-      <p>
-        i rebuilt the team around it: phds, true artists, pirates<img
-          class="mark-pirate"
-          src="/images/pirate-flag-mark.png"
-          alt=""
-        />. i'm intense and hands-on, so i don't hire managers.
-      </p>
-      <p>
-        college dropout. i lecture at the university of vienna to grok where conversational agentic
-        ai goes next. users love 2.0, retention skyrocketed, and i'm already building the company's
-        next era. in stealth.
-      </p>
-    </div>
 
     <ul class="career-proof">
       {
@@ -295,8 +288,7 @@ const description =
       <h2 class="section-title" id="contact-title">come say <em>hi.</em></h2>
       <p class="contact-copy">
         write to me at <a href="mailto:1@dmklochko.com">1@dmklochko.com</a>, or{" "}
-        <a href="mailto:1@replika.com">1@replika.com</a> for anything replika. i answer everything
-        that isn't a pitch deck for a browser extension. i'm also on{" "}{
+        <a href="mailto:1@replika.com">1@replika.com</a> for anything replika. i'm also on{" "}{
           socials.map((s, i) => (
             <>
               <a href={s.href} target="_blank" rel="noreferrer">

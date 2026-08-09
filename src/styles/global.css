@@ -320,8 +320,6 @@ img {
 
 .timeline {
   position: relative;
-  z-index: 5;
-  width: 49%;
   margin: 0;
   padding: 0;
   border-top: 1px solid var(--ink);
@@ -350,17 +348,17 @@ img {
 }
 
 .childhood-collage {
-  position: absolute;
-  right: 1%;
-  bottom: 2.5rem;
-  width: 47%;
-  height: 58%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.8rem, 1.6vw, 1.4rem);
+  align-items: start;
 }
 
 .childhood-photo {
-  position: absolute;
+  position: relative;
   margin: 0;
-  box-shadow: 0 0 0 0.45rem var(--paper);
+  aspect-ratio: 1.1;
+  box-shadow: 0 0 0 0.4rem var(--paper);
 }
 
 .childhood-photo img {
@@ -368,33 +366,18 @@ img {
 }
 
 .childhood-photo--chess {
-  top: 4%;
-  left: 6%;
-  z-index: 1;
-  width: 44%;
-  height: 43%;
-  transform: rotate(-5deg);
+  rotate: -1.6deg;
 }
 
 /* Sits inside the photo. Hung off the right edge it landed exactly where the
    piano photo overlaps, and a figcaption cannot escape its parent's stacking
    context to sit above a higher-z sibling; so it was clipped. */
 .childhood-photo--piano {
-  top: 11%;
-  right: 4%;
-  z-index: 2;
-  width: 44%;
-  height: 37%;
-  transform: rotate(3deg);
+  rotate: 1.2deg;
 }
 
 .childhood-photo--now {
-  right: 17%;
-  bottom: 1%;
-  z-index: 3;
-  width: 47%;
-  height: 52%;
-  transform: rotate(-1.5deg);
+  rotate: -0.8deg;
 }
 
 /* One serif interruption in this section, not two. The lede carries the
@@ -921,11 +904,6 @@ summary:focus-visible {
     width: 66%;
   }
 
-  .childhood-collage {
-    width: 66%;
-    height: 44%;
-  }
-
   .shelf-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1022,10 +1000,7 @@ summary:focus-visible {
   }
 
   .childhood-collage {
-    right: -6%;
-    bottom: 2.5rem;
-    width: 104%;
-    height: 34%;
+    grid-template-columns: 1fr;
   }
 
   .career-proof {
@@ -1337,35 +1312,22 @@ summary:focus-visible {
 
 .role {
   display: grid;
-  grid-template-columns: 2.4rem 1fr;
+  grid-template-columns: 2.2rem 1fr;
   gap: clamp(1rem, 2vw, 1.75rem);
   align-items: start;
   padding: 1.35rem 0;
   border-bottom: 1px solid var(--rule);
 }
 
+/* Each mark is a silhouette used as a mask and filled with the section ink,
+   so six different brand palettes do not fight the page and nothing carries a
+   tile behind it. */
 .role-mark {
-  display: grid;
-  width: 2.4rem;
-  height: 2.4rem;
-  place-items: center;
-  overflow: hidden;
-  background: var(--paper-deep);
-}
-
-.role-mark img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Homa has no live domain to take a mark from, so it gets a set initial
-   rather than a broken image or a blank gap in the column. */
-.role-mark span {
-  color: var(--tan);
-  font-family: var(--serif);
-  font-size: var(--text-lede);
-  line-height: 1;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: var(--ultramarine);
+  mask: var(--mark) center / contain no-repeat;
+  -webkit-mask: var(--mark) center / contain no-repeat;
 }
 
 .role-body {
@@ -1424,15 +1386,16 @@ summary:focus-visible {
 
 .upbringing-body {
   display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: start;
+  gap: clamp(2rem, 4vw, 3rem);
 }
 
-.childhood-collage {
-  position: relative;
-  aspect-ratio: 0.95;
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 clamp(2rem, 4vw, 4rem);
+  width: 100%;
 }
+
 
 /* ── ways of working ────────────────────────────────────────────────────── */
 
@@ -1603,18 +1566,7 @@ summary:focus-visible {
 
 /* Years sit in their own right-hand column so the eye can run down them, the
    way it does on a printed CV. */
-.role {
-  grid-template-columns: 2.4rem 1fr auto;
-}
 
-.role-years {
-  align-self: start;
-  color: var(--muted);
-  font-size: var(--text-label);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
 
 /* ── made ───────────────────────────────────────────────────────────────── */
 
@@ -1664,10 +1616,20 @@ summary:focus-visible {
 
 @media (max-width: 680px) {
   .role {
-    grid-template-columns: 2rem 1fr;
+    grid-template-columns: 1.8rem 1fr;
   }
+}
 
-  .role-years {
-    grid-column: 2;
-  }
+/* The Replika story belongs to the Replika row, not to a separate block
+   floating under the whole register. */
+.role-story {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 62ch;
+  margin-top: 0.9rem;
+}
+
+.role-story > span {
+  font-size: var(--text-body);
+  line-height: 1.6;
 }
