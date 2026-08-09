@@ -9,13 +9,13 @@
 :root {
   /* Noir ground, bone type, one cold accent and one hot one. The hot accent
      is rationed to a single appearance per session. */
-  --void: #0c0d1c;
-  --deck: #13152b;
+  --void: #0b0b0d;
+  --deck: #141416;
   --bone: #e9e5d8;
-  --dim: #8a8ca8;
-  --faint: #4a4c68;
+  --dim: #90908c;
+  --faint: #5a5a58;
   --rule: rgb(233 229 216 / 13%);
-  --cold: #5b8fe0;
+  --cold: #c9c4b4;
   --hot: #e0603a;
 
   --mono:
@@ -33,7 +33,7 @@
 
   --gutter: clamp(1.25rem, 5vw, 5rem);
   --stack: clamp(3.5rem, 7vw, 7rem);
-  --measure: min(100%, 68ch);
+  --measure: min(100%, 74ch);
 
   --ease: cubic-bezier(0.2, 0, 0.2, 1);
   --dur: 200ms;
@@ -69,13 +69,13 @@ body::before {
   background-image:
     radial-gradient(1px 1px at 12% 18%, rgb(233 229 216 / 55%) 50%, transparent 50%),
     radial-gradient(1px 1px at 68% 8%, rgb(233 229 216 / 40%) 50%, transparent 50%),
-    radial-gradient(1.6px 1.6px at 84% 62%, rgb(91 143 224 / 55%) 50%, transparent 50%),
+    radial-gradient(1.6px 1.6px at 84% 62%, rgb(233 229 216 / 30%) 50%, transparent 50%),
     radial-gradient(1px 1px at 33% 74%, rgb(233 229 216 / 35%) 50%, transparent 50%),
     radial-gradient(1px 1px at 51% 41%, rgb(233 229 216 / 28%) 50%, transparent 50%),
     radial-gradient(1.4px 1.4px at 22% 92%, rgb(224 96 58 / 45%) 50%, transparent 50%);
   background-size:
     520px 520px, 380px 380px, 660px 660px, 440px 440px, 300px 300px, 700px 700px;
-  opacity: 0.5;
+  opacity: 0.32;
   pointer-events: none;
   content: "";
 }
@@ -231,83 +231,10 @@ img {
 }
 
 .lede {
-  max-width: 46ch;
+  max-width: 32ch;
   margin: 0 0 2rem;
   font-size: var(--t-lg);
   line-height: 1.45;
-}
-
-.dim {
-  color: var(--dim);
-}
-
-/* ── ascii plates ───────────────────────────────────────────────────────────
-   The photograph is text. The real image sits under it and fades in on hover,
-   so the plate resolves into what it was made from. Both are always in the
-   DOM; only opacity moves. */
-
-.plate-wrap {
-  container-type: inline-size;
-  max-width: 46rem;
-  margin: clamp(2rem, 4vw, 3rem) 0 0;
-}
-
-.plate {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  background: var(--deck);
-  outline-offset: 3px;
-}
-
-.plate pre {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  padding: 0;
-  color: var(--cold);
-  font-family: var(--mono);
-  /* Not a type step: the cell is solved so the character grid exactly fills
-     its container. A monospace advance is ~0.6em, so a plate of --cols
-     columns fits when the cell is 100cqi / (cols * 0.6). Treating this as a
-     reading size would either crop the picture or leave the box half empty,
-     which is what it did. */
-  font-size: calc(100cqi / (var(--cols) * 0.6));
-  line-height: 1.02;
-  white-space: pre;
-  transition: opacity var(--dur-slow) var(--ease);
-}
-
-.plate img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity var(--dur-slow) var(--ease);
-}
-
-.plate:hover pre,
-.plate:focus-visible pre {
-  opacity: 0;
-}
-
-.plate:hover img,
-.plate:focus-visible img {
-  opacity: 1;
-}
-
-.plate-cap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem 1rem;
-  justify-content: space-between;
-  margin-top: 0.7rem;
-  color: var(--faint);
-  font-size: var(--t-xs);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 
 /* ── the register ───────────────────────────────────────────────────────── */
@@ -360,18 +287,6 @@ img {
   grid-column: 2 / -1;
   color: var(--faint);
   font-size: var(--t-sm);
-}
-
-.reg-story {
-  display: grid;
-  grid-column: 2 / -1;
-  gap: 0.9rem;
-  max-width: 62ch;
-  margin-top: 1rem;
-  padding-left: 0.9rem;
-  border-left: 1px solid var(--rule);
-  font-size: var(--t-sm);
-  line-height: 1.7;
 }
 
 /* ── receipts ───────────────────────────────────────────────────────────── */
@@ -642,11 +557,7 @@ img {
 
   .reg-what,
   .reg-role,
-  .reg-story {
-    grid-column: 2;
-  }
-
-  .receipts {
+    .receipts {
     grid-template-columns: 1fr;
   }
 
@@ -682,4 +593,114 @@ img {
 
 .shelf li::before {
   content: none;
+}
+
+/* ── bay ────────────────────────────────────────────────────────────────────
+   The old page put every section in one narrow column on a wide shell and
+   left the right-hand half of the screen empty. Sections are two columns
+   now: the writing on the left, the picture on the right, both real widths. */
+
+.bay {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+/* ── photographs ────────────────────────────────────────────────────────────
+   Real photographs, printed the way the video grid is: monochrome until you
+   look at them. The ASCII conversion destroyed them and is gone. */
+
+.shot {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  background: var(--deck);
+}
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.12) brightness(0.94);
+  transition: filter var(--dur-slow) var(--ease);
+}
+
+.shot:hover img {
+  filter: none;
+}
+
+.shot figcaption,
+.shot-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* ── the torus ──────────────────────────────────────────────────────────────
+   Real ASCII art, not a photograph pushed through a converter. Forty frames
+   of a rotating torus solved at build time and stacked; each is revealed for
+   one fortieth of the cycle by its own delay. Pure CSS, zero runtime cost. */
+
+.torus {
+  position: relative;
+  container-type: inline-size;
+  max-width: 100%;
+  aspect-ratio: 78 / 29;
+  margin-bottom: 0.4rem;
+  color: var(--bone);
+}
+
+.torus pre {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  /* Solved, not chosen: a monospace advance is ~0.6em, so 78 columns fill the
+     container at 100cqi / (78 * 0.6). */
+  font-size: calc(100cqi / 46.8);
+  line-height: 1.02;
+  opacity: 0;
+  white-space: pre;
+  animation: flip 3.2s linear infinite;
+  animation-delay: calc(var(--i) * 80ms);
+}
+
+@keyframes flip {
+  0%,
+  2.4% {
+    opacity: 1;
+  }
+
+  2.6%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.torus-cap {
+  display: block;
+  margin-top: 0.9rem;
+  color: var(--faint);
+  font-size: var(--t-xs);
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .torus pre {
+    animation: none;
+  }
+
+  .torus pre:first-child {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 860px) {
+  .bay {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
