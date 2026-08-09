@@ -11,7 +11,7 @@ type LinkItem = {
 };
 
 type MediaLink = LinkItem & {
-  readonly image: string;
+  readonly video: string;
   readonly alt: string;
   readonly className: string;
 };
@@ -39,22 +39,22 @@ const featuredVlogs = [
   {
     label: "kbs interview (korea)",
     href: "https://www.instagram.com/p/DYhL6c9Ti8M/",
-    image: "/images/vlog-kbs.jpg",
+    video: "vlog-kbs",
     alt: "A film crew, lights and two cameras set up around Dmytro for a broadcast interview",
     className: "media-card media-card--portrait",
   },
   {
     label: "vienna",
     href: "https://www.instagram.com/p/DYXLh6rI2JI/",
-    image: "/images/vlog-vienna.jpg",
-    alt: "Vienna's Votivkirche under a cloudy sky",
+    video: "vlog-vienna",
+    alt: "The opening of Dmytro's Vienna vlog, over the Votivkirche",
     className: "media-card media-card--landscape",
   },
   {
     label: "in paris",
     href: "https://www.instagram.com/p/DYheZtSNZxM/",
-    image: "/images/vlog-paris.jpg",
-    alt: "Dmytro walking toward the camera in front of the golden dome of Les Invalides in Paris",
+    video: "vlog-paris",
+    alt: "Dmytro walking toward the camera in front of Les Invalides in Paris",
     className: "media-card media-card--tall",
   },
 ] as const satisfies readonly MediaLink[];
@@ -278,7 +278,7 @@ const description =
         {featuredVlogs.map((item) => (
           <MediaCard
             href={item.href}
-            image={item.image}
+            video={item.video}
             alt={item.alt}
             label={item.label}
             class={item.className}

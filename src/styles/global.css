@@ -75,6 +75,7 @@ img {
 .childhood-photo img,
 .career-art img,
 .media-image img,
+.media-video,
 .museum-photo img,
 .press-interview img,
 .social-cutout img,
@@ -786,7 +787,8 @@ img {
   background: #deded6;
 }
 
-.media-image img {
+.media-image img,
+.media-video {
   object-fit: cover;
   /* Staged 60ms behind the card lift, so it reads as the two-part motion
      DESIGN.md describes; card lifts, then image breathes; rather than one. */
@@ -794,7 +796,9 @@ img {
 }
 
 .media-card:hover .media-image img,
-.media-card:focus-visible .media-image img {
+.media-card:hover .media-video,
+.media-card:focus-visible .media-image img,
+.media-card:focus-visible .media-video {
   transform: scale(1.045);
 }
 
@@ -1582,7 +1586,9 @@ summary:focus-visible {
   .media-card:hover,
   .media-card:focus-visible,
   .media-card:hover .media-image img,
+  .media-card:hover .media-video,
   .media-card:focus-visible .media-image img,
+  .media-card:focus-visible .media-video,
   a:hover .arrow,
   a:focus-visible .arrow {
     transform: none;

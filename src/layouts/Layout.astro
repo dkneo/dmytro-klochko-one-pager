@@ -45,5 +45,20 @@ const ogDescription = "jaywalker at the intersection of art and technology.";
   </head>
   <body>
     <slot />
+
+    <!--
+      The only JavaScript on the site, and it exists to remove motion, not add
+      it. Looping autoplay is moving content that never stops, so WCAG 2.2.2
+      wants a way out; CSS cannot pause a video, so prefers-reduced-motion has
+      to be honoured here. Five lines, no library.
+    -->
+    <script is:inline>
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        for (const v of document.querySelectorAll("video[autoplay]")) {
+          v.removeAttribute("autoplay");
+          v.pause();
+        }
+      }
+    </script>
   </body>
 </html>

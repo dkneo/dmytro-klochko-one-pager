@@ -1,18 +1,40 @@
 ---
 interface Props {
   href: string;
-  image: string;
+  /** Basename in /video, e.g. "vlog-kbs" — resolves to .webm, .mp4 and -poster.jpg */
+  video?: string;
+  image?: string;
   alt: string;
   label: string;
   class: string;
 }
 
-const { href, image, alt, label, class: className } = Astro.props;
+const { href, video, image, alt, label, class: className } = Astro.props;
 ---
 
 <a class={className} href={href} target="_blank" rel="noreferrer">
   <span class="media-image">
-    <img src={image} alt={alt} loading="lazy" />
+    {
+      video ? (
+        // aria-hidden: the link's own visible label already names this, so
+        // announcing the clip again would just duplicate it.
+        <video
+          class="media-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster={`/video/${video}-poster.jpg`}
+          aria-hidden="true"
+        >
+          <source src={`/video/${video}.webm`} type="video/webm" />
+          <source src={`/video/${video}.mp4`} type="video/mp4" />
+        </video>
+      ) : (
+        <img src={image} alt={alt} loading="lazy" />
+      )
+    }
   </span>
   <span class="media-label">
     {label} <span aria-hidden="true" class="arrow">↗</span>
