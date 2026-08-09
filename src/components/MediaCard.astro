@@ -1,6 +1,8 @@
 ---
 interface Props {
-  href: string;
+  /** Omit for footage that has no post to link out to yet; the tile renders
+      as a plain figure and drops the arrow, rather than faking a destination. */
+  href?: string;
   /** Basename in /video, e.g. "vlog-kbs" — resolves to .webm, .mp4 and -poster.jpg */
   video?: string;
   image?: string;
@@ -10,14 +12,16 @@ interface Props {
 }
 
 const { href, video, image, alt, label, class: className } = Astro.props;
+const Tag = href ? "a" : "figure";
+const linkProps = href ? { href, target: "_blank", rel: "noreferrer" } : {};
 ---
 
-<a class={className} href={href} target="_blank" rel="noreferrer">
+<Tag class={className} {...linkProps}>
   <span class="media-image">
     {
       video ? (
-        // aria-hidden: the link's own visible label already names this, so
-        // announcing the clip again would just duplicate it.
+        // aria-hidden: the visible label already names this clip, so
+        // announcing it again would just duplicate it.
         <video
           class="media-video"
           autoplay
@@ -37,6 +41,6 @@ const { href, video, image, alt, label, class: className } = Astro.props;
     }
   </span>
   <span class="media-label">
-    {label} <span aria-hidden="true" class="arrow">↗</span>
+    {label} {href && <span aria-hidden="true" class="arrow">↗</span>}
   </span>
-</a>
+</Tag>

@@ -227,7 +227,7 @@ The second decorative mark is the hand-drawn arrow (↗) that points out of the 
 
 Two layers, kept strictly apart: micro-interactions respond to the pointer, scroll-driven motion responds to the scroll. Both are `transform`/`translate`/`opacity` only, so everything stays on the compositor.
 
-**Tokens.** One easing curve, `--ease` `cubic-bezier(0.2, 0, 0.2, 1)`, and three durations: `--dur-fast` 160ms, `--dur` 200ms, `--dur-slow` 250ms. No transition in the stylesheet may invent its own timing.
+**Tokens.** One easing curve, `--ease` `cubic-bezier(0.2, 0, 0.2, 1)`, and three durations: `--dur-fast` 160ms, `--dur` 200ms, `--dur-slow` 250ms. Feedback may not invent its own timing; see The Feedback Is Fast, The Reward Is Slow Rule for the single exception.
 
 ### Micro-interactions
 - **Arrow nudge** (`--dur`): the signature. Every arrow glyph is `<span class="arrow">` and translates `0.16rem, -0.16rem` on hover/focus.
@@ -246,6 +246,8 @@ No JavaScript. Gated on both `@supports (animation-timeline: scroll())` and `pre
 **The Section Announces Itself Rule.** A section's heading arrives; its contents are simply there. One reveal per section, never more. An earlier version animated 32 hand-picked elements with no statable rule — three sections treated heading and body differently from one another, and because the range is a percentage of element height the fade length varied 6.75x.
 
 **The Never Animate Opacity On A Timeline Rule.** Scroll-driven animations may drive `translate` only. `@supports` proves a browser *parses* `animation-timeline`, not that it *advances* it; a timeline that attaches but reports out-of-range progress makes `animation-fill-mode: both` pin the element at its `from` keyframe permanently. This shipped 30 of 32 content blocks at `opacity: 0` in production. With `translate` the worst case is a 20px offset; with `opacity` it is invisible content. Re-introducing a fade requires a runtime probe, which means JavaScript.
+
+**The Feedback Is Fast, The Reward Is Slow Rule.** A duration outside the three tokens is allowed only when the motion *is* the content rather than a response to the pointer. The manifesto card is the one instance: it lifts at `--dur-slow` like every other card, and separately scrolls its screenshot `-52%` over 2600ms, because a reader has to be able to read the page while it moves. The lift is the feedback and obeys the tokens; the scroll is the reward and is timed to reading speed. A slow *feedback* transition is still a bug.
 
 **The Feedback Survives Reduced Motion Rule.** `prefers-reduced-motion: reduce` neutralises movement but deliberately preserves `opacity`, `background-color`, `color` and `border-color` transitions at 120ms. A blanket `transition-duration: 0.01ms` also destroys the feedback that tells a keyboard user where focus is. Any control whose only affordance is a transform needs an opacity fallback under `reduce` — the media cards do.
 

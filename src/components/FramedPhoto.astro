@@ -1,15 +1,35 @@
 ---
 interface Props {
-  src: string;
+  src?: string;
+  /** Basename in /video, e.g. "dokfest" — resolves to .webm, .mp4 and -poster.jpg */
+  video?: string;
   alt: string;
   class: string;
   caption?: string;
 }
 
-const { src, alt, class: className, caption } = Astro.props;
+const { src, video, alt, class: className, caption } = Astro.props;
 ---
 
 <figure class={className}>
-  <img src={src} alt={alt} loading="lazy" />
+  {
+    video ? (
+      <video
+        class="framed-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster={`/video/${video}-poster.jpg`}
+        aria-label={alt}
+      >
+        <source src={`/video/${video}.webm`} type="video/webm" />
+        <source src={`/video/${video}.mp4`} type="video/mp4" />
+      </video>
+    ) : (
+      <img src={src} alt={alt} loading="lazy" />
+    )
+  }
   {caption && <figcaption>{caption}</figcaption>}
 </figure>

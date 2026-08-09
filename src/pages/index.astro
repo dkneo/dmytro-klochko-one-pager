@@ -10,7 +10,8 @@ type LinkItem = {
   readonly href: string;
 };
 
-type MediaLink = LinkItem & {
+type MediaLink = Partial<LinkItem> & {
+  readonly label: string;
   readonly video: string;
   readonly alt: string;
   readonly className: string;
@@ -25,15 +26,6 @@ const upbringing = [
   "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
   "to this day: designing fashion items. writing. doing film photography.",
 ] as const;
-
-// The three featured cards below already link to paris / kbs / vienna,
-// so this list only carries what those cards don't.
-const watchLinks = [
-  { label: "the replika manifesto", href: "https://replika.com/manifesto" },
-  { label: "youtube channel (main)", href: "https://youtube.com/@dmytroklochko" },
-  { label: "vlog with giorgio", href: "https://www.instagram.com/p/DYm87SroZHJ/" },
-  { label: "short reel", href: "https://www.instagram.com/p/DYj9W6yITif/" },
-] as const satisfies readonly LinkItem[];
 
 const featuredVlogs = [
   {
@@ -56,6 +48,20 @@ const featuredVlogs = [
     video: "vlog-paris",
     alt: "Dmytro walking toward the camera in front of Les Invalides in Paris",
     className: "media-card media-card--tall",
+  },
+  // No href yet on these two. A tile without one renders as a figure, so the
+  // footage still runs and nothing pretends to be a link that goes nowhere.
+  {
+    label: "london",
+    video: "film-london",
+    alt: "Dmytro walking out of Kew Gardens Station in London",
+    className: "media-card media-card--film",
+  },
+  {
+    label: "live on tvnz breakfast",
+    video: "tvnz-live",
+    alt: "Dmytro live from Paris on New Zealand breakfast television, captioned Replika Chief Executive",
+    className: "media-card media-card--broadcast",
   },
 ] as const satisfies readonly MediaLink[];
 
@@ -179,21 +185,21 @@ const description =
 
       <div class="career-main">
         <div class="career-story">
-          <p>coo, then cpo, then cto, then ceo, all inside a year. not ambition: the product could be far more than it was.</p>
+          <p>coo, then cpo, then cto, then ceo, all inside a year.</p>
           <p>
-            so i rebuilt it. replika 2.0 is a ground-up rewrite of the app. i wrote the first prototypes myself, ran 400+ user interviews, and still write most of the product copy.
+            i realized replika could be 100x what it was, so i rebuilt it. replika 2.0 is a ground-up rewrite of the app. i wrote the first prototypes myself and ran 400+ user interviews. i still write the architecture, the prompts, and most of the copy, product and brand both.
           </p>
           <p>
-            i rebuilt the team around it: phds, true artists, pirates. no managers sit between me and the work; everyone reports to me directly.
+            i rebuilt the team around it: phds, true artists, pirates. i'm intense and hands-on, so i don't hire managers. everyone reports to me directly.
           </p>
           <p>
-            the press was ugly when i arrived. now replika is back in the zeitgeist, making some of the best media in ai.
+            i rebranded replika and turned the media around. it's back in the zeitgeist now, making some of the best media in ai.
           </p>
           <p>
             college dropout. i took a lectureship at the university of vienna to grok where conversational agentic ai goes next. teaching it is how i learn it.
           </p>
           <p class="career-note">
-            users love 2.0. retention skyrocketed, and replika is more engaging now than at any point in the company's ten years. so naturally i'm already building the next thing, more ambitious.
+            users love 2.0. retention skyrocketed, and replika is more engaging now than at any point in the company's ten years. then the same kind of insight that made 2.0 arrived again, so i'm already building the company's next era. in stealth.
           </p>
         </div>
 
@@ -210,6 +216,17 @@ const description =
 
     <section class="ways" aria-labelledby="ways-title">
       <div class="page-shell ways-inner">
+        <figure class="ways-inspo">
+          <img
+            src="/images/lynch.jpg"
+            alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
+            loading="lazy"
+          />
+          <figcaption>
+            &ldquo;we never get any time to experiment. we never get any time to, you know, go dreamy.&rdquo;
+            <span>david lynch</span>
+          </figcaption>
+        </figure>
         <h2 id="ways-title">ways of <em>working</em></h2>
         <div class="ways-grid">
           <p>
@@ -289,8 +306,8 @@ const description =
       <div class="press-feature">
         <FramedPhoto
           class="press-interview"
-          src="/images/interview-connection.jpg"
-          alt="Dmytro mid-sentence during a filmed interview, boom microphone overhead"
+          video="dokfest"
+          alt="Dmytro on stage with a microphone at a film festival Q and A"
         />
         <div class="press-copy">
           <h3>finding connection.</h3>
@@ -299,15 +316,25 @@ const description =
         </div>
       </div>
 
-      <div class="watch-links" aria-label="more to read and watch">
-        {watchLinks.map((item, index) => (
-          <ExternalLink
-            class="text-link"
-            href={item.href}
-            label={`${String(index + 1).padStart(2, "0")} / ${item.label}`}
+      <a
+        class="manifesto-card"
+        href="https://replika.com/manifesto"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span class="manifesto-window">
+          <img
+            class="manifesto-shot"
+            src="/images/manifesto.webp"
+            alt="The Replika manifesto, headed in handwriting: AI isn't the problem, it just forgot real life"
+            loading="lazy"
           />
-        ))}
-      </div>
+        </span>
+        <span class="manifesto-copy">
+          <span class="manifesto-title">the replika manifesto</span>
+          <span class="manifesto-note">i wrote it. hover to read on.</span>
+        </span>
+      </a>
     </section>
 
     <section class="personal" id="taste" aria-labelledby="taste-title">
@@ -370,8 +397,11 @@ const description =
       <div class="page-shell social-inner">
         <h2 id="social-title">come say <em>hi.</em></h2>
 
-        <PhotoFill class="social-cutout" src="/images/dmytro-cutout.png" alt="" hidden />
-        <PhotoFill class="social-reading" src="/images/dmytro-reading-cutout.png" alt="" hidden />
+        <FramedPhoto
+          class="social-photo"
+          src="/images/elevator.jpg"
+          alt="Dmytro photographed head to toe in a mirrored lift"
+        />
 
         <div class="social-links">
           {contactLinks.map((item) => (
