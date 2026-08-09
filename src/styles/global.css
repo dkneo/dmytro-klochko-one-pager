@@ -73,7 +73,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-
 main,
 .site-header,
 .site-footer {
@@ -237,8 +236,7 @@ img {
   display: grid;
   grid-template-columns: 1.6rem minmax(0, 11rem) 1fr;
   gap: 0.2rem 1.25rem;
-  padding: 0.9rem 0;
-  border-bottom: 1px solid var(--rule);
+  padding: 0 0 var(--sp-3);
 }
 
 .reg-mark {
@@ -287,8 +285,8 @@ img {
 }
 
 .receipts li {
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule);
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--rule);
 }
 
 .receipt-src {
@@ -330,8 +328,7 @@ img {
   display: grid;
   grid-template-columns: 3.5rem 1fr;
   gap: 1rem;
-  padding: 0.7rem 0;
-  border-bottom: 1px solid var(--rule);
+  padding: 0 0 0.85rem;
   color: var(--dim);
   font-size: var(--t-sm);
 }
@@ -350,10 +347,6 @@ img {
   margin: var(--sp-4) 0 0;
   padding: 0;
   list-style: none;
-}
-
-.outs li {
-  border-bottom: 1px solid var(--rule);
 }
 
 .outs a {
@@ -409,25 +402,6 @@ img {
 }
 
 /* ── contact ────────────────────────────────────────────────────────────── */
-
-.say {
-  max-width: 52ch;
-  margin: 0;
-  font-size: var(--t-lg);
-  line-height: 1.55;
-}
-
-.say a {
-  border-bottom: 1px solid var(--faint);
-  transition:
-    color var(--dur) var(--ease),
-    border-color var(--dur) var(--ease);
-}
-
-.say a:hover {
-  border-color: var(--hot);
-  color: var(--hot);
-}
 
 /* ── footer ─────────────────────────────────────────────────────────────── */
 
@@ -594,28 +568,6 @@ img {
   align-items: stretch;
 }
 
-@keyframes flip {
-  0%,
-  2.4% {
-    opacity: 1;
-  }
-
-  2.6%,
-  100% {
-    opacity: 0;
-  }
-}
-
-.torus-cap {
-  display: block;
-  margin-top: var(--sp-2);
-  color: var(--faint);
-  font-size: var(--t-xs);
-  letter-spacing: 0.2em;
-  text-align: center;
-  text-transform: uppercase;
-}
-
 @media (max-width: 860px) {
   .bay {
     grid-template-columns: minmax(0, 1fr);
@@ -661,8 +613,6 @@ body::after {
 .signoff {
   text-shadow: 0 0 0.5rem rgb(255 111 174 / 45%);
 }
-
-
 
 /* ── the torus, on hover ────────────────────────────────────────────────────
    No shader, because a shader means shipping WebGL and a runtime. What it
@@ -750,75 +700,12 @@ body::after {
   }
 }
 
-/* ── art ────────────────────────────────────────────────────────────────── */
-
-.art {
-  position: relative;
-  max-width: 100%;
-  color: var(--bone);
-  transition: color var(--dur-slow) var(--ease);
-}
-
-/* pre carries font-family: monospace from the UA stylesheet, and that beats
-   inheritance, so every piece of art was drawn in the browser's default mono
-   rather than the site's. The 0.6em advance the cell size is solved from is a
-   property of this stack, so it has to be stated. */
-.art pre {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  font-family: var(--mono);
-  font-size: calc(100cqi / (var(--cols) * 0.6));
-  line-height: 1.02;
-  opacity: 0;
-  white-space: pre;
-  animation: flip 3.2s linear infinite;
-  animation-delay: calc(var(--i) * 80ms);
-}
-
-.art pre:first-child {
-  position: relative;
-}
-
-.art-wrap {
-  container-type: inline-size;
-}
-
-.art:hover {
-  color: var(--hot);
-}
-
-.art:hover pre {
-  animation-duration: 1.4s;
-}
-
-/* The bloom is one radial behind the art, not a shadow on every glyph. The
-   glyph version asked the compositor to blur ~1400 characters times forty
-   stacked frames on every paint, which is why hovering stuttered. */
-.art::after {
-  position: absolute;
-  z-index: -1;
-  inset: -12%;
-  background: radial-gradient(closest-side, rgb(255 111 174 / 26%), transparent 70%);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--dur-slow) var(--ease);
-  content: "";
-}
-
-.art:hover::after {
-  opacity: 1;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .art pre {
     animation: none;
   }
 
-  .art pre:first-child {
-    opacity: 1;
   }
-}
 
 /* Addresses as a register, not as a sentence with links buried in it. The
    sentence version lost its spaces at the line breaks and read as a run-on. */
@@ -836,8 +723,7 @@ body::after {
   gap: 0.4rem 1rem;
   align-items: baseline;
   justify-content: space-between;
-  padding: 0.7rem 0;
-  border-bottom: 1px solid var(--rule);
+  padding: 0 0 0.85rem;
 }
 
 .ways a {
@@ -859,18 +745,6 @@ body::after {
 
 .site-nav a[aria-current="page"] {
   color: var(--hot);
-}
-
-
-/* The bartender runs at a human pace; six frames at 3.2s looked like a
-   flicker. The projection keeps the faster cycle so the tearing reads. */
-.art--bar pre {
-  animation-duration: 2.4s;
-  animation-delay: calc(var(--i) * 400ms);
-}
-
-.art--joi {
-  color: var(--cold);
 }
 
 /* ── the swordfish ──────────────────────────────────────────────────────────
@@ -970,7 +844,7 @@ body::after {
 
 .sheet {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
   gap: var(--sp-2);
   margin: var(--sp-3) 0 0;
   padding: 0;
@@ -1025,6 +899,10 @@ body::after {
   margin: 0;
 }
 
+.plate {
+  width: min(100%, 21rem);
+}
+
 .plate .cell {
   position: relative;
   display: block;
@@ -1059,4 +937,52 @@ body::after {
    which is the entire reason it is on the page. */
 .cell--wide {
   aspect-ratio: 1.64;
+}
+
+/* One accurate drawing that CSS moves, which is the only ASCII approach here
+   that has worked. Hand-drawn figures were tried twice and were bad twice. */
+.glyph {
+  margin: 0;
+  color: var(--cold);
+  font-family: var(--mono);
+  /* Sized to be a presence in its column rather than a footnote. The ship's
+     --art-cell is right for a small drifting object and far too small here. */
+  font-size: 1.05rem;
+  line-height: 1;
+  white-space: pre;
+  animation: breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.art-wrap:hover .glyph {
+  color: var(--hot);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glyph {
+    animation: none;
+  }
+}
+
+/* The cathedrals line describes the person, so it sits with him rather than
+   in a footer where it read as a stray aphorism. */
+.cathedrals {
+  max-width: 34ch;
+  margin: 0 0 var(--sp-3);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-lg);
+  font-style: italic;
 }

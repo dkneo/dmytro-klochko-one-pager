@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import joi from "../ascii/joi.json";
-import bartender from "../ascii/bartender.json";
+import mark from "../ascii/mark.txt?raw";
 
 const roles = [
   {
@@ -90,6 +89,7 @@ const description =
         </div>
 
         <p class="lede">jaywalker at the intersection of art and technology.</p>
+        <p class="cathedrals">relentless pursuer. beholder of cathedrals all around.</p>
         <div class="prose">
           <p>
             product &amp; engineering guy with a background in art, chess and theatre. based
@@ -167,10 +167,7 @@ const description =
 
       <div>
         <div class="art-wrap">
-          <div class="art art--joi" style="--cols: 46" aria-hidden="true">
-            {joi.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
-          </div>
-          <span class="torus-cap">she is a projection. she is also company.</span>
+          <pre class="glyph" aria-hidden="true">{mark}</pre>
         </div>
 
         <ul class="receipts receipts--stack">
@@ -193,7 +190,7 @@ const description =
   <section class="shell session" id="before" aria-labelledby="s3">
     <div class="card">
       <p class="card-no">03</p>
-      <h2 class="card-title" id="s3">before that</h2>
+      <h2 class="card-title" id="s3">before replika</h2>
     </div>
 
     <ol class="reg">
@@ -221,7 +218,7 @@ const description =
   <section class="shell session" id="origin" aria-labelledby="s4">
     <div class="card">
       <p class="card-no">04</p>
-      <h2 class="card-title" id="s4">donetsk</h2>
+      <h2 class="card-title" id="s4">upbringing</h2>
     </div>
 
     <div class="bay">
@@ -287,12 +284,7 @@ const description =
         </ul>
       </div>
 
-      <div class="art-wrap">
-        <div class="art art--bar" style="--cols: 58" aria-hidden="true">
-          {bartender.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
-        </div>
-        <span class="torus-cap">pull up a stool</span>
-      </div>
+
     </div>
   </section>
 </Layout>
