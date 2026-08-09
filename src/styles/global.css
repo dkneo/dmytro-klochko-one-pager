@@ -594,48 +594,6 @@ img {
   align-items: stretch;
 }
 
-.bay > figure.shot {
-  height: 100%;
-  min-height: 18rem;
-  max-height: 34rem;
-}
-
-/* ── photographs ────────────────────────────────────────────────────────────
-   Real photographs, printed the way the video grid is: monochrome until you
-   look at them. The ASCII conversion destroyed them and is gone. */
-
-.shot {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  margin: 0;
-  background: var(--deck);
-}
-
-/* Photographs are photographs. The monochrome pass made the childhood ones
-   read as a memorial and did nothing for the rest. The video grid keeps its
-   desaturation, because that one was working. */
-.shot img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: contrast(1.04) saturate(1.04);
-  transition: transform var(--dur-slow) var(--ease);
-}
-
-.shot:hover img {
-  transform: scale(1.02);
-}
-
-.shot figcaption,
-.shot-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
-  gap: var(--sp-2);
-  margin-top: var(--sp-2);
-}
-
 @keyframes flip {
   0%,
   2.4% {
@@ -903,29 +861,6 @@ body::after {
   color: var(--hot);
 }
 
-/* ── photographs on a dark ground ───────────────────────────────────────────
-   A bright rectangle butted straight against the void reads as a hole cut in
-   the page. Three cheap things fix it: a hairline so the photo has an edge of
-   its own, a plate behind it so it sits on something, and an inset shadow so
-   the image meets its frame instead of stopping dead. */
-
-.shot {
-  padding: 0.4rem;
-  border: 1px solid rgb(233 229 216 / 14%);
-  background: rgb(233 229 216 / 4%);
-}
-
-.shot::after {
-  position: absolute;
-  inset: 0.4rem;
-  box-shadow: inset 0 0 3rem rgb(14 10 17 / 55%);
-  pointer-events: none;
-  content: "";
-}
-
-.shot figcaption {
-  padding: 0 0.1rem;
-}
 
 /* The bartender runs at a human pace; six frames at 3.2s looked like a
    flicker. The projection keeps the faster cycle so the tearing reads. */
@@ -1024,4 +959,104 @@ body::after {
   font-style: italic;
   letter-spacing: 0;
   text-transform: none;
+}
+
+/* ── contact sheet ──────────────────────────────────────────────────────────
+   Photographs stop being features and become records. Small, uniform, indexed,
+   in a strip. A full-colour rectangle on a starfield reads as a hole punched
+   in the void no matter what border you put on it, because the rectangle is
+   the problem; at this size they are evidence filed away rather than art
+   arguing with the type. Which is also honest: most of these are snapshots. */
+
+.sheet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+  gap: var(--sp-2);
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sheet figure,
+.sheet li {
+  margin: 0;
+}
+
+.sheet .cell {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid rgb(233 229 216 / 16%);
+  background: var(--deck);
+}
+
+.sheet img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.sheet figure:hover img,
+.sheet li:hover img {
+  transform: scale(1.06);
+}
+
+.sheet figcaption {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  color: var(--faint);
+  font-size: var(--t-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sheet figcaption b {
+  color: var(--hot);
+  font-weight: 400;
+}
+
+/* The one photograph that has to land stays large: a single frame with its
+   index, sized like a plate rather than a thumbnail. */
+.plate {
+  position: relative;
+  margin: 0;
+}
+
+.plate .cell {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 0.86;
+  border: 1px solid rgb(233 229 216 / 16%);
+  background: var(--deck);
+}
+
+.plate img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plate figcaption {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  color: var(--faint);
+  font-size: var(--t-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.plate figcaption b {
+  color: var(--hot);
+  font-weight: 400;
+}
+
+/* The Lynch still is a film frame; cropping it square would lose the subtitle,
+   which is the entire reason it is on the page. */
+.cell--wide {
+  aspect-ratio: 1.64;
 }
