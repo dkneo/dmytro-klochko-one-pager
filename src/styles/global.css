@@ -699,9 +699,7 @@ body::after {
   text-shadow: 0 0 0.5rem rgb(255 111 174 / 45%);
 }
 
-.card-title {
-  text-shadow: 0 0 1.6rem rgb(216 207 224 / 18%);
-}
+
 
 /* ── the torus, on hover ────────────────────────────────────────────────────
    No shader, because a shader means shipping WebGL and a runtime. What it
@@ -714,67 +712,77 @@ body::after {
   margin-top: var(--sp-4);
 }
 
-/* ── endless space ──────────────────────────────────────────────────────────
-   Three star layers drifting at different rates. The parallax is the rate
-   difference: near stars cross the frame in 90s, far ones take 240s, so the
-   field has depth without a scroll listener or a single image. The purple
-   wash this replaces was a flat tint pretending to be atmosphere. */
+/* ── flight ─────────────────────────────────────────────────────────────────
+   Not drifting: moving. Each layer scales from the centre and fades at the
+   edge of frame, so stars grow, pass and are left behind. Four layers on
+   staggered delays make the stream continuous. The drift version read as a
+   screensaver because sideways motion has no direction of travel. */
 
 .stars {
   position: fixed;
   z-index: 0;
-  inset: -50% 0;
+  inset: 0;
+  overflow: hidden;
   pointer-events: none;
 }
 
 .stars i {
   position: absolute;
-  inset: 0;
+  inset: -25%;
   display: block;
-  background-repeat: repeat;
-  content: "";
-}
-
-.stars .far {
   background-image:
-    radial-gradient(1px 1px at 14% 6%, rgb(233 229 216 / 42%) 50%, transparent 50%),
-    radial-gradient(1px 1px at 62% 18%, rgb(233 229 216 / 30%) 50%, transparent 50%),
-    radial-gradient(1px 1px at 37% 41%, rgb(233 229 216 / 26%) 50%, transparent 50%),
-    radial-gradient(1px 1px at 88% 57%, rgb(233 229 216 / 34%) 50%, transparent 50%),
-    radial-gradient(1px 1px at 21% 73%, rgb(233 229 216 / 22%) 50%, transparent 50%);
-  background-size: 340px 340px;
-  animation: drift 240s linear infinite;
+    radial-gradient(1.2px 1.2px at 14% 6%, rgb(233 229 216 / 90%) 50%, transparent 50%),
+    radial-gradient(1.2px 1.2px at 62% 18%, rgb(233 229 216 / 70%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 37% 41%, rgb(233 229 216 / 62%) 50%, transparent 50%),
+    radial-gradient(1.4px 1.4px at 88% 57%, rgb(255 111 174 / 60%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 21% 73%, rgb(233 229 216 / 60%) 50%, transparent 50%),
+    radial-gradient(1.2px 1.2px at 71% 88%, rgb(233 229 216 / 55%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 45% 63%, rgb(216 207 224 / 55%) 50%, transparent 50%),
+    radial-gradient(1.6px 1.6px at 6% 34%, rgb(233 229 216 / 75%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 93% 22%, rgb(233 229 216 / 50%) 50%, transparent 50%),
+    radial-gradient(1.2px 1.2px at 55% 95%, rgb(255 111 174 / 45%) 50%, transparent 50%);
+  background-size: 300px 300px;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: fly 9s linear infinite;
 }
 
-.stars .mid {
-  background-image:
-    radial-gradient(1.4px 1.4px at 47% 12%, rgb(255 111 174 / 40%) 50%, transparent 50%),
-    radial-gradient(1.4px 1.4px at 9% 52%, rgb(233 229 216 / 46%) 50%, transparent 50%),
-    radial-gradient(1.4px 1.4px at 76% 81%, rgb(216 207 224 / 40%) 50%, transparent 50%);
-  background-size: 520px 520px;
-  animation: drift 150s linear infinite;
+.stars i:nth-child(2) {
+  animation-delay: -2.25s;
 }
 
-.stars .near {
-  background-image:
-    radial-gradient(2px 2px at 68% 33%, rgb(233 229 216 / 62%) 50%, transparent 50%),
-    radial-gradient(2px 2px at 25% 88%, rgb(255 111 174 / 52%) 50%, transparent 50%);
-  background-size: 780px 780px;
-  animation: drift 90s linear infinite;
+.stars i:nth-child(3) {
+  animation-delay: -4.5s;
 }
 
-@keyframes drift {
-  from {
-    transform: translate3d(0, 0, 0);
+.stars i:nth-child(4) {
+  animation-delay: -6.75s;
+}
+
+@keyframes fly {
+  0% {
+    opacity: 0;
+    transform: scale(0.55);
   }
 
-  to {
-    transform: translate3d(0, 33%, 0);
+  12% {
+    opacity: 0.85;
+  }
+
+  78% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.9);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .stars i {
+    opacity: 0.4;
+    transform: scale(1);
     animation: none;
   }
 }
@@ -796,7 +804,6 @@ body::after {
   line-height: 1.02;
   opacity: 0;
   white-space: pre;
-  transition: text-shadow var(--dur-slow) var(--ease);
   animation: flip 3.2s linear infinite;
   animation-delay: calc(var(--i) * 80ms);
 }
@@ -814,10 +821,25 @@ body::after {
 }
 
 .art:hover pre {
-  text-shadow:
-    0 0 0.6rem rgb(255 111 174 / 70%),
-    0 0 1.8rem rgb(255 111 174 / 35%);
   animation-duration: 1.4s;
+}
+
+/* The bloom is one radial behind the art, not a shadow on every glyph. The
+   glyph version asked the compositor to blur ~1400 characters times forty
+   stacked frames on every paint, which is why hovering stuttered. */
+.art::after {
+  position: absolute;
+  z-index: -1;
+  inset: -12%;
+  background: radial-gradient(closest-side, rgb(255 111 174 / 26%), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-slow) var(--ease);
+  content: "";
+}
+
+.art:hover::after {
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -869,4 +891,28 @@ body::after {
 
 .site-nav a[aria-current="page"] {
   color: var(--hot);
+}
+
+/* ── photographs on a dark ground ───────────────────────────────────────────
+   A bright rectangle butted straight against the void reads as a hole cut in
+   the page. Three cheap things fix it: a hairline so the photo has an edge of
+   its own, a plate behind it so it sits on something, and an inset shadow so
+   the image meets its frame instead of stopping dead. */
+
+.shot {
+  padding: 0.4rem;
+  border: 1px solid rgb(233 229 216 / 14%);
+  background: rgb(233 229 216 / 4%);
+}
+
+.shot::after {
+  position: absolute;
+  inset: 0.4rem;
+  box-shadow: inset 0 0 3rem rgb(14 10 17 / 55%);
+  pointer-events: none;
+  content: "";
+}
+
+.shot figcaption {
+  padding: 0 0.1rem;
 }
