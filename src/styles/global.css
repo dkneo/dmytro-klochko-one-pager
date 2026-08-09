@@ -27,7 +27,9 @@
   --display: clamp(2.8rem, 6vw, 5.5rem);
 
   /* Vertical rhythm. */
-  --section-pad: clamp(4rem, 8vw, 8rem);
+  --section-pad: clamp(3rem, 5vw, 5rem);
+  /* The measure. Content lives inside this; rules never run past it. */
+  --measure: min(100%, 58rem);
   --heading-gap: clamp(1.5rem, 2.5vw, 2.5rem);
   --glyph-arrow: 4rem;
 
@@ -420,6 +422,7 @@ img {
    list shape so this reads as a register rather than a new component. */
 .career-proof {
   display: grid;
+  width: var(--measure);
   grid-template-columns: repeat(2, 1fr);
   gap: 0 clamp(2rem, 4vw, 4rem);
   margin: clamp(2.5rem, 4.5vw, 4rem) 0 0;
@@ -1267,7 +1270,7 @@ summary:focus-visible {
 }
 
 .section-lede {
-  max-width: 34ch;
+  max-width: 30ch;
   margin: 0 0 var(--heading-gap);
   font-family: var(--serif);
   font-size: var(--text-statement);
@@ -1304,27 +1307,33 @@ summary:focus-visible {
 /* ── career, as a register ──────────────────────────────────────────────── */
 
 .roles {
-  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+  width: var(--measure);
+  margin: 0 0 clamp(2rem, 4vw, 3.5rem);
   padding: 0;
   border-top: 1px solid var(--rule);
   list-style: none;
 }
 
 .role {
-  display: grid;
-  grid-template-columns: 2.2rem 1fr;
-  gap: clamp(1rem, 2vw, 1.75rem);
-  align-items: start;
-  padding: 1.35rem 0;
+  position: relative;
+  padding: 1.15rem 0;
   border-bottom: 1px solid var(--rule);
+}
+
+/* In the margin, not in a column. A mark column pushed every company name
+   63px right of the headings, so nothing on the page shared a left edge. */
+.role-mark {
+  position: absolute;
+  top: 1.35rem;
+  left: -3.2rem;
 }
 
 /* Each mark is a silhouette used as a mask and filled with the section ink,
    so six different brand palettes do not fight the page and nothing carries a
    tile behind it. */
 .role-mark {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 1.9rem;
+  height: 1.9rem;
   background: var(--ultramarine);
   mask: var(--mark) center / contain no-repeat;
   -webkit-mask: var(--mark) center / contain no-repeat;
@@ -1391,9 +1400,9 @@ summary:focus-visible {
 
 .timeline {
   display: grid;
+  width: var(--measure);
   grid-template-columns: repeat(2, 1fr);
-  gap: 0 clamp(2rem, 4vw, 4rem);
-  width: 100%;
+  gap: 0 clamp(2rem, 4vw, 3rem);
 }
 
 
@@ -1407,6 +1416,7 @@ summary:focus-visible {
 
 .dive-grid {
   display: grid;
+  width: var(--measure);
   grid-template-columns: repeat(2, 1fr);
   gap: clamp(1.5rem, 3vw, 3rem);
   border-top: 1px solid var(--rule);
@@ -1624,12 +1634,162 @@ summary:focus-visible {
    floating under the whole register. */
 .role-story {
   display: grid;
-  gap: 0.8rem;
-  max-width: 62ch;
+  gap: 0.7rem;
+  max-width: 54ch;
   margin-top: 0.9rem;
 }
 
 .role-story > span {
   font-size: var(--text-body);
   line-height: 1.6;
+}
+
+/* ── the print ──────────────────────────────────────────────────────────────
+   The reference is a riso/crayon print: vertical bands of ink laid over cream
+   stock, overlapping so two inks make a third, with paper grain showing
+   through everything. Both effects below are the real printing behaviour:
+   multiply is literally what overlapping translucent ink does, and the grain
+   is one SVG turbulence tile. No images, no JavaScript. */
+
+body {
+  position: relative;
+}
+
+/* Paper grain over the whole page. Multiply keeps it reading as tooth in the
+   stock rather than as a grey film on top. */
+body::after {
+  position: fixed;
+  z-index: 400;
+  inset: 0;
+  opacity: 0.42;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  content: "";
+}
+
+/* The bands. Each section that wants ink gets overlapping columns of it;
+   where two columns cross, multiply produces the third colour, exactly the
+   way a second pass on a risograph does. */
+.ink {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.ink::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 auto;
+  /* Right half only. Bands behind the headline made the type unreadable, and
+     the reference uses them as a block on the sheet, not as a wash under
+     everything. */
+  width: 46%;
+  background:
+    linear-gradient(to bottom, rgb(58 111 208 / 72%), rgb(58 111 208 / 34%)) 2% 4% / 15% 84% no-repeat,
+    linear-gradient(to bottom, rgb(43 47 122 / 74%), rgb(43 47 122 / 30%)) 18% 0 / 12% 92% no-repeat,
+    linear-gradient(to bottom, rgb(123 98 196 / 66%), rgb(123 98 196 / 26%)) 31% 10% / 14% 78% no-repeat,
+    linear-gradient(to bottom, rgb(194 161 130 / 70%), rgb(194 161 130 / 28%)) 46% 2% / 13% 88% no-repeat,
+    linear-gradient(to bottom, rgb(43 47 122 / 60%), rgb(123 98 196 / 34%)) 60% 14% / 11% 74% no-repeat,
+    linear-gradient(to bottom, rgb(58 111 208 / 58%), rgb(58 111 208 / 20%)) 73% 0 / 15% 94% no-repeat,
+    linear-gradient(to bottom, rgb(43 47 122 / 46%), rgb(43 47 122 / 16%)) 89% 8% / 10% 70% no-repeat;
+  mix-blend-mode: multiply;
+  content: "";
+}
+
+/* Reduced motion has nothing to do with this, but a print this heavy behind
+   body copy would hurt; the bands only ever sit behind display type. */
+.ink-quiet::before {
+  opacity: 0.32;
+}
+
+/* ── opening ────────────────────────────────────────────────────────────── */
+
+.opening {
+  padding-block: clamp(3rem, 6vw, 6rem) clamp(4rem, 7vw, 7rem);
+}
+
+.opening-inner {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: end;
+}
+
+.opening-copy h1 {
+  max-width: 13ch;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: var(--display);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+.opening-copy h1 em {
+  color: var(--cobalt);
+  font-weight: 400;
+}
+
+.opening-role {
+  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+}
+
+.opening-lede {
+  max-width: 26ch;
+  margin: 1.5rem 0 0;
+  font-family: var(--serif);
+  font-size: var(--text-lede);
+  line-height: 1.25;
+}
+
+.opening-note {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: var(--text-label);
+}
+
+.opening-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 0.8;
+  margin: 0;
+  rotate: var(--tilt);
+}
+
+.opening-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 0 0 0.55rem var(--paper);
+}
+
+@media (max-width: 800px) {
+  .opening-inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  /* At this width the copy would sit on top of the bands. */
+  .ink::before {
+    width: 100%;
+    opacity: 0.4;
+  }
+
+  .opening-photo {
+    width: 74%;
+    margin-top: 2.5rem;
+  }
+}
+
+/* Bebop's end card. Quiet enough that it reads as a sign-off rather than a
+   joke, loud enough that anyone who knows it will see it. */
+.signoff {
+  color: var(--violet);
+  font-family: var(--serif);
+  font-style: italic;
+  letter-spacing: 0.02em;
 }

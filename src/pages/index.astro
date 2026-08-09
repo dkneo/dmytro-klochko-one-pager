@@ -101,37 +101,29 @@ const description =
 ---
 
 <Layout title={title} description={description}>
-  <section class="hero" id="top" aria-labelledby="hero-title">
-    <div class="hero-collage" aria-hidden="true">
-      <PhotoFill class="hero-photo hero-photo--left" src="/images/hero-left.jpg" alt="" eager />
-      <PhotoFill class="hero-photo hero-photo--center" src="/images/hero-center.jpg" alt="" eager />
-      <PhotoFill class="hero-photo hero-photo--right" src="/images/hero-right.jpg" alt="" />
-    </div>
-
-    <div class="hero-copy">
-      <h1 id="hero-title">
-        jaywalker at the intersection of <em>art and technology.</em>
-      </h1>
-    </div>
-  </section>
-
-  <section class="about" id="about" aria-labelledby="about-title">
-    <div class="about-inner">
-      <PhotoFill
-        class="about-photo"
-        src="/images/about.jpg"
-        alt="Dmytro photographed in a mirror, in a cap and worn denim jacket"
-      />
-      <div class="about-copy">
-        <h2 id="about-title">about <em>me</em></h2>
-        <p class="about-role">
+  {/* Hero and about were two blocks saying overlapping things with four
+      photos between them. One opening: name, what he does, one photograph,
+      the print behind it. */}
+  <section class="opening ink" id="top" aria-labelledby="hero-title">
+    <div class="page-shell opening-inner">
+      <div class="opening-copy">
+        <h1 id="hero-title">
+          jaywalker at the intersection of <em>art and technology.</em>
+        </h1>
+        <p class="opening-role">
           <ExternalLink class="role-link" href="https://replika.com" label="ceo, replika" />
         </p>
-        <p class="about-lede">
+        <p class="opening-lede">
           product &amp; engineering guy with a background in art, chess and theatre.
         </p>
-        <p class="about-note">based between nyc, paris &amp; sf.</p>
+        <p class="opening-note">based between nyc, paris &amp; sf.</p>
       </div>
+      <PhotoFill
+        class="opening-photo"
+        src="/images/about.jpg"
+        alt="Dmytro photographed in a mirror, in a cap and worn denim jacket"
+        eager
+      />
     </div>
   </section>
 
