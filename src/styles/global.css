@@ -974,3 +974,54 @@ body::after {
     animation: none;
   }
 }
+
+/* ── tenets ─────────────────────────────────────────────────────────────── */
+
+.tenets {
+  display: grid;
+  gap: var(--sp-3);
+  width: var(--measure);
+  margin: var(--sp-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tenets li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.tenet-n {
+  color: var(--hot);
+  font-size: var(--t-xs);
+  letter-spacing: 0.2em;
+}
+
+.tenets h2 {
+  margin: 0 0 0.4rem;
+  font-size: var(--t-md);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tenets p {
+  margin: 0;
+  color: var(--dim);
+  font-size: var(--t-sm);
+  line-height: 1.65;
+}
+
+/* The one line of his that had nowhere to live after the rebuild. It is not a
+   section, it is a signature, so it sits with the sign-off. */
+.cathedrals {
+  margin: 0 0 var(--sp-2);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-lg);
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+}

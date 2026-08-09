@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const principles = [
+  {
+    n: "01",
+    head: "taste, then speed",
+    body: "natural aptitude for taste, action bias, and having too much fun shipping. clairvoyance, aggressive optimism, following my nose.",
+  },
+  {
+    n: "02",
+    head: "no managers",
+    body: "i'm intense and hands-on, so i don't hire managers. everyone reports to me directly. i write the architecture, the prompts and most of the copy.",
+  },
+  {
+    n: "03",
+    head: "violent intolerance for mediocre work",
+    body: "culture in my teams is something i'm incredibly proud of. anime-level fellowship and camaraderie. fearlessness. relentless pursuit of the mission.",
+  },
+  {
+    n: "04",
+    head: "customers, unhealthily",
+    body: "more users in my slack than team members. 400+ interviews for replika 2.0 alone. making my product feel like magic.",
+  },
+  {
+    n: "05",
+    head: "clean and direct",
+    body: "very fucking clean and direct in my comms. extensive experience working with the world's best brand agencies, which mostly taught me when to stop talking.",
+  },
+];
+
+const title = "working · dmytro klochko";
+const description = "how dmytro klochko works: taste, speed, no managers, and an unhealthy interest in customers.";
+---
+
+<Layout title={title} description={description} current="working">
+  <section class="shell session" id="top" aria-labelledby="w1">
+    <div class="card">
+      <p class="card-no">01</p>
+      <h1 class="card-title" id="w1">ways of working</h1>
+    </div>
+
+    <p class="lede">
+      the short version: i would rather build the thing than manage the building of the thing.
+    </p>
+
+    <ol class="tenets">
+      {
+        principles.map((p) => (
+          <li>
+            <span class="tenet-n">{p.n}</span>
+            <div>
+              <h2>{p.head}</h2>
+              <p>{p.body}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="shell session" id="lynch" aria-labelledby="w2">
+    <div class="card">
+      <p class="card-no">02</p>
+      <h2 class="card-title" id="w2">the thing worth protecting</h2>
+    </div>
+
+    <div class="bay">
+      <div class="prose">
+        <p>
+          the reason any of the above matters. a team that never gets time to experiment stops
+          being able to. protecting that time is most of the job.
+        </p>
+      </div>
+      <figure class="shot">
+        <img
+          src="/images/lynch.jpg"
+          alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
+          loading="lazy"
+        />
+      </figure>
+    </div>
+  </section>
+</Layout>

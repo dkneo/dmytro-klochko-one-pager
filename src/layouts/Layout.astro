@@ -5,7 +5,7 @@ import ship from "../ascii/ship.txt?raw";
 interface Props {
   title: string;
   description: string;
-  current?: "home" | "library";
+  current?: "home" | "working" | "library";
 }
 
 const { title, description, current = "home" } = Astro.props;
@@ -17,6 +17,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
 // then changed meaning on every other page.
 const nav = [
   { label: "about", href: "/" },
+  { label: "working", href: "/working" },
   { label: "media", href: "/library" },
 ];
 ---
@@ -86,8 +87,9 @@ const nav = [
         {
           nav.map((item) => (
             <a href={item.href} aria-current={
-              (item.href === "/library" && current === "library") ||
-              (item.href === "/" && current === "home") ? "page" : undefined
+              (item.href === "/" ? current === "home" : item.href === `/${current}`)
+                ? "page"
+                : undefined
             }>
               {item.label}
             </a>
@@ -103,6 +105,7 @@ const nav = [
     <footer class="site-footer">
       <div class="ship" aria-hidden="true"><pre>{ship}</pre></div>
       <p class="signoff">see you space cowboy&hellip;</p>
+      <p class="cathedrals">relentless pursuer. beholder of cathedrals all around.</p>
       <div class="foot-row">
         <p>© 2026 dmytro klochko</p>
         <a class="to-top" href="#top">back to top ↑</a>
