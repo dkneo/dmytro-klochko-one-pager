@@ -191,10 +191,12 @@ Photos are never plain rectangles: each sits in an overlapping, individually rot
 
 Everything else is hard-edged. Rounding is reserved for exactly two functional shapes: the fully pill-shaped menu toggle and label chip (`border-radius: 999px`), both with a 1px solid ink border. Lists, dividers, and link rows use hairline borders with zero radius.
 
+The identity mark is a pink pirate flag, drawn by Dmytro. It is the favicon and the app icon, where it keeps the pale-pink tile it was drawn on; on the page the tile is keyed out by flood-filling inward from the border, so the enclosed white skull and cutlass survive and the flag sits on the paper as a drawn mark rather than a rounded tile. It appears exactly once in the body, inline after the word "pirates" in the career copy, at `1.5em` with `alt=""` — the word carries the meaning, the flag is decoration.
+
 The second decorative mark is the hand-drawn arrow (↗) that points out of the childhood collage, set in the serif at `--glyph-arrow` (4rem) and rotated -22°. It carries a size token of its own because it is a drawn mark scaled to its collage, not text — it is deliberately outside the `--text-*` ramp, and The One Scale Rule does not govern it.
 
 ### Named Rules
-**The Pill Exception Rule.** Only the menu toggle and label chips get `border-radius: 999px`. No other interactive element, card, or container is rounded.
+**The Pill Exception Rule.** Only the menu toggle and label chips get `border-radius: 999px`. No other interactive element, card, or container is rounded. This is why the pirate mark ships with its tile keyed out rather than with a CSS radius: a rounded square would have been a third rounding idiom serving nothing, and a drawn mark needs no container at all.
 
 ## Components
 

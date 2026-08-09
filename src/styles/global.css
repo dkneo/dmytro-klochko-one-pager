@@ -633,15 +633,15 @@ img {
    off, instead of orphaned beneath a different column. */
 .career-story /* The site's mark, used once in the body copy where the word earns it.
    alt="" because "pirates" already says it; this is decoration, not content.
-   Rounded here rather than in the file so the same square asset serves the
-   favicon, where iOS applies its own mask. */
+   The icon's tile background is keyed out, so this is a drawn mark on the
+   page like the scribble and the collage arrow, not a rounded container.
+   The favicon keeps the tile, because iOS applies its own mask. */
 .mark-pirate {
   display: inline-block;
-  width: 1.4em;
-  height: 1.4em;
-  margin-left: 0.28em;
-  border-radius: 0.32em;
-  vertical-align: -0.34em;
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 0.24em;
+  vertical-align: -0.38em;
 }
 
 .career-note {
