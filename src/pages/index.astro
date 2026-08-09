@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import torus from "../ascii/torus.json";
+import orbit from "../ascii/orbit.json";
+import dish from "../ascii/dish.json";
 
 const roles = [
   {
@@ -32,7 +33,7 @@ const roles = [
   },
   {
     company: "vk",
-    what: "400m mau social network",
+    what: "100m mau social network",
     role: "product and growth",
     href: "https://vk.com",
     mark: "/images/marks/vk.png",
@@ -137,9 +138,14 @@ const description =
 
         <div class="prose" style="margin-top: var(--sp-3)">
           <p>
-            i realized replika could be 100x what it was, so i rebuilt it. replika 2.0 is a
-            ground-up rewrite: i wrote the first prototypes myself, ran 400+ user interviews, and
-            still write the architecture, the prompts and most of the copy.
+            i believe ai with real eq can help millions understand themselves and be happier. i
+            followed that hunch and joined replika as coo and cpo. once inside, the potential was
+            obvious: this could be 100x what it was.
+          </p>
+          <p>
+            so i rebuilt it, and became ceo. replika 2.0 is a ground-up rewrite: i wrote the first
+            prototypes myself, ran 400+ user interviews, and still write the architecture, the
+            prompts and most of the copy.
           </p>
           <p>
             i rebuilt the team around it: phds, true artists, pirates<img
@@ -157,10 +163,12 @@ const description =
       </div>
 
       <div>
-        <div class="torus" aria-hidden="true">
-          {torus.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
+        <div class="art-wrap">
+          <div class="art" style="--cols: 62" aria-hidden="true">
+            {orbit.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
+          </div>
+          <span class="torus-cap">two bodies, one orbit</span>
         </div>
-        <span class="torus-cap">still turning</span>
 
         <ul class="receipts receipts--stack">
           {
@@ -225,19 +233,19 @@ const description =
       </div>
 
       <div class="shot-row">
-        <figure class="shot shot--colour">
+        <figure class="shot">
           <img
             src="/images/childhood-chess.jpg"
             alt="Dmytro as a small boy at a tournament board, grinning, a row of chess pieces in front of him"
           />
         </figure>
-        <figure class="shot shot--colour">
+        <figure class="shot">
           <img
             src="/images/childhood-music.jpg"
             alt="Dmytro as a child in studio headphones, grinning at a microphone"
           />
         </figure>
-        <figure class="shot shot--colour">
+        <figure class="shot">
           <img
             src="/images/childhood-geese.jpg"
             alt="Dmytro as a toddler running through a garden, laughing, a gaggle of geese behind him"
@@ -254,17 +262,23 @@ const description =
     </div>
 
     <div class="bay">
-      <p class="say">
-        write to me at <a href="mailto:1@dmklochko.com">1@dmklochko.com</a>, or
-        <a href="mailto:1@replika.com">1@replika.com</a> for anything replika. i'm also on
-        <a href="https://x.com/dkreplika" target="_blank" rel="noreferrer">x</a>,
-        <a href="https://instagram.com/dmytrotoday" target="_blank" rel="noreferrer">instagram</a> and
-        <a href="https://www.linkedin.com/in/heydmytro/" target="_blank" rel="noreferrer">linkedin</a>.
-      </p>
+      <div>
+        <p class="say">i read everything. i answer most of it.</p>
+        <ul class="ways">
+          <li><a href="mailto:1@dmklochko.com">1@dmklochko.com</a> <em>personal</em></li>
+          <li><a href="mailto:1@replika.com">1@replika.com</a> <em>replika</em></li>
+          <li><a href="https://x.com/dkreplika" target="_blank" rel="noreferrer">@dkreplika ↗</a> <em>x</em></li>
+          <li><a href="https://instagram.com/dmytrotoday" target="_blank" rel="noreferrer">@dmytrotoday ↗</a> <em>instagram</em></li>
+          <li><a href="https://www.linkedin.com/in/heydmytro/" target="_blank" rel="noreferrer">heydmytro ↗</a> <em>linkedin</em></li>
+        </ul>
+      </div>
 
-      <figure class="shot">
-        <img src="/images/elevator.jpg" alt="Dmytro photographed head to toe in a mirrored lift" />
-      </figure>
+      <div class="art-wrap">
+        <div class="art" style="--cols: 54" aria-hidden="true">
+          {dish.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
+        </div>
+        <span class="torus-cap">receiving</span>
+      </div>
     </div>
   </section>
 </Layout>

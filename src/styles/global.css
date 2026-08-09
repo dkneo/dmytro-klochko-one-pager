@@ -14,7 +14,7 @@
   --bone: #e9e5d8;
   --dim: #9b90a4;
   --faint: #6b6076;
-  --rule: rgb(233 229 216 / 12%);
+  --rule: rgb(233 229 216 / 9%);
   --cold: #d8cfe0;
   --hot: #ff6fae;
 
@@ -68,25 +68,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Starfield. Fixed, so the page moves and the sky does not. Six radial
-   gradients, no image and no script. */
-body::before {
-  position: fixed;
-  z-index: 0;
-  inset: 0;
-  background-image:
-    radial-gradient(1px 1px at 12% 18%, rgb(233 229 216 / 55%) 50%, transparent 50%),
-    radial-gradient(1px 1px at 68% 8%, rgb(233 229 216 / 40%) 50%, transparent 50%),
-    radial-gradient(1.6px 1.6px at 84% 62%, rgb(233 229 216 / 30%) 50%, transparent 50%),
-    radial-gradient(1px 1px at 33% 74%, rgb(233 229 216 / 35%) 50%, transparent 50%),
-    radial-gradient(1px 1px at 51% 41%, rgb(233 229 216 / 28%) 50%, transparent 50%),
-    radial-gradient(1.4px 1.4px at 22% 92%, rgb(224 96 58 / 45%) 50%, transparent 50%);
-  background-size:
-    520px 520px, 380px 380px, 660px 660px, 440px 440px, 300px 300px, 700px 700px;
-  opacity: 0.32;
-  pointer-events: none;
-  content: "";
-}
 
 main,
 .site-header,
@@ -170,11 +151,6 @@ img {
   transition: color var(--dur) var(--ease);
 }
 
-.site-nav a::before {
-  color: var(--faint);
-  content: "#";
-}
-
 .site-nav a:hover {
   color: var(--bone);
 }
@@ -182,13 +158,11 @@ img {
 /* ── session cards ──────────────────────────────────────────────────────────
    The show announces each episode on a card before it starts. So does this. */
 
+/* No rules between sections. A full-width hairline above every block is the
+   single most generic move available, and there were five of them. The
+   numbered title and the space around it do the separating. */
 .session {
   padding-block: var(--stack);
-  border-top: 1px solid var(--rule);
-}
-
-.session:first-of-type {
-  border-top: 0;
 }
 
 .card {
@@ -251,7 +225,6 @@ img {
   width: 100%;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--rule);
   list-style: none;
 }
 
@@ -344,7 +317,6 @@ img {
   width: 100%;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--rule);
   counter-reset: log;
   list-style: none;
 }
@@ -372,7 +344,6 @@ img {
   width: 100%;
   margin: var(--sp-4) 0 0;
   padding: 0;
-  border-top: 1px solid var(--rule);
   list-style: none;
 }
 
@@ -459,7 +430,6 @@ img {
   width: min(100% - var(--gutter) * 2, 78rem);
   margin-inline: auto;
   padding-block: 2rem 3.5rem;
-  border-top: 1px solid var(--rule);
   color: var(--faint);
   font-size: var(--t-xs);
   letter-spacing: 0.14em;
@@ -637,23 +607,20 @@ img {
   background: var(--deck);
 }
 
+/* Photographs are photographs. The monochrome pass made the childhood ones
+   read as a memorial and did nothing for the rest. The video grid keeps its
+   desaturation, because that one was working. */
 .shot img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.12) brightness(0.94);
-  transition: filter var(--dur-slow) var(--ease);
+  filter: contrast(1.04) saturate(1.04);
+  transition: transform var(--dur-slow) var(--ease);
 }
 
 .shot:hover img {
-  filter: none;
-}
-
-/* Old family photographs stay in colour. Desaturated, they read as a memorial
-   rather than as a childhood. */
-.shot--colour img {
-  filter: contrast(1.04) saturate(1.05);
+  transform: scale(1.02);
 }
 
 .shot figcaption,
@@ -662,40 +629,6 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
   gap: var(--sp-2);
   margin-top: var(--sp-2);
-}
-
-/* ── the torus ──────────────────────────────────────────────────────────────
-   Real ASCII art, not a photograph pushed through a converter. Forty frames
-   of a rotating torus solved at build time and stacked; each is revealed for
-   one fortieth of the cycle by its own delay. Pure CSS, zero runtime cost. */
-
-.torus {
-  position: relative;
-  container-type: inline-size;
-  max-width: 100%;
-  margin-bottom: 0;
-  color: var(--bone);
-}
-
-/* The first frame stays in flow and sets the box height; the rest stack on
-   top of it. Declaring an aspect-ratio instead meant guessing how tall 26
-   rows of text are, and the guess was wrong, so the caption sat on the art. */
-.torus pre {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  /* Solved, not chosen: a monospace advance is ~0.6em, so 78 columns fill the
-     container at 100cqi / (78 * 0.6). */
-  font-size: calc(100cqi / 46.8);
-  line-height: 1.02;
-  opacity: 0;
-  white-space: pre;
-  animation: flip 3.2s linear infinite;
-  animation-delay: calc(var(--i) * 80ms);
-}
-
-.torus pre:first-child {
-  position: relative;
 }
 
 @keyframes flip {
@@ -720,16 +653,6 @@ img {
   text-transform: uppercase;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .torus pre {
-    animation: none;
-  }
-
-  .torus pre:first-child {
-    opacity: 1;
-  }
-}
-
 @media (max-width: 860px) {
   .bay {
     grid-template-columns: minmax(0, 1fr);
@@ -746,12 +669,7 @@ img {
    3. grain, so it is analogue rather than digital-clean                     */
 
 body {
-  background:
-    radial-gradient(120% 80% at 78% -10%, rgb(255 111 174 / 13%) 0%, transparent 55%),
-    radial-gradient(90% 70% at 8% 12%, rgb(150 120 255 / 10%) 0%, transparent 60%),
-    radial-gradient(120% 90% at 50% 108%, rgb(120 90 200 / 12%) 0%, transparent 60%),
-    var(--void);
-  background-attachment: fixed;
+  background: var(--void);
 }
 
 /* Scanlines. Three-pixel pitch, barely there; the point is that the surface
@@ -790,31 +708,165 @@ body::after {
    does instead: the ring takes the accent, blooms, and doubles its rate.
    Same forty frames, same zero bytes of script. */
 
-.torus {
+/* Beside the torus there is one column, not two. */
+.receipts--stack {
+  grid-template-columns: 1fr;
+  margin-top: var(--sp-4);
+}
+
+/* ── endless space ──────────────────────────────────────────────────────────
+   Three star layers drifting at different rates. The parallax is the rate
+   difference: near stars cross the frame in 90s, far ones take 240s, so the
+   field has depth without a scroll listener or a single image. The purple
+   wash this replaces was a flat tint pretending to be atmosphere. */
+
+.stars {
+  position: fixed;
+  z-index: 0;
+  inset: -50% 0;
+  pointer-events: none;
+}
+
+.stars i {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background-repeat: repeat;
+  content: "";
+}
+
+.stars .far {
+  background-image:
+    radial-gradient(1px 1px at 14% 6%, rgb(233 229 216 / 42%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 62% 18%, rgb(233 229 216 / 30%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 37% 41%, rgb(233 229 216 / 26%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 88% 57%, rgb(233 229 216 / 34%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 21% 73%, rgb(233 229 216 / 22%) 50%, transparent 50%);
+  background-size: 340px 340px;
+  animation: drift 240s linear infinite;
+}
+
+.stars .mid {
+  background-image:
+    radial-gradient(1.4px 1.4px at 47% 12%, rgb(255 111 174 / 40%) 50%, transparent 50%),
+    radial-gradient(1.4px 1.4px at 9% 52%, rgb(233 229 216 / 46%) 50%, transparent 50%),
+    radial-gradient(1.4px 1.4px at 76% 81%, rgb(216 207 224 / 40%) 50%, transparent 50%);
+  background-size: 520px 520px;
+  animation: drift 150s linear infinite;
+}
+
+.stars .near {
+  background-image:
+    radial-gradient(2px 2px at 68% 33%, rgb(233 229 216 / 62%) 50%, transparent 50%),
+    radial-gradient(2px 2px at 25% 88%, rgb(255 111 174 / 52%) 50%, transparent 50%);
+  background-size: 780px 780px;
+  animation: drift 90s linear infinite;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 33%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars i {
+    animation: none;
+  }
+}
+
+/* ── art ────────────────────────────────────────────────────────────────── */
+
+.art {
+  position: relative;
+  max-width: 100%;
+  color: var(--bone);
   transition: color var(--dur-slow) var(--ease);
 }
 
-.torus pre {
+.art pre {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  font-size: calc(100cqi / (var(--cols) * 0.6));
+  line-height: 1.02;
+  opacity: 0;
+  white-space: pre;
   transition: text-shadow var(--dur-slow) var(--ease);
+  animation: flip 3.2s linear infinite;
+  animation-delay: calc(var(--i) * 80ms);
 }
 
-.torus:hover {
+.art pre:first-child {
+  position: relative;
+}
+
+.art-wrap {
+  container-type: inline-size;
+}
+
+.art:hover {
   color: var(--hot);
 }
 
-.torus:hover pre {
+.art:hover pre {
   text-shadow:
     0 0 0.6rem rgb(255 111 174 / 70%),
     0 0 1.8rem rgb(255 111 174 / 35%);
   animation-duration: 1.4s;
 }
 
-.torus-wrap:hover .torus-cap {
+@media (prefers-reduced-motion: reduce) {
+  .art pre {
+    animation: none;
+  }
+
+  .art pre:first-child {
+    opacity: 1;
+  }
+}
+
+/* Addresses as a register, not as a sentence with links buried in it. The
+   sentence version lost its spaces at the line breaks and read as a run-on. */
+.ways {
+  display: grid;
+  gap: 0;
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ways li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.ways a {
+  font-size: var(--t-md);
+  transition: color var(--dur) var(--ease);
+}
+
+.ways a:hover {
   color: var(--hot);
 }
 
-/* Beside the torus there is one column, not two. */
-.receipts--stack {
-  grid-template-columns: 1fr;
-  margin-top: var(--sp-4);
+.ways em {
+  color: var(--faint);
+  font-size: var(--t-xs);
+  font-style: normal;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--hot);
 }

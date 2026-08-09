@@ -4,7 +4,7 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
-  current?: "home" | "highlights";
+  current?: "home" | "library";
 }
 
 const { title, description, current = "home" } = Astro.props;
@@ -12,21 +12,12 @@ const { title, description, current = "home" } = Astro.props;
 const ogTitle = "dmytro klochko";
 const ogDescription = "ceo at replika. product and engineering, out of art, chess and theatre.";
 
-const nav =
-  current === "home"
-    ? [
-        { label: "now", href: "#now" },
-        { label: "before", href: "#before" },
-        { label: "origin", href: "#origin" },
-        { label: "highlights", href: "/highlights" },
-        { label: "say hi", href: "#contact" },
-      ]
-    : [
-        { label: "on camera", href: "#top" },
-        { label: "on record", href: "#read" },
-        { label: "taste", href: "#taste" },
-        { label: "back", href: "/" },
-      ];
+// Pages only. The in-page anchors belonged in the page, not in a header that
+// then changed meaning on every other page.
+const nav = [
+  { label: "index", href: "/" },
+  { label: "library", href: "/library" },
+];
 ---
 
 <html lang="en">
@@ -82,12 +73,25 @@ const nav =
     -->
     <a class="skip-link" href="#main">skip to content</a>
 
+    <div class="stars" aria-hidden="true">
+      <i class="far"></i><i class="mid"></i><i class="near"></i>
+    </div>
+
     <header class="site-header">
       <a class="masthead" href="/">
         dmytro klochko <span>/ ceo, replika</span>
       </a>
-      <nav class="site-nav" aria-label="sessions">
-        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      <nav class="site-nav" aria-label="pages">
+        {
+          nav.map((item) => (
+            <a href={item.href} aria-current={
+              (item.href === "/library" && current === "library") ||
+              (item.href === "/" && current === "home") ? "page" : undefined
+            }>
+              {item.label}
+            </a>
+          ))
+        }
       </nav>
     </header>
 
