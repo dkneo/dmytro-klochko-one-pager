@@ -21,10 +21,16 @@ const ogDescription = "jaywalker at the intersection of art and technology.";
     <meta name="generator" content={Astro.generator} />
 
     <!--
-      The mark is a raster drawing, so there is no SVG variant to prefer; the
-      .ico carries both 16 and 32, because at 16 the flag needs its own
-      rendering rather than a downscale of the 32.
+      The mark is a raster drawing, so there is no SVG variant to prefer.
+      The PNGs are listed on their own URLs rather than relying on the .ico
+      alone: browsers cache favicons far more aggressively than pages, so a
+      changed .ico at an unchanged URL keeps serving the old icon through
+      ordinary reloads. These paths are new, so there is nothing to serve.
+      The .ico stays for the bare /favicon.ico request, and carries a real 16
+      alongside the 32 rather than letting the browser downscale.
     -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />

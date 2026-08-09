@@ -145,22 +145,24 @@ const description =
 
     <section class="about" id="about" aria-labelledby="about-title">
       <div class="about-inner">
-        <div class="about-title">
-          <h2 id="about-title">about <em>me</em></h2>
-          <p>product &amp; engineering guy with a background in art, chess and theatre.</p>
-          <p class="about-role">
-            <ExternalLink class="role-link" href="https://replika.com" label="ceo, replika" />
-          </p>
-        </div>
         <PhotoFill
           class="about-photo"
           src="/images/about.jpg"
           alt="Dmytro photographed in a mirror, in a cap and worn denim jacket"
         />
-        <p class="about-story">
-          relentless pursuer. beholder of cathedrals all around. tech entrepreneur &amp; tinkerer.
-        </p>
-        <p class="about-note">based between nyc, paris &amp; sf.</p>
+        <div class="about-copy">
+          <h2 id="about-title">about <em>me</em></h2>
+          <p class="about-role">
+            <ExternalLink class="role-link" href="https://replika.com" label="ceo, replika" />
+          </p>
+          <p class="about-lede">
+            product &amp; engineering guy with a background in art, chess and theatre.
+          </p>
+          <p class="about-story">
+            relentless pursuer. beholder of cathedrals all around. tech entrepreneur &amp; tinkerer.
+          </p>
+          <p class="about-note">based between nyc, paris &amp; sf.</p>
+        </div>
       </div>
     </section>
 
@@ -220,18 +222,14 @@ const description =
 
     <section class="ways" aria-labelledby="ways-title">
       <div class="page-shell ways-inner">
+        <h2 id="ways-title">ways of <em>working</em></h2>
         <figure class="ways-inspo">
           <img
             src="/images/lynch.jpg"
             alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
             loading="lazy"
           />
-          <figcaption>
-            &ldquo;we never get any time to experiment. we never get any time to, you know, go dreamy.&rdquo;
-            <span>david lynch</span>
-          </figcaption>
         </figure>
-        <h2 id="ways-title">ways of <em>working</em></h2>
         <div class="ways-grid">
           <p>
             natural aptitude for taste, action bias, &amp; having too much fun shipping.<br />
@@ -270,20 +268,17 @@ const description =
         <FramedPhoto
           class="childhood-photo childhood-photo--chess"
           src="/images/childhood-chess.jpg"
-          alt="Dmytro as a small boy leaning over a chess board mid-game"
-          caption="first obsession"
+          alt="Dmytro as a small boy at a tournament board, grinning, a row of chess pieces in front of him"
         />
         <FramedPhoto
           class="childhood-photo childhood-photo--piano"
           src="/images/childhood-music.jpg"
           alt="Dmytro as a child in studio headphones, grinning at a microphone"
-          caption="second obsession"
         />
         <FramedPhoto
           class="childhood-photo childhood-photo--now"
-          src="/images/now.jpg"
-          alt="Dmytro stretched out in a striped deckchair in a London park"
-          caption="now"
+          src="/images/childhood-geese.jpg"
+          alt="Dmytro as a toddler running through a garden, laughing, a gaggle of geese behind him"
         />
         <span class="hand-arrow" aria-hidden="true">↗</span>
       </div>
@@ -336,7 +331,7 @@ const description =
         </span>
         <span class="manifesto-copy">
           <span class="manifesto-title">the replika manifesto</span>
-          <span class="manifesto-note">i wrote it. hover to read on.</span>
+          <span class="manifesto-note">a replika 2.0 manifesto i wrote.</span>
         </span>
       </a>
     </section>
@@ -415,12 +410,11 @@ const description =
             <ExternalLink class="text-link" href={item.href} label={item.label} />
           ))}
         </div>
-        <span class="scribble scribble--social" aria-hidden="true"></span>
       </div>
 
       <footer class="page-shell footer">
         <p>© 2026 dmytro klochko</p>
-        <p>art × technology</p>
+        <p>space cowboy</p>
         <a class="to-top" href="#top">
           back to top <span aria-hidden="true" class="arrow">↑</span>
         </a>

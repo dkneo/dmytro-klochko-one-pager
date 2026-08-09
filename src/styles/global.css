@@ -338,24 +338,36 @@ img {
 .about-inner {
   display: grid;
   width: min(92vw, 82rem);
-  /* Sized for the short bio that lives here now. The old value was tuned for
-     the longer origin story, which moved to upbringing. */
-  min-height: clamp(21rem, 29vw, 28rem);
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 1fr auto;
-  gap: 1.5rem;
-  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
   margin-inline: auto;
   padding-block: var(--section-pad);
 }
 
-.about-title {
-  z-index: 2;
-  grid-column: 3 / 10;
+/* Was five blocks at five different indents, sizes and rotations scattered
+   across a 12-column grid. Now: photograph on the left, one column of copy on
+   the right, read top to bottom. */
+.about-photo {
+  position: relative;
+  grid-column: 1 / 6;
+  width: 100%;
+  aspect-ratio: 0.84;
+  margin: 0;
+  rotate: -2deg;
 }
 
-.about-title h2 {
-  margin: -0.18em 0 1.2rem;
+.about-photo img {
+  object-fit: cover;
+  box-shadow: 0 0 0 0.5rem #050505;
+}
+
+.about-copy {
+  grid-column: 7 / 13;
+}
+
+.about-copy h2 {
+  margin: 0;
   font-family: var(--serif);
   font-size: var(--display-hero);
   font-weight: 400;
@@ -364,30 +376,26 @@ img {
   white-space: nowrap;
 }
 
-.about-title h2 em {
+.about-copy h2 em {
   color: var(--blue);
   font-weight: 400;
 }
 
-.about-title p {
-  width: min(90%, 32rem);
-  margin: 1.8rem 0 0 auto;
-  font-family: var(--serif);
-  font-size: var(--text-statement);
-  line-height: 1.1;
-}
-
+/* Sits directly under the name and is the one thing here that has to land in
+   a glance, so it takes the section accent and a real size rather than the
+   label step it used to share with captions. */
 .about-role {
-  margin: 1.2rem 0 0;
+  margin: 1.4rem 0 0;
 }
 
 .role-link {
   display: inline-flex;
-  gap: 0.4rem;
+  gap: 0.5rem;
   align-items: center;
-  font-size: var(--text-label);
+  color: var(--blue);
+  font-size: var(--text-quote);
   font-weight: 650;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: opacity var(--dur) var(--ease);
 }
@@ -396,39 +404,25 @@ img {
   opacity: 0.65;
 }
 
-.about-photo {
-  position: relative;
-  z-index: 1;
-  grid-column: 2 / 6;
-  grid-row: 2 / 4;
-  width: 100%;
-  aspect-ratio: 0.9;
-  align-self: end;
-  margin-top: -1rem;
-  transform: rotate(-2deg);
-}
-
-.about-photo img {
-  object-fit: cover;
+.about-lede {
+  margin: 2rem 0 0;
+  font-family: var(--serif);
+  font-size: var(--text-statement);
+  line-height: 1.1;
 }
 
 .about-story {
-  grid-column: 7 / 11;
-  align-self: start;
-  margin: 0 0 2rem;
+  margin: 1.4rem 0 0;
   font-family: var(--serif);
   font-size: var(--text-lede);
   line-height: 1.25;
 }
 
 .about-note {
-  grid-column: 11 / -1;
-  align-self: start;
-  margin: 0 0 2rem;
+  margin: 1.8rem 0 0;
   color: var(--muted-on-dark);
   font-size: var(--text-small);
   line-height: 1.5;
-  transform: rotate(5deg);
 }
 
 .upbringing {
@@ -522,7 +516,6 @@ img {
   object-fit: cover;
 }
 
-.childhood-photo figcaption,
 .career-art figcaption {
   position: absolute;
   padding: 0.4rem 0.55rem;
@@ -545,11 +538,6 @@ img {
 /* Sits inside the photo. Hung off the right edge it landed exactly where the
    piano photo overlaps, and a figcaption cannot escape its parent's stacking
    context to sit above a higher-z sibling; so it was clipped. */
-.childhood-photo--chess figcaption {
-  bottom: 0.7rem;
-  left: 0.7rem;
-}
-
 .childhood-photo--piano {
   top: 11%;
   right: 4%;
@@ -559,11 +547,6 @@ img {
   transform: rotate(3deg);
 }
 
-.childhood-photo--piano figcaption {
-  top: -0.8rem;
-  right: -1.2rem;
-}
-
 .childhood-photo--now {
   right: 17%;
   bottom: 1%;
@@ -571,11 +554,6 @@ img {
   width: 47%;
   height: 52%;
   transform: rotate(-1.5deg);
-}
-
-.childhood-photo--now figcaption {
-  bottom: 1.5rem;
-  left: -1.5rem;
 }
 
 .hand-arrow {
@@ -712,19 +690,21 @@ img {
   color: white;
 }
 
+/* Two columns, not three. The Lynch still needs to run near its native 640px
+   for its own burned-in subtitle to be legible; in a narrow third column it
+   rendered about 7px tall, which is why it had to be transcribed underneath.
+   Heading and still share the left column, the copy takes the right. */
 .ways-inner {
   display: grid;
-  grid-template-columns: 3fr 5fr 5fr;
+  grid-template-columns: 5fr 6fr;
   gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
   padding-block: var(--section-pad);
 }
 
-/* Column 1 of .ways-inner was empty. The reference that sits behind how this
-   section reads belongs in that margin, not in the body copy. */
 .ways-inspo {
   grid-column: 1;
-  align-self: start;
-  margin: 0.6rem 0 0;
+  margin: clamp(2rem, 4vw, 3.5rem) 0 0;
 }
 
 .ways-inspo img {
@@ -734,31 +714,8 @@ img {
   rotate: -1.5deg;
 }
 
-/* The quote is burned into the still, but at this column width it is far too
-   small to read and a screen reader gets nothing. Set it as real text; the
-   frame is the picture, the caption is the words. */
-.ways-inspo figcaption {
-  margin-top: 1rem;
-  color: rgb(255 255 255 / 72%);
-  font-family: var(--serif);
-  font-size: var(--text-small);
-  font-style: italic;
-  line-height: 1.5;
-}
-
-.ways-inspo figcaption span {
-  display: block;
-  margin-top: 0.5rem;
-  color: rgb(255 255 255 / 52%);
-  font-family: inherit;
-  font-size: var(--text-label);
-  font-style: normal;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
 .ways h2 {
-  grid-column: 2;
+  grid-column: 1;
   max-width: 8ch;
   margin: 0;
   font-family: var(--serif);
@@ -774,7 +731,11 @@ img {
 }
 
 .ways-grid {
-  grid-column: 3;
+  grid-column: 2;
+  /* span 2, not 1 / -1: with no explicit rows declared, -1 resolves to the
+     last explicit line, so 1 / -1 collapsed to a single row and inflated
+     row 1 to this column's full height. */
+  grid-row: span 2;
   display: grid;
   gap: 0;
   align-self: start;
@@ -1246,17 +1207,6 @@ a:focus-visible .arrow {
   border-color: rgb(255 255 255 / 28%);
 }
 
-/* Sits in the open middle, not over the photograph on the right. It used to
-   be circling empty black; the photo moved into that space. */
-.scribble--social {
-  right: 34%;
-  top: 18%;
-  width: 14rem;
-  height: 5.5rem;
-  color: var(--pink);
-  transform: rotate(-9deg);
-}
-
 .footer {
   display: grid;
   grid-template-columns: 3fr 6fr 3fr;
@@ -1300,14 +1250,6 @@ summary:focus-visible {
     grid-template-columns: 2fr 7fr;
   }
 
-  .about-title {
-    grid-column: 3 / -1;
-  }
-
-  .about-story {
-    grid-column: 7 / -1;
-  }
-
   .upbringing {
     min-height: 62rem;
   }
@@ -1319,23 +1261,6 @@ summary:focus-visible {
   .childhood-collage {
     width: 66%;
     height: 44%;
-  }
-
-  .ways-inner {
-    grid-template-columns: 2fr 5fr;
-  }
-
-  .ways h2 {
-    grid-column: 1 / -1;
-  }
-
-  .ways-inspo {
-    grid-column: 1;
-    align-self: end;
-  }
-
-  .ways-grid {
-    grid-column: 2;
   }
 
   .shelf-grid {
@@ -1427,29 +1352,17 @@ summary:focus-visible {
     min-height: 0;
   }
 
-  .about-title {
-    margin-top: 2.5rem;
-  }
-
-  .about-title h2 {
+  .about-copy h2 {
     white-space: normal;
   }
 
-  .about-title p {
-    width: 85%;
-    margin: 1.8rem 0 0 auto;
-  }
-
   .about-photo {
-    width: 70%;
-    margin: 3rem 0 0;
+    width: 78%;
+    margin: 0 0 2.5rem;
   }
 
   .about-story {
-    width: 64%;
-    margin: -3rem 0 1.5rem auto;
-    padding: 1.2rem;
-    background: #050505;
+    font-size: var(--text-quote);
   }
 
   .upbringing {
@@ -1600,11 +1513,6 @@ summary:focus-visible {
     width: 44%;
   }
 
-  .scribble--social {
-    top: 8%;
-    right: 4%;
-  }
-
   .footer {
     grid-template-columns: 1fr auto;
   }
@@ -1664,7 +1572,7 @@ summary:focus-visible {
        and the fade length varied 6.75x because the range is a percentage of
        element height. Headings are all one type step, so the range is now
        consistent by construction. */
-    .about-title h2,
+    .about-copy h2,
     .upbringing-heading h2,
     .career h2,
     .before h2,
