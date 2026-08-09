@@ -1793,3 +1793,97 @@ body::after {
   font-style: italic;
   letter-spacing: 0.02em;
 }
+
+/* ── full analogue ──────────────────────────────────────────────────────────
+   A risograph cannot print a full-colour photograph. It separates the image
+   and lays it down as halftone in one or two spot inks, so every photo on a
+   riso sheet is a duotone sitting on the paper colour. Doing that here is the
+   difference between a page that references the print and a page that is one.
+
+   The duotone is built, not baked: the image is desaturated and screened over
+   an ink ground, so shadows take the ink and highlights fall back to paper.
+   Nothing is destroyed, so any photo can be returned to colour by removing a
+   single rule. */
+
+.opening-photo,
+.childhood-photo,
+.contact-photo,
+.press-interview,
+.museum-photo,
+.media-image,
+.made-grid figure,
+.ways-inspo {
+  background: var(--ultramarine);
+}
+
+.opening-photo img,
+.childhood-photo img,
+.contact-photo img,
+.press-interview img,
+.press-interview .framed-video,
+.museum-photo img,
+.media-image img,
+.media-video,
+.made-grid img,
+.ways-inspo img {
+  filter: grayscale(1) contrast(1.42) brightness(0.92);
+  mix-blend-mode: screen;
+}
+
+/* The second ink. A one-colour riso is flat; the second pass is what gives
+   these prints their depth, so the warm ink is dusted over the shadows. */
+.opening-photo::after,
+.childhood-photo::after,
+.contact-photo::after,
+.media-image::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: var(--tan);
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  content: "";
+}
+
+.childhood-photo,
+.contact-photo,
+.media-image {
+  position: relative;
+}
+
+/* Printer's marks. A trimmed sheet carries them at the corners; they are the
+   most honest possible ornament for a page pretending to be printed matter. */
+.site-header::before,
+.site-footer::after {
+  position: absolute;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid var(--rule);
+  content: "";
+}
+
+.site-header {
+  position: relative;
+}
+
+.site-header::before {
+  top: 0.4rem;
+  left: -1.6rem;
+  border-width: 1px 0 0 1px;
+}
+
+.site-footer {
+  position: relative;
+}
+
+.site-footer::after {
+  right: -1.6rem;
+  bottom: 0.4rem;
+  border-width: 0 1px 1px 0;
+}
+
+/* Louder stock. The grain was polite; a real riso sheet is not. */
+body::after {
+  opacity: 0.62;
+}
