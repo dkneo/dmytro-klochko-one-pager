@@ -4,24 +4,20 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
-  /** Which nav item is the current page. */
-  current?: "home" | "watch" | "taste";
 }
 
-const { title, description, current = "home" } = Astro.props;
+const { title, description } = Astro.props;
 
-// One name, said once. The old set repeated "art & technology" in the title,
-// the og:title, the og:description and twice inside the image itself, so a
-// shared link read as a slogan rather than as a person.
 const ogTitle = "dmytro klochko";
 const ogDescription = "ceo at replika. product and engineering, out of art, chess and theatre.";
 
 const nav = [
-  { label: "about", href: "/#about", key: "home" },
-  { label: "career", href: "/#career", key: "home" },
-  { label: "watch", href: "/watch", key: "watch" },
-  { label: "taste", href: "/taste", key: "taste" },
-  { label: "say hi", href: "/#contact", key: "home" },
+  { label: "who", href: "#who" },
+  { label: "now", href: "#now" },
+  { label: "before", href: "#before" },
+  { label: "origin", href: "#origin" },
+  { label: "method", href: "#method" },
+  { label: "say hi", href: "#contact" },
 ];
 ---
 
@@ -29,8 +25,8 @@ const nav = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#f4efe4" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0c0d1c" />
     <meta name="generator" content={Astro.generator} />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
@@ -76,44 +72,33 @@ const nav = [
     you read the source. that is the correct instinct.
     1@dmklochko.com
     -->
-    <a class="skip-link" href="#main-content">skip to content</a>
+    <a class="skip-link" href="#main">skip to content</a>
 
-    <header class="site-header" aria-label="primary navigation">
-      <a class="masthead" href="/" aria-label="dmytro klochko, home">
-        <span>dmytro</span> <em>klochko</em>
+    <header class="site-header">
+      <a class="masthead" href="#who">
+        dmytro klochko <span>/ ceo, replika</span>
       </a>
-
-      <nav class="site-nav" aria-label="main menu">
-        {
-          nav.map((item) => (
-            <a
-              href={item.href}
-              aria-current={item.key === current && item.key !== "home" ? "page" : undefined}
-            >
-              {item.label}
-            </a>
-          ))
-        }
+      <nav class="site-nav" aria-label="sessions">
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
       </nav>
     </header>
 
-    <main id="main-content">
+    <main id="main">
       <slot />
     </main>
 
-    <footer class="page-shell site-footer">
-      <p>© 2026 dmytro klochko</p>
+    <footer class="site-footer">
       <p class="signoff">see you space cowboy&hellip;</p>
-      <a class="to-top" href="#top">
-        back to top <span aria-hidden="true" class="arrow">↑</span>
-      </a>
+      <div class="foot-row">
+        <p>© 2026 dmytro klochko</p>
+        <a class="to-top" href="#who">back to top ↑</a>
+      </div>
     </footer>
 
     <!--
-      The only JavaScript on the site, and it exists to remove motion, not add
+      The only JavaScript on the site, and it removes motion rather than adding
       it. Looping autoplay is moving content that never stops, so WCAG 2.2.2
-      wants a way out; CSS cannot pause a video, so prefers-reduced-motion has
-      to be honoured here. Five lines, no library.
+      wants a way out, and CSS cannot pause a video.
     -->
     <script is:inline>
       if (matchMedia("(prefers-reduced-motion: reduce)").matches) {

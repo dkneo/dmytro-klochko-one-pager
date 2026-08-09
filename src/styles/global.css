@@ -1,46 +1,43 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE SESSION
+   Built from zero. Monospace carries every structural role: navigation,
+   session cards, the register, labels, captions, body. The serif appears
+   exactly twice on the whole site, both times for a poem, which is the only
+   place a voice other than the terminal's is speaking.
+   ═════════════════════════════════════════════════════════════════════════ */
+
 :root {
-  /* Palette taken from the riso print: cream stock, ultramarine ink, one
-     cobalt, one violet, one tan. Nothing else. Every accent below appears at
-     most once per section. */
-  --paper: #f4efe4;
-  --paper-deep: #ebe3d4;
-  --ink: #22265c;
-  --soft-ink: #454a80;
-  --muted: #7b7b93;
-  --muted-on-dark: #b9b7cd;
-  --rule: #cfc6b4;
-  --ultramarine: #2b2f7a;
-  --cobalt: #3a6fd0;
-  --violet: #7b62c4;
-  --tan: #c2a182;
-  --night: #1a1b3d;
+  /* Noir ground, bone type, one cold accent and one hot one. The hot accent
+     is rationed to a single appearance per session. */
+  --void: #0c0d1c;
+  --deck: #13152b;
+  --bone: #e9e5d8;
+  --dim: #8a8ca8;
+  --faint: #4a4c68;
+  --rule: rgb(233 229 216 / 13%);
+  --cold: #5b8fe0;
+  --hot: #e0603a;
 
+  --mono:
+    ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+    monospace;
   --serif: Iowan Old Style, Baskerville, "Times New Roman", serif;
-  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* Five steps. Not eight. Anything that does not fit one of these is either
-     the wrong size or a new component that should not exist. */
-  --text-label: 0.8rem;
-  --text-body: clamp(1rem, 1.05vw, 1.1rem);
-  --text-lede: clamp(1.35rem, 1.9vw, 1.7rem);
-  --text-statement: clamp(1.9rem, 3vw, 2.7rem);
-  --display: clamp(2.8rem, 6vw, 5.5rem);
+  /* Four sizes. A monospace system does not need more, and every extra size
+     was what made the old page read as a circus. */
+  --t-xs: 0.72rem;
+  --t-sm: 0.84rem;
+  --t-md: 0.98rem;
+  --t-lg: clamp(1.15rem, 1.5vw, 1.45rem);
+  --display: clamp(1.9rem, 4.6vw, 3.9rem);
 
-  /* Vertical rhythm. */
-  --section-pad: clamp(3rem, 5vw, 5rem);
-  /* The measure. Content lives inside this; rules never run past it. */
-  --measure: min(100%, 58rem);
-  --heading-gap: clamp(1.5rem, 2.5vw, 2.5rem);
-  --glyph-arrow: 4rem;
-
-  /* One tilt angle for the whole site, so the hand-placed look reads as a
-     decision rather than as drift. */
-  --tilt: -1.6deg;
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+  --stack: clamp(3.5rem, 7vw, 7rem);
+  --measure: min(100%, 68ch);
 
   --ease: cubic-bezier(0.2, 0, 0.2, 1);
-  --dur-fast: 160ms;
   --dur: 200ms;
-  --dur-slow: 250ms;
+  --dur-slow: 320ms;
 }
 
 * {
@@ -48,22 +45,46 @@
 }
 
 html {
-  /* The horizontal clip lives here rather than on body: on body, overflow-x
-     makes overflow-y compute to auto, turning body into a scroll container
-     that never actually scrolls. html is the real scroller, which is the
-     safer host for scroll-driven timelines. */
   overflow-x: hidden;
   scroll-behavior: smooth;
-  scroll-padding-top: 2rem;
+  scroll-padding-top: 4.5rem;
 }
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  background: var(--void);
+  color: var(--bone);
+  font-family: var(--mono);
+  font-size: var(--t-md);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Starfield. Fixed, so the page moves and the sky does not. Six radial
+   gradients, no image and no script. */
+body::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgb(233 229 216 / 55%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 68% 8%, rgb(233 229 216 / 40%) 50%, transparent 50%),
+    radial-gradient(1.6px 1.6px at 84% 62%, rgb(91 143 224 / 55%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 33% 74%, rgb(233 229 216 / 35%) 50%, transparent 50%),
+    radial-gradient(1px 1px at 51% 41%, rgb(233 229 216 / 28%) 50%, transparent 50%),
+    radial-gradient(1.4px 1.4px at 22% 92%, rgb(224 96 58 / 45%) 50%, transparent 50%);
+  background-size:
+    520px 520px, 380px 380px, 660px 660px, 440px 440px, 300px 300px, 700px 700px;
+  opacity: 0.5;
+  pointer-events: none;
+  content: "";
+}
+
+main,
+.site-header,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -75,1815 +96,590 @@ img {
   display: block;
 }
 
-.hero-photo img,
-.about-photo img,
-.childhood-photo img,
-.career-art img,
-.media-image img,
-.media-video,
-.museum-photo img,
-.press-interview img,
-.press-interview .framed-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
 ::selection {
-  background: var(--violet);
-  color: var(--ink);
+  background: var(--hot);
+  color: var(--void);
 }
 
-.page-shell {
-  width: min(92vw, 82rem);
+.shell {
+  width: min(100% - var(--gutter) * 2, 78rem);
   margin-inline: auto;
 }
 
 .skip-link {
   position: fixed;
-  top: 0.75rem;
-  left: 0.75rem;
-  z-index: 200;
-  padding: 0.7rem 1rem;
-  background: var(--ink);
-  color: white;
-  font-size: var(--text-label);
-  letter-spacing: 0.08em;
+  top: 0.6rem;
+  left: 0.6rem;
+  z-index: 300;
+  padding: 0.6rem 0.9rem;
+  background: var(--bone);
+  color: var(--void);
+  font-size: var(--t-xs);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  transform: translateY(-160%);
-  transition: transform var(--dur-fast) var(--ease);
+  transform: translateY(-200%);
+  transition: transform var(--dur) var(--ease);
 }
 
 .skip-link:focus {
   transform: translateY(0);
 }
 
+/* ── header ─────────────────────────────────────────────────────────────── */
+
 .site-header {
-  position: relative;
-  z-index: 50;
-  display: grid;
-  width: min(96vw, 92rem);
-  min-height: clamp(5.5rem, 9vw, 8rem);
-  grid-template-columns: auto 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
   align-items: baseline;
+  justify-content: space-between;
+  width: min(100% - var(--gutter) * 2, 78rem);
   margin-inline: auto;
-  padding-top: 1.2rem;
+  padding-block: 1.5rem 0.9rem;
 }
 
 .masthead {
-  align-self: center;
-  font-family: var(--serif);
-  font-size: var(--display);
-  letter-spacing: -0.075em;
-  line-height: 0.8;
-  white-space: nowrap;
-}
-
-.masthead em {
-  font-weight: 400;
-}
-
-/* The one colour transition in the system. A bordered pill needs a real
-   affordance; dimming it with opacity reads as disabled, not hoverable. */
-.hero {
-  position: relative;
-  min-height: clamp(34rem, 52vw, 46rem);
-  /* Extra bottom room so the decorative scribble has somewhere to sit
-     without colliding with the headline. */
-  padding-bottom: calc(var(--section-pad) + 3.5rem);
-}
-
-.hero-collage {
-  position: relative;
-  width: min(88vw, 74rem);
-  height: clamp(19rem, 33vw, 30rem);
-  margin: clamp(1.5rem, 3vw, 3rem) auto 0;
-}
-
-.hero-photo {
-  position: absolute;
-  overflow: hidden;
-  background: var(--paper-deep);
-  box-shadow: 0 0 0 0.5rem var(--paper);
-}
-
-.hero-photo img {
-  object-fit: cover;
-}
-
-.hero-photo--left {
-  top: 12%;
-  left: 3%;
-  z-index: 1;
-  width: 29%;
-  height: 69%;
-  rotate: -4deg;
-}
-
-.hero-photo--center {
-  top: 0;
-  left: 26%;
-  z-index: 3;
-  width: 48%;
-  height: 82%;
-  rotate: 1.6deg;
-}
-
-.hero-photo--right {
-  right: 3%;
-  bottom: 2%;
-  z-index: 2;
-  width: 28%;
-  height: 65%;
-  rotate: 5deg;
-}
-
-.hero-photo--right img {
-  object-position: 58% center;
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 6;
-  display: grid;
-  width: min(92vw, 82rem);
-  grid-template-columns: 2fr 10fr;
-  gap: clamp(1.5rem, 3vw, 3rem);
-  align-items: end;
-  margin: clamp(-4rem, -4vw, -2rem) auto 0;
-}
-
-/* Column 1 is an empty gutter that preserves the headline's indent. Placement
-   must stay explicit or the h1 drops into that gutter and shreds. */
-.hero-copy h1 {
-  grid-column: 2;
-  max-width: 15ch;
-  margin: 0;
-  font-family: var(--serif);
-  font-size: var(--display);
-  font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.92;
-}
-
-.hero-copy h1 em {
-  color: var(--ultramarine);
-  font-weight: 400;
-}
-
-.about {
-  background: var(--night);
-  color: var(--paper);
-}
-
-.about-inner {
-  display: grid;
-  width: min(92vw, 82rem);
-  grid-template-columns: repeat(12, 1fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-  margin-inline: auto;
-  padding-block: var(--section-pad);
-}
-
-/* Was five blocks at five different indents, sizes and rotations scattered
-   across a 12-column grid. Now: photograph on the left, one column of copy on
-   the right, read top to bottom. */
-.about-photo {
-  position: relative;
-  grid-column: 1 / 6;
-  width: 100%;
-  aspect-ratio: 0.84;
-  margin: 0;
-  rotate: -2deg;
-}
-
-.about-photo img {
-  object-fit: cover;
-  box-shadow: 0 0 0 0.5rem var(--night);
-}
-
-.about-copy {
-  grid-column: 7 / 13;
-}
-
-.about-copy h2 {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: var(--display);
-  font-weight: 400;
-  letter-spacing: -0.07em;
-  line-height: 0.8;
-  white-space: nowrap;
-}
-
-.about-copy h2 em {
-  color: var(--cobalt);
-  font-weight: 400;
-}
-
-/* Sits directly under the name and is the one thing here that has to land in
-   a glance, so it takes the section accent and a real size rather than the
-   label step it used to share with captions. */
-.about-role {
-  margin: 1.4rem 0 0;
-}
-
-.role-link {
-  display: inline-flex;
-  gap: 0.5rem;
-  align-items: center;
-  color: var(--cobalt);
-  font-size: var(--text-lede);
-  font-weight: 650;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transition: opacity var(--dur) var(--ease);
-}
-
-.role-link:hover {
-  opacity: 0.65;
-}
-
-.about-lede {
-  margin: 2rem 0 0;
-  font-family: var(--serif);
-  font-size: var(--text-statement);
-  line-height: 1.1;
-}
-
-.about-note {
-  margin: 1.8rem 0 0;
-  color: var(--muted-on-dark);
-  font-size: var(--text-label);
-  line-height: 1.5;
-}
-
-.timeline {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--ink);
-  list-style: none;
-}
-
-.timeline li {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  gap: 1rem;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-.timeline li > span {
-  padding-top: 0.2rem;
-  color: var(--muted);
-  font-size: var(--text-label);
-}
-
-.timeline li p {
-  max-width: 38rem;
-  margin: 0;
-  font-size: var(--text-body);
-  line-height: 1.5;
-}
-
-.childhood-collage {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(0.8rem, 1.6vw, 1.4rem);
-  align-items: start;
-}
-
-.childhood-photo {
-  position: relative;
-  margin: 0;
-  aspect-ratio: 1.1;
-  box-shadow: 0 0 0 0.4rem var(--paper);
-}
-
-.childhood-photo img {
-  object-fit: cover;
-}
-
-.childhood-photo--chess {
-  rotate: -1.6deg;
-}
-
-/* Sits inside the photo. Hung off the right edge it landed exactly where the
-   piano photo overlaps, and a figcaption cannot escape its parent's stacking
-   context to sit above a higher-z sibling; so it was clipped. */
-.childhood-photo--piano {
-  rotate: 1.2deg;
-}
-
-.childhood-photo--now {
-  rotate: -0.8deg;
-}
-
-/* One serif interruption in this section, not two. The lede carries the
-   headline claim; the note is a quieter aside a full type step below it.
-   Previously both ran at display sizes and the section read as four
-   competing voices. */
-/* Wide enough to sit on two lines. At 20ch it wrapped to three in a narrow
-   well with the whole right half of the section empty. */
-.career-lede {
-  max-width: 30ch;
-  margin: 0 0 var(--heading-gap);
-  font-family: var(--serif);
-  font-size: var(--text-statement);
-  line-height: 1.08;
-}
-
-/* Story left, photo right. The photo now sits beside the copy it belongs to
-   rather than stranded at the foot of the section. */
-.career-main {
-  display: grid;
-  grid-template-columns: 6fr 4fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
-}
-
-/* The site's mark, used once in the body copy where the word earns it.
-   alt="" because "pirates" already says it; this is decoration, not content.
-   The icon's tile background is keyed out, so this is a drawn mark on the
-   page like the scribble and the collage arrow, not a rounded container.
-   The favicon keeps the tile, because iOS applies its own mask. */
-.mark-pirate {
-  display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  margin-left: 0.24em;
-  vertical-align: -0.38em;
-}
-
-/* Two hairline rows closing the career section, borrowing the ways-of-working
-   list shape so this reads as a register rather than a new component. */
-.career-proof {
-  display: grid;
-  width: var(--measure);
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0 clamp(2rem, 4vw, 4rem);
-  margin: clamp(2.5rem, 4.5vw, 4rem) 0 0;
-  padding: 0;
-  border-top: 1px solid var(--ink);
-  list-style: none;
-}
-
-.career-proof li {
-  padding: 1.1rem 0 1.3rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.proof-source {
-  display: inline-flex;
-  gap: 0.4rem;
-  align-items: center;
-  color: var(--tan);
-  font-size: var(--text-label);
-  font-weight: 650;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: opacity var(--dur) var(--ease);
-}
-
-.proof-source:hover {
-  opacity: 0.65;
-}
-
-.career-proof p {
-  margin: 0.7rem 0 0;
-  font-family: var(--serif);
-  font-size: var(--text-lede);
-  line-height: 1.3;
-}
-
-.proof-meta {
-  display: block;
-  margin-top: 0.6rem;
-  color: var(--muted);
-  font-size: var(--text-label);
-  line-height: 1.5;
-}
-
-/* Its own section now rather than a footnote inside career. Shares career's
-   rule-topped treatment so the two read as a pair: now, then before. */
-.before {
-  padding-block: var(--section-pad);
-  border-top: 1px solid var(--rule);
-}
-
-.ways {
-  background: var(--ultramarine);
-  color: white;
-}
-
-/* Two columns, not three. The Lynch still needs to run near its native 640px
-   for its own burned-in subtitle to be legible; in a narrow third column it
-   rendered about 7px tall, which is why it had to be transcribed underneath.
-   Heading and still share the left column, the copy takes the right. */
-.ways-inner {
-  display: grid;
-  grid-template-columns: 5fr 6fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
-  padding-block: var(--section-pad);
-}
-
-.ways-inspo {
-  grid-column: 1;
-  margin: clamp(2rem, 4vw, 3.5rem) 0 0;
-}
-
-.ways-inspo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  rotate: -1.5deg;
-}
-
-.ways h2 {
-  grid-column: 1;
-  max-width: 8ch;
-  margin: 0;
-  font-family: var(--serif);
-  font-size: var(--display);
-  font-weight: 400;
-  letter-spacing: -0.07em;
-  line-height: 0.86;
-}
-
-.ways h2 em {
-  color: var(--cobalt);
-  font-weight: 400;
-}
-
-.ways-grid {
-  grid-column: 2;
-  /* span 2, not 1 / -1: with no explicit rows declared, -1 resolves to the
-     last explicit line, so 1 / -1 collapsed to a single row and inflated
-     row 1 to this column's full height. */
-  grid-row: span 2;
-  display: grid;
-  gap: 0;
-  align-self: start;
-  border-top: 1px solid rgb(255 255 255 / 45%);
-}
-
-.ways-grid p {
-  margin: 0;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid rgb(255 255 255 / 32%);
-  color: rgb(255 255 255 / 82%);
-  font-size: var(--text-body);
-  line-height: 1.55;
-}
-
-/* Twelve columns rather than three, so the five tiles can sit on two rows in
-   spans that don't line up with each other. A tidy 3x2 grid would read as a
-   gallery; the point is a wall of footage with its own rhythm. */
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  align-items: start;
-}
-
-.media-card {
-  display: grid;
-  gap: 0.8rem;
-  margin: 0;
-  transition: transform var(--dur-slow) var(--ease);
-}
-
-.media-card:hover,
-.media-card:focus-visible {
-  transform: translateY(-0.75rem);
-}
-
-.media-image {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  background: var(--paper-deep);
-}
-
-.media-image img,
-.media-video {
-  object-fit: cover;
-  /* Staged 60ms behind the card lift, so it reads as the two-part motion
-     DESIGN.md describes; card lifts, then image breathes; rather than one. */
-  transition: transform var(--dur-slow) var(--ease) 60ms;
-}
-
-.media-card:hover .media-image img,
-.media-card:hover .media-video,
-.media-card:focus-visible .media-image img,
-.media-card:focus-visible .media-video {
-  transform: scale(1.045);
-}
-
-.media-card--portrait {
-  grid-column: 1 / 4;
-  margin-top: 1.5rem;
-}
-
-.media-card--portrait .media-image {
-  aspect-ratio: 0.82;
-}
-
-.media-card--landscape {
-  grid-column: 4 / 9;
-}
-
-.media-card--landscape .media-image {
-  aspect-ratio: 1.34;
-}
-
-.media-card--tall {
-  grid-column: 9 / 13;
-  margin-top: 3rem;
-}
-
-.media-card--tall .media-image {
-  aspect-ratio: 0.8;
-}
-
-.media-card--film {
-  grid-column: 1 / 8;
-  /* Row 1's height is set by the tall card on the right, which leaves a dead
-     band under the two shorter cards on the left. Pulled up into it so the
-     wall interlocks instead of sitting in two separate bands. */
-  margin-top: -4rem;
-}
-
-.media-card--film .media-image {
-  aspect-ratio: 1.5;
-}
-
-.media-card--broadcast {
-  grid-column: 8 / 13;
-  margin-top: 5rem;
-}
-
-.media-card--broadcast .media-image {
-  aspect-ratio: 1.75;
-}
-
-.media-label {
-  width: max-content;
-  max-width: 100%;
-  padding: 0.55rem 0.8rem;
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  font-size: var(--text-label);
-  font-weight: 650;
-  letter-spacing: 0.06em;
+  font-size: var(--t-sm);
+  letter-spacing: 0.34em;
   text-transform: uppercase;
 }
 
-.manifesto-card {
-  display: grid;
-  grid-template-columns: 5fr 4fr;
-  gap: clamp(1.5rem, 3vw, 3rem);
-  align-items: end;
-  width: 66.66%;
-  margin: clamp(2.5rem, 4.5vw, 4.5rem) 0 0 auto;
-  transition: transform var(--dur-slow) var(--ease);
-}
-
-.manifesto-card:hover,
-.manifesto-card:focus-visible {
-  transform: translateY(-0.75rem);
-}
-
-/* A window onto the real page, not a picture of it. The shot is taller than
-   the window on purpose; hover scrolls it. */
-.manifesto-window {
-  position: relative;
-  display: block;
-  aspect-ratio: 1.25;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 0 0.5rem var(--paper), 0 1.5rem 3rem rgb(31 30 28 / 12%);
-}
-
-.manifesto-shot {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  /* Intrinsic ratio of the asset, declared rather than inferred. With
-     height:auto an unloaded image is 0px tall, and a 0px-tall lazy image
-     never intersects the viewport, so it never loads and stays 0px. Stating
-     the ratio breaks that deadlock and also stops the -52% hover scroll from
-     depending on load order. */
-  aspect-ratio: 1120 / 1884;
-  height: auto;
-  /* Slow on purpose. The card lift is the feedback, at 250ms like everything
-     else; this is the reward, and it has to be readable while it moves.
-     -52% lands just short of the image's own bottom edge. */
-  transition: translate 2600ms var(--ease);
-}
-
-.manifesto-card:hover .manifesto-shot,
-.manifesto-card:focus-visible .manifesto-shot {
-  translate: 0 -52%;
-}
-
-.manifesto-copy {
-  display: grid;
-  gap: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.manifesto-title {
-  font-family: var(--serif);
-  font-size: var(--text-lede);
-  font-style: italic;
-  line-height: 1.1;
-}
-
-.manifesto-note {
-  color: var(--muted);
-  font-size: var(--text-label);
-}
-
-.arrow {
-  display: inline-block;
-  transition: transform var(--dur) var(--ease);
-}
-
-a:hover .arrow,
-a:focus-visible .arrow {
-  transform: translate(0.3rem, -0.3rem);
-}
-
-/* Row-level acknowledgement on link lists. Opacity only; The Arrow Rule
-   says the glyph is the only thing that may move. */
-.text-link,
-.swatches span {
-  display: block;
-  width: 3.2rem;
-  aspect-ratio: 0.7;
-  border: 4px solid var(--paper);
-  transform: rotate(-3deg);
-}
-
-.swatches span:nth-child(even) {
-  transform: translateY(0.8rem) rotate(4deg);
-}
-
-.shelf-grid {
-  display: grid;
-  grid-template-columns: 3fr 3fr 5fr;
-  gap: clamp(2rem, 3.5vw, 3.5rem);
-  align-items: start;
-}
-
-.shelf-list h3,
-.poems > h3 {
-  margin: 0 0 1rem;
-  font-size: var(--text-label);
-  font-weight: 650;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.shelf-list ol {
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--ink);
-  list-style: none;
-  counter-reset: shelf;
-}
-
-.shelf-list li {
-  display: grid;
-  grid-template-columns: 2rem 1fr;
-  gap: 0.5rem;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid rgb(17 18 15 / 25%);
-  font-family: var(--serif);
-  font-size: var(--text-body);
-  line-height: 1.4;
-  counter-increment: shelf;
-}
-
-.shelf-list li::before {
-  color: var(--muted);
-  font-family: var(--sans);
-  font-size: var(--text-label);
-  content: counter(shelf, decimal-leading-zero);
-}
-
-.museum-photo {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1.15;
-  margin: 0;
-  transform: rotate(2deg);
-}
-
-.museum-photo img {
-  object-fit: cover;
-}
-
-.poems {
-  position: relative;
-  z-index: 4;
-  display: grid;
-  grid-template-columns: 2fr 5fr 5fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  margin-top: clamp(2.5rem, 4vw, 4rem);
-  padding-top: 1.4rem;
-  border-top: 1px solid rgb(17 18 15 / 30%);
-}
-
-/* Deliberately quiet: these are a personal aside, not a headline act.
-   No rotation, muted ink, body-sized rather than display-sized. */
-.poem {
-  margin: 0;
-  /* --muted is only 3.94:1 on blush-grey, which fails AA at body size. */
-  color: var(--soft-ink);
-  font-family: var(--serif);
-  font-style: italic;
-}
-
-.poem--two {
-  padding-top: 1.5rem;
-}
-
-.poem p {
-  margin: 0;
-  font-size: var(--text-body);
-  line-height: 1.6;
-}
-
-/* The documentary now lives inside "watch & listen" rather than owning its
-   own section; it is the same idea as the vlogs, not a separate one. */
-.press-feature {
-  display: grid;
-  grid-template-columns: 7fr 4fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: center;
-  margin-top: clamp(2.5rem, 4.5vw, 4.5rem);
-}
-
-.press-copy h3 {
-  margin: 0 0 0.9rem;
-  font-family: var(--serif);
-  font-size: var(--text-statement);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-}
-
-.press-meta {
-  margin: 1rem 0 0;
-  color: var(--muted);
-  font-size: var(--text-label);
-  line-height: 1.55;
-}
-
-.press-interview {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1.75;
-  margin: 0;
-  box-shadow: 0 0 0 0.5rem var(--paper);
-  transform: rotate(-1.5deg);
-}
-
-.press-interview img,
-.press-interview .framed-video {
-  object-fit: cover;
-}
-
-.press-caption {
-  margin: 0;
-  color: var(--tan);
-  font-family: var(--serif);
-  font-size: var(--text-lede);
-  font-style: italic;
-  line-height: 1.3;
-  transform: rotate(-2deg);
-}
-
-/* Was two cutouts floating on black with a dead gap between them, the smaller
-   one shrunk to almost nothing. One real photograph, framed and placed. */
-.social-photo {
-  position: absolute;
-  right: 4%;
-  bottom: 6%;
-  width: 26%;
-  margin: 0;
-}
-
-/* Was a 15px-tall target, under WCAG 2.2 AA's 24x24 minimum. */
-.to-top {
-  display: inline-flex;
-  gap: 0.4rem;
-  align-items: center;
-  min-height: 2.75rem;
-  transition: opacity var(--dur) var(--ease);
-}
-
-.to-top:hover {
-  opacity: 0.65;
-}
-
-a:focus-visible,
-summary:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 4px;
-}@media (max-width: 900px) {
-  .hero-copy {
-    grid-template-columns: 2fr 7fr;
-  }
-
-  .timeline {
-    width: 66%;
-  }
-
-  .shelf-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .museum-photo {
-    grid-column: 2;
-    width: 82%;
-    margin-left: auto;
-  }
-
-}@media (max-width: 680px) {
-  :root {
-    --display: clamp(2.6rem, 12vw, 4rem);
-  }
-
-  .page-shell {
-    width: min(90vw, 90rem);
-  }
-
-  .site-header {
-    width: 90vw;
-    min-height: 5.5rem;
-    grid-template-columns: 1fr auto;
-    align-items: start;
-  }
-
-  .masthead {
-    position: absolute;
-    top: 3.4rem;
-    left: 0;
-  }
-
-  .hero {
-    min-height: 36rem;
-    padding-top: 4.5rem;
-  }
-
-  .hero-collage {
-    width: 100vw;
-    height: 22rem;
-    margin-top: 0;
-  }
-
-  .hero-photo {
-    box-shadow: 0 0 0 0.32rem var(--paper);
-  }
-
-  .hero-photo--left {
-    top: 17%;
-    left: -4%;
-    width: 45%;
-    height: 66%;
-  }
-
-  .hero-photo--center {
-    left: 23%;
-    width: 61%;
-    height: 73%;
-  }
-
-  .hero-photo--right {
-    right: -4%;
-    width: 36%;
-    height: 56%;
-  }
-
-  .hero-copy {
-    display: block;
-    width: 90vw;
-    margin-top: -1rem;
-  }
-
-  .hero-copy h1 {
-    max-width: 18ch;
-  }
-
-  .about-inner {
-    display: block;
-    width: 90vw;
-    min-height: 0;
-  }
-
-  .about-copy h2 {
-    white-space: normal;
-  }
-
-  .about-photo {
-    width: 78%;
-    margin: 0 0 2.5rem;
-  }
-
-  .timeline {
-    width: 100%;
-  }
-
-  .childhood-collage {
-    grid-template-columns: 1fr;
-  }
-
-  .career-proof {
-    grid-template-columns: 1fr;
-  }
-
-  .ways-inner {
-    display: block;
-  }
-
-  .ways h2 {
-    margin: 2rem 0 2.5rem;
-  }
-
-  .media-grid {
-    display: block;
-  }
-
-  .media-card {
-    width: 78%;
-    margin: 0 0 3rem;
-  }
-
-  .media-card--landscape,
-  .media-card--film,
-  .media-card--broadcast {
-    width: 100%;
-    margin-left: auto;
-  }
-
-  .media-card--tall {
-    width: 68%;
-    margin-left: auto;
-  }
-
-  .manifesto-card {
-    display: block;
-    width: 100%;
-  }
-
-  .manifesto-copy {
-    margin-top: 1.25rem;
-  }
-
-  .swatches {
-    margin-top: 2rem;
-  }
-
-  .swatches span {
-    width: 19%;
-  }
-
-  .shelf-grid {
-    display: block;
-  }
-
-  .shelf-list + .shelf-list {
-    margin-top: 2.5rem;
-  }
-
-  .museum-photo {
-    width: 72%;
-    margin: 3rem 0 0 auto;
-  }
-
-  .poems {
-    display: block;
-    margin-top: 6rem;
-  }
-
-  .poems > h3 {
-    margin-bottom: 1.5rem;
-  }
-
-  .poem {
-    width: 88%;
-  }
-
-  .poem--two {
-    width: 82%;
-    margin-left: auto;
-    padding-top: 3rem;
-  }
-
-  .press-feature {
-    display: block;
-  }
-
-  .press-caption {
-    margin-top: 1.5rem;
-  }
-}
-
-/* ---------------------------------------------------------------------------
-   Scroll-driven motion. No JavaScript.
-
-   Double-gated on purpose:
-     @supports: Firefox and older browsers never see the hidden start state,
-                  so they get static, fully-visible content rather than blank
-                  blocks. This is why the `opacity: 0` lives in here and not
-                  on the elements themselves.
-     @media:    reduced-motion users skip the whole layer for the same reason.
-
-   Reveal animates `translate` (not `transform`) so it cannot clobber the
-   hover `transform` on cards, or the static `rotate` on collaged photos.
---------------------------------------------------------------------------- */
-
-/* Deliberately does NOT drive opacity.
-   @supports only proves the browser PARSES animation-timeline, not that it
-   ADVANCES it. A timeline that attaches but reports out-of-range progress
-   makes `fill: both` pin the element at the `from` keyframe forever; which
-   shipped 30 of 32 content blocks at opacity 0 on production. Driving only
-   `translate` makes the worst case a 20px offset instead of invisible
-   content. Do not add opacity here without a runtime probe. */
-@keyframes reveal {
-  from {
-    translate: 0 2.25rem;
-  }
-
-  to {
-    translate: 0 0;
-  }
-}
-
-@keyframes hero-drift {
-  from {
-    translate: 0 var(--drift);
-  }
-
-  to {
-    translate: 0 calc(var(--drift) * -1);
-  }
-}
-
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    /* The Section Announces Itself Rule: a section's heading arrives, its
-       contents are simply there. One reveal per section, never more.
-       This replaced a hand-picked list of 32 elements that followed no rule:
-       three sections treated heading and body differently from each other,
-       and the fade length varied 6.75x because the range is a percentage of
-       element height. Headings are all one type step, so the range is now
-       consistent by construction. */
-    .about-copy h2,
-    .upbringing-heading h2,
-    .career h2,
-    .before h2,
-    .ways h2,
-    .watch-heading h2,
-    .personal-heading h2,
-        .social h2 {
-      /* Longhands, deliberately. The minifier folds the `animation`
-         shorthand and `animation-timeline` into `animation: ... view()`,
-         which is invalid and silently drops the whole declaration. */
-      animation-name: reveal;
-      animation-timing-function: linear;
-      animation-fill-mode: both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 100%;
-    }
-
-    /* Differential drift: the centre photo travels furthest, so the collage
-       separates slightly as the hero scrolls past. */
-    .hero-photo {
-      animation-name: hero-drift;
-      animation-timing-function: linear;
-      animation-fill-mode: both;
-      animation-timeline: view();
-      animation-range: cover 0% cover 100%;
-    }
-
-    .hero-photo--left {
-      --drift: 2.5rem;
-    }
-
-    .hero-photo--center {
-      --drift: 4.5rem;
-    }
-
-    .hero-photo--right {
-      --drift: 1.5rem;
-    }
-  }
-}@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  /* Movement off, feedback kept. A blanket `transition-duration: 0.01ms`
-     would also kill the opacity and colour changes that tell a keyboard user
-     where focus is, so only the moving properties are neutralised. */
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    scroll-behavior: auto !important;
-    transition-property: opacity, background-color, color, border-color !important;
-    transition-duration: 120ms !important;
-  }
-
-  .media-card:hover,
-  .media-card:focus-visible,
-  .media-card:hover .media-image img,
-  .media-card:hover .media-video,
-  .media-card:focus-visible .media-image img,
-  .media-card:focus-visible .media-video,
-  .manifesto-card:hover,
-  .manifesto-card:focus-visible,
-  a:hover .arrow,
-  a:focus-visible .arrow {
-    transform: none;
-  }
-
-  /* Neutralising the transition above would otherwise leave the scroll
-     intact and make it snap, which is worse than the animation. */
-  .manifesto-card:hover .manifesto-shot,
-  .manifesto-card:focus-visible .manifesto-shot {
-    translate: none;
-  }
-
-  /* The card's only affordance is transform-based, so neutralising movement
-     above leaves it with no hover response at all. Give it the same opacity
-     acknowledgement the link rows get, otherwise a reduced-motion user cannot
-     tell these images are links until the cursor changes. */
-  .media-card:hover,
-  .manifesto-card:hover {
-    opacity: 0.65;
-  }
-}
-
-/* ── section system ─────────────────────────────────────────────────────────
-   Every section on every page opens the same way: a numbered eyebrow, a
-   title at one size, an optional lede. Sections used to differ in heading
-   size, colour, indent and whether they had a lede at all, which is most of
-   why the page read as noise. */
-
-.section {
-  padding-block: var(--section-pad);
-  border-top: 1px solid var(--rule);
-}
-
-.eyebrow {
-  margin: 0 0 1.2rem;
-  color: var(--muted);
-  font-size: var(--text-label);
-  font-weight: 650;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.section-title {
-  max-width: 14ch;
-  margin: 0 0 var(--heading-gap);
-  font-family: var(--serif);
-  font-size: var(--display);
-  font-weight: 400;
-  letter-spacing: -0.045em;
-  line-height: 0.9;
-}
-
-.section-title em {
-  color: var(--cobalt);
-  font-weight: 400;
-}
-
-.section-lede {
-  max-width: 30ch;
-  margin: 0 0 var(--heading-gap);
-  font-family: var(--serif);
-  font-size: var(--text-statement);
-  line-height: 1.1;
-}
-
-.page-head {
-  padding-block: clamp(3rem, 6vw, 6rem) var(--section-pad);
-}
-
-.page-head h1 {
-  max-width: 14ch;
-  margin: 0 0 var(--heading-gap);
-  font-family: var(--serif);
-  font-size: var(--display);
-  font-weight: 400;
-  letter-spacing: -0.045em;
-  line-height: 0.9;
-}
-
-.page-head h1 em {
-  color: var(--cobalt);
-  font-weight: 400;
-}
-
-.page-lede {
-  max-width: 34ch;
-  margin: 0;
-  font-family: var(--serif);
-  font-size: var(--text-lede);
-  line-height: 1.3;
-}
-
-/* ── career, as a register ──────────────────────────────────────────────── */
-
-.roles {
-  width: var(--measure);
-  margin: 0 0 clamp(2rem, 4vw, 3.5rem);
-  padding: 0;
-  border-top: 1px solid var(--rule);
-  list-style: none;
-}
-
-.role {
-  position: relative;
-  padding: 1.15rem 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-/* In the margin, not in a column. A mark column pushed every company name
-   63px right of the headings, so nothing on the page shared a left edge. */
-.role-mark {
-  position: absolute;
-  top: 1.35rem;
-  left: -3.2rem;
-}
-
-/* Each mark is a silhouette used as a mask and filled with the section ink,
-   so six different brand palettes do not fight the page and nothing carries a
-   tile behind it. */
-.role-mark {
-  width: 1.9rem;
-  height: 1.9rem;
-  background: var(--ultramarine);
-  mask: var(--mark) center / contain no-repeat;
-  -webkit-mask: var(--mark) center / contain no-repeat;
-}
-
-.role-body {
-  display: grid;
-  gap: 0.35rem;
-}
-
-.role-head {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 0.75rem;
-  align-items: baseline;
-}
-
-.role-head a,
-.role-head > span:first-child {
-  font-family: var(--serif);
-  font-size: var(--text-lede);
-  line-height: 1.15;
-}
-
-.role-head a {
-  transition: color var(--dur) var(--ease);
-}
-
-.role-head a:hover {
-  color: var(--cobalt);
-}
-
-.role-what {
-  color: var(--muted);
-  font-size: var(--text-body);
-}
-
-.role-title {
-  color: var(--soft-ink);
-  font-size: var(--text-body);
-  line-height: 1.5;
-}
-
-.career-note-block {
-  display: grid;
-  gap: 1rem;
-  max-width: 62ch;
-  margin-left: auto;
-  width: 66%;
-}
-
-.career-note-block p {
-  margin: 0;
-  font-size: var(--text-body);
-  line-height: 1.6;
-}
-
-/* ── upbringing ─────────────────────────────────────────────────────────── */
-
-.upbringing-body {
-  display: grid;
-  gap: clamp(2rem, 4vw, 3rem);
-}
-
-.timeline {
-  display: grid;
-  width: var(--measure);
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0 clamp(2rem, 4vw, 3rem);
-}
-
-
-/* ── ways of working ────────────────────────────────────────────────────── */
-
-.ways-head {
-  grid-column: 1;
-}
-
-/* ── deep dives ─────────────────────────────────────────────────────────── */
-
-.dive-grid {
-  display: grid;
-  width: var(--measure);
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1.5rem, 3vw, 3rem);
-  border-top: 1px solid var(--rule);
-}
-
-.dive {
-  display: grid;
-  gap: 0.5rem;
-  align-content: start;
-  padding: 1.6rem 0;
-  border-bottom: 1px solid var(--rule);
-  transition: color var(--dur) var(--ease);
-}
-
-.dive:hover {
-  color: var(--cobalt);
-}
-
-.dive-name {
-  font-family: var(--serif);
-  font-size: var(--text-statement);
-  line-height: 1.05;
-}
-
-.dive-what {
-  color: var(--muted);
-  font-size: var(--text-body);
-}
-
-/* ── contact ────────────────────────────────────────────────────────────── */
-
-.contact {
-  background: var(--night);
-  color: var(--paper);
-}
-
-.contact-inner {
-  display: grid;
-  grid-template-columns: 7fr 4fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
-  padding-block: var(--section-pad);
-}
-
-.contact-inner .eyebrow {
-  grid-column: 1;
-  color: var(--muted-on-dark);
-}
-
-.contact-inner .section-title {
-  grid-column: 1;
-  margin-bottom: 1.5rem;
-}
-
-.contact-inner .section-title em {
-  color: var(--tan);
-}
-
-/* One sentence with the addresses inside it, rather than a table of link
-   rows that made six ways of reaching one person look like a form. */
-.contact-copy {
-  grid-column: 1;
-  max-width: 46ch;
-  margin: 0;
-  font-family: var(--serif);
-  font-size: var(--text-lede);
-  line-height: 1.45;
-}
-
-.contact-copy a {
-  border-bottom: 1px solid rgb(244 239 228 / 45%);
-  transition:
-    color var(--dur) var(--ease),
-    border-color var(--dur) var(--ease);
-}
-
-.contact-copy a:hover {
-  border-color: var(--tan);
-  color: var(--tan);
-}
-
-.contact-photo {
-  grid-column: 2;
-  grid-row: 1 / span 4;
-  align-self: center;
-  margin: 0;
-}
-
-.contact-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-  box-shadow: 0 0 0 0.5rem rgb(244 239 228 / 10%);
-  rotate: var(--tilt);
-}
-
-/* ── footer ─────────────────────────────────────────────────────────────── */
-
-.site-footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  gap: 1rem;
-  align-items: center;
-  padding-block: 2.5rem;
-  border-top: 1px solid var(--rule);
-  color: var(--muted);
-  font-size: var(--text-label);
-}
-
-.site-footer p {
-  margin: 0;
-}
-
-.to-top {
-  transition: color var(--dur) var(--ease);
-}
-
-.to-top:hover {
-  color: var(--ink);
-}@media (max-width: 900px) {
-  .upbringing-body,
-  .contact-inner,
-  .dive-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .career-note-block {
-    width: 100%;
-  }
-
-  .contact-photo {
-    grid-column: 1;
-    grid-row: auto;
-    width: 60%;
-    margin-top: 2rem;
-  }
-}@media (max-width: 680px) {
-  .role {
-    grid-template-columns: 2rem 1fr;
-  }
-
-  .site-footer {
-    grid-template-columns: 1fr auto;
-  }
+.masthead span {
+  color: var(--dim);
 }
 
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(0.9rem, 2vw, 2rem);
-  justify-content: flex-end;
+  gap: 0.4rem 1.4rem;
+  font-size: var(--t-xs);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.site-nav a[aria-current="page"] {
-  color: var(--cobalt);
-}
-
-/* Years sit in their own right-hand column so the eye can run down them, the
-   way it does on a printed CV. */
-
-
-/* ── made ───────────────────────────────────────────────────────────────── */
-
-.made-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1rem, 2.5vw, 2rem);
-}
-
-.made-grid figure {
-  margin: 0;
-}
-
-.made-grid img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1.3;
-  object-fit: cover;
-}
-
-.made-grid figcaption {
-  margin-top: 0.8rem;
-  color: var(--muted);
-  font-size: var(--text-label);
-  line-height: 1.5;
-}
-
-.made-note {
-  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
-  font-size: var(--text-body);
-}
-
-.made-note a {
-  border-bottom: 1px solid var(--rule);
+.site-nav a {
+  color: var(--dim);
   transition: color var(--dur) var(--ease);
 }
 
-.made-note a:hover {
-  color: var(--cobalt);
+.site-nav a::before {
+  color: var(--faint);
+  content: "#";
 }
 
-@media (max-width: 900px) {
-  .made-grid {
-    grid-template-columns: 1fr;
-  }
+.site-nav a:hover {
+  color: var(--bone);
 }
 
-@media (max-width: 680px) {
-  .role {
-    grid-template-columns: 1.8rem 1fr;
-  }
+/* ── session cards ──────────────────────────────────────────────────────────
+   The show announces each episode on a card before it starts. So does this. */
+
+.session {
+  padding-block: var(--stack);
+  border-top: 1px solid var(--rule);
 }
 
-/* The Replika story belongs to the Replika row, not to a separate block
-   floating under the whole register. */
-.role-story {
+.session:first-of-type {
+  border-top: 0;
+}
+
+.card {
   display: grid;
-  gap: 0.7rem;
-  max-width: 54ch;
-  margin-top: 0.9rem;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem 1.5rem;
+  align-items: baseline;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
 }
 
-.role-story > span {
-  font-size: var(--text-body);
-  line-height: 1.6;
+.card-no {
+  color: var(--hot);
+  font-size: var(--t-xs);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-/* ── the print ──────────────────────────────────────────────────────────────
-   The reference is a riso/crayon print: vertical bands of ink laid over cream
-   stock, overlapping so two inks make a third, with paper grain showing
-   through everything. Both effects below are the real printing behaviour:
-   multiply is literally what overlapping translucent ink does, and the grain
-   is one SVG turbulence tile. No images, no JavaScript. */
-
-body {
-  position: relative;
-}
-
-/* Paper grain over the whole page. Multiply keeps it reading as tooth in the
-   stock rather than as a grey film on top. */
-body::after {
-  position: fixed;
-  z-index: 400;
-  inset: 0;
-  opacity: 0.42;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  content: "";
-}
-
-/* The bands. Each section that wants ink gets overlapping columns of it;
-   where two columns cross, multiply produces the third colour, exactly the
-   way a second pass on a risograph does. */
-.ink {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.ink::before {
-  position: absolute;
-  z-index: -1;
-  inset: 0 0 0 auto;
-  /* Right half only. Bands behind the headline made the type unreadable, and
-     the reference uses them as a block on the sheet, not as a wash under
-     everything. */
-  width: 46%;
-  background:
-    linear-gradient(to bottom, rgb(58 111 208 / 72%), rgb(58 111 208 / 34%)) 2% 4% / 15% 84% no-repeat,
-    linear-gradient(to bottom, rgb(43 47 122 / 74%), rgb(43 47 122 / 30%)) 18% 0 / 12% 92% no-repeat,
-    linear-gradient(to bottom, rgb(123 98 196 / 66%), rgb(123 98 196 / 26%)) 31% 10% / 14% 78% no-repeat,
-    linear-gradient(to bottom, rgb(194 161 130 / 70%), rgb(194 161 130 / 28%)) 46% 2% / 13% 88% no-repeat,
-    linear-gradient(to bottom, rgb(43 47 122 / 60%), rgb(123 98 196 / 34%)) 60% 14% / 11% 74% no-repeat,
-    linear-gradient(to bottom, rgb(58 111 208 / 58%), rgb(58 111 208 / 20%)) 73% 0 / 15% 94% no-repeat,
-    linear-gradient(to bottom, rgb(43 47 122 / 46%), rgb(43 47 122 / 16%)) 89% 8% / 10% 70% no-repeat;
-  mix-blend-mode: multiply;
-  content: "";
-}
-
-/* Reduced motion has nothing to do with this, but a print this heavy behind
-   body copy would hurt; the bands only ever sit behind display type. */
-.ink-quiet::before {
-  opacity: 0.32;
-}
-
-/* ── opening ────────────────────────────────────────────────────────────── */
-
-.opening {
-  padding-block: clamp(3rem, 6vw, 6rem) clamp(4rem, 7vw, 7rem);
-}
-
-.opening-inner {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: end;
-}
-
-.opening-copy h1 {
-  max-width: 13ch;
+.card-title {
   margin: 0;
-  font-family: var(--serif);
   font-size: var(--display);
   font-weight: 400;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
-.opening-copy h1 em {
-  color: var(--cobalt);
-  font-weight: 400;
+.card-what {
+  grid-column: 2;
+  margin: 0;
+  color: var(--dim);
+  font-size: var(--t-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.opening-role {
-  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+/* ── prose ──────────────────────────────────────────────────────────────── */
+
+.prose {
+  display: grid;
+  gap: 1.1rem;
+  max-width: var(--measure);
+  margin: 0;
 }
 
-.opening-lede {
-  max-width: 26ch;
-  margin: 1.5rem 0 0;
-  font-family: var(--serif);
-  font-size: var(--text-lede);
-  line-height: 1.25;
+.prose p {
+  margin: 0;
 }
 
-.opening-note {
-  margin: 1rem 0 0;
-  color: var(--muted);
-  font-size: var(--text-label);
+.lede {
+  max-width: 46ch;
+  margin: 0 0 2rem;
+  font-size: var(--t-lg);
+  line-height: 1.45;
 }
 
-.opening-photo {
+.dim {
+  color: var(--dim);
+}
+
+/* ── ascii plates ───────────────────────────────────────────────────────────
+   The photograph is text. The real image sits under it and fades in on hover,
+   so the plate resolves into what it was made from. Both are always in the
+   DOM; only opacity moves. */
+
+.plate-wrap {
+  container-type: inline-size;
+  max-width: 46rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+}
+
+.plate {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--deck);
+  outline-offset: 3px;
+}
+
+.plate pre {
   position: relative;
   z-index: 1;
-  width: 100%;
-  aspect-ratio: 0.8;
   margin: 0;
-  rotate: var(--tilt);
+  padding: 0;
+  color: var(--cold);
+  font-family: var(--mono);
+  /* Not a type step: the cell is solved so the character grid exactly fills
+     its container. A monospace advance is ~0.6em, so a plate of --cols
+     columns fits when the cell is 100cqi / (cols * 0.6). Treating this as a
+     reading size would either crop the picture or leave the box half empty,
+     which is what it did. */
+  font-size: calc(100cqi / (var(--cols) * 0.6));
+  line-height: 1.02;
+  white-space: pre;
+  transition: opacity var(--dur-slow) var(--ease);
 }
 
-.opening-photo img {
+.plate img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  box-shadow: 0 0 0 0.55rem var(--paper);
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease);
 }
 
-@media (max-width: 800px) {
-  .opening-inner {
-    grid-template-columns: 1fr;
-    align-items: start;
-  }
-
-  /* At this width the copy would sit on top of the bands. */
-  .ink::before {
-    width: 100%;
-    opacity: 0.4;
-  }
-
-  .opening-photo {
-    width: 74%;
-    margin-top: 2.5rem;
-  }
+.plate:hover pre,
+.plate:focus-visible pre {
+  opacity: 0;
 }
 
-/* Bebop's end card. Quiet enough that it reads as a sign-off rather than a
-   joke, loud enough that anyone who knows it will see it. */
-.signoff {
-  color: var(--violet);
+.plate:hover img,
+.plate:focus-visible img {
+  opacity: 1;
+}
+
+.plate-cap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  justify-content: space-between;
+  margin-top: 0.7rem;
+  color: var(--faint);
+  font-size: var(--t-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── the register ───────────────────────────────────────────────────────── */
+
+.reg {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+}
+
+.reg li {
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 11rem) 1fr;
+  gap: 0.2rem 1.25rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.reg-mark {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.28rem;
+  background: var(--cold);
+  mask: var(--mark) center / contain no-repeat;
+  -webkit-mask: var(--mark) center / contain no-repeat;
+}
+
+.reg-co {
+  font-size: var(--t-md);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.reg-co a {
+  transition: color var(--dur) var(--ease);
+}
+
+.reg-co a:hover {
+  color: var(--cold);
+}
+
+.reg-what {
+  color: var(--dim);
+  font-size: var(--t-sm);
+}
+
+.reg-role {
+  grid-column: 2 / -1;
+  color: var(--faint);
+  font-size: var(--t-sm);
+}
+
+.reg-story {
+  display: grid;
+  grid-column: 2 / -1;
+  gap: 0.9rem;
+  max-width: 62ch;
+  margin-top: 1rem;
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--rule);
+  font-size: var(--t-sm);
+  line-height: 1.7;
+}
+
+/* ── receipts ───────────────────────────────────────────────────────────── */
+
+.receipts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2.5rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.receipts li {
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.receipt-src {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  color: var(--hot);
+  font-size: var(--t-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.receipt-src:hover {
+  opacity: 0.7;
+}
+
+.receipts p {
+  margin: 0 0 0.5rem;
+  font-size: var(--t-sm);
+  line-height: 1.6;
+}
+
+.receipts span {
+  color: var(--faint);
+  font-size: var(--t-xs);
+}
+
+/* ── log ────────────────────────────────────────────────────────────────── */
+
+.log {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+  counter-reset: log;
+  list-style: none;
+}
+
+.log li {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--dim);
+  font-size: var(--t-sm);
+}
+
+.log li::before {
+  counter-increment: log;
+  color: var(--faint);
+  content: counter(log, decimal-leading-zero);
+}
+
+/* ── links out ──────────────────────────────────────────────────────────── */
+
+.outs {
+  display: grid;
+  width: 100%;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+}
+
+.outs li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.outs a {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) 1fr auto;
+  gap: 0.3rem 1.5rem;
+  align-items: baseline;
+  padding: 0.85rem 0;
+  transition: color var(--dur) var(--ease);
+}
+
+.outs a:hover {
+  color: var(--cold);
+}
+
+.outs b {
+  font-size: var(--t-md);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.outs span {
+  color: var(--dim);
+  font-size: var(--t-sm);
+}
+
+.outs em {
+  color: var(--faint);
+  font-size: var(--t-xs);
+  font-style: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ── poems ──────────────────────────────────────────────────────────────────
+   The only serif on the site, and the only voice that is not the terminal's.
+   Rationing it is the whole point. */
+
+.poems {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: clamp(2rem, 4vw, 3.5rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.poem {
+  margin: 0;
   font-family: var(--serif);
+  font-size: var(--t-lg);
   font-style: italic;
-  letter-spacing: 0.02em;
+  line-height: 1.5;
 }
 
-/* ── full analogue ──────────────────────────────────────────────────────────
-   A risograph cannot print a full-colour photograph. It separates the image
-   and lays it down as halftone in one or two spot inks, so every photo on a
-   riso sheet is a duotone sitting on the paper colour. Doing that here is the
-   difference between a page that references the print and a page that is one.
+/* ── contact ────────────────────────────────────────────────────────────── */
 
-   The duotone is built, not baked: the image is desaturated and screened over
-   an ink ground, so shadows take the ink and highlights fall back to paper.
-   Nothing is destroyed, so any photo can be returned to colour by removing a
-   single rule. */
-
-.opening-photo,
-.childhood-photo,
-.contact-photo,
-.press-interview,
-.museum-photo,
-.media-image,
-.made-grid figure,
-.ways-inspo {
-  background: var(--ultramarine);
+.say {
+  max-width: 52ch;
+  font-size: var(--t-lg);
+  line-height: 1.55;
 }
 
-.opening-photo img,
-.childhood-photo img,
-.contact-photo img,
-.press-interview img,
-.press-interview .framed-video,
-.museum-photo img,
-.media-image img,
-.media-video,
-.made-grid img,
-.ways-inspo img {
-  filter: grayscale(1) contrast(1.42) brightness(0.92);
-  mix-blend-mode: screen;
+.say a {
+  border-bottom: 1px solid var(--faint);
+  transition:
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
 }
 
-/* The second ink. A one-colour riso is flat; the second pass is what gives
-   these prints their depth, so the warm ink is dusted over the shadows. */
-.opening-photo::after,
-.childhood-photo::after,
-.contact-photo::after,
-.media-image::after {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  background: var(--tan);
-  opacity: 0.3;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  content: "";
+.say a:hover {
+  border-color: var(--hot);
+  color: var(--hot);
 }
 
-.childhood-photo,
-.contact-photo,
-.media-image {
-  position: relative;
-}
-
-/* Printer's marks. A trimmed sheet carries them at the corners; they are the
-   most honest possible ornament for a page pretending to be printed matter. */
-.site-header::before,
-.site-footer::after {
-  position: absolute;
-  width: 1.1rem;
-  height: 1.1rem;
-  border: 1px solid var(--rule);
-  content: "";
-}
-
-.site-header {
-  position: relative;
-}
-
-.site-header::before {
-  top: 0.4rem;
-  left: -1.6rem;
-  border-width: 1px 0 0 1px;
-}
+/* ── footer ─────────────────────────────────────────────────────────────── */
 
 .site-footer {
+  width: min(100% - var(--gutter) * 2, 78rem);
+  margin-inline: auto;
+  padding-block: 2rem 3.5rem;
+  border-top: 1px solid var(--rule);
+  color: var(--faint);
+  font-size: var(--t-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.signoff {
+  margin: 0 0 0.8rem;
+  color: var(--hot);
+  letter-spacing: 0.3em;
+}
+
+.foot-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+}
+
+.foot-row p {
+  margin: 0;
+}
+
+.to-top {
+  transition: color var(--dur) var(--ease);
+}
+
+.to-top:hover {
+  color: var(--bone);
+}
+
+/* ── reel ───────────────────────────────────────────────────────────────── */
+
+.reel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.reel figure,
+.reel a {
+  display: block;
+  margin: 0;
+}
+
+.frame {
   position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1.2;
+  background: var(--deck);
 }
 
-.site-footer::after {
-  right: -1.6rem;
-  bottom: 0.4rem;
-  border-width: 0 1px 1px 0;
+.frame video,
+.frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.15) brightness(0.9);
+  transition: filter var(--dur-slow) var(--ease);
 }
 
-/* Louder stock. The grain was polite; a real riso sheet is not. */
-body::after {
-  opacity: 0.62;
+.reel a:hover .frame video,
+.reel a:hover .frame img,
+.reel figure:hover .frame video,
+.reel figure:hover .frame img {
+  filter: none;
+}
+
+.cap {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--dim);
+  font-size: var(--t-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mark-pirate {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-left: 0.2em;
+  vertical-align: -0.22em;
+}
+
+/* ── responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 720px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .card-what {
+    grid-column: 1;
+  }
+
+  .reg li {
+    grid-template-columns: 1.4rem 1fr;
+  }
+
+  .reg-what,
+  .reg-role,
+  .reg-story {
+    grid-column: 2;
+  }
+
+  .receipts {
+    grid-template-columns: 1fr;
+  }
+
+  .outs a {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── reduced motion ─────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 120ms !important;
+  }
+}
+
+/* The shelf is a log with no numbers: books and records are a list, not a
+   sequence, and numbering them implied a ranking that isn't there. */
+.shelf {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.shelf li {
+  grid-template-columns: 1fr;
+}
+
+.shelf li::before {
+  content: none;
 }
