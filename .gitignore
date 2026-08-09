@@ -28,3 +28,7 @@ yarn-error.log*
 
 # raw reference material, not used by the build
 /contents/
+
+# raw media you drop in for me to process; the README stays tracked
+/updated-media/*
+!/updated-media/README.md
