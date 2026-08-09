@@ -631,7 +631,20 @@ img {
 
 /* The payoff sits inside the story column, directly under the story it pays
    off, instead of orphaned beneath a different column. */
-.career-story .career-note {
+.career-story /* The site's mark, used once in the body copy where the word earns it.
+   alt="" because "pirates" already says it; this is decoration, not content.
+   Rounded here rather than in the file so the same square asset serves the
+   favicon, where iOS applies its own mask. */
+.mark-pirate {
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  margin-left: 0.28em;
+  border-radius: 0.32em;
+  vertical-align: -0.34em;
+}
+
+.career-note {
   max-width: 36rem;
   margin: 1.6rem 0 0;
   padding-top: 1.2rem;

@@ -20,8 +20,12 @@ const ogDescription = "jaywalker at the intersection of art and technology.";
     <meta name="theme-color" content="#f7f6f2" />
     <meta name="generator" content={Astro.generator} />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+    <!--
+      The mark is a raster drawing, so there is no SVG variant to prefer; the
+      .ico carries both 16 and 32, because at 16 the flag needs its own
+      rendering rather than a downscale of the 32.
+    -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
