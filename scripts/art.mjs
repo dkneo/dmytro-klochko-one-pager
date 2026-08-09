@@ -1,77 +1,113 @@
-// ASCII art, solved at build time and shipped as text. Each piece is tied to
-// the thing it sits next to, so it reads as a mark rather than as decoration.
+// Hand-drawn ASCII, animated at build time. Figurative art is drawn, not
+// computed: a bartender solved from trigonometry would look like a bartender
+// solved from trigonometry. The only thing generated is the glitch.
 import { writeFileSync } from "node:fs";
-const RAMP = ".,-~:;=!*#$@";
 
-function render(W, H, fn) {
-  const buf = new Array(W * H).fill(" ");
-  const z = new Array(W * H).fill(-Infinity);
-  return { buf, z, W, H, plot(x, y, depth, shade) {
-    const xi = Math.round(x), yi = Math.round(y);
-    if (xi < 0 || yi < 0 || xi >= W || yi >= H) return;
-    const o = yi * W + xi;
-    if (depth > z[o]) { z[o] = depth; buf[o] = RAMP[Math.max(0, Math.min(RAMP.length - 1, shade))]; }
-  }, out() {
-    let s = "";
-    for (let y = 0; y < H; y++) s += buf.slice(y * W, (y + 1) * W).join("").replace(/\s+$/, "") + "\n";
-    return s;
-  }};
-}
+// Deterministic noise, so a rebuild produces byte-identical art.
+let seed = 20260810;
+const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
 
-// ── two bodies orbiting a shared centre. a companion is a second body. ──────
-function orbit(t, W = 62, H = 22) {
-  const c = render(W, H);
-  const cx = W / 2, cy = H / 2;
-  for (const [phase, rad, size] of [[0, 1, 3.1], [Math.PI, 0.62, 2.1]]) {
-    const a = t + phase;
-    const ox = cx + Math.cos(a) * (W * 0.29) * rad;
-    const oy = cy + Math.sin(a) * (H * 0.30) * rad;
-    const depth = Math.sin(a);
-    for (let dy = -size; dy <= size; dy += 0.5) {
-      for (let dx = -size * 2; dx <= size * 2; dx += 0.5) {
-        const d = Math.hypot(dx / 2, dy);
-        if (d > size) continue;
-        c.plot(ox + dx, oy + dy, depth, Math.round((1 - d / size) * 9) + 2);
-      }
+const lines = (s) => s.replace(/^\n/, "").replace(/\n$/, "").split("\n");
+
+// ── Joi. A beam from an emitter resolving into a figure that will not hold.
+const JOI = `
+                    .  '  .
+                 '             '
+              .    ,---------,    .
+                  /   .   .   \\
+             '    |     ^     |    '
+                   \\  \\___/  /
+              .      '-----'      .
+                        |
+             '        .-'-.        '
+                      |   |
+              .       |   |       .
+                      |   |
+             '       /     \\       '
+                    /       \\
+              .    '         '    .
+           . . . . . . . . . . . . . . .
+                 [===============]
+                  \\_____________/
+                     |       |
+                  ---'-------'---
+`;
+
+// Hologram glitch: displace whole scanlines and drop characters, which is what
+// a failing projection does. Rows near the figure tear more than the base.
+function glitch(base, amount) {
+  return base.map((row, y) => {
+    const near = y > 1 && y < 15;
+    if (near && rnd() < amount * 0.5) {
+      const shift = Math.round((rnd() - 0.5) * 5);
+      row = shift > 0 ? " ".repeat(shift) + row : row.slice(-shift);
     }
-  }
-  // the tie between them
-  for (let s = 0; s <= 1; s += 0.02) {
-    const a1 = t, a2 = t + Math.PI;
-    const x = (cx + Math.cos(a1) * W * 0.29) * (1 - s) + (cx + Math.cos(a2) * W * 0.29 * 0.62) * s;
-    const y = (cy + Math.sin(a1) * H * 0.30) * (1 - s) + (cy + Math.sin(a2) * H * 0.30 * 0.62) * s;
-    c.plot(x, y, -2, 0);
-  }
-  return c.out();
+    if (near && rnd() < amount * 0.4) {
+      row = [...row].map((c) => (c !== " " && rnd() < 0.22 ? " " : c)).join("");
+    }
+    return row.replace(/\s+$/, "");
+  }).join("\n") + "\n";
 }
 
-// ── a dish sweeping, with the signal going out. for "say hi". ───────────────
-function dish(t, W = 54, H = 18) {
-  const c = render(W, H);
-  const cx = W * 0.28, cy = H * 0.78;
-  for (let a = -2.5; a <= -0.6; a += 0.02) {
-    for (let r = 0; r < 7; r += 0.4) {
-      c.plot(cx + Math.cos(a) * r * 1.9, cy + Math.sin(a) * r, 0, 7);
-    }
-  }
-  for (let y = 0; y < 4; y++) c.plot(cx, cy + y, 0, 5);
-  for (let ring = 0; ring < 3; ring++) {
-    const rr = ((t * 9 + ring * 5) % 15) + 3;
-    const fade = Math.max(0, 9 - rr * 0.5);
-    for (let a = -1.5; a <= -0.1; a += 0.05) {
-      c.plot(cx + Math.cos(a) * rr * 2.0 + 4, cy + Math.sin(a) * rr - 1, 0, Math.round(fade));
-    }
-  }
-  return c.out();
+const joiBase = lines(JOI);
+const joi = [];
+for (let i = 0; i < 40; i++) {
+  // Mostly stable, tearing badly three times a cycle, exactly held twice.
+  const t = i / 40;
+  const burst = Math.max(
+    Math.exp(-((t - 0.18) ** 2) / 0.0016),
+    Math.exp(-((t - 0.52) ** 2) / 0.0009),
+    Math.exp(-((t - 0.83) ** 2) / 0.0012),
+  );
+  joi.push(glitch(joiBase, 0.12 + burst * 0.9));
 }
 
-const FR = 40;
-const orbitFrames = [], dishFrames = [];
-for (let i = 0; i < FR; i++) {
-  orbitFrames.push(orbit((i / FR) * Math.PI * 2));
-  dishFrames.push(dish(i / FR));
-}
-writeFileSync("src/ascii/orbit.json", JSON.stringify(orbitFrames));
-writeFileSync("src/ascii/dish.json", JSON.stringify(dishFrames));
-console.log(`  orbit.json ${FR} frames`);
-console.log(`  dish.json  ${FR} frames`);
+// ── The bartender. Six drawn frames; the arm reaches the glass and turns it.
+const BAR = (arm, glass, rim) => lines(`
+                        _______
+                       /       \\
+                      |  .   .  |
+                      |    _    |
+                       \\  ___  /
+                        '-----'
+                           |
+                  _________|_________
+                 /         |         \\
+                |          |          |${arm}
+                |          |          |     ${rim}
+                |          |          |     ${glass}
+     ___________|__________|__________|_____|___|________
+    |                                                    |
+    |____________________________________________________|
+        ||                                          ||
+`).join("\n") + "\n";
+
+const bartender = [
+  BAR("\\____", " \\_/ ", " ___ "),
+  BAR("\\___\\", " \\_/ ", " (_) "),
+  BAR("\\____", " \\_/ ", " ___ "),
+  BAR("\\___/", " \\_/ ", " (o) "),
+  BAR("\\____", " \\_/ ", " ___ "),
+  BAR("\\___\\", " \\_/ ", " (_) "),
+];
+
+// ── Swordfish II. One drawing; CSS flies it. No frames needed for a drift.
+const SHIP = `
+                    /\\
+                   /  \\
+          ________/    \\________
+         /   __               __ \\
+    ____/   |__|   .-----.   |__|  \\____
+   |________       |  o  |       ________|
+            \\      '-----'      /
+             \\________________/
+                 ||      ||
+                (##)    (##)
+`;
+
+writeFileSync("src/ascii/joi.json", JSON.stringify(joi));
+writeFileSync("src/ascii/bartender.json", JSON.stringify(bartender));
+writeFileSync("src/ascii/ship.txt", SHIP.replace(/^\n/, ""));
+console.log(`  joi.json        ${joi.length} frames`);
+console.log(`  bartender.json  ${bartender.length} frames`);
+console.log(`  ship.txt        1 drawing`);

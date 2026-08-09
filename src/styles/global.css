@@ -916,3 +916,50 @@ body::after {
 .shot figcaption {
   padding: 0 0.1rem;
 }
+
+/* The bartender runs at a human pace; six frames at 3.2s looked like a
+   flicker. The projection keeps the faster cycle so the tearing reads. */
+.art--bar pre {
+  animation-duration: 2.4s;
+  animation-delay: calc(var(--i) * 400ms);
+}
+
+.art--joi {
+  color: var(--cold);
+}
+
+/* ── the swordfish ──────────────────────────────────────────────────────────
+   Drifting, not animated frame by frame: one drawing and a transform is both
+   cheaper and smoother than forty frames of a ship that does not change. */
+
+.ship {
+  overflow: hidden;
+  margin-bottom: var(--sp-3);
+  color: var(--faint);
+  mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+}
+
+.ship pre {
+  width: max-content;
+  margin: 0;
+  font-size: 0.42rem;
+  line-height: 1.05;
+  animation: sail 46s linear infinite;
+}
+
+@keyframes sail {
+  from {
+    transform: translateX(-16rem);
+  }
+
+  to {
+    transform: translateX(78vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ship pre {
+    animation: none;
+  }
+}

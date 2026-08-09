@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import orbit from "../ascii/orbit.json";
-import dish from "../ascii/dish.json";
+import joi from "../ascii/joi.json";
+import bartender from "../ascii/bartender.json";
 
 const roles = [
   {
@@ -164,10 +164,10 @@ const description =
 
       <div>
         <div class="art-wrap">
-          <div class="art" style="--cols: 62" aria-hidden="true">
-            {orbit.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
+          <div class="art art--joi" style="--cols: 46" aria-hidden="true">
+            {joi.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
           </div>
-          <span class="torus-cap">two bodies, one orbit</span>
+          <span class="torus-cap">she is a projection. she is also company.</span>
         </div>
 
         <ul class="receipts receipts--stack">
@@ -273,10 +273,10 @@ const description =
       </div>
 
       <div class="art-wrap">
-        <div class="art" style="--cols: 54" aria-hidden="true">
-          {dish.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
+        <div class="art art--bar" style="--cols: 58" aria-hidden="true">
+          {bartender.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
         </div>
-        <span class="torus-cap">receiving</span>
+        <span class="torus-cap">pull up a stool</span>
       </div>
     </div>
   </section>
