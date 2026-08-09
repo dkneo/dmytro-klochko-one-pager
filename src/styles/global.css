@@ -39,10 +39,16 @@
   --sp-4: 3rem;
   --sp-5: clamp(4rem, 7vw, 6.5rem);
 
-  /* Raster cell for ASCII art. Deliberately outside the type ramp: a drawing
-     made of characters is an image, sized to its drawing, not a reading size.
-     Solving it from a 0.6em advance was wrong in practice, so it is stated. */
-  --art-cell: 0.55rem;
+  /* Raster cells for ASCII art. Deliberately outside the type ramp: a drawing
+     made of characters is an image sized to its drawing, not a reading size,
+     so it does not belong on a scale meant for reading. Two steps, because a
+     small drifting object and a mark that has to hold a column are not the
+     same size problem. Solving these from a 0.6em advance was wrong in
+     practice, so they are stated.
+       sm  small drifting objects (the ship)
+       lg  a mark that anchors a column (the replika glyph) */
+  --art-cell-sm: 0.55rem;
+  --art-cell-lg: 1.05rem;
 
   --gutter: clamp(1.25rem, 5vw, 5rem);
   --stack: var(--sp-5);
@@ -763,7 +769,7 @@ body::after {
   width: max-content;
   margin: 0;
   font-family: var(--mono);
-  font-size: var(--art-cell);
+  font-size: var(--art-cell-sm);
   line-height: 1.05;
   animation: sail 46s linear infinite;
 }
@@ -945,9 +951,7 @@ body::after {
   margin: 0;
   color: var(--cold);
   font-family: var(--mono);
-  /* Sized to be a presence in its column rather than a footnote. The ship's
-     --art-cell is right for a small drifting object and far too small here. */
-  font-size: 1.05rem;
+  font-size: var(--art-cell-lg);
   line-height: 1;
   white-space: pre;
   animation: breathe 6s ease-in-out infinite;
