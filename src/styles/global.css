@@ -377,6 +377,25 @@ img {
   line-height: 1.1;
 }
 
+.about-role {
+  margin: 1.2rem 0 0;
+}
+
+.role-link {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: var(--text-label);
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.role-link:hover {
+  opacity: 0.65;
+}
+
 .about-photo {
   position: relative;
   z-index: 1;
@@ -652,6 +671,11 @@ img {
 }
 
 .before h2 em {
+  color: var(--ochre);
+  font-weight: 400;
+}
+
+.career h2 em {
   color: var(--ochre);
   font-weight: 400;
 }
