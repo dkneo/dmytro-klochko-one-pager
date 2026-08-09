@@ -11,6 +11,7 @@ type Role = {
   readonly company: string;
   readonly what: string;
   readonly title: string;
+  readonly years: string;
   readonly href?: string;
   readonly logo?: string;
 };
@@ -19,7 +20,8 @@ const roles = [
   {
     company: "Replika",
     what: "the #1 AI friend. 42m+ users across 145+ countries",
-    title: "Chief Executive Officer. Previously COO, CPO, CTO",
+    title: "Chief Executive Officer since 2024. Previously COO, CPO, CTO",
+    years: "2023 —",
     href: "https://replika.com",
     logo: "/images/logos/replika.png",
   },
@@ -27,11 +29,13 @@ const roles = [
     company: "Homa Industries",
     what: "HR platform and marketplace for remote teams",
     title: "Founder and Chief Executive Officer",
+    years: "2022 — 2023",
   },
   {
     company: "Chatfuel",
     what: "marketing AI agents. Meta Business Partner",
     title: "Head of Marketing and Expansion",
+    years: "2021 — 2022",
     href: "https://chatfuel.com",
     logo: "/images/logos/chatfuel.png",
   },
@@ -39,6 +43,7 @@ const roles = [
     company: "Hily",
     what: "top-3 dating app in the U.S. by downloads",
     title: "Strategic Product Manager",
+    years: "2021",
     href: "https://hily.com",
     logo: "/images/logos/hily.png",
   },
@@ -46,6 +51,7 @@ const roles = [
     company: "VK",
     what: "the largest social network in Russia and the CIS",
     title: "Senior Product Manager",
+    years: "2021",
     href: "https://vk.com",
     logo: "/images/logos/vk.png",
   },
@@ -53,6 +59,7 @@ const roles = [
     company: "Skyeng",
     what: "the largest edtech company in Eastern Europe",
     title: "Product Manager",
+    years: "2018 — 2021",
     href: "https://skyeng.ru",
     logo: "/images/logos/skyeng.png",
   },
@@ -155,6 +162,7 @@ const description =
               </span>
               <span class="role-title">{role.title}</span>
             </span>
+            <span class="role-years">{role.years}</span>
           </li>
         ))
       }
