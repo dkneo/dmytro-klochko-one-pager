@@ -39,6 +39,11 @@
   --sp-4: 3rem;
   --sp-5: clamp(4rem, 7vw, 6.5rem);
 
+  /* Raster cell for ASCII art. Deliberately outside the type ramp: a drawing
+     made of characters is an image, sized to its drawing, not a reading size.
+     Solving it from a 0.6em advance was wrong in practice, so it is stated. */
+  --art-cell: 0.55rem;
+
   --gutter: clamp(1.25rem, 5vw, 5rem);
   --stack: var(--sp-5);
   --measure: min(100%, 74ch);
@@ -796,10 +801,15 @@ body::after {
   transition: color var(--dur-slow) var(--ease);
 }
 
+/* pre carries font-family: monospace from the UA stylesheet, and that beats
+   inheritance, so every piece of art was drawn in the browser's default mono
+   rather than the site's. The 0.6em advance the cell size is solved from is a
+   property of this stack, so it has to be stated. */
 .art pre {
   position: absolute;
   inset: 0;
   margin: 0;
+  font-family: var(--mono);
   font-size: calc(100cqi / (var(--cols) * 0.6));
   line-height: 1.02;
   opacity: 0;
@@ -943,7 +953,8 @@ body::after {
 .ship pre {
   width: max-content;
   margin: 0;
-  font-size: 0.42rem;
+  font-family: var(--mono);
+  font-size: var(--art-cell);
   line-height: 1.05;
   animation: sail 46s linear infinite;
 }
