@@ -1,7 +1,7 @@
 ---
-// Shipped under this path before the rename. Static hosting has no redirect
-// rules without a Worker, so this is a meta refresh with a canonical.
-const to = "/archive";
+// An earlier name for this page. Static hosting has no redirect rules without
+// a Worker, so each old path is a meta refresh with a canonical.
+const to = "/feed";
 ---
 
 <html lang="en">
@@ -13,6 +13,6 @@ const to = "/archive";
     <title>moved</title>
   </head>
   <body>
-    <p>this page is now the <a href={to}>archive</a>.</p>
+    <p>this page is now the <a href={to}>feed</a>.</p>
   </body>
 </html>
