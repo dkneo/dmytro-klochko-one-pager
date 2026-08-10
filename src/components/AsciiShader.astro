@@ -76,7 +76,13 @@ const {
       off.width = cols;
       off.height = rows * nFrames;
       const o = off.getContext("2d", { willReadFrequently: true })!;
-      o.drawImage(img, 0, 0, cols, rows * nFrames);
+      // Each frame is resampled on its own. Scaling the whole sheet in one
+      // call made adjacent frames bleed into each other, because the source
+      // frame height rarely divides evenly into the target row count.
+      const srcH = img.height / nFrames;
+      for (let f = 0; f < nFrames; f++) {
+        o.drawImage(img, 0, f * srcH, img.width, srcH, 0, f * rows, cols, rows);
+      }
       const d = o.getImageData(0, 0, cols, rows * nFrames).data;
 
       const all = new Float32Array(cols * rows * nFrames);

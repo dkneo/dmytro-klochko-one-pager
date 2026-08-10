@@ -1,11 +1,10 @@
 ---
 import "../styles/global.css";
-import AsciiShader from "../components/AsciiShader.astro";
 
 interface Props {
   title: string;
   description: string;
-  current?: "home" | "at-work" | "library";
+  current?: "home" | "at-work";
 }
 
 const { title, description, current = "home" } = Astro.props;
@@ -18,7 +17,6 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
 const nav = [
   { label: "about", href: "/" },
   { label: "at work", href: "/at-work" },
-  { label: "media", href: "/library" },
 ];
 ---
 
@@ -80,9 +78,8 @@ const nav = [
     </div>
 
     <header class="site-header">
-      <a class="masthead" href="/">
-        dmytro klochko <span>/ ceo, replika</span>
-      </a>
+      <a class="masthead" href="/">dmytro klochko</a>
+      {current !== "home" && <span class="crumb">/ {current === "at-work" ? "at work" : current}</span>}
       <nav class="site-nav" aria-label="pages">
         {
           nav.map((item) => (
@@ -103,16 +100,6 @@ const nav = [
     </main>
 
     <footer class="site-footer">
-      <AsciiShader
-        class="ascii--bebop"
-        src="/ascii/bebop-sheet.jpg"
-        frames={28}
-        cols={100}
-        fps={11}
-        black={0.1}
-        white={0.99}
-        gamma={1.15}
-      />
       <p class="signoff">see you space cowboy&hellip;</p>
       <div class="foot-row">
         <p>© 2026 dmytro klochko</p>

@@ -63,9 +63,9 @@ const log = [
 const shots = [
   { n: "01", src: "/images/childhood-chess.jpg", cap: "locked in",
     alt: "Dmytro as a small boy at a tournament board, grinning, a row of chess pieces in front of him" },
-  { n: "04", src: "/images/childhood-piano.jpg", cap: "songwriter",
+  { n: "04", src: "/images/childhood-piano.jpg", cap: "writing songs",
     alt: "Dmytro as a child at an upright piano, seen from behind" },
-  { n: "05", src: "/images/childhood-band.jpg", cap: "band leader",
+  { n: "05", src: "/images/childhood-band.jpg", cap: "touring",
     alt: "Dmytro as a boy on stage with a microphone, mid-song, pointing at the crowd" },
 ] as const;
 
@@ -73,8 +73,8 @@ const receipts = [
   {
     src: "time",
     href: "https://time.com/collections/davos-2026/7339222/ai-predictions-2026/",
-    line: "“what we care about is people getting happier. whether or not it’s good, it’s happening.”",
-    meta: "5 predictions for ai in 2026, davos collection, january 2026",
+    line: "“what we care about is people getting happier.”",
+    meta: "dmytro klochko, “ai companions go mainstream this year”, time, january 2026",
   },
   {
     src: "princeton",
@@ -125,13 +125,12 @@ const description =
   </section>
 
   <section class="shell session" id="now" aria-labelledby="s2">
-    <div class="card">
-      <p class="card-no">02</p>
-      <h2 class="card-title" id="s2">replika</h2>
-    </div>
-
-    <div class="bay">
+    <div class="bay bay--flush">
       <div>
+        <div class="card">
+          <p class="card-no">02</p>
+          <h2 class="card-title" id="s2">replika</h2>
+        </div>
         <ol class="reg">
           {
             roles.slice(0, 1).map((r) => (
@@ -148,10 +147,6 @@ const description =
             ))
           }
         </ol>
-
-        <p class="lede" style="margin-top: var(--sp-3)">
-          i believe ai with real eq can help millions understand themselves and be happier.
-        </p>
 
         <div class="prose">
           <p>i joined as coo and cpo. a year later i was ceo.</p>
@@ -180,7 +175,7 @@ const description =
         </div>
       </div>
 
-      <div>
+      <div class="joi-col">
         <AsciiShader
           class="ascii--joi"
           src="/ascii/joi.jpg"
@@ -206,6 +201,11 @@ const description =
       </div>
     </div>
   </section>
+
+  <a class="onward" href="/at-work">
+    <span>read how i work, and what i am building next</span>
+    <span aria-hidden="true">↗</span>
+  </a>
 
   <section class="shell session" id="before" aria-labelledby="s3">
     <div class="card">
@@ -242,9 +242,17 @@ const description =
     </div>
 
     <p class="lede">
-      born &amp; raised in donetsk, eastern ukraine. very poor household. fled war as a teenager.
-      slept on the streets for weeks.
+      born &amp; raised in 🇺🇦 donetsk. fled <button
+        class="gloss"
+        type="button"
+        popovertarget="war"
+      >war</button> as a teenager. slept on the streets for weeks.
     </p>
+
+    <div class="gloss-note" id="war" popover>
+      russia invaded the donbas in 2014. donetsk, his home city, was taken that april. he was
+      sixteen.
+    </div>
 
     <div class="bay">
       <ol class="log">
@@ -283,7 +291,16 @@ const description =
         </ul>
       </div>
 
-
+      <AsciiShader
+        class="ascii--bebop"
+        src="/ascii/bebop-sheet.jpg"
+        frames={28}
+        cols={92}
+        fps={11}
+        black={0.1}
+        white={0.99}
+        gamma={1.15}
+      />
     </div>
   </section>
 </Layout>

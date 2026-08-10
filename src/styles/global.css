@@ -939,9 +939,11 @@ body::after {
    A studio wall: the people he watches, pinned up. Square and uniform so it
    reads as a board rather than as ten separate features. */
 
+/* Four across at full width, eight tiles, two even rows. auto-fill left a
+   ragged last row at most widths. */
 .wall {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--sp-2);
   margin: 0 0 var(--sp-4);
 }
@@ -963,16 +965,10 @@ body::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.08);
-  transition:
-    filter var(--dur-slow) var(--ease),
-    transform var(--dur-slow) var(--ease);
+  transition: transform var(--dur-slow) var(--ease);
 }
 
-/* Grey until you look at one. Ten colour photographs at once is a mess; ten
-   grey ones and a colour one under the cursor is a wall. */
 .wall figure:hover img {
-  filter: none;
   transform: scale(1.05);
 }
 
@@ -982,4 +978,111 @@ body::after {
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
+}
+
+/* ── onward ─────────────────────────────────────────────────────────────────
+   A way through at the point where someone has just finished the replika
+   story and is deciding whether to keep reading. */
+
+.onward {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  width: min(100% - var(--gutter) * 2, 78rem);
+  margin: 0 auto;
+  padding: var(--sp-3) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  color: var(--dim);
+  font-size: var(--t-sm);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  transition: color var(--dur) var(--ease);
+}
+
+.onward:hover {
+  color: var(--hot);
+}
+
+/* ── gloss ──────────────────────────────────────────────────────────────────
+   "war" is one word doing a lot of work. The popover explains it on demand
+   without turning the line into a paragraph. Native popover, no script. */
+
+.gloss {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px dashed var(--hot);
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: help;
+}
+
+.gloss-note {
+  max-width: 30rem;
+  margin: auto;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--rule);
+  background: var(--deck);
+  color: var(--bone);
+  font-family: var(--mono);
+  font-size: var(--t-sm);
+  line-height: 1.6;
+}
+
+.gloss-note::backdrop {
+  background: rgb(14 10 17 / 72%);
+}
+
+/* Joi starts level with the section title so the receipts below her sit
+   alongside the copy rather than dangling under it. */
+.bay--flush .card {
+  margin-bottom: var(--sp-3);
+}
+
+.joi-col {
+  padding-top: 0.4rem;
+}
+
+/* Uncut Gems keeps its own ratio: the line is burned into the frame and a
+   square crop cuts it in half. */
+.wall-wide {
+  width: min(100%, 34rem);
+  margin: 0;
+}
+
+.wall-wide img {
+  width: 100%;
+  height: auto;
+  border: 1px solid rgb(233 229 216 / 16%);
+}
+
+.wall-wide figcaption {
+  margin-top: var(--sp-1);
+  color: var(--faint);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.poem-by {
+  margin: var(--sp-3) 0 0;
+  color: var(--faint);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.crumb {
+  color: var(--faint);
+  font-size: var(--t-sm);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
