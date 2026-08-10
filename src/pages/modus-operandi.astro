@@ -44,6 +44,8 @@ const books = [
 // width / sum and every painting in it comes out the same height at its own
 // true proportions. Rows finish flush at any width and nothing is cropped,
 // which flex-wrap alone could not do: it left the last row stretched.
+// Eight, in two rows whose ratios happen to sum identically (4.404 each), so
+// both rows resolve to exactly the same height with nothing hardcoded.
 const rows = [
   [
     { src: "/images/paintings/p01.jpg", ar: 0.865, who: "katherine bradford",
@@ -52,15 +54,13 @@ const rows = [
     { src: "/images/paintings/p03.jpg", ar: 1.135, who: "hasui kawase", work: "" },
     { src: "/images/paintings/p04.jpg", ar: 1.608, who: "minami kobayashi",
       work: "Two Men at a Japanese Restaurant, 2024" },
-    { src: "/images/paintings/p05.jpg", ar: 0.85, who: "franz kline",
-      work: "Orange and Black Wall, 1959, Museum of Fine Arts, Houston" },
   ],
   [
+    { src: "/images/paintings/p05.jpg", ar: 0.85, who: "franz kline",
+      work: "Orange and Black Wall, 1959, Museum of Fine Arts, Houston" },
     { src: "/images/paintings/p06.jpg", ar: 1.392, who: "kiyoshi saitō", work: "" },
     { src: "/images/paintings/p07.jpg", ar: 0.75, who: "claude monet", work: "" },
-    { src: "/images/paintings/p08.jpg", ar: 0.762, who: "", work: "" },
     { src: "/images/paintings/p09.jpg", ar: 1.412, who: "hajime sorayama", work: "" },
-    { src: "/images/paintings/p10.jpg", ar: 1.4, who: "", work: "" },
   ],
 ] as const;
 
