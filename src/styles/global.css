@@ -25,8 +25,8 @@
 
   /* Four sizes. A monospace system does not need more, and every extra size
      was what made the old page read as a circus. */
-  --t-xs: 0.72rem;
-  --t-sm: 0.84rem;
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
   --t-md: 0.98rem;
   --t-lg: clamp(1.15rem, 1.5vw, 1.45rem);
   --display: clamp(1.9rem, 4.6vw, 3.9rem);
@@ -49,6 +49,16 @@
        lg  a mark that anchors a column (the replika glyph) */
   --art-cell-sm: 0.55rem;
   --art-cell-lg: 1.05rem;
+
+  /* Three tracking values, not ten. Every distinct letter-spacing reads as a
+     different typeface, which is how one family became "five fonts": there
+     were ten of them across 21 type treatments.
+       wide   all micro uppercase: labels, nav, captions, numbers
+       tight  uppercase at reading size, where wide would shred it
+       neg    display only */
+  --ls-wide: 0.18em;
+  --ls-tight: 0.07em;
+  --ls-neg: -0.02em;
 
   --gutter: clamp(1.25rem, 5vw, 5rem);
   --stack: var(--sp-5);
@@ -114,7 +124,7 @@ img {
   background: var(--bone);
   color: var(--void);
   font-size: var(--t-xs);
-  letter-spacing: 0.12em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
   transform: translateY(-200%);
   transition: transform var(--dur) var(--ease);
@@ -139,7 +149,7 @@ img {
 
 .masthead {
   font-size: var(--t-sm);
-  letter-spacing: 0.34em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
 }
 
@@ -152,7 +162,7 @@ img {
   flex-wrap: wrap;
   gap: 0.4rem 1.4rem;
   font-size: var(--t-xs);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
 }
 
@@ -186,7 +196,7 @@ img {
 .card-no {
   color: var(--hot);
   font-size: var(--t-xs);
-  letter-spacing: 0.28em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -195,7 +205,7 @@ img {
   margin: 0;
   font-size: var(--display);
   font-weight: 400;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ls-neg);
   line-height: 1;
   text-transform: uppercase;
 }
@@ -205,7 +215,7 @@ img {
   margin: 0;
   color: var(--hot);
   font-size: var(--t-sm);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
 }
 
@@ -256,7 +266,7 @@ img {
 
 .reg-co {
   font-size: var(--t-md);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--ls-tight);
   text-transform: uppercase;
 }
 
@@ -300,7 +310,7 @@ img {
   margin-bottom: 0.6rem;
   color: var(--hot);
   font-size: var(--t-xs);
-  letter-spacing: 0.22em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
   transition: opacity var(--dur) var(--ease);
 }
@@ -371,7 +381,7 @@ img {
 .outs b {
   font-size: var(--t-md);
   font-weight: 400;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--ls-tight);
   text-transform: uppercase;
 }
 
@@ -384,7 +394,7 @@ img {
   color: var(--faint);
   font-size: var(--t-xs);
   font-style: normal;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
 }
 
@@ -417,14 +427,14 @@ img {
   padding-block: 2rem 3.5rem;
   color: var(--faint);
   font-size: var(--t-xs);
-  letter-spacing: 0.14em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
 }
 
 .signoff {
   margin: 0 0 0.8rem;
   color: var(--hot);
-  letter-spacing: 0.3em;
+  letter-spacing: var(--ls-wide);
 }
 
 .foot-row {
@@ -492,7 +502,7 @@ img {
   margin-top: var(--sp-1);
   color: var(--dim);
   font-size: var(--t-xs);
-  letter-spacing: 0.14em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
 }
 
@@ -745,7 +755,7 @@ body::after {
   color: var(--faint);
   font-size: var(--t-xs);
   font-style: normal;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
 }
 
@@ -811,14 +821,14 @@ body::after {
 .tenet-n {
   color: var(--hot);
   font-size: var(--t-xs);
-  letter-spacing: 0.2em;
+  letter-spacing: var(--ls-wide);
 }
 
 .tenets h2 {
   margin: 0 0 0.4rem;
   font-size: var(--t-md);
   font-weight: 400;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--ls-tight);
   text-transform: uppercase;
 }
 
@@ -879,7 +889,7 @@ body::after {
   margin-top: 0.4rem;
   color: var(--faint);
   font-size: var(--t-xs);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
 }
 
@@ -891,41 +901,6 @@ body::after {
 /* One photograph size on the entire site. The opening portrait was the only
    large image anywhere, which is what made it look pasted on: not the frame,
    not the colour, just the fact that nothing else on the page was that size. */
-
-/* One accurate drawing that CSS moves, which is the only ASCII approach here
-   that has worked. Hand-drawn figures were tried twice and were bad twice. */
-.glyph {
-  margin: 0;
-  color: var(--cold);
-  font-family: var(--mono);
-  font-size: var(--art-cell-lg);
-  line-height: 1;
-  white-space: pre;
-  animation: breathe 4.5s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  0%,
-  100% {
-    opacity: 0.4;
-    transform: scale(0.94) translateY(0.3rem);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.06) translateY(-0.3rem);
-  }
-}
-
-.art-wrap:hover .glyph {
-  color: var(--hot);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .glyph {
-    animation: none;
-  }
-}
 
 /* The cathedrals line describes the person, so it sits with him rather than
    in a footer where it read as a stray aphorism. */
@@ -948,4 +923,119 @@ body::after {
 .lynch img {
   width: 100%;
   height: auto;
+}
+
+/* ── the decode ─────────────────────────────────────────────────────────────
+   44 frames of the mark resolving out of noise, stacked, each shown for one
+   forty-fourth of the cycle. The slice is 100/frames percent, stated rather
+   than assumed; a hardcoded slice is the bug that made an earlier piece blank
+   most of the time. */
+
+.decode {
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 var(--sp-4);
+  color: var(--cold);
+  transition: color var(--dur-slow) var(--ease);
+}
+
+.decode pre {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: var(--art-cell-lg);
+  line-height: 1;
+  opacity: 0;
+  white-space: pre;
+  animation: decode 5.2s steps(1, end) infinite;
+  animation-delay: calc(var(--i) * 5.2s / 44);
+}
+
+.decode pre:first-child {
+  position: relative;
+}
+
+@keyframes decode {
+  0% {
+    opacity: 1;
+  }
+
+  2.27% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.decode::after {
+  position: absolute;
+  z-index: -1;
+  inset: -18%;
+  background: radial-gradient(closest-side, rgb(255 111 174 / 22%), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-slow) var(--ease);
+  content: "";
+}
+
+.decode:hover {
+  color: var(--hot);
+}
+
+.decode:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decode pre {
+    animation: none;
+    opacity: 0;
+  }
+
+  .decode pre:last-child {
+    opacity: 1;
+  }
+}
+
+/* The hero portrait sits beside the copy rather than under it, so the right
+   half of the opening screen is not dead air. */
+.portrait {
+  width: 100%;
+  max-width: 18rem;
+  margin: 0;
+  justify-self: end;
+}
+
+.portrait .cell {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 0.82;
+  border: 1px solid rgb(233 229 216 / 16%);
+  background: var(--deck);
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portrait figcaption {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: var(--sp-1);
+  color: var(--faint);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.portrait figcaption b {
+  color: var(--hot);
+  font-weight: 400;
 }

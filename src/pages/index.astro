@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import mark from "../ascii/mark.txt?raw";
+import mark from "../ascii/mark.json";
 
 const roles = [
   {
@@ -86,22 +86,24 @@ const description =
       </p>
     </div>
 
-    <p class="lede">jaywalker at the intersection of art and technology.</p>
-    <p class="cathedrals">relentless pursuer. beholder of cathedrals all around.</p>
+    <div class="bay">
+      <div>
+        <p class="lede">jaywalker at the intersection of art and technology.</p>
+        <p class="cathedrals">relentless pursuer. beholder of cathedrals all around.</p>
 
-    <div class="prose">
-      <p>
-        product &amp; engineering guy with a background in art, chess and theatre. based between
-        nyc, paris &amp; sf.
-      </p>
-      <p>
-        chess prodigy at five, theatre director at nineteen, college dropout, now running the #1
-        ai friend. i still write the code and the copy.
-      </p>
-    </div>
+        <div class="prose">
+          <p>
+            product &amp; engineering guy with a background in art, chess and theatre. based
+            between nyc, paris &amp; sf.
+          </p>
+          <p>
+            chess prodigy at five, theatre director at nineteen, college dropout, now running the
+            #1 ai friend. i still write the code and the copy.
+          </p>
+        </div>
+      </div>
 
-    <div class="sheet">
-      <figure>
+      <figure class="portrait">
         <span class="cell">
           <img
             src="/images/about.jpg"
@@ -170,8 +172,8 @@ const description =
       </div>
 
       <div>
-        <div class="art-wrap">
-          <pre class="glyph" aria-hidden="true">{mark}</pre>
+        <div class="decode" aria-hidden="true">
+          {mark.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
         </div>
 
         <ul class="receipts receipts--stack">
