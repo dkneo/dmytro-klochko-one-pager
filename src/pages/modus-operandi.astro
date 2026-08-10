@@ -69,9 +69,7 @@ const description =
       <p class="card-no">01</p>
       <h1 class="card-title" id="a1">on camera</h1>
     </div>
-  </section>
 
-  <section class="shell session" aria-label="films">
     <div class="reel">
       {
         vlogs.map((v) =>
@@ -185,23 +183,23 @@ const description =
 
     <p class="poem-by">paintings i loved recently.</p>
 
+    {/* The caption lives inside its figure and is lifted out of flow, so each
+        row keeps the aspect maths that justifies it while every name stays
+        with its painting however the row reflows. A parallel caption row
+        aligned only while both were single rows: at two columns it put the
+        first two names under the last two paintings. */}
     <div class="hang">
       {
         rows.map((row) => (
-          <div class="hang-row">
-            {/* The plates carry the row's aspect maths; the captions are a
-                second flex row on the same ratios, so each name sits under
-                its painting without disturbing the geometry. */}
-            <div class="hang-plates" style={`--sum: ${row.reduce((t, a) => t + a.ar, 0)}`}>
-              {row.map((art) => (
-                <figure style={`--ar: ${art.ar}`}>
+          <div class="hang-plates" style={`--sum: ${row.reduce((t, a) => t + a.ar, 0)}`}>
+            {row.map((art) => (
+              <figure style={`--ar: ${art.ar}`}>
+                <span class="plate-img">
                   <img src={art.src} alt={art.who ? `${art.who}. ${art.work}` : ""} title={art.work || undefined} loading="lazy" />
-                </figure>
-              ))}
-            </div>
-            <div class="hang-caps">
-              {row.map((art) => <span style={`--ar: ${art.ar}`}>{art.who}</span>)}
-            </div>
+                </span>
+                <figcaption>{art.who}</figcaption>
+              </figure>
+            ))}
           </div>
         ))
       }

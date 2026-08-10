@@ -67,8 +67,6 @@ const shots = [
     alt: "Dmytro as a child at an upright piano, seen from behind" },
   { n: "05", src: "/images/childhood-band.jpg", cap: "touring",
     alt: "Dmytro as a boy on stage with a microphone, mid-song, pointing at the crowd" },
-  { n: "", src: "/images/childhood-geese.jpg", cap: "before all of it",
-    alt: "Dmytro as a toddler running through a garden, laughing, a gaggle of geese behind him" },
 ] as const;
 
 // His words. Highlighted one phrase per paragraph; more than that stops being
@@ -359,7 +357,7 @@ const description =
               <span class="cell">
                 <img src={sh.src} alt={sh.alt} loading="lazy" />
               </span>
-              <figcaption><b>{sh.n}</b> {sh.cap}</figcaption>
+              <figcaption>{sh.cap}</figcaption>
             </figure>
           ))
         }
@@ -380,6 +378,7 @@ const description =
           <li><a href="mailto:1@replika.com">1@replika.com</a> <em>replika</em></li>
           <li><a href="https://x.com/dkreplika" target="_blank" rel="noreferrer">@dkreplika<span class="arw">↗</span></a> <em>x</em></li>
           <li><a href="https://instagram.com/dmytrotoday" target="_blank" rel="noreferrer">@dmytrotoday<span class="arw">↗</span></a> <em>instagram</em></li>
+          <li><a href="https://substack.com/@dkreplika" target="_blank" rel="noreferrer">@dkreplika<span class="arw">↗</span></a> <em>substack</em></li>
           <li><a href="https://t.me/deoparis" target="_blank" rel="noreferrer">@deoparis<span class="arw">↗</span></a> <em>telegram</em></li>
           <li><a href="https://www.linkedin.com/in/heydmytro/" target="_blank" rel="noreferrer">heydmytro<span class="arw">↗</span></a> <em>linkedin</em></li>
         </ul>
@@ -399,6 +398,6 @@ const description =
   </section>
 
   <a class="onward onward--end" href="/modus-operandi">
-    <span>on camera, literally me, and taste</span><span class="arw" aria-hidden="true">↗</span>
+    <span>modus operandi</span><span class="arw" aria-hidden="true">↗</span>
   </a>
 </Layout>

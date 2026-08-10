@@ -190,15 +190,25 @@ img {
 
 /* Whichever page you are not on is the offer, so it carries the accent and a
    border. Two identical grey words gave no reason to click either. */
+/* Brackets, not a box. A bordered pill is a button from another design
+   system; square brackets are how a terminal marks the thing you can act on,
+   and they cost no chrome. */
 .site-nav a:not([aria-current]) {
-  padding: 0.3rem 0.7rem;
-  border: 1px solid rgb(255 111 174 / 40%);
   color: var(--hot);
 }
 
-.site-nav a:not([aria-current]):hover {
-  border-color: var(--hot);
-  background: rgb(255 111 174 / 12%);
+.site-nav a:not([aria-current])::before {
+  color: rgb(255 111 174 / 45%);
+  content: "[";
+}
+
+.site-nav a:not([aria-current])::after {
+  color: rgb(255 111 174 / 45%);
+  content: "]";
+}
+
+.site-nav a:not([aria-current]):hover::before,
+.site-nav a:not([aria-current]):hover::after {
   color: var(--hot);
 }
 
@@ -461,7 +471,6 @@ img {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--sp-2);
-  margin-top: var(--sp-4);
 }
 
 .reel figure,
@@ -557,7 +566,7 @@ img {
 /* The shelf is a log with no numbers: books and records are a list, not a
    sequence, and numbering them implied a ranking that isn't there. */
 .shelf {
-  margin-top: clamp(2rem, 4vw, 3rem);
+  margin-top: 0;
 }
 
 .shelf li {
@@ -1110,7 +1119,7 @@ body::after {
 .bay .portrait {
   position: relative;
   align-self: start;
-  aspect-ratio: 1.04;
+  aspect-ratio: 0.78;
 }
 
 .bay .portrait .cell {
@@ -1120,7 +1129,7 @@ body::after {
 }
 
 .portrait img {
-  object-position: 50% 22%;
+  object-position: 50% 40%;
 }
 
 .bay .portrait figcaption {
@@ -1363,7 +1372,8 @@ a:focus-visible .arw {
 
 .hang {
   display: grid;
-  gap: var(--sp-3);
+  /* Row gap leaves room for captions, which hang below their row. */
+  gap: calc(var(--sp-3) + 1.4rem);
   margin: var(--sp-3) 0 0;
 }
 
@@ -1373,30 +1383,33 @@ a:focus-visible .arw {
   aspect-ratio: var(--sum);
 }
 
-.hang-caps {
-  display: flex;
-  gap: var(--sp-1);
-  margin-top: var(--sp-1);
-}
-
-.hang-caps span {
+.hang figure {
+  position: relative;
   flex: var(--ar) 1 0;
   min-width: 0;
+  margin: 0;
+}
+
+.plate-img {
+  display: block;
   overflow: hidden;
+  height: 100%;
+  background: var(--deck);
+}
+
+.hang figcaption {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  margin-top: var(--sp-1);
   color: var(--faint);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
   text-overflow: ellipsis;
   text-transform: uppercase;
   white-space: nowrap;
-}
-
-.hang figure {
-  flex: var(--ar) 1 0;
-  min-width: 0;
-  margin: 0;
-  overflow: hidden;
-  background: var(--deck);
 }
 
 .hang img {
@@ -1408,10 +1421,6 @@ a:focus-visible .arw {
 
 .hang figure:hover img {
   transform: scale(1.04);
-}
-
-.hang-row {
-  display: block;
 }
 
 @media (max-width: 900px) {
@@ -1436,4 +1445,27 @@ a:focus-visible .arw {
   .receipts {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 720px) {
+  /* Four across puts each painting at about 85px and ellipsises every name
+     into nothing. Two across, square, with the caption allowed to wrap: the
+     justified maths is a wide-screen luxury and is worth dropping here. */
+  .hang-plates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    aspect-ratio: auto;
+  }
+
+  .hang-plates figure {
+    aspect-ratio: 1;
+  }
+
+  .hang figcaption {
+    position: static;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
 }
