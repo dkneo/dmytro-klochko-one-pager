@@ -75,6 +75,7 @@ const nav = [
 
     <div class="stars" aria-hidden="true">
       <i></i><i></i><i></i><i></i>
+      <span class="stars-glow"></span>
     </div>
 
     <header class="site-header">
@@ -129,6 +130,36 @@ const nav = [
       it. Looping autoplay is moving content that never stops, so WCAG 2.2.2
       wants a way out, and CSS cannot pause a video.
     -->
+    <!--
+      The sky leans toward the cursor. Two custom properties on the root, read
+      by CSS; no layout is touched and nothing is measured per frame, so it
+      costs a pointermove listener and a compositor transform. Skipped
+      entirely for reduced motion and for coarse pointers, where there is no
+      cursor to follow.
+    -->
+    <script is:inline>
+      (() => {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+        const root = document.documentElement;
+        let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+        addEventListener("pointermove", (e) => {
+          tx = (e.clientX / innerWidth - 0.5) * 2;
+          ty = (e.clientY / innerHeight - 0.5) * 2;
+          root.style.setProperty("--mx", (e.clientX / innerWidth) * 100 + "%");
+          root.style.setProperty("--my", (e.clientY / innerHeight) * 100 + "%");
+          if (!raf) raf = requestAnimationFrame(ease);
+        }, { passive: true });
+        function ease() {
+          x += (tx - x) * 0.06;
+          y += (ty - y) * 0.06;
+          root.style.setProperty("--px", x.toFixed(4));
+          root.style.setProperty("--py", y.toFixed(4));
+          raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.001 ? requestAnimationFrame(ease) : 0;
+        }
+      })();
+    </script>
+
     <script is:inline>
       if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
         for (const v of document.querySelectorAll("video[autoplay]")) {
