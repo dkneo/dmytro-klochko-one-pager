@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import ship from "../ascii/ship.txt?raw";
+import AsciiShader from "../components/AsciiShader.astro";
 
 interface Props {
   title: string;
@@ -103,7 +103,16 @@ const nav = [
     </main>
 
     <footer class="site-footer">
-      <div class="ship" aria-hidden="true"><pre>{ship}</pre></div>
+      <AsciiShader
+        class="ascii--bebop"
+        src="/ascii/bebop-sheet.jpg"
+        frames={28}
+        cols={100}
+        fps={11}
+        black={0.1}
+        white={0.99}
+        gamma={1.15}
+      />
       <p class="signoff">see you space cowboy&hellip;</p>
       <div class="foot-row">
         <p>© 2026 dmytro klochko</p>

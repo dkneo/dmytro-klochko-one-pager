@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import mark from "../ascii/mark.json";
+import AsciiShader from "../components/AsciiShader.astro";
 
 const roles = [
   {
@@ -19,21 +19,21 @@ const roles = [
   {
     company: "chatfuel",
     what: "marketing ai agent. 150k+ businesses. meta business partner",
-    role: "growth, hand in hand with the ai team",
+    role: "growth, with the ai team",
     href: "https://chatfuel.com",
     mark: "/images/marks/chatfuel.png",
   },
   {
     company: "hily",
     what: "#3 dating app in the u.s. by downloads",
-    role: "product and growth, hand in hand with the data engineers",
+    role: "product and growth, with the data engineers",
     href: "https://hily.com",
     mark: "/images/marks/hily.png",
   },
   {
     company: "vk",
     what: "largest european social network. 100m+ mau",
-    role: "product and growth, hand in hand with the ml team",
+    role: "product and growth, with the ml team",
     href: "https://vk.com",
     mark: "/images/marks/vk.png",
   },
@@ -61,12 +61,12 @@ const log = [
 // The caption number is the log line the photograph belongs to. That is all
 // the connection needed; putting the pictures inside the list broke the grid.
 const shots = [
-  { n: "01", src: "/images/childhood-chess.jpg", cap: "the board",
+  { n: "01", src: "/images/childhood-chess.jpg", cap: "locked in",
     alt: "Dmytro as a small boy at a tournament board, grinning, a row of chess pieces in front of him" },
-  { n: "04", src: "/images/childhood-music.jpg", cap: "the booth",
-    alt: "Dmytro as a child in studio headphones, grinning at a microphone" },
-  { n: "--", src: "/images/childhood-geese.jpg", cap: "before all of it",
-    alt: "Dmytro as a toddler running through a garden, laughing, a gaggle of geese behind him" },
+  { n: "04", src: "/images/childhood-piano.jpg", cap: "songwriter",
+    alt: "Dmytro as a child at an upright piano, seen from behind" },
+  { n: "05", src: "/images/childhood-band.jpg", cap: "band leader",
+    alt: "Dmytro as a boy on stage with a microphone, mid-song, pointing at the crowd" },
 ] as const;
 
 const receipts = [
@@ -119,7 +119,7 @@ const description =
             alt="Dmytro photographed in a mirror, in a cap and worn denim jacket"
           />
         </span>
-        <figcaption><b>01</b> london</figcaption>
+        <figcaption>london, 2026</figcaption>
       </figure>
     </div>
   </section>
@@ -181,9 +181,14 @@ const description =
       </div>
 
       <div>
-        <div class="decode" aria-hidden="true">
-          {mark.map((f: string, i: number) => <pre style={`--i: ${i}`}>{f}</pre>)}
-        </div>
+        <AsciiShader
+          class="ascii--joi"
+          src="/ascii/joi.jpg"
+          cols={72}
+          black={0.3}
+          white={0.99}
+          gamma={1.5}
+        />
 
         <ul class="receipts receipts--stack">
           {

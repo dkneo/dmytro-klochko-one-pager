@@ -763,43 +763,6 @@ body::after {
   color: var(--hot);
 }
 
-/* ── the swordfish ──────────────────────────────────────────────────────────
-   Drifting, not animated frame by frame: one drawing and a transform is both
-   cheaper and smoother than forty frames of a ship that does not change. */
-
-.ship {
-  overflow: hidden;
-  margin-bottom: var(--sp-3);
-  color: var(--faint);
-  mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
-}
-
-.ship pre {
-  width: max-content;
-  margin: 0;
-  font-family: var(--mono);
-  font-size: var(--art-cell-sm);
-  line-height: 1.05;
-  animation: sail 46s linear infinite;
-}
-
-@keyframes sail {
-  from {
-    transform: translateX(-16rem);
-  }
-
-  to {
-    transform: translateX(78vw);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ship pre {
-    animation: none;
-  }
-}
-
 /* ── tenets ─────────────────────────────────────────────────────────────── */
 
 .tenets {
@@ -925,82 +888,6 @@ body::after {
   height: auto;
 }
 
-/* ── the decode ─────────────────────────────────────────────────────────────
-   44 frames of the mark resolving out of noise, stacked, each shown for one
-   forty-fourth of the cycle. The slice is 100/frames percent, stated rather
-   than assumed; a hardcoded slice is the bug that made an earlier piece blank
-   most of the time. */
-
-.decode {
-  position: relative;
-  width: max-content;
-  max-width: 100%;
-  margin: 0 0 var(--sp-4);
-  color: var(--cold);
-  transition: color var(--dur-slow) var(--ease);
-}
-
-.decode pre {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  font-family: var(--mono);
-  font-size: var(--art-cell-lg);
-  line-height: 1;
-  opacity: 0;
-  white-space: pre;
-  animation: decode 5.2s steps(1, end) infinite;
-  animation-delay: calc(var(--i) * 5.2s / 44);
-}
-
-.decode pre:first-child {
-  position: relative;
-}
-
-@keyframes decode {
-  0% {
-    opacity: 1;
-  }
-
-  2.27% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.decode::after {
-  position: absolute;
-  z-index: -1;
-  inset: -18%;
-  background: radial-gradient(closest-side, rgb(255 111 174 / 22%), transparent 70%);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--dur-slow) var(--ease);
-  content: "";
-}
-
-.decode:hover {
-  color: var(--hot);
-}
-
-.decode:hover::after {
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .decode pre {
-    animation: none;
-    opacity: 0;
-  }
-
-  .decode pre:last-child {
-    opacity: 1;
-  }
-}
-
 /* The hero portrait sits beside the copy rather than under it, so the right
    half of the opening screen is not dead air. */
 .portrait {
@@ -1072,4 +959,17 @@ body::after {
    wrecked the grid. */
 .log li p {
   margin: 0;
+}
+
+/* Joi sits in Replika's column, at the width of the column. */
+.ascii--joi {
+  max-width: 22rem;
+  margin-bottom: var(--sp-4);
+}
+
+/* Spike lights the cigarette above the sign-off. Sized so the footer stays a
+   footer rather than becoming a second hero. */
+.ascii--bebop {
+  max-width: 30rem;
+  margin-bottom: var(--sp-3);
 }
