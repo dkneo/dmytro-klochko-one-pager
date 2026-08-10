@@ -185,15 +185,22 @@ img {
   padding-block: var(--stack);
 }
 
+/* The number hangs in the margin. As a grid column it pushed every heading
+   43px right of every piece of body copy on the page, so nothing shared a
+   left edge. Same fault, and same fix, as the register marks. */
 .card {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.6rem 1.5rem;
-  align-items: baseline;
+  position: relative;
   margin-bottom: var(--sp-4);
 }
 
 .card-no {
+  position: absolute;
+  top: 0.55rem;
+  left: -2.6rem;
+}
+
+.card-no {
+  margin: 0;
   color: var(--hot);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
@@ -211,8 +218,7 @@ img {
 }
 
 .card-what {
-  grid-column: 2;
-  margin: 0;
+  margin: 0.5rem 0 0;
   color: var(--hot);
   font-size: var(--t-sm);
   letter-spacing: var(--ls-wide);
@@ -517,12 +523,9 @@ img {
 /* ── responsive ─────────────────────────────────────────────────────────── */
 
 @media (max-width: 720px) {
-  .card {
-    grid-template-columns: 1fr;
-  }
-
-  .card-what {
-    grid-column: 1;
+  .card-no {
+    position: static;
+    margin-bottom: 0.4rem;
   }
 
   .reg li {
@@ -1009,36 +1012,94 @@ body::after {
    "war" is one word doing a lot of work. The popover explains it on demand
    without turning the line into a paragraph. Native popover, no script. */
 
+/* A chip you can obviously press, not a word with a dashed line under it. */
 .gloss {
-  padding: 0;
-  border: 0;
-  border-bottom: 1px dashed var(--hot);
-  background: none;
-  color: inherit;
+  anchor-name: --gloss;
+
+  padding: 0.05em 0.34em;
+  border: 1px solid rgb(255 111 174 / 45%);
+  background: rgb(255 111 174 / 10%);
+  color: var(--hot);
   font: inherit;
-  cursor: help;
+  cursor: pointer;
+  transition:
+    background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
 }
 
+.gloss:hover,
+.gloss[aria-expanded="true"] {
+  border-color: var(--hot);
+  background: rgb(255 111 174 / 20%);
+}
+
+/* A popover defaults to the centre of the top layer, which for one sentence
+   is a modal covering the page. Anchored under the chip instead, at the size
+   of the thing it is explaining. */
 .gloss-note {
-  max-width: 30rem;
-  margin: auto;
-  padding: var(--sp-2) var(--sp-3);
-  border: 1px solid var(--rule);
+  width: max-content;
+  max-width: min(24rem, calc(100vw - 2rem));
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgb(255 111 174 / 35%);
   background: var(--deck);
   color: var(--bone);
   font-family: var(--mono);
   font-size: var(--t-sm);
-  line-height: 1.6;
+  line-height: 1.55;
+  box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 55%);
 }
 
-.gloss-note::backdrop {
-  background: rgb(14 10 17 / 72%);
+@supports (anchor-name: --a) {
+  .gloss-note {
+    position: absolute;
+    position-anchor: --gloss;
+    position-area: bottom span-right;
+    margin: 0.5rem 0 0;
+    position-try-fallbacks: flip-block, flip-inline;
+  }
+}
+
+/* Where anchoring is unavailable the popover still centres, so it is kept
+   small rather than allowed to read as a dialog. */
+@supports not (anchor-name: --a) {
+  .gloss-note {
+    margin: auto;
+  }
+
+  .gloss-note::backdrop {
+    background: rgb(14 10 17 / 72%);
+  }
 }
 
 /* Joi starts level with the section title so the receipts below her sit
    alongside the copy rather than dangling under it. */
 .bay--flush .card {
   margin-bottom: var(--sp-3);
+}
+
+/* The picture takes its height from the writing beside it. Its contents are
+   taken out of flow, so the column contributes nothing to the row's intrinsic
+   height and the row is measured by the copy alone; stretch then gives the
+   photograph exactly that height. Simply dropping the aspect-ratio was worse:
+   with no definite height the image asserted its own, 576px against 250px of
+   text. */
+.bay .portrait {
+  position: relative;
+  align-self: stretch;
+  min-height: 16rem;
+}
+
+.bay .portrait .cell {
+  position: absolute;
+  inset: 0 0 1.5rem;
+  aspect-ratio: auto;
+}
+
+.bay .portrait figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
 }
 
 .joi-col {
@@ -1125,4 +1186,69 @@ body::after {
 
 .record:hover {
   color: var(--hot);
+}
+
+/* ── the arrow ──────────────────────────────────────────────────────────────
+   It was a literal glyph with a space in front of it, at whatever size the
+   surrounding text happened to be, which is why it read as small and adrift.
+   Tight to the word, a touch larger than its line, and it moves. */
+
+.arw {
+  display: inline-block;
+  margin-left: 0.14em;
+  font-size: 1.1em;
+  line-height: 0;
+  transition: transform var(--dur) var(--ease);
+}
+
+a:hover .arw,
+a:focus-visible .arw {
+  transform: translate(0.16em, -0.16em);
+}
+
+/* ── link feedback ──────────────────────────────────────────────────────────
+   Every outbound link now answers the pointer. The underline grows from the
+   left rather than appearing, which is cheap and reads as deliberate. */
+
+.reg-co a,
+.outs a b,
+.record-meta b,
+.receipt-src,
+.ways a,
+.say a,
+.card-what a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition:
+    background-size var(--dur-slow) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.reg-co a:hover,
+.outs a:hover b,
+.record:hover .record-meta b,
+.receipt-src:hover,
+.ways a:hover,
+.say a:hover,
+.card-what a:hover {
+  background-size: 100% 1px;
+}
+
+/* The say-hi links already carried a permanent underline, which would fight
+   the sweep. */
+.say a {
+  border-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arw {
+    transition: none;
+  }
+
+  a:hover .arw,
+  a:focus-visible .arw {
+    transform: none;
+  }
 }

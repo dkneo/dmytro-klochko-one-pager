@@ -168,7 +168,7 @@ const description =
                   <source src={`/video/${v.video}.mp4`} type="video/mp4" />
                 </video>
               </span>
-              <span class="cap">{v.label} — {v.place} ↗</span>
+              <span class="cap">{v.label} — {v.place}<span class="arw">↗</span></span>
             </a>
           ) : (
             <figure>
@@ -197,7 +197,7 @@ const description =
         outs.map((o) => (
           <li>
             <a href={o.href} target="_blank" rel="noreferrer">
-              <b>{o.name} ↗</b>
+              <b>{o.name}<span class="arw">↗</span></b>
               <span>{o.what}</span>
               <em>{o.kind}</em>
             </a>
@@ -256,7 +256,7 @@ const description =
           gamma={0.9}
         />
         <span class="record-meta">
-          <b>space cowboy ↗</b>
+          <b>space cowboy<span class="arw">↗</span></b>
           <em>the playlist</em>
         </span>
       </a>
