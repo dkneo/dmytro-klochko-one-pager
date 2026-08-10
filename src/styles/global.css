@@ -356,17 +356,21 @@ img {
    above it, princeton was named twice and linked to the same arxiv paper
    twice, once here and once as the quote's own source. The quoted one is not
    repeated; this row is the research that is not quoted. */
+/* The whole row is this cell's source line, the way a single .receipt-src is
+   the other cell's. Three studies, all linked; the one the quote came from is
+   bracketed and hot, which is the same mark the nav puts on the page you are
+   on, so the pairing does not need a caption explaining it. */
 .research {
   display: flex;
   flex-wrap: wrap;
-  grid-column: 1 / -1;
-  gap: 0.4rem 1.4rem;
+  gap: 0.35rem 1.2rem;
+  margin: 0 0 0.6rem;
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
 }
 
-.research > span {
+.research-lbl {
   color: var(--faint);
 }
 
@@ -376,7 +380,25 @@ img {
 }
 
 .research a:hover {
+  color: var(--bone);
+}
+
+.research a.is-quoted {
   color: var(--hot);
+}
+
+.research a.is-quoted::before {
+  color: rgb(255 111 174 / 45%);
+  content: "[";
+}
+
+.research a.is-quoted::after {
+  color: rgb(255 111 174 / 45%);
+  content: "]";
+}
+
+.research a.is-quoted:hover {
+  opacity: 0.7;
 }
 
 .receipts {

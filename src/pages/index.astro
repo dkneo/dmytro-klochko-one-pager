@@ -86,20 +86,26 @@ const vlogs = [
   { label: "finding connection", place: "dok.fest münchen", video: "dokfest" },
 ] as const;
 
-const receipts = [
-  {
-    src: "time",
-    href: "https://time.com/collections/davos-2026/7339222/ai-predictions-2026/",
-    line: "“what we care about is people getting happier.”",
-    meta: "dmytro klochko, “companions go mainstream” — 5 predictions for ai in 2026",
-  },
-  {
-    src: "princeton",
-    href: "https://arxiv.org/abs/2311.10599",
-    line: "“companion chatbot users indicated that these relationships were beneficial to their social health.”",
-    meta: "guingrich & graziano, oxford intersections: ai in society, 2025",
-  },
+const press = {
+  src: "time",
+  href: "https://time.com/collections/davos-2026/7339222/ai-predictions-2026/",
+  line: "“what we care about is people getting happier.”",
+  meta: "dmytro klochko, “companions go mainstream” — 5 predictions for ai in 2026",
+};
+
+// The whole row is the source line for the quote under it. `quoted` is the one
+// the quote came from, and it is the only styling difference — same as the nav
+// marking the page you are on.
+const studies = [
+  { name: "harvard", href: "https://www.hbs.edu/faculty/Pages/item.aspx?num=67360" },
+  { name: "stanford", href: "https://www.nature.com/articles/s44184-023-00047-6" },
+  { name: "princeton", href: "https://arxiv.org/abs/2311.10599", quoted: true },
 ] as const;
+
+const studyQuote = {
+  line: "“companion chatbot users indicated that these relationships were beneficial to their social health.”",
+  meta: "guingrich & graziano, oxford intersections: ai in society, 2025",
+};
 
 const title = "dmytro klochko";
 const description =
@@ -205,22 +211,32 @@ const description =
     </div>
 
     <ul class="receipts">
-      {
-        receipts.map((r) => (
-          <li>
-            <a class="receipt-src" href={r.href} target="_blank" rel="noreferrer">
-              {r.src}<span class="arw">↗</span>
-            </a>
-            <p>{r.line}</p>
-            <span>{r.meta}</span>
-          </li>
-        ))
-      }
+      <li>
+        <a class="receipt-src" href={press.href} target="_blank" rel="noreferrer">
+          {press.src}<span class="arw">↗</span>
+        </a>
+        <p>{press.line}</p>
+        <span>{press.meta}</span>
+      </li>
 
-      <li class="research">
-        <span>independent research</span>
-        <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=67360" target="_blank" rel="noreferrer">harvard<span class="arw">↗</span></a>
-        <a href="https://www.nature.com/articles/s44184-023-00047-6" target="_blank" rel="noreferrer">stanford<span class="arw">↗</span></a>
+      <li>
+        <p class="research">
+          <span class="research-lbl">independent research</span>
+          {
+            studies.map((s) => (
+              <a
+                class={s.quoted ? "is-quoted" : undefined}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {s.name}<span class="arw">↗</span>
+              </a>
+            ))
+          }
+        </p>
+        <p>{studyQuote.line}</p>
+        <span>{studyQuote.meta}</span>
       </li>
     </ul>
 
