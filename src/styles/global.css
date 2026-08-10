@@ -175,7 +175,7 @@ img {
   align-items: baseline;
   width: min(100% - var(--gutter) * 2, 78rem);
   margin-inline: auto;
-  padding-block: 1.5rem 0.9rem;
+  padding-block: 1.5rem 0.5rem;
 }
 
 .masthead {
@@ -284,6 +284,28 @@ img {
   font-size: var(--t-sm);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
+}
+
+/* ── target size ────────────────────────────────────────────────────────────
+   Every standalone link on the site measured 17-22px tall: wide enough, but
+   under the 24px WCAG 2.5.8 (AA) asks for, and on a phone that is a fiddly
+   tap. Vertical padding on a genuinely inline box grows the hit area without
+   touching the line box, so .reg-co and .card-what cost nothing at all. The
+   nav and the research row are flex containers, though, which makes their
+   links flex items, and .receipt-src is inline-block — for those three the
+   padding does grow the row, so the containers give the space back below.
+
+   Links inside a sentence are deliberately not here: 2.5.8 exempts targets
+   whose size is set by the line-height of the text around them, and padding
+   them would make neighbouring lines overlap. */
+.card-what a,
+.reg-co a,
+.research a,
+.receipt-src,
+.site-nav a,
+.foot-nav a,
+.to-top {
+  padding-block: 0.3rem;
 }
 
 /* ── place marks ────────────────────────────────────────────────────────────
@@ -397,7 +419,7 @@ svg.pin {
 .research {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 1.2rem;
+  gap: 0 1.2rem;
   margin: 0 0 0.6rem;
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
@@ -450,7 +472,7 @@ svg.pin {
 
 .receipt-src {
   display: inline-block;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.2rem;
   color: var(--hot);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
