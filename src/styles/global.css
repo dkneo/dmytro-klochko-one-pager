@@ -352,6 +352,36 @@ img {
 
 /* ── receipts ───────────────────────────────────────────────────────────── */
 
+/* Three universities were a sentence at the end of the prose, which read as
+   more reading rather than as proof. As a label strip they sit with the
+   quotes, so everything a stranger can check is in one band. */
+.research {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  margin: var(--sp-4) 0 0;
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.research > span {
+  color: var(--faint);
+}
+
+.research a {
+  color: var(--dim);
+  transition: color var(--dur) var(--ease);
+}
+
+.research a:hover {
+  color: var(--hot);
+}
+
+.research + .receipts {
+  margin-top: var(--sp-3);
+}
+
 .receipts {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -859,21 +889,6 @@ body::after {
 .sheet figcaption b {
   color: var(--hot);
   font-weight: 400;
-}
-
-/* One photograph size on the entire site. The opening portrait was the only
-   large image anywhere, which is what made it look pasted on: not the frame,
-   not the colour, just the fact that nothing else on the page was that size. */
-
-/* The cathedrals line describes the person, so it sits with him rather than
-   in a footer where it read as a stray aphorism. */
-/* Mono, not serif. DESIGN.md says the serif appears twice on the site and
-   both times for a poem; this line is neither, and it was the fifth typeface
-   on a page that is supposed to have one. */
-.cathedrals {
-  max-width: 40ch;
-  margin: 0 0 var(--sp-3);
-  color: var(--dim);
 }
 
 /* No frame, no caption, no heading, no explanation. It is a meme and it lands
