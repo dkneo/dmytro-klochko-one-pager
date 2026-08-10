@@ -208,31 +208,48 @@ const description =
   </a>
 
   <section class="shell session" id="before" aria-labelledby="s3">
-    <div class="card">
-      <p class="card-no">03</p>
-      <h2 class="card-title" id="s3">before replika</h2>
-    </div>
+    <div class="bay bay--flush">
+      <div>
+        <div class="card">
+          <p class="card-no">03</p>
+          <h2 class="card-title" id="s3">before replika</h2>
+        </div>
 
-    <ol class="reg">
-      {
-        roles.slice(1).map((r) => (
-          <li>
-            <span class="reg-mark" style={`--mark: url(${r.mark})`} aria-hidden="true" />
-            <span class="reg-co">
-              {r.href ? (
-                <a href={r.href} target="_blank" rel="noreferrer">
-                  {r.company} ↗
-                </a>
-              ) : (
-                r.company
-              )}
-            </span>
-            <span class="reg-what">{r.what}</span>
-            <span class="reg-role">{r.role}</span>
-          </li>
-        ))
-      }
-    </ol>
+        <ol class="reg">
+          {
+            roles.slice(1).map((r) => (
+              <li>
+                <span class="reg-mark" style={`--mark: url(${r.mark})`} aria-hidden="true" />
+                <span class="reg-co">
+                  {r.href ? (
+                    <a href={r.href} target="_blank" rel="noreferrer">
+                      {r.company} ↗
+                    </a>
+                  ) : (
+                    r.company
+                  )}
+                </span>
+                <span class="reg-what">{r.what}</span>
+                <span class="reg-role">{r.role}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div class="joi-col">
+        <AsciiShader
+          class="ascii--fun"
+          src="/ascii/fun-sheet.jpg"
+          frames={23}
+          cols={88}
+          fps={10}
+          black={0.06}
+          white={0.99}
+          gamma={1.0}
+        />
+      </div>
+    </div>
   </section>
 
   <section class="shell session" id="origin" aria-labelledby="s4">

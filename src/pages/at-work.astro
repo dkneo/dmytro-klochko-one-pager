@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import AsciiShader from "../components/AsciiShader.astro";
 
 const ways = [
   "natural aptitude for taste, action bias, & having too much fun shipping. clairvoyance, aggressive optimism. following my nose. very fucking clean and direct in my comms.",
@@ -215,9 +216,33 @@ const description =
       <h2 class="card-title" id="a6">taste</h2>
     </div>
 
-    <ol class="log shelf">
-      {books.map((b) => <li><p>{b}</p></li>)}
-    </ol>
+    <div class="bay">
+      <ol class="log shelf">
+        {books.map((b) => <li><p>{b}</p></li>)}
+      </ol>
+
+      <a
+        class="record"
+        href="https://open.spotify.com/playlist/4eD4OFwaWkhh8n6WcEUhUg"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <AsciiShader
+          class="ascii--vinyl"
+          src="/ascii/vinyl-sheet.jpg"
+          frames={30}
+          cols={54}
+          fps={16}
+          black={0.02}
+          white={0.99}
+          gamma={0.9}
+        />
+        <span class="record-meta">
+          <b>space cowboy ↗</b>
+          <em>the playlist</em>
+        </span>
+      </a>
+    </div>
 
     <div class="poems">
       <blockquote class="poem">
