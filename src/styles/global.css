@@ -937,10 +937,14 @@ body::after {
 
 /* Sits with the section it follows rather than floating between two, and the
    arrow travels with the words instead of at the far edge of the page. */
+/* Block-level flex, packed left. inline-flex put the arrow next to the words
+   but broke the auto margins that keep it inside the shell, so the whole link
+   slid to the viewport edge. */
 .onward {
-  display: inline-flex;
+  display: flex;
   gap: 0.1rem;
   align-items: baseline;
+  justify-content: flex-start;
   width: min(100% - var(--gutter) * 2, 78rem);
   margin: calc(var(--stack) * -0.62) auto 0;
   padding: 0 0 var(--sp-3);
@@ -1207,7 +1211,7 @@ a:focus-visible .arw {
 }
 
 .poem-by {
-  margin: 0 0 var(--sp-3);
+  margin: var(--sp-5) 0 var(--sp-3);
 }
 
 /* Keeps the flag with the word it belongs to, and the full stop with the
@@ -1219,4 +1223,21 @@ a:focus-visible .arw {
 
 .ascii--joi {
   max-width: 100%;
+}
+
+/* A sentence, not a label. It was borrowing the poems' uppercase treatment,
+   which is fine for three words and wrong for a line of prose. */
+.credit {
+  margin: var(--sp-2) 0 0;
+  color: var(--dim);
+  font-size: var(--t-sm);
+}
+
+.credit a {
+  color: var(--bone);
+  transition: color var(--dur) var(--ease);
+}
+
+.credit a:hover {
+  color: var(--hot);
 }

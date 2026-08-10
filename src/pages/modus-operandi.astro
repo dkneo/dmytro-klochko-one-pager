@@ -157,9 +157,36 @@ const description =
     </div>
 
     <div class="bay">
-      <ol class="log shelf">
-        {books.map((b) => <li><p>{b}</p></li>)}
-      </ol>
+      <div>
+        <ol class="log shelf">
+          {books.map((b) => <li><p>{b}</p></li>)}
+        </ol>
+
+        <div class="sheet">
+          <figure>
+            <span class="cell">
+              <img src="/images/swag-label.jpg" alt="A garment label reading: glad we're in this together. Replika, 2025" loading="lazy" />
+            </span>
+            <figcaption>the label</figcaption>
+          </figure>
+          <figure>
+            <span class="cell">
+              <img src="/images/swag-hoodie.jpg" alt="A green Replika hoodie on a chair against a deep blue backdrop" loading="lazy" />
+            </span>
+            <figcaption>the hoodie</figcaption>
+          </figure>
+          <figure>
+            <span class="cell">
+              <img src="/images/swag-team.jpg" alt="Dmytro and a colleague in Replika swag by a lake" loading="lazy" />
+            </span>
+            <figcaption>worn in</figcaption>
+          </figure>
+        </div>
+        <p class="credit">
+          replika's 2025 merch. i designed it, down to the label
+          <a href="https://x.com/replika/status/1991136959385817336" target="_blank" rel="noreferrer">↗</a>
+        </p>
+      </div>
 
       <a
         class="record"
@@ -183,31 +210,6 @@ const description =
         </span>
       </a>
     </div>
-
-    <div class="sheet">
-      <figure>
-        <span class="cell">
-          <img src="/images/swag-label.jpg" alt="A garment label reading: glad we're in this together. Replika, 2025" loading="lazy" />
-        </span>
-        <figcaption>the label</figcaption>
-      </figure>
-      <figure>
-        <span class="cell">
-          <img src="/images/swag-hoodie.jpg" alt="A green Replika hoodie on a chair against a deep blue backdrop" loading="lazy" />
-        </span>
-        <figcaption>the hoodie</figcaption>
-      </figure>
-      <figure>
-        <span class="cell">
-          <img src="/images/swag-team.jpg" alt="Dmytro and a colleague in Replika swag by a lake" loading="lazy" />
-        </span>
-        <figcaption>worn in</figcaption>
-      </figure>
-    </div>
-    <p class="poem-by">
-      replika's 2025 merch. i designed it, down to the label
-      <a href="https://x.com/replika/status/1991136959385817336" target="_blank" rel="noreferrer">↗</a>
-    </p>
 
     <p class="poem-by">random poems. mine, 2026.</p>
 
