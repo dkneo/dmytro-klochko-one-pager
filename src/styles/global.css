@@ -935,14 +935,15 @@ body::after {
    A way through at the point where someone has just finished the replika
    story and is deciding whether to keep reading. */
 
+/* Sits with the section it follows rather than floating between two, and the
+   arrow travels with the words instead of at the far edge of the page. */
 .onward {
-  display: flex;
-  gap: 1rem;
+  display: inline-flex;
+  gap: 0.1rem;
   align-items: baseline;
-  justify-content: space-between;
   width: min(100% - var(--gutter) * 2, 78rem);
-  margin: 0 auto;
-  padding: var(--sp-3) 0;
+  margin: calc(var(--stack) * -0.62) auto 0;
+  padding: 0 0 var(--sp-3);
   color: var(--dim);
   font-size: var(--t-sm);
   letter-spacing: var(--ls-wide);
@@ -1218,19 +1219,4 @@ a:focus-visible .arw {
 
 .ascii--joi {
   max-width: 100%;
-}
-
-.press-all {
-  margin: var(--sp-3) 0 0;
-  color: var(--dim);
-  font-size: var(--t-sm);
-}
-
-.press-all a {
-  color: var(--bone);
-  transition: color var(--dur) var(--ease);
-}
-
-.press-all a:hover {
-  color: var(--hot);
 }
