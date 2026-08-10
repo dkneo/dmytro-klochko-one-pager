@@ -335,44 +335,9 @@ const description =
     </div>
   </section>
 
-  <section class="shell session" id="camera" aria-labelledby="s6">
-    <div class="card">
-      <p class="card-no">06</p>
-      <h2 class="card-title" id="s6">on camera</h2>
-    </div>
-
-    <div class="reel">
-      {
-        vlogs.map((v) =>
-          v.href ? (
-            <a href={v.href} target="_blank" rel="noreferrer">
-              <span class="frame">
-                <video autoplay muted loop playsinline preload="metadata" poster={`/video/${v.video}-poster.jpg`} aria-hidden="true">
-                  <source src={`/video/${v.video}.webm`} type="video/webm" />
-                  <source src={`/video/${v.video}.mp4`} type="video/mp4" />
-                </video>
-              </span>
-              <span class="cap">{v.label} — {v.place}<span class="arw">↗</span></span>
-            </a>
-          ) : (
-            <figure>
-              <span class="frame">
-                <video autoplay muted loop playsinline preload="metadata" poster={`/video/${v.video}-poster.jpg`} aria-hidden="true">
-                  <source src={`/video/${v.video}.webm`} type="video/webm" />
-                  <source src={`/video/${v.video}.mp4`} type="video/mp4" />
-                </video>
-              </span>
-              <span class="cap">{v.label} — {v.place}</span>
-            </figure>
-          )
-        )
-      }
-    </div>
-  </section>
-
   <section class="shell session" id="origin" aria-labelledby="s4">
     <div class="card">
-      <p class="card-no">07</p>
+      <p class="card-no">06</p>
       <h2 class="card-title" id="s4">upbringing</h2>
     </div>
 
@@ -406,6 +371,41 @@ const description =
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <section class="shell session" id="camera" aria-labelledby="s6">
+    <div class="card">
+      <p class="card-no">07</p>
+      <h2 class="card-title" id="s6">on camera</h2>
+    </div>
+
+    <div class="reel">
+      {
+        vlogs.map((v) =>
+          v.href ? (
+            <a href={v.href} target="_blank" rel="noreferrer">
+              <span class="frame">
+                <video autoplay muted loop playsinline preload="metadata" poster={`/video/${v.video}-poster.jpg`} aria-hidden="true">
+                  <source src={`/video/${v.video}.webm`} type="video/webm" />
+                  <source src={`/video/${v.video}.mp4`} type="video/mp4" />
+                </video>
+              </span>
+              <span class="cap">{v.label} — {v.place}<span class="arw">↗</span></span>
+            </a>
+          ) : (
+            <figure>
+              <span class="frame">
+                <video autoplay muted loop playsinline preload="metadata" poster={`/video/${v.video}-poster.jpg`} aria-hidden="true">
+                  <source src={`/video/${v.video}.webm`} type="video/webm" />
+                  <source src={`/video/${v.video}.mp4`} type="video/mp4" />
+                </video>
+              </span>
+              <span class="cap">{v.label} — {v.place}</span>
+            </figure>
+          )
+        )
+      }
     </div>
   </section>
 

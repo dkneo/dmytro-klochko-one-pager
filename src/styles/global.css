@@ -889,7 +889,7 @@ body::after {
   position: relative;
   display: block;
   overflow: hidden;
-  aspect-ratio: 0.82;
+  aspect-ratio: 1;
   border: 1px solid rgb(233 229 216 / 16%);
   background: var(--deck);
 }
@@ -1112,11 +1112,17 @@ body::after {
    text. */
 /* A square-ish block starting level with the title, rather than a strip the
    height of the copy: at the copy's height the box was wide and short, and
-   cover took his head off. The crop is anchored high for the same reason. */
+   cover took his head off.
+
+   0.78 spent 119px of that block on the empty ceiling above the hat. The two
+   numbers below are one adjustment: the frame loses that strip, and the crop
+   moves down by exactly the same amount, so the whole loss comes off the top
+   and the bottom edge — the boots — does not move. Both are ratios, so they
+   hold at every width. */
 .bay .portrait {
   position: relative;
   align-self: start;
-  aspect-ratio: 0.78;
+  aspect-ratio: 0.94;
 }
 
 .bay .portrait .cell {
@@ -1126,7 +1132,7 @@ body::after {
 }
 
 .portrait img {
-  object-position: 50% 40%;
+  object-position: 50% 57%;
 }
 
 .bay .portrait figcaption {
