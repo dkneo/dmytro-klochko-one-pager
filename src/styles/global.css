@@ -188,27 +188,21 @@ img {
   color: var(--bone);
 }
 
-/* Whichever page you are not on is the offer, so it carries the accent and a
-   border. Two identical grey words gave no reason to click either. */
-/* Brackets, not a box. A bordered pill is a button from another design
-   system; square brackets are how a terminal marks the thing you can act on,
-   and they cost no chrome. */
-.site-nav a:not([aria-current]) {
-  color: var(--hot);
-}
-
-.site-nav a:not([aria-current])::before {
+.site-nav a[aria-current="page"]::before {
   color: rgb(255 111 174 / 45%);
   content: "[";
 }
 
-.site-nav a:not([aria-current])::after {
+.site-nav a[aria-current="page"]::after {
   color: rgb(255 111 174 / 45%);
   content: "]";
 }
 
-.site-nav a:not([aria-current]):hover::before,
-.site-nav a:not([aria-current]):hover::after {
+.site-nav a:not([aria-current]) {
+  color: var(--bone);
+}
+
+.site-nav a:not([aria-current]):hover {
   color: var(--hot);
 }
 
@@ -790,10 +784,6 @@ body::after {
   text-transform: uppercase;
 }
 
-.site-nav a[aria-current="page"] {
-  color: var(--hot);
-}
-
 /* The one line of his that had nowhere to live after the rebuild. It is not a
    section, it is a signature, so it sits with the sign-off. */
 /* ── contact sheet ──────────────────────────────────────────────────────────
@@ -1346,8 +1336,17 @@ a:focus-visible .arw {
   color: var(--bone);
 }
 
+/* Same convention as the header: brackets mark where you are. */
 .foot-nav a[aria-current="page"] {
-  color: var(--dim);
+  color: var(--hot);
+}
+
+.foot-nav a[aria-current="page"]::before {
+  content: "[";
+}
+
+.foot-nav a[aria-current="page"]::after {
+  content: "]";
 }
 
 /* The way back, at the end of the long page. The forward version is pulled up
