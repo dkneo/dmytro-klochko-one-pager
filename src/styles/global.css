@@ -74,7 +74,11 @@
 
   --gutter: clamp(1.25rem, 5vw, 5rem);
   --stack: var(--sp-5);
-  --measure: min(100%, 74ch);
+  /* 62, not 74. The usual 45-75 band is for proportional type; monospace
+     reads slower at the same measure because every glyph is the same width,
+     so word shapes are weaker and the eye has less to return to on the line
+     break. The replika copy was running 71 characters. */
+  --measure: min(100%, 62ch);
 
   --ease: cubic-bezier(0.2, 0, 0.2, 1);
   --dur: 200ms;
@@ -269,9 +273,13 @@ img {
 
 /* ── prose ──────────────────────────────────────────────────────────────── */
 
+/* The gap has to clear one full line or the paragraphs do not separate and
+   five beats read as one wall. It was 17.6px against a 27px line, so the
+   space inside a paragraph and the space between two of them were close
+   enough to be the same space. */
 .prose {
   display: grid;
-  gap: 1.1rem;
+  gap: var(--sp-3);
   max-width: var(--measure);
   margin: 0;
 }
