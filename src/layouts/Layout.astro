@@ -101,9 +101,26 @@ const nav = [
 
     <footer class="site-footer">
       <p class="signoff">see you space cowboy&hellip;</p>
+      <nav class="foot-nav" aria-label="pages">
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              aria-current={
+                (item.href === "/" ? current === "home" : item.href === `/${current}`)
+                  ? "page"
+                  : undefined
+              }
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
       <div class="foot-row">
         <p>© 2026 dmytro klochko</p>
-        <a class="to-top" href="#top">back to top ↑</a>
+        <a class="to-top" href="#top">back to top<span class="arw" aria-hidden="true">↑</span></a>
       </div>
     </footer>
 

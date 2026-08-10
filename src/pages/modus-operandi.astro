@@ -39,19 +39,26 @@ const books = [
   "man's search for meaning, viktor frankl",
 ] as const;
 
-// Hung at a uniform height with their real proportions rather than cropped to
-// squares: a square crop of a landscape painting throws away the painting.
-const paintings = [
-  { src: "/images/paintings/p01.jpg", ar: 0.865 },
-  { src: "/images/paintings/p02.jpg", ar: 0.796 },
-  { src: "/images/paintings/p03.jpg", ar: 1.135 },
-  { src: "/images/paintings/p04.jpg", ar: 1.608 },
-  { src: "/images/paintings/p05.jpg", ar: 0.85 },
-  { src: "/images/paintings/p06.jpg", ar: 1.392 },
-  { src: "/images/paintings/p07.jpg", ar: 0.75 },
-  { src: "/images/paintings/p08.jpg", ar: 0.762 },
-  { src: "/images/paintings/p09.jpg", ar: 1.412 },
-  { src: "/images/paintings/p10.jpg", ar: 1.4 },
+// A justified hang, in explicit rows. Each row is given an aspect-ratio equal
+// to the sum of its paintings' ratios, so the row's height resolves to
+// width / sum and every painting in it comes out the same height at its own
+// true proportions. Rows finish flush at any width and nothing is cropped,
+// which flex-wrap alone could not do: it left the last row stretched.
+const rows = [
+  [
+    { src: "/images/paintings/p01.jpg", ar: 0.865 },
+    { src: "/images/paintings/p02.jpg", ar: 0.796 },
+    { src: "/images/paintings/p03.jpg", ar: 1.135 },
+    { src: "/images/paintings/p04.jpg", ar: 1.608 },
+    { src: "/images/paintings/p05.jpg", ar: 0.85 },
+  ],
+  [
+    { src: "/images/paintings/p06.jpg", ar: 1.392 },
+    { src: "/images/paintings/p07.jpg", ar: 0.75 },
+    { src: "/images/paintings/p08.jpg", ar: 0.762 },
+    { src: "/images/paintings/p09.jpg", ar: 1.412 },
+    { src: "/images/paintings/p10.jpg", ar: 1.4 },
+  ],
 ] as const;
 
 const title = "modus operandi · dmytro klochko";
@@ -226,12 +233,18 @@ const description =
       </a>
     </div>
 
+    <p class="poem-by">paintings i loved recently.</p>
+
     <div class="hang">
       {
-        paintings.map((art) => (
-          <figure style={`--ar: ${art.ar}`}>
-            <img src={art.src} alt="" loading="lazy" />
-          </figure>
+        rows.map((row) => (
+          <div class="hang-row" style={`--sum: ${row.reduce((t, a) => t + a.ar, 0)}`}>
+            {row.map((art) => (
+              <figure style={`--ar: ${art.ar}`}>
+                <img src={art.src} alt="" loading="lazy" />
+              </figure>
+            ))}
+          </div>
         ))
       }
     </div>
@@ -254,4 +267,8 @@ const description =
       </blockquote>
     </div>
   </section>
+
+  <a class="onward onward--back" href="/">
+    <span class="arw" aria-hidden="true">↖</span><span>back to the short version</span>
+  </a>
 </Layout>

@@ -1242,22 +1242,70 @@ a:focus-visible .arw {
   color: var(--hot);
 }
 
-/* ── the hang ───────────────────────────────────────────────────────────────
-   A justified gallery: every painting is the same height and keeps its own
-   width, so rows fill and nothing is cropped. Square tiles would have thrown
-   away half of every landscape. flex-grow carries the aspect ratio, which is
-   what lets a row finish flush. */
+@media (max-width: 720px) {
+  .hang figure {
+    height: 7rem;
+    flex: var(--ar) 1 calc(var(--ar) * 7rem);
+  }
+}
 
-.hang {
+/* The footer carries the same two pages as the header, so a reader who has
+   scrolled to the bottom of either page does not have to scroll back up to
+   move. */
+.foot-nav {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+  margin-bottom: var(--sp-2);
+}
+
+.foot-nav a {
+  transition: color var(--dur) var(--ease);
+}
+
+.foot-nav a:hover {
+  color: var(--bone);
+}
+
+.foot-nav a[aria-current="page"] {
+  color: var(--dim);
+}
+
+/* The way back, at the end of the long page. The forward version is pulled up
+   under the section it follows; this one closes a page, so it is not. */
+.onward--back {
+  gap: 0.45rem;
+  margin-top: 0;
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--rule);
+}
+
+.onward--back:hover .arw {
+  transform: translate(-0.16em, -0.16em);
+}
+
+/* ── the hang ───────────────────────────────────────────────────────────────
+   A justified gallery. Each row carries an aspect-ratio equal to the sum of
+   its paintings' ratios, so the row's height resolves to width / sum and
+   every painting in it lands at the same height at its own true proportions.
+   Rows finish flush at any width, nothing is cropped, and there is no ragged
+   final row, which is what flex-wrap alone could not manage. */
+
+.hang {
+  display: grid;
   gap: var(--sp-1);
-  margin: var(--sp-4) 0 0;
+  margin: var(--sp-3) 0 0;
+}
+
+.hang-row {
+  display: flex;
+  gap: var(--sp-1);
+  aspect-ratio: var(--sum);
 }
 
 .hang figure {
-  height: 11rem;
-  flex: var(--ar) 1 calc(var(--ar) * 11rem);
+  flex: var(--ar) 1 0;
+  min-width: 0;
   margin: 0;
   overflow: hidden;
   background: var(--deck);
@@ -1272,11 +1320,4 @@ a:focus-visible .arw {
 
 .hang figure:hover img {
   transform: scale(1.04);
-}
-
-@media (max-width: 720px) {
-  .hang figure {
-    height: 7rem;
-    flex: var(--ar) 1 calc(var(--ar) * 7rem);
-  }
 }
