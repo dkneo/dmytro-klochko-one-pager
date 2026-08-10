@@ -32,51 +32,6 @@ const vlogs = [
   { label: "finding connection", place: "dok.fest münchen", video: "dokfest" },
 ] as const;
 
-const outs = [
-  {
-    name: "the replika manifesto",
-    what: "ai isn't the problem, it just forgot real life. i wrote it.",
-    kind: "essay",
-    href: "https://replika.com/manifesto",
-  },
-  {
-    name: "ai companions go mainstream this year",
-    what: "time, 5 predictions for ai in 2026",
-    kind: "press",
-    href: "https://time.com/collections/davos-2026/7339222/ai-predictions-2026/",
-  },
-  {
-    name: "ai companions reduce loneliness",
-    what: "harvard business school",
-    kind: "research",
-    href: "https://www.hbs.edu/faculty/Pages/item.aspx?num=67360",
-  },
-  {
-    name: "loneliness and suicide mitigation",
-    what: "maples et al, stanford, in nature",
-    kind: "research",
-    href: "https://www.nature.com/articles/s44184-023-00047-6",
-  },
-  {
-    name: "chatbots as social companions",
-    what: "guingrich & graziano, princeton",
-    kind: "research",
-    href: "https://arxiv.org/abs/2311.10599",
-  },
-  {
-    name: "everything else",
-    what: "every study and every mention, in one place",
-    kind: "press",
-    href: "https://replika.com/press",
-  },
-  {
-    name: "replika 2025 merch",
-    what: "i designed it, down to the label",
-    kind: "made",
-    href: "https://x.com/replika/status/1991136959385817336",
-  },
-] as const;
-
 const books = [
   "the lord of the rings, j.r.r. tolkien",
   "upstream, mary oliver",
@@ -125,6 +80,11 @@ const description =
             everyone, to help people become themselves and flourish.
           </p>
           <p>in stealth.</p>
+          <p>
+            the thinking behind it is in{" "}
+            <a href="https://replika.com/manifesto" target="_blank" rel="noreferrer">the manifesto<span class="arw">↗</span></a>,
+            which i wrote.
+          </p>
         </div>
       </div>
 
@@ -190,51 +150,9 @@ const description =
 
   </section>
 
-  <section class="shell session" id="record" aria-labelledby="a5">
-    <div class="card">
-      <p class="card-no">05</p>
-      <h2 class="card-title" id="a5">on record</h2>
-    </div>
-
-    <ul class="outs">
-      {
-        outs.map((o) => (
-          <li>
-            <a href={o.href} target="_blank" rel="noreferrer">
-              <b>{o.name}<span class="arw">↗</span></b>
-              <span>{o.what}</span>
-              <em>{o.kind}</em>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-
-    <div class="sheet">
-      <figure>
-        <span class="cell">
-          <img src="/images/swag-label.jpg" alt="A garment label reading: glad we're in this together. Replika, 2025" loading="lazy" />
-        </span>
-        <figcaption>the label</figcaption>
-      </figure>
-      <figure>
-        <span class="cell">
-          <img src="/images/swag-hoodie.jpg" alt="A green Replika hoodie on a chair against a deep blue backdrop" loading="lazy" />
-        </span>
-        <figcaption>the hoodie</figcaption>
-      </figure>
-      <figure>
-        <span class="cell">
-          <img src="/images/swag-team.jpg" alt="Dmytro and a colleague in Replika swag by a lake" loading="lazy" />
-        </span>
-        <figcaption>worn in</figcaption>
-      </figure>
-    </div>
-  </section>
-
   <section class="shell session" id="taste" aria-labelledby="a6">
     <div class="card">
-      <p class="card-no">06</p>
+      <p class="card-no">05</p>
       <h2 class="card-title" id="a6">taste</h2>
     </div>
 
@@ -265,6 +183,31 @@ const description =
         </span>
       </a>
     </div>
+
+    <div class="sheet">
+      <figure>
+        <span class="cell">
+          <img src="/images/swag-label.jpg" alt="A garment label reading: glad we're in this together. Replika, 2025" loading="lazy" />
+        </span>
+        <figcaption>the label</figcaption>
+      </figure>
+      <figure>
+        <span class="cell">
+          <img src="/images/swag-hoodie.jpg" alt="A green Replika hoodie on a chair against a deep blue backdrop" loading="lazy" />
+        </span>
+        <figcaption>the hoodie</figcaption>
+      </figure>
+      <figure>
+        <span class="cell">
+          <img src="/images/swag-team.jpg" alt="Dmytro and a colleague in Replika swag by a lake" loading="lazy" />
+        </span>
+        <figcaption>worn in</figcaption>
+      </figure>
+    </div>
+    <p class="poem-by">
+      replika's 2025 merch. i designed it, down to the label
+      <a href="https://x.com/replika/status/1991136959385817336" target="_blank" rel="noreferrer">↗</a>
+    </p>
 
     <p class="poem-by">random poems. mine, 2026.</p>
 

@@ -256,7 +256,7 @@ img {
 
 .reg li {
   display: grid;
-  grid-template-columns: 1.6rem minmax(0, 11rem) 1fr;
+  grid-template-columns: 1.6rem minmax(0, 8rem) 1fr;
   gap: 0.2rem 1.25rem;
   padding: 0 0 var(--sp-3);
 }
@@ -358,49 +358,6 @@ img {
   counter-increment: log;
   color: var(--faint);
   content: counter(log, decimal-leading-zero);
-}
-
-/* ── links out ──────────────────────────────────────────────────────────── */
-
-.outs {
-  display: grid;
-  width: 100%;
-  margin: var(--sp-4) 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.outs a {
-  display: grid;
-  grid-template-columns: minmax(0, 15rem) 1fr auto;
-  gap: 0.3rem 1.5rem;
-  align-items: baseline;
-  padding: 0.85rem 0;
-  transition: color var(--dur) var(--ease);
-}
-
-.outs a:hover {
-  color: var(--cold);
-}
-
-.outs b {
-  font-size: var(--t-md);
-  font-weight: 400;
-  letter-spacing: var(--ls-tight);
-  text-transform: uppercase;
-}
-
-.outs span {
-  color: var(--dim);
-  font-size: var(--t-sm);
-}
-
-.outs em {
-  color: var(--faint);
-  font-size: var(--t-xs);
-  font-style: normal;
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
 }
 
 /* ── poems ──────────────────────────────────────────────────────────────────
@@ -537,10 +494,7 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .outs a {
-    grid-template-columns: 1fr;
   }
-}
 
 /* ── reduced motion ─────────────────────────────────────────────────────── */
 
@@ -1210,11 +1164,9 @@ a:focus-visible .arw {
    left rather than appearing, which is cheap and reads as deliberate. */
 
 .reg-co a,
-.outs a b,
 .record-meta b,
 .receipt-src,
 .ways a,
-.say a,
 .card-what a {
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
@@ -1226,21 +1178,15 @@ a:focus-visible .arw {
 }
 
 .reg-co a:hover,
-.outs a:hover b,
 .record:hover .record-meta b,
 .receipt-src:hover,
 .ways a:hover,
-.say a:hover,
 .card-what a:hover {
   background-size: 100% 1px;
 }
 
 /* The say-hi links already carried a permanent underline, which would fight
    the sweep. */
-.say a {
-  border-bottom: 0;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .arw {
     transition: none;
@@ -1272,4 +1218,19 @@ a:focus-visible .arw {
 
 .ascii--joi {
   max-width: 100%;
+}
+
+.press-all {
+  margin: var(--sp-3) 0 0;
+  color: var(--dim);
+  font-size: var(--t-sm);
+}
+
+.press-all a {
+  color: var(--bone);
+  transition: color var(--dur) var(--ease);
+}
+
+.press-all a:hover {
+  color: var(--hot);
 }
