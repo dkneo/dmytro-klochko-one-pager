@@ -831,16 +831,6 @@ body::after {
 
 /* The one line of his that had nowhere to live after the rebuild. It is not a
    section, it is a signature, so it sits with the sign-off. */
-.cathedrals {
-  margin: 0 0 var(--sp-2);
-  color: var(--dim);
-  font-family: var(--serif);
-  font-size: var(--t-lg);
-  font-style: italic;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
 /* ── contact sheet ──────────────────────────────────────────────────────────
    Photographs stop being features and become records. Small, uniform, indexed,
    in a strip. A full-colour rectangle on a starfield reads as a hole punched
@@ -898,52 +888,9 @@ body::after {
   font-weight: 400;
 }
 
-/* The one photograph that has to land stays large: a single frame with its
-   index, sized like a plate rather than a thumbnail. */
-.plate {
-  position: relative;
-  margin: 0;
-}
-
-.plate {
-  width: min(100%, 21rem);
-}
-
-.plate .cell {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 0.86;
-  border: 1px solid rgb(233 229 216 / 16%);
-  background: var(--deck);
-}
-
-.plate img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.plate figcaption {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-  color: var(--faint);
-  font-size: var(--t-xs);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.plate figcaption b {
-  color: var(--hot);
-  font-weight: 400;
-}
-
-/* The Lynch still is a film frame; cropping it square would lose the subtitle,
-   which is the entire reason it is on the page. */
-.cell--wide {
-  aspect-ratio: 1.64;
-}
+/* One photograph size on the entire site. The opening portrait was the only
+   large image anywhere, which is what made it look pasted on: not the frame,
+   not the colour, just the fact that nothing else on the page was that size. */
 
 /* One accurate drawing that CSS moves, which is the only ASCII approach here
    that has worked. Hand-drawn figures were tried twice and were bad twice. */
@@ -954,19 +901,19 @@ body::after {
   font-size: var(--art-cell-lg);
   line-height: 1;
   white-space: pre;
-  animation: breathe 6s ease-in-out infinite;
+  animation: breathe 4.5s ease-in-out infinite;
 }
 
 @keyframes breathe {
   0%,
   100% {
-    opacity: 0.55;
-    transform: scale(1);
+    opacity: 0.4;
+    transform: scale(0.94) translateY(0.3rem);
   }
 
   50% {
     opacity: 1;
-    transform: scale(1.04);
+    transform: scale(1.06) translateY(-0.3rem);
   }
 }
 
@@ -982,11 +929,23 @@ body::after {
 
 /* The cathedrals line describes the person, so it sits with him rather than
    in a footer where it read as a stray aphorism. */
+/* Mono, not serif. DESIGN.md says the serif appears twice on the site and
+   both times for a poem; this line is neither, and it was the fifth typeface
+   on a page that is supposed to have one. */
 .cathedrals {
-  max-width: 34ch;
+  max-width: 40ch;
   margin: 0 0 var(--sp-3);
   color: var(--dim);
-  font-family: var(--serif);
-  font-size: var(--t-lg);
-  font-style: italic;
+}
+
+/* No frame, no caption, no heading, no explanation. It is a meme and it lands
+   on its own; the paragraph underneath it was me talking over the joke. */
+.lynch {
+  width: min(100%, 34rem);
+  margin: 0;
+}
+
+.lynch img {
+  width: 100%;
+  height: auto;
 }
