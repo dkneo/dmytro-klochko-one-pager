@@ -4,7 +4,7 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
-  current?: "home" | "feed";
+  current?: "home" | "taste";
 }
 
 const { title, description, current = "home" } = Astro.props;
@@ -16,7 +16,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
 // then changed meaning on every other page.
 const nav = [
   { label: "readme", href: "/" },
-  { label: "feed", href: "/feed" },
+  { label: "taste", href: "/taste" },
 ];
 ---
 

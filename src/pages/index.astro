@@ -77,6 +77,15 @@ const ways = [
   "unhealthy excitement about customers {more users in my slack than team members lol}. making my products <b>feel like magic</b>. extensive experience working with the world's best brand agencies.",
 ] as const;
 
+const vlogs = [
+  { label: "kbs interview", place: "korea", href: "https://www.instagram.com/p/DYhL6c9Ti8M/", video: "vlog-kbs" },
+  { label: "vienna", place: "austria", href: "https://www.instagram.com/p/DYXLh6rI2JI/", video: "vlog-vienna" },
+  { label: "in paris", place: "france", href: "https://www.instagram.com/p/DYheZtSNZxM/", video: "vlog-paris" },
+  { label: "london", place: "the film", video: "film-london" },
+  { label: "live on tvnz", place: "new zealand", video: "tvnz-live" },
+  { label: "finding connection", place: "dok.fest münchen", video: "dokfest" },
+] as const;
+
 const receipts = [
   {
     src: "time",
@@ -218,8 +227,8 @@ const description =
 
   </section>
 
-  <a class="onward" href="/feed">
-    <span>films, the people i watch, and what i keep going back to</span>
+  <a class="onward" href="/taste">
+    <span>the people i watch, and what i keep going back to</span>
     <span class="arw" aria-hidden="true">↗</span>
   </a>
 
@@ -326,9 +335,44 @@ const description =
     </div>
   </section>
 
-  <section class="shell session" id="origin" aria-labelledby="s4">
+  <section class="shell session" id="camera" aria-labelledby="s6">
     <div class="card">
       <p class="card-no">06</p>
+      <h2 class="card-title" id="s6">on camera</h2>
+    </div>
+
+    <div class="reel">
+      {
+        vlogs.map((v) =>
+          v.href ? (
+            <a href={v.href} target="_blank" rel="noreferrer">
+              <span class="frame">
+                <video autoplay muted loop playsinline preload="metadata" poster={`/video/${v.video}-poster.jpg`} aria-hidden="true">
+                  <source src={`/video/${v.video}.webm`} type="video/webm" />
+                  <source src={`/video/${v.video}.mp4`} type="video/mp4" />
+                </video>
+              </span>
+              <span class="cap">{v.label} — {v.place}<span class="arw">↗</span></span>
+            </a>
+          ) : (
+            <figure>
+              <span class="frame">
+                <video autoplay muted loop playsinline preload="metadata" poster={`/video/${v.video}-poster.jpg`} aria-hidden="true">
+                  <source src={`/video/${v.video}.webm`} type="video/webm" />
+                  <source src={`/video/${v.video}.mp4`} type="video/mp4" />
+                </video>
+              </span>
+              <span class="cap">{v.label} — {v.place}</span>
+            </figure>
+          )
+        )
+      }
+    </div>
+  </section>
+
+  <section class="shell session" id="origin" aria-labelledby="s4">
+    <div class="card">
+      <p class="card-no">07</p>
       <h2 class="card-title" id="s4">upbringing</h2>
     </div>
 
@@ -367,7 +411,7 @@ const description =
 
   <section class="shell session" id="contact" aria-labelledby="s5">
     <div class="card">
-      <p class="card-no">07</p>
+      <p class="card-no">08</p>
       <h2 class="card-title" id="s5">say hi</h2>
     </div>
 
@@ -397,7 +441,7 @@ const description =
     </div>
   </section>
 
-  <a class="onward onward--end" href="/feed">
-    <span>the feed</span><span class="arw" aria-hidden="true">↗</span>
+  <a class="onward onward--end" href="/taste">
+    <span>taste</span><span class="arw" aria-hidden="true">↗</span>
   </a>
 </Layout>
