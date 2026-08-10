@@ -46,18 +46,21 @@ const books = [
 // which flex-wrap alone could not do: it left the last row stretched.
 const rows = [
   [
-    { src: "/images/paintings/p01.jpg", ar: 0.865 },
-    { src: "/images/paintings/p02.jpg", ar: 0.796 },
-    { src: "/images/paintings/p03.jpg", ar: 1.135 },
-    { src: "/images/paintings/p04.jpg", ar: 1.608 },
-    { src: "/images/paintings/p05.jpg", ar: 0.85 },
+    { src: "/images/paintings/p01.jpg", ar: 0.865, who: "katherine bradford",
+      work: "Swimmers Under Orange Moon, 2025, acrylic on canvas" },
+    { src: "/images/paintings/p02.jpg", ar: 0.796, who: "odilon redon", work: "" },
+    { src: "/images/paintings/p03.jpg", ar: 1.135, who: "hasui kawase", work: "" },
+    { src: "/images/paintings/p04.jpg", ar: 1.608, who: "minami kobayashi",
+      work: "Two Men at a Japanese Restaurant, 2024" },
+    { src: "/images/paintings/p05.jpg", ar: 0.85, who: "franz kline",
+      work: "Orange and Black Wall, 1959, Museum of Fine Arts, Houston" },
   ],
   [
-    { src: "/images/paintings/p06.jpg", ar: 1.392 },
-    { src: "/images/paintings/p07.jpg", ar: 0.75 },
-    { src: "/images/paintings/p08.jpg", ar: 0.762 },
-    { src: "/images/paintings/p09.jpg", ar: 1.412 },
-    { src: "/images/paintings/p10.jpg", ar: 1.4 },
+    { src: "/images/paintings/p06.jpg", ar: 1.392, who: "kiyoshi saitō", work: "" },
+    { src: "/images/paintings/p07.jpg", ar: 0.75, who: "claude monet", work: "" },
+    { src: "/images/paintings/p08.jpg", ar: 0.762, who: "", work: "" },
+    { src: "/images/paintings/p09.jpg", ar: 1.412, who: "hajime sorayama", work: "" },
+    { src: "/images/paintings/p10.jpg", ar: 1.4, who: "", work: "" },
   ],
 ] as const;
 
@@ -238,12 +241,20 @@ const description =
     <div class="hang">
       {
         rows.map((row) => (
-          <div class="hang-row" style={`--sum: ${row.reduce((t, a) => t + a.ar, 0)}`}>
-            {row.map((art) => (
-              <figure style={`--ar: ${art.ar}`}>
-                <img src={art.src} alt="" loading="lazy" />
-              </figure>
-            ))}
+          <div class="hang-row">
+            {/* The plates carry the row's aspect maths; the captions are a
+                second flex row on the same ratios, so each name sits under
+                its painting without disturbing the geometry. */}
+            <div class="hang-plates" style={`--sum: ${row.reduce((t, a) => t + a.ar, 0)}`}>
+              {row.map((art) => (
+                <figure style={`--ar: ${art.ar}`}>
+                  <img src={art.src} alt={art.who ? `${art.who}. ${art.work}` : ""} title={art.work || undefined} loading="lazy" />
+                </figure>
+              ))}
+            </div>
+            <div class="hang-caps">
+              {row.map((art) => <span style={`--ar: ${art.ar}`}>{art.who}</span>)}
+            </div>
           </div>
         ))
       }

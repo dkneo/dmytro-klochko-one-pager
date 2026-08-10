@@ -1293,14 +1293,32 @@ a:focus-visible .arw {
 
 .hang {
   display: grid;
-  gap: var(--sp-1);
+  gap: var(--sp-3);
   margin: var(--sp-3) 0 0;
 }
 
-.hang-row {
+.hang-plates {
   display: flex;
   gap: var(--sp-1);
   aspect-ratio: var(--sum);
+}
+
+.hang-caps {
+  display: flex;
+  gap: var(--sp-1);
+  margin-top: var(--sp-1);
+}
+
+.hang-caps span {
+  flex: var(--ar) 1 0;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--faint);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .hang figure {
@@ -1320,4 +1338,8 @@ a:focus-visible .arw {
 
 .hang figure:hover img {
   transform: scale(1.04);
+}
+
+.hang-row {
+  display: block;
 }
