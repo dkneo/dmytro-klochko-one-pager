@@ -2,10 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import AsciiShader from "../components/AsciiShader.astro";
 
+// One highlighted phrase per paragraph. Marking more would be marking none.
 const ways = [
-  "natural aptitude for taste, action bias, & having too much fun shipping. clairvoyance, aggressive optimism. following my nose. very fucking clean and direct in my comms.",
-  "culture in my teams is something i'm incredibly proud of: violent intolerance for mediocre work. anime-level fellowship & camaraderie. fearlessness. relentless pursuit of the mission.",
-  "unhealthy excitement about customers {more users in my slack than team members lol}. making my product feel like magic. extensive experience working with the world's best brand agencies.",
+  'natural aptitude for <b>taste</b>, action bias, &amp; having too much fun shipping. <b>clairvoyance</b>, aggressive optimism. following my nose. very fucking clean and direct in my comms.',
+  "culture in my teams is something i'm incredibly proud of: violent intolerance for mediocre work. anime-level <b>fellowship</b> &amp; camaraderie. fearlessness. relentless pursuit of the mission.",
+  "unhealthy excitement about customers {more users in my slack than team members lol}. making my products <b>feel like magic</b>. extensive experience working with the world's best brand agencies.",
 ] as const;
 
 // Eight, so the board fills four across without a ragged last row. Uncut Gems
@@ -17,9 +18,9 @@ const wall = [
   { src: "/images/wall/w06.jpg", cap: "ryuichi sakamoto" },
   { src: "/images/wall/w07.jpg", cap: "brian eno" },
   { src: "/images/wall/w02.jpg", cap: "steve jobs, at home" },
-  { src: "/images/wall/w04.jpg", cap: "jobs, on the way" },
+  { src: "/images/wall/w04.jpg", cap: "steve jobs, on the way" },
   { src: "/images/wall/w08.jpg", cap: "robin williams" },
-  { src: "/images/wall/w09.jpg", cap: "mcconaughey" },
+  { src: "/images/wall/w09.jpg", cap: "matthew mcconaughey" },
 ] as const;
 
 const vlogs = [
@@ -94,19 +95,19 @@ const description =
       <p class="card-no">01</p>
       <h1 class="card-title" id="a1">how i work</h1>
     </div>
-    <div class="prose">
-      {ways.map((w) => <p>{w}</p>)}
-    </div>
-  </section>
+    <div class="bay">
+      <div class="prose">
+        {ways.map((w) => <p set:html={w} />)}
+      </div>
 
-  <section class="shell session" aria-label="lynch">
-    <figure class="lynch">
-      <img
-        src="/images/lynch.jpg"
-        alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
-        loading="lazy"
-      />
-    </figure>
+      <figure class="lynch">
+        <img
+          src="/images/lynch.jpg"
+          alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
+          loading="lazy"
+        />
+      </figure>
+    </div>
   </section>
 
   <section class="shell session" id="next" aria-labelledby="a2">
@@ -115,14 +116,21 @@ const description =
       <h2 class="card-title" id="a2">what i am working on now</h2>
     </div>
 
-    <p class="lede">a new era for replika. in stealth.</p>
+    <div class="bay">
+      <div>
+        <p class="lede">a new era for replika.</p>
+        <div class="prose">
+          <p>
+            a truly novel product, and a beautiful one: agentic ai with real eq, brought to
+            everyone, to help people become themselves and flourish.
+          </p>
+          <p>in stealth.</p>
+        </div>
+      </div>
 
-    <div class="prose">
-      <p>
-        a truly novel product, and a beautiful one: agentic ai with real eq, brought to everyone,
-        to help people become themselves and flourish.
-      </p>
-      <p>that is all i can say about it for now.</p>
+      <figure class="wall-wide">
+        <img src="/images/wall/w10.jpg" alt="Uncut Gems: let's fucking bet on this" loading="lazy" />
+      </figure>
     </div>
   </section>
 
@@ -145,10 +153,6 @@ const description =
       }
     </div>
 
-    <figure class="wall-wide">
-      <img src="/images/wall/w10.jpg" alt="Uncut Gems: let's fucking bet on this" loading="lazy" />
-      <figcaption>uncut gems</figcaption>
-    </figure>
   </section>
 
   <section class="shell session" id="camera" aria-labelledby="a4">
@@ -262,6 +266,8 @@ const description =
       </a>
     </div>
 
+    <p class="poem-by">random poems. mine, 2026.</p>
+
     <div class="poems">
       <blockquote class="poem">
         i am lost in sorrento<br />
@@ -277,6 +283,5 @@ const description =
         for she carries inside her an eternal summer, an eternal summer
       </blockquote>
     </div>
-    <p class="poem-by">random poems. mine, 2026.</p>
   </section>
 </Layout>

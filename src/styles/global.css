@@ -1252,3 +1252,14 @@ a:focus-visible .arw {
     transform: none;
   }
 }
+
+/* One phrase per paragraph, in the accent. Any more and it stops being
+   emphasis and becomes decoration. */
+.prose b {
+  color: var(--hot);
+  font-weight: 400;
+}
+
+.poem-by {
+  margin: 0 0 var(--sp-3);
+}
