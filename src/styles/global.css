@@ -352,14 +352,15 @@ img {
 
 /* ── receipts ───────────────────────────────────────────────────────────── */
 
-/* Three universities were a sentence at the end of the prose, which read as
-   more reading rather than as proof. As a label strip they sit with the
-   quotes, so everything a stranger can check is in one band. */
+/* The universities are a row of the receipts list, not a strip above it —
+   above it, princeton was named twice and linked to the same arxiv paper
+   twice, once here and once as the quote's own source. The quoted one is not
+   repeated; this row is the research that is not quoted. */
 .research {
   display: flex;
   flex-wrap: wrap;
+  grid-column: 1 / -1;
   gap: 0.4rem 1.4rem;
-  margin: var(--sp-4) 0 0;
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
@@ -376,10 +377,6 @@ img {
 
 .research a:hover {
   color: var(--hot);
-}
-
-.research + .receipts {
-  margin-top: var(--sp-3);
 }
 
 .receipts {
