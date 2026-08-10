@@ -6,6 +6,21 @@
    place a voice other than the terminal's is speaking.
    ═════════════════════════════════════════════════════════════════════════ */
 
+/* Noto Emoji is the MONOCHROME emoji font, not the colour one — the same
+   glyphs drawn as single-colour outlines that inherit `color`. Subset by
+   Google Fonts to two codepoints and self-hosted, so it costs 1.6KB and no
+   third-party request. SIL OFL 1.1.
+   `block` rather than `swap`: swapping would show the colour sticker first
+   and then replace it, which is the exact thing being fixed. */
+@font-face {
+  font-family: "Noto Emoji";
+  src: url("/fonts/noto-emoji-pins.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  unicode-range: U+1F5FC-1F5FD;
+}
+
 :root {
   /* Noir ground, bone type, one cold accent and one hot one. The hot accent
      is rationed to a single appearance per session. */
@@ -269,6 +284,25 @@ img {
   font-size: var(--t-sm);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
+}
+
+/* ── place marks ────────────────────────────────────────────────────────────
+   A mark before a city name. Two come from Noto Emoji's monochrome cut, one
+   is Tabler's building-bridge (MIT) inline: Noto's 🌉 is a framed picture of a
+   bridge, and a bordered rectangle in the middle of a sentence is the one
+   shape this ground cannot take. Both inherit `color`, so they turn with the
+   text instead of sitting on it as stickers. */
+.pin {
+  font-family: "Noto Emoji";
+  font-style: normal;
+}
+
+svg.pin {
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.16em;
+  stroke-width: 2.2;
 }
 
 /* ── prose ──────────────────────────────────────────────────────────────── */
