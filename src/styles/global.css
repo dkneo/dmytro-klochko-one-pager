@@ -226,9 +226,12 @@ img {
 /* The number hangs in the margin. As a grid column it pushed every heading
    43px right of every piece of body copy on the page, so nothing shared a
    left edge. Same fault, and same fix, as the register marks. */
+/* One gap under every section title. This was sp-4 here and sp-3 inside a
+   flush bay, so half the page sat 20px looser than the other half for no
+   reason anyone could see except as slack under the big type. */
 .card {
   position: relative;
-  margin-bottom: var(--sp-4);
+  margin-bottom: var(--sp-3);
 }
 
 .card-no {
@@ -1008,11 +1011,11 @@ body::after {
 }
 
 /* ── onward ─────────────────────────────────────────────────────────────────
-   A way through at the point where someone has just finished the replika
-   story and is deciding whether to keep reading. */
+   The way off the end of a page. There was a second one mid-readme, pulled up
+   under the replika section; the nav says taste on every page now, so it was
+   asking a question the header had already answered. With it gone the base no
+   longer needs the negative top margin that placed it. */
 
-/* Sits with the section it follows rather than floating between two, and the
-   arrow travels with the words instead of at the far edge of the page. */
 /* Block-level flex, packed left. inline-flex put the arrow next to the words
    but broke the auto margins that keep it inside the shell, so the whole link
    slid to the viewport edge. */
@@ -1022,8 +1025,9 @@ body::after {
   align-items: baseline;
   justify-content: flex-start;
   width: min(100% - var(--gutter) * 2, 78rem);
-  margin: calc(var(--stack) * -0.62) auto 0;
-  padding: 0 0 var(--sp-3);
+  margin: 0 auto;
+  padding: var(--sp-3) 0;
+  border-top: 1px solid var(--rule);
   color: var(--dim);
   font-size: var(--t-sm);
   letter-spacing: var(--ls-wide);
@@ -1098,12 +1102,6 @@ body::after {
   }
 }
 
-/* Joi starts level with the section title so the receipts below her sit
-   alongside the copy rather than dangling under it. */
-.bay--flush .card {
-  margin-bottom: var(--sp-3);
-}
-
 /* The picture takes its height from the writing beside it. Its contents are
    taken out of flow, so the column contributes nothing to the row's intrinsic
    height and the row is measured by the copy alone; stretch then gives the
@@ -1144,27 +1142,6 @@ body::after {
 
 .joi-col {
   padding-top: 0.4rem;
-}
-
-/* Uncut Gems keeps its own ratio: the line is burned into the frame and a
-   square crop cuts it in half. */
-.wall-wide {
-  width: min(100%, 34rem);
-  margin: 0;
-}
-
-.wall-wide img {
-  width: 100%;
-  height: auto;
-  border: 1px solid rgb(233 229 216 / 16%);
-}
-
-.wall-wide figcaption {
-  margin-top: var(--sp-1);
-  color: var(--faint);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
 }
 
 .poem-by {
@@ -1362,13 +1339,10 @@ a:focus-visible .arw {
   content: "]";
 }
 
-/* The way back, at the end of the long page. The forward version is pulled up
-   under the section it follows; this one closes a page, so it is not. */
+/* The way back, at the end of the long page. Only the arrow gap differs: it
+   leads the words here instead of trailing them. */
 .onward--back {
   gap: 0.45rem;
-  margin-top: 0;
-  padding-top: var(--sp-3);
-  border-top: 1px solid var(--rule);
 }
 
 .onward--back:hover .arw {
@@ -1452,12 +1426,6 @@ a:focus-visible .arw {
   .reel .cap {
     font-size: var(--t-xs);
   }
-}
-
-.onward--end {
-  margin-top: 0;
-  padding-top: var(--sp-3);
-  border-top: 1px solid var(--rule);
 }
 
 @media (max-width: 900px) {
