@@ -420,9 +420,11 @@ img {
 
 /* ── reel ───────────────────────────────────────────────────────────────── */
 
+/* Three across, so six clips make two even rows. auto-fit gave four and left
+   a widowed pair underneath. */
 .reel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--sp-2);
   margin-top: var(--sp-4);
 }
@@ -1113,7 +1115,7 @@ body::after {
 /* The record spins next to the shelf and is the whole link. */
 .record {
   display: block;
-  width: min(100%, 16rem);
+  width: 100%;
   transition: color var(--dur) var(--ease);
 }
 
@@ -1342,4 +1344,16 @@ a:focus-visible .arw {
 
 .hang-row {
   display: block;
+}
+
+@media (max-width: 900px) {
+  .reel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .reel {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
