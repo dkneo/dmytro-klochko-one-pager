@@ -1011,10 +1011,9 @@ body::after {
 }
 
 /* ── onward ─────────────────────────────────────────────────────────────────
-   The way off the end of a page. There was a second one mid-readme, pulled up
-   under the replika section; the nav says taste on every page now, so it was
-   asking a question the header had already answered. With it gone the base no
-   longer needs the negative top margin that placed it. */
+   The way across to the other page. One per page, at the end of the last
+   thing worth looking at rather than after the contact details, where the
+   footer nav says the same thing three lines later. */
 
 /* Block-level flex, packed left. inline-flex put the arrow next to the words
    but broke the auto margins that keep it inside the shell, so the whole link
@@ -1037,6 +1036,15 @@ body::after {
 
 .onward:hover {
   color: var(--hot);
+}
+
+/* Lives inside a section rather than between two, so it inherits the shell's
+   width instead of insetting itself by another gutter, and the section's own
+   bottom padding is what separates it from the next title. */
+.onward--tail {
+  width: 100%;
+  margin-top: var(--sp-4);
+  padding-bottom: 0;
 }
 
 /* ── gloss ──────────────────────────────────────────────────────────────────
