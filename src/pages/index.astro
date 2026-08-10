@@ -69,16 +69,6 @@ const shots = [
     alt: "Dmytro as a boy on stage with a microphone, mid-song, pointing at the crowd" },
 ] as const;
 
-// Dmytro's own icons, made for these four words. They carry too much detail to
-// survive at reading size, so they get a row of their own at 84px instead of
-// riding inside the sentences.
-const marks = [
-  { src: "/images/icons/taste.webp", word: "taste" },
-  { src: "/images/icons/clairvoyance.webp", word: "clairvoyance" },
-  { src: "/images/icons/fellowship.webp", word: "fellowship" },
-  { src: "/images/icons/magic.webp", word: "feel like magic" },
-] as const;
-
 // His words. Highlighted one phrase per paragraph; more than that stops being
 // emphasis.
 const ways = [
@@ -139,7 +129,7 @@ const description =
         <div class="prose">
           <p>
             product &amp; engineering guy with a background in art, chess and theatre. based
-            between 🗽 nyc, 🗼 paris &amp; 🌉 sf. lecturer at the{" "}
+            between nyc, paris &amp; sf. lecturer at the{" "}
             <a href="https://www.univie.ac.at/en/" target="_blank" rel="noreferrer">university of vienna<span class="arw">↗</span></a>.
           </p>
           <p>
@@ -324,17 +314,6 @@ const description =
         />
       </figure>
     </div>
-
-    <ul class="marks">
-      {
-        marks.map((m) => (
-          <li>
-            <img src={m.src} alt="" loading="lazy" width="256" height="256" />
-            <span>{m.word}</span>
-          </li>
-        ))
-      }
-    </ul>
   </section>
 
   <section class="shell session" id="origin" aria-labelledby="s4">
