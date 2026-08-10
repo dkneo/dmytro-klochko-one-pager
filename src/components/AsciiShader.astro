@@ -1,0 +1,192 @@
+---
+// ASCII post-processing, the technique the good ones use: sample a source into
+// a character grid, then let the cursor displace where each cell reads from.
+// The glyph changes but the grid does not, so a whole row is one fillText —
+// tens of draw calls a frame instead of thousands.
+//
+// Two sources are supported. A single image becomes an interactive still. A
+// vertical sprite sheet of N frames becomes an animation, and the cursor still
+// works on top of it.
+//
+// This is the only real JavaScript on the site. No library, it does not run
+// until scrolled into view, and reduced-motion gets one static frame.
+interface Props {
+  src: string;
+  /** Frames stacked vertically in one image. 1 means a still. */
+  frames?: number;
+  cols?: number;
+  /** Frames per second for a sheet. */
+  fps?: number;
+  /** Tone curve. Sources differ enormously; one setting cannot serve a lit
+      face on magenta and a night street with a flame in it. */
+  black?: number;
+  white?: number;
+  gamma?: number;
+  label?: string;
+  class?: string;
+}
+
+const {
+  src, frames = 1, cols = 112, fps = 12,
+  black = 0.02, white = 0.99, gamma = 0.85,
+  label, class: className = "",
+} = Astro.props;
+---
+
+<figure class={`ascii ${className}`} data-ascii>
+  <canvas
+    data-src={src}
+    data-cols={cols}
+    data-frames={frames}
+    data-fps={fps}
+    data-black={black}
+    data-white={white}
+    data-gamma={gamma}
+  ></canvas>
+  {label && <figcaption>{label}</figcaption>}
+</figure>
+
+<script>
+  // Eleven levels of rising ink coverage. A seventy-character ramp sounds like
+  // more fidelity and delivers less: adjacent glyphs stop being tellable apart
+  // at cell size and the picture turns to noise.
+  const RAMP = " .:-=+*#%@$";
+
+  function boot(fig: HTMLElement) {
+    const canvas = fig.querySelector("canvas") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d", { alpha: false })!;
+    const cols = Number(canvas.dataset.cols || 112);
+    const nFrames = Math.max(1, Number(canvas.dataset.frames || 1));
+    const fps = Number(canvas.dataset.fps || 12);
+    const BLACK = Number(canvas.dataset.black || 0.02);
+    const WHITE = Number(canvas.dataset.white || 0.99);
+    const GAMMA = Number(canvas.dataset.gamma || 0.85);
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let banks: Float32Array[] = [];
+    let rows = 0, cellH = 0, raf = 0, frame = 0, acc = 0, last = 0;
+    // The pointer lives in grid space and eases, so the ripple trails the
+    // cursor rather than snapping to it.
+    let px = -999, py = -999, tx = -999, ty = -999, t = 0;
+
+    const img = new Image();
+    img.onload = () => {
+      rows = Math.round(((cols * (img.height / nFrames)) / img.width) * 0.5);
+      const off = document.createElement("canvas");
+      off.width = cols;
+      off.height = rows * nFrames;
+      const o = off.getContext("2d", { willReadFrequently: true })!;
+      o.drawImage(img, 0, 0, cols, rows * nFrames);
+      const d = o.getImageData(0, 0, cols, rows * nFrames).data;
+
+      const all = new Float32Array(cols * rows * nFrames);
+      for (let i = 0; i < all.length; i++) {
+        all[i] = (0.2126 * d[i * 4] + 0.7152 * d[i * 4 + 1] + 0.0722 * d[i * 4 + 2]) / 255;
+      }
+      // Contrast stretch over the whole sequence, not per frame, or the
+      // brightness pumps as the clip plays. Without any stretch a source whose
+      // values cluster high maps almost every cell to a dense glyph and the
+      // frame reads as one solid block of ink.
+      const sorted = Float32Array.from(all).sort();
+      const lo = sorted[Math.min(sorted.length - 1, (sorted.length * BLACK) | 0)];
+      const hi = sorted[Math.min(sorted.length - 1, (sorted.length * WHITE) | 0)];
+      const span = Math.max(hi - lo, 0.001);
+      for (let i = 0; i < all.length; i++) {
+        // Gamma under 1 lifts the mid-tones, which is where faces live.
+        all[i] = Math.pow(Math.min(1, Math.max(0, (all[i] - lo) / span)), GAMMA);
+      }
+      for (let f = 0; f < nFrames; f++) {
+        banks.push(all.subarray(f * cols * rows, (f + 1) * cols * rows));
+      }
+
+      size();
+      new ResizeObserver(size).observe(fig);
+      if (still) return;
+      new IntersectionObserver((e) => {
+        if (e[0].isIntersecting) {
+          if (!raf) { last = performance.now(); raf = requestAnimationFrame(loop); }
+        } else {
+          cancelAnimationFrame(raf);
+          raf = 0;
+        }
+      }).observe(fig);
+    };
+    img.src = canvas.dataset.src!;
+
+    function size() {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      const w = fig.clientWidth;
+      cellH = (w / cols) * 2;
+      canvas.width = w * dpr;
+      canvas.height = rows * cellH * dpr;
+      canvas.style.height = rows * cellH + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.font = `${cellH * 0.95}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.textBaseline = "top";
+      draw();
+    }
+
+    fig.addEventListener("pointermove", (e) => {
+      const r = fig.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width) * cols;
+      ty = ((e.clientY - r.top) / r.height) * rows;
+    });
+    fig.addEventListener("pointerleave", () => { tx = -999; ty = -999; });
+
+    function draw() {
+      if (!banks.length) return;
+      const cs = getComputedStyle(fig);
+      const bone = cs.getPropertyValue("--ink-bone").trim() || "#e9e5d8";
+      const hot = cs.getPropertyValue("--ink-hot").trim() || "#ff6fae";
+      const lum = banks[frame % banks.length];
+
+      ctx.fillStyle = cs.getPropertyValue("--ink-void").trim() || "#0e0a11";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const live = px > -900;
+      for (let y = 0; y < rows; y++) {
+        let line = "";
+        let near = false;
+        for (let x = 0; x < cols; x++) {
+          let sx = x, sy = y;
+          if (live) {
+            // A radial ripple: cells near the pointer read from further away,
+            // so the picture bulges and settles as the cursor passes over it.
+            const dx = x - px;
+            const dy = (y - py) * 0.5;
+            const d = Math.hypot(dx, dy);
+            if (d < 24) {
+              const f = (1 - d / 24) ** 2;
+              const wave = Math.sin(d * 0.6 - t * 4.5) * f * 6;
+              sx = x + (dx / (d || 1)) * wave;
+              sy = y + (dy / (d || 1)) * wave * 0.5;
+              if (d < 11) near = true;
+            }
+          }
+          const cx = sx < 0 ? 0 : sx > cols - 1 ? cols - 1 : sx;
+          const cy = sy < 0 ? 0 : sy > rows - 1 ? rows - 1 : sy;
+          const v = lum[(Math.round(cy) * cols + Math.round(cx)) | 0] || 0;
+          line += RAMP[Math.round(v * (RAMP.length - 1))];
+        }
+        ctx.fillStyle = near ? hot : bone;
+        ctx.fillText(line, 0, y * cellH);
+      }
+    }
+
+    function loop(now: number) {
+      const dt = Math.min((now - last) / 1000, 0.1);
+      last = now;
+      t += dt;
+      px += (tx - px) * 0.12;
+      py += (ty - py) * 0.12;
+      if (nFrames > 1) {
+        acc += dt;
+        while (acc > 1 / fps) { acc -= 1 / fps; frame++; }
+      }
+      draw();
+      raf = requestAnimationFrame(loop);
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-ascii]").forEach(boot);
+</script>

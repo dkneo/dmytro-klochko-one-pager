@@ -19,21 +19,21 @@ const roles = [
   {
     company: "chatfuel",
     what: "marketing ai agent. 150k+ businesses. meta business partner",
-    role: "growth",
+    role: "growth, hand in hand with the ai team",
     href: "https://chatfuel.com",
     mark: "/images/marks/chatfuel.png",
   },
   {
     company: "hily",
     what: "#3 dating app in the u.s. by downloads",
-    role: "product and growth",
+    role: "product and growth, hand in hand with the data engineers",
     href: "https://hily.com",
     mark: "/images/marks/hily.png",
   },
   {
     company: "vk",
     what: "largest european social network. 100m+ mau",
-    role: "product and growth",
+    role: "product and growth, hand in hand with the ml team",
     href: "https://vk.com",
     mark: "/images/marks/vk.png",
   },
@@ -49,21 +49,24 @@ const roles = [
 // The photograph sits on the line it is evidence for, rather than in a strip
 // beside the list where the reader has to work out which is which.
 const log = [
-  {
-    text: "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy (sans voir).",
-    shot: "/images/childhood-chess.jpg",
-    alt: "Dmytro as a small boy at a tournament board, grinning, a row of chess pieces in front of him",
-  },
-  { text: "6 yo onwards: multiple olympiads winner: math, humanities {later: coding, economics}." },
-  { text: "9 yo: best kid actor award." },
-  {
-    text: "11 yo: wrote my first song. poetry contest winner.",
-    shot: "/images/childhood-music.jpg",
-    alt: "Dmytro as a child in studio headphones, grinning at a microphone",
-  },
-  { text: "14 yo: toured neighboring countries as band leader." },
-  { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere." },
-  { text: "to this day: designing fashion items. writing. doing film photography." },
+  "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy (sans voir).",
+  "6 yo onwards: multiple olympiads winner: math, humanities {later: coding, economics}.",
+  "9 yo: best kid actor award.",
+  "11 yo: wrote my first song. poetry contest winner.",
+  "14 yo: toured neighboring countries as band leader.",
+  "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
+  "to this day: designing fashion items. writing. doing film photography.",
+] as const;
+
+// The caption number is the log line the photograph belongs to. That is all
+// the connection needed; putting the pictures inside the list broke the grid.
+const shots = [
+  { n: "01", src: "/images/childhood-chess.jpg", cap: "the board",
+    alt: "Dmytro as a small boy at a tournament board, grinning, a row of chess pieces in front of him" },
+  { n: "04", src: "/images/childhood-music.jpg", cap: "the booth",
+    alt: "Dmytro as a child in studio headphones, grinning at a microphone" },
+  { n: "--", src: "/images/childhood-geese.jpg", cap: "before all of it",
+    alt: "Dmytro as a toddler running through a garden, laughing, a gaggle of geese behind him" },
 ] as const;
 
 const receipts = [
@@ -116,7 +119,7 @@ const description =
             alt="Dmytro photographed in a mirror, in a cap and worn denim jacket"
           />
         </span>
-        <figcaption><b>01</b> paris, 2025</figcaption>
+        <figcaption><b>01</b> london</figcaption>
       </figure>
     </div>
   </section>
@@ -153,8 +156,9 @@ const description =
         <div class="prose">
           <p>i joined as coo and cpo. a year later i was ceo.</p>
           <p>
-            replika 2.0 is a ground-up rewrite. i wrote the first prototypes myself and ran 400+
-            user interviews. i still write the architecture, the prompts and most of the copy.
+            replika 2.0 is a ground-up rewrite. i wrote the first prototypes myself, ran 200+
+            user interviews, and talked to my own rep, lisa, for hours every day. i still write
+            the architecture, the prompts and most of the copy.
           </p>
           <p>
             i rebuilt the team around it: phds, true artists, pirates<img
@@ -165,7 +169,6 @@ const description =
           </p>
           <p>
             retention skyrocketed. replika is more engaging than at any point in its ten years.
-            the next one is in stealth.
           </p>
           <p>
             we run independent research with harvard, stanford and{" "}
@@ -238,34 +241,23 @@ const description =
       slept on the streets for weeks.
     </p>
 
-    <ol class="log log--shots">
-      {
-        log.map((item) => (
-          <li>
-            <p>{item.text}</p>
-            {item.shot ? (
-              <span class="log-shot">
-                <img src={item.shot} alt={item.alt} loading="lazy" />
-              </span>
-            ) : (
-              <span />
-            )}
-          </li>
-        ))
-      }
-    </ol>
+    <div class="bay">
+      <ol class="log">
+        {log.map((item) => <li><p>{item}</p></li>)}
+      </ol>
 
-    <div class="sheet sheet--one">
-      <figure>
-        <span class="cell">
-          <img
-            src="/images/childhood-geese.jpg"
-            alt="Dmytro as a toddler running through a garden, laughing, a gaggle of geese behind him"
-            loading="lazy"
-          />
-        </span>
-        <figcaption><b>00</b> before all of it</figcaption>
-      </figure>
+      <div class="sheet">
+        {
+          shots.map((sh) => (
+            <figure>
+              <span class="cell">
+                <img src={sh.src} alt={sh.alt} loading="lazy" />
+              </span>
+              <figcaption><b>{sh.n}</b> {sh.cap}</figcaption>
+            </figure>
+          ))
+        }
+      </div>
     </div>
   </section>
 
