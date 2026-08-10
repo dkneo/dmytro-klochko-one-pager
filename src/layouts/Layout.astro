@@ -4,7 +4,7 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
-  current?: "home" | "at-work";
+  current?: "home" | "modus-operandi";
 }
 
 const { title, description, current = "home" } = Astro.props;
@@ -16,7 +16,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
 // then changed meaning on every other page.
 const nav = [
   { label: "about", href: "/" },
-  { label: "at work", href: "/at-work" },
+  { label: "modus operandi", href: "/modus-operandi" },
 ];
 ---
 
@@ -79,7 +79,7 @@ const nav = [
 
     <header class="site-header">
       <a class="masthead" href="/">dmytro klochko</a>
-      {current !== "home" && <span class="crumb">/ {current === "at-work" ? "at work" : current}</span>}
+      {current !== "home" && <span class="crumb">/ {current.replace("-", " ")}</span>}
       <nav class="site-nav" aria-label="pages">
         {
           nav.map((item) => (
