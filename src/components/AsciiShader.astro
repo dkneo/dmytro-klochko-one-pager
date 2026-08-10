@@ -22,13 +22,15 @@ interface Props {
   black?: number;
   white?: number;
   gamma?: number;
+  /** Cells brighter than this take the accent instead of the bone. 0 = off. */
+  hotAbove?: number;
   label?: string;
   class?: string;
 }
 
 const {
   src, frames = 1, cols = 112, fps = 12,
-  black = 0.02, white = 0.99, gamma = 0.85,
+  black = 0.02, white = 0.99, gamma = 0.85, hotAbove = 0,
   label, class: className = "",
 } = Astro.props;
 ---
@@ -42,6 +44,7 @@ const {
     data-black={black}
     data-white={white}
     data-gamma={gamma}
+    data-hot-above={hotAbove}
   ></canvas>
   {label && <figcaption>{label}</figcaption>}
 </figure>
@@ -61,6 +64,7 @@ const {
     const BLACK = Number(canvas.dataset.black || 0.02);
     const WHITE = Number(canvas.dataset.white || 0.99);
     const GAMMA = Number(canvas.dataset.gamma || 0.85);
+    const HOT_ABOVE = Number(canvas.dataset.hotAbove || 0);
     const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let banks: Float32Array[] = [];
@@ -152,6 +156,10 @@ const {
       const live = px > -900;
       for (let y = 0; y < rows; y++) {
         let line = "";
+        // The second pass. Cells above the threshold are held back and drawn
+        // again in the accent, so the lit part of the subject glows without
+        // costing a fillText per character: two calls a row, not a hundred.
+        let hotLine = HOT_ABOVE ? "" : null;
         let near = false;
         for (let x = 0; x < cols; x++) {
           let sx = x, sy = y;
@@ -172,10 +180,21 @@ const {
           const cx = sx < 0 ? 0 : sx > cols - 1 ? cols - 1 : sx;
           const cy = sy < 0 ? 0 : sy > rows - 1 ? rows - 1 : sy;
           const v = lum[(Math.round(cy) * cols + Math.round(cx)) | 0] || 0;
-          line += RAMP[Math.round(v * (RAMP.length - 1))];
+          const ch = RAMP[Math.round(v * (RAMP.length - 1))];
+          if (hotLine !== null && v >= HOT_ABOVE) {
+            line += " ";
+            hotLine += ch;
+          } else {
+            line += ch;
+            if (hotLine !== null) hotLine += " ";
+          }
         }
         ctx.fillStyle = near ? hot : bone;
         ctx.fillText(line, 0, y * cellH);
+        if (hotLine !== null) {
+          ctx.fillStyle = hot;
+          ctx.fillText(hotLine, 0, y * cellH);
+        }
       }
     }
 

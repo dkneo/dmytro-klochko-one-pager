@@ -189,23 +189,25 @@ const description =
           black={0.05}
           white={0.99}
           gamma={0.95}
+          hotAbove={0.62}
         />
 
-        <ul class="receipts receipts--stack">
-          {
-            receipts.map((r) => (
-              <li>
-                <a class="receipt-src" href={r.href} target="_blank" rel="noreferrer">
-                  {r.src}<span class="arw">↗</span>
-                </a>
-                <p>{r.line}</p>
-                <span>{r.meta}</span>
-              </li>
-            ))
-          }
-        </ul>
       </div>
     </div>
+
+    <ul class="receipts">
+      {
+        receipts.map((r) => (
+          <li>
+            <a class="receipt-src" href={r.href} target="_blank" rel="noreferrer">
+              {r.src}<span class="arw">↗</span>
+            </a>
+            <p>{r.line}</p>
+            <span>{r.meta}</span>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 
   <a class="onward" href="/at-work">

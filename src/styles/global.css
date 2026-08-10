@@ -139,9 +139,8 @@ img {
 .site-header {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
+  gap: 0.75rem 0.6rem;
   align-items: baseline;
-  justify-content: space-between;
   width: min(100% - var(--gutter) * 2, 78rem);
   margin-inline: auto;
   padding-block: 1.5rem 0.9rem;
@@ -161,6 +160,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem 1.4rem;
+  margin-left: auto;
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
@@ -307,8 +307,7 @@ img {
 }
 
 .receipts li {
-  padding-left: 0.9rem;
-  border-left: 1px solid var(--rule);
+  padding: 0;
 }
 
 .receipt-src {
@@ -639,10 +638,6 @@ body::after {
    Same forty frames, same zero bytes of script. */
 
 /* Beside the torus there is one column, not two. */
-.receipts--stack {
-  margin-top: var(--sp-4);
-}
-
 /* ── flight ─────────────────────────────────────────────────────────────────
    Not drifting: moving. Each layer scales from the centre and fades at the
    edge of frame, so stars grow, pass and are left behind. Four layers on
@@ -994,8 +989,6 @@ body::after {
   width: min(100% - var(--gutter) * 2, 78rem);
   margin: 0 auto;
   padding: var(--sp-3) 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
   color: var(--dim);
   font-size: var(--t-sm);
   letter-spacing: var(--ls-wide);

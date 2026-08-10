@@ -134,30 +134,9 @@ const description =
     </div>
   </section>
 
-  <section class="shell session" id="wall" aria-labelledby="a3">
-    <div class="card">
-      <p class="card-no">03</p>
-      <h2 class="card-title" id="a3">literally me</h2>
-    </div>
-
-    <div class="wall">
-      {
-        wall.map((w) => (
-          <figure>
-            <span class="cell">
-              <img src={w.src} alt={w.cap} loading="lazy" />
-            </span>
-            <figcaption>{w.cap}</figcaption>
-          </figure>
-        ))
-      }
-    </div>
-
-  </section>
-
   <section class="shell session" id="camera" aria-labelledby="a4">
     <div class="card">
-      <p class="card-no">04</p>
+      <p class="card-no">03</p>
       <h2 class="card-title" id="a4">on camera</h2>
     </div>
 
@@ -188,6 +167,27 @@ const description =
         )
       }
     </div>
+  </section>
+
+  <section class="shell session" id="wall" aria-labelledby="a3">
+    <div class="card">
+      <p class="card-no">04</p>
+      <h2 class="card-title" id="a3">literally me</h2>
+    </div>
+
+    <div class="wall">
+      {
+        wall.map((w) => (
+          <figure>
+            <span class="cell">
+              <img src={w.src} alt={w.cap} loading="lazy" />
+            </span>
+            <figcaption>{w.cap}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
   </section>
 
   <section class="shell session" id="record" aria-labelledby="a5">
