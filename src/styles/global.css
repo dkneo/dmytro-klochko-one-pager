@@ -922,6 +922,39 @@ body::after {
   height: auto;
 }
 
+/* Dmytro's icons for the four highlighted words. They are illustrations, not
+   glyphs — measured legible at 96px, mush at 40, gone at the 15.7px of body
+   copy — so they get a row at 84px rather than being forced inline. */
+.marks {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-2);
+  max-width: 40rem;
+  margin: var(--sp-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.marks li {
+  display: grid;
+  justify-items: center;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+.marks img {
+  width: 84px;
+  max-width: 100%;
+  height: auto;
+}
+
+.marks span {
+  color: var(--hot);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
 /* The hero portrait sits beside the copy rather than under it, so the right
    half of the opening screen is not dead air. */
 /* Fills its column rather than sitting in a corner of it. */
@@ -1469,6 +1502,14 @@ a:focus-visible .arw {
    quarter of the whole page — and a stack that long stops reading as a set.
    Two across is the contact sheet the rest of the site already uses. */
 @media (max-width: 600px) {
+  /* Four across leaves 75px a cell at 390, which is narrower than the word
+     "clairvoyance" set in wide-tracked uppercase — every label went to three
+     lines. Two across, and they fit on one. */
+  .marks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-3) var(--sp-2);
+  }
+
   .reel {
     gap: var(--sp-1);
   }
