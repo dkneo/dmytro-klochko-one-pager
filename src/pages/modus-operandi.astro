@@ -39,6 +39,21 @@ const books = [
   "man's search for meaning, viktor frankl",
 ] as const;
 
+// Hung at a uniform height with their real proportions rather than cropped to
+// squares: a square crop of a landscape painting throws away the painting.
+const paintings = [
+  { src: "/images/paintings/p01.jpg", ar: 0.865 },
+  { src: "/images/paintings/p02.jpg", ar: 0.796 },
+  { src: "/images/paintings/p03.jpg", ar: 1.135 },
+  { src: "/images/paintings/p04.jpg", ar: 1.608 },
+  { src: "/images/paintings/p05.jpg", ar: 0.85 },
+  { src: "/images/paintings/p06.jpg", ar: 1.392 },
+  { src: "/images/paintings/p07.jpg", ar: 0.75 },
+  { src: "/images/paintings/p08.jpg", ar: 0.762 },
+  { src: "/images/paintings/p09.jpg", ar: 1.412 },
+  { src: "/images/paintings/p10.jpg", ar: 1.4 },
+] as const;
+
 const title = "modus operandi · dmytro klochko";
 const description =
   "how dmytro klochko works, what he is building next, and everything on the wall.";
@@ -209,6 +224,16 @@ const description =
           <em>the playlist</em>
         </span>
       </a>
+    </div>
+
+    <div class="hang">
+      {
+        paintings.map((art) => (
+          <figure style={`--ar: ${art.ar}`}>
+            <img src={art.src} alt="" loading="lazy" />
+          </figure>
+        ))
+      }
     </div>
 
     <p class="poem-by">random poems. mine, 2026.</p>
