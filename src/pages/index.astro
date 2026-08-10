@@ -25,14 +25,14 @@ const roles = [
   },
   {
     company: "hily",
-    what: "top-4 dating app in the u.s.",
+    what: "#3 dating app in the u.s. by downloads",
     role: "product and growth",
     href: "https://hily.com",
     mark: "/images/marks/hily.png",
   },
   {
     company: "vk",
-    what: "100m mau social network",
+    what: "largest european social network. 100m+ mau",
     role: "product and growth",
     href: "https://vk.com",
     mark: "/images/marks/vk.png",
@@ -46,14 +46,24 @@ const roles = [
   },
 ] as const;
 
+// The photograph sits on the line it is evidence for, rather than in a strip
+// beside the list where the reader has to work out which is which.
 const log = [
-  "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy (sans voir).",
-  "6 yo onwards: multiple olympiads winner: math, humanities {later: coding, economics}.",
-  "9 yo: best kid actor award.",
-  "11 yo: first song. poetry contest winner.",
-  "14 yo: toured neighboring countries as band leader.",
-  "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
-  "to this day: designing fashion items. writing. doing film photography.",
+  {
+    text: "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy (sans voir).",
+    shot: "/images/childhood-chess.jpg",
+    alt: "Dmytro as a small boy at a tournament board, grinning, a row of chess pieces in front of him",
+  },
+  { text: "6 yo onwards: multiple olympiads winner: math, humanities {later: coding, economics}." },
+  { text: "9 yo: best kid actor award." },
+  {
+    text: "11 yo: wrote my first song. poetry contest winner.",
+    shot: "/images/childhood-music.jpg",
+    alt: "Dmytro as a child in studio headphones, grinning at a microphone",
+  },
+  { text: "14 yo: toured neighboring countries as band leader." },
+  { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere." },
+  { text: "to this day: designing fashion items. writing. doing film photography." },
 ] as const;
 
 const receipts = [
@@ -145,10 +155,7 @@ const description =
         </p>
 
         <div class="prose">
-          <p>
-            i followed that hunch and joined as coo and cpo. once inside, the potential was
-            obvious. so i rebuilt it, and became ceo.
-          </p>
+          <p>i joined as coo and cpo. a year later i was ceo.</p>
           <p>
             replika 2.0 is a ground-up rewrite. i wrote the first prototypes myself and ran 400+
             user interviews. i still write the architecture, the prompts and most of the copy.
@@ -161,12 +168,15 @@ const description =
             />. i'm intense and hands-on, so i don't hire managers.
           </p>
           <p>
-            users love 2.0. retention skyrocketed. i'm already building the company's next era,
-            in stealth.
+            retention skyrocketed. replika is more engaging than at any point in its ten years.
+            the next one is in stealth.
           </p>
           <p>
-            i also lecture at the university of vienna, to grok where conversational agentic ai
-            goes next.
+            we run independent research with harvard, stanford and
+            <a href="https://arxiv.org/abs/2311.10599" target="_blank" rel="noreferrer">princeton ↗</a>.
+            i am a college dropout who became a lecturer at the university of vienna, to
+            understand conversational ai properly and to teach the sociologists, entrepreneurs
+            and philosophers coming next.
           </p>
         </div>
       </div>
@@ -227,49 +237,39 @@ const description =
       <h2 class="card-title" id="s4">upbringing</h2>
     </div>
 
-    <div class="bay">
-      <div>
-        <p class="lede">
-          born &amp; raised in donetsk, eastern ukraine. very poor household. fled war as a
-          teenager. slept on the streets for weeks.
-        </p>
-        <ol class="log">
-          {log.map((item) => <li>{item}</li>)}
-        </ol>
-      </div>
+    <p class="lede">
+      born &amp; raised in donetsk, eastern ukraine. very poor household. fled war as a teenager.
+      slept on the streets for weeks.
+    </p>
 
-      <div class="sheet">
-        <figure>
-          <span class="cell">
-            <img
-              src="/images/childhood-chess.jpg"
-              alt="Dmytro as a small boy at a tournament board, grinning, a row of chess pieces in front of him"
-              loading="lazy"
-            />
-          </span>
-          <figcaption><b>02</b> the board</figcaption>
-        </figure>
-        <figure>
-          <span class="cell">
-            <img
-              src="/images/childhood-music.jpg"
-              alt="Dmytro as a child in studio headphones, grinning at a microphone"
-              loading="lazy"
-            />
-          </span>
-          <figcaption><b>03</b> the booth</figcaption>
-        </figure>
-        <figure>
-          <span class="cell">
-            <img
-              src="/images/childhood-geese.jpg"
-              alt="Dmytro as a toddler running through a garden, laughing, a gaggle of geese behind him"
-              loading="lazy"
-            />
-          </span>
-          <figcaption><b>04</b> the geese</figcaption>
-        </figure>
-      </div>
+    <ol class="log log--shots">
+      {
+        log.map((item) => (
+          <li>
+            <p>{item.text}</p>
+            {item.shot ? (
+              <span class="log-shot">
+                <img src={item.shot} alt={item.alt} loading="lazy" />
+              </span>
+            ) : (
+              <span />
+            )}
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="sheet sheet--one">
+      <figure>
+        <span class="cell">
+          <img
+            src="/images/childhood-geese.jpg"
+            alt="Dmytro as a toddler running through a garden, laughing, a gaggle of geese behind him"
+            loading="lazy"
+          />
+        </span>
+        <figcaption><b>00</b> before all of it</figcaption>
+      </figure>
     </div>
   </section>
 
