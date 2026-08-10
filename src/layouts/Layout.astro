@@ -4,7 +4,7 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
-  current?: "home" | "modus-operandi";
+  current?: "home" | "archive";
 }
 
 const { title, description, current = "home" } = Astro.props;
@@ -15,8 +15,8 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
 // Pages only. The in-page anchors belonged in the page, not in a header that
 // then changed meaning on every other page.
 const nav = [
-  { label: "about", href: "/" },
-  { label: "modus operandi", href: "/modus-operandi" },
+  { label: "readme", href: "/" },
+  { label: "archive", href: "/archive" },
 ];
 ---
 

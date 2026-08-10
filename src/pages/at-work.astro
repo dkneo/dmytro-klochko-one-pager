@@ -1,8 +1,7 @@
 ---
-// This page shipped under /at-work before it was renamed. Static hosting has
-// no redirect rules without a Worker, so the forward is a meta refresh with a
-// canonical pointing at the real page.
-const to = "/modus-operandi";
+// Shipped under this path before the rename. Static hosting has no redirect
+// rules without a Worker, so this is a meta refresh with a canonical.
+const to = "/archive";
 ---
 
 <html lang="en">
@@ -14,6 +13,6 @@ const to = "/modus-operandi";
     <title>moved</title>
   </head>
   <body>
-    <p>this page is now at <a href={to}>modus operandi</a>.</p>
+    <p>this page is now the <a href={to}>archive</a>.</p>
   </body>
 </html>
