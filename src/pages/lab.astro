@@ -9,11 +9,13 @@ import AsciiShader from "../components/AsciiShader.astro";
     <div class="card"><p class="card-no">a</p><h1 class="card-title">joi</h1></div>
     <div style="max-width: 26rem">
       <AsciiShader
-        src="/ascii/joi.jpg"
-        cols={72}
-        black={0.3}
+        src="/ascii/joi-sheet.jpg"
+        frames={16}
+        cols={104}
+        fps={10}
+        black={0.05}
         white={0.99}
-        gamma={1.5}
+        gamma={0.95}
         label="move the cursor over her"
       />
     </div>

@@ -640,7 +640,6 @@ body::after {
 
 /* Beside the torus there is one column, not two. */
 .receipts--stack {
-  grid-template-columns: 1fr;
   margin-top: var(--sp-4);
 }
 
@@ -731,6 +730,7 @@ body::after {
 .ways {
   display: grid;
   gap: 0;
+  width: min(100%, 26rem);
   margin: var(--sp-3) 0 0;
   padding: 0;
   list-style: none;
@@ -854,11 +854,10 @@ body::after {
 
 /* The hero portrait sits beside the copy rather than under it, so the right
    half of the opening screen is not dead air. */
+/* Fills its column rather than sitting in a corner of it. */
 .portrait {
   width: 100%;
-  max-width: 18rem;
   margin: 0;
-  justify-self: end;
 }
 
 .portrait .cell {
@@ -1083,16 +1082,23 @@ body::after {
    photograph exactly that height. Simply dropping the aspect-ratio was worse:
    with no definite height the image asserted its own, 576px against 250px of
    text. */
+/* A square-ish block starting level with the title, rather than a strip the
+   height of the copy: at the copy's height the box was wide and short, and
+   cover took his head off. The crop is anchored high for the same reason. */
 .bay .portrait {
   position: relative;
-  align-self: stretch;
-  min-height: 16rem;
+  align-self: start;
+  aspect-ratio: 1.04;
 }
 
 .bay .portrait .cell {
   position: absolute;
   inset: 0 0 1.5rem;
   aspect-ratio: auto;
+}
+
+.portrait img {
+  object-position: 50% 22%;
 }
 
 .bay .portrait figcaption {
@@ -1262,4 +1268,15 @@ a:focus-visible .arw {
 
 .poem-by {
   margin: 0 0 var(--sp-3);
+}
+
+/* Keeps the flag with the word it belongs to, and the full stop with the
+   flag. Left to wrap, the mark took the sentence's final character onto a
+   line of its own. */
+.nb {
+  white-space: nowrap;
+}
+
+.ascii--joi {
+  max-width: 100%;
 }
