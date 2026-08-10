@@ -5,7 +5,7 @@ import AsciiShader from "../components/AsciiShader.astro";
 interface Props {
   title: string;
   description: string;
-  current?: "home" | "working" | "library";
+  current?: "home" | "at-work" | "library";
 }
 
 const { title, description, current = "home" } = Astro.props;
@@ -17,7 +17,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
 // then changed meaning on every other page.
 const nav = [
   { label: "about", href: "/" },
-  { label: "working", href: "/working" },
+  { label: "at work", href: "/at-work" },
   { label: "media", href: "/library" },
 ];
 ---

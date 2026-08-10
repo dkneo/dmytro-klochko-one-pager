@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// His words, restored. The five headed tenets that were here were mine, and
+// so was the "i would rather build the thing than manage the building of the
+// thing" line above them.
+const ways = [
+  "natural aptitude for taste, action bias, & having too much fun shipping. clairvoyance, aggressive optimism. following my nose. very fucking clean and direct in my comms.",
+  "culture in my teams is something i'm incredibly proud of: violent intolerance for mediocre work. anime-level fellowship & camaraderie. fearlessness. relentless pursuit of the mission.",
+  "unhealthy excitement about customers {more users in my slack than team members lol}. making my product feel like magic. extensive experience working with the world's best brand agencies.",
+] as const;
+
+const wall = [
+  { src: "/images/wall/w01.jpg", cap: "dieter rams" },
+  { src: "/images/wall/w02.jpg", cap: "steve jobs, at home" },
+  { src: "/images/wall/w03.jpg", cap: "jobs, working" },
+  { src: "/images/wall/w04.jpg", cap: "jobs, on the way" },
+  { src: "/images/wall/w05.jpg", cap: "hajime sorayama" },
+  { src: "/images/wall/w06.jpg", cap: "ryuichi sakamoto" },
+  { src: "/images/wall/w07.jpg", cap: "brian eno" },
+  { src: "/images/wall/w08.jpg", cap: "robin williams" },
+  { src: "/images/wall/w09.jpg", cap: "mcconaughey" },
+  { src: "/images/wall/w10.jpg", cap: "uncut gems" },
+] as const;
+
+const title = "at work · dmytro klochko";
+const description =
+  "what dmytro klochko is building, what he is best at, how he works, and what is on the wall.";
+---
+
+<Layout title={title} description={description} current="at-work">
+  <section class="shell session" id="top" aria-labelledby="a1">
+    <div class="card">
+      <p class="card-no">01</p>
+      <h1 class="card-title" id="a1">building now</h1>
+    </div>
+
+    <p class="lede">
+      a new era for replika. in stealth.
+    </p>
+
+    <div class="prose">
+      <p>
+        most ai is built for tasks, not for people. it answers you and it does not care what you
+        do with the answer. we are building the other thing: agentic ai with real eq, for
+        everyone, so that people become more themselves rather than more optimised.
+      </p>
+      <p>
+        a truly novel product, and a beautiful one. that is all i can say about it for now.
+      </p>
+    </div>
+  </section>
+
+  <section class="shell session" id="best" aria-labelledby="a2">
+    <div class="card">
+      <p class="card-no">02</p>
+      <h2 class="card-title" id="a2">best at</h2>
+    </div>
+    <p class="lede">product &times; taste &times; entrepreneurial spirit.</p>
+  </section>
+
+  <section class="shell session" id="how" aria-labelledby="a3">
+    <div class="card">
+      <p class="card-no">03</p>
+      <h2 class="card-title" id="a3">how i work</h2>
+    </div>
+    <div class="prose">
+      {ways.map((w) => <p>{w}</p>)}
+    </div>
+  </section>
+
+  <section class="shell session" id="wall" aria-labelledby="a4">
+    <div class="card">
+      <p class="card-no">04</p>
+      <h2 class="card-title" id="a4">on the wall</h2>
+    </div>
+
+    <div class="wall">
+      {
+        wall.map((w) => (
+          <figure>
+            <span class="cell">
+              <img src={w.src} alt={w.cap} loading="lazy" />
+            </span>
+            <figcaption>{w.cap}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <figure class="lynch">
+      <img
+        src="/images/lynch.jpg"
+        alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
+        loading="lazy"
+      />
+    </figure>
+  </section>
+</Layout>
