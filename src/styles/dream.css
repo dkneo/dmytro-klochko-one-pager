@@ -53,12 +53,37 @@
   display: none;
 }
 
+/* The replika and before-replika bays lose their art column in dream — the
+   kawase moved to the sky and the bradford lives on taste. Left as a grid,
+   the empty column read as a hole and shoved the receipts a screen down. */
+[data-mode="dream"] #now .bay--flush,
+[data-mode="dream"] #before .bay--flush {
+  grid-template-columns: 1fr;
+}
+
+[data-mode="dream"] #now .joi-col,
+[data-mode="dream"] #before .joi-col {
+  display: none;
+}
+
 /* The vinyl keeps spinning in dream mode; the shader reads its palette live
    from these properties, so it repaints itself in dusk and moon. */
 [data-mode="dream"] .ascii {
   --ink-void: #2c3357;
   --ink-bone: #f4ecdb;
   --ink-hot: #ff9bc0;
+}
+
+/* Over the painted sky the whole header speaks in bone — dim on pink cloud
+   was the one place the machinery got hard to read. */
+[data-mode="dream"] .site-nav a,
+[data-mode="dream"] .mode-toggle {
+  color: var(--bone);
+}
+
+[data-mode="dream"] .site-nav a:hover,
+[data-mode="dream"] .mode-toggle:hover {
+  color: var(--hot);
 }
 
 /* The toggle dresses like a nav item and meets the same 24px target. */
@@ -77,6 +102,79 @@
 
 .mode-toggle:hover {
   color: var(--hot);
+}
+
+/* ── the painted sky ────────────────────────────────────────────────────────
+   Kawase's twilight, full-bleed behind the first screen, like the title of a
+   quiet japanese game. Absolute, not fixed, so it scrolls away naturally in
+   every browser; a mask dissolves its bottom edge into the dusk. It breathes
+   on a sixty-second clock and leans with the cursor. A veil rises from the
+   left so the title sits on dusk, not on pink cloud. */
+
+[data-mode="bebop"] .kawase { display: none; }
+
+.kawase {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: min(122vh, 1050px);
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 97%);
+  mask-image: linear-gradient(180deg, #000 55%, transparent 97%);
+}
+
+.kawase i {
+  position: absolute;
+  inset: -4%;
+  background: url("/images/kawase-sky.webp") center 30% / cover no-repeat;
+  translate: calc(var(--px, 0) * -12px) calc(var(--py, 0) * -8px);
+  animation: kawase-breathe 60s ease-in-out infinite alternate;
+}
+
+.kawase::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(35 41 72 / 92%) 0%, rgb(35 41 72 / 80%) 36%, rgb(35 41 72 / 28%) 64%, rgb(35 41 72 / 6%) 100%),
+    linear-gradient(180deg, rgb(35 41 72 / 52%) 0%, rgb(35 41 72 / 10%) 26%, transparent 46%, rgb(44 51 87 / 62%) 100%);
+}
+
+/* Over the painting, the type carries its own dusk. */
+[data-mode="dream"] #top .card-title,
+[data-mode="dream"] #top .lede,
+[data-mode="dream"] .site-header {
+  text-shadow: 0 1px 18px rgb(35 41 72 / 75%), 0 1px 4px rgb(35 41 72 / 55%);
+}
+
+@keyframes kawase-breathe {
+  to { transform: scale(1.055); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kawase i {
+    animation: none;
+    translate: 0 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .kawase {
+    height: 92vh;
+  }
+
+  .kawase::after {
+    background:
+      linear-gradient(180deg, rgb(35 41 72 / 72%) 0%, rgb(35 41 72 / 58%) 40%, rgb(44 51 87 / 82%) 100%);
+  }
+}
+
+/* The title screen deserves a title. */
+[data-mode="dream"] #top .card-title {
+  font-size: clamp(2.4rem, 5.6vw, 4.8rem);
 }
 
 /* ── the sky ────────────────────────────────────────────────────────────────
@@ -248,13 +346,17 @@
   letter-spacing: 0.02em;
 }
 
-/* Highlights stop being pink type and become words someone underlined by
-   hand: moon orange, wavy, slightly lifted off the baseline. */
+/* Highlights are run over with a pink marker, not underlined: the wavy
+   underline read as a spellcheck error, which is the one association a
+   highlight must never have. clone keeps the swash on every wrapped line. */
 [data-mode="dream"] .prose b {
   color: var(--hot);
-  text-decoration: underline wavy rgb(255 155 192 / 60%);
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 4px;
+  padding-inline: 0.1em;
+  margin-inline: -0.1em;
+  background: linear-gradient(to top, rgb(255 155 192 / 22%) 0 0.55em, transparent 0.55em);
+  border-radius: 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* The nav marks the current page with parentheses — brackets belong to the
@@ -611,6 +713,13 @@
 [data-mode="dream"] .hang figure:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 44px rgb(12 12 30 / 52%);
+}
+
+/* Captions ride the painting on taste, so they speak up a step. */
+[data-mode="dream"] .wall figcaption,
+[data-mode="dream"] .sheet figcaption {
+  color: var(--dim);
+  text-shadow: 0 1px 10px rgb(35 41 72 / 70%);
 }
 
 [data-mode="dream"] .hang figcaption {
