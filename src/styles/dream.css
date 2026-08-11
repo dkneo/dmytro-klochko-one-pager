@@ -136,8 +136,10 @@
   position: absolute;
   inset: -8% -4%;
   background: url("/images/kawase-sky.webp") calc(50% + min(24vw, 360px)) -4% / min(940px, 66vw) auto no-repeat;
-  -webkit-mask-image: radial-gradient(60% 52% at 74% 26%, #000 48%, transparent 78%);
-  mask-image: radial-gradient(60% 52% at 74% 26%, #000 48%, transparent 78%);
+  /* Gradient masks read alpha, not luminance: any opaque colour is full
+     coverage, so the mask speaks palette bone rather than an off-system hex. */
+  -webkit-mask-image: radial-gradient(60% 52% at 74% 26%, var(--bone) 48%, transparent 78%);
+  mask-image: radial-gradient(60% 52% at 74% 26%, var(--bone) 48%, transparent 78%);
   transform: translateY(calc(var(--scroll, 0) * -13vh))
     translate(calc(var(--px, 0) * -28px), calc(var(--py, 0) * -16px));
   animation: kawase-breathe 60s ease-in-out infinite alternate;
@@ -190,8 +192,8 @@
   .kawase i {
     background-position: 60% -2%;
     background-size: 150vw auto;
-    -webkit-mask-image: radial-gradient(78% 46% at 58% 22%, #000 46%, transparent 80%);
-    mask-image: radial-gradient(78% 46% at 58% 22%, #000 46%, transparent 80%);
+    -webkit-mask-image: radial-gradient(78% 46% at 58% 22%, var(--bone) 46%, transparent 80%);
+    mask-image: radial-gradient(78% 46% at 58% 22%, var(--bone) 46%, transparent 80%);
   }
 
   .kawase::after {
