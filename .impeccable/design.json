@@ -1,6 +1,6 @@
 {
  "schemaVersion": 2,
- "generatedAt": "2026-08-11T23:06:14Z",
+ "generatedAt": "2026-08-11T23:15:51Z",
  "title": "Design System: dmytro klochko \u2014 dream / bebop",
  "extensions": {
   "colorMeta": {
@@ -439,9 +439,17 @@
     "displayName": "Dream Caption",
     "purpose": "Serif italic captions in dream: reel labels, gallery labels. --t-prose-sm 0.95rem, the serif twin of t-sm."
    },
-   "dream-display-hero": {
-    "displayName": "Title Screen",
-    "purpose": "The kawase title screen name. --display-hero clamp(2.4rem, 5.6vw, 4.8rem), dream #top only."
+   "scroll-prose": {
+    "displayName": "Scroll Prose",
+    "purpose": "Serif body on the emaki sheet. --t-prose-tight 1.01rem / 1.6."
+   },
+   "scroll-display": {
+    "displayName": "Scroll Display",
+    "purpose": "Section titles on the sheet. --display-scroll clamp(1.45rem, 2.4vw, 1.9rem) \u2014 letter scale, not poster scale."
+   },
+   "scroll-display-hero": {
+    "displayName": "Scroll Hero",
+    "purpose": "The name at the top of the sheet. --display-scroll-hero clamp(1.9rem, 3.2vw, 2.5rem)."
    }
   },
   "decorative": [

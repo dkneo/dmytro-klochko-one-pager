@@ -43,7 +43,10 @@ typography:
     display: "clamp(1.9rem, 4.6vw, 3.9rem)"
   dream-prose: "1.07rem"        # serif runs optically smaller than mono at equal size
   dream-prose-sm: "0.95rem"     # serif captions: reel, gallery labels
-  dream-display-hero: "clamp(2.4rem, 5.6vw, 4.8rem)"  # the kawase title screen
+  # the emaki reads at letter scale, not poster scale — the scroll ramp:
+  scroll-prose: "1.01rem"
+  scroll-display: "clamp(1.45rem, 2.4vw, 1.9rem)"
+  scroll-display-hero: "clamp(1.9rem, 3.2vw, 2.5rem)"
   raster:
     art-cell-sm: "0.55rem"
     art-cell-lg: "1.05rem"

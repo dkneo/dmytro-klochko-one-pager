@@ -31,7 +31,6 @@
      sizes get compensating steps. Documented in DESIGN.md. */
   --t-prose: 1.07rem;
   --t-prose-sm: 0.95rem;   /* serif captions: reel, gallery labels */
-  --display-hero: clamp(2.4rem, 5.6vw, 4.8rem);  /* the title screen */
   --mat: #fbf3e2;    /* the mount around every print */
 }
 
@@ -205,11 +204,6 @@
   .kawase::before {
     opacity: min(0.45, calc(var(--scroll, 0) * 1.1));
   }
-}
-
-/* The title screen deserves a title. */
-[data-mode="dream"] #top .card-title {
-  font-size: var(--display-hero);
 }
 
 /* ── the sky ────────────────────────────────────────────────────────────────
@@ -811,15 +805,19 @@
 
 /* Small type, tight rhythm — the scroll reads like a letter, not a poster. */
 [data-mode="dream"] .card-title {
-  font-size: clamp(1.45rem, 2.4vw, 1.9rem);
+  font-size: var(--display-scroll);
 }
 
 [data-mode="dream"] #top .card-title {
-  font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+  font-size: var(--display-scroll-hero);
 }
 
 :root[data-mode="dream"] {
+  /* The emaki reads at letter scale, not poster scale: three steps of its
+     own, documented in DESIGN.md as the scroll ramp. */
   --t-prose-tight: 1.01rem;
+  --display-scroll: clamp(1.45rem, 2.4vw, 1.9rem);
+  --display-scroll-hero: clamp(1.9rem, 3.2vw, 2.5rem);
 }
 
 [data-mode="dream"] .prose p,
