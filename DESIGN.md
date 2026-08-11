@@ -1,24 +1,43 @@
 ---
-name: dmytro klochko — the session
-description: a terminal in deep space. monospace, near-black, one pink accent, ASCII art that is drawn accurately rather than invented.
-colors:
-  void: "#0e0a11"
-  deck: "#171120"
-  bone: "#e9e5d8"
-  dim: "#9b90a4"
-  faint: "#6b6076"
-  rule: "rgb(233 229 216 / 9%)"
-  cold: "#d8cfe0"
-  hot: "#ff6fae"
+name: dmytro klochko — dream / bebop
+description: two art directions over one markup. dream (default): a woodblock dusk after the paintings he loves — serif voice, hanko seals, an orange moon. bebop: a terminal in deep space — monospace, near-black, one pink accent, ASCII art.
+modes:
+  dream:
+    void: "#2c3357"
+    deck: "#3a4272"
+    bone: "#f4ecdb"
+    dim: "#b7bedd"
+    faint: "#98a0c8"
+    rule: "rgb(244 236 219 / 16%)"
+    cold: "#7fd4d9"
+    hot: "#ff9a5c"
+    seal: "#c3452e"
+    mat: "#fbf3e2"
+    bokashi: ["#232948", "#2c3357", "#33406b"]
+    moon: ["#ffc491", "#f08a54", "#c05d5b"]
+    washes:
+      kawase-pink: "rgb(240 168 184 / 26%)"
+      water: "rgb(91 168 196 / 30%)"
+      moon-warmth: "rgb(240 138 84 / 18%)"
+  bebop:
+    void: "#0e0a11"
+    deck: "#171120"
+    bone: "#e9e5d8"
+    dim: "#9b90a4"
+    faint: "#6b6076"
+    rule: "rgb(233 229 216 / 9%)"
+    cold: "#d8cfe0"
+    hot: "#ff6fae"
 typography:
   mono: "ui-monospace, SF Mono, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace"
   serif: "Iowan Old Style, Baskerville, Times New Roman, serif"
   scale:
-    t-xs: "0.72rem"
-    t-sm: "0.84rem"
+    t-xs: "0.75rem"
+    t-sm: "0.875rem"
     t-md: "0.98rem"
     t-lg: "clamp(1.15rem, 1.5vw, 1.45rem)"
     display: "clamp(1.9rem, 4.6vw, 3.9rem)"
+  dream-prose: "1.07rem"   # serif runs optically smaller than mono at equal size
   raster:
     art-cell-sm: "0.55rem"
     art-cell-lg: "1.05rem"
@@ -29,174 +48,112 @@ spacing:
   sp-4: "3rem"
   sp-5: "clamp(4rem, 7vw, 6.5rem)"
   gutter: "clamp(1.25rem, 5vw, 5rem)"
-  measure: "min(100%, 74ch)"
+  measure: "min(100%, 62ch)"
 motion:
   ease: "cubic-bezier(0.2, 0, 0.2, 1)"
   dur: "200ms"
   dur-slow: "320ms"
 ---
 
-# Design System: dmytro klochko — The Session
+# Design System: dmytro klochko
 
-## Overview
+## Two Modes, One Markup
 
-A terminal in deep space. Near-black ground, bone type, one pink accent, a
-starfield flying past, and ASCII art. Monospace carries every structural role.
+The site ships two complete art directions over the same HTML, switched by
+`data-mode` on the root, chosen before first paint, persisted in
+localStorage. **Dream is the default.** Bebop is the previous default,
+preserved whole behind the toggle. This file describes both; where a rule
+names no mode, it holds in both.
 
-This document describes what shipped, not what was intended. It replaces an
-earlier system entirely — cream paper, a serif display face, riso ink bands,
-duotone photographs — none of which exists any more. If something here
-contradicts an older commit message, this file is right.
+Everything the earlier version of this file recorded about The Session —
+the named rules, the failures they were earned from — still applies inside
+bebop mode, and most of it (the spacing scale, the type discipline, the
+target sizes, the Found Object rule) applies everywhere.
 
-## Colors
+## Dream Mode (default)
 
-Five neutrals and two accents. That is the whole palette.
+Built from three paintings that hang on the taste page, not from a mood
+board:
 
-- `--void` `#0e0a11` — the ground. Warm near-black, not neutral: a flat
-  neutral black read as "just black" and had no light in it.
-- `--deck` `#171120` — behind images and frames, one step up from the void.
-- `--bone` `#e9e5d8` — body type. Warm off-white, never pure white.
-- `--dim` `#9b90a4` / `--faint` `#6b6076` — secondary and tertiary type.
-- `--rule` 9% bone — the few hairlines that survive.
-- `--cold` `#d8cfe0` — ASCII art at rest.
-- `--hot` `#ff6fae` — the single accent. Section numbers, current nav item,
-  the sign-off, art on hover.
+- **Katherine Bradford, Swimmers Under Orange Moon** — the dusk ground
+  (`#2c3357`, sampled), the orange moon fixed in the corner sky, the warm
+  cream of the type.
+- **Hasui Kawase's twilight** — the pink cloud and turquoise water washes
+  that drift behind the page, and the bokashi: the page ground is a graded
+  wash like the sky of a woodblock print, viewport-fixed.
+- **Kiyoshi Saitō's snow night** — the quiet, the star field, and his red
+  hanko seal, which stamps every section number: vermillion block, cream
+  numeral, rotated 3° off true the way a hand stamps.
 
-### Named Rules
+### Voice
 
-**The One Accent Rule.** `--hot` appears at most twice per section: once on the
-section number, once on whatever is interactive. It is the only saturated
-colour on the site and it stops being an accent the moment it is common.
+The Two Voices Rule inverts. Serif is everything spoken in sentences —
+display titles (italic, lowercase), ledes, prose, quotes, the sign-off.
+Mono retreats to the machinery: nav, numbers, labels, captions, the
+register. Highlights are moon-orange with a hand-drawn wavy underline
+instead of bebop's flat pink.
 
-**The Warm Black Rule.** The ground is never `#000` and never neutral. A page
-lit only by a starfield needs its black to have a temperature or the whole
-thing reads as an unstyled document.
+### Art
 
-## Typography
+The ASCII figures hide; where they stood, the paintings themselves hang —
+Bradford where Joi was, Kawase where the ship was, Redon's cyclops saying
+hi. Mounted straight (paintings are not snapshots), labelled with the
+maker's name only. The vinyl ASCII on taste keeps spinning: the shader
+reads its palette live from CSS, so it repaints itself in dusk and moon.
 
-Monospace does everything structural: navigation, section cards, the register,
-labels, captions, body copy. The serif appears **twice on the entire site**,
-both times for a poem, because that is the only voice here that is not the
-terminal's.
+### Photographs
 
-Five sizes. A monospace system does not need more. The previous system had
-eight and read, in the client's words, as a circus — which was never the
-fonts, but two families pretending to be five roles.
+Mounted, not filed. The portrait hangs straight in a cream mat
+(`--mat #fbf3e2`); the childhood snapshots keep a small alternating tilt,
+because childhood photographs live in shoeboxes, not frames. Video plays
+in colour — grayscale was the noir talking.
 
-### Named Rules
+### Named Rules (dream)
 
-**The Two Voices Rule.** Mono is the site speaking. Serif is Dmytro speaking.
-There is no third voice, and the serif is rationed hard enough that its
-appearance is an event.
+**The Sampled Sky Rule.** Every dream colour traces to a specific painting
+on the taste page. New colours enter by being sampled, not invented.
 
-**The Raster Is Not Type Rule.** ASCII art is sized from `--art-cell-*`, which
-sits deliberately outside the reading ramp. A drawing made of characters is an
-image sized to its drawing, not a reading size. Two steps exist because a small
-drifting object and a mark that anchors a column are different problems. This
-rule has been rediscovered three times by pushing art onto the type ramp and
-watching it either crop or float in an empty box; it is written down now so it
-stops being rediscovered.
+**The Seal Hugs Its Number Rule.** `.card-no` carries `width: fit-content`
+because on a phone the number leaves the margin and becomes a block — the
+stamp once stretched into a 351px red bar.
 
-**The Advance Is Not 0.6em Rule.** Cell sizes are stated, never solved from an
-assumed monospace advance. `100cqi / (cols * 0.6)` looks principled and was
-wrong in practice: the ship drew 292px against a 224px target. Related, and
-worse: `pre` carries `font-family: monospace` from the UA stylesheet, and that
-beats inheritance, so art must set `font-family` explicitly or it is not drawn
-in the site's font at all.
+**The Moon Yields Rule.** The moon is `z-index: 0` scenery: it passes
+behind photographs like a moon behind rooftops, and on phones it moves to
+the corner above the wrapped nav, where it once sat on the toggle and read
+"BEBOP M🌕DE".
 
-## Spacing
+## Bebop Mode
 
-One five-step scale. Every vertical gap is one of them. `--gutter` is the page
-margin and `--measure` the reading width; neither is a vertical rhythm value.
+The Session, unchanged: warm near-black, bone monospace, one pink accent,
+starfield flight, ASCII drawn accurately from real sources. See git history
+of this file for the full original document; its Named Rules (Raster Is Not
+Type, Advance Is Not 0.6em, Writing Sets The Row, No Free Hairlines,
+Rectangle Is The Problem, Found Object, Bloom Is Not A Text Shadow, Frame
+Slice) all still bind inside bebop, and several bind everywhere.
 
-The scale exists because an audit found seven unrelated top-margins (4, 12, 14,
-22, 26, 40, 48px) sharing no rhythm. Two values outside the scale survive as
-optical baseline nudges on the register mark and the section number; both are
-alignment, not rhythm.
+## Cross-Mode Rules
 
-### Named Rules
+**The Arrow Is Inline Rule.** `.arw` is plain inline with a relative-offset
+hover hop, never inline-block: an inline-block creates a break opportunity
+after itself even with no whitespace, which once stranded a period alone on
+its own line after "vienna↗".
 
-**The Writing Sets The Row Rule.** In a two-column `.bay`, the copy determines
-the row height and the picture fills it. The reverse — a picture sizing itself
-and stretching the row — left 724px of empty column beside a 304px bio, and
-was the single largest layout defect the site has had.
+**The Peek Rule.** Words naming something real may lift a small stack of
+photographs above the cursor (`data-peek`). Hover-and-fine-pointer only, so
+phones see plain text, never a half-working version. Prints in dream, hard
+b/w stills in bebop. The reveal rides a timeout, not requestAnimationFrame,
+which is throttled in embedded contexts.
 
-**The No Free Hairlines Rule.** There is no rule above a section, above a list,
-or under a list row. There were nine of them and they were the reason the page
-read as a template. Space and a numbered title do the separating. Hairlines
-survive only where scanning genuinely needs a boundary.
+**Target size.** Every standalone link ≥24px tall (WCAG 2.5.8); inline
+prose links exempt.
 
-## Shapes
+**One spacing scale, one gap per seam.** Unchanged from The Session.
 
-Hard-edged. No border radius anywhere, on anything.
+## Don't
 
-Photographs are a **contact sheet**: small, uniform, square, indexed, in a
-strip, with the index number in `--hot`. One exception, `.plate`, for the
-opening portrait, at roughly twice a thumbnail.
-
-### Named Rules
-
-**The Rectangle Is The Problem Rule.** A full-colour photograph on a starfield
-reads as a hole punched in the void, and no frame fixes it, because the frame
-is not what is wrong. Photographs are therefore small and indexed — records
-rather than features. Framing, vignetting and duotone were each tried and each
-failed for this reason.
-
-## Motion
-
-All of it is CSS. The only JavaScript on the site is five lines that pause
-autoplaying video under `prefers-reduced-motion`, and it removes motion rather
-than adding it.
-
-- **Flight.** Four starfield layers scale from the centre and fade at frame
-  edge on staggered delays. The parallax is the rate difference. An earlier
-  version drifted sideways and read as a screensaver, because sideways motion
-  has no direction of travel.
-- **The ship.** One drawing, one transform, masked at both edges so it sails in
-  and out rather than popping.
-- **The mark.** One drawing, a six-second breath.
-- **Hover.** Colour to `--hot`, and a single radial bloom behind the art.
-
-One easing curve, `--ease`, and two durations: `--dur` 200ms for feedback and
-`--dur-slow` 320ms for reveals. Ambient motion — the starfield, the ship, the
-breath — is measured in seconds and is not on this scale, because it is
-atmosphere rather than response.
-
-### Named Rules
-
-**The Found Object Rule.** ASCII art on this site is drawn accurately from
-something real — the Replika mark converted from its own logo file, Spike's
-ship — and never invented freehand. Three hand-authored figurative pieces were
-built and all three were rejected as ugly. What survives is accurate, not
-imagined.
-
-**The Bloom Is Not A Text Shadow Rule.** Glow goes behind art as one radial,
-never on the glyphs. A `text-shadow` asked the compositor to blur roughly 1400
-characters across forty stacked frames every paint, and hovering visibly
-stuttered.
-
-**The Frame Slice Rule.** For a frame-flipped animation of *n* frames, the
-visible slice is `100/n` percent. Hardcoding 2.4% is correct only at forty
-frames; at six a piece was blank 85.6% of the time and appeared to be missing.
-No frame-flipped art currently ships, but the trap is worth keeping written
-down.
-
-## Do's and Don'ts
-
-### Do
-
-- Say what a section is. `replika`, `before replika`, `upbringing`, `say hi`.
-- Let the build catch CSS. An invalid keyframe selector was silently dropped by
-  the minifier, and a stray comment terminator killed the build outright;
-  neither was visible in a screenshot.
-- Verify in real Chrome. The embedded preview browser does not run lazy-loading
-  reliably and reports `scrollY` as 0 while `scroll-behavior: smooth` animates.
-
-### Don't
-
-- Don't write copy nobody asked for. `what he is doing`, `the door is open`,
-  `hover for colour`, `she is a projection` — every invented caption on this
-  site has been cut, usually angrily. If a heading already says it, the
-  subtitle is noise.
-- Don't desaturate family photographs. It makes a childhood read as a memorial.
+- Don't write copy nobody asked for. Every invented caption on this site
+  has been cut, usually angrily.
+- Don't hand-draw figurative art (ASCII or icons). Derived, sampled, or
+  made by professionals — four rejections earned this rule.
+- Don't desaturate family photographs.
 - Don't reach for a hairline to separate things.

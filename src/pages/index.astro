@@ -74,7 +74,7 @@ const shots = [
 const ways = [
   'natural aptitude for <b>taste</b>, action bias, &amp; having too much fun shipping. <b>clairvoyance</b>, aggressive optimism. following my nose. very fucking clean and direct in my comms.',
   "culture in my teams is something i'm incredibly proud of: violent intolerance for mediocre work. anime-level <b>fellowship</b> &amp; camaraderie. fearlessness. relentless pursuit of the mission.",
-  "unhealthy excitement about customers {more users in my slack than team members lol}. making my products <b>feel like magic</b>. extensive experience working with the world's best brand agencies.",
+  "a very healthy obsession with customers {more users in my slack than team members lol}. making my products <b>feel like magic</b>. extensive experience working with the world's best brand agencies.",
 ] as const;
 
 const vlogs = [
@@ -128,7 +128,9 @@ const description =
 
         <div class="prose">
           <p>
-            product &amp; engineering guy with a background in art, chess and theatre. based
+            product &amp; engineering guy with a background in{" "}
+            <span class="peek" data-peek="/images/paintings/p05.jpg,/images/paintings/p04.jpg">art</span>,{" "}
+            <span class="peek" data-peek="/images/childhood-chess.jpg">chess</span> and theatre. based
             between <span class="pin" aria-hidden="true">🗽</span>nyc,{" "}
             <span class="pin" aria-hidden="true">🗼</span>paris &amp;{" "}
             <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -136,12 +138,12 @@ const description =
               <path d="M3 8a7.5 7.5 0 0 0 3 -2a6.5 6.5 0 0 0 12 0a7.5 7.5 0 0 0 3 2" />
               <path d="M12 10l0 5" />
             </svg>sf. lecturer at the{" "}
-            <a href="https://www.univie.ac.at/en/" target="_blank" rel="noreferrer">university of vienna<span class="arw">↗</span></a>.
+            <a class="peek" data-peek="/video/vlog-vienna-poster.jpg" href="https://www.univie.ac.at/en/" target="_blank" rel="noreferrer">university of vienna<span class="arw">↗</span></a>.
           </p>
           <p>
             now building a new era of replika — a truly novel and beautiful{" "}
-            <b>agentic ai with real eq</b>, brought to everyone, to help people become themselves
-            and flourish.
+            <b>agentic ai with real eq</b>, brought to everyone: to help people come back to who
+            they really are, unleash it to the fullest, and flourish.
           </p>
         </div>
       </div>
@@ -213,6 +215,10 @@ const description =
           hotAbove={0.34}
         />
 
+        <figure class="dream-art">
+          <img src="/images/paintings/p01.jpg" alt="Katherine Bradford, Swimmers Under Orange Moon: bathers glowing in turquoise water under a starry sky" loading="lazy" />
+          <figcaption>katherine bradford</figcaption>
+        </figure>
       </div>
     </div>
 
@@ -290,6 +296,11 @@ const description =
           gamma={1.0}
           label="this is where the fun begins"
         />
+
+        <figure class="dream-art">
+          <img src="/images/paintings/p03.jpg" alt="Hasui Kawase woodblock print: a quiet street at dusk" loading="lazy" />
+          <figcaption>hasui kawase</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -306,6 +317,13 @@ const description =
           i'm intense and hands-on. i don't hire managers. i write the architecture and the
           prompts, i push code to production, and i have fixed things in prod at two in the
           morning more than once.
+        </p>
+        <p>
+          my sense of urgency is outstanding. but i know where to slow down — to{" "}
+          <b>go dreamy</b>, to reach the next peak of ideas, to find serendipity, to make the 10x
+          thing that hasn't existed before. both speeds are mine: fast, decisive, unafraid of
+          starting from scratch — and full of love, poetry &amp; liberal arts, carrying
+          unfathomably unorthodox ideas.
         </p>
         <p set:html={ways[0]} />
         <p set:html={ways[1]} />
@@ -430,6 +448,11 @@ const description =
         white={0.99}
         gamma={1.15}
       />
+
+      <figure class="dream-art">
+        <img src="/images/paintings/p02.jpg" alt="Odilon Redon, The Cyclops: a gentle one-eyed giant peeking over a flowering hillside" loading="lazy" />
+        <figcaption>odilon redon</figcaption>
+      </figure>
     </div>
   </section>
 </Layout>

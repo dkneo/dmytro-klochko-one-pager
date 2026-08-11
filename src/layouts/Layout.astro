@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "../styles/dream.css";
 
 interface Props {
   title: string;
@@ -20,12 +21,29 @@ const nav = [
 ];
 ---
 
-<html lang="en">
+<html lang="en" data-mode="dream">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#0b0b0d" />
+    <meta name="theme-color" content="#2c3357" />
+    <!--
+      Two art directions share this markup. "dream" is the default; "bebop"
+      is the terminal in deep space this site used to default to. The choice
+      is read before first paint so neither mode ever flashes as the other.
+    -->
+    <script is:inline>
+      (() => {
+        try {
+          const m = localStorage.getItem("mode");
+          if (m === "bebop" || m === "dream") document.documentElement.dataset.mode = m;
+        } catch {}
+        document.querySelector('meta[name="theme-color"]')?.setAttribute(
+          "content",
+          document.documentElement.dataset.mode === "bebop" ? "#0b0b0d" : "#2c3357"
+        );
+      })();
+    </script>
     <meta name="generator" content={Astro.generator} />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
@@ -78,6 +96,14 @@ const nav = [
       <span class="stars-glow"></span>
     </div>
 
+    <!-- The dream sky: an orange moon and a slow field of stars, after
+         katherine bradford's Swimmers Under Orange Moon, which hangs on the
+         taste page and lends this whole mode its palette. -->
+    <div class="dream-sky" aria-hidden="true">
+      <span class="moon"></span>
+      <i></i><i></i>
+    </div>
+
     <header class="site-header">
       <a class="masthead" href="/">dmytro klochko</a>
       {current !== "home" && <span class="crumb">/ {current.replace("-", " ")}</span>}
@@ -93,6 +119,10 @@ const nav = [
             </a>
           ))
         }
+        <button class="mode-toggle" type="button">
+          <span class="only-dream">✦ bebop mode</span>
+          <span class="only-bebop">☾ go dreamy</span>
+        </button>
       </nav>
     </header>
 
@@ -101,7 +131,10 @@ const nav = [
     </main>
 
     <footer class="site-footer">
-      <p class="signoff">see you space cowboy&hellip;</p>
+      <p class="signoff">
+        <span class="only-bebop">see you space cowboy&hellip;</span>
+        <span class="only-dream">we got time to go dreamy.</span>
+      </p>
       <nav class="foot-nav" aria-label="pages">
         {
           nav.map((item) => (
@@ -167,6 +200,73 @@ const nav = [
           v.pause();
         }
       }
+    </script>
+
+    <script is:inline>
+      for (const b of document.querySelectorAll(".mode-toggle")) {
+        b.addEventListener("click", () => {
+          const next = document.documentElement.dataset.mode === "bebop" ? "dream" : "bebop";
+          document.documentElement.dataset.mode = next;
+          try { localStorage.setItem("mode", next); } catch {}
+          document.querySelector('meta[name="theme-color"]')?.setAttribute(
+            "content", next === "bebop" ? "#0b0b0d" : "#2c3357"
+          );
+        });
+      }
+    </script>
+
+    <!--
+      The peek. Hovering a word that names something real lifts a small stack
+      of photographs of it above the cursor, like prints dropped on a desk.
+      Hover only, so phones never see a half-working version; the words are
+      plain text there. The photograph sits on the line it is evidence for —
+      this is that rule at its logical extreme.
+    -->
+    <script is:inline>
+      (() => {
+        if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+        let pop = null, raf = 0, x = 0, y = 0, tx = 0, ty = 0;
+        const ease = () => {
+          x += (tx - x) * 0.22;
+          y += (ty - y) * 0.22;
+          if (pop) pop.style.transform = `translate(${x}px, ${y}px)`;
+          raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.3 ? requestAnimationFrame(ease) : 0;
+        };
+        for (const el of document.querySelectorAll("[data-peek]")) {
+          el.addEventListener("pointerenter", (e) => {
+            pop?.remove();
+            pop = document.createElement("div");
+            pop.className = "peek-pop";
+            if (e.clientY < 230) pop.classList.add("below");
+            for (const src of el.dataset.peek.split(",")) {
+              const img = new Image();
+              img.src = src.trim();
+              img.alt = "";
+              pop.appendChild(img);
+            }
+            document.body.appendChild(pop);
+            x = tx = e.clientX; y = ty = e.clientY;
+            pop.style.transform = `translate(${x}px, ${y}px)`;
+            // Flush styles, then reveal on a timer rather than a frame:
+            // requestAnimationFrame is throttled in background/embedded
+            // contexts and the stack would silently never appear.
+            pop.getBoundingClientRect();
+            const p = pop;
+            setTimeout(() => { if (p === pop) p.classList.add("on"); }, 20);
+          });
+          el.addEventListener("pointermove", (e) => {
+            tx = e.clientX; ty = e.clientY;
+            if (!raf) raf = requestAnimationFrame(ease);
+          });
+          el.addEventListener("pointerleave", () => {
+            const dying = pop;
+            pop = null;
+            if (!dying) return;
+            dying.classList.remove("on");
+            setTimeout(() => dying.remove(), 220);
+          });
+        }
+      })();
     </script>
   </body>
 </html>

@@ -1316,17 +1316,26 @@ body::after {
    surrounding text happened to be, which is why it read as small and adrift.
    Tight to the word, a touch larger than its line, and it moves. */
 
+/* Plain inline, not inline-block: an inline-block creates a line-break
+   opportunity after itself even with no whitespace, which stranded a period
+   on its own line after "vienna↗". Inline can't carry a transform, so the
+   hover hop rides relative offsets instead — same motion, no break. */
 .arw {
-  display: inline-block;
+  position: relative;
+  top: 0;
+  left: 0;
   margin-left: 0.14em;
   font-size: 1.1em;
   line-height: 0;
-  transition: transform var(--dur) var(--ease);
+  transition:
+    top var(--dur) var(--ease),
+    left var(--dur) var(--ease);
 }
 
 a:hover .arw,
 a:focus-visible .arw {
-  transform: translate(0.16em, -0.16em);
+  top: -0.16em;
+  left: 0.16em;
 }
 
 /* ── link feedback ──────────────────────────────────────────────────────────
@@ -1364,7 +1373,8 @@ a:focus-visible .arw {
 
   a:hover .arw,
   a:focus-visible .arw {
-    transform: none;
+    top: 0;
+    left: 0;
   }
 }
 
@@ -1452,7 +1462,8 @@ a:focus-visible .arw {
 }
 
 .onward--back:hover .arw {
-  transform: translate(-0.16em, -0.16em);
+  top: -0.16em;
+  left: -0.16em;
 }
 
 /* ── the hang ───────────────────────────────────────────────────────────────

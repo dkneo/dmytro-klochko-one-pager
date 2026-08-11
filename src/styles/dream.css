@@ -1,0 +1,432 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   DREAM MODE — the default
+   Built from three paintings that hang on the taste page. Katherine
+   Bradford's Swimmers Under Orange Moon lends the dusk ground and the moon;
+   Hasui Kawase's twilight lends the pink cloud washes and the turquoise
+   water; Kiyoshi Saitō's snow night lends the quiet — and his red seal,
+   which stamps every section number. Bebop mode (the terminal in deep
+   space) survives untouched behind the toggle.
+
+   The Two Voices Rule inverts in this mode: serif is everything spoken in
+   sentences — titles, ledes, prose, quotes — and mono retreats to the
+   machinery: navigation, numbers, labels, captions.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── the palette, sampled ───────────────────────────────────────────────── */
+
+:root[data-mode="dream"] {
+  --void: #2c3357;   /* bradford's sky, deepened enough to read on */
+  --deck: #3a4272;
+  --bone: #f4ecdb;   /* moonlit cream */
+  --dim: #b7bedd;
+  --faint: #98a0c8;
+  --rule: rgb(244 236 219 / 16%);
+  --cold: #7fd4d9;   /* the water */
+  --hot: #ff9a5c;    /* the moon */
+  --seal: #c3452e;   /* saitō's hanko */
+  --mat: #fbf3e2;    /* the mount around every print */
+}
+
+/* The ground is a bokashi — the graded wash a woodblock printer pulls across
+   the sky of a print. Fixed so the dusk deepens toward the top of the window
+   rather than somewhere down the document. */
+[data-mode="dream"] body {
+  background: linear-gradient(180deg, #232948 0%, #2c3357 46%, #33406b 100%)
+    fixed var(--void);
+}
+
+/* ── mode plumbing ──────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .only-bebop { display: none; }
+[data-mode="bebop"] .only-dream { display: none; }
+[data-mode="bebop"] .dream-sky { display: none; }
+[data-mode="bebop"] .dream-art { display: none; }
+[data-mode="dream"] .stars { display: none; }
+
+[data-mode="dream"] .ascii--joi,
+[data-mode="dream"] .ascii--fun,
+[data-mode="dream"] .ascii--bebop {
+  display: none;
+}
+
+/* The vinyl keeps spinning in dream mode; the shader reads its palette live
+   from these properties, so it repaints itself in dusk and moon. */
+[data-mode="dream"] .ascii {
+  --ink-void: #2c3357;
+  --ink-bone: #f4ecdb;
+  --ink-hot: #ff9a5c;
+}
+
+/* The toggle dresses like a nav item and meets the same 24px target. */
+.mode-toggle {
+  padding: 0.3rem 0;
+  border: 0;
+  background: none;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease);
+}
+
+.mode-toggle:hover {
+  color: var(--hot);
+}
+
+/* ── the sky ────────────────────────────────────────────────────────────────
+   One orange moon, two layers of slow stars, and aurora washes of water and
+   violet. All of it sits under the content and none of it is interactive. */
+
+.dream-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dream-sky .moon {
+  position: absolute;
+  /* High in the corner sky, small enough to live in the whitespace beside
+     the title row. It passes behind the photographs while you scroll, the
+     way a moon passes behind rooftops. */
+  top: clamp(3.2rem, 8vh, 6.5rem);
+  right: clamp(0.9rem, 2.6vw, 2.6rem);
+  width: clamp(38px, 4.5vw, 60px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, #ffc491, #f08a54 58%, #c05d5b);
+  box-shadow:
+    0 0 34px 10px rgb(240 138 84 / 28%),
+    0 0 100px 40px rgb(240 138 84 / 12%);
+  animation: moon-breathe 9s var(--ease) infinite alternate;
+}
+
+.dream-sky i {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 22% 31%, rgb(244 236 219 / 90%), transparent 60%),
+    radial-gradient(1px 1px at 64% 12%, rgb(244 236 219 / 70%), transparent 60%),
+    radial-gradient(1.5px 1.5px at 83% 47%, rgb(244 236 219 / 80%), transparent 60%),
+    radial-gradient(1px 1px at 41% 72%, rgb(244 236 219 / 60%), transparent 60%),
+    radial-gradient(1px 1px at 9% 89%, rgb(244 236 219 / 70%), transparent 60%);
+  background-size: 290px 290px;
+  animation: twinkle 7s ease-in-out infinite alternate;
+  opacity: 0.5;
+}
+
+/* On a phone the nav wraps to a second row exactly where the moon hung, and
+   the toggle read "BEBOP M🌕DE". The corner above the wrapped nav is empty. */
+@media (max-width: 700px) {
+  .dream-sky .moon {
+    top: 0.65rem;
+    right: 0.75rem;
+    width: 34px;
+  }
+}
+
+.dream-sky i + i {
+  background-size: 470px 470px;
+  animation-delay: -3.5s;
+  animation-duration: 9s;
+  opacity: 0.35;
+}
+
+/* Kawase's clouds. Pink cumulus drifting low, turquoise water underneath,
+   the moon's warmth top-right — washes, not objects, blurred until they are
+   weather. */
+[data-mode="dream"] body::before {
+  content: "";
+  position: fixed;
+  inset: -12%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(42% 26% at 22% 74%, rgb(240 168 184 / 26%), transparent 70%),
+    radial-gradient(30% 22% at 62% 92%, rgb(91 168 196 / 30%), transparent 70%),
+    radial-gradient(26% 22% at 85% 8%, rgb(240 138 84 / 18%), transparent 70%);
+  filter: blur(46px) saturate(1.12);
+  transform: translateZ(0);
+  animation: aurora 46s ease-in-out infinite alternate;
+}
+
+/* Film grain over everything, quiet enough to feel rather than see. */
+[data-mode="dream"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.05;
+}
+
+@keyframes moon-breathe {
+  to { transform: scale(1.045); }
+}
+
+@keyframes twinkle {
+  from { opacity: 0.28; }
+  to { opacity: 0.6; }
+}
+
+@keyframes aurora {
+  to { transform: translate3d(2%, -2%, 0) scale(1.07); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dream-sky .moon,
+  .dream-sky i,
+  [data-mode="dream"] body::before {
+    animation: none;
+  }
+}
+
+/* ── the seal ───────────────────────────────────────────────────────────────
+   Saitō signs his prints with a red hanko in the corner. The section numbers
+   take the same stamp: vermillion block, cream numeral, pressed a degree or
+   two off true the way a hand stamps. */
+
+[data-mode="dream"] .card-no {
+  /* fit-content matters on a phone, where the number leaves the margin and
+     becomes a block: without it the stamp stretched into a 351px red bar. */
+  width: fit-content;
+  padding: 0.34em 0.44em;
+  background: var(--seal);
+  color: var(--mat);
+  border-radius: 2px;
+  transform: rotate(-3deg);
+  box-shadow: 0 2px 10px rgb(12 12 30 / 35%);
+}
+
+@media (max-width: 900px) {
+  [data-mode="dream"] .card-no {
+    margin-bottom: 0.55rem;
+  }
+}
+
+/* ── the voice ──────────────────────────────────────────────────────────────
+   Serif for everything written in sentences. Mono keeps the machinery. */
+
+[data-mode="dream"] .card-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+[data-mode="dream"] .lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: calc(var(--t-lg) * 1.12);
+  letter-spacing: 0;
+}
+
+[data-mode="dream"] .prose p,
+[data-mode="dream"] .receipts li p,
+[data-mode="dream"] .log p,
+[data-mode="dream"] .gloss-note,
+[data-mode="dream"] .credit {
+  font-family: var(--serif);
+  font-size: 1.07rem;
+  letter-spacing: 0;
+  line-height: 1.66;
+}
+
+[data-mode="dream"] .signoff {
+  font-family: var(--serif);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+/* Highlights stop being pink type and become words someone underlined by
+   hand: moon orange, wavy, slightly lifted off the baseline. */
+[data-mode="dream"] .prose b {
+  color: var(--hot);
+  text-decoration: underline wavy rgb(255 154 92 / 55%);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+/* The nav marks the current page with parentheses — brackets belong to the
+   terminal, and this mode is not a terminal. */
+[data-mode="dream"] .site-nav a[aria-current="page"]::before,
+[data-mode="dream"] .foot-nav a[aria-current="page"]::before {
+  content: "(";
+  color: rgb(255 154 92 / 60%);
+}
+
+[data-mode="dream"] .site-nav a[aria-current="page"]::after,
+[data-mode="dream"] .foot-nav a[aria-current="page"]::after {
+  content: ")";
+  color: rgb(255 154 92 / 60%);
+}
+
+/* ── the photographs ────────────────────────────────────────────────────────
+   Mounted, not filed. The portrait hangs straight in a cream mat like a
+   print; only the childhood snapshots keep a small tilt, because childhood
+   photographs live in shoeboxes, not frames. */
+
+[data-mode="dream"] .bay .portrait .cell {
+  border: 12px solid var(--mat);
+  border-radius: 3px;
+  box-shadow: 0 18px 44px rgb(12 12 30 / 42%);
+}
+
+[data-mode="dream"] .sheet figure:nth-child(odd) .cell {
+  transform: rotate(-2deg);
+}
+
+[data-mode="dream"] .sheet figure:nth-child(even) .cell {
+  transform: rotate(1.6deg);
+}
+
+[data-mode="dream"] .sheet .cell {
+  border: 6px solid var(--mat);
+  border-radius: 3px;
+  box-shadow: 0 10px 26px rgb(12 12 30 / 40%);
+}
+
+/* The clips come back in colour. Grayscale was the noir talking. */
+[data-mode="dream"] .frame {
+  border-radius: 10px;
+}
+
+[data-mode="dream"] .frame video,
+[data-mode="dream"] .frame img {
+  filter: none;
+}
+
+[data-mode="dream"] .reel .cap {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  text-transform: lowercase;
+}
+
+[data-mode="dream"] .lynch {
+  transform: rotate(1deg);
+}
+
+[data-mode="dream"] .lynch img {
+  border-radius: 10px;
+  box-shadow: 0 16px 40px rgb(12 12 30 / 40%);
+}
+
+[data-mode="dream"] .gloss {
+  border-radius: 999px;
+}
+
+/* ── the paintings ──────────────────────────────────────────────────────────
+   Where bebop draws in ASCII, dream mode hangs the paintings he loves.
+   Hung straight — paintings are not snapshots — with only the maker's name
+   for a label. */
+
+.dream-art {
+  margin: 0;
+}
+
+.dream-art img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgb(12 12 30 / 45%);
+}
+
+.dream-art figcaption {
+  margin-top: 0.6rem;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+/* ── the peek ───────────────────────────────────────────────────────────────
+   Words that name something real lift a stack of prints above the cursor.
+   The span is dotted so the hand knows before the cursor arrives. */
+
+.peek {
+  text-decoration: underline dotted;
+  text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+  text-underline-offset: 3px;
+}
+
+.peek-pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.peek-pop img {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 148px;
+  height: auto;
+  opacity: 0;
+  transition:
+    opacity var(--dur) var(--ease),
+    scale var(--dur-slow) var(--ease);
+  scale: 0.75;
+}
+
+.peek-pop.below img {
+  top: 26px;
+  bottom: auto;
+}
+
+.peek-pop img:nth-child(1) {
+  translate: -88% 0;
+  rotate: -6deg;
+}
+
+.peek-pop img:nth-child(2) {
+  translate: -22% -5%;
+  rotate: 4.5deg;
+}
+
+.peek-pop img:nth-child(3) {
+  translate: -55% -12%;
+  rotate: -2deg;
+}
+
+.peek-pop.on img {
+  opacity: 1;
+  scale: 1;
+}
+
+.peek-pop.on img:nth-child(2) {
+  transition-delay: 45ms;
+}
+
+.peek-pop.on img:nth-child(3) {
+  transition-delay: 90ms;
+}
+
+/* Prints in dream mode. */
+[data-mode="dream"] .peek-pop img {
+  border: 6px solid var(--mat);
+  border-bottom-width: 20px;
+  border-radius: 3px;
+  box-shadow: 0 14px 34px rgb(12 12 30 / 50%);
+}
+
+/* Stills from the deck in bebop. */
+[data-mode="bebop"] .peek-pop img {
+  border: 1px solid rgb(233 229 216 / 25%);
+  background: var(--deck);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 55%);
+  filter: grayscale(1) contrast(1.12);
+}
