@@ -571,3 +571,52 @@
     animation: none;
   }
 }
+
+/* ── the taste page, in dream ───────────────────────────────────────────────
+   "literally me" becomes a wall of snapshots — small tilts, small mats —
+   and the paintings hang like a gallery: matted, straight, lifting a breath
+   when the hand arrives, labelled in a curator's italic. */
+
+[data-mode="dream"] .wall .cell {
+  border: 5px solid var(--mat);
+  border-radius: 3px;
+  box-shadow: 0 8px 22px rgb(12 12 30 / 38%);
+  transition:
+    transform var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .wall figure:nth-child(odd) .cell {
+  transform: rotate(-1.6deg);
+}
+
+[data-mode="dream"] .wall figure:nth-child(even) .cell {
+  transform: rotate(1.3deg);
+}
+
+[data-mode="dream"] .wall figure:hover .cell {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 14px 30px rgb(12 12 30 / 48%);
+}
+
+[data-mode="dream"] .hang figure {
+  border: 7px solid var(--mat);
+  border-radius: 3px;
+  box-shadow: 0 12px 30px rgb(12 12 30 / 42%);
+  transition:
+    transform var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .hang figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 44px rgb(12 12 30 / 52%);
+}
+
+[data-mode="dream"] .hang figcaption {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+}
