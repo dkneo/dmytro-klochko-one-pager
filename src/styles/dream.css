@@ -134,10 +134,12 @@
 
 .kawase i {
   position: absolute;
-  inset: -6%;
-  background: url("/images/dream-sky-4k.webp") center 30% / cover no-repeat;
-  transform: translateY(calc(var(--scroll, 0) * -7vh))
-    translate(calc(var(--px, 0) * -22px), calc(var(--py, 0) * -14px));
+  inset: -8% -4%;
+  background: url("/images/kawase-sky.webp") calc(50% + min(24vw, 360px)) -4% / min(940px, 66vw) auto no-repeat;
+  -webkit-mask-image: radial-gradient(60% 52% at 74% 26%, #000 48%, transparent 78%);
+  mask-image: radial-gradient(60% 52% at 74% 26%, #000 48%, transparent 78%);
+  transform: translateY(calc(var(--scroll, 0) * -13vh))
+    translate(calc(var(--px, 0) * -28px), calc(var(--py, 0) * -16px));
   animation: kawase-breathe 60s ease-in-out infinite alternate;
 }
 
@@ -158,8 +160,8 @@
   inset: 0;
   z-index: 3;
   background:
-    linear-gradient(90deg, rgb(35 41 72 / 52%) 0%, rgb(35 41 72 / 30%) 40%, rgb(35 41 72 / 6%) 70%, transparent 100%),
-    linear-gradient(180deg, rgb(29 35 66 / 35%) 0%, transparent 30%, transparent 62%, rgb(44 51 87 / 38%) 100%);
+    linear-gradient(90deg, rgb(35 41 72 / 42%) 0%, rgb(35 41 72 / 20%) 42%, transparent 72%),
+    linear-gradient(180deg, rgb(29 35 66 / 30%) 0%, transparent 28%, transparent 64%, rgb(44 51 87 / 34%) 100%);
 }
 
 @keyframes kawase-breathe {
@@ -186,7 +188,10 @@
 
 @media (max-width: 700px) {
   .kawase i {
-    background-position: 68% 30%;
+    background-position: 60% -2%;
+    background-size: 150vw auto;
+    -webkit-mask-image: radial-gradient(78% 46% at 58% 22%, #000 46%, transparent 80%);
+    mask-image: radial-gradient(78% 46% at 58% 22%, #000 46%, transparent 80%);
   }
 
   .kawase::after {
@@ -712,6 +717,31 @@
   font-size: var(--t-prose-sm);
   letter-spacing: 0.01em;
   text-transform: lowercase;
+}
+
+/* Inside the glass the register loses its logo column — a 1.6rem indent
+   that aligned to nothing — and its rows close up, so name, descriptor and
+   role read as one block flush with the title above them. */
+[data-mode="dream"] .reg li {
+  grid-template-columns: auto 1fr;
+  gap: 0.1rem 0.8rem;
+  padding: 0 0 var(--sp-2);
+}
+
+[data-mode="dream"] .reg-mark {
+  display: none;
+}
+
+[data-mode="dream"] .reg-role {
+  grid-column: 1 / -1;
+}
+
+[data-mode="dream"] .card {
+  margin-bottom: var(--sp-2);
+}
+
+[data-mode="dream"] #top .card {
+  margin-bottom: var(--sp-3);
 }
 
 /* ── washi glass ─────────────────────────────────────────────────────────────
