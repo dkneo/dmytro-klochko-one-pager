@@ -1,6 +1,6 @@
 {
  "schemaVersion": 2,
- "generatedAt": "2026-08-11T22:24:14Z",
+ "generatedAt": "2026-08-11T23:06:14Z",
  "title": "Design System: dmytro klochko \u2014 dream / bebop",
  "extensions": {
   "colorMeta": {
@@ -362,6 +362,51 @@
      "#ff85ba",
      "#ffbdda",
      "#ffe5f1"
+    ]
+   },
+   "ink": {
+    "role": "neutral",
+    "displayName": "Dusk Ink",
+    "canonical": "#2b3157",
+    "tonalRamp": [
+     "#141729",
+     "#282e52",
+     "#404982",
+     "#5b66ae",
+     "#8890c4",
+     "#adb3d7",
+     "#d3d6e9",
+     "#eeeff7"
+    ]
+   },
+   "raspberry": {
+    "role": "accent",
+    "displayName": "Raspberry",
+    "canonical": "#d63d75",
+    "tonalRamp": [
+     "#330b19",
+     "#651533",
+     "#a02250",
+     "#d4356f",
+     "#e06c96",
+     "#ea9ab7",
+     "#f3c8d8",
+     "#fbeaf0"
+    ]
+   },
+   "paper": {
+    "role": "neutral",
+    "displayName": "Washi Paper",
+    "canonical": "#f8f0e0",
+    "tonalRamp": [
+     "#32250b",
+     "#644a17",
+     "#9e7524",
+     "#d29e37",
+     "#deb96d",
+     "#e8cf9b",
+     "#f3e5c9",
+     "#faf5ea"
     ]
    }
   },

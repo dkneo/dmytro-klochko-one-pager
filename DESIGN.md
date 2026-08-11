@@ -14,6 +14,9 @@ modes:
     moon-accent: "#ff9a5c"  # orange keeps only the moon and the seal
     seal: "#c3452e"
     mat: "#fbf3e2"
+    ink: "#2b3157"        # dusk as a text colour: paper cards, header on clouds
+    raspberry: "#d63d75"  # pink that carries text on cream (4.6:1); cloud pink keeps the swashes
+    paper: ["#fbf4e6", "#f5ecd9"]
     bokashi: ["#232948", "#2c3357", "#33406b"]
     moon: ["#ffc491", "#f08a54", "#c05d5b"]
     washes:

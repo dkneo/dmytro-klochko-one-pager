@@ -25,6 +25,8 @@
   --hot: #ff9bc0;    /* kawase's clouds — his favourite colour is pink */
   --moon: #ff9a5c;   /* orange keeps only the moon and the seal */
   --seal: #c3452e;   /* saitō's hanko */
+  --ink: #2b3157;    /* dusk as a text colour, for paper and clouds */
+  --raspberry: #d63d75;  /* pink that can carry text on cream (4.6:1) */
   /* Serif runs optically smaller than mono at the same rem, so the reading
      sizes get compensating steps. Documented in DESIGN.md. */
   --t-prose: 1.07rem;
@@ -81,13 +83,13 @@
 [data-mode="dream"] .site-header,
 [data-mode="dream"] .site-nav a,
 [data-mode="dream"] .mode-toggle {
-  color: #2b3157;
+  color: var(--ink);
   text-shadow: 0 1px 10px rgb(251 244 230 / 60%);
 }
 
 [data-mode="dream"] .site-nav a:hover,
 [data-mode="dream"] .mode-toggle:hover {
-  color: #d63d75;
+  color: var(--raspberry);
 }
 
 [data-mode="dream"] .site-nav a[aria-current="page"]::before,
@@ -762,12 +764,12 @@
 [data-mode="dream"] main .session:not(#top),
 [data-mode="dream"] .site-footer,
 [data-mode="dream"] #top .bay > div:first-child {
-  --bone: #2b3157;
+  --bone: var(--ink);
   --dim: #5c5680;
   --faint: #8a83a8;
   --rule: rgb(43 49 87 / 18%);
   --deck: #efe5d2;
-  --hot: #d63d75;
+  --hot: var(--raspberry);
   --cold: #2e7f96;
   background: linear-gradient(180deg, #fbf4e6, #f5ecd9);
   color: var(--bone);
@@ -800,8 +802,8 @@
 /* Ink on paper: the vinyl redraws itself as a woodcut. */
 [data-mode="dream"] .session .ascii {
   --ink-void: #f8f0e0;
-  --ink-bone: #2b3157;
-  --ink-hot: #d63d75;
+  --ink-bone: var(--ink);
+  --ink-hot: var(--raspberry);
 }
 
 /* The petals fall in front of the paper, not behind the world. */
