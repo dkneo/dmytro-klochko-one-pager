@@ -10,7 +10,8 @@ modes:
     faint: "#98a0c8"
     rule: "rgb(244 236 219 / 16%)"
     cold: "#7fd4d9"
-    hot: "#ff9a5c"
+    hot: "#ff9bc0"       # kawase cloud pink — his favourite colour
+    moon-accent: "#ff9a5c"  # orange keeps only the moon and the seal
     seal: "#c3452e"
     mat: "#fbf3e2"
     bokashi: ["#232948", "#2c3357", "#33406b"]
@@ -37,7 +38,9 @@ typography:
     t-md: "0.98rem"
     t-lg: "clamp(1.15rem, 1.5vw, 1.45rem)"
     display: "clamp(1.9rem, 4.6vw, 3.9rem)"
-  dream-prose: "1.07rem"   # serif runs optically smaller than mono at equal size
+  dream-prose: "1.07rem"        # serif runs optically smaller than mono at equal size
+  dream-prose-sm: "0.95rem"     # serif captions: reel, gallery labels
+  dream-display-hero: "clamp(2.4rem, 5.6vw, 4.8rem)"  # the kawase title screen
   raster:
     art-cell-sm: "0.55rem"
     art-cell-lg: "1.05rem"
@@ -90,16 +93,19 @@ board:
 The Two Voices Rule inverts. Serif is everything spoken in sentences —
 display titles (italic, lowercase), ledes, prose, quotes, the sign-off.
 Mono retreats to the machinery: nav, numbers, labels, captions, the
-register. Highlights are moon-orange with a hand-drawn wavy underline
-instead of bebop's flat pink.
+register. Highlights are run over with a pink marker swash — never a wavy
+underline, which reads as a spellcheck error, and never an em-dash in
+prose; dashes are spaced en dashes.
 
 ### Art
 
-The ASCII figures hide; where they stood, the paintings themselves hang —
-Bradford where Joi was, Kawase where the ship was, Redon's cyclops saying
-hi. Mounted straight (paintings are not snapshots), labelled with the
-maker's name only. The vinyl ASCII on taste keeps spinning: the shader
-reads its palette live from CSS, so it repaints itself in dusk and moon.
+The ASCII figures hide. Kawase's twilight IS the sky: full-bleed behind
+the first screen of both pages like the title of a quiet japanese game,
+breathing on a sixty-second clock, leaning with the cursor, its bottom
+edge masked into the dusk. Bradford hangs only on taste; Redon's cyclops
+still says hi. The bays that lost their art column collapse to one column
+rather than keeping an empty grid track. The vinyl ASCII on taste keeps
+spinning: the shader reads its palette live from CSS.
 
 ### Photographs
 

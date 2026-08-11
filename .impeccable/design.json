@@ -389,6 +389,14 @@
    "label": {
     "displayName": "Label",
     "purpose": "t-xs 0.75rem mono caps wide-tracked: nav, numbers, captions, machinery in both modes."
+   },
+   "dream-prose-sm": {
+    "displayName": "Dream Caption",
+    "purpose": "Serif italic captions in dream: reel labels, gallery labels. --t-prose-sm 0.95rem, the serif twin of t-sm."
+   },
+   "dream-display-hero": {
+    "displayName": "Title Screen",
+    "purpose": "The kawase title screen name. --display-hero clamp(2.4rem, 5.6vw, 4.8rem), dream #top only."
    }
   },
   "decorative": [

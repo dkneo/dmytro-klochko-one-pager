@@ -25,9 +25,11 @@
   --hot: #ff9bc0;    /* kawase's clouds — his favourite colour is pink */
   --moon: #ff9a5c;   /* orange keeps only the moon and the seal */
   --seal: #c3452e;   /* saitō's hanko */
-  /* Serif runs optically smaller than mono at the same rem, so prose gets
-     one compensating step. Documented in DESIGN.md as dream-prose. */
+  /* Serif runs optically smaller than mono at the same rem, so the reading
+     sizes get compensating steps. Documented in DESIGN.md. */
   --t-prose: 1.07rem;
+  --t-prose-sm: 0.95rem;   /* serif captions: reel, gallery labels */
+  --display-hero: clamp(2.4rem, 5.6vw, 4.8rem);  /* the title screen */
   --mat: #fbf3e2;    /* the mount around every print */
 }
 
@@ -122,6 +124,8 @@
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  /* Mask black is coverage, not colour: it never renders, so it lives
+     outside the palette by definition. */
   -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 97%);
   mask-image: linear-gradient(180deg, #000 55%, transparent 97%);
 }
@@ -174,7 +178,7 @@
 
 /* The title screen deserves a title. */
 [data-mode="dream"] #top .card-title {
-  font-size: clamp(2.4rem, 5.6vw, 4.8rem);
+  font-size: var(--display-hero);
 }
 
 /* ── the sky ────────────────────────────────────────────────────────────────
@@ -411,7 +415,7 @@
 [data-mode="dream"] .reel .cap {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 0.95rem;
+  font-size: var(--t-prose-sm);
   letter-spacing: 0;
   text-transform: lowercase;
 }
@@ -725,7 +729,7 @@
 [data-mode="dream"] .hang figcaption {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 0.92rem;
+  font-size: var(--t-prose-sm);
   letter-spacing: 0.01em;
   text-transform: lowercase;
 }
