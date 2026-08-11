@@ -115,12 +115,9 @@
               parallax that makes the page feel suspended in front of it
      ::before the scroll-dusk: the deeper you read, the more night falls
               over the painting, so prose always sits on quiet ground
-     ::after  the constant veils: a left column of dusk for the title, a
-              dark strip up top for the header
-     b        the lantern: a soft circle around the cursor where the
-              painting burns through every veil, brighter and unveiled —
-              anywhere on the page, the pointer is a light held up to the
-              painted world
+     ::after  the constant veils: a light column of dusk for the title, a
+              dark strip up top for the header. no lantern: a flashlight
+              following the cursor on a dark page read as weird, and it was.
 
    All motion is compositor-only (transform/opacity on fixed layers), and
    reduced-motion stills the painting under a constant veil. */
@@ -135,11 +132,10 @@
   pointer-events: none;
 }
 
-.kawase i,
-.kawase b {
+.kawase i {
   position: absolute;
   inset: -6%;
-  background: url("/images/kawase-sky.webp") center 32% / cover no-repeat;
+  background: url("/images/dream-sky-4k.webp") center 30% / cover no-repeat;
   transform: translateY(calc(var(--scroll, 0) * -7vh))
     translate(calc(var(--px, 0) * -22px), calc(var(--py, 0) * -14px));
   animation: kawase-breathe 60s ease-in-out infinite alternate;
@@ -153,7 +149,7 @@
   inset: 0;
   z-index: 3;
   background: linear-gradient(180deg, #232948 0%, #2c3357 46%, #33406b 100%);
-  opacity: min(0.93, calc(var(--scroll, 0) * 2.4));
+  opacity: min(0.55, calc(var(--scroll, 0) * 1.3));
 }
 
 .kawase::after {
@@ -162,31 +158,8 @@
   inset: 0;
   z-index: 3;
   background:
-    linear-gradient(90deg, rgb(35 41 72 / 88%) 0%, rgb(35 41 72 / 72%) 36%, rgb(35 41 72 / 22%) 64%, rgb(35 41 72 / 4%) 100%),
-    linear-gradient(180deg, rgb(35 41 72 / 55%) 0%, rgb(35 41 72 / 10%) 22%, transparent 40%, rgb(44 51 87 / 30%) 100%);
-}
-
-/* The lantern rides above the veils and below the words. Idle, it rests as
-   a faint warmth mid-sky; the first pointermove hands it to the hand. */
-.kawase b {
-  z-index: 4;
-  filter: saturate(1.3) brightness(1.14) contrast(1.04);
-  -webkit-mask-image: radial-gradient(
-    230px circle at var(--mx, 62%) var(--my, 30%),
-    rgb(0 0 0 / 85%),
-    rgb(0 0 0 / 40%) 55%,
-    transparent 74%
-  );
-  mask-image: radial-gradient(
-    230px circle at var(--mx, 62%) var(--my, 30%),
-    rgb(0 0 0 / 85%),
-    rgb(0 0 0 / 40%) 55%,
-    transparent 74%
-  );
-}
-
-@media not ((hover: hover) and (pointer: fine)) {
-  .kawase b { display: none; }
+    linear-gradient(90deg, rgb(35 41 72 / 52%) 0%, rgb(35 41 72 / 30%) 40%, rgb(35 41 72 / 6%) 70%, transparent 100%),
+    linear-gradient(180deg, rgb(29 35 66 / 35%) 0%, transparent 30%, transparent 62%, rgb(44 51 87 / 38%) 100%);
 }
 
 @keyframes kawase-breathe {
@@ -194,16 +167,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kawase i,
-  .kawase b {
+  .kawase i {
     animation: none;
     transform: none;
   }
 
-  .kawase b { display: none; }
-
   .kawase::before {
-    opacity: 0.88;
+    opacity: 0.55;
   }
 }
 
@@ -215,13 +185,17 @@
 }
 
 @media (max-width: 700px) {
+  .kawase i {
+    background-position: 68% 30%;
+  }
+
   .kawase::after {
     background:
       linear-gradient(180deg, rgb(35 41 72 / 68%) 0%, rgb(35 41 72 / 50%) 40%, rgb(44 51 87 / 55%) 100%);
   }
 
   .kawase::before {
-    opacity: min(0.94, calc(var(--scroll, 0) * 3.2));
+    opacity: min(0.68, calc(var(--scroll, 0) * 1.8));
   }
 }
 
@@ -240,6 +214,8 @@
   z-index: 0;
   pointer-events: none;
 }
+
+[data-mode="dream"] .dream-sky .moon { display: none; }
 
 .dream-sky .moon {
   position: absolute;
@@ -736,4 +712,47 @@
   font-size: var(--t-prose-sm);
   letter-spacing: 0.01em;
   text-transform: lowercase;
+}
+
+/* ── washi glass ─────────────────────────────────────────────────────────────
+   Every section after the title screen sits on a pane of frosted dusk: the
+   painted world stays visible through it, blurred, and the words get a quiet
+   ground everywhere without a flashlight following the cursor. The hanko
+   keeps hanging past the pane's left edge, a stamp on the card's corner. */
+
+[data-mode="dream"] main .session:not(#top) {
+  background: linear-gradient(180deg, rgb(35 41 72 / 45%), rgb(30 36 64 / 58%));
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  backdrop-filter: blur(14px) saturate(1.25);
+  border: 1px solid rgb(244 236 219 / 12%);
+  border-radius: 22px;
+  padding: var(--sp-4) clamp(1.4rem, 3vw, 3rem);
+  margin-block-end: var(--sp-4);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  [data-mode="dream"] main .session:not(#top) {
+    background: rgb(33 39 68 / 92%);
+  }
+}
+
+[data-mode="dream"] .site-footer {
+  background: linear-gradient(180deg, rgb(35 41 72 / 45%), rgb(30 36 64 / 58%));
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  backdrop-filter: blur(14px) saturate(1.25);
+  border: 1px solid rgb(244 236 219 / 12%);
+  border-radius: 22px;
+  width: min(100% - var(--gutter) * 2, 78rem);
+  margin-inline: auto;
+  margin-block-end: var(--sp-3);
+  padding: var(--sp-3) clamp(1.4rem, 3vw, 3rem);
+}
+
+/* Reading gets bigger over glass. */
+:root[data-mode="dream"] {
+  --t-prose: 1.12rem;
+}
+
+[data-mode="dream"] .lede {
+  font-size: calc(var(--t-lg) * 1.22);
 }

@@ -1,0 +1,145 @@
+<style>body{margin:0;width:2048px;height:1152px;overflow:hidden}svg{display:block}</style>
+<div id="root"></div>
+<script>
+const W=2048,H=1152;
+let s=20260812; const rnd=()=>{s^=s<<13;s^=s>>>17;s^=s<<5;return ((s>>>0)/4294967296)};
+const HORIZON=0.60*H;
+const SUN={x:0.575*W, y:0.295*H, r:100};
+
+function ridge(base, amp, waves){
+  let pts=[];
+  const phases=Array.from({length:waves},(_,i)=>({f:(i+1)*(0.9+rnd()*0.4), p:rnd()*Math.PI*2, a:amp/(i+1)}));
+  for(let x=0;x<=W;x+=8){
+    let y=base;
+    for(const w of phases) y+=Math.sin(x/W*Math.PI*2*w.f+w.p)*w.a;
+    pts.push(`${x},${y.toFixed(1)}`);
+  }
+  return `M0,${H} L${pts.join(" L")} L${W},${H} Z`;
+}
+
+// terraced kawase cumulus: horizontal capsule bands, wide base to narrow crown,
+// cream crown, shadowed underside
+function cloud(cx,cy,scale,pal){
+  const [shadow,main,crown]=pal;
+  const bands=4+Math.floor(rnd()*2);
+  let g=`<g>`;
+  let w0=(300+rnd()*140)*scale;
+  g+=`<rect x="${cx-w0/2}" y="${cy+16*scale}" width="${w0}" height="${26*scale}" rx="${13*scale}" fill="${shadow}"/>`;
+  for(let i=0;i<bands;i++){
+    const bw=w0*(1-i*0.19)*(0.92+rnd()*0.16);
+    const bh=(30+rnd()*14)*scale*(1-i*0.08);
+    const ox=(rnd()-0.5)*w0*0.16;
+    const by=cy-i*(26*scale);
+    g+=`<rect x="${cx+ox-bw/2}" y="${by-bh/2}" width="${bw}" height="${bh}" rx="${bh/2}" fill="${i>=bands-2?crown:main}"/>`;
+  }
+  return g+`</g>`;
+}
+const nearSun=(x,y)=>Math.hypot(x-SUN.x,y-SUN.y)<SUN.r+260;
+
+let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">`;
+svg+=`<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#1d2342"/>
+  <stop offset="0.34" stop-color="#2b3157"/>
+  <stop offset="0.48" stop-color="#45466f"/>
+  <stop offset="0.55" stop-color="#8f6584"/>
+  <stop offset="0.585" stop-color="#d9909a"/>
+  <stop offset="0.61" stop-color="#eba184"/>
+</linearGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#8a7398"/>
+  <stop offset="0.10" stop-color="#4c5687"/>
+  <stop offset="0.5" stop-color="#2e3a68"/>
+  <stop offset="1" stop-color="#222845"/>
+</linearGradient>
+<radialGradient id="sun" cx="0.5" cy="0.42" r="0.55">
+  <stop offset="0" stop-color="#ffd2a3"/>
+  <stop offset="0.55" stop-color="#f08a54"/>
+  <stop offset="1" stop-color="#c05d5b"/>
+</radialGradient>
+<radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+  <stop offset="0" stop-color="#f2a37c" stop-opacity="0.35"/>
+  <stop offset="1" stop-color="#f2a37c" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="pillar" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#f2a37c" stop-opacity="0.30"/>
+  <stop offset="1" stop-color="#f2a37c" stop-opacity="0"/>
+</linearGradient>
+<filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" stitchTiles="stitch"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 0.96 0 0 0 0 0.93 0 0 0 0 0.86 0 0 0 0.05 0"/></filter>
+</defs>`;
+
+svg+=`<rect width="${W}" height="${HORIZON}" fill="url(#sky)"/>`;
+
+// stars in the high dark sky
+for(let i=0;i<46;i++){
+  const sx=rnd()*W, sy=rnd()*0.30*H, r=0.9+rnd()*1.6;
+  svg+=`<circle cx="${sx}" cy="${sy}" r="${r}" fill="#f4ecdb" opacity="${(0.25+rnd()*0.45).toFixed(2)}"/>`;
+}
+
+// sun with halo, floating in the dusk band
+svg+=`<circle cx="${SUN.x}" cy="${SUN.y}" r="${SUN.r*3.1}" fill="url(#halo)"/>`;
+svg+=`<circle cx="${SUN.x}" cy="${SUN.y}" r="${SUN.r}" fill="url(#sun)"/>`;
+
+// far pale clouds
+const farPal=["#6f6590","#8d7f9e","#b3a2b4"];
+for(let i=0;i<4;i++){
+  let cx=rnd()*W, cy=H*(0.14+rnd()*0.10);
+  if(nearSun(cx,cy)) cx=(cx+0.45*W)%W;
+  svg+=cloud(cx,cy,0.45+rnd()*0.25,farPal);
+}
+// hero clouds — big upper-right crownlit, calm left
+svg+=cloud(0.84*W, 0.22*H, 1.55, ["#b57f96","#e8a3ae","#f6d3c8"]);
+svg+=cloud(0.47*W, 0.115*H, 0.9, ["#a4718c","#d795a6","#f2c9c4"]);
+svg+=cloud(0.15*W, 0.33*H, 1.05, ["#ad7893","#e0a0ad","#f4cec7"]);
+svg+=cloud(0.40*W, 0.445*H, 0.7,  ["#9c6d88","#cf8fa0","#eec2c2"]);
+
+// distant islands resting on the horizon glow, kawase's far archipelago
+function island(cx, w, h, tone){
+  svg+=`<path d="M${cx-w/2},${HORIZON} Q${cx-w*0.2},${HORIZON-h} ${cx+w*0.1},${HORIZON-h*0.8} Q${cx+w*0.38},${HORIZON-h*0.5} ${cx+w/2},${HORIZON} Z" fill="${tone}"/>`;
+  // a few pines as leaning slivers on the crest
+  for(let i=0;i<3;i++){
+    const px=cx-w*0.18+i*w*0.14, ph=h*(0.7+rnd()*0.5);
+    svg+=`<path d="M${px},${HORIZON-h*0.72} l${w*0.012},${-ph*0.5} l${w*0.012},${ph*0.5} Z" fill="${tone}"/>`;
+  }
+}
+island(0.10*W, 200, 44, "#5a5580");
+island(0.235*W, 130, 30, "#6a6390");
+island(0.47*W, 90, 22, "#6a6390");
+
+// birds
+for(let i=0;i<6;i++){
+  const bx=(0.06+rnd()*0.26)*W, by=(0.10+rnd()*0.15)*H, bs=6+rnd()*7;
+  svg+=`<path d="M${bx-bs},${by} Q${bx},${by-bs*0.9} ${bx},${by} Q${bx},${by-bs*0.9} ${bx+bs},${by}" stroke="#39365a" stroke-width="2.4" fill="none" stroke-linecap="round"/>`;
+}
+
+// ridges
+svg+=`<path d="${ridge(HORIZON-150, 52, 3)}" fill="#6a6390" opacity="0.8"/>`;
+svg+=`<path d="${ridge(HORIZON-90, 42, 4)}" fill="#4b4a78"/>`;
+svg+=`<path d="${ridge(HORIZON-38, 30, 4)}" fill="#333a62"/>`;
+
+// sea
+svg+=`<rect y="${HORIZON}" width="${W}" height="${H-HORIZON}" fill="url(#sea)"/>`;
+// sun's reflection: blurred ellipse right under the horizon + tapering pillar
+svg+=`<ellipse cx="${SUN.x}" cy="${HORIZON+16}" rx="150" ry="16" fill="#f2a37c" opacity="0.5" filter="url(#soft)"/>`;
+svg+=`<rect x="${SUN.x-70}" y="${HORIZON}" width="140" height="${(H-HORIZON)*0.62}" fill="url(#pillar)"/>`;
+
+// wave glints, three tiers
+function glints(n, y0, y1, wMin, wMax, hMax, op){
+  for(let i=0;i<n;i++){
+    const y=y0+rnd()*(y1-y0);
+    const w=wMin+rnd()*(wMax-wMin);
+    const x=rnd()*(W-w);
+    const near=Math.abs(x+w/2-SUN.x)<240;
+    svg+=`<rect x="${x}" y="${y}" width="${w}" height="${1.6+rnd()*hMax}" rx="2" fill="${near?"#f4b58c":"#aeb4dc"}" opacity="${op}"/>`;
+  }
+}
+glints(22, HORIZON+6,  HORIZON+60,  90, 300, 2.4, 0.34);
+glints(18, HORIZON+60, HORIZON+170, 60, 200, 3.0, 0.20);
+glints(10, HORIZON+170,HORIZON+330, 40, 140, 3.4, 0.12);
+
+svg+=`<rect width="${W}" height="${H}" filter="url(#grain)"/>`;
+svg+=`</svg>`;
+document.getElementById("root").innerHTML=svg;
+</script>
