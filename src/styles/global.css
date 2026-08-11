@@ -106,8 +106,14 @@
 
 html {
   overflow-x: hidden;
-  scroll-behavior: smooth;
   scroll-padding-top: 4.5rem;
+}
+
+/* Smooth only for people who did not ask for less motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {

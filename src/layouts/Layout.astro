@@ -99,7 +99,7 @@ const nav = [
     <!-- The painted sky. Kawase's twilight opens the page full-bleed, like
          the title screen of a quiet japanese game, and dusk swallows it as
          you scroll. It drifts on a slow clock and leans with the cursor. -->
-    <div class="kawase" aria-hidden="true"><i></i></div>
+    <div class="kawase" aria-hidden="true"><i></i><b></b></div>
 
     <!-- The dream sky: an orange moon and a slow field of stars, after
          katherine bradford's Swimmers Under Orange Moon, which hangs on the
@@ -179,8 +179,17 @@ const nav = [
     <script is:inline>
       (() => {
         if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
         const root = document.documentElement;
+        // Direct write, no requestAnimationFrame: rAF is throttled in
+        // embedded and background contexts, and a sky that only falls dark
+        // on some frames is worse than one style write per scroll event.
+        const onScroll = () => {
+          root.style.setProperty("--scroll",
+            Math.min(1.2, scrollY / (innerHeight * 1.2)).toFixed(4));
+        };
+        addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+        if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
         let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
         addEventListener("pointermove", (e) => {
           tx = (e.clientX / innerWidth - 0.5) * 2;
