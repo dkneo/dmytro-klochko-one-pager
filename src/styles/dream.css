@@ -78,23 +78,23 @@
   --ink-hot: #ff9bc0;
 }
 
-/* Over the lit painting the header speaks in ink: dark on the pink clouds,
-   with a faint cream breath behind the letters for the busiest patches. */
+/* The painting's crown is dark cloud, so the header floats in cream over
+   it, with a dusk breath behind the letters. */
 [data-mode="dream"] .site-header,
 [data-mode="dream"] .site-nav a,
 [data-mode="dream"] .mode-toggle {
-  color: var(--ink);
-  text-shadow: 0 1px 10px rgb(251 244 230 / 60%);
+  color: #f4ecdb;
+  text-shadow: 0 1px 14px rgb(29 35 66 / 70%), 0 1px 4px rgb(29 35 66 / 50%);
 }
 
 [data-mode="dream"] .site-nav a:hover,
 [data-mode="dream"] .mode-toggle:hover {
-  color: var(--raspberry);
+  color: #ff9bc0;
 }
 
 [data-mode="dream"] .site-nav a[aria-current="page"]::before,
 [data-mode="dream"] .site-nav a[aria-current="page"]::after {
-  color: rgb(214 61 117 / 65%);
+  color: rgb(255 155 192 / 75%);
 }
 
 /* The toggle dresses like a nav item and meets the same 24px target. */
@@ -752,51 +752,149 @@
   margin-bottom: var(--sp-3);
 }
 
-/* ── washi paper ────────────────────────────────────────────────────────────
-   The world is the painting, lit; the reading happens on paper laid over
-   it. Every section after the title screen is an opaque cream card — a
-   game's dialogue box, a scrapbook page — with ink text, raspberry links
-   (the cloud pink stays for marker swashes, where low contrast is the
-   point), and the hanko stamped over the corner. Custom properties scope
-   the whole palette flip to the card, so every component inside simply
-   inherits paper rules. */
+/* ── the emaki ──────────────────────────────────────────────────────────────
+   Not seven cards — one narrow handscroll. A single sheet of washi unrolls
+   down the painting, the way the reference sites this page keeps being
+   compared to run one quiet column. The painting owns the opening screen
+   and both margins forever; the sheet carries everything else in a tight,
+   small-type rhythm. Sections separate with a fine rule and a stamp, not
+   with new sheets. */
 
-[data-mode="dream"] main .session:not(#top),
-[data-mode="dream"] .site-footer,
-[data-mode="dream"] #top .bay > div:first-child {
+[data-mode="dream"] main,
+[data-mode="dream"] .site-footer {
   --bone: var(--ink);
   --dim: #5c5680;
   --faint: #8a83a8;
-  --rule: rgb(43 49 87 / 18%);
+  --rule: rgb(43 49 87 / 16%);
   --deck: #efe5d2;
   --hot: var(--raspberry);
   --cold: #2e7f96;
+  width: min(47rem, 100% - var(--gutter) * 2);
+  margin-inline: auto;
   background: linear-gradient(180deg, #fbf4e6, #f5ecd9);
   color: var(--bone);
   border: 1px solid rgb(255 252 244 / 70%);
-  border-radius: 18px;
-  box-shadow: 0 22px 55px rgb(24 20 52 / 38%);
+  border-radius: 20px;
+  box-shadow: 0 26px 70px rgb(24 20 52 / 40%);
 }
 
-[data-mode="dream"] main .session:not(#top) {
-  padding: var(--sp-4) clamp(1.4rem, 3vw, 3rem);
-  margin-block-end: var(--sp-4);
-}
-
-[data-mode="dream"] #top .bay > div:first-child {
-  padding: var(--sp-3) clamp(1.3rem, 2.4vw, 2.4rem) var(--sp-4);
-}
-
-[data-mode="dream"] #top .card-title,
-[data-mode="dream"] #top .lede {
-  text-shadow: none;
+/* The painting gets the whole first screen to itself before the sheet. */
+[data-mode="dream"] main {
+  margin-top: clamp(9rem, 34vh, 20rem);
+  margin-bottom: var(--sp-4);
+  padding: var(--sp-3) clamp(1.5rem, 4vw, 3rem) var(--sp-4);
 }
 
 [data-mode="dream"] .site-footer {
-  width: min(100% - var(--gutter) * 2, 78rem);
+  margin-bottom: var(--sp-4);
+  padding: var(--sp-3) clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Sections flow on the sheet: no shells-within-shells, fine rules between. */
+[data-mode="dream"] main .session {
+  width: 100%;
+  padding-block: var(--sp-4);
+  margin: 0;
+}
+
+[data-mode="dream"] main .session + .session {
+  border-top: 1px solid var(--rule);
+}
+
+[data-mode="dream"] main .session:first-child {
+  padding-block-start: var(--sp-2);
+}
+
+[data-mode="dream"] main .session:last-child {
+  padding-block-end: var(--sp-2);
+}
+
+/* Small type, tight rhythm — the scroll reads like a letter, not a poster. */
+[data-mode="dream"] .card-title {
+  font-size: clamp(1.45rem, 2.4vw, 1.9rem);
+}
+
+[data-mode="dream"] #top .card-title {
+  font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+}
+
+:root[data-mode="dream"] {
+  --t-prose-tight: 1.01rem;
+}
+
+[data-mode="dream"] .prose p,
+[data-mode="dream"] .receipts li p,
+[data-mode="dream"] .log p,
+[data-mode="dream"] .gloss-note,
+[data-mode="dream"] .credit {
+  font-size: var(--t-prose-tight);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .prose {
+  gap: var(--sp-2);
+}
+
+[data-mode="dream"] .lede {
+  font-size: calc(var(--t-lg) * 1.02);
+  margin-bottom: var(--sp-2);
+}
+
+/* Every grid simplifies inside the sheet: one column, stacked, calm. */
+[data-mode="dream"] .bay,
+[data-mode="dream"] .bay--flush {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-3);
+}
+
+/* Except the hero, which keeps a small portrait beside the words. */
+[data-mode="dream"] #top .bay--flush {
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 205px);
+  gap: 1.6rem;
+  align-items: start;
+}
+
+[data-mode="dream"] .bay .portrait {
+  aspect-ratio: auto;
+  position: static;
+}
+
+[data-mode="dream"] .bay .portrait .cell {
+  position: static;
+  inset: auto;
+  aspect-ratio: 0.94;
+  border-width: 7px;
+}
+
+[data-mode="dream"] .bay .portrait figcaption {
+  position: static;
+  margin-top: 0.5rem;
+}
+
+[data-mode="dream"] .lynch {
+  width: min(100%, 24rem);
   margin-inline: auto;
-  margin-block-end: var(--sp-3);
-  padding: var(--sp-3) clamp(1.4rem, 3vw, 3rem);
+}
+
+[data-mode="dream"] .reel {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+[data-mode="dream"] .receipts {
+  grid-template-columns: 1fr;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+
+[data-mode="dream"] .wall {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* The record sits under the books, centred, a woodcut on the sheet. */
+[data-mode="dream"] .record {
+  width: min(100%, 21rem);
+  margin-inline: auto;
 }
 
 /* Ink on paper: the vinyl redraws itself as a woodcut. */
@@ -806,9 +904,29 @@
   --ink-hot: var(--raspberry);
 }
 
-/* The petals fall in front of the paper, not behind the world. */
+/* The petals fall in front of the sheet, not behind the world. */
 [data-mode="dream"] .dream-sky {
   z-index: 2;
+}
+
+/* The title drops its dusk shadow: it lives on paper now. */
+[data-mode="dream"] #top .card-title,
+[data-mode="dream"] #top .lede {
+  text-shadow: none;
+}
+
+@media (max-width: 700px) {
+  [data-mode="dream"] main {
+    margin-top: clamp(7rem, 26vh, 12rem);
+  }
+
+  [data-mode="dream"] #top .bay--flush {
+    grid-template-columns: 1fr;
+  }
+
+  [data-mode="dream"] #top .portrait {
+    width: min(64%, 240px);
+  }
 }
 
 /* Reading gets bigger over glass. */
