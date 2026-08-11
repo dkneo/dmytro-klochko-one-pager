@@ -22,7 +22,8 @@
   --faint: #98a0c8;
   --rule: rgb(244 236 219 / 16%);
   --cold: #7fd4d9;   /* the water */
-  --hot: #ff9a5c;    /* the moon */
+  --hot: #ff9bc0;    /* kawase's clouds — his favourite colour is pink */
+  --moon: #ff9a5c;   /* orange keeps only the moon and the seal */
   --seal: #c3452e;   /* saitō's hanko */
   /* Serif runs optically smaller than mono at the same rem, so prose gets
      one compensating step. Documented in DESIGN.md as dream-prose. */
@@ -57,7 +58,7 @@
 [data-mode="dream"] .ascii {
   --ink-void: #2c3357;
   --ink-bone: #f4ecdb;
-  --ink-hot: #ff9a5c;
+  --ink-hot: #ff9bc0;
 }
 
 /* The toggle dresses like a nav item and meets the same 24px target. */
@@ -147,7 +148,7 @@
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(42% 26% at 22% 74%, rgb(240 168 184 / 26%), transparent 70%),
+    radial-gradient(44% 28% at 22% 74%, rgb(240 168 184 / 32%), transparent 70%),
     radial-gradient(30% 22% at 62% 92%, rgb(91 168 196 / 30%), transparent 70%),
     radial-gradient(26% 22% at 85% 8%, rgb(240 138 84 / 18%), transparent 70%);
   filter: blur(46px) saturate(1.12);
@@ -251,7 +252,7 @@
    hand: moon orange, wavy, slightly lifted off the baseline. */
 [data-mode="dream"] .prose b {
   color: var(--hot);
-  text-decoration: underline wavy rgb(255 154 92 / 55%);
+  text-decoration: underline wavy rgb(255 155 192 / 60%);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 4px;
 }
@@ -261,13 +262,13 @@
 [data-mode="dream"] .site-nav a[aria-current="page"]::before,
 [data-mode="dream"] .foot-nav a[aria-current="page"]::before {
   content: "(";
-  color: rgb(255 154 92 / 60%);
+  color: rgb(255 155 192 / 65%);
 }
 
 [data-mode="dream"] .site-nav a[aria-current="page"]::after,
 [data-mode="dream"] .foot-nav a[aria-current="page"]::after {
   content: ")";
-  color: rgb(255 154 92 / 60%);
+  color: rgb(255 155 192 / 65%);
 }
 
 /* ── the photographs ────────────────────────────────────────────────────────
@@ -432,4 +433,141 @@
   background: var(--deck);
   box-shadow: 0 10px 30px rgb(0 0 0 / 55%);
   filter: grayscale(1) contrast(1.12);
+}
+
+/* ── the petals ─────────────────────────────────────────────────────────────
+   Six sakura petals falling the whole height of the window, each on its own
+   clock, none faster than sixteen seconds. Quiet enough that you notice them
+   the second time, which is the right time to notice petals. */
+
+.dream-sky b {
+  position: absolute;
+  top: -4vh;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle at 30% 30%, #ffd3df, #ff9bc0);
+  border-radius: 100% 6% 100% 6%;
+  opacity: 0.55;
+  animation: petal-fall var(--fall, 18s) linear infinite;
+  animation-delay: var(--wait, 0s);
+}
+
+.dream-sky b:nth-of-type(1) { left: 8%;  --fall: 17s; --wait: -3s;  --sway: 52px; }
+.dream-sky b:nth-of-type(2) { left: 26%; --fall: 23s; --wait: -11s; --sway: -64px; width: 8px; height: 8px; }
+.dream-sky b:nth-of-type(3) { left: 45%; --fall: 16s; --wait: -7s;  --sway: 40px; }
+.dream-sky b:nth-of-type(4) { left: 61%; --fall: 26s; --wait: -17s; --sway: -48px; width: 12px; height: 12px; opacity: 0.4; }
+.dream-sky b:nth-of-type(5) { left: 76%; --fall: 20s; --wait: -1s;  --sway: 58px; width: 8px; height: 8px; }
+.dream-sky b:nth-of-type(6) { left: 91%; --fall: 22s; --wait: -13s; --sway: -40px; }
+
+@keyframes petal-fall {
+  55% { transform: translate3d(var(--sway, 48px), 58vh, 0) rotate(200deg); }
+  100% { transform: translate3d(calc(var(--sway, 48px) * -0.4), 108vh, 0) rotate(390deg); }
+}
+
+/* ── the sky leans with you ─────────────────────────────────────────────────
+   The pointer-parallax script already publishes --px/--py for bebop's
+   starfield. Dream reads the same weather: the moon drifts against the
+   cursor a few pixels, the washes a few more. Free, and it makes the whole
+   sky feel suspended rather than printed. */
+
+[data-mode="dream"] .dream-sky .moon {
+  translate: calc(var(--px, 0) * -9px) calc(var(--py, 0) * -6px);
+}
+
+[data-mode="dream"] body::before {
+  translate: calc(var(--px, 0) * -14px) calc(var(--py, 0) * -10px);
+}
+
+/* ── touch the prints ───────────────────────────────────────────────────────
+   Everything mounted answers the hand: tilted snapshots straighten and lift,
+   straight things lift a breath. The transition lives on the resting state
+   so the print settles back down on its own. */
+
+[data-mode="dream"] .sheet .cell,
+[data-mode="dream"] .bay .portrait .cell,
+[data-mode="dream"] .lynch,
+[data-mode="dream"] .dream-art img,
+[data-mode="dream"] .frame {
+  transition:
+    transform var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .sheet figure:hover .cell {
+  transform: rotate(0deg) translateY(-5px);
+  box-shadow: 0 16px 34px rgb(12 12 30 / 50%);
+}
+
+[data-mode="dream"] .bay .portrait:hover .cell {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 56px rgb(12 12 30 / 50%);
+}
+
+[data-mode="dream"] .lynch:hover {
+  transform: rotate(0deg);
+}
+
+[data-mode="dream"] .dream-art:hover img {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 70px rgb(12 12 30 / 52%);
+}
+
+[data-mode="dream"] .reel a:hover .frame,
+[data-mode="dream"] .reel figure:hover .frame {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgb(12 12 30 / 45%);
+}
+
+/* The stamp answers too: hover the section header and it presses again. */
+[data-mode="dream"] .card-no {
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .card:hover .card-no {
+  transform: rotate(-1deg) scale(1.07);
+}
+
+/* ── arrival ────────────────────────────────────────────────────────────────
+   Where the browser can drive animation from scroll without JavaScript,
+   each section's pieces rise a few pixels into place as they enter. Twelve
+   pixels and one fade — arrival, not theatre. */
+
+@supports (animation-timeline: view()) {
+  [data-mode="dream"] .session .card,
+  [data-mode="dream"] .session .bay,
+  [data-mode="dream"] .session .reel,
+  [data-mode="dream"] .session .receipts,
+  [data-mode="dream"] .session .log,
+  [data-mode="dream"] .session .prose {
+    animation: rise-in both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 42%;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0.01;
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dream-sky b {
+    display: none;
+  }
+
+  [data-mode="dream"] .dream-sky .moon,
+  [data-mode="dream"] body::before {
+    translate: 0 0;
+  }
+
+  [data-mode="dream"] .session .card,
+  [data-mode="dream"] .session .bay,
+  [data-mode="dream"] .session .reel,
+  [data-mode="dream"] .session .receipts,
+  [data-mode="dream"] .session .log,
+  [data-mode="dream"] .session .prose {
+    animation: none;
+  }
 }
