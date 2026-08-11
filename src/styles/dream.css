@@ -24,6 +24,9 @@
   --cold: #7fd4d9;   /* the water */
   --hot: #ff9a5c;    /* the moon */
   --seal: #c3452e;   /* saitō's hanko */
+  /* Serif runs optically smaller than mono at the same rem, so prose gets
+     one compensating step. Documented in DESIGN.md as dream-prose. */
+  --t-prose: 1.07rem;
   --mat: #fbf3e2;    /* the mount around every print */
 }
 
@@ -232,7 +235,7 @@
 [data-mode="dream"] .gloss-note,
 [data-mode="dream"] .credit {
   font-family: var(--serif);
-  font-size: 1.07rem;
+  font-size: var(--t-prose);
   letter-spacing: 0;
   line-height: 1.66;
 }
