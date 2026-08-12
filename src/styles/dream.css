@@ -100,7 +100,6 @@
 [data-mode="dream"] .site-footer,
 [data-mode="dream"] .onward {
   width: min(40rem, 100% - var(--gutter) * 2);
-  margin-inline: max(var(--gutter), 5vw) auto;
 }
 
 [data-mode="dream"] .session {
@@ -225,9 +224,35 @@
   opacity: 0;
   background: center / cover no-repeat;
   transform: translateY(calc(var(--scroll, 0) * -4vh))
-    translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px))
-    scale(1.04);
+    translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px));
   transition: opacity 900ms var(--ease);
+  animation: scene-breathe 70s ease-in-out infinite alternate;
+}
+
+@keyframes scene-breathe {
+  from { scale: 1.04; }
+  to { scale: 1.1; }
+}
+
+/* The painted sun warms and cools on a slow clock — light over the art,
+   never new art. Rides the same parallax so it stays on the sun. */
+.scenes .sunpulse {
+  position: absolute;
+  inset: -6%;
+  background: radial-gradient(18% 24% at 42% 24%, rgb(255 190 120 / 30%), transparent 70%);
+  transform: translateY(calc(var(--scroll, 0) * -4vh))
+    translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px));
+  animation: sun-pulse 8s ease-in-out infinite alternate;
+  opacity: 0;
+}
+
+html[data-scene="swim"] .scenes .sunpulse {
+  opacity: 1;
+}
+
+@keyframes sun-pulse {
+  from { filter: brightness(0.9); }
+  to { filter: brightness(1.5); }
 }
 
 .scenes i[data-s="swim"]     { background-image: url("/images/scenes/swim.webp"); }
@@ -260,17 +285,18 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   position: fixed;
   top: 0;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  translate: -50% 0;
   width: min(56rem, 100%);
   z-index: 1;
   pointer-events: none;
-  background: rgb(24 28 46 / 20%);
-  -webkit-backdrop-filter: brightness(0.5) saturate(0.9);
-  backdrop-filter: brightness(0.5) saturate(0.9);
+  background: rgb(24 28 46 / 26%);
+  -webkit-backdrop-filter: brightness(0.44) saturate(0.9);
+  backdrop-filter: brightness(0.44) saturate(0.9);
   /* Masks read alpha, not luminance: any opaque colour is full coverage,
      so the mask speaks palette bone rather than an off-system hex. */
-  -webkit-mask-image: linear-gradient(90deg, var(--bone) 0 64%, transparent 97%);
-  mask-image: linear-gradient(90deg, var(--bone) 0 64%, transparent 97%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, var(--bone) 14% 86%, transparent);
+  mask-image: linear-gradient(90deg, transparent, var(--bone) 14% 86%, transparent);
 }
 
 @supports not (backdrop-filter: brightness(0.5)) {
@@ -285,8 +311,8 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 @media (max-width: 900px) {
   [data-mode="dream"] body::before {
     width: 100%;
-    -webkit-backdrop-filter: brightness(0.58) saturate(0.92);
-    backdrop-filter: brightness(0.58) saturate(0.92);
+    -webkit-backdrop-filter: brightness(0.5) saturate(0.92);
+    backdrop-filter: brightness(0.5) saturate(0.92);
     -webkit-mask-image: none;
     mask-image: none;
   }
