@@ -49,22 +49,6 @@
 [data-mode="dream"] .stars { display: none; }
 [data-mode="dream"] .kawase { display: none; }
 
-[data-mode="dream"] .ascii--joi,
-[data-mode="dream"] .ascii--fun,
-[data-mode="dream"] .ascii--bebop {
-  display: none;
-}
-
-[data-mode="dream"] #now .bay--flush,
-[data-mode="dream"] #before .bay--flush {
-  grid-template-columns: 1fr;
-}
-
-[data-mode="dream"] #now .joi-col,
-[data-mode="dream"] #before .joi-col {
-  display: none;
-}
-
 /* The vinyl keeps spinning, in dusk and pink. */
 [data-mode="dream"] .ascii {
   --ink-void: #262b44;
@@ -94,21 +78,6 @@
 /* ── one narrow column ──────────────────────────────────────────────────────
    The whole page reads at ~42rem, the width the reference sites live at.
    Whitespace is calm because nothing in it asks for attention. */
-
-[data-mode="dream"] .shell,
-[data-mode="dream"] .site-header,
-[data-mode="dream"] .site-footer,
-[data-mode="dream"] .onward {
-  width: min(44rem, 100% - var(--gutter) * 2);
-}
-
-/* Symmetry by construction: the column width IS the reading measure, so
-   every block — prose, photos, videos, quotes — fills it completely and
-   every edge on the page is the same two lines. No caps, no voids. */
-[data-mode="dream"] .prose,
-[data-mode="dream"] .lede {
-  max-width: none;
-}
 
 [data-mode="dream"] .session {
   padding-block: 0 var(--sp-5);
@@ -291,20 +260,12 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 [data-mode="dream"] body::before {
   content: "";
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  translate: -50% 0;
-  width: min(52rem, 100%);
+  inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: rgb(24 28 46 / 26%);
-  -webkit-backdrop-filter: brightness(0.44) saturate(0.9);
-  backdrop-filter: brightness(0.44) saturate(0.9);
-  /* Masks read alpha, not luminance: any opaque colour is full coverage,
-     so the mask speaks palette bone rather than an off-system hex. */
-  -webkit-mask-image: linear-gradient(90deg, transparent, var(--bone) 14% 86%, transparent);
-  mask-image: linear-gradient(90deg, transparent, var(--bone) 14% 86%, transparent);
+  background: rgb(24 28 46 / 24%);
+  -webkit-backdrop-filter: brightness(0.48) saturate(0.92);
+  backdrop-filter: brightness(0.48) saturate(0.92);
 }
 
 @supports not (backdrop-filter: brightness(0.5)) {
@@ -399,20 +360,9 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   }
 }
 
-/* ── layout inside the column ───────────────────────────────────────────── */
-
-[data-mode="dream"] .bay,
-[data-mode="dream"] .bay--flush {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--sp-3);
-}
-
-[data-mode="dream"] #top .bay--flush {
-  grid-template-columns: minmax(0, 1fr) minmax(150px, 200px);
-  gap: 1.7rem;
-  align-items: start;
-}
+/* ── layout ─────────────────────────────────────────────────────────────────
+   Bebop's bones, untouched: the 78rem shell, the 6fr/5fr bays, the 62ch
+   measure. Dream only reskins what sits on them. */
 
 [data-mode="dream"] .bay .portrait {
   aspect-ratio: auto;
@@ -690,12 +640,8 @@ svg.pin {
 /* ── mobile ─────────────────────────────────────────────────────────────── */
 
 @media (max-width: 700px) {
-  [data-mode="dream"] #top .bay--flush {
-    grid-template-columns: 1fr;
-  }
-
   [data-mode="dream"] #top .portrait {
-    width: min(56%, 200px);
+    width: min(70%, 300px);
   }
 
   .dream-window {
