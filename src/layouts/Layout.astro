@@ -21,21 +21,23 @@ const nav = [
 ];
 ---
 
-<html lang="en" data-mode="dream">
+<html lang="en" data-mode="bebop">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#2c3357" />
+    <meta name="theme-color" content="#0b0b0d" />
     <!--
-      Two art directions share this markup. "dream" is the default; "bebop"
-      is the terminal in deep space this site used to default to. The choice
-      is read before first paint so neither mode ever flashes as the other.
+      Two art directions share this markup. "bebop" is the default while
+      dream gets rebuilt; the toggle still offers both. The key is versioned
+      ("mode2") so preferences stored under the old default do not pin
+      anyone to a mode they never chose. Read before first paint so neither
+      mode ever flashes as the other.
     -->
     <script is:inline>
       (() => {
         try {
-          const m = localStorage.getItem("mode");
+          const m = localStorage.getItem("mode2");
           if (m === "bebop" || m === "dream") document.documentElement.dataset.mode = m;
         } catch {}
         document.querySelector('meta[name="theme-color"]')?.setAttribute(
@@ -222,7 +224,7 @@ const nav = [
         b.addEventListener("click", () => {
           const next = document.documentElement.dataset.mode === "bebop" ? "dream" : "bebop";
           document.documentElement.dataset.mode = next;
-          try { localStorage.setItem("mode", next); } catch {}
+          try { localStorage.setItem("mode2", next); } catch {}
           document.querySelector('meta[name="theme-color"]')?.setAttribute(
             "content", next === "bebop" ? "#0b0b0d" : "#2c3357"
           );

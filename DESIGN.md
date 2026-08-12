@@ -1,6 +1,6 @@
 ---
 name: dmytro klochko — dream / bebop
-description: two art directions over one markup. dream (default): a woodblock dusk after the paintings he loves — serif voice, hanko seals, an orange moon. bebop: a terminal in deep space — monospace, near-black, one pink accent, ASCII art.
+description: two art directions over one markup. bebop (default): a terminal in deep space — monospace, near-black, one pink accent, ASCII art. dream: a woodblock emaki being rebuilt behind the toggle.
 modes:
   dream:
     void: "#2c3357"
@@ -70,8 +70,8 @@ motion:
 
 The site ships two complete art directions over the same HTML, switched by
 `data-mode` on the root, chosen before first paint, persisted in
-localStorage. **Dream is the default.** Bebop is the previous default,
-preserved whole behind the toggle. This file describes both; where a rule
+localStorage under a versioned key. **Bebop is the default** while dream
+is rebuilt; dream stays whole behind the toggle. This file describes both; where a rule
 names no mode, it holds in both.
 
 Everything the earlier version of this file recorded about The Session —
@@ -79,7 +79,7 @@ the named rules, the failures they were earned from — still applies inside
 bebop mode, and most of it (the spacing scale, the type discipline, the
 target sizes, the Found Object rule) applies everywhere.
 
-## Dream Mode (default)
+## Dream Mode (behind the toggle, being rebuilt)
 
 Built from three paintings that hang on the taste page, not from a mood
 board:
