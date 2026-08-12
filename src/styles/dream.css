@@ -99,7 +99,15 @@
 [data-mode="dream"] .site-header,
 [data-mode="dream"] .site-footer,
 [data-mode="dream"] .onward {
-  width: min(64rem, 100% - var(--gutter) * 2);
+  width: min(44rem, 100% - var(--gutter) * 2);
+}
+
+/* Symmetry by construction: the column width IS the reading measure, so
+   every block — prose, photos, videos, quotes — fills it completely and
+   every edge on the page is the same two lines. No caps, no voids. */
+[data-mode="dream"] .prose,
+[data-mode="dream"] .lede {
+  max-width: none;
 }
 
 [data-mode="dream"] .session {
@@ -287,7 +295,7 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   bottom: 0;
   left: 50%;
   translate: -50% 0;
-  width: min(76rem, 100%);
+  width: min(52rem, 100%);
   z-index: 1;
   pointer-events: none;
   background: rgb(24 28 46 / 26%);
