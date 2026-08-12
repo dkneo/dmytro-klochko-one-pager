@@ -219,6 +219,27 @@ const nav = [
       }
     </script>
 
+    <!-- Clicking an email link also copies the address and says so in the
+         little label beside it, then puts the label back. -->
+    <script is:inline>
+      for (const a of document.querySelectorAll('a[href^="mailto:"]')) {
+        a.addEventListener("click", () => {
+          const em = a.parentElement?.querySelector("em");
+          try { navigator.clipboard?.writeText(a.getAttribute("href").slice(7)); } catch {}
+          if (!em || em.dataset.flash) return;
+          em.dataset.flash = "1";
+          const old = em.textContent;
+          em.textContent = "copied ✓";
+          em.classList.add("copied-flash");
+          setTimeout(() => {
+            em.textContent = old;
+            em.classList.remove("copied-flash");
+            delete em.dataset.flash;
+          }, 1400);
+        });
+      }
+    </script>
+
     <script is:inline>
       for (const b of document.querySelectorAll(".mode-toggle")) {
         b.addEventListener("click", () => {

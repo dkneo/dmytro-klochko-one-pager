@@ -2,27 +2,18 @@
 name: dmytro klochko — dream / bebop
 description: two art directions over one markup. bebop (default): a terminal in deep space — monospace, near-black, one pink accent, ASCII art. dream: a woodblock emaki being rebuilt behind the toggle.
 modes:
-  dream:
-    void: "#2c3357"
-    deck: "#3a4272"
-    bone: "#f4ecdb"
-    dim: "#b7bedd"
-    faint: "#98a0c8"
-    rule: "rgb(244 236 219 / 16%)"
+  dream:   # v3 — the quiet column
+    void: "#262b44"
+    ground: ["#232840", "#262b44", "#2a3050"]   # barely-there vertical drift
+    deck: "#2f3554"
+    bone: "#ece6d9"
+    dim: "#a9aecb"
+    faint: "#7d82a6"
+    rule: "rgb(236 230 217 / 12%)"
     cold: "#7fd4d9"
-    hot: "#ff9bc0"       # kawase cloud pink — his favourite colour
-    moon-accent: "#ff9a5c"  # orange keeps only the moon and the seal
-    seal: "#c3452e"
-    mat: "#fbf3e2"
-    ink: "#2b3157"        # dusk as a text colour: paper cards, header on clouds
-    raspberry: "#d63d75"  # pink that carries text on cream (4.6:1); cloud pink keeps the swashes
-    paper: ["#fbf4e6", "#f5ecd9"]
-    bokashi: ["#232948", "#2c3357", "#33406b"]
-    moon: ["#ffc491", "#f08a54", "#c05d5b"]
-    washes:
-      kawase-pink: "rgb(240 168 184 / 26%)"
-      water: "rgb(91 168 196 / 30%)"
-      moon-warmth: "rgb(240 138 84 / 18%)"
+    hot: "#ff9bc0"     # kawase cloud pink — his favourite colour
+    seal: "#c3452e"    # saitō's hanko
+    mat: "#fbf3e2"     # print borders, peek prints, portrait
   bebop:
     void: "#0e0a11"
     deck: "#171120"
@@ -41,12 +32,12 @@ typography:
     t-md: "0.98rem"
     t-lg: "clamp(1.15rem, 1.5vw, 1.45rem)"
     display: "clamp(1.9rem, 4.6vw, 3.9rem)"
-  dream-prose: "1.07rem"        # serif runs optically smaller than mono at equal size
-  dream-prose-sm: "0.95rem"     # serif captions: reel, gallery labels
-  # the emaki reads at letter scale, not poster scale — the scroll ramp:
-  scroll-prose: "1.01rem"
-  scroll-display: "clamp(1.45rem, 2.4vw, 1.9rem)"
-  scroll-display-hero: "clamp(1.9rem, 3.2vw, 2.5rem)"
+  # dream v3 reads at letter scale in a 42rem column:
+  dream-prose: "0.99rem / 1.62"
+  dream-prose-sm: "0.9rem"
+  dream-lede: "1.12rem italic"
+  dream-display: "1.25rem"      # section titles: a word beside a stamp
+  dream-display-hero: "clamp(1.7rem, 3vw, 2.1rem)"
   raster:
     art-cell-sm: "0.55rem"
     art-cell-lg: "1.05rem"

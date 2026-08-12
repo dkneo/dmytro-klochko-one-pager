@@ -1,44 +1,40 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   DREAM MODE — the default
-   Built from three paintings that hang on the taste page. Katherine
-   Bradford's Swimmers Under Orange Moon lends the dusk ground and the moon;
-   Hasui Kawase's twilight lends the pink cloud washes and the turquoise
-   water; Kiyoshi Saitō's snow night lends the quiet — and his red seal,
-   which stamps every section number. Bebop mode (the terminal in deep
-   space) survives untouched behind the toggle.
+   DREAM MODE — rebuilt from scratch, third time, around what actually works
+   on the sites design twitter venerates (rauno.me, emilkowal.ski, benji.org):
+   quiet solid ground, one narrow column, small refined type, whitespace as
+   calm — and all the craft in micro-interactions and contained objects,
+   never in wallpaper. The painting is not a background; it is a framed
+   window inside the page, sharp because it is contained, alive because the
+   parallax happens inside its frame.
 
-   The Two Voices Rule inverts in this mode: serif is everything spoken in
-   sentences — titles, ledes, prose, quotes — and mono retreats to the
-   machinery: navigation, numbers, labels, captions.
+   Survivors from the failed eras, kept because he responded to them: the
+   falling petals, the hanko seals, the pink marker swash, the peek, the
+   serif voice for sentences. Buried: full-bleed art, veils, glass, paper
+   slabs, the lantern, the generated sky.
    ═══════════════════════════════════════════════════════════════════════ */
 
-/* ── the palette, sampled ───────────────────────────────────────────────── */
+/* ── palette, still sampled from the paintings ──────────────────────────── */
 
 :root[data-mode="dream"] {
-  --void: #2c3357;   /* bradford's sky, deepened enough to read on */
-  --deck: #3a4272;
-  --bone: #f4ecdb;   /* moonlit cream */
-  --dim: #b7bedd;
-  --faint: #98a0c8;
-  --rule: rgb(244 236 219 / 16%);
-  --cold: #7fd4d9;   /* the water */
-  --hot: #ff9bc0;    /* kawase's clouds — his favourite colour is pink */
-  --moon: #ff9a5c;   /* orange keeps only the moon and the seal */
+  --void: #262b44;   /* quiet dusk ground — calmer than bebop's void */
+  --deck: #2f3554;
+  --bone: #ece6d9;
+  --dim: #a9aecb;
+  --faint: #7d82a6;
+  --rule: rgb(236 230 217 / 12%);
+  --cold: #7fd4d9;
+  --hot: #ff9bc0;    /* kawase cloud pink — his favourite colour */
   --seal: #c3452e;   /* saitō's hanko */
-  --ink: #2b3157;    /* dusk as a text colour, for paper and clouds */
-  --raspberry: #d63d75;  /* pink that can carry text on cream (4.6:1) */
-  /* Serif runs optically smaller than mono at the same rem, so the reading
-     sizes get compensating steps. Documented in DESIGN.md. */
-  --t-prose: 1.07rem;
-  --t-prose-sm: 0.95rem;   /* serif captions: reel, gallery labels */
-  --mat: #fbf3e2;    /* the mount around every print */
+  --mat: #fbf3e2;
+  /* Serif reads smaller than mono at equal rem: one compensating step. */
+  --t-prose: 0.99rem;
+  --t-prose-sm: 0.9rem;
+  --display-scroll: 1.25rem;                    /* section titles: quiet */
+  --display-scroll-hero: clamp(1.7rem, 3vw, 2.1rem);
 }
 
-/* The ground is a bokashi — the graded wash a woodblock printer pulls across
-   the sky of a print. Fixed so the dusk deepens toward the top of the window
-   rather than somewhere down the document. */
 [data-mode="dream"] body {
-  background: linear-gradient(180deg, #232948 0%, #2c3357 46%, #33406b 100%)
+  background: linear-gradient(180deg, #232840 0%, #262b44 40%, #2a3050 100%)
     fixed var(--void);
 }
 
@@ -48,7 +44,9 @@
 [data-mode="bebop"] .only-dream { display: none; }
 [data-mode="bebop"] .dream-sky { display: none; }
 [data-mode="bebop"] .dream-art { display: none; }
+[data-mode="bebop"] .dream-window { display: none; }
 [data-mode="dream"] .stars { display: none; }
+[data-mode="dream"] .kawase { display: none; }
 
 [data-mode="dream"] .ascii--joi,
 [data-mode="dream"] .ascii--fun,
@@ -56,9 +54,6 @@
   display: none;
 }
 
-/* The replika and before-replika bays lose their art column in dream — the
-   kawase moved to the sky and the bradford lives on taste. Left as a grid,
-   the empty column read as a hole and shoved the receipts a screen down. */
 [data-mode="dream"] #now .bay--flush,
 [data-mode="dream"] #before .bay--flush {
   grid-template-columns: 1fr;
@@ -69,34 +64,15 @@
   display: none;
 }
 
-/* The vinyl keeps spinning in dream mode; the shader reads its palette live
-   from these properties, so it repaints itself in dusk and moon. */
+/* The vinyl keeps spinning, in dusk and pink. */
 [data-mode="dream"] .ascii {
-  --ink-void: #2c3357;
-  --ink-bone: #f4ecdb;
+  --ink-void: #262b44;
+  --ink-bone: #ece6d9;
   --ink-hot: #ff9bc0;
 }
 
-/* The painting's crown is dark cloud, so the header floats in cream over
-   it, with a dusk breath behind the letters. */
-[data-mode="dream"] .site-header,
-[data-mode="dream"] .site-nav a,
-[data-mode="dream"] .mode-toggle {
-  color: #f4ecdb;
-  text-shadow: 0 1px 14px rgb(29 35 66 / 70%), 0 1px 4px rgb(29 35 66 / 50%);
-}
+/* ── the toggle ─────────────────────────────────────────────────────────── */
 
-[data-mode="dream"] .site-nav a:hover,
-[data-mode="dream"] .mode-toggle:hover {
-  color: #ff9bc0;
-}
-
-[data-mode="dream"] .site-nav a[aria-current="page"]::before,
-[data-mode="dream"] .site-nav a[aria-current="page"]::after {
-  color: rgb(255 155 192 / 75%);
-}
-
-/* The toggle dresses like a nav item and meets the same 24px target. */
 .mode-toggle {
   padding: 0.3rem 0;
   border: 0;
@@ -114,249 +90,75 @@
   color: var(--hot);
 }
 
-/* ── the painted sky ────────────────────────────────────────────────────────
-   Kawase's twilight is the permanent world behind the page, not a header
-   image. Four layers, back to front:
+/* ── one narrow column ──────────────────────────────────────────────────────
+   The whole page reads at ~42rem, the width the reference sites live at.
+   Whitespace is calm because nothing in it asks for attention. */
 
-     i        the painting, fixed, cover, breathing on a 60s clock, leaning
-              with the cursor, drifting upward slowly as you scroll — the
-              parallax that makes the page feel suspended in front of it
-     ::before the scroll-dusk: the deeper you read, the more night falls
-              over the painting, so prose always sits on quiet ground
-     ::after  the constant veils: a light column of dusk for the title, a
-              dark strip up top for the header. no lantern: a flashlight
-              following the cursor on a dark page read as weird, and it was.
-
-   All motion is compositor-only (transform/opacity on fixed layers), and
-   reduced-motion stills the painting under a constant veil. */
-
-[data-mode="bebop"] .kawase { display: none; }
-
-.kawase {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
+[data-mode="dream"] .shell,
+[data-mode="dream"] .site-header,
+[data-mode="dream"] .site-footer,
+[data-mode="dream"] .onward {
+  width: min(42rem, 100% - var(--gutter) * 2);
 }
 
-.kawase i {
-  position: absolute;
-  inset: -8% -4%;
-  background: url("/images/kawase-sky.webp") center 24% / cover no-repeat;
-  transform: translateY(calc(var(--scroll, 0) * -13vh))
-    translate(calc(var(--px, 0) * -28px), calc(var(--py, 0) * -16px));
-  animation: kawase-breathe 60s ease-in-out infinite alternate;
+[data-mode="dream"] .session {
+  padding-block: 0 var(--sp-5);
 }
 
-.kawase i { z-index: 1; }
-
-.kawase::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background: linear-gradient(180deg, #232948 0%, #2c3357 46%, #33406b 100%);
-  opacity: min(0.38, calc(var(--scroll, 0) * 0.9));
+[data-mode="dream"] .session:first-child {
+  padding-block-start: var(--sp-4);
 }
 
-.kawase::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background:
-    linear-gradient(180deg, rgb(29 35 66 / 34%) 0%, transparent 22%, transparent 70%, rgb(44 51 87 / 30%) 100%);
-}
-
-@keyframes kawase-breathe {
-  to { scale: 1.06; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .kawase i {
-    animation: none;
-    transform: none;
-  }
-
-  .kawase::before {
-    opacity: 0.38;
-  }
-}
-
-/* Over the painting, the type carries its own dusk. */
-[data-mode="dream"] #top .card-title,
-[data-mode="dream"] #top .lede,
-[data-mode="dream"] .site-header {
-  text-shadow: 0 1px 18px rgb(35 41 72 / 75%), 0 1px 4px rgb(35 41 72 / 55%);
-}
-
-@media (max-width: 700px) {
-  .kawase i {
-    background-position: 58% 24%;
-  }
-
-  .kawase::after {
-    background:
-      linear-gradient(180deg, rgb(35 41 72 / 68%) 0%, rgb(35 41 72 / 50%) 40%, rgb(44 51 87 / 55%) 100%);
-  }
-
-  .kawase::before {
-    opacity: min(0.45, calc(var(--scroll, 0) * 1.1));
-  }
-}
-
-/* ── the sky ────────────────────────────────────────────────────────────────
-   One orange moon, two layers of slow stars, and aurora washes of water and
-   violet. All of it sits under the content and none of it is interactive. */
-
-.dream-sky {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-[data-mode="dream"] .dream-sky .moon { display: none; }
-
-.dream-sky .moon {
-  position: absolute;
-  /* High in the corner sky, small enough to live in the whitespace beside
-     the title row. It passes behind the photographs while you scroll, the
-     way a moon passes behind rooftops. */
-  top: clamp(3.2rem, 8vh, 6.5rem);
-  right: clamp(0.9rem, 2.6vw, 2.6rem);
-  width: clamp(38px, 4.5vw, 60px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 34%, #ffc491, #f08a54 58%, #c05d5b);
-  box-shadow:
-    0 0 34px 10px rgb(240 138 84 / 28%),
-    0 0 100px 40px rgb(240 138 84 / 12%);
-  animation: moon-breathe 9s var(--ease) infinite alternate;
-}
-
-.dream-sky i {
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(1px 1px at 22% 31%, rgb(244 236 219 / 90%), transparent 60%),
-    radial-gradient(1px 1px at 64% 12%, rgb(244 236 219 / 70%), transparent 60%),
-    radial-gradient(1.5px 1.5px at 83% 47%, rgb(244 236 219 / 80%), transparent 60%),
-    radial-gradient(1px 1px at 41% 72%, rgb(244 236 219 / 60%), transparent 60%),
-    radial-gradient(1px 1px at 9% 89%, rgb(244 236 219 / 70%), transparent 60%);
-  background-size: 290px 290px;
-  animation: twinkle 7s ease-in-out infinite alternate;
-  opacity: 0.5;
-}
-
-/* On a phone the nav wraps to a second row exactly where the moon hung, and
-   the toggle read "BEBOP M🌕DE". The corner above the wrapped nav is empty. */
-@media (max-width: 700px) {
-  .dream-sky .moon {
-    top: 0.65rem;
-    right: 0.75rem;
-    width: 34px;
-  }
-}
-
-.dream-sky i + i {
-  background-size: 470px 470px;
-  animation-delay: -3.5s;
-  animation-duration: 9s;
-  opacity: 0.35;
-}
-
-/* Kawase's clouds. Pink cumulus drifting low, turquoise water underneath,
-   the moon's warmth top-right — washes, not objects, blurred until they are
-   weather. */
-[data-mode="dream"] body::before {
-  content: "";
-  position: fixed;
-  inset: -12%;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(44% 28% at 22% 74%, rgb(240 168 184 / 32%), transparent 70%),
-    radial-gradient(30% 22% at 62% 92%, rgb(91 168 196 / 30%), transparent 70%),
-    radial-gradient(26% 22% at 85% 8%, rgb(240 138 84 / 18%), transparent 70%);
-  filter: blur(46px) saturate(1.12);
-  transform: translateZ(0);
-  animation: aurora 46s ease-in-out infinite alternate;
-}
-
-/* Film grain over everything, quiet enough to feel rather than see. */
-[data-mode="dream"] body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-  opacity: 0.05;
-}
-
-@keyframes moon-breathe {
-  to { transform: scale(1.045); }
-}
-
-@keyframes twinkle {
-  from { opacity: 0.28; }
-  to { opacity: 0.6; }
-}
-
-@keyframes aurora {
-  to { transform: translate3d(2%, -2%, 0) scale(1.07); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dream-sky .moon,
-  .dream-sky i,
-  [data-mode="dream"] body::before {
-    animation: none;
-  }
-}
-
-/* ── the seal ───────────────────────────────────────────────────────────────
-   Saitō signs his prints with a red hanko in the corner. The section numbers
-   take the same stamp: vermillion block, cream numeral, pressed a degree or
-   two off true the way a hand stamps. */
-
-[data-mode="dream"] .card-no {
-  /* fit-content matters on a phone, where the number leaves the margin and
-     becomes a block: without it the stamp stretched into a 351px red bar. */
-  width: fit-content;
-  padding: 0.34em 0.44em;
-  background: var(--seal);
-  color: var(--mat);
-  border-radius: 2px;
-  transform: rotate(-3deg);
-  box-shadow: 0 2px 10px rgb(12 12 30 / 35%);
-}
-
-@media (max-width: 900px) {
-  [data-mode="dream"] .card-no {
-    margin-bottom: 0.55rem;
-  }
-}
-
-/* ── the voice ──────────────────────────────────────────────────────────────
-   Serif for everything written in sentences. Mono keeps the machinery. */
+/* ── the voice: quiet serif, small ──────────────────────────────────────── */
 
 [data-mode="dream"] .card-title {
   font-family: var(--serif);
   font-style: italic;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  font-size: var(--display-scroll);
+  letter-spacing: 0;
   text-transform: none;
+}
+
+[data-mode="dream"] #top .card-title {
+  font-size: var(--display-scroll-hero);
+}
+
+/* Seal and title share the line: a stamp beside a word, not a poster. */
+[data-mode="dream"] .card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.7rem;
+  margin-bottom: var(--sp-2);
+}
+
+[data-mode="dream"] .card-no {
+  position: static;
+  width: fit-content;
+  padding: 0.3em 0.42em;
+  background: var(--seal);
+  color: var(--mat);
+  border-radius: 2px;
+  transform: rotate(-3deg);
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .card:hover .card-no {
+  transform: rotate(-1deg) scale(1.06);
+}
+
+[data-mode="dream"] .card-what {
+  width: 100%;
+  margin-top: 0.1rem;
 }
 
 [data-mode="dream"] .lede {
   font-family: var(--serif);
   font-style: italic;
-  font-size: calc(var(--t-lg) * 1.12);
+  font-size: 1.12rem;
   letter-spacing: 0;
+  margin-bottom: var(--sp-2);
 }
 
 [data-mode="dream"] .prose p,
@@ -367,7 +169,11 @@
   font-family: var(--serif);
   font-size: var(--t-prose);
   letter-spacing: 0;
-  line-height: 1.66;
+  line-height: 1.62;
+}
+
+[data-mode="dream"] .prose {
+  gap: var(--sp-2);
 }
 
 [data-mode="dream"] .signoff {
@@ -377,66 +183,204 @@
   letter-spacing: 0.02em;
 }
 
-/* Highlights are run over with a pink marker, not underlined: the wavy
-   underline read as a spellcheck error, which is the one association a
-   highlight must never have. clone keeps the swash on every wrapped line. */
+/* The pink marker swash, cloned across wraps — never a wavy underline. */
 [data-mode="dream"] .prose b {
   color: var(--hot);
   padding-inline: 0.1em;
   margin-inline: -0.1em;
-  background: linear-gradient(to top, rgb(255 155 192 / 22%) 0 0.55em, transparent 0.55em);
+  background: linear-gradient(to top, rgb(255 155 192 / 18%) 0 0.55em, transparent 0.55em);
   border-radius: 3px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
 
-/* The nav marks the current page with parentheses — brackets belong to the
-   terminal, and this mode is not a terminal. */
 [data-mode="dream"] .site-nav a[aria-current="page"]::before,
 [data-mode="dream"] .foot-nav a[aria-current="page"]::before {
   content: "(";
-  color: rgb(214 61 117 / 60%);
+  color: rgb(255 155 192 / 60%);
 }
 
 [data-mode="dream"] .site-nav a[aria-current="page"]::after,
 [data-mode="dream"] .foot-nav a[aria-current="page"]::after {
   content: ")";
-  color: rgb(214 61 117 / 60%);
+  color: rgb(255 155 192 / 60%);
 }
 
 [data-mode="dream"] .research a.is-quoted::before,
 [data-mode="dream"] .research a.is-quoted::after {
-  color: rgb(214 61 117 / 55%);
+  color: rgb(255 155 192 / 55%);
 }
 
-/* ── the photographs ────────────────────────────────────────────────────────
-   Mounted, not filed. The portrait hangs straight in a cream mat like a
-   print; only the childhood snapshots keep a small tilt, because childhood
-   photographs live in shoeboxes, not frames. */
+/* ── the window ─────────────────────────────────────────────────────────────
+   The painting, as a crafted object: a wide framed window in the hero,
+   drawn at contained size so every stroke stays sharp. The parallax lives
+   inside the frame — the print drifts against the cursor and the scroll
+   behind its own glass, like weather through a train window. */
+
+.dream-window {
+  position: relative;
+  margin: var(--sp-3) 0 0;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  border: 1px solid rgb(236 230 217 / 16%);
+  border-radius: 12px;
+  background: var(--deck);
+  box-shadow:
+    inset 0 1px 0 rgb(236 230 217 / 8%),
+    0 14px 40px rgb(10 10 26 / 45%);
+}
+
+.dream-window > i {
+  position: absolute;
+  inset: -14%;
+  background: url("/images/kawase-sky.webp") center 26% / cover no-repeat;
+  translate: calc(var(--px, 0) * 12px) calc(var(--py, 0) * 8px + var(--scroll, 0) * -26px);
+  transition: translate 80ms linear;
+}
+
+.dream-window > figcaption {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.6rem;
+  color: rgb(251 243 226 / 85%);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  text-shadow: 0 1px 8px rgb(20 20 40 / 80%);
+}
+
+/* ── the sky keeps only its petals ──────────────────────────────────────────
+   Quiet ground means no stars, no moon, no washes. Six petals still fall —
+   the one ambient signature — in front of everything, behind nothing. */
+
+.dream-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.dream-sky .moon,
+.dream-sky i {
+  display: none;
+}
+
+.dream-sky b {
+  position: absolute;
+  top: -4vh;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle at 30% 30%, #ffd3df, #ff9bc0);
+  border-radius: 100% 6% 100% 6%;
+  opacity: 0.5;
+  animation: petal-fall var(--fall, 18s) linear infinite;
+  animation-delay: var(--wait, 0s);
+}
+
+.dream-sky b:nth-of-type(1) { left: 8%;  --fall: 17s; --wait: -3s;  --sway: 52px; }
+.dream-sky b:nth-of-type(2) { left: 26%; --fall: 23s; --wait: -11s; --sway: -64px; width: 8px; height: 8px; }
+.dream-sky b:nth-of-type(3) { left: 45%; --fall: 16s; --wait: -7s;  --sway: 40px; }
+.dream-sky b:nth-of-type(4) { left: 61%; --fall: 26s; --wait: -17s; --sway: -48px; width: 12px; height: 12px; opacity: 0.35; }
+.dream-sky b:nth-of-type(5) { left: 76%; --fall: 20s; --wait: -1s;  --sway: 58px; width: 8px; height: 8px; }
+.dream-sky b:nth-of-type(6) { left: 91%; --fall: 22s; --wait: -13s; --sway: -40px; }
+
+@keyframes petal-fall {
+  55% { transform: translate3d(var(--sway, 48px), 58vh, 0) rotate(200deg); }
+  100% { transform: translate3d(calc(var(--sway, 48px) * -0.4), 108vh, 0) rotate(390deg); }
+}
+
+/* Film grain, the texture signature, at a whisper. */
+[data-mode="dream"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.04;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dream-sky b {
+    display: none;
+  }
+
+  .dream-window > i {
+    translate: 0 0;
+  }
+}
+
+/* ── layout inside the column ───────────────────────────────────────────── */
+
+[data-mode="dream"] .bay,
+[data-mode="dream"] .bay--flush {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-3);
+}
+
+[data-mode="dream"] #top .bay--flush {
+  grid-template-columns: minmax(0, 1fr) minmax(130px, 168px);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+[data-mode="dream"] .bay .portrait {
+  aspect-ratio: auto;
+  position: static;
+}
 
 [data-mode="dream"] .bay .portrait .cell {
-  border: 12px solid var(--mat);
-  border-radius: 3px;
-  box-shadow: 0 18px 44px rgb(12 12 30 / 42%);
-}
-
-[data-mode="dream"] .sheet figure:nth-child(odd) .cell {
-  transform: rotate(-2deg);
-}
-
-[data-mode="dream"] .sheet figure:nth-child(even) .cell {
-  transform: rotate(1.6deg);
-}
-
-[data-mode="dream"] .sheet .cell {
+  position: static;
+  inset: auto;
+  aspect-ratio: 0.94;
   border: 6px solid var(--mat);
   border-radius: 3px;
-  box-shadow: 0 10px 26px rgb(12 12 30 / 40%);
+  box-shadow: 0 10px 28px rgb(10 10 26 / 45%);
+  transform: rotate(1.2deg);
+  transition:
+    transform var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
 }
 
-/* The clips come back in colour. Grayscale was the noir talking. */
+[data-mode="dream"] .bay .portrait:hover .cell {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow: 0 14px 34px rgb(10 10 26 / 55%);
+}
+
+[data-mode="dream"] .bay .portrait figcaption {
+  position: static;
+  margin-top: 0.5rem;
+}
+
+[data-mode="dream"] .reg li {
+  grid-template-columns: auto 1fr;
+  gap: 0.1rem 0.8rem;
+  padding: 0 0 var(--sp-2);
+}
+
+[data-mode="dream"] .reg-mark {
+  display: none;
+}
+
+[data-mode="dream"] .reg-role {
+  grid-column: 1 / -1;
+}
+
+[data-mode="dream"] .receipts {
+  grid-template-columns: 1fr;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+
+[data-mode="dream"] .reel {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 [data-mode="dream"] .frame {
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 [data-mode="dream"] .frame video,
@@ -452,37 +396,55 @@
   text-transform: lowercase;
 }
 
+[data-mode="dream"] .sheet .cell {
+  border: 5px solid var(--mat);
+  border-radius: 3px;
+  box-shadow: 0 8px 22px rgb(10 10 26 / 40%);
+  transition:
+    transform var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .sheet figure:nth-child(odd) .cell {
+  transform: rotate(-1.8deg);
+}
+
+[data-mode="dream"] .sheet figure:nth-child(even) .cell {
+  transform: rotate(1.4deg);
+}
+
+[data-mode="dream"] .sheet figure:hover .cell {
+  transform: rotate(0deg) translateY(-3px);
+}
+
 [data-mode="dream"] .lynch {
-  transform: rotate(1deg);
+  width: min(100%, 22rem);
 }
 
 [data-mode="dream"] .lynch img {
-  border-radius: 10px;
-  box-shadow: 0 16px 40px rgb(12 12 30 / 40%);
+  border-radius: 8px;
 }
 
 [data-mode="dream"] .gloss {
   border-radius: 999px;
 }
 
-/* ── the paintings ──────────────────────────────────────────────────────────
-   Where bebop draws in ASCII, dream mode hangs the paintings he loves.
-   Hung straight — paintings are not snapshots — with only the maker's name
-   for a label. */
-
+/* The redon still says hi, contained and bordered like everything else. */
 .dream-art {
   margin: 0;
+  width: min(100%, 20rem);
 }
 
 .dream-art img {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 24px 60px rgb(12 12 30 / 45%);
+  border: 1px solid rgb(236 230 217 / 14%);
+  box-shadow: 0 14px 36px rgb(10 10 26 / 45%);
 }
 
 .dream-art figcaption {
-  margin-top: 0.6rem;
+  margin-top: 0.5rem;
   color: var(--faint);
   font-family: var(--mono);
   font-size: var(--t-xs);
@@ -490,9 +452,54 @@
   text-transform: uppercase;
 }
 
-/* ── the peek ───────────────────────────────────────────────────────────────
-   Words that name something real lift a stack of prints above the cursor.
-   The span is dotted so the hand knows before the cursor arrives. */
+/* ── taste page ─────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .wall {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+[data-mode="dream"] .wall .cell {
+  border: 4px solid var(--mat);
+  border-radius: 3px;
+  box-shadow: 0 8px 20px rgb(10 10 26 / 38%);
+  transition:
+    transform var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .wall figure:nth-child(odd) .cell { transform: rotate(-1.4deg); }
+[data-mode="dream"] .wall figure:nth-child(even) .cell { transform: rotate(1.1deg); }
+
+[data-mode="dream"] .wall figure:hover .cell {
+  transform: rotate(0deg) translateY(-3px);
+}
+
+[data-mode="dream"] .record {
+  width: min(100%, 19rem);
+}
+
+[data-mode="dream"] .hang figure {
+  border: 5px solid var(--mat);
+  border-radius: 3px;
+  box-shadow: 0 10px 26px rgb(10 10 26 / 40%);
+  transition:
+    transform var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .hang figure:hover {
+  transform: translateY(-3px);
+}
+
+[data-mode="dream"] .hang figcaption {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--t-prose-sm);
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+}
+
+/* ── the peek ───────────────────────────────────────────────────────────── */
 
 .peek {
   text-decoration: underline dotted;
@@ -529,43 +536,25 @@
   bottom: auto;
 }
 
-.peek-pop img:nth-child(1) {
-  translate: -88% 0;
-  rotate: -6deg;
-}
-
-.peek-pop img:nth-child(2) {
-  translate: -22% -5%;
-  rotate: 4.5deg;
-}
-
-.peek-pop img:nth-child(3) {
-  translate: -55% -12%;
-  rotate: -2deg;
-}
+.peek-pop img:nth-child(1) { translate: -88% 0; rotate: -6deg; }
+.peek-pop img:nth-child(2) { translate: -22% -5%; rotate: 4.5deg; }
+.peek-pop img:nth-child(3) { translate: -55% -12%; rotate: -2deg; }
 
 .peek-pop.on img {
   opacity: 1;
   scale: 1;
 }
 
-.peek-pop.on img:nth-child(2) {
-  transition-delay: 45ms;
-}
+.peek-pop.on img:nth-child(2) { transition-delay: 45ms; }
+.peek-pop.on img:nth-child(3) { transition-delay: 90ms; }
 
-.peek-pop.on img:nth-child(3) {
-  transition-delay: 90ms;
-}
-
-/* Prints in dream mode. */
 [data-mode="dream"] .peek-pop img {
   border: 6px solid var(--mat);
   border-bottom-width: 20px;
   border-radius: 3px;
-  box-shadow: 0 14px 34px rgb(12 12 30 / 50%);
+  box-shadow: 0 14px 34px rgb(10 10 26 / 50%);
 }
 
-/* Stills from the deck in bebop. */
 [data-mode="bebop"] .peek-pop img {
   border: 1px solid rgb(233 229 216 / 25%);
   background: var(--deck);
@@ -573,365 +562,42 @@
   filter: grayscale(1) contrast(1.12);
 }
 
-/* ── the petals ─────────────────────────────────────────────────────────────
-   Six sakura petals falling the whole height of the window, each on its own
-   clock, none faster than sixteen seconds. Quiet enough that you notice them
-   the second time, which is the right time to notice petals. */
+/* ── copied ─────────────────────────────────────────────────────────────────
+   Clicking an email address also copies it, and says so where the label
+   was. The smallest kind of craft, and the kind that gets noticed. */
 
-.dream-sky b {
-  position: absolute;
-  top: -4vh;
-  width: 10px;
-  height: 10px;
-  background: radial-gradient(circle at 30% 30%, #ffd3df, #ff9bc0);
-  border-radius: 100% 6% 100% 6%;
-  opacity: 0.55;
-  animation: petal-fall var(--fall, 18s) linear infinite;
-  animation-delay: var(--wait, 0s);
+.copied-flash {
+  color: var(--hot) !important;
+  transition: color var(--dur) var(--ease);
 }
 
-.dream-sky b:nth-of-type(1) { left: 8%;  --fall: 17s; --wait: -3s;  --sway: 52px; }
-.dream-sky b:nth-of-type(2) { left: 26%; --fall: 23s; --wait: -11s; --sway: -64px; width: 8px; height: 8px; }
-.dream-sky b:nth-of-type(3) { left: 45%; --fall: 16s; --wait: -7s;  --sway: 40px; }
-.dream-sky b:nth-of-type(4) { left: 61%; --fall: 26s; --wait: -17s; --sway: -48px; width: 12px; height: 12px; opacity: 0.4; }
-.dream-sky b:nth-of-type(5) { left: 76%; --fall: 20s; --wait: -1s;  --sway: 58px; width: 8px; height: 8px; }
-.dream-sky b:nth-of-type(6) { left: 91%; --fall: 22s; --wait: -13s; --sway: -40px; }
+/* ── place marks ────────────────────────────────────────────────────────── */
 
-@keyframes petal-fall {
-  55% { transform: translate3d(var(--sway, 48px), 58vh, 0) rotate(200deg); }
-  100% { transform: translate3d(calc(var(--sway, 48px) * -0.4), 108vh, 0) rotate(390deg); }
+.pin {
+  font-family: "Noto Emoji";
+  font-style: normal;
 }
 
-/* ── the sky leans with you ─────────────────────────────────────────────────
-   The pointer-parallax script already publishes --px/--py for bebop's
-   starfield. Dream reads the same weather: the moon drifts against the
-   cursor a few pixels, the washes a few more. Free, and it makes the whole
-   sky feel suspended rather than printed. */
-
-[data-mode="dream"] .dream-sky .moon {
-  translate: calc(var(--px, 0) * -9px) calc(var(--py, 0) * -6px);
+svg.pin {
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.16em;
+  stroke-width: 2.2;
 }
 
-[data-mode="dream"] body::before {
-  translate: calc(var(--px, 0) * -14px) calc(var(--py, 0) * -10px);
-}
-
-/* ── touch the prints ───────────────────────────────────────────────────────
-   Everything mounted answers the hand: tilted snapshots straighten and lift,
-   straight things lift a breath. The transition lives on the resting state
-   so the print settles back down on its own. */
-
-[data-mode="dream"] .sheet .cell,
-[data-mode="dream"] .bay .portrait .cell,
-[data-mode="dream"] .lynch,
-[data-mode="dream"] .dream-art img,
-[data-mode="dream"] .frame {
-  transition:
-    transform var(--dur-slow) var(--ease),
-    box-shadow var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .sheet figure:hover .cell {
-  transform: rotate(0deg) translateY(-5px);
-  box-shadow: 0 16px 34px rgb(12 12 30 / 50%);
-}
-
-[data-mode="dream"] .bay .portrait:hover .cell {
-  transform: translateY(-5px);
-  box-shadow: 0 26px 56px rgb(12 12 30 / 50%);
-}
-
-[data-mode="dream"] .lynch:hover {
-  transform: rotate(0deg);
-}
-
-[data-mode="dream"] .dream-art:hover img {
-  transform: translateY(-5px);
-  box-shadow: 0 30px 70px rgb(12 12 30 / 52%);
-}
-
-[data-mode="dream"] .reel a:hover .frame,
-[data-mode="dream"] .reel figure:hover .frame {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgb(12 12 30 / 45%);
-}
-
-/* The stamp answers too: hover the section header and it presses again. */
-[data-mode="dream"] .card-no {
-  transition: transform var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .card:hover .card-no {
-  transform: rotate(-1deg) scale(1.07);
-}
-
-/* ── the taste page, in dream ───────────────────────────────────────────────
-   "literally me" becomes a wall of snapshots — small tilts, small mats —
-   and the paintings hang like a gallery: matted, straight, lifting a breath
-   when the hand arrives, labelled in a curator's italic. */
-
-[data-mode="dream"] .wall .cell {
-  border: 5px solid var(--mat);
-  border-radius: 3px;
-  box-shadow: 0 8px 22px rgb(12 12 30 / 38%);
-  transition:
-    transform var(--dur-slow) var(--ease),
-    box-shadow var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .wall figure:nth-child(odd) .cell {
-  transform: rotate(-1.6deg);
-}
-
-[data-mode="dream"] .wall figure:nth-child(even) .cell {
-  transform: rotate(1.3deg);
-}
-
-[data-mode="dream"] .wall figure:hover .cell {
-  transform: rotate(0deg) translateY(-4px);
-  box-shadow: 0 14px 30px rgb(12 12 30 / 48%);
-}
-
-[data-mode="dream"] .hang figure {
-  border: 7px solid var(--mat);
-  border-radius: 3px;
-  box-shadow: 0 12px 30px rgb(12 12 30 / 42%);
-  transition:
-    transform var(--dur-slow) var(--ease),
-    box-shadow var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .hang figure:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 44px rgb(12 12 30 / 52%);
-}
-
-/* Captions ride the painting on taste, so they speak up a step. */
-[data-mode="dream"] .wall figcaption,
-[data-mode="dream"] .sheet figcaption {
-  color: var(--dim);
-  text-shadow: 0 1px 10px rgb(35 41 72 / 70%);
-}
-
-[data-mode="dream"] .hang figcaption {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: var(--t-prose-sm);
-  letter-spacing: 0.01em;
-  text-transform: lowercase;
-}
-
-/* Inside the glass the register loses its logo column — a 1.6rem indent
-   that aligned to nothing — and its rows close up, so name, descriptor and
-   role read as one block flush with the title above them. */
-[data-mode="dream"] .reg li {
-  grid-template-columns: auto 1fr;
-  gap: 0.1rem 0.8rem;
-  padding: 0 0 var(--sp-2);
-}
-
-[data-mode="dream"] .reg-mark {
-  display: none;
-}
-
-[data-mode="dream"] .reg-role {
-  grid-column: 1 / -1;
-}
-
-[data-mode="dream"] .card {
-  margin-bottom: var(--sp-2);
-}
-
-[data-mode="dream"] #top .card {
-  margin-bottom: var(--sp-3);
-}
-
-/* ── the emaki ──────────────────────────────────────────────────────────────
-   Not seven cards — one narrow handscroll. A single sheet of washi unrolls
-   down the painting, the way the reference sites this page keeps being
-   compared to run one quiet column. The painting owns the opening screen
-   and both margins forever; the sheet carries everything else in a tight,
-   small-type rhythm. Sections separate with a fine rule and a stamp, not
-   with new sheets. */
-
-[data-mode="dream"] main,
-[data-mode="dream"] .site-footer {
-  --bone: var(--ink);
-  --dim: #5c5680;
-  --faint: #8a83a8;
-  --rule: rgb(43 49 87 / 16%);
-  --deck: #efe5d2;
-  --hot: var(--raspberry);
-  --cold: #2e7f96;
-  width: min(47rem, 100% - var(--gutter) * 2);
-  margin-inline: auto;
-  background: linear-gradient(180deg, #fbf4e6, #f5ecd9);
-  color: var(--bone);
-  border: 1px solid rgb(255 252 244 / 70%);
-  border-radius: 20px;
-  box-shadow: 0 26px 70px rgb(24 20 52 / 40%);
-}
-
-/* The painting gets the whole first screen to itself before the sheet. */
-[data-mode="dream"] main {
-  margin-top: clamp(9rem, 34vh, 20rem);
-  margin-bottom: var(--sp-4);
-  padding: var(--sp-3) clamp(1.5rem, 4vw, 3rem) var(--sp-4);
-}
-
-[data-mode="dream"] .site-footer {
-  margin-bottom: var(--sp-4);
-  padding: var(--sp-3) clamp(1.5rem, 4vw, 3rem);
-}
-
-/* Sections flow on the sheet: no shells-within-shells, fine rules between. */
-[data-mode="dream"] main .session {
-  width: 100%;
-  padding-block: var(--sp-4);
-  margin: 0;
-}
-
-[data-mode="dream"] main .session + .session {
-  border-top: 1px solid var(--rule);
-}
-
-[data-mode="dream"] main .session:first-child {
-  padding-block-start: var(--sp-2);
-}
-
-[data-mode="dream"] main .session:last-child {
-  padding-block-end: var(--sp-2);
-}
-
-/* Small type, tight rhythm — the scroll reads like a letter, not a poster. */
-[data-mode="dream"] .card-title {
-  font-size: var(--display-scroll);
-}
-
-[data-mode="dream"] #top .card-title {
-  font-size: var(--display-scroll-hero);
-}
-
-:root[data-mode="dream"] {
-  /* The emaki reads at letter scale, not poster scale: three steps of its
-     own, documented in DESIGN.md as the scroll ramp. */
-  --t-prose-tight: 1.01rem;
-  --display-scroll: clamp(1.45rem, 2.4vw, 1.9rem);
-  --display-scroll-hero: clamp(1.9rem, 3.2vw, 2.5rem);
-}
-
-[data-mode="dream"] .prose p,
-[data-mode="dream"] .receipts li p,
-[data-mode="dream"] .log p,
-[data-mode="dream"] .gloss-note,
-[data-mode="dream"] .credit {
-  font-size: var(--t-prose-tight);
-  line-height: 1.6;
-}
-
-[data-mode="dream"] .prose {
-  gap: var(--sp-2);
-}
-
-[data-mode="dream"] .lede {
-  font-size: calc(var(--t-lg) * 1.02);
-  margin-bottom: var(--sp-2);
-}
-
-/* Every grid simplifies inside the sheet: one column, stacked, calm. */
-[data-mode="dream"] .bay,
-[data-mode="dream"] .bay--flush {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--sp-3);
-}
-
-/* Except the hero, which keeps a small portrait beside the words. */
-[data-mode="dream"] #top .bay--flush {
-  grid-template-columns: minmax(0, 1fr) minmax(150px, 205px);
-  gap: 1.6rem;
-  align-items: start;
-}
-
-[data-mode="dream"] .bay .portrait {
-  aspect-ratio: auto;
-  position: static;
-}
-
-[data-mode="dream"] .bay .portrait .cell {
-  position: static;
-  inset: auto;
-  aspect-ratio: 0.94;
-  border-width: 7px;
-}
-
-[data-mode="dream"] .bay .portrait figcaption {
-  position: static;
-  margin-top: 0.5rem;
-}
-
-[data-mode="dream"] .lynch {
-  width: min(100%, 24rem);
-  margin-inline: auto;
-}
-
-[data-mode="dream"] .reel {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-[data-mode="dream"] .receipts {
-  grid-template-columns: 1fr;
-  gap: var(--sp-3);
-  margin-top: var(--sp-3);
-}
-
-[data-mode="dream"] .wall {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-/* The record sits under the books, centred, a woodcut on the sheet. */
-[data-mode="dream"] .record {
-  width: min(100%, 21rem);
-  margin-inline: auto;
-}
-
-/* Ink on paper: the vinyl redraws itself as a woodcut. */
-[data-mode="dream"] .session .ascii {
-  --ink-void: #f8f0e0;
-  --ink-bone: var(--ink);
-  --ink-hot: var(--raspberry);
-}
-
-/* The petals fall in front of the sheet, not behind the world. */
-[data-mode="dream"] .dream-sky {
-  z-index: 2;
-}
-
-/* The title drops its dusk shadow: it lives on paper now. */
-[data-mode="dream"] #top .card-title,
-[data-mode="dream"] #top .lede {
-  text-shadow: none;
-}
+/* ── mobile ─────────────────────────────────────────────────────────────── */
 
 @media (max-width: 700px) {
-  [data-mode="dream"] main {
-    margin-top: clamp(7rem, 26vh, 12rem);
-  }
-
   [data-mode="dream"] #top .bay--flush {
     grid-template-columns: 1fr;
   }
 
   [data-mode="dream"] #top .portrait {
-    width: min(64%, 240px);
+    width: min(56%, 200px);
   }
-}
 
-/* Reading gets bigger over glass. */
-:root[data-mode="dream"] {
-  --t-prose: 1.12rem;
-}
-
-[data-mode="dream"] .lede {
-  font-size: calc(var(--t-lg) * 1.22);
+  .dream-window {
+    aspect-ratio: 16 / 10;
+  }
 }

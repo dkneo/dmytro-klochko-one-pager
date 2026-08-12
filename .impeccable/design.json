@@ -1,6 +1,6 @@
 {
  "schemaVersion": 2,
- "generatedAt": "2026-08-11T23:15:51Z",
+ "generatedAt": "2026-08-12T08:16:10Z",
  "title": "Design System: dmytro klochko \u2014 dream / bebop",
  "extensions": {
   "colorMeta": {
@@ -408,6 +408,111 @@
      "#f3e5c9",
      "#faf5ea"
     ]
+   },
+   "quiet-dusk": {
+    "role": "primary",
+    "displayName": "Quiet Dusk Ground",
+    "canonical": "#262b44",
+    "tonalRamp": [
+     "#161927",
+     "#2c324f",
+     "#454f7c",
+     "#626ea7",
+     "#8c95bf",
+     "#b0b6d3",
+     "#d4d8e7",
+     "#eff0f6"
+    ]
+   },
+   "quiet-dusk-top": {
+    "role": "primary",
+    "displayName": "Ground Top",
+    "canonical": "#232840",
+    "tonalRamp": [
+     "#161928",
+     "#2b314f",
+     "#454e7d",
+     "#616da8",
+     "#8c95c0",
+     "#b0b6d4",
+     "#d4d7e8",
+     "#eff0f6"
+    ]
+   },
+   "quiet-dusk-low": {
+    "role": "primary",
+    "displayName": "Ground Low",
+    "canonical": "#2a3050",
+    "tonalRamp": [
+     "#151828",
+     "#2a3050",
+     "#434c7f",
+     "#5e6bab",
+     "#8a93c2",
+     "#afb5d5",
+     "#d4d7e8",
+     "#eef0f6"
+    ]
+   },
+   "deck-quiet": {
+    "role": "neutral",
+    "displayName": "Quiet Deck",
+    "canonical": "#2f3554",
+    "tonalRamp": [
+     "#161927",
+     "#2c324e",
+     "#464e7c",
+     "#626da7",
+     "#8d95bf",
+     "#b1b6d3",
+     "#d4d8e7",
+     "#eff0f6"
+    ]
+   },
+   "bone-quiet": {
+    "role": "neutral",
+    "displayName": "Quiet Bone",
+    "canonical": "#ece6d9",
+    "tonalRamp": [
+     "#292214",
+     "#524529",
+     "#816d41",
+     "#ad945c",
+     "#c4b188",
+     "#d6c9ad",
+     "#e9e2d3",
+     "#f7f4ee"
+    ]
+   },
+   "dim-quiet": {
+    "role": "neutral",
+    "displayName": "Quiet Dim",
+    "canonical": "#a9aecb",
+    "tonalRamp": [
+     "#171926",
+     "#2e334c",
+     "#495079",
+     "#666fa3",
+     "#9096bc",
+     "#b3b7d1",
+     "#d6d8e6",
+     "#eff0f5"
+    ]
+   },
+   "faint-quiet": {
+    "role": "neutral",
+    "displayName": "Quiet Faint",
+    "canonical": "#7d82a6",
+    "tonalRamp": [
+     "#191a24",
+     "#323549",
+     "#4f5373",
+     "#6e739c",
+     "#9599b6",
+     "#b6b9cd",
+     "#d8d9e4",
+     "#f0f0f5"
+    ]
    }
   },
   "typographyMeta": {
@@ -423,10 +528,6 @@
     "displayName": "Body",
     "purpose": "Running copy. t-md 0.98rem mono in bebop."
    },
-   "dream-prose": {
-    "displayName": "Dream Prose",
-    "purpose": "Serif sentences in dream mode. --t-prose 1.07rem: serif runs optically smaller than mono at equal rem, one compensating step."
-   },
    "small": {
     "displayName": "Small",
     "purpose": "t-sm 0.875rem secondary lines."
@@ -435,21 +536,21 @@
     "displayName": "Label",
     "purpose": "t-xs 0.75rem mono caps wide-tracked: nav, numbers, captions, machinery in both modes."
    },
-   "dream-prose-sm": {
-    "displayName": "Dream Caption",
-    "purpose": "Serif italic captions in dream: reel labels, gallery labels. --t-prose-sm 0.95rem, the serif twin of t-sm."
+   "dream-prose": {
+    "displayName": "Dream Prose",
+    "purpose": "Serif body in the quiet column: 0.99rem / 1.62."
    },
-   "scroll-prose": {
-    "displayName": "Scroll Prose",
-    "purpose": "Serif body on the emaki sheet. --t-prose-tight 1.01rem / 1.6."
+   "dream-lede": {
+    "displayName": "Dream Lede",
+    "purpose": "Serif italic opener: 1.12rem."
    },
-   "scroll-display": {
-    "displayName": "Scroll Display",
-    "purpose": "Section titles on the sheet. --display-scroll clamp(1.45rem, 2.4vw, 1.9rem) \u2014 letter scale, not poster scale."
+   "dream-display": {
+    "displayName": "Dream Display",
+    "purpose": "Section title beside its hanko: 1.25rem serif italic."
    },
-   "scroll-display-hero": {
-    "displayName": "Scroll Hero",
-    "purpose": "The name at the top of the sheet. --display-scroll-hero clamp(1.9rem, 3.2vw, 2.5rem)."
+   "dream-display-hero": {
+    "displayName": "Dream Hero",
+    "purpose": "The name: clamp(1.7rem, 3vw, 2.1rem)."
    }
   },
   "decorative": [
