@@ -27,12 +27,12 @@
   --seal: #c3452e;   /* saitō's hanko */
   --mat: #fbf3e2;
   /* Serif reads smaller than mono at equal rem: one compensating step. */
-  --t-prose: 0.99rem;
-  --t-prose-sm: 0.9rem;
-  --t-lede: 1.12rem;                            /* the serif italic opener */
+  --t-prose: 1.04rem;
+  --t-prose-sm: 0.95rem;
+  --t-lede: 1.28rem;                            /* the serif italic opener */
   --ember: #ffd2a3;                             /* spark highlight, weather */
-  --display-scroll: 1.25rem;                    /* section titles: quiet */
-  --display-scroll-hero: clamp(1.7rem, 3vw, 2.1rem);
+  --display-scroll: 1.55rem;                    /* section titles: present */
+  --display-scroll-hero: clamp(2.5rem, 4.2vw, 3.4rem);  /* a title screen's title */
 }
 
 [data-mode="dream"] body {
@@ -159,7 +159,7 @@
   font-family: var(--serif);
   font-size: var(--t-prose);
   letter-spacing: 0;
-  line-height: 1.62;
+  line-height: 1.66;
 }
 
 [data-mode="dream"] .prose {

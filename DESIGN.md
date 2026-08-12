@@ -27,19 +27,19 @@ modes:
     hot: "#ff6fae"
 typography:
   mono: "ui-monospace, SF Mono, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace"
-  serif: "Iowan Old Style, Baskerville, Times New Roman, serif"
+  serif: "Newsreader (self-hosted, latin subsets), Iowan Old Style, Baskerville, Georgia"
   scale:
     t-xs: "0.75rem"
     t-sm: "0.875rem"
     t-md: "0.98rem"
     t-lg: "clamp(1.15rem, 1.5vw, 1.45rem)"
     display: "clamp(1.9rem, 4.6vw, 3.9rem)"
-  # dream v3 reads at letter scale in a 42rem column:
-  dream-prose: "0.99rem / 1.62"
-  dream-prose-sm: "0.9rem"
-  dream-lede: "1.12rem italic"
-  dream-display: "1.25rem"      # section titles: a word beside a stamp
-  dream-display-hero: "clamp(1.7rem, 3vw, 2.1rem)"
+  # dream reads editorial in a 64rem cinematic shell:
+  dream-prose: "1.04rem / 1.66"
+  dream-prose-sm: "0.95rem"
+  dream-lede: "1.28rem italic"
+  dream-display: "1.55rem"      # section titles: present
+  dream-display-hero: "clamp(2.5rem, 4.2vw, 3.4rem)"  # a title screen's title
   raster:
     art-cell-sm: "0.55rem"
     art-cell-lg: "1.05rem"

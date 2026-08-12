@@ -12,6 +12,36 @@
    third-party request. SIL OFL 1.1.
    `block` rather than `swap`: swapping would show the colour sticker first
    and then replace it, which is the exact thing being fixed. */
+/* Newsreader carries the serif voice on every platform: the old stack fell
+   through Iowan (apple-only) to Times New Roman on windows and android,
+   which is not a voice, it is a shrug. Latin subsets, self-hosted, swap. */
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2191, U+2193;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader-500.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2191, U+2193;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader-400i.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2191, U+2193;
+}
+
 @font-face {
   font-family: "Noto Emoji";
   src: url("/fonts/noto-emoji-pins.woff2") format("woff2");
@@ -36,7 +66,7 @@
   --mono:
     ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono",
     monospace;
-  --serif: Iowan Old Style, Baskerville, "Times New Roman", serif;
+  --serif: "Newsreader", "Iowan Old Style", Baskerville, Georgia, serif;
 
   /* Four sizes. A monospace system does not need more, and every extra size
      was what made the old page read as a circus. */
