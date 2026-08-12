@@ -4,59 +4,424 @@
   "title": "Design System: dmytro klochko — dream / bebop",
   "extensions": {
     "colorMeta": {
-      "dream-void": { "role": "primary", "displayName": "Quiet Dusk Ground", "canonical": "#262b44", "tonalRamp": ["#161927", "#2c324f", "#454f7c", "#626ea7", "#8c95bf", "#b0b6d3", "#d4d8e7", "#eff0f6"] },
-      "dream-deck": { "role": "neutral", "displayName": "Dusk Deck", "canonical": "#2f3554", "tonalRamp": ["#161927", "#2c324e", "#464e7c", "#626da7", "#8d95bf", "#b1b6d3", "#d4d8e7", "#eff0f6"] },
-      "dream-bone": { "role": "neutral", "displayName": "Dusk Bone", "canonical": "#ece6d9", "tonalRamp": ["#292214", "#524529", "#816d41", "#ad945c", "#c4b188", "#d6c9ad", "#e9e2d3", "#f7f4ee"] },
-      "dream-dim": { "role": "neutral", "displayName": "Dusk Dim", "canonical": "#a9aecb", "tonalRamp": ["#171926", "#2e334c", "#495079", "#666fa3", "#9096bc", "#b3b7d1", "#d6d8e6", "#eff0f5"] },
-      "dream-faint": { "role": "neutral", "displayName": "Dusk Faint", "canonical": "#7d82a6", "tonalRamp": ["#191a24", "#323549", "#4f5373", "#6e739c", "#9599b6", "#b6b9cd", "#d8d9e4", "#f0f0f5"] },
-      "dream-cold": { "role": "secondary", "displayName": "Kawase Water", "canonical": "#7fd4d9", "tonalRamp": ["#0e2d2f", "#1c5b5e", "#2c9095", "#42c0c7", "#75d1d6", "#a1dfe3", "#cceef0", "#ebf8f9"] },
-      "dream-hot": { "role": "accent", "displayName": "Kawase Cloud Pink", "canonical": "#ff9bc0", "tonalRamp": ["#3d0017", "#7a002d", "#c20048", "#ff0a65", "#ff4d8f", "#ff85b2", "#ffbdd5", "#ffe5ef"] },
-      "dream-seal": { "role": "accent", "displayName": "Saitō Hanko Vermillion", "canonical": "#c3452e", "tonalRamp": ["#32120c", "#632317", "#9d3725", "#d05039", "#dd806f", "#e8a89c", "#f2d0c9", "#faedea"] },
-      "dream-mat": { "role": "neutral", "displayName": "Print Mat Cream", "canonical": "#fbf3e2", "tonalRamp": ["#362707", "#6c4e0f", "#aa7b17", "#e1a628", "#e9be62", "#f0d293", "#f7e7c5", "#fcf6e9"] },
-      "dream-ember": { "role": "accent", "displayName": "Ember Highlight", "canonical": "#ffd2a3", "tonalRamp": ["#4d3312", "#7a5220", "#a97231", "#d4923f", "#f0ac5e", "#f8c184", "#fcd6ab", "#fee9d1"] },
-      "dream-ember-deep": { "role": "accent", "displayName": "Ember Core", "canonical": "#f08a54", "tonalRamp": ["#4a2410", "#7a3c1b", "#a95428", "#d06c38", "#f08a54", "#f5a878", "#f9c5a0", "#fce2ca"] },
-      "dream-hot-lit": { "role": "accent", "displayName": "Petal Highlight", "canonical": "#ffd3df", "tonalRamp": ["#4d0f22", "#8a1c3e", "#c72e5e", "#f05585", "#ff8bab", "#ffb3c8", "#ffd3df", "#ffedf3"] },
-      "bebop-void": { "role": "primary", "displayName": "Bebop Void", "canonical": "#0e0a11", "tonalRamp": ["#201727", "#3f2d4d", "#64487a", "#8965a4", "#a98fbd", "#c4b2d2", "#dfd5e6", "#f3eff6"] },
-      "bebop-deck": { "role": "neutral", "displayName": "Bebop Deck", "canonical": "#171120", "tonalRamp": ["#1d1528", "#392a50", "#5b437f", "#7d5faa", "#a08ac1", "#beafd5", "#dcd4e8", "#f1eef6"] },
-      "bebop-bone": { "role": "neutral", "displayName": "Bone", "canonical": "#e9e5d8", "tonalRamp": ["#272316", "#4e462c", "#7c6f46", "#a79762", "#bfb38d", "#d3cbb1", "#e7e3d5", "#f6f4ef"] },
-      "bebop-dim": { "role": "neutral", "displayName": "Bebop Dim", "canonical": "#9b90a4", "tonalRamp": ["#1f1c22", "#3e3743", "#62576a", "#867891", "#a79daf", "#c2bcc8", "#dedbe1", "#f2f1f4"] },
-      "bebop-faint": { "role": "neutral", "displayName": "Bebop Faint", "canonical": "#6b6076", "tonalRamp": ["#1f1b22", "#3d3743", "#61576b", "#857891", "#a69daf", "#c2bcc8", "#dedae1", "#f2f1f4"] },
-      "bebop-cold": { "role": "secondary", "displayName": "Cold Lilac", "canonical": "#d8cfe0", "tonalRamp": ["#1f1825", "#3e304a", "#624c76", "#866a9f", "#a793b9", "#c3b5cf", "#ded7e5", "#f2f0f5"] },
-      "bebop-hot": { "role": "accent", "displayName": "Bebop Pink", "canonical": "#ff6fae", "tonalRamp": ["#3d001b", "#7a0036", "#c20055", "#ff0a75", "#ff4d9b", "#ff85ba", "#ffbdda", "#ffe5f1"] }
+      "dream-void": {
+        "role": "primary",
+        "displayName": "Quiet Dusk Ground",
+        "canonical": "#262b44",
+        "tonalRamp": [
+          "#161927",
+          "#2c324f",
+          "#454f7c",
+          "#626ea7",
+          "#8c95bf",
+          "#b0b6d3",
+          "#d4d8e7",
+          "#eff0f6"
+        ]
+      },
+      "dream-deck": {
+        "role": "neutral",
+        "displayName": "Dusk Deck",
+        "canonical": "#2f3554",
+        "tonalRamp": [
+          "#161927",
+          "#2c324e",
+          "#464e7c",
+          "#626da7",
+          "#8d95bf",
+          "#b1b6d3",
+          "#d4d8e7",
+          "#eff0f6"
+        ]
+      },
+      "dream-bone": {
+        "role": "neutral",
+        "displayName": "Dusk Bone",
+        "canonical": "#ece6d9",
+        "tonalRamp": [
+          "#292214",
+          "#524529",
+          "#816d41",
+          "#ad945c",
+          "#c4b188",
+          "#d6c9ad",
+          "#e9e2d3",
+          "#f7f4ee"
+        ]
+      },
+      "dream-dim": {
+        "role": "neutral",
+        "displayName": "Dusk Dim",
+        "canonical": "#a9aecb",
+        "tonalRamp": [
+          "#171926",
+          "#2e334c",
+          "#495079",
+          "#666fa3",
+          "#9096bc",
+          "#b3b7d1",
+          "#d6d8e6",
+          "#eff0f5"
+        ]
+      },
+      "dream-faint": {
+        "role": "neutral",
+        "displayName": "Dusk Faint",
+        "canonical": "#7d82a6",
+        "tonalRamp": [
+          "#191a24",
+          "#323549",
+          "#4f5373",
+          "#6e739c",
+          "#9599b6",
+          "#b6b9cd",
+          "#d8d9e4",
+          "#f0f0f5"
+        ]
+      },
+      "dream-cold": {
+        "role": "secondary",
+        "displayName": "Kawase Water",
+        "canonical": "#7fd4d9",
+        "tonalRamp": [
+          "#0e2d2f",
+          "#1c5b5e",
+          "#2c9095",
+          "#42c0c7",
+          "#75d1d6",
+          "#a1dfe3",
+          "#cceef0",
+          "#ebf8f9"
+        ]
+      },
+      "dream-hot": {
+        "role": "accent",
+        "displayName": "Kawase Cloud Pink",
+        "canonical": "#ff9bc0",
+        "tonalRamp": [
+          "#3d0017",
+          "#7a002d",
+          "#c20048",
+          "#ff0a65",
+          "#ff4d8f",
+          "#ff85b2",
+          "#ffbdd5",
+          "#ffe5ef"
+        ]
+      },
+      "dream-seal": {
+        "role": "accent",
+        "displayName": "Saitō Hanko Vermillion",
+        "canonical": "#c3452e",
+        "tonalRamp": [
+          "#32120c",
+          "#632317",
+          "#9d3725",
+          "#d05039",
+          "#dd806f",
+          "#e8a89c",
+          "#f2d0c9",
+          "#faedea"
+        ]
+      },
+      "dream-mat": {
+        "role": "neutral",
+        "displayName": "Print Mat Cream",
+        "canonical": "#fbf3e2",
+        "tonalRamp": [
+          "#362707",
+          "#6c4e0f",
+          "#aa7b17",
+          "#e1a628",
+          "#e9be62",
+          "#f0d293",
+          "#f7e7c5",
+          "#fcf6e9"
+        ]
+      },
+      "dream-ember": {
+        "role": "accent",
+        "displayName": "Ember Highlight",
+        "canonical": "#ffd2a3",
+        "tonalRamp": [
+          "#4d3312",
+          "#7a5220",
+          "#a97231",
+          "#d4923f",
+          "#f0ac5e",
+          "#f8c184",
+          "#fcd6ab",
+          "#fee9d1"
+        ]
+      },
+      "dream-ember-deep": {
+        "role": "accent",
+        "displayName": "Ember Core",
+        "canonical": "#f08a54",
+        "tonalRamp": [
+          "#4a2410",
+          "#7a3c1b",
+          "#a95428",
+          "#d06c38",
+          "#f08a54",
+          "#f5a878",
+          "#f9c5a0",
+          "#fce2ca"
+        ]
+      },
+      "dream-hot-lit": {
+        "role": "accent",
+        "displayName": "Petal Highlight",
+        "canonical": "#ffd3df",
+        "tonalRamp": [
+          "#4d0f22",
+          "#8a1c3e",
+          "#c72e5e",
+          "#f05585",
+          "#ff8bab",
+          "#ffb3c8",
+          "#ffd3df",
+          "#ffedf3"
+        ]
+      },
+      "bebop-void": {
+        "role": "primary",
+        "displayName": "Bebop Void",
+        "canonical": "#0e0a11",
+        "tonalRamp": [
+          "#201727",
+          "#3f2d4d",
+          "#64487a",
+          "#8965a4",
+          "#a98fbd",
+          "#c4b2d2",
+          "#dfd5e6",
+          "#f3eff6"
+        ]
+      },
+      "bebop-deck": {
+        "role": "neutral",
+        "displayName": "Bebop Deck",
+        "canonical": "#171120",
+        "tonalRamp": [
+          "#1d1528",
+          "#392a50",
+          "#5b437f",
+          "#7d5faa",
+          "#a08ac1",
+          "#beafd5",
+          "#dcd4e8",
+          "#f1eef6"
+        ]
+      },
+      "bebop-bone": {
+        "role": "neutral",
+        "displayName": "Bone",
+        "canonical": "#e9e5d8",
+        "tonalRamp": [
+          "#272316",
+          "#4e462c",
+          "#7c6f46",
+          "#a79762",
+          "#bfb38d",
+          "#d3cbb1",
+          "#e7e3d5",
+          "#f6f4ef"
+        ]
+      },
+      "bebop-dim": {
+        "role": "neutral",
+        "displayName": "Bebop Dim",
+        "canonical": "#9b90a4",
+        "tonalRamp": [
+          "#1f1c22",
+          "#3e3743",
+          "#62576a",
+          "#867891",
+          "#a79daf",
+          "#c2bcc8",
+          "#dedbe1",
+          "#f2f1f4"
+        ]
+      },
+      "bebop-faint": {
+        "role": "neutral",
+        "displayName": "Bebop Faint",
+        "canonical": "#6b6076",
+        "tonalRamp": [
+          "#1f1b22",
+          "#3d3743",
+          "#61576b",
+          "#857891",
+          "#a69daf",
+          "#c2bcc8",
+          "#dedae1",
+          "#f2f1f4"
+        ]
+      },
+      "bebop-cold": {
+        "role": "secondary",
+        "displayName": "Cold Lilac",
+        "canonical": "#d8cfe0",
+        "tonalRamp": [
+          "#1f1825",
+          "#3e304a",
+          "#624c76",
+          "#866a9f",
+          "#a793b9",
+          "#c3b5cf",
+          "#ded7e5",
+          "#f2f0f5"
+        ]
+      },
+      "bebop-hot": {
+        "role": "accent",
+        "displayName": "Bebop Pink",
+        "canonical": "#ff6fae",
+        "tonalRamp": [
+          "#3d001b",
+          "#7a0036",
+          "#c20055",
+          "#ff0a75",
+          "#ff4d9b",
+          "#ff85ba",
+          "#ffbdda",
+          "#ffe5f1"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Section titles: clamp(1.9rem, 4.6vw, 3.9rem). Mono caps, -0.035em, in bebop." },
-      "dream-display-hero": { "displayName": "Dream Hero", "purpose": "The name on /: Zodiak 600 italic lowercase, clamp(3.4rem, 7vw, 6rem)." },
-      "dream-display": { "displayName": "Dream Display", "purpose": "Dream section titles: Zodiak 600 italic lowercase, clamp(2rem, 3.4vw, 2.9rem), -0.015em." },
-      "dream-lede": { "displayName": "Dream Lede", "purpose": "One serif italic opener per section: clamp(1.45rem, 2vw, 1.65rem)." },
-      "dream-prose": { "displayName": "Dream Prose", "purpose": "Newsreader running copy: 1.13rem / 1.66. One compensating step up because serif reads smaller than mono at equal rem." },
-      "lede": { "displayName": "Lede", "purpose": "Bebop's one large paragraph per section: t-lg, -0.02em." },
-      "body": { "displayName": "Body", "purpose": "Running mono copy: t-md 0.98rem, -0.012em, line-height 1.72, measure min(100%, 62ch)." },
-      "small": { "displayName": "Small", "purpose": "t-sm 0.875rem secondary lines." },
-      "label": { "displayName": "Label", "purpose": "t-xs 0.75rem mono caps at 0.18em tracking: nav, labels, captions, machinery in both modes." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Section titles: clamp(1.9rem, 4.6vw, 3.9rem). Mono caps, -0.035em, in bebop."
+      },
+      "dream-display-hero": {
+        "displayName": "Dream Hero",
+        "purpose": "The name on /: Zodiak 600 italic lowercase, clamp(3.4rem, 7vw, 6rem)."
+      },
+      "dream-display": {
+        "displayName": "Dream Display",
+        "purpose": "Dream section titles: Zodiak 600 italic lowercase, clamp(2rem, 3.4vw, 2.9rem), -0.015em."
+      },
+      "dream-lede": {
+        "displayName": "Dream Lede",
+        "purpose": "One serif italic opener per section: clamp(1.45rem, 2vw, 1.65rem)."
+      },
+      "dream-fact": {
+        "displayName": "Dream Fact Value",
+        "purpose": "Hero fact values (--t-fact): 1.22rem serif, a step above prose and below the lede — the elaya label/value grid."
+      },
+      "dream-prose": {
+        "displayName": "Dream Prose",
+        "purpose": "Newsreader running copy: 1.13rem / 1.66. One compensating step up because serif reads smaller than mono at equal rem."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Bebop's one large paragraph per section: t-lg, -0.02em."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running mono copy: t-md 0.98rem, -0.012em, line-height 1.72, measure min(100%, 62ch)."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "t-sm 0.875rem secondary lines."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "t-xs 0.75rem mono caps at 0.18em tracking: nav, labels, captions, machinery in both modes."
+      }
     },
     "shadows": [
-      { "name": "mat-portrait", "value": "0 10px 28px rgb(10 10 26 / 45%)", "purpose": "The portrait in its 8px cream mat; deepens to 0 14px 34px rgb(10 10 26 / 55%) on hover." },
-      { "name": "mat-sheet", "value": "0 8px 22px rgb(10 10 26 / 40%)", "purpose": "Childhood snapshots in 5px mats." },
-      { "name": "mat-wall", "value": "0 8px 20px rgb(10 10 26 / 38%)", "purpose": "Taste-wall prints in 4px mats." },
-      { "name": "mat-hang", "value": "0 10px 26px rgb(10 10 26 / 40%)", "purpose": "The painting hang's 5px-matted frames." },
-      { "name": "peek-print", "value": "0 14px 34px rgb(10 10 26 / 50%)", "purpose": "Peek prints above the cursor in dream (bebop uses 0 10px 30px rgb(0 0 0 / 55%))." },
-      { "name": "caption-dusk", "value": "text-shadow: 0 1px 10px rgb(20 22 40 / 80%), 0 1px 3px rgb(20 22 40 / 60%)", "purpose": "Portrait caption's breath of dusk where it lands on open water, outside the darkest glass." }
+      {
+        "name": "mat-portrait",
+        "value": "0 10px 28px rgb(10 10 26 / 45%)",
+        "purpose": "The portrait in its 8px cream mat; deepens to 0 14px 34px rgb(10 10 26 / 55%) on hover."
+      },
+      {
+        "name": "mat-sheet",
+        "value": "0 8px 22px rgb(10 10 26 / 40%)",
+        "purpose": "Childhood snapshots in 5px mats."
+      },
+      {
+        "name": "mat-wall",
+        "value": "0 8px 20px rgb(10 10 26 / 38%)",
+        "purpose": "Taste-wall prints in 4px mats."
+      },
+      {
+        "name": "mat-hang",
+        "value": "0 10px 26px rgb(10 10 26 / 40%)",
+        "purpose": "The painting hang's 5px-matted frames."
+      },
+      {
+        "name": "peek-print",
+        "value": "0 14px 34px rgb(10 10 26 / 50%)",
+        "purpose": "Peek prints above the cursor in dream (bebop uses 0 10px 30px rgb(0 0 0 / 55%))."
+      },
+      {
+        "name": "caption-dusk",
+        "value": "text-shadow: 0 1px 10px rgb(20 22 40 / 80%), 0 1px 3px rgb(20 22 40 / 60%)",
+        "purpose": "Portrait caption's breath of dusk where it lands on open water, outside the darkest glass."
+      }
     ],
     "motion": [
-      { "name": "ease", "value": "cubic-bezier(0.2, 0, 0.2, 1)", "purpose": "Every transition; dur 200ms, dur-slow 320ms for lifts and mats." },
-      { "name": "scene-crossfade", "value": "opacity 900ms", "purpose": "Fixed scene layers swap when a section claims the sky (IntersectionObserver, −42% centred band)." },
-      { "name": "scene-breathe", "value": "scale 1.04 → 1.1, 70s ease-in-out alternate", "purpose": "The painting breathes; imperceptible per-frame, alive per-minute." },
-      { "name": "scene-parallax", "value": "translateY(scroll × −4vh) translate(px × −14px, py × −9px)", "purpose": "Compositor-only drift against scroll and eased cursor; skipped for reduced motion and coarse pointers." },
-      { "name": "sun-pulse", "value": "7s ease-in-out alternate, mix-blend-mode: soft-light", "purpose": "The painted sun warms and cools on the swim scene only — light over the art, never new art." },
-      { "name": "glint-drift", "value": "9–14s ease-in-out alternate", "purpose": "Four light glints on the water; swim and estuary scenes." },
-      { "name": "petal-fall", "value": "16–26s linear infinite", "purpose": "Six petals, always, in front of everything; l-i-s-a adds sixteen one-shot petals at 2.4–5s." },
-      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce", "purpose": "Kills petals, weather, parallax, scene transitions, and autoplaying video." }
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.2, 0, 0.2, 1)",
+        "purpose": "Every transition; dur 200ms, dur-slow 320ms for lifts and mats."
+      },
+      {
+        "name": "scene-crossfade",
+        "value": "opacity 900ms",
+        "purpose": "Fixed scene layers swap when a section claims the sky (IntersectionObserver, −42% centred band)."
+      },
+      {
+        "name": "scene-breathe",
+        "value": "scale 1.04 → 1.1, 70s ease-in-out alternate",
+        "purpose": "The painting breathes; imperceptible per-frame, alive per-minute."
+      },
+      {
+        "name": "scene-parallax",
+        "value": "translateY(scroll × −4vh) translate(px × −14px, py × −9px)",
+        "purpose": "Compositor-only drift against scroll and eased cursor; skipped for reduced motion and coarse pointers."
+      },
+      {
+        "name": "sun-pulse",
+        "value": "7s ease-in-out alternate, mix-blend-mode: soft-light",
+        "purpose": "The painted sun warms and cools on the swim scene only — light over the art, never new art."
+      },
+      {
+        "name": "glint-drift",
+        "value": "9–14s ease-in-out alternate",
+        "purpose": "Four light glints on the water; swim and estuary scenes."
+      },
+      {
+        "name": "petal-fall",
+        "value": "16–26s linear infinite",
+        "purpose": "Six petals, always, in front of everything; l-i-s-a adds sixteen one-shot petals at 2.4–5s."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Kills petals, weather, parallax, scene transitions, and autoplaying video."
+      }
     ],
     "breakpoints": [
-      { "name": "bay-collapse", "value": "860px", "purpose": "6fr/5fr bays go single-column." },
-      { "name": "glass-full", "value": "900px", "purpose": "Smoked glass steps to brightness(0.5); the hang goes full-width." },
-      { "name": "small", "value": "700–720px", "purpose": "Grids step down; dream portrait caps at min(70%, 300px)." }
+      {
+        "name": "bay-collapse",
+        "value": "860px",
+        "purpose": "6fr/5fr bays go single-column."
+      },
+      {
+        "name": "glass-full",
+        "value": "900px",
+        "purpose": "Smoked glass steps to brightness(0.5); the hang goes full-width."
+      },
+      {
+        "name": "small",
+        "value": "700–720px",
+        "purpose": "Grids step down; dream portrait caps at min(70%, 300px)."
+      }
     ],
     "smokedGlass": {
       "value": "backdrop-filter: brightness(0.48) saturate(0.92) over rgb(24 28 46 / 24%), fixed, full-viewport",
@@ -64,7 +429,10 @@
       "purpose": "Dims the painting itself under cream text; light scenes darken enough, dark scenes barely change. Never opaque paint over the art."
     },
     "sceneMap": {
-      "shipped": { "/": "swim.webp", "/taste": "estuary.webp" },
+      "shipped": {
+        "/": "swim.webp",
+        "/taste": "estuary.webp"
+      },
       "rule": "One painting per URL; every future page claims one of its own. Idle preload of other scenes runs only in dream.",
       "dormant": "Ember and snow weather CSS gates on data-scene fire/snow, which no shipped page names — plumbing, not current behaviour."
     }
@@ -118,11 +486,31 @@
       "cream mats, tilts that straighten on hover, falling petals"
     ],
     "rules": [
-      { "name": "The Sampled/Derived Sky Rule", "body": "Every colour traces to his paintings; all art is his or a professional's. Nothing figurative is invented here — five rejections carved this in stone.", "section": "colors" },
-      { "name": "The Subject Owns The Wing Rule", "body": "Text placement follows the paintings' composition, not habit: the column sits wherever the artwork's subject is not.", "section": "layout" },
-      { "name": "The Glass Never Paints Rule", "body": "Readability comes from dimming the art through smoked glass, never from panels, veils, or colour laid on top.", "section": "elevation" },
-      { "name": "The Arrow Is Inline Rule", "body": ".arw is plain inline with a relative-offset hover hop, never inline-block: an inline-block creates a break opportunity after itself even with no whitespace.", "section": "typography" },
-      { "name": "The Peek Rule", "body": "Words naming something real may lift a small stack of photographs above the cursor. Hover-and-fine-pointer only, so phones see plain text, never a half-working version.", "section": "components" }
+      {
+        "name": "The Sampled/Derived Sky Rule",
+        "body": "Every colour traces to his paintings; all art is his or a professional's. Nothing figurative is invented here — five rejections carved this in stone.",
+        "section": "colors"
+      },
+      {
+        "name": "The Subject Owns The Wing Rule",
+        "body": "Text placement follows the paintings' composition, not habit: the column sits wherever the artwork's subject is not.",
+        "section": "layout"
+      },
+      {
+        "name": "The Glass Never Paints Rule",
+        "body": "Readability comes from dimming the art through smoked glass, never from panels, veils, or colour laid on top.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Arrow Is Inline Rule",
+        "body": ".arw is plain inline with a relative-offset hover hop, never inline-block: an inline-block creates a break opportunity after itself even with no whitespace.",
+        "section": "typography"
+      },
+      {
+        "name": "The Peek Rule",
+        "body": "Words naming something real may lift a small stack of photographs above the cursor. Hover-and-fine-pointer only, so phones see plain text, never a half-working version.",
+        "section": "components"
+      }
     ],
     "dos": [
       "Do derive every colour and every piece of art from his paintings, photographs, or a professional's work.",

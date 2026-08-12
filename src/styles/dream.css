@@ -30,6 +30,7 @@
   --t-prose: 1.13rem;
   --t-prose-sm: 1rem;
   --t-lede: clamp(1.45rem, 2vw, 1.65rem);       /* the serif italic opener */
+  --t-fact: 1.22rem;                            /* fact values: above prose, below the lede */
   --ember: #ffd2a3;                             /* spark highlight, weather */
   --ember-deep: #f08a54;                        /* the ember's molten core */
   --hot-lit: #ffd3df;                           /* pink where the light hits */
@@ -167,7 +168,7 @@
 [data-mode="dream"] .hero-facts dd {
   margin: 0;
   font-family: var(--serif);
-  font-size: 1.22rem;
+  font-size: var(--t-fact);
   color: var(--bone);
 }
 
