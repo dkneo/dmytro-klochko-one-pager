@@ -380,7 +380,7 @@
    Desktop only: the phone has no gutter to spare. */
 @media (min-width: 861px) {
   [data-mode="dream"] .hero-stack figure:nth-child(2) {
-    right: -3%;
+    right: -6%;
   }
 }
 
