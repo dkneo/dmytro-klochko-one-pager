@@ -366,10 +366,18 @@
 [data-mode="dream"] .hero-stack figure:nth-child(1) .cell { transform: rotate(-3.6deg); }
 
 [data-mode="dream"] .hero-stack figure:nth-child(2) {
-  top: 9%;
+  top: 12%;
   right: 0;
-  width: 72%;
+  width: 66%;
   z-index: 2;
+}
+
+/* A nudge into the gutter, where there is room, so korea keeps its face.
+   Desktop only: the phone has no gutter to spare. */
+@media (min-width: 861px) {
+  [data-mode="dream"] .hero-stack figure:nth-child(2) {
+    right: -3%;
+  }
 }
 
 [data-mode="dream"] .hero-stack figure:nth-child(2) .cell { transform: rotate(2.8deg); }
