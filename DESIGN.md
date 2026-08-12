@@ -122,10 +122,13 @@ Serif speaks sentences — prose, ledes, quotes, captions, the sign-off —
 in Newsreader at 1.13rem/1.66. Zodiak (canela-blooded, 300 roman hero, 400 italic titles) is the display voice:
 lowercase real headings at clamp(2rem, 3.4vw, 2.9rem), the hero name at
 clamp(3.4rem, 7vw, 6rem). Mono keeps the machinery (nav, labels,
-figcaptions on machinery objects). Highlights are the pink marker swash —
-a translucent pink underlay cloned across line wraps — never wavy
-underlines, never em-dashes; spaced en dashes. The current nav page is
-held in pink parentheses (bebop uses brackets).
+figcaptions on machinery objects). Highlights are pink italic — voice
+change, nothing painted behind the words (the marker swash retired when
+the elaya hero landed) — never wavy underlines, never em-dashes; spaced
+en dashes. The hero name at clamp(3.4rem, 7vw, 6rem) became one spoken
+sentence at clamp(2rem, 3.5vw, 3.35rem) with thin still underlines on the
+words that go somewhere. The current nav page is held in pink parentheses
+(bebop uses brackets).
 
 ### Ambient Life & Eggs
 

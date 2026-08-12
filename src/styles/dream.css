@@ -54,7 +54,8 @@
 [data-mode="dream"] .kawase { display: none; }
 
 [data-mode="dream"] .ascii--joi,
-[data-mode="dream"] .ascii--fun {
+[data-mode="dream"] .ascii--fun,
+[data-mode="dream"] .ascii--bebop {
   display: none;
 }
 
@@ -66,6 +67,71 @@
 [data-mode="dream"] #now .joi-col,
 [data-mode="dream"] #before .joi-col {
   display: none;
+}
+
+[data-mode="dream"] .hi-stack {
+  position: relative;
+  align-self: center;
+  width: 100%;
+  aspect-ratio: 1 / 1.06;
+}
+
+[data-mode="dream"] .hi-stack figure {
+  position: absolute;
+  margin: 0;
+}
+
+[data-mode="dream"] .hi-stack .cell {
+  display: block;
+  background: var(--mat);
+  padding: 0.45rem;
+  border-radius: 2px;
+  box-shadow: 0 14px 34px rgb(10 12 24 / 45%);
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .hi-stack img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1px;
+}
+
+[data-mode="dream"] .hi-stack figure:nth-child(1) {
+  top: 0;
+  left: 4%;
+  width: 44%;
+  z-index: 1;
+}
+
+[data-mode="dream"] .hi-stack figure:nth-child(1) .cell { transform: rotate(-3.4deg); }
+
+[data-mode="dream"] .hi-stack figure:nth-child(2) {
+  top: 12%;
+  right: 0;
+  width: 55%;
+  z-index: 2;
+}
+
+[data-mode="dream"] .hi-stack figure:nth-child(2) .cell { transform: rotate(2.4deg); }
+
+[data-mode="dream"] .hi-stack figure:nth-child(3) {
+  bottom: 0;
+  left: 14%;
+  width: 62%;
+  z-index: 3;
+}
+
+[data-mode="dream"] .hi-stack figure:nth-child(3) .cell { transform: rotate(-1.2deg); }
+
+[data-mode="dream"] .hi-stack figure:hover .cell {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* The record stands alone on taste now. */
+.solo {
+  display: flex;
+  justify-content: center;
 }
 
 /* The vinyl keeps spinning, in dusk and pink. */
@@ -184,13 +250,53 @@
   border-color: var(--hot);
 }
 
+/* The replika mark rides the sentence, pink, sized to the type. */
+[data-mode="dream"] .sent-mark {
+  display: inline-block;
+  width: 0.92em;
+  height: 0.92em;
+  margin-right: 0.16em;
+  vertical-align: -0.12em;
+  background: var(--hot);
+  mask: var(--mark) center / contain no-repeat;
+  -webkit-mask: var(--mark) center / contain no-repeat;
+}
+
+[data-mode="dream"] .hero-side {
+  align-self: center;
+  display: grid;
+  gap: var(--sp-2);
+  justify-items: end;
+}
+
+[data-mode="dream"] .hero-hi {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--dim);
+  text-decoration: none;
+  padding: 0.3rem 0;
+  transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .hero-hi:hover {
+  color: var(--hot);
+}
+
 /* The trio of prints the first version opened with, back as a loose pile.
    Mats from the same drawer as every other print in dream. */
 [data-mode="dream"] .hero-stack {
   position: relative;
-  align-self: center;
   width: 100%;
-  aspect-ratio: 1 / 1.02;
+  aspect-ratio: 1 / 1.04;
+}
+
+[data-mode="dream"] .hero-stack video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1px;
 }
 
 @media (max-width: 860px) {
@@ -224,30 +330,30 @@
 
 [data-mode="dream"] .hero-stack figure:nth-child(1) {
   top: 0;
-  left: 2%;
-  width: 54%;
+  left: 0;
+  width: 47%;
   z-index: 1;
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(1) .cell { transform: rotate(-4deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(1) .cell { transform: rotate(-3.6deg); }
 
 [data-mode="dream"] .hero-stack figure:nth-child(2) {
-  top: 7%;
+  top: 9%;
   right: 0;
-  width: 52%;
+  width: 56%;
   z-index: 2;
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(2) .cell { transform: rotate(3.2deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(2) .cell { transform: rotate(2.8deg); }
 
 [data-mode="dream"] .hero-stack figure:nth-child(3) {
-  bottom: 0;
-  left: 13%;
-  width: 72%;
+  bottom: 4%;
+  left: 10%;
+  width: 74%;
   z-index: 3;
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(3) .cell { transform: rotate(-1.6deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(3) .cell { transform: rotate(-1.4deg); }
 
 [data-mode="dream"] .hero-stack figure:hover .cell {
   transform: rotate(0deg) scale(1.025);
@@ -301,15 +407,13 @@
   letter-spacing: 0.02em;
 }
 
-/* The pink marker swash, cloned across wraps — never a wavy underline. */
+/* Accent: pink italic, nothing painted behind it. The marker swash read as
+   a smear on the new hero; the voice change is enough. */
 [data-mode="dream"] .prose b {
   color: var(--hot);
-  padding-inline: 0.1em;
-  margin-inline: -0.1em;
-  background: linear-gradient(to top, rgb(255 155 192 / 18%) 0 0.55em, transparent 0.55em);
-  border-radius: 3px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  font-style: italic;
+  font-weight: 400;
+  background: none;
 }
 
 [data-mode="dream"] .site-nav a[aria-current="page"]::before,
@@ -326,7 +430,44 @@
 
 [data-mode="dream"] .research a.is-quoted::before,
 [data-mode="dream"] .research a.is-quoted::after {
-  color: rgb(255 155 192 / 55%);
+  color: rgb(236 230 217 / 45%);
+}
+
+/* Receipts stack as one reading column: time, the manifesto, the research.
+   The label row is bebop furniture; the sources speak for themselves here. */
+[data-mode="dream"] .receipts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .research-lbl {
+  display: none;
+}
+
+[data-mode="dream"] .research {
+  gap: var(--sp-2);
+}
+
+[data-mode="dream"] .research a {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .research a:hover {
+  color: var(--hot);
+}
+
+[data-mode="dream"] .receipt-src--plain {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--dim);
 }
 
 /* ── the journey ────────────────────────────────────────────────────────────
@@ -650,7 +791,22 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 }
 
 [data-mode="dream"] .gloss {
-  border-radius: 999px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px dotted rgb(236 230 217 / 50%);
+  background: none;
+  color: inherit;
+}
+
+[data-mode="dream"] .gloss:hover,
+[data-mode="dream"] .gloss[aria-expanded="true"] {
+  border-color: var(--bone);
+  background: none;
+}
+
+[data-mode="dream"] .gloss-note {
+  border-color: rgb(236 230 217 / 30%);
 }
 
 /* The redon still says hi, contained and bordered like everything else. */

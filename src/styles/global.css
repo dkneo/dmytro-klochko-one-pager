@@ -72,7 +72,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  unicode-range: U+1F5FC-1F5FD;
+  unicode-range: U+1F680, U+1F5FC-1F5FD;
 }
 
 :root {
