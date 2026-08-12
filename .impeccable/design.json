@@ -1,6 +1,6 @@
 {
  "schemaVersion": 2,
- "generatedAt": "2026-08-12T08:16:10Z",
+ "generatedAt": "2026-08-12T12:35:38Z",
  "title": "Design System: dmytro klochko \u2014 dream / bebop",
  "extensions": {
   "colorMeta": {
@@ -513,6 +513,21 @@
      "#d8d9e4",
      "#f0f0f5"
     ]
+   },
+   "journey-lane": {
+    "role": "neutral",
+    "displayName": "Reading Lane Dusk",
+    "canonical": "#181c2e",
+    "tonalRamp": [
+     "#0a0c13",
+     "#141726",
+     "#1f2439",
+     "#2a304d",
+     "#3d4569",
+     "#5a628c",
+     "#8a91b3",
+     "#c4c8dc"
+    ]
    }
   },
   "typographyMeta": {
@@ -554,11 +569,11 @@
    }
   },
   "decorative": [
-   "sakura petals: 6, own clocks 16-26s, \u226455% opacity, hidden under reduced-motion",
-   "bokashi ground: fixed vertical wash #232948\u2192#2c3357\u2192#33406b",
-   "kawase washes: pink/water/moon radials, blur 46px, pointer parallax",
-   "hanko seals on section numbers: vermillion, rotated -3\u00b0, re-press on header hover",
-   "grain: svg turbulence at 5-6%, overlay"
+   "journey scenes: 8 fixed 4K paintings, crossfade 900ms by section, parallax on scroll+cursor",
+   "reading lane: feathered dusk column min(54rem,100%)",
+   "sakura petals: 6, in front, reduced-motion hides",
+   "grain: svg turbulence 4% overlay",
+   "hanko seals inline beside titles, re-press on hover"
   ],
   "shadows": [
    "print mat: 0 18px 44px rgb(12 12 30 / 42%)",

@@ -94,15 +94,18 @@ register. Highlights are run over with a pink marker swash — never a wavy
 underline, which reads as a spellcheck error, and never an em-dash in
 prose; dashes are spaced en dashes.
 
-### Art
+### Art — The Journey
 
-The ASCII figures hide. Kawase's twilight IS the sky: full-bleed behind
-the first screen of both pages like the title of a quiet japanese game,
-breathing on a sixty-second clock, leaning with the cursor, its bottom
-edge masked into the dusk. Bradford hangs only on taste; Redon's cyclops
-still says hi. The bays that lost their art column collapse to one column
-rather than keeping an empty grid track. The vinyl ASCII on taste keeps
-spinning: the shader reads its palette live from CSS.
+His own paintings (Seedream, 4K, chosen and named perfect-N by him) run
+full-bleed as fixed scenes, one per chapter, crossfading 900ms as the
+section nearest mid-viewport claims the sky: the swimmer under the sun
+opens, fuji rafts for replika, sunflowers before, the campfire for how he
+works, the boy fishing for childhood, the lavender walk on camera, the
+snowlit village to say hi, the estuary for taste. Scenes parallax against
+scroll and cursor (compositor transforms only). A feathered dusk reading
+lane (rgb(24 28 46), 30→68% core) holds the column legible over any
+scene; full-width solid 72% on phones. First scene loads eager; the rest
+preload on idle. The vinyl ASCII on taste keeps spinning.
 
 ### Photographs
 

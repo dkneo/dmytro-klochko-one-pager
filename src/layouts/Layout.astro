@@ -98,10 +98,19 @@ const nav = [
       <span class="stars-glow"></span>
     </div>
 
-    <!-- The painted sky: generated in this repo (scripts render an SVG dusk
-         after kawase's palette at 4096px — flat planes, terraced clouds, one
-         low sun), fixed behind the whole page, leaning with the cursor. -->
-    <div class="kawase" aria-hidden="true"><i></i></div>
+    <!-- The journey. Each chapter of the page names a scene — his own
+         paintings — and the sky crossfades to match as you scroll. All
+         layers are fixed; only opacity and compositor transforms move. -->
+    <div class="scenes" aria-hidden="true">
+      <i data-s="swim"></i>
+      <i data-s="fuji"></i>
+      <i data-s="fields"></i>
+      <i data-s="fire"></i>
+      <i data-s="dock"></i>
+      <i data-s="lavender"></i>
+      <i data-s="snow"></i>
+      <i data-s="estuary"></i>
+    </div>
 
     <!-- The dream sky: an orange moon and a slow field of stars, after
          katherine bradford's Swimmers Under Orange Moon, which hangs on the
@@ -238,6 +247,32 @@ const nav = [
           }, 1400);
         });
       }
+    </script>
+
+    <!-- Scene switching: the section nearest the middle of the window owns
+         the sky. IntersectionObserver with a centred band, no scroll math,
+         and the first scene is painted before any observation happens. -->
+    <script is:inline>
+      (() => {
+        const sections = document.querySelectorAll("[data-scene]");
+        if (!sections.length) return;
+        const root = document.documentElement;
+        root.dataset.scene = sections[0].dataset.scene;
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) root.dataset.scene = e.target.dataset.scene;
+          }
+        }, { rootMargin: "-42% 0px -42% 0px" });
+        for (const s of sections) io.observe(s);
+        // the rest of the journey loads once the page is idle
+        const later = () => {
+          for (const i of document.querySelectorAll(".scenes i")) {
+            const img = new Image();
+            img.src = `/images/scenes/${i.dataset.s}.webp`;
+          }
+        };
+        ("requestIdleCallback" in window) ? requestIdleCallback(later, { timeout: 4000 }) : setTimeout(later, 2500);
+      })();
     </script>
 
     <script is:inline>
