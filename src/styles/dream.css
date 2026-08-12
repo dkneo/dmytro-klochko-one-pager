@@ -285,8 +285,14 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 @media (max-width: 900px) {
   [data-mode="dream"] body::before {
     width: 100%;
+    -webkit-backdrop-filter: brightness(0.58) saturate(0.92);
+    backdrop-filter: brightness(0.58) saturate(0.92);
     -webkit-mask-image: none;
     mask-image: none;
+  }
+
+  [data-mode="dream"] .hang {
+    width: 100%;
   }
 }
 
@@ -502,7 +508,14 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 /* ── taste page ─────────────────────────────────────────────────────────── */
 
 [data-mode="dream"] .wall {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-2);
+}
+
+[data-mode="dream"] .wall figure {
+  width: calc((100% - 2 * var(--sp-2)) / 3);
 }
 
 [data-mode="dream"] .wall .cell {
@@ -525,6 +538,17 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   width: min(100%, 19rem);
 }
 
+/* The paintings deserve width: the hang breaks out of the reading lane
+   into the painting's open wing, four true-proportion frames per row. */
+[data-mode="dream"] .hang {
+  width: min(72rem, calc(100vw - 2 * var(--gutter)));
+}
+
+[data-mode="dream"] .poems {
+  grid-template-columns: 1fr;
+  max-width: 34rem;
+}
+
 [data-mode="dream"] .hang figure {
   border: 5px solid var(--mat);
   border-radius: 3px;
@@ -536,6 +560,11 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 
 [data-mode="dream"] .hang figure:hover {
   transform: translateY(-3px);
+}
+
+[data-mode="dream"] .wall figcaption,
+[data-mode="dream"] .sheet figcaption {
+  color: var(--dim);
 }
 
 [data-mode="dream"] .hang figcaption {
