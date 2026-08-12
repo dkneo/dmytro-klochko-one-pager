@@ -72,9 +72,11 @@ const shots = [
 // His words. Highlighted one phrase per paragraph; more than that stops being
 // emphasis.
 const ways = [
-  'natural aptitude for <b>taste</b>, action bias, &amp; having too much fun shipping. <b>clairvoyance</b>, aggressive optimism. following my nose. very fucking clean and direct in my comms.',
-  "culture in my teams is something i'm incredibly proud of: violent intolerance for mediocre work. anime-level <b>fellowship</b> &amp; camaraderie. fearlessness. relentless pursuit of the mission.",
-  "an obsession with customers {more users in my slack than team members lol}. making my products <b>feel like magic</b>. extensive experience working with the world's best brand agencies.",
+  "i'm intense and hands-on: everyone reports directly to me, i write the architecture and the prompts, push code to production, and i am big on all-nighters.",
+  'my sense of urgency is outstanding. but i know where to slow down – to <b>go dreamy</b>, reach the next peak of ideas, find serendipity, and make the 10x thing that doesn&rsquo;t exist yet.',
+  'i have a natural aptitude for <b>taste</b> and strong action bias. i am aggressively optimistic and <b>clairvoyant</b>, so i am best at building futuristic products.',
+  "the culture in my teams is something i'm immodestly proud of: intolerance for mediocre work. <b>anime-level fellowship</b> &amp; camaraderie. fearlessness. relentless pursuit of the mission.",
+  "i have more users in my slack than team members lol.",
 ] as const;
 
 const press = {
@@ -157,7 +159,7 @@ const description =
             <a class="peek" data-peek="/video/vlog-vienna-poster.jpg" href="https://www.univie.ac.at/en/" target="_blank" rel="noreferrer">university of vienna<span class="arw">↗</span></a>.
           </p>
           <p>
-            currently: building a replika spinoff {"{"}in stealth{"}"} – a truly novel and beautiful{" "}
+            currently: building a replika spinoff {"{"}in stealth{"}"}. a truly novel and beautiful{" "}
             <b>agentic ai with real eq</b>, brought to everyone: to help people come back to who
             they really are, unleash it to the fullest, and flourish. meanwhile still shepherding
             replika itself, shipping updates daily.
@@ -172,13 +174,17 @@ const description =
             <dt>based between</dt>
             <dd>
               <span class="pin" aria-hidden="true">🗽</span>nyc,{" "}
-              <span class="pin" aria-hidden="true">🗼</span><span class="peek" data-peek="/video/vlog-paris-poster.jpg">paris</span> &amp;{" "}
+              <span class="pin" aria-hidden="true">🗼</span><span class="peek" data-peek="/video/vlog-paris-poster.jpg">paris</span>,{" "}
               <span class="pin" aria-hidden="true">🚀</span>sf
             </dd>
           </div>
           <div>
-            <dt>specialities</dt>
-            <dd>ai, product &amp; startups</dd>
+            <dt>vocation</dt>
+            <dd>conversational ai, startups, growth</dd>
+          </div>
+          <div>
+            <dt>best at</dt>
+            <dd>0→1, taste, futurism</dd>
           </div>
           <div>
             <dt>say hi</dt>
@@ -311,33 +317,6 @@ const description =
       </li>
     </ul>
 
-    <p class="poem-by">the merch – because it's cool.</p>
-
-    <div class="sheet sheet--swag">
-      <figure>
-        <span class="cell">
-          <img src="/images/swag-label.jpg" alt="A garment label reading: glad we're in this together. Replika, 2025" loading="lazy" />
-        </span>
-        <figcaption>the label</figcaption>
-      </figure>
-      <figure>
-        <span class="cell">
-          <img src="/images/swag-hoodie.jpg" alt="A green Replika hoodie on a chair against a deep blue backdrop" loading="lazy" />
-        </span>
-        <figcaption>the hoodie</figcaption>
-      </figure>
-      <figure>
-        <span class="cell">
-          <img src="/images/swag-team.jpg" alt="Dmytro and a colleague in Replika swag by a lake" loading="lazy" />
-        </span>
-        <figcaption>worn in</figcaption>
-      </figure>
-    </div>
-    <p class="credit">
-      replika's 2025 merch. i designed it,{" "}
-      <a href="https://x.com/replika/status/1991136959385817336" target="_blank" rel="noreferrer">down
-      to the label<span class="arw">↗</span></a>
-    </p>
 
   </section>
 
@@ -396,20 +375,11 @@ const description =
 
     <div class="bay">
       <div class="prose">
-        <p>
-          i'm intense and hands-on. i don't hire managers. i write the architecture and the
-          prompts, i push code to production, and i have fixed things in prod at two in the
-          morning more than once.
-        </p>
-        <p>
-          my sense of urgency is outstanding. but i know where to slow down – to{" "}
-          <b>go dreamy</b>, to reach the next peak of ideas, to find serendipity, to make the 10x
-          thing that hasn't existed before. fast, decisive, unafraid of starting from scratch –
-          and full of love, poetry &amp; liberal arts, carrying unorthodox ideas.
-        </p>
         <p set:html={ways[0]} />
         <p set:html={ways[1]} />
         <p set:html={ways[2]} />
+        <p set:html={ways[3]} />
+        <p set:html={ways[4]} />
       </div>
 
       <figure class="lynch">
