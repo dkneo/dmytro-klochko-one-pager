@@ -72,63 +72,71 @@ the named rules, the failures they were earned from — still applies inside
 bebop mode, and most of it (the spacing scale, the type discipline, the
 target sizes, the Found Object rule) applies everywhere.
 
-## Dream Mode (behind the toggle, being rebuilt)
+## Dream Mode (behind the toggle) — The Journey
 
-Built from three paintings that hang on the taste page, not from a mood
-board:
+His own paintings (Seedream, 4K, chosen and named perfect-N by him) run
+full-bleed as fixed scenes in **three night acts**: the swimmer under the
+orange sun opens (name → before replika), the campfire carries the middle
+(how i work → on camera), the snowlit village closes (say hi); taste keeps
+the pale estuary alone — one painting per URL there, and per future page.
+The section nearest mid-viewport claims the sky (IntersectionObserver,
+centred band); scenes crossfade 900ms and parallax against scroll and
+cursor, compositor transforms only. Idle preloading of the remaining
+scenes runs **only in dream** — bebop visitors pay nothing until they
+toggle.
 
-- **Katherine Bradford, Swimmers Under Orange Moon** — the dusk ground
-  (`#2c3357`, sampled), the orange moon fixed in the corner sky, the warm
-  cream of the type.
-- **Hasui Kawase's twilight** — the pink cloud and turquoise water washes
-  that drift behind the page, and the bokashi: the page ground is a graded
-  wash like the sky of a woodblock print, viewport-fixed.
-- **Kiyoshi Saitō's snow night** — the quiet, the star field, and his red
-  hanko seal, which stamps every section number: vermillion block, cream
-  numeral, rotated 3° off true the way a hand stamps.
+### Readability — Smoked Glass
+
+The reading lane is `backdrop-filter: brightness(0.5) saturate(0.9)` over
+the left side of the viewport, masked to feather rightward: it dims the
+painting itself under the column, never lays colour over the art. Light
+scenes darken exactly enough for cream text; dark scenes barely change.
+Phones use brightness(0.58) full-width. Gradient fallback where
+backdrop-filter is unsupported.
+
+### Layout — The Left Column
+
+One ~40rem column, anchored left (`margin-inline: max(gutter, 5vw) auto`)
+because his paintings put their subjects centre-right — the swimmer, the
+sun, the village — and the open right wing belongs to them. Letter-scale
+type (the dream ramp in frontmatter). Section numbers are gone in dream;
+titles stand alone. Grids stay symmetric: reel 2-up, sheet 3-up, wall a
+centred pyramid when its count is odd, the painting gallery breaking out
+of the lane to 72rem with rows that resolve to equal heights.
 
 ### Voice
 
-The Two Voices Rule inverts. Serif is everything spoken in sentences —
-display titles (italic, lowercase), ledes, prose, quotes, the sign-off.
-Mono retreats to the machinery: nav, numbers, labels, captions, the
-register. Highlights are run over with a pink marker swash — never a wavy
-underline, which reads as a spellcheck error, and never an em-dash in
-prose; dashes are spaced en dashes.
+Serif speaks sentences — titles (italic, lowercase), ledes, prose,
+quotes, the sign-off. Mono keeps the machinery. Highlights are the pink
+marker swash — never wavy underlines, never em-dashes; spaced en dashes.
 
-### Art — The Journey
+### Scene Weather & Eggs
 
-His own paintings (Seedream, 4K, chosen and named perfect-N by him) run
-full-bleed as fixed scenes, one per chapter, crossfading 900ms as the
-section nearest mid-viewport claims the sky: the swimmer under the sun
-opens, fuji rafts for replika, sunflowers before, the campfire for how he
-works, the boy fishing for childhood, the lavender walk on camera, the
-snowlit village to say hi, the estuary for taste. Scenes parallax against
-scroll and cursor (compositor transforms only). A feathered dusk reading
-lane (rgb(24 28 46), 30→68% core) holds the column legible over any
-scene; full-width solid 72% on phones. First scene loads eager; the rest
-preload on idle. The vinyl ASCII on taste keeps spinning.
+When the campfire holds the sky, ten embers rise and die mid-air; when
+the village does, sixteen snowflakes fall — pure CSS, gated by scene,
+faded on the scenes' own 900ms clock, hidden under reduced motion. Six
+petals fall always. Typing l-i-s-a showers sixteen more. Clicking an
+email copies it and the label whispers "copied ✓".
 
 ### Photographs
 
-Mounted, not filed. The portrait hangs straight in a cream mat
-(`--mat #fbf3e2`); the childhood snapshots keep a small alternating tilt,
-because childhood photographs live in shoeboxes, not frames. Video plays
-in colour — grayscale was the noir talking.
+The portrait sits at 200px in a deep cream mat beside the words, its
+caption carrying a breath of dusk shadow because it lands outside the
+lane on open water. Childhood snapshots keep their alternating tilt.
+Video plays in colour.
 
 ### Named Rules (dream)
 
-**The Sampled Sky Rule.** Every dream colour traces to a specific painting
-on the taste page. New colours enter by being sampled, not invented.
+**The Sampled/Derived Sky Rule.** Every colour traces to his paintings;
+all art is his or a professional's. Nothing figurative is invented here —
+five rejections carved this in stone.
 
-**The Seal Hugs Its Number Rule.** `.card-no` carries `width: fit-content`
-because on a phone the number leaves the margin and becomes a block — the
-stamp once stretched into a 351px red bar.
+**The Subject Owns The Wing Rule.** Text placement follows the paintings'
+composition, not habit: the column sits wherever the artwork's subject
+is not.
 
-**The Moon Yields Rule.** The moon is `z-index: 0` scenery: it passes
-behind photographs like a moon behind rooftops, and on phones it moves to
-the corner above the wrapped nav, where it once sat on the toggle and read
-"BEBOP M🌕DE".
+**The Glass Never Paints Rule.** Readability comes from dimming the art
+through smoked glass, never from panels, veils, or colour laid on top.
 
 ## Bebop Mode
 

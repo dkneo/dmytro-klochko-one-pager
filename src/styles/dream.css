@@ -406,6 +406,10 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 [data-mode="dream"] .bay .portrait figcaption {
   position: static;
   margin-top: 0.5rem;
+  /* The caption lands outside the smoked lane, on open water: it speaks
+     bone with its own breath of dusk so the sun cannot wash it out. */
+  color: var(--dim);
+  text-shadow: 0 1px 10px rgb(20 22 40 / 80%), 0 1px 3px rgb(20 22 40 / 60%);
 }
 
 [data-mode="dream"] .reg li {

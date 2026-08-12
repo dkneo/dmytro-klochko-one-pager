@@ -296,14 +296,22 @@ const nav = [
           }
         }, { rootMargin: "-42% 0px -42% 0px" });
         for (const s of sections) io.observe(s);
-        // the rest of the journey loads once the page is idle
+        // the rest of the journey loads once the page is idle — but only
+        // for eyes that will see it: bebop visitors pay nothing until the
+        // moment they go dreamy.
+        let warmed = false;
         const later = () => {
+          if (warmed || root.dataset.mode !== "dream") return;
+          warmed = true;
           for (const i of document.querySelectorAll(".scenes i")) {
             const img = new Image();
             img.src = `/images/scenes/${i.dataset.s}.webp`;
           }
         };
-        ("requestIdleCallback" in window) ? requestIdleCallback(later, { timeout: 4000 }) : setTimeout(later, 2500);
+        const idle = () => ("requestIdleCallback" in window)
+          ? requestIdleCallback(later, { timeout: 4000 }) : setTimeout(later, 2500);
+        idle();
+        new MutationObserver(idle).observe(root, { attributes: true, attributeFilter: ["data-mode"] });
       })();
     </script>
 
