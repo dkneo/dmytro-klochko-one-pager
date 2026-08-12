@@ -72,7 +72,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  unicode-range: U+1F680, U+1F5FC-1F5FD;
+  unicode-range: U+1F485, U+1F680, U+1F5FC-1F5FD;
 }
 
 :root {
@@ -464,6 +464,18 @@ svg.pin {
   grid-column: 2 / -1;
   color: var(--faint);
   font-size: var(--t-sm);
+}
+
+/* One company, named by the heading above it: what it is, then the role.
+   Its own grid, because outside .reg li the two spans ran together. */
+.reg-line {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0 0 var(--sp-3);
+}
+
+.reg-line .reg-role {
+  grid-column: 1;
 }
 
 /* ── receipts ───────────────────────────────────────────────────────────── */

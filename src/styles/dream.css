@@ -136,6 +136,50 @@
   justify-content: center;
 }
 
+/* Upbringing reads as a life, not a numbered list: one thread down the
+   margin, a bead at every year, the last one lit because it is still now. */
+[data-mode="dream"] .log li {
+  position: relative;
+  grid-template-columns: 1.75rem 1fr;
+  gap: 0.9rem;
+  padding-bottom: var(--sp-2);
+}
+
+[data-mode="dream"] .log li::before {
+  content: "";
+  justify-self: center;
+  align-self: start;
+  width: 7px;
+  height: 7px;
+  margin-top: 0.66em;
+  border-radius: 50%;
+  background: rgb(236 230 217 / 45%);
+  transition: background var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .log li:last-child::before {
+  background: var(--hot);
+  box-shadow: 0 0 0 4px rgb(255 155 192 / 16%);
+}
+
+[data-mode="dream"] .log li::after {
+  content: "";
+  position: absolute;
+  left: calc(0.875rem - 0.5px);
+  top: calc(0.66em + 11px);
+  bottom: -2px;
+  width: 1px;
+  background: rgb(236 230 217 / 16%);
+}
+
+[data-mode="dream"] .log li:last-child::after {
+  display: none;
+}
+
+[data-mode="dream"] .log li:hover::before {
+  background: var(--hot);
+}
+
 /* The vinyl keeps spinning, in dusk and pink. */
 [data-mode="dream"] .ascii {
   --ink-void: #262b44;
@@ -354,6 +398,22 @@
 
 [data-mode="dream"] .card-no {
   display: none;
+}
+
+[data-mode="dream"] .reg-line {
+  display: grid;
+  gap: 0.1rem;
+  margin: 0 0 var(--sp-2);
+}
+
+[data-mode="dream"] .card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .card-title a:hover {
+  color: var(--hot);
 }
 
 [data-mode="dream"] .card-what {
