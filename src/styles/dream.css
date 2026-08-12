@@ -369,7 +369,7 @@
   top: 12%;
   right: 0;
   width: 66%;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* A nudge into the gutter, where there is room, so korea keeps its face.
@@ -386,7 +386,7 @@
   bottom: 4%;
   left: 10%;
   width: 74%;
-  z-index: 3;
+  z-index: 2;
 }
 
 [data-mode="dream"] .hero-stack figure:nth-child(3) .cell { transform: rotate(-1.4deg); }
