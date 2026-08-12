@@ -26,8 +26,8 @@
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Section titles: clamp(1.9rem, 4.6vw, 3.9rem). Mono caps, -0.035em, in bebop." },
-      "dream-display-hero": { "displayName": "Dream Hero", "purpose": "The name on /: Fraunces 600 italic lowercase, clamp(3.4rem, 7vw, 6rem)." },
-      "dream-display": { "displayName": "Dream Display", "purpose": "Dream section titles: Fraunces 600 italic lowercase, clamp(2rem, 3.4vw, 2.9rem), -0.015em." },
+      "dream-display-hero": { "displayName": "Dream Hero", "purpose": "The name on /: Zodiak 600 italic lowercase, clamp(3.4rem, 7vw, 6rem)." },
+      "dream-display": { "displayName": "Dream Display", "purpose": "Dream section titles: Zodiak 600 italic lowercase, clamp(2rem, 3.4vw, 2.9rem), -0.015em." },
       "dream-lede": { "displayName": "Dream Lede", "purpose": "One serif italic opener per section: clamp(1.45rem, 2vw, 1.65rem)." },
       "dream-prose": { "displayName": "Dream Prose", "purpose": "Newsreader running copy: 1.13rem / 1.66. One compensating step up because serif reads smaller than mono at equal rem." },
       "lede": { "displayName": "Lede", "purpose": "Bebop's one large paragraph per section: t-lg, -0.02em." },
@@ -102,19 +102,19 @@
     {
       "name": "Dream Section Title",
       "kind": "custom",
-      "description": "A real heading in the display voice: Fraunces 600 italic, lowercase, no section number in dream.",
+      "description": "A real heading in the display voice: Zodiak 600 italic, lowercase, no section number in dream.",
       "html": "<h2 class=\"ds-dream-title\">before replika</h2>",
-      "css": ".ds-dream-title { margin: 0; padding: 1rem; background: #262b44; color: #ece6d9; font-family: 'Fraunces', 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; font-size: clamp(2rem, 3.4vw, 2.9rem); letter-spacing: -0.015em; text-transform: none; }"
+      "css": ".ds-dream-title { margin: 0; padding: 1rem; background: #262b44; color: #ece6d9; font-family: 'Zodiak', 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; font-size: clamp(2rem, 3.4vw, 2.9rem); letter-spacing: -0.015em; text-transform: none; }"
     }
   ],
   "narrative": {
     "northStar": "Two skies over one markup: a terminal in deep space (bebop, default) and his own paintings full-bleed behind smoked glass (dream, behind the toggle).",
-    "overview": "The site ships two complete art directions over the same HTML, switched by data-mode on the root, chosen before first paint. Dream inherits bebop's layout wholesale — the 78rem shell, the 6fr/5fr bays, the 62ch measure, every grid — and only reskins what sits on them: one of his 4K paintings per URL as a fixed, breathing, parallaxing scene, read through full-viewport smoked glass. Serif speaks sentences (Newsreader 1.13rem/1.66, Fraunces 600 italic for display); mono keeps the machinery. Pink is his favourite colour and the only accent.",
+    "overview": "The site ships two complete art directions over the same HTML, switched by data-mode on the root, chosen before first paint. Dream inherits bebop's layout wholesale — the 78rem shell, the 6fr/5fr bays, the 62ch measure, every grid — and only reskins what sits on them: one of his 4K paintings per URL as a fixed, breathing, parallaxing scene, read through full-viewport smoked glass. Serif speaks sentences (Newsreader 1.13rem/1.66, Zodiak 600 italic for display); mono keeps the machinery. Pink is his favourite colour and the only accent.",
     "keyCharacteristics": [
       "one painting per URL, full-bleed, breathing",
       "smoked glass readability — dim the art, never paint over it",
       "bebop's bones under both modes",
-      "serif/mono two-voice; Fraunces italic display",
+      "serif/mono two-voice; Zodiak italic display",
       "cream mats, tilts that straighten on hover, falling petals"
     ],
     "rules": [

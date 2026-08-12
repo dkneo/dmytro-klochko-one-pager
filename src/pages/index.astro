@@ -118,16 +118,28 @@ const description =
       <div>
         <div class="card">
           <p class="card-no">01</p>
-          <h1 class="card-title" id="s1">dmytro klochko</h1>
-          <p class="card-what">
+          {/* One h1, two voices. Bebop keeps the name as a title; dream speaks
+              a single conversational sentence, the way joonasvirtanen.com
+              opens with one — same facts, folded into a line. */}
+          <h1 class="card-title" id="s1">
+            <span class="only-bebop">dmytro klochko</span>
+            <span class="hero-line only-dream">
+              hi! i’m dmytro klochko – ceo at{" "}
+              <a href="https://replika.com" target="_blank" rel="noreferrer">replika</a>, jaywalker
+              at the intersection of{" "}
+              <span class="peek" data-peek="/images/paintings/p05.jpg,/images/paintings/p04.jpg">art</span>{" "}
+              and technology.
+            </span>
+          </h1>
+          <p class="card-what only-bebop">
             <a href="https://replika.com" target="_blank" rel="noreferrer">ceo, replika<span class="arw">↗</span></a>
           </p>
         </div>
 
-        <p class="lede">jaywalker at the intersection of art and technology.</p>
+        <p class="lede only-bebop">jaywalker at the intersection of art and technology.</p>
 
         <div class="prose">
-          <p>
+          <p class="only-bebop">
             product &amp; engineering guy with a background in{" "}
             <span class="peek" data-peek="/images/paintings/p05.jpg,/images/paintings/p04.jpg">art</span>,{" "}
             <span class="peek" data-peek="/images/childhood-chess.jpg">chess</span> and theatre. based
@@ -146,9 +158,39 @@ const description =
             they really are, unleash it to the fullest, and flourish.
           </p>
         </div>
+
+        {/* The facts the bebop paragraph carries, re-set as label/value pairs
+            floating on the painting — the Finmain-hero grid from the elaya
+            reference. Values are the same words, links and peeks as above. */}
+        <dl class="hero-facts only-dream">
+          <div>
+            <dt>based between</dt>
+            <dd>
+              <span class="pin" aria-hidden="true">🗽</span>nyc,{" "}
+              <span class="pin" aria-hidden="true">🗼</span><span class="peek" data-peek="/video/vlog-paris-poster.jpg">paris</span> &amp;{" "}
+              <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 5l0 14" /><path d="M18 5l0 14" /><path d="M2 15l20 0" />
+                <path d="M3 8a7.5 7.5 0 0 0 3 -2a6.5 6.5 0 0 0 12 0a7.5 7.5 0 0 0 3 2" />
+                <path d="M12 10l0 5" />
+              </svg>sf
+            </dd>
+          </div>
+          <div>
+            <dt>background</dt>
+            <dd><span class="peek" data-peek="/images/childhood-chess.jpg">chess</span>, art and theatre</dd>
+          </div>
+          <div>
+            <dt>lecturer at</dt>
+            <dd><a class="peek" data-peek="/video/vlog-vienna-poster.jpg" href="https://www.univie.ac.at/en/" target="_blank" rel="noreferrer">university of vienna<span class="arw">↗</span></a></dd>
+          </div>
+          <div>
+            <dt>say hi</dt>
+            <dd><a href="mailto:1@dmklochko.com">1@dmklochko.com</a></dd>
+          </div>
+        </dl>
       </div>
 
-      <figure class="portrait">
+      <figure class="portrait only-bebop">
         <span class="cell">
           <img
             src="/images/about.jpg"
@@ -157,6 +199,15 @@ const description =
         </span>
         <figcaption>london, 2026</figcaption>
       </figure>
+
+      {/* More of him beside the words: the hero trio the first version of the
+          site opened with, back as a loose pile of prints. Decorative — the
+          sentence already says who he is. */}
+      <div class="hero-stack only-dream" aria-hidden="true">
+        <figure><span class="cell"><img src="/images/hero-left.jpg" alt="" loading="eager" /></span></figure>
+        <figure><span class="cell"><img src="/images/hero-right.jpg" alt="" loading="eager" /></span></figure>
+        <figure><span class="cell"><img src="/images/hero-center.jpg" alt="" loading="eager" /></span></figure>
+      </div>
     </div>
 
   </section>

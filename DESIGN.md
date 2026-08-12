@@ -30,7 +30,7 @@ modes:
 typography:
   mono: "ui-monospace, SF Mono, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace"
   serif: "Newsreader (self-hosted, latin subsets), Iowan Old Style, Baskerville, Georgia"
-  display: "Fraunces 600/600i (self-hosted, latin subsets) — dream headings only"
+  display: "Zodiak 300/400/400i (self-hosted, Fontshare) — dream display voice"
   scale:
     t-xs: "0.75rem"
     t-sm: "0.875rem"
@@ -41,7 +41,7 @@ typography:
   dream-prose: "1.13rem / 1.66"
   dream-prose-sm: "1rem"
   dream-lede: "clamp(1.45rem, 2vw, 1.65rem) italic"
-  dream-display: "clamp(2rem, 3.4vw, 2.9rem)"      # Fraunces italic, real headings
+  dream-display: "clamp(2rem, 3.4vw, 2.9rem)"      # Zodiak italic, real headings
   dream-display-hero: "clamp(3.4rem, 7vw, 6rem)"   # a poster's title
   raster:
     art-cell-sm: "0.55rem"
@@ -118,7 +118,7 @@ equal heights, and the taste wall centres four matted prints per row.
 ### Voice
 
 Serif speaks sentences — prose, ledes, quotes, captions, the sign-off —
-in Newsreader at 1.13rem/1.66. Fraunces 600 italic is the display voice:
+in Newsreader at 1.13rem/1.66. Zodiak (canela-blooded, 300 roman hero, 400 italic titles) is the display voice:
 lowercase real headings at clamp(2rem, 3.4vw, 2.9rem), the hero name at
 clamp(3.4rem, 7vw, 6rem). Mono keeps the machinery (nav, labels,
 figcaptions on machinery objects). Highlights are the pink marker swash —
