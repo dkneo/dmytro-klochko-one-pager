@@ -98,7 +98,8 @@
 [data-mode="dream"] .site-header,
 [data-mode="dream"] .site-footer,
 [data-mode="dream"] .onward {
-  width: min(42rem, 100% - var(--gutter) * 2);
+  width: min(40rem, 100% - var(--gutter) * 2);
+  margin-inline: max(var(--gutter), 5vw) auto;
 }
 
 [data-mode="dream"] .session {
@@ -134,18 +135,7 @@
 }
 
 [data-mode="dream"] .card-no {
-  position: static;
-  width: fit-content;
-  padding: 0.3em 0.42em;
-  background: var(--seal);
-  color: var(--mat);
-  border-radius: 2px;
-  transform: rotate(-3deg);
-  transition: transform var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .card:hover .card-no {
-  transform: rotate(-1deg) scale(1.06);
+  display: none;
 }
 
 [data-mode="dream"] .card-what {
@@ -259,31 +249,41 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   opacity: 1;
 }
 
-/* The reading lane: a soft column of dusk over whichever scene is up, so
-   the words always sit on quiet ground and the painting owns both wings.
-   Feathered edges — the lane is weather, not a panel. */
+/* The reading lane is smoked glass, not paint: backdrop brightness dims
+   the painting itself under the column, so light scenes darken enough for
+   cream text and dark scenes barely change — the same picture, seen
+   through tinted glass. The mask feathers the right edge so the lane is
+   weather; the left edge runs off-screen. */
 [data-mode="dream"] body::before {
   content: "";
   position: fixed;
   top: 0;
   bottom: 0;
-  left: 50%;
-  translate: -50% 0;
-  width: min(54rem, 100%);
+  left: 0;
+  width: min(56rem, 100%);
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(90deg,
-    transparent,
-    rgb(24 28 46 / 30%) 12%,
-    rgb(24 28 46 / 68%) 32% 68%,
-    rgb(24 28 46 / 30%) 88%,
-    transparent);
+  background: rgb(24 28 46 / 20%);
+  -webkit-backdrop-filter: brightness(0.5) saturate(0.9);
+  backdrop-filter: brightness(0.5) saturate(0.9);
+  -webkit-mask-image: linear-gradient(90deg, #000 0 64%, transparent 97%);
+  mask-image: linear-gradient(90deg, #000 0 64%, transparent 97%);
+}
+
+@supports not (backdrop-filter: brightness(0.5)) {
+  [data-mode="dream"] body::before {
+    background: linear-gradient(90deg,
+      rgb(24 28 46 / 78%) 0 60%,
+      rgb(24 28 46 / 40%) 80%,
+      transparent);
+  }
 }
 
 @media (max-width: 900px) {
   [data-mode="dream"] body::before {
     width: 100%;
-    background: rgb(24 28 46 / 72%);
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }
 
@@ -366,8 +366,8 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 }
 
 [data-mode="dream"] #top .bay--flush {
-  grid-template-columns: minmax(0, 1fr) minmax(130px, 168px);
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 200px);
+  gap: 1.7rem;
   align-items: start;
 }
 
@@ -380,7 +380,7 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   position: static;
   inset: auto;
   aspect-ratio: 0.94;
-  border: 6px solid var(--mat);
+  border: 8px solid var(--mat);
   border-radius: 3px;
   box-shadow: 0 10px 28px rgb(10 10 26 / 45%);
   transform: rotate(1.2deg);
@@ -644,4 +644,95 @@ svg.pin {
   .dream-window {
     aspect-ratio: 16 / 10;
   }
+}
+
+/* ── scene weather ──────────────────────────────────────────────────────────
+   When the campfire holds the sky, embers rise; when the village does,
+   snow falls. The painting is already the mood — these are twelve pixels
+   of proof that it is alive. Gated by the active scene, faded by the same
+   900ms the scenes crossfade with, gone under reduced motion. */
+
+.weather {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 900ms var(--ease);
+}
+
+[data-mode="bebop"] .weather { display: none; }
+
+html[data-scene="fire"] .weather--fire { opacity: 1; }
+html[data-scene="snow"] .weather--snow { opacity: 1; }
+
+/* Embers: warm sparks born low, rising with a sway, dying mid-sky. */
+.weather--fire s {
+  position: absolute;
+  bottom: -2vh;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffd2a3, #f08a54 65%);
+  box-shadow: 0 0 8px 2px rgb(240 138 84 / 45%);
+  opacity: 0;
+  animation: ember-rise var(--rise, 7s) linear infinite;
+  animation-delay: var(--wait, 0s);
+}
+
+.weather--fire s:nth-child(1)  { left: 12%; --rise: 8s;   --wait: -2s;  --sway: 40px; }
+.weather--fire s:nth-child(2)  { left: 23%; --rise: 6.5s; --wait: -5s;  --sway: -30px; width: 4px; height: 4px; }
+.weather--fire s:nth-child(3)  { left: 34%; --rise: 9s;   --wait: -1s;  --sway: 55px; }
+.weather--fire s:nth-child(4)  { left: 45%; --rise: 7s;   --wait: -4s;  --sway: -45px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(5)  { left: 55%; --rise: 8.5s; --wait: -6s;  --sway: 35px; }
+.weather--fire s:nth-child(6)  { left: 64%; --rise: 6s;   --wait: -3s;  --sway: -50px; width: 4px; height: 4px; }
+.weather--fire s:nth-child(7)  { left: 73%; --rise: 9.5s; --wait: -7s;  --sway: 48px; }
+.weather--fire s:nth-child(8)  { left: 82%; --rise: 7.5s; --wait: -0.5s;--sway: -35px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(9)  { left: 90%; --rise: 8s;   --wait: -5.5s;--sway: 42px; }
+.weather--fire s:nth-child(10) { left: 6%;  --rise: 7s;   --wait: -6.5s;--sway: -28px; width: 4px; height: 4px; }
+
+@keyframes ember-rise {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  8% { opacity: 0.9; }
+  60% { opacity: 0.55; }
+  100% { transform: translate3d(var(--sway, 40px), -78vh, 0); opacity: 0; }
+}
+
+/* Snow: slow, small, endless. */
+.weather--snow s {
+  position: absolute;
+  top: -3vh;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgb(244 240 230 / 90%);
+  filter: blur(0.4px);
+  animation: snow-fall var(--fall, 13s) linear infinite;
+  animation-delay: var(--wait, 0s);
+}
+
+.weather--snow s:nth-child(1)  { left: 4%;  --fall: 13s; --wait: -2s;  --sway: 30px; }
+.weather--snow s:nth-child(2)  { left: 11%; --fall: 16s; --wait: -9s;  --sway: -24px; width: 3px; height: 3px; }
+.weather--snow s:nth-child(3)  { left: 18%; --fall: 11s; --wait: -5s;  --sway: 20px; }
+.weather--snow s:nth-child(4)  { left: 25%; --fall: 17s; --wait: -12s; --sway: -32px; }
+.weather--snow s:nth-child(5)  { left: 32%; --fall: 12s; --wait: -7s;  --sway: 26px; width: 5px; height: 5px; }
+.weather--snow s:nth-child(6)  { left: 39%; --fall: 15s; --wait: -3s;  --sway: -18px; width: 3px; height: 3px; }
+.weather--snow s:nth-child(7)  { left: 46%; --fall: 13.5s; --wait: -10s; --sway: 24px; }
+.weather--snow s:nth-child(8)  { left: 53%; --fall: 16.5s; --wait: -1s; --sway: -28px; }
+.weather--snow s:nth-child(9)  { left: 60%; --fall: 12.5s; --wait: -8s; --sway: 22px; width: 3px; height: 3px; }
+.weather--snow s:nth-child(10) { left: 67%; --fall: 14s; --wait: -4s;  --sway: -20px; }
+.weather--snow s:nth-child(11) { left: 74%; --fall: 11.5s; --wait: -11s; --sway: 30px; width: 5px; height: 5px; }
+.weather--snow s:nth-child(12) { left: 81%; --fall: 15.5s; --wait: -6s; --sway: -26px; }
+.weather--snow s:nth-child(13) { left: 88%; --fall: 12s; --wait: -13s; --sway: 18px; width: 3px; height: 3px; }
+.weather--snow s:nth-child(14) { left: 95%; --fall: 14.5s; --wait: -2.5s; --sway: -22px; }
+.weather--snow s:nth-child(15) { left: 50%; --fall: 18s; --wait: -15s; --sway: 34px; width: 3px; height: 3px; }
+.weather--snow s:nth-child(16) { left: 8%;  --fall: 17.5s; --wait: -14s; --sway: -30px; width: 3px; height: 3px; }
+
+@keyframes snow-fall {
+  55% { transform: translate3d(var(--sway, 24px), 58vh, 0); }
+  100% { transform: translate3d(calc(var(--sway, 24px) * -0.5), 106vh, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weather { display: none; }
 }

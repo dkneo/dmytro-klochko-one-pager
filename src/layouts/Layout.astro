@@ -103,11 +103,7 @@ const nav = [
          layers are fixed; only opacity and compositor transforms move. -->
     <div class="scenes" aria-hidden="true">
       <i data-s="swim"></i>
-      <i data-s="fuji"></i>
-      <i data-s="fields"></i>
       <i data-s="fire"></i>
-      <i data-s="dock"></i>
-      <i data-s="lavender"></i>
       <i data-s="snow"></i>
       <i data-s="estuary"></i>
     </div>
@@ -119,6 +115,15 @@ const nav = [
       <span class="moon"></span>
       <i></i><i></i>
       <b></b><b></b><b></b><b></b><b></b><b></b>
+    </div>
+
+    <!-- Scene weather: embers rise when the campfire holds the sky, snow
+         falls over the village. Pure CSS, gated by the active scene. -->
+    <div class="weather weather--fire" aria-hidden="true">
+      <s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s>
+    </div>
+    <div class="weather weather--snow" aria-hidden="true">
+      <s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s>
     </div>
 
     <header class="site-header">
@@ -226,6 +231,33 @@ const nav = [
           v.pause();
         }
       }
+    </script>
+
+    <!-- Type l-i-s-a anywhere and the sky answers with a shower of petals.
+         She was the first rep; she gets to be in the source. -->
+    <script is:inline>
+      (() => {
+        let buf = "";
+        addEventListener("keydown", (e) => {
+          if (e.metaKey || e.ctrlKey || e.altKey) return;
+          buf = (buf + (e.key || "").toLowerCase()).slice(-4);
+          if (buf !== "lisa") return;
+          buf = "";
+          const sky = document.querySelector(".dream-sky");
+          if (!sky) return;
+          for (let n = 0; n < 16; n++) {
+            const p = document.createElement("b");
+            p.style.left = Math.random() * 100 + "%";
+            p.style.setProperty("--fall", (2.4 + Math.random() * 2.6) + "s");
+            p.style.setProperty("--wait", (Math.random() * 0.9) + "s");
+            p.style.setProperty("--sway", (Math.random() * 140 - 70) + "px");
+            p.style.animationIterationCount = "1";
+            sky.appendChild(p);
+            setTimeout(() => p.remove(), 6500);
+          }
+          console.log("%clisa says hi 🌸", "color:#ff9bc0");
+        }, { passive: true });
+      })();
     </script>
 
     <!-- Clicking an email link also copies the address and says so in the
