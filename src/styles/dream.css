@@ -27,12 +27,13 @@
   --seal: #c3452e;   /* saitō's hanko */
   --mat: #fbf3e2;
   /* Serif reads smaller than mono at equal rem: one compensating step. */
-  --t-prose: 1.04rem;
-  --t-prose-sm: 0.95rem;
-  --t-lede: 1.28rem;                            /* the serif italic opener */
+  --t-prose: 1.13rem;
+  --t-prose-sm: 1rem;
+  --t-lede: clamp(1.45rem, 2vw, 1.65rem);       /* the serif italic opener */
   --ember: #ffd2a3;                             /* spark highlight, weather */
-  --display-scroll: 1.55rem;                    /* section titles: present */
-  --display-scroll-hero: clamp(2.5rem, 4.2vw, 3.4rem);  /* a title screen's title */
+  --display: "Fraunces", var(--serif);          /* the display voice */
+  --display-scroll: clamp(2rem, 3.4vw, 2.9rem); /* section titles: real headings */
+  --display-scroll-hero: clamp(3.4rem, 7vw, 6rem);  /* a poster's title */
 }
 
 [data-mode="dream"] body {
@@ -48,6 +49,21 @@
 [data-mode="bebop"] .dream-art { display: none; }
 [data-mode="dream"] .stars { display: none; }
 [data-mode="dream"] .kawase { display: none; }
+
+[data-mode="dream"] .ascii--joi,
+[data-mode="dream"] .ascii--fun {
+  display: none;
+}
+
+[data-mode="dream"] #now .bay--flush,
+[data-mode="dream"] #before .bay--flush {
+  grid-template-columns: 1fr;
+}
+
+[data-mode="dream"] #now .joi-col,
+[data-mode="dream"] #before .joi-col {
+  display: none;
+}
 
 /* The vinyl keeps spinning, in dusk and pink. */
 [data-mode="dream"] .ascii {
@@ -90,11 +106,11 @@
 /* ── the voice: quiet serif, small ──────────────────────────────────────── */
 
 [data-mode="dream"] .card-title {
-  font-family: var(--serif);
+  font-family: "Fraunces", var(--serif);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 600;
   font-size: var(--display-scroll);
-  letter-spacing: 0;
+  letter-spacing: -0.015em;
   text-transform: none;
 }
 
@@ -216,20 +232,62 @@
 .scenes .sunpulse {
   position: absolute;
   inset: -6%;
-  background: radial-gradient(18% 24% at 42% 24%, rgb(255 190 120 / 30%), transparent 70%);
+  background: radial-gradient(20% 27% at 42% 24%, rgb(255 186 110 / 55%), rgb(240 138 84 / 18%) 55%, transparent 72%);
+  mix-blend-mode: soft-light;
   transform: translateY(calc(var(--scroll, 0) * -4vh))
     translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px));
-  animation: sun-pulse 8s ease-in-out infinite alternate;
+  animation: sun-pulse 7s ease-in-out infinite alternate;
   opacity: 0;
 }
 
 html[data-scene="swim"] .scenes .sunpulse {
-  opacity: 1;
+  animation-play-state: running;
+}
+
+html:not([data-scene="swim"]) .scenes .sunpulse {
+  animation: none;
+  opacity: 0;
 }
 
 @keyframes sun-pulse {
-  from { filter: brightness(0.9); }
-  to { filter: brightness(1.5); }
+  from { opacity: 0.25; scale: 1; }
+  to { opacity: 1; scale: 1.05; }
+}
+
+/* Light moves on the water: three soft glints drifting across the lower
+   sea, light over the painting, never new paint. The true swimmer will
+   swim when his rendered loop replaces the still. */
+.scenes .glints {
+  position: absolute;
+  inset: -6%;
+  transition: opacity 900ms var(--ease);
+  transform: translateY(calc(var(--scroll, 0) * -4vh))
+    translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px));
+  opacity: 0;
+}
+
+html[data-scene="swim"] .scenes .glints,
+html[data-scene="estuary"] .scenes .glints {
+  opacity: 1;
+}
+
+.scenes .glints s {
+  position: absolute;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgb(255 240 220 / 55%), transparent);
+  animation: glint-drift var(--gd, 11s) ease-in-out infinite alternate;
+}
+
+.scenes .glints s:nth-child(1) { left: 12%; top: 58%; width: 140px; --gd: 12s; }
+.scenes .glints s:nth-child(2) { left: 55%; top: 66%; width: 200px; --gd: 9s; animation-delay: -4s; }
+.scenes .glints s:nth-child(3) { left: 34%; top: 78%; width: 120px; --gd: 14s; animation-delay: -8s; }
+.scenes .glints s:nth-child(4) { left: 74%; top: 84%; width: 160px; --gd: 10s; animation-delay: -2s; }
+
+@keyframes glint-drift {
+  from { transform: translateX(0); opacity: 0.15; }
+  50% { opacity: 0.7; }
+  to { transform: translateX(60px); opacity: 0.2; }
 }
 
 .scenes i[data-s="swim"]     { background-image: url("/images/scenes/swim.webp"); }
@@ -449,7 +507,7 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 }
 
 [data-mode="dream"] .lynch {
-  width: min(100%, 22rem);
+  width: 100%;
 }
 
 [data-mode="dream"] .lynch img {

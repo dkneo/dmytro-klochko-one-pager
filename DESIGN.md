@@ -28,6 +28,7 @@ modes:
 typography:
   mono: "ui-monospace, SF Mono, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace"
   serif: "Newsreader (self-hosted, latin subsets), Iowan Old Style, Baskerville, Georgia"
+  display: "Fraunces 600/600i (self-hosted, latin subsets) — dream headings only"
   scale:
     t-xs: "0.75rem"
     t-sm: "0.875rem"
@@ -35,11 +36,11 @@ typography:
     t-lg: "clamp(1.15rem, 1.5vw, 1.45rem)"
     display: "clamp(1.9rem, 4.6vw, 3.9rem)"
   # dream reads editorial in a 64rem cinematic shell:
-  dream-prose: "1.04rem / 1.66"
-  dream-prose-sm: "0.95rem"
-  dream-lede: "1.28rem italic"
-  dream-display: "1.55rem"      # section titles: present
-  dream-display-hero: "clamp(2.5rem, 4.2vw, 3.4rem)"  # a title screen's title
+  dream-prose: "1.13rem / 1.66"
+  dream-prose-sm: "1rem"
+  dream-lede: "clamp(1.45rem, 2vw, 1.65rem) italic"
+  dream-display: "clamp(2rem, 3.4vw, 2.9rem)"      # Fraunces italic, real headings
+  dream-display-hero: "clamp(3.4rem, 7vw, 6rem)"   # a poster's title
   raster:
     art-cell-sm: "0.55rem"
     art-cell-lg: "1.05rem"

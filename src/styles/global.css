@@ -43,6 +43,24 @@
 }
 
 @font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/fraunces-600.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/fraunces-600i.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F;
+}
+
+@font-face {
   font-family: "Noto Emoji";
   src: url("/fonts/noto-emoji-pins.woff2") format("woff2");
   font-style: normal;
