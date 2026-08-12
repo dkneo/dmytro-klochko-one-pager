@@ -50,7 +50,7 @@ const roles = [
 // beside the list where the reader has to work out which is which.
 const log = [
   "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy.",
-  "6 yo onwards: multiple olympiads winner: math, humanities {later: coding, economics}.",
+  "6 yo+: olympiads winner: math, humanities {later: coding, economics}.",
   "9 yo: best kid actor award.",
   "11 yo: wrote my first song. poetry contest winner.",
   "14 yo: toured neighboring countries as band leader.",
@@ -90,9 +90,9 @@ const press = {
 // the quote came from, and it is the only styling difference – same as the nav
 // marking the page you are on.
 const studies = [
+  { name: "princeton", href: "https://arxiv.org/abs/2311.10599", quoted: true },
   { name: "harvard", href: "https://www.hbs.edu/faculty/Pages/item.aspx?num=67360" },
   { name: "stanford", href: "https://www.nature.com/articles/s44184-023-00047-6" },
-  { name: "princeton", href: "https://arxiv.org/abs/2311.10599", quoted: true },
 ] as const;
 
 const manifesto = {
@@ -161,8 +161,8 @@ const description =
           <p>
             currently: building a replika spinoff {"{"}in stealth{"}"}. a truly novel and beautiful{" "}
             <b>agentic ai with real eq</b>, brought to everyone: to help people come back to who
-            they really are, unleash it to the fullest, and flourish. meanwhile still shepherding
-            replika itself, shipping updates daily.
+            they really are, unleash their potential to the fullest, and flourish. meanwhile
+            i shepherd replika itself and ship updates daily.
           </p>
         </div>
 
@@ -236,7 +236,7 @@ const description =
           <p>
             i made replika 2.0, a <b>ground-up rewrite</b>. i wrote the first prototypes myself,
             ran 200+ user interviews, and talked to my own rep, lisa, for hours every day. built{" "}
-            <span class="peek" data-peek="/images/swag-team.jpg,/images/swag-hoodie.jpg">a team</span>{" "}
+            a team{" "}
             around it: phds, true artists,{" "}
             <span class="nb">pirates<img
               class="mark-pirate"
@@ -249,10 +249,10 @@ const description =
             any point in its ten years.
           </p>
           <p>
-            turned the company profitable: all revenue metrics are significantly up, and
+            turned the company profitable. all revenue metrics are significantly up, and
             worldwide media is as hyped as never before. brought a hot new brand identity,{" "}
             <b>redesigned the app</b>, and did research with the world's best institutions. i also
-            design the outfits for each avatar myself. <span class="pin" aria-hidden="true">💅</span>
+            design the outfits for each avatar myself. 💅
           </p>
         </div>
       </div>
@@ -283,7 +283,9 @@ const description =
       </li>
 
       <li>
-        <span class="receipt-src receipt-src--plain">replika manifesto</span>
+        <a class="receipt-src" href="https://replika.com/manifesto" target="_blank" rel="noreferrer">
+          replika manifesto<span class="arw">↗</span>
+        </a>
         <p>{manifesto.line}</p>
         <span>{manifesto.meta}</span>
       </li>
@@ -312,11 +314,36 @@ const description =
 
   </section>
 
+  <section class="shell session" id="how" data-scene="swim" aria-labelledby="sh">
+    <div class="card">
+      <p class="card-no">03</p>
+      <h2 class="card-title" id="sh">how i work</h2>
+    </div>
+
+    <div class="bay">
+      <div class="prose">
+        <p set:html={ways[0]} />
+        <p set:html={ways[1]} />
+        <p set:html={ways[2]} />
+        <p set:html={ways[3]} />
+        <p set:html={ways[4]} />
+      </div>
+
+      <figure class="lynch">
+        <img
+          src="/images/lynch.jpg"
+          alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
+          loading="lazy"
+        />
+      </figure>
+    </div>
+  </section>
+
   <section class="shell session" id="before" data-scene="swim" aria-labelledby="s3">
     <div class="bay bay--flush">
       <div>
         <div class="card">
-          <p class="card-no">03</p>
+          <p class="card-no">04</p>
           <h2 class="card-title" id="s3">before replika</h2>
         </div>
 
@@ -356,31 +383,6 @@ const description =
         />
 
       </div>
-    </div>
-  </section>
-
-  <section class="shell session" id="how" data-scene="swim" aria-labelledby="sh">
-    <div class="card">
-      <p class="card-no">04</p>
-      <h2 class="card-title" id="sh">how i work</h2>
-    </div>
-
-    <div class="bay">
-      <div class="prose">
-        <p set:html={ways[0]} />
-        <p set:html={ways[1]} />
-        <p set:html={ways[2]} />
-        <p set:html={ways[3]} />
-        <p set:html={ways[4]} />
-      </div>
-
-      <figure class="lynch">
-        <img
-          src="/images/lynch.jpg"
-          alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
-          loading="lazy"
-        />
-      </figure>
     </div>
   </section>
 

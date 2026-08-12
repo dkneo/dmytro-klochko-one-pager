@@ -416,6 +416,12 @@
   color: var(--hot);
 }
 
+/* At display sizes the arrow inherits 2.9rem and reads as a second word. */
+[data-mode="dream"] .card-title .arw {
+  font-size: 0.42em;
+  vertical-align: 0.55em;
+}
+
 [data-mode="dream"] .card-what {
   width: 100%;
   margin-top: 0.1rem;
@@ -474,7 +480,7 @@
 
 [data-mode="dream"] .research a.is-quoted::before,
 [data-mode="dream"] .research a.is-quoted::after {
-  color: rgb(236 230 217 / 45%);
+  color: rgb(255 155 192 / 55%);
 }
 
 /* Receipts ride the right rail of the replika section — three small voices
@@ -518,7 +524,7 @@
 }
 
 [data-mode="dream"] .research a {
-  color: var(--dim);
+  color: var(--hot);
   font-family: var(--mono);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
@@ -526,15 +532,7 @@
 }
 
 [data-mode="dream"] .research a:hover {
-  color: var(--hot);
-}
-
-[data-mode="dream"] .receipt-src--plain {
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  color: var(--dim);
+  color: var(--bone);
 }
 
 /* ── the journey ────────────────────────────────────────────────────────────
