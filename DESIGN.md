@@ -1,8 +1,8 @@
 ---
 name: dmytro klochko — dream / bebop
-description: two art directions over one markup. bebop (default): a terminal in deep space — monospace, near-black, one pink accent, ASCII art. dream: a woodblock emaki being rebuilt behind the toggle.
+description: two art directions over one markup. bebop (default): a terminal in deep space — monospace, near-black, one pink accent, ASCII art. dream: his own paintings full-bleed behind smoked glass, behind the toggle.
 modes:
-  dream:   # v3 — the quiet column
+  dream:   # v4 — bebop's bones, his paintings for a sky
     void: "#262b44"
     ground: ["#232840", "#262b44", "#2a3050"]   # barely-there vertical drift
     deck: "#2f3554"
@@ -15,7 +15,7 @@ modes:
     seal: "#c3452e"    # saitō's hanko
     mat: "#fbf3e2"     # print borders, peek prints, portrait
     ember: "#ffd2a3"   # spark highlight in the fire act's weather
-    lane: "smoked glass — backdrop brightness(0.5), never a colour over the art"
+    lane: "smoked glass — backdrop brightness(0.48) saturate(0.92), never a colour over the art"
   bebop:
     void: "#0e0a11"
     deck: "#171120"
@@ -35,7 +35,7 @@ typography:
     t-md: "0.98rem"
     t-lg: "clamp(1.15rem, 1.5vw, 1.45rem)"
     display: "clamp(1.9rem, 4.6vw, 3.9rem)"
-  # dream reads editorial in a 64rem cinematic shell:
+  # dream reads editorial on bebop's own shell:
   dream-prose: "1.13rem / 1.66"
   dream-prose-sm: "1rem"
   dream-lede: "clamp(1.45rem, 2vw, 1.65rem) italic"
@@ -64,8 +64,8 @@ motion:
 
 The site ships two complete art directions over the same HTML, switched by
 `data-mode` on the root, chosen before first paint, persisted in
-localStorage under a versioned key. **Bebop is the default** while dream
-is rebuilt; dream stays whole behind the toggle. This file describes both; where a rule
+localStorage under a versioned key (`mode2`). **Bebop is the default**;
+dream stays whole behind the toggle. This file describes both; where a rule
 names no mode, it holds in both.
 
 Everything the earlier version of this file recorded about The Session —
@@ -75,56 +75,77 @@ target sizes, the Found Object rule) applies everywhere.
 
 ## Dream Mode (behind the toggle) — The Journey
 
-His own paintings (Seedream, 4K, chosen and named perfect-N by him) run
-full-bleed as fixed scenes in **three night acts**: the swimmer under the
-orange sun opens (name → before replika), the campfire carries the middle
-(how i work → on camera), the snowlit village closes (say hi); taste keeps
-the pale estuary alone — one painting per URL there, and per future page.
-The section nearest mid-viewport claims the sky (IntersectionObserver,
-centred band); scenes crossfade 900ms and parallax against scroll and
-cursor, compositor transforms only. Idle preloading of the remaining
+His own paintings (Seedream, 4K, chosen and named by him) run full-bleed
+as fixed scenes — **one painting per URL**: the swimmer under the orange
+sun holds every section of `/`, the pale estuary holds `/taste`, and each
+future page claims one of its own. The scene machinery is more general
+than the mapping: sections carry `data-scene`, an IntersectionObserver
+with a centred band (−42% top and bottom) hands the sky to the section
+nearest mid-viewport, and scene layers crossfade over 900ms — so a page
+*could* change skies mid-scroll, but as shipped no page does, and the sky
+never cuts mid-read. The painting is alive rather than static: it
+breathes (scale 1.04 → 1.1 over 70s, alternating) and parallaxes against
+scroll (−4vh over the first viewport) and cursor (eased, −14px/−9px),
+compositor transforms and opacity only. Idle preloading of the other
 scenes runs **only in dream** — bebop visitors pay nothing until they
-toggle.
+toggle, at which point a MutationObserver on `data-mode` re-arms the
+warm-up.
 
 ### Readability — Smoked Glass
 
-The reading lane is `backdrop-filter: brightness(0.5) saturate(0.9)` over
-the left side of the viewport, masked to feather rightward: it dims the
-painting itself under the column, never lays colour over the art. Light
-scenes darken exactly enough for cream text; dark scenes barely change.
-Phones use brightness(0.58) full-width. Gradient fallback where
+The reading surface is a full-viewport fixed layer:
+`backdrop-filter: brightness(0.48) saturate(0.92)` under a faint dusk
+tint (`rgb(24 28 46 / 24%)`). It dims the painting itself under the text,
+never lays opaque colour over the art: light scenes darken exactly enough
+for cream text, dark scenes barely change. At ≤900px the filter runs
+brightness(0.5). A left-weighted dusk gradient stands in where
 backdrop-filter is unsupported.
 
-### Layout — The Left Column
+### Layout — Bebop's Bones
 
-One ~40rem column, anchored left (`margin-inline: max(gutter, 5vw) auto`)
-because his paintings put their subjects centre-right — the swimmer, the
-sun, the village — and the open right wing belongs to them. Letter-scale
-type (the dream ramp in frontmatter). Section numbers are gone in dream;
-titles stand alone. Grids stay symmetric: reel 2-up, sheet 3-up, wall a
-centred pyramid when its count is odd, the painting gallery breaking out
-of the lane to 72rem with rows that resolve to equal heights.
+Dream inherits bebop's layout wholesale and only reskins what sits on it:
+the 78rem shell, the 6fr/5fr bays, the min(100%, 62ch) measure, the reel
+2-up, the sheet 3-up — every grid is the same grid in both modes. Where
+bebop hangs the Joi and Anakin ASCII, dream hides them and collapses
+those bays to a single column; the vinyl ASCII survives on `/taste`,
+recoloured to the dusk tokens. Section numbers are gone in dream — the
+title stands alone on a flex line. Two dream-only breakouts: the painting
+hang widens to `min(72rem, 100vw − 2×gutter)` with rows that resolve to
+equal heights, and the taste wall centres four matted prints per row.
 
 ### Voice
 
-Serif speaks sentences — titles (italic, lowercase), ledes, prose,
-quotes, the sign-off. Mono keeps the machinery. Highlights are the pink
-marker swash — never wavy underlines, never em-dashes; spaced en dashes.
+Serif speaks sentences — prose, ledes, quotes, captions, the sign-off —
+in Newsreader at 1.13rem/1.66. Fraunces 600 italic is the display voice:
+lowercase real headings at clamp(2rem, 3.4vw, 2.9rem), the hero name at
+clamp(3.4rem, 7vw, 6rem). Mono keeps the machinery (nav, labels,
+figcaptions on machinery objects). Highlights are the pink marker swash —
+a translucent pink underlay cloned across line wraps — never wavy
+underlines, never em-dashes; spaced en dashes. The current nav page is
+held in pink parentheses (bebop uses brackets).
 
-### Scene Weather & Eggs
+### Ambient Life & Eggs
 
-When the campfire holds the sky, ten embers rise and die mid-air; when
-the village does, sixteen snowflakes fall — pure CSS, gated by scene,
-faded on the scenes' own 900ms clock, hidden under reduced motion. Six
-petals fall always. Typing l-i-s-a showers sixteen more. Clicking an
-email copies it and the label whispers "copied ✓".
+Six petals always fall, in front of everything (z-index above the glass).
+When the swimmer holds the sky, the painted sun warms and cools on a 7s
+soft-light pulse riding the same parallax so it stays on the sun, and
+four light glints drift across the water (the glints also run on the
+estuary). Film grain sits over everything at 4% overlay. Ember and snow
+weather CSS still exists, gated on `data-scene="fire"` / `"snow"`, but no
+shipped page names those scenes — it is dormant plumbing, not a current
+behaviour. Typing l-i-s-a showers sixteen extra petals. Clicking an email
+copies it and the label whispers "copied ✓". Every ambient system —
+scenes' parallax, petals, weather, autoplaying video — goes still under
+`prefers-reduced-motion`.
 
 ### Photographs
 
-The portrait sits at 200px in a deep cream mat beside the words, its
-caption carrying a breath of dusk shadow because it lands outside the
-lane on open water. Childhood snapshots keep their alternating tilt.
-Video plays in colour.
+The portrait sits in its bay in a deep cream mat (8px border, 3px
+radius), tilted 1.2°, straightening and lifting 3px on hover as its
+shadow deepens; its caption carries a breath of dusk text-shadow because
+it lands outside the darkest glass, on open water. Childhood snapshots
+keep their alternating tilt in 5px mats; wall prints wear 4px. Video
+plays in colour — dream strips bebop's filter.
 
 ### Named Rules (dream)
 
@@ -157,9 +178,9 @@ its own line after "vienna↗".
 
 **The Peek Rule.** Words naming something real may lift a small stack of
 photographs above the cursor (`data-peek`). Hover-and-fine-pointer only, so
-phones see plain text, never a half-working version. Prints in dream, hard
-b/w stills in bebop. The reveal rides a timeout, not requestAnimationFrame,
-which is throttled in embedded contexts.
+phones see plain text, never a half-working version. Matted prints in
+dream, hard b/w stills in bebop. The reveal rides a timeout, not
+requestAnimationFrame, which is throttled in embedded contexts.
 
 **Target size.** Every standalone link ≥24px tall (WCAG 2.5.8); inline
 prose links exempt.
@@ -174,3 +195,5 @@ prose links exempt.
   made by professionals — four rejections earned this rule.
 - Don't desaturate family photographs.
 - Don't reach for a hairline to separate things.
+- Don't let art blur or pixelate: contained sizes or high-res sources only.
+- Don't fix readability with cream/white panels — dim the painting itself.
