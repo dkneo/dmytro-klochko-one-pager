@@ -31,6 +31,8 @@
   --t-prose-sm: 1rem;
   --t-lede: clamp(1.45rem, 2vw, 1.65rem);       /* the serif italic opener */
   --ember: #ffd2a3;                             /* spark highlight, weather */
+  --ember-deep: #f08a54;                        /* the ember's molten core */
+  --hot-lit: #ffd3df;                           /* pink where the light hits */
   --display: "Fraunces", var(--serif);          /* the display voice */
   --display-scroll: clamp(2rem, 3.4vw, 2.9rem); /* section titles: real headings */
   --display-scroll-hero: clamp(3.4rem, 7vw, 6rem);  /* a poster's title */
@@ -232,7 +234,7 @@
 .scenes .sunpulse {
   position: absolute;
   inset: -6%;
-  background: radial-gradient(20% 27% at 42% 24%, rgb(255 186 110 / 55%), rgb(240 138 84 / 18%) 55%, transparent 72%);
+  background: radial-gradient(20% 27% at 42% 24%, rgb(255 186 110 / 55%), rgb(from var(--ember-deep) r g b / 18%) 55%, transparent 72%);
   mix-blend-mode: soft-light;
   transform: translateY(calc(var(--scroll, 0) * -4vh))
     translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px));
@@ -377,7 +379,7 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   top: -4vh;
   width: 10px;
   height: 10px;
-  background: radial-gradient(circle at 30% 30%, #ffd3df, #ff9bc0);
+  background: radial-gradient(circle at 30% 30%, var(--hot-lit), var(--hot));
   border-radius: 100% 6% 100% 6%;
   opacity: 0.5;
   animation: petal-fall var(--fall, 18s) linear infinite;
@@ -734,7 +736,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, var(--ember), #f08a54 65%);
+  background: radial-gradient(circle at 35% 35%, var(--ember), var(--ember-deep) 65%);
   box-shadow: 0 0 8px 2px rgb(240 138 84 / 45%);
   opacity: 0;
   animation: ember-rise var(--rise, 7s) linear infinite;

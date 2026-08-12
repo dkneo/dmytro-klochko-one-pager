@@ -15,6 +15,8 @@ modes:
     seal: "#c3452e"    # saitō's hanko
     mat: "#fbf3e2"     # print borders, peek prints, portrait
     ember: "#ffd2a3"   # spark highlight in the fire act's weather
+    ember-deep: "#f08a54"  # the ember's molten core; the sunpulse's warm mid-stop
+    hot-lit: "#ffd3df"     # petal highlight — hot where the light hits
     lane: "smoked glass — backdrop brightness(0.48) saturate(0.92), never a colour over the art"
   bebop:
     void: "#0e0a11"

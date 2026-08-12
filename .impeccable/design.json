@@ -14,6 +14,8 @@
       "dream-seal": { "role": "accent", "displayName": "Saitō Hanko Vermillion", "canonical": "#c3452e", "tonalRamp": ["#32120c", "#632317", "#9d3725", "#d05039", "#dd806f", "#e8a89c", "#f2d0c9", "#faedea"] },
       "dream-mat": { "role": "neutral", "displayName": "Print Mat Cream", "canonical": "#fbf3e2", "tonalRamp": ["#362707", "#6c4e0f", "#aa7b17", "#e1a628", "#e9be62", "#f0d293", "#f7e7c5", "#fcf6e9"] },
       "dream-ember": { "role": "accent", "displayName": "Ember Highlight", "canonical": "#ffd2a3", "tonalRamp": ["#4d3312", "#7a5220", "#a97231", "#d4923f", "#f0ac5e", "#f8c184", "#fcd6ab", "#fee9d1"] },
+      "dream-ember-deep": { "role": "accent", "displayName": "Ember Core", "canonical": "#f08a54", "tonalRamp": ["#4a2410", "#7a3c1b", "#a95428", "#d06c38", "#f08a54", "#f5a878", "#f9c5a0", "#fce2ca"] },
+      "dream-hot-lit": { "role": "accent", "displayName": "Petal Highlight", "canonical": "#ffd3df", "tonalRamp": ["#4d0f22", "#8a1c3e", "#c72e5e", "#f05585", "#ff8bab", "#ffb3c8", "#ffd3df", "#ffedf3"] },
       "bebop-void": { "role": "primary", "displayName": "Bebop Void", "canonical": "#0e0a11", "tonalRamp": ["#201727", "#3f2d4d", "#64487a", "#8965a4", "#a98fbd", "#c4b2d2", "#dfd5e6", "#f3eff6"] },
       "bebop-deck": { "role": "neutral", "displayName": "Bebop Deck", "canonical": "#171120", "tonalRamp": ["#1d1528", "#392a50", "#5b437f", "#7d5faa", "#a08ac1", "#beafd5", "#dcd4e8", "#f1eef6"] },
       "bebop-bone": { "role": "neutral", "displayName": "Bone", "canonical": "#e9e5d8", "tonalRamp": ["#272316", "#4e462c", "#7c6f46", "#a79762", "#bfb38d", "#d3cbb1", "#e7e3d5", "#f6f4ef"] },
