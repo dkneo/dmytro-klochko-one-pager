@@ -1,6 +1,6 @@
 {
  "schemaVersion": 2,
- "generatedAt": "2026-08-12T12:35:38Z",
+ "generatedAt": "2026-08-12T13:24:57Z",
  "title": "Design System: dmytro klochko \u2014 dream / bebop",
  "extensions": {
   "colorMeta": {
@@ -527,6 +527,21 @@
      "#5a628c",
      "#8a91b3",
      "#c4c8dc"
+    ]
+   },
+   "ember": {
+    "role": "accent",
+    "displayName": "Ember Highlight",
+    "canonical": "#ffd2a3",
+    "tonalRamp": [
+     "#4d3312",
+     "#7a5220",
+     "#a97231",
+     "#d4923f",
+     "#f0ac5e",
+     "#f8c184",
+     "#fcd6ab",
+     "#fee9d1"
     ]
    }
   },

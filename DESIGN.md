@@ -14,6 +14,8 @@ modes:
     hot: "#ff9bc0"     # kawase cloud pink — his favourite colour
     seal: "#c3452e"    # saitō's hanko
     mat: "#fbf3e2"     # print borders, peek prints, portrait
+    ember: "#ffd2a3"   # spark highlight in the fire act's weather
+    lane: "smoked glass — backdrop brightness(0.5), never a colour over the art"
   bebop:
     void: "#0e0a11"
     deck: "#171120"
