@@ -148,7 +148,7 @@ const nav = [
       <p class="signoff">see you space cowboy&hellip;</p>
       <nav class="foot-nav" aria-label="pages">
         {
-          nav.map((item) => (
+          nav.filter((item) => item.href === "/").map((item) => (
             <a
               href={item.href}
               aria-current={
