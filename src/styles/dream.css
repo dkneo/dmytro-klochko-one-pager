@@ -29,6 +29,7 @@
   /* Serif reads smaller than mono at equal rem: one compensating step. */
   --t-prose: 0.99rem;
   --t-prose-sm: 0.9rem;
+  --t-lede: 1.12rem;                            /* the serif italic opener */
   --display-scroll: 1.25rem;                    /* section titles: quiet */
   --display-scroll-hero: clamp(1.7rem, 3vw, 2.1rem);
 }
@@ -156,7 +157,7 @@
 [data-mode="dream"] .lede {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 1.12rem;
+  font-size: var(--t-lede);
   letter-spacing: 0;
   margin-bottom: var(--sp-2);
 }
