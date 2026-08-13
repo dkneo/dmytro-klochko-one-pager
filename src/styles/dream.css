@@ -173,6 +173,14 @@
   display: none;
 }
 
+[data-mode="dream"] .log--journey li[data-easel] {
+  cursor: pointer;
+}
+
+[data-mode="dream"] .log--journey li[data-easel]::before {
+  background: rgb(255 155 192 / 55%);
+}
+
 /* The bead the frame is showing: lit, ringed, and roped to the picture. */
 [data-mode="dream"] .log--journey li.is-shown::before {
   background: var(--hot);
@@ -350,6 +358,36 @@
   [data-mode="dream"] .thread {
     display: none;
   }
+}
+
+[data-mode="dream"] .bead-print {
+  grid-column: 2;
+  margin: 0.65rem 0 0.35rem;
+  max-width: 24rem;
+}
+
+[data-mode="dream"] .bead-print .cell {
+  display: block;
+  background: var(--mat);
+  padding: 0.4rem;
+  border-radius: 2px;
+  box-shadow:
+    0 2px 5px rgb(8 10 22 / 58%),
+    0 14px 30px rgb(8 10 22 / 40%);
+  transform: rotate(-0.8deg);
+}
+
+[data-mode="dream"] .bead-print img,
+[data-mode="dream"] .bead-print video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1px;
+}
+
+[data-mode="dream"] .bead-print img[hidden],
+[data-mode="dream"] .bead-print video[hidden] {
+  display: none;
 }
 
 /* The war note carries him at sixteen. */

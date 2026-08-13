@@ -11,7 +11,7 @@ const roles = [
     mark: "/images/marks/replika.png",
   },
   {
-    company: "homa",
+    company: "hunch",
     what: "remote team happiness saas",
     role: "founder and chief executive officer",
     mark: "/images/marks/homa.png",
@@ -111,7 +111,7 @@ const studyQuote = {
 const journey = [
   { name: "university of vienna", href: "https://www.univie.ac.at/en/",
     role: "lecturer", glyph: "🎓", pic: "/images/journey/lecture.jpg" },
-  { name: "homa", mark: "/images/marks/homa.png",
+  { name: "hunch", mark: "/images/marks/homa.png",
     what: "remote team happiness saas", role: "founder and chief executive officer",
     pic: "/video/homa.mp4", video: true, poster: "/video/homa-poster.jpg" },
   { name: "chatfuel", href: "https://chatfuel.com", mark: "/images/marks/chatfuel.png",
@@ -524,14 +524,13 @@ const description =
   </section>
 
   <script is:inline>
-    // The easel, and how it answers the road. No line is drawn across the
-    // text — a curve over his own sentences was noise. Instead the frame
-    // travels down beside the list as you move down it, and one short rule
-    // reaches from the empty end of the column to the frame at exactly the
-    // hovered line's height. Proximity does the connecting; the rule only
-    // confirms it. Hover-and-fine-pointer only.
+    // The easel, and how it answers the road. On hover devices the frame
+    // rides a rail beside the list, a short rule ties it to the hovered
+    // line, and the first bead comes pre-selected so the relationship is
+    // visible before anyone hovers anything. On touch (and narrow) screens
+    // the same pictures unfold inline: tap a line, its print opens under
+    // it — one at a time, like flipping through a shoebox.
     (() => {
-      if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
       const bay = document.querySelector(".journey-bay");
       const easel = document.querySelector(".easel");
       const svg = document.querySelector(".thread");
@@ -542,7 +541,21 @@ const description =
       const vid = easel.querySelector("video");
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
       const beads = [...bay.querySelectorAll(".log--journey li")];
+      const easelOn = () => getComputedStyle(easel).display !== "none";
       let active = null;
+
+      const setMedia = (li, imgEl, vidEl) => {
+        const src = li.dataset.easel;
+        if (li.dataset.kind === "video" && !still) {
+          if (vidEl.dataset.src !== src) { vidEl.src = src; vidEl.dataset.src = src; }
+          imgEl.hidden = true; vidEl.hidden = false;
+          vidEl.play().catch(() => {});
+        } else {
+          vidEl.pause(); vidEl.hidden = true; imgEl.hidden = false;
+          const want = li.dataset.kind === "video" ? li.dataset.poster : src;
+          if (want && !imgEl.src.endsWith(want)) imgEl.src = want;
+        }
+      };
 
       // The dot is a ::before and cannot be measured; it is drawn at a known
       // offset inside the first column, mirrored here.
@@ -552,12 +565,10 @@ const description =
       };
 
       const place = () => {
-        if (!active) return;
+        if (!active || !easelOn()) return;
         const b = bay.getBoundingClientRect();
         const travel = Math.max(0, b.height - easel.offsetHeight);
         const i = beads.indexOf(active);
-        // The frame walks the length of its rail as the hover walks the list,
-        // so it is always near the line it is answering and never clamps.
         easel.style.setProperty("--ty", `${(i / Math.max(1, beads.length - 1)) * travel}px`);
 
         const e = easel.getBoundingClientRect();
@@ -577,34 +588,58 @@ const description =
         path.style.strokeDashoffset = "0";
       };
 
-      const clear = () => {
-        active?.classList.remove("is-shown");
-        active = null;
-        svg.dataset.on = "0";
-        path.style.strokeDashoffset = path.style.strokeDasharray;
+      const activate = (li) => {
+        if (active && active !== li) active.classList.remove("is-shown");
+        active = li;
+        li.classList.add("is-shown");
+        setMedia(li, img, vid);
+        place();
       };
 
       for (const li of beads) {
         li.addEventListener("pointerenter", () => {
-          const src = li.dataset.easel;
-          if (!src) { clear(); return; }
-          if (active && active !== li) active.classList.remove("is-shown");
-          active = li;
-          li.classList.add("is-shown");
-          if (li.dataset.kind === "video" && !still) {
-            if (vid.dataset.src !== src) { vid.src = src; vid.dataset.src = src; }
-            img.hidden = true; vid.hidden = false;
-            vid.play().catch(() => {});
-          } else {
-            vid.pause(); vid.hidden = true; img.hidden = false;
-            const want = li.dataset.kind === "video" ? li.dataset.poster : src;
-            if (want && !img.src.endsWith(want)) img.src = want;
-          }
-          place();
+          if (!easelOn()) return;
+          if (li.dataset.easel) activate(li);
         });
       }
-      bay.addEventListener("pointerleave", clear);
       addEventListener("resize", place);
+
+      // The road starts already answered: the newest bead sits selected, its
+      // thread drawn, so the mechanism explains itself at a glance. Checked
+      // again on resize, because a window that starts narrow (or a pane that
+      // starts hidden) skips the first pass.
+      const first = beads.find((li) => li.dataset.easel);
+      const preset = () => { if (first && !active && easelOn()) activate(first); };
+      preset();
+      addEventListener("resize", preset);
+
+      // ── the shoebox, for fingers ──
+      const print = document.createElement("figure");
+      print.className = "bead-print";
+      print.innerHTML =
+        '<span class="cell"><img alt="" hidden /><video muted loop playsinline preload="none" hidden></video></span>';
+      const pImg = print.querySelector("img");
+      const pVid = print.querySelector("video");
+      let open = null;
+
+      for (const li of beads) {
+        li.addEventListener("click", (e) => {
+          if (easelOn() || !li.dataset.easel) return;
+          if (e.target.closest("a")) return;
+          if (open === li) {
+            pVid.pause();
+            print.remove();
+            li.classList.remove("is-shown");
+            open = null;
+            return;
+          }
+          open?.classList.remove("is-shown");
+          open = li;
+          li.classList.add("is-shown");
+          li.appendChild(print);
+          setMedia(li, pImg, pVid);
+        });
+      }
     })();
   </script>
 
