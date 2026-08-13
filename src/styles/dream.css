@@ -203,39 +203,10 @@
   transition: color var(--dur) var(--ease);
 }
 
-/* The thread itself: one pink curve from the bead to the frame's edge,
-   drawn on hover, erased when the road is left alone. */
-[data-mode="dream"] .thread {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
-  z-index: 1;
-}
-
-[data-mode="dream"] .thread path {
-  fill: none;
-  stroke: var(--hot);
-  stroke-width: 1.2;
-  stroke-linecap: round;
-  opacity: 0.6;
-  transition: stroke-dashoffset 320ms var(--ease);
-}
-
 [data-mode="dream"] .journey-bay {
   position: relative;
 }
 
-
-/* The frame answers the thread: it lifts a little and the picture fades in
-   rather than snapping. */
-[data-mode="dream"] .easel .cell {
-  transition:
-    transform var(--dur-slow) var(--ease),
-    box-shadow var(--dur-slow) var(--ease);
-}
 
 [data-mode="dream"] .journey-bay:hover .easel .cell {
   transform: rotate(0.6deg) translateY(-4px);
@@ -320,31 +291,42 @@
 /* The easel: one matted print beside the road, sticky so it walks with you,
    swapped by whichever bead the cursor rests on. Hover devices only. */
 [data-mode="dream"] .easel {
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: sticky;
+  top: 16vh;
   margin: 0;
-  width: min(100%, 25rem);
-  translate: 0 var(--ty, 0);
-  transition: translate 520ms cubic-bezier(0.22, 0.61, 0.24, 1);
+  justify-self: end;
+  width: min(100%, 30rem);
 }
 
+/* One window, one size, whatever shape the picture is. A tall app
+   screenshot and a wide dashboard both mount inside the same 4:3 mat
+   instead of one towering off the screen and the next shrinking to a
+   stamp — the cream around them is the passe-partout, not a mistake. */
 [data-mode="dream"] .easel .cell {
-  display: block;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  height: 21rem;
+  overflow: hidden;
   background: var(--mat);
-  padding: 0.5rem;
+  padding: 0.55rem;
   border-radius: 2px;
   box-shadow:
     0 2px 5px rgb(8 10 22 / 58%),
     0 18px 40px rgb(8 10 22 / 42%);
-  transform: rotate(1.4deg);
+  transform: rotate(1.2deg);
+  transition: transform var(--dur-slow) var(--ease), box-shadow var(--dur-slow) var(--ease);
 }
 
+/* object-fit rather than max-height percentages: the picture always lands
+   whole inside the mat, whatever its shape, with no clipping. */
 [data-mode="dream"] .easel img,
 [data-mode="dream"] .easel video {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   border-radius: 1px;
 }
 
@@ -354,8 +336,7 @@
 }
 
 @media (hover: none), (max-width: 860px) {
-  [data-mode="dream"] .easel,
-  [data-mode="dream"] .thread {
+  [data-mode="dream"] .easel {
     display: none;
   }
 }
@@ -367,7 +348,12 @@
 }
 
 [data-mode="dream"] .bead-print .cell {
-  display: block;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  height: 15rem;
+  overflow: hidden;
   background: var(--mat);
   padding: 0.4rem;
   border-radius: 2px;

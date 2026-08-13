@@ -426,8 +426,6 @@ const description =
         }
       </ol>
 
-      <svg class="thread" aria-hidden="true"><path /></svg>
-
       <figure class="easel" aria-hidden="true">
         <span class="cell">
           <img src="/images/journey/lecture.jpg" alt="" loading="lazy" />
@@ -524,24 +522,22 @@ const description =
   </section>
 
   <script is:inline>
-    // The easel, and how it answers the road. On hover devices the frame
-    // rides a rail beside the list, a short rule ties it to the hovered
-    // line, and the first bead comes pre-selected so the relationship is
-    // visible before anyone hovers anything. On touch (and narrow) screens
-    // the same pictures unfold inline: tap a line, its print opens under
-    // it — one at a time, like flipping through a shoebox.
+    // The frame beside the road. Nothing is drawn between them — a rule
+    // floating in open water read as a stray mark. The pairing is said in
+    // one colour instead: the line you are on and the frame light together,
+    // and the frame stays level with your reading rather than sliding to
+    // the bottom of the section. On touch screens the same pictures unfold
+    // inline under the line you tap.
     (() => {
       const bay = document.querySelector(".journey-bay");
       const easel = document.querySelector(".easel");
-      const svg = document.querySelector(".thread");
-      if (!bay || !easel || !svg) return;
-      const path = svg.querySelector("path");
-      const list = bay.querySelector("ol");
+      if (!bay || !easel) return;
       const img = easel.querySelector("img");
       const vid = easel.querySelector("video");
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const wide = matchMedia("(hover: hover) and (min-width: 861px)");
+      const easelOn = () => wide.matches;
       const beads = [...bay.querySelectorAll(".log--journey li")];
-      const easelOn = () => getComputedStyle(easel).display !== "none";
       let active = null;
 
       const setMedia = (li, imgEl, vidEl) => {
@@ -557,61 +553,24 @@ const description =
         }
       };
 
-      // The dot is a ::before and cannot be measured; it is drawn at a known
-      // offset inside the first column, mirrored here.
-      const lineY = (li) => {
-        const r = li.getBoundingClientRect();
-        return r.top + parseFloat(getComputedStyle(li).fontSize) * 0.66 + 3.5;
-      };
-
-      const place = () => {
-        if (!active || !easelOn()) return;
-        const b = bay.getBoundingClientRect();
-        const travel = Math.max(0, b.height - easel.offsetHeight);
-        const i = beads.indexOf(active);
-        easel.style.setProperty("--ty", `${(i / Math.max(1, beads.length - 1)) * travel}px`);
-
-        const e = easel.getBoundingClientRect();
-        const y = lineY(active) - b.top;
-        const x1 = list.getBoundingClientRect().right - b.left + 14;
-        const x2 = e.left - b.left - 7;
-        path.setAttribute("d", `M ${x1} ${y} L ${Math.max(x1 + 8, x2)} ${y}`);
-        const len = path.getTotalLength();
-        path.style.strokeDasharray = len;
-        if (svg.dataset.on !== "1") {
-          path.style.transition = "none";
-          path.style.strokeDashoffset = len;
-          path.getBoundingClientRect();
-          path.style.transition = "";
-          svg.dataset.on = "1";
-        }
-        path.style.strokeDashoffset = "0";
-      };
-
       const activate = (li) => {
         if (active && active !== li) active.classList.remove("is-shown");
         active = li;
         li.classList.add("is-shown");
+        easel.classList.add("is-lit");
         setMedia(li, img, vid);
-        place();
       };
 
       for (const li of beads) {
         li.addEventListener("pointerenter", () => {
-          if (!easelOn()) return;
-          if (li.dataset.easel) activate(li);
+          if (easelOn() && li.dataset.easel) activate(li);
         });
       }
-      addEventListener("resize", place);
 
-      // The road starts already answered: the newest bead sits selected, its
-      // thread drawn, so the mechanism explains itself at a glance. Checked
-      // again on resize, because a window that starts narrow (or a pane that
-      // starts hidden) skips the first pass.
       const first = beads.find((li) => li.dataset.easel);
       const preset = () => { if (first && !active && easelOn()) activate(first); };
       preset();
-      addEventListener("resize", preset);
+      wide.addEventListener("change", preset);
 
       // ── the shoebox, for fingers ──
       const print = document.createElement("figure");
@@ -627,11 +586,7 @@ const description =
           if (easelOn() || !li.dataset.easel) return;
           if (e.target.closest("a")) return;
           if (open === li) {
-            pVid.pause();
-            print.remove();
-            li.classList.remove("is-shown");
-            open = null;
-            return;
+            pVid.pause(); print.remove(); li.classList.remove("is-shown"); open = null; return;
           }
           open?.classList.remove("is-shown");
           open = li;
