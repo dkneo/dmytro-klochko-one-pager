@@ -17,18 +17,18 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
 // where you are when you are not on it.
 ---
 
-<html lang="en" data-mode="bebop">
+<html lang="en" data-mode="dream">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#0b0b0d" />
+    <meta name="theme-color" content="#2c3357" />
     <!--
-      Two art directions share this markup. "bebop" is the default while
-      dream gets rebuilt; the toggle still offers both. The key is versioned
-      ("mode2") so preferences stored under the old default do not pin
-      anyone to a mode they never chose. Read before first paint so neither
-      mode ever flashes as the other.
+      Two art directions share this markup. Dream is the default now that it
+      is finished; bebop lives on behind the toggle. localStorage is written
+      only when someone clicks that toggle, so a stored value is always a
+      deliberate choice and is honoured over the default. Read before first
+      paint so neither mode ever flashes as the other.
     -->
     <script is:inline>
       (() => {

@@ -1,6 +1,6 @@
 ---
 name: dmytro klochko — dream / bebop
-description: two art directions over one markup. bebop (default): a terminal in deep space — monospace, near-black, one pink accent, ASCII art. dream: his own paintings full-bleed behind smoked glass, behind the toggle.
+description: two art directions over one markup. bebop: a terminal in deep space — monospace, near-black, one pink accent, ASCII art. dream: his own paintings full-bleed behind smoked glass, behind the toggle.
 modes:
   dream:   # v4 — bebop's bones, his paintings for a sky
     void: "#262b44"
@@ -67,16 +67,18 @@ motion:
 
 The site ships two complete art directions over the same HTML, switched by
 `data-mode` on the root, chosen before first paint, persisted in
-localStorage under a versioned key (`mode2`). **Bebop is the default**;
-dream stays whole behind the toggle. This file describes both; where a rule
-names no mode, it holds in both.
+localStorage under a versioned key (`mode2`). **Dream is the default**;
+bebop stays whole behind the toggle. Storage is written only on a toggle
+click, so a stored mode is always a deliberate choice and outranks the
+default. This file describes both; where a rule names no mode, it holds in
+both.
 
 Everything the earlier version of this file recorded about The Session —
 the named rules, the failures they were earned from — still applies inside
 bebop mode, and most of it (the spacing scale, the type discipline, the
 target sizes, the Found Object rule) applies everywhere.
 
-## Dream Mode (behind the toggle) — The Journey
+## Dream Mode (the default) — The Journey
 
 His own paintings (Seedream, 4K, chosen and named by him) run full-bleed
 as fixed scenes — **one painting per URL**: the swimmer under the orange
@@ -166,7 +168,7 @@ is not.
 **The Glass Never Paints Rule.** Readability comes from dimming the art
 through smoked glass, never from panels, veils, or colour laid on top.
 
-## Bebop Mode
+## Bebop Mode (behind the toggle)
 
 The Session, unchanged: warm near-black, bone monospace, one pink accent,
 starfield flight, ASCII drawn accurately from real sources. See git history
