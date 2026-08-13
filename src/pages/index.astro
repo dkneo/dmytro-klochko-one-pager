@@ -574,7 +574,30 @@ const description =
         });
       }
 
-      const first = beads.find((li) => li.dataset.easel);
+      // Scrolling changes the picture too, so the road tells its story to
+      // someone who never moves the mouse: whichever bead with a picture
+      // sits nearest the middle of the screen is the one the frame holds.
+      // Measured straight from the rects on each scroll rather than through
+      // an IntersectionObserver — fourteen rects is nothing, and it works
+      // in every context an observer's callbacks might not reach.
+      const withMedia = beads.filter((li) => li.dataset.easel);
+      const pick = () => {
+        if (!easelOn()) return;
+        const box = bay.getBoundingClientRect();
+        if (box.bottom < 0 || box.top > innerHeight) return;
+        const mid = innerHeight / 2;
+        let best = null, bestD = Infinity;
+        for (const li of withMedia) {
+          const r = li.getBoundingClientRect();
+          const d = Math.abs(r.top + r.height / 2 - mid);
+          if (d < bestD) { bestD = d; best = li; }
+        }
+        if (best && best !== active) activate(best);
+      };
+      addEventListener("scroll", pick, { passive: true });
+      addEventListener("resize", pick);
+
+      const first = withMedia[0];
       const preset = () => { if (first && !active && easelOn()) activate(first); };
       preset();
       wide.addEventListener("change", preset);
