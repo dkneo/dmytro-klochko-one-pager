@@ -389,10 +389,50 @@
   margin-bottom: 0.6rem;
 }
 
+[data-mode="dream"] .dream-sky {
+  transform: translate(calc(var(--px, 0) * 18px), calc(var(--py, 0) * 12px));
+}
+
 /* Petals still fall over the fire — falling pink against rising ember is
    the whole mood — but they step back so the fire leads its own scene. */
 html[data-scene="fire"] .dream-sky b {
   opacity: 0.5;
+}
+
+/* Click his name and the whole night gives a little shudder. Nothing
+   navigates, nothing breaks — it is only a wink for whoever tries it. */
+.masthead.is-shook {
+  animation: name-shake 640ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes name-shake {
+  10% { transform: translate3d(-2px, 0, 0) rotate(-1.2deg); }
+  25% { transform: translate3d(3px, -1px, 0) rotate(1.6deg); }
+  40% { transform: translate3d(-3px, 1px, 0) rotate(-1.4deg); }
+  55% { transform: translate3d(2px, 0, 0) rotate(1deg); }
+  70% { transform: translate3d(-1px, -1px, 0) rotate(-0.6deg); }
+  85% { transform: translate3d(1px, 0, 0) rotate(0.3deg); }
+  100% { transform: none; }
+}
+
+html.is-shook .scenes {
+  animation: night-shudder 720ms ease-out;
+}
+
+@keyframes night-shudder {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  18% { transform: translate3d(-6px, 3px, 0) scale(1.006); }
+  38% { transform: translate3d(5px, -4px, 0) scale(1.004); }
+  58% { transform: translate3d(-4px, 2px, 0) scale(1.002); }
+  78% { transform: translate3d(2px, -1px, 0) scale(1.001); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masthead.is-shook,
+  html.is-shook .scenes {
+    animation: none;
+  }
 }
 
 /* The vinyl keeps spinning, in dusk and pink. */
@@ -526,6 +566,26 @@ html[data-scene="fire"] .dream-sky b {
 [data-mode="dream"] .hero-side {
   align-self: center;
 }
+
+/* The pile leans toward the cursor. Each print sits at its own depth, so
+   the front one travels furthest and the whole stack reads as three
+   objects on a table rather than a flat collage. Damped, so it follows
+   the hand instead of snapping to it. */
+[data-mode="dream"] .hero-stack {
+  perspective: 1100px;
+}
+
+[data-mode="dream"] .hero-stack figure {
+  transform:
+    rotateY(calc(var(--tx, 0) * 5deg))
+    rotateX(calc(var(--ty, 0) * -4deg))
+    translate3d(calc(var(--tx, 0) * var(--depth, 6) * 1px), calc(var(--ty, 0) * var(--depth, 6) * 1px), 0);
+  transition: transform 260ms cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+[data-mode="dream"] .hero-stack figure:nth-child(1) { --depth: 5; }
+[data-mode="dream"] .hero-stack figure:nth-child(2) { --depth: 11; }
+[data-mode="dream"] .hero-stack figure:nth-child(3) { --depth: 18; }
 
 /* The trio of prints the first version opened with, back as a loose pile.
    Mats from the same drawer as every other print in dream. */
@@ -770,8 +830,8 @@ html[data-scene="fire"] .dream-sky b {
   inset: -6%;
   opacity: 0;
   background: center / cover no-repeat;
-  transform: translateY(calc(var(--scroll, 0) * -4vh))
-    translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px));
+  transform: translateY(calc(var(--scroll, 0) * -7vh))
+    translate(calc(var(--px, 0) * -34px), calc(var(--py, 0) * -22px));
   transition: opacity 900ms var(--ease);
   animation: scene-breathe 70s ease-in-out infinite alternate;
 }
@@ -788,8 +848,8 @@ html[data-scene="fire"] .dream-sky b {
   inset: -6%;
   background: radial-gradient(20% 27% at 42% 24%, rgb(255 186 110 / 55%), rgb(from var(--ember-deep) r g b / 18%) 55%, transparent 72%);
   mix-blend-mode: soft-light;
-  transform: translateY(calc(var(--scroll, 0) * -4vh))
-    translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px));
+  transform: translateY(calc(var(--scroll, 0) * -7vh))
+    translate(calc(var(--px, 0) * -46px), calc(var(--py, 0) * -30px));
   animation: sun-pulse 7s ease-in-out infinite alternate;
   opacity: 0;
 }
@@ -815,8 +875,8 @@ html:not([data-scene="swim"]) .scenes .sunpulse {
     radial-gradient(9% 13% at 74% 80%, rgb(255 186 110 / 62%), rgb(from var(--ember-deep) r g b / 26%) 55%, transparent 72%),
     radial-gradient(26% 30% at 74% 78%, rgb(240 138 84 / 20%), transparent 70%);
   mix-blend-mode: soft-light;
-  transform: translateY(calc(var(--scroll, 0) * -4vh))
-    translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px));
+  transform: translateY(calc(var(--scroll, 0) * -7vh))
+    translate(calc(var(--px, 0) * -46px), calc(var(--py, 0) * -30px));
   opacity: 0;
 }
 

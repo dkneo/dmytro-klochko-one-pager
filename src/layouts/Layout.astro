@@ -202,6 +202,67 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
       }
     </script>
 
+    <!-- The pile of prints leans toward the cursor while it is over them,
+         and eases back when it leaves. Hover-and-fine-pointer only, and
+         silent under reduced motion. -->
+    <script is:inline>
+      (() => {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+        for (const pile of document.querySelectorAll(".hero-stack, .hi-stack")) {
+          pile.addEventListener("pointermove", (e) => {
+            const r = pile.getBoundingClientRect();
+            pile.style.setProperty("--tx", (((e.clientX - r.left) / r.width - 0.5) * 2).toFixed(3));
+            pile.style.setProperty("--ty", (((e.clientY - r.top) / r.height - 0.5) * 2).toFixed(3));
+          }, { passive: true });
+          pile.addEventListener("pointerleave", () => {
+            pile.style.setProperty("--tx", "0");
+            pile.style.setProperty("--ty", "0");
+          });
+        }
+      })();
+    </script>
+
+    <!-- Click his name and the night shudders: the masthead shakes, the sky
+         shivers behind it, and a few embers jump off the fire. On the home
+         page the click is caught so nothing reloads; elsewhere it still
+         goes home, because that is what a masthead is for. -->
+    <script is:inline>
+      (() => {
+        const name = document.querySelector(".masthead");
+        if (!name) return;
+        const root = document.documentElement;
+        let busy = false;
+        name.addEventListener("click", (e) => {
+          const home = location.pathname === "/" || location.pathname === "/index.html";
+          if (!home) return;
+          e.preventDefault();
+          if (busy) return;
+          busy = true;
+          name.classList.add("is-shook");
+          root.classList.add("is-shook");
+          const sky = document.querySelector(".dream-sky");
+          if (sky && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            for (let n = 0; n < 7; n++) {
+              const p = document.createElement("b");
+              p.style.left = (66 + Math.random() * 16) + "%";
+              p.style.setProperty("--fall", (1.8 + Math.random() * 1.6) + "s");
+              p.style.setProperty("--wait", (Math.random() * 0.5) + "s");
+              p.style.setProperty("--sway", (Math.random() * 90 - 45) + "px");
+              p.style.animationIterationCount = "1";
+              sky.appendChild(p);
+              setTimeout(() => p.remove(), 4200);
+            }
+          }
+          setTimeout(() => {
+            name.classList.remove("is-shook");
+            root.classList.remove("is-shook");
+            busy = false;
+          }, 760);
+        });
+      })();
+    </script>
+
     <!-- Type l-i-s-a anywhere and the sky answers with a shower of petals.
          She was the first rep; she gets to be in the source. -->
     <script is:inline>
