@@ -104,44 +104,57 @@ const studyQuote = {
   meta: "guingrich & graziano, oxford intersections: ai in society, 2025",
 };
 
-// The whole road in one thread, five years old to now. Childhood lines are
-// the log verbatim; career entries reuse the register's fields; the busking
-// and filmmaking lines come from his reference doc. `pic` is what the easel
-// shows on hover — a video where he gave one.
+// The road as chapters. Each is one scroll beat: a card and a large piece of
+// media that belong to each other. Titles, subtitles and roles are his own
+// words, split only at the punctuation he already wrote — nothing invented.
 const journey = [
-  { name: "university of vienna", href: "https://www.univie.ac.at/en/",
-    role: "lecturer", glyph: "🎓", pic: "/images/journey/lecture.jpg" },
-  { name: "hunch", mark: "/images/marks/homa.png",
-    what: "remote team happiness saas", role: "founder and chief executive officer",
-    pic: "/video/homa.mp4", video: true, poster: "/video/homa-poster.jpg" },
-  { name: "chatfuel", href: "https://chatfuel.com", mark: "/images/marks/chatfuel.png",
-    what: "marketing ai agent. 150k+ businesses", role: "growth, ai",
-    pic: "/images/journey/chatfuel.jpg" },
-  { name: "hily", href: "https://hily.com", mark: "/images/marks/hily.png",
-    what: "#3 dating app in the u.s. by downloads", role: "product, growth, data",
-    pic: "/images/journey/hily.jpg" },
-  { name: "vk", href: "https://vk.com", mark: "/images/marks/vk.png",
-    what: "largest european social network. 100m+ mau", role: "product, growth, ml",
-    pic: "/images/journey/vk.jpg" },
-  { name: "skyeng", href: "https://skyeng.ru", mark: "/images/marks/skyeng.png",
-    what: "#1 1:1 education platform in europe", role: "product, growth",
-    pic: "/images/journey/skyeng.jpg" },
-  { text: "busking, improv, songwriting studio, volunteering.",
-    pic: "/video/busking.mp4", video: true, poster: "/video/busking-poster.jpg" },
-  { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
-    pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg" },
-  { text: "14 yo: toured neighboring countries as band leader.",
-    pic: "/images/journey/touring.jpg" },
-  { text: "13 yo: first filmmaking gig.",
-    pic: "/images/journey/filmgig.jpg" },
-  { text: "11 yo: wrote my first song. poetry contest winner.",
-    pic: "/images/journey/piano.jpg" },
-  { text: "9 yo: best kid actor award.",
-    pic: "/video/actor.mp4", video: true, poster: "/video/actor-poster.jpg" },
-  { text: "6 yo+: olympiads winner: math, humanities {later: coding, economics}.",
-    pic: "/images/journey/olympiads.jpg" },
-  { text: "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy.",
-    pic: "/images/childhood-chess.jpg" },
+  { id: "vienna", label: "vienna", title: "university of vienna",
+    href: "https://www.univie.ac.at/en/", role: "lecturer",
+    media: "/images/journey/lecture.jpg",
+    alt: "Dmytro lecturing beside a projected Replika slide" },
+  { id: "hunch", label: "hunch", title: "hunch", mark: "/images/marks/homa.png",
+    subtitle: "remote team happiness saas", role: "founder and chief executive officer",
+    media: "/video/homa.mp4", type: "video", poster: "/video/homa-poster.jpg",
+    alt: "The Hunch dashboard" },
+  { id: "chatfuel", label: "chatfuel", title: "chatfuel", href: "https://chatfuel.com",
+    mark: "/images/marks/chatfuel.png",
+    subtitle: "marketing ai agent. 150k+ businesses", role: "growth, ai",
+    media: "/images/journey/chatfuel.jpg",
+    alt: "Dmytro interviewed as head of marketing at Chatfuel" },
+  { id: "hily", label: "hily", title: "hily", href: "https://hily.com",
+    mark: "/images/marks/hily.png",
+    subtitle: "#3 dating app in the u.s. by downloads", role: "product, growth, data",
+    media: "/images/journey/hily.jpg", alt: "The Hily app" },
+  { id: "vk", label: "vk", title: "vk", href: "https://vk.com", mark: "/images/marks/vk.png",
+    subtitle: "largest european social network. 100m+ mau", role: "product, growth, ml",
+    media: "/images/journey/vk.jpg", alt: "VK" },
+  { id: "skyeng", label: "skyeng", title: "skyeng", href: "https://skyeng.ru",
+    mark: "/images/marks/skyeng.png",
+    subtitle: "#1 1:1 education platform in europe", role: "product, growth",
+    media: "/images/journey/skyeng.jpg", alt: "The Skyeng app" },
+  { id: "odd", label: "odd jobs", title: "busking, improv, songwriting studio, volunteering",
+    media: "/video/busking.mp4", type: "video", poster: "/video/busking-poster.jpg",
+    alt: "Dmytro in a studio" },
+  { id: "theatre", label: "19", age: "19 yo", title: "founded student theatre",
+    subtitle: "director, screenwriter", role: "50+ members. 700+ audience for the premiere",
+    media: "/video/theatre.mp4", type: "video", poster: "/video/theatre-poster.jpg",
+    alt: "Dmytro with his student theatre company" },
+  { id: "band", label: "14", age: "14 yo", title: "toured neighboring countries as band leader",
+    media: "/images/journey/touring.jpg", alt: "Dmytro on stage with his band" },
+  { id: "film", label: "13", age: "13 yo", title: "first filmmaking gig",
+    media: "/images/journey/filmgig.jpg", alt: "Dmytro as a boy in a recording booth" },
+  { id: "song", label: "11", age: "11 yo", title: "wrote my first song",
+    subtitle: "poetry contest winner",
+    media: "/images/journey/piano.jpg", alt: "Dmytro as a child at a piano" },
+  { id: "actor", label: "9", age: "9 yo", title: "best kid actor award",
+    media: "/video/actor.mp4", type: "video", poster: "/video/actor-poster.jpg",
+    alt: "A scene from the film Dmytro won the award for" },
+  { id: "olympiads", label: "6", age: "6 yo+", title: "olympiads winner",
+    subtitle: "math, humanities {later: coding, economics}",
+    media: "/images/journey/olympiads.jpg", alt: "Dmytro as a small boy receiving an award" },
+  { id: "chess", label: "5", age: "5 yo", title: "ukraine's bronze chess champion",
+    subtitle: "blindfold chess child prodigy",
+    media: "/images/childhood-chess.jpg", alt: "Dmytro as a small boy at a tournament board" },
 ] as const;
 
 const wall = [
@@ -377,10 +390,11 @@ const description =
     </div>
   </section>
 
-  {/* Dream's version of everything pre-replika: one chronological thread,
-      the war note carrying the photograph of him at sixteen, and an easel
-      on the right that shows each bead's picture on hover. Bebop keeps its
-      two original sections above. */}
+  {/* Dream's version of everything before replika, built as a scrollable
+      autobiography rather than a list: the rail and the media stage stay
+      put while the chapters travel past, so exactly one moment is on stage
+      at a time. Bebop keeps its two original sections below. Without JS the
+      chapters still read in order, each above its own picture. */}
   <section class="shell session only-dream" id="journey" data-scene="swim" aria-labelledby="s8">
     <div class="card">
       <p class="card-no">04</p>
@@ -401,121 +415,74 @@ const description =
       russia took my hometown in 2014, when i was sixteen.
     </div>
 
-    <div class="bay journey-bay">
-      <ol class="log log--journey">
-        {
-          journey.map((j) => (
-            <li data-easel={j.pic} data-kind={"video" in j && j.video ? "video" : undefined} data-poster={"poster" in j ? j.poster : undefined}>
-              {"name" in j && j.name ? (
-                <p class="tl-co-line">
-                  {"mark" in j && j.mark && <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />}
-                  {"glyph" in j && j.glyph && <span class="tl-mark tl-glyph pin" aria-hidden="true">{j.glyph}</span>}
-                  <span class="tl-co">
-                    {"href" in j && j.href
-                      ? <a href={j.href} target="_blank" rel="noreferrer">{j.name}<span class="arw">↗</span></a>
-                      : j.name}
-                  </span>
-                  {"what" in j && j.what && <span class="tl-what">{j.what}</span>}
-                  {"role" in j && j.role && <span class="tl-role">{j.role}</span>}
-                </p>
-              ) : (
-                <p>{j.text}</p>
-              )}
-            </li>
-          ))
-        }
-      </ol>
-
-      <svg class="thread" aria-hidden="true"><path /></svg>
-
-      <figure class="easel" aria-hidden="true">
-        <span class="cell">
-          <img src="/images/journey/lecture.jpg" alt="" loading="lazy" />
-          <video muted loop playsinline preload="none" hidden></video>
-        </span>
-      </figure>
-    </div>
-  </section>
-
-  <section class="shell session only-bebop" id="before" data-scene="swim" aria-labelledby="s3">
-    <div class="bay bay--flush">
-      <div>
-        <div class="card">
-          <p class="card-no">04</p>
-          <h2 class="card-title" id="s3">before replika</h2>
-        </div>
-
-        <ol class="reg">
+    <div class="tl">
+      <nav class="tl-rail" aria-label="chapters">
+        <ol>
           {
-            roles.slice(1).map((r) => (
+            journey.map((j) => (
               <li>
-                <span class="reg-mark" style={`--mark: url(${r.mark})`} aria-hidden="true" />
-                <span class="reg-co">
-                  {r.href ? (
-                    <a href={r.href} target="_blank" rel="noreferrer">
-                      {r.company}<span class="arw">↗</span>
-                    </a>
-                  ) : (
-                    r.company
-                  )}
-                </span>
-                <span class="reg-what">{r.what}</span>
-                <span class="reg-role">{r.role}</span>
+                <button type="button" data-goto={j.id}>
+                  <i aria-hidden="true" />{j.label}
+                </button>
               </li>
             ))
           }
         </ol>
-      </div>
+      </nav>
 
-      <div class="joi-col">
-        <AsciiShader
-          class="ascii--fun"
-          src="/ascii/fun-sheet.jpg"
-          frames={23}
-          cols={88}
-          fps={10}
-          black={0.06}
-          white={0.99}
-          gamma={1.0}
-          label="this is where the fun begins"
-        />
-
-      </div>
-    </div>
-  </section>
-
-  <section class="shell session only-bebop" id="origin" data-scene="swim" aria-labelledby="s4">
-    <div class="card">
-      <p class="card-no">05</p>
-      <h2 class="card-title" id="s4">upbringing</h2>
-    </div>
-
-    <p class="lede">
-      born &amp; raised in 🇺🇦 donetsk. fled <button
-        class="gloss"
-        type="button"
-        popovertarget="war"
-        aria-label="war – what happened"
-      >war</button> as a teenager. slept on the streets for weeks.
-    </p>
-
-    <div class="gloss-note" id="war" popover>
-      russia took my hometown in 2014, when i was sixteen.
-    </div>
-
-    <div class="bay">
-      <ol class="log">
-        {log.map((item) => <li><p>{item}</p></li>)}
-      </ol>
-
-      <div class="sheet">
+      <div class="tl-chapters">
         {
-          shots.map((sh) => (
-            <figure>
-              <span class="cell">
-                <img src={sh.src} alt={sh.alt} loading="lazy" />
-              </span>
-              <figcaption>{sh.cap}</figcaption>
+          journey.map((j, i) => (
+            <article class="tl-chapter" data-chapter={j.id} aria-labelledby={`tl-${j.id}`}>
+              <div class="tl-card">
+                <p class="tl-num">
+                  {String(i + 1).padStart(2, "0")}
+                  <span class="tl-of"> / {journey.length}</span>
+                </p>
+
+                <h3 class="tl-title" id={`tl-${j.id}`}>
+                  {"age" in j && j.age && <span class="tl-age">{j.age}</span>}
+                  {"mark" in j && j.mark && (
+                    <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />
+                  )}
+                  {"href" in j && j.href
+                    ? <a href={j.href} target="_blank" rel="noreferrer">{j.title}<span class="arw">↗</span></a>
+                    : j.title}
+                </h3>
+
+                {"subtitle" in j && j.subtitle && <p class="tl-sub">{j.subtitle}</p>}
+                {"role" in j && j.role && <p class="tl-role">{j.role}</p>}
+              </div>
+
+              {/* The same picture the stage shows, kept in the flow for
+                  phones and for anyone without JS. */}
+              <figure class="tl-inline">
+                {"type" in j && j.type === "video" ? (
+                  <video muted loop playsinline preload="none" poster={j.poster} aria-label={j.alt}>
+                    <source src={j.media.replace(".mp4", ".webm")} type="video/webm" />
+                    <source src={j.media} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img src={j.media} alt={j.alt} loading="lazy" />
+                )}
+              </figure>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="tl-stage" aria-hidden="true">
+        {
+          journey.map((j, i) => (
+            <figure class="tl-media" data-media={j.id} data-on={i === 0 ? "1" : undefined}>
+              {"type" in j && j.type === "video" ? (
+                <video muted loop playsinline preload="none" poster={j.poster}>
+                  <source src={j.media.replace(".mp4", ".webm")} type="video/webm" />
+                  <source src={j.media} type="video/mp4" />
+                </video>
+              ) : (
+                <img src={j.media} alt="" loading={i < 2 ? "eager" : "lazy"} />
+              )}
             </figure>
           ))
         }
@@ -524,122 +491,74 @@ const description =
   </section>
 
   <script is:inline>
-    // The easel, and how it answers the road. On hover devices the frame
-    // rides a rail beside the list, a short rule ties it to the hovered
-    // line, and the first bead comes pre-selected so the relationship is
-    // visible before anyone hovers anything. On touch (and narrow) screens
-    // the same pictures unfold inline: tap a line, its print opens under
-    // it — one at a time, like flipping through a shoebox.
+    // The autobiography's projector. Each chapter announces itself as it
+    // reaches the middle of the screen; the stage cross-fades to that
+    // chapter's picture and the rail marks where you are. Nothing hijacks
+    // the scroll — the observer only reacts to it. Videos play only while
+    // they are the one on stage, so fourteen loops never run at once.
     (() => {
-      const bay = document.querySelector(".journey-bay");
-      const easel = document.querySelector(".easel");
-      const svg = document.querySelector(".thread");
-      if (!bay || !easel || !svg) return;
-      const path = svg.querySelector("path");
-      const list = bay.querySelector("ol");
-      const img = easel.querySelector("img");
-      const vid = easel.querySelector("video");
-      const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const beads = [...bay.querySelectorAll(".log--journey li")];
-      const easelOn = () => getComputedStyle(easel).display !== "none";
-      let active = null;
+      const tl = document.querySelector(".tl");
+      if (!tl) return;
+      const chapters = [...tl.querySelectorAll(".tl-chapter")];
+      const media = new Map([...tl.querySelectorAll(".tl-media")].map((f) => [f.dataset.media, f]));
+      const buttons = new Map([...tl.querySelectorAll("[data-goto]")].map((b) => [b.dataset.goto, b]));
+      const ids = chapters.map((c) => c.dataset.chapter);
+      // Deliberately null: show() short-circuits on a repeat, and seeding
+      // this with the first id made the opening call a no-op, so the rail
+      // and the first card started life unlit.
+      let current = null;
 
-      const setMedia = (li, imgEl, vidEl) => {
-        const src = li.dataset.easel;
-        if (li.dataset.kind === "video" && !still) {
-          if (vidEl.dataset.src !== src) { vidEl.src = src; vidEl.dataset.src = src; }
-          imgEl.hidden = true; vidEl.hidden = false;
-          vidEl.play().catch(() => {});
-        } else {
-          vidEl.pause(); vidEl.hidden = true; imgEl.hidden = false;
-          const want = li.dataset.kind === "video" ? li.dataset.poster : src;
-          if (want && !imgEl.src.endsWith(want)) imgEl.src = want;
+      const show = (id) => {
+        if (id === current) return;
+        current = id;
+        for (const c of chapters) c.toggleAttribute("data-at", c.dataset.chapter === id);
+        for (const [key, fig] of media) {
+          const on = key === id;
+          fig.toggleAttribute("data-on", on);
+          const v = fig.querySelector("video");
+          if (v) on ? v.play().catch(() => {}) : v.pause();
+        }
+        for (const [key, b] of buttons) {
+          const at = ids.indexOf(key);
+          const d = Math.abs(at - ids.indexOf(id));
+          // Near the current chapter the rail is legible; far from it, it
+          // fades back to a suggestion of how much road there is.
+          b.style.opacity = d === 0 ? "1" : d === 1 ? "0.5" : d === 2 ? "0.3" : "0.18";
+          b.toggleAttribute("data-at", key === id);
+          key === id ? b.setAttribute("aria-current", "step") : b.removeAttribute("aria-current");
         }
       };
 
-      // The dot is a ::before and cannot be measured; it is drawn at a known
-      // offset inside the first column, mirrored here.
-      const lineY = (li) => {
-        const r = li.getBoundingClientRect();
-        return r.top + parseFloat(getComputedStyle(li).fontSize) * 0.66 + 3.5;
-      };
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) if (e.isIntersecting) show(e.target.dataset.chapter);
+        },
+        { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+      );
+      for (const c of chapters) io.observe(c);
+      show(ids[0]);
 
-      const place = () => {
-        if (!active || !easelOn()) return;
-        const b = bay.getBoundingClientRect();
-        const travel = Math.max(0, b.height - easel.offsetHeight);
-        const i = beads.indexOf(active);
-        easel.style.setProperty("--ty", `${(i / Math.max(1, beads.length - 1)) * travel}px`);
-
-        const e = easel.getBoundingClientRect();
-        const y = lineY(active) - b.top;
-        const x1 = list.getBoundingClientRect().right - b.left + 14;
-        const x2 = e.left - b.left - 7;
-        path.setAttribute("d", `M ${x1} ${y} L ${Math.max(x1 + 8, x2)} ${y}`);
-        const len = path.getTotalLength();
-        path.style.strokeDasharray = len;
-        if (svg.dataset.on !== "1") {
-          path.style.transition = "none";
-          path.style.strokeDashoffset = len;
-          path.getBoundingClientRect();
-          path.style.transition = "";
-          svg.dataset.on = "1";
-        }
-        path.style.strokeDashoffset = "0";
-      };
-
-      const activate = (li) => {
-        if (active && active !== li) active.classList.remove("is-shown");
-        active = li;
-        li.classList.add("is-shown");
-        setMedia(li, img, vid);
-        place();
-      };
-
-      for (const li of beads) {
-        li.addEventListener("pointerenter", () => {
-          if (!easelOn()) return;
-          if (li.dataset.easel) activate(li);
+      // The rail is navigation, so its buttons actually go somewhere.
+      for (const [id, b] of buttons) {
+        b.addEventListener("click", () => {
+          document.querySelector(`[data-chapter="${id}"]`)
+            ?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
         });
       }
-      addEventListener("resize", place);
 
-      // The road starts already answered: the newest bead sits selected, its
-      // thread drawn, so the mechanism explains itself at a glance. Checked
-      // again on resize, because a window that starts narrow (or a pane that
-      // starts hidden) skips the first pass.
-      const first = beads.find((li) => li.dataset.easel);
-      const preset = () => { if (first && !active && easelOn()) activate(first); };
-      preset();
-      addEventListener("resize", preset);
-
-      // ── the shoebox, for fingers ──
-      const print = document.createElement("figure");
-      print.className = "bead-print";
-      print.innerHTML =
-        '<span class="cell"><img alt="" hidden /><video muted loop playsinline preload="none" hidden></video></span>';
-      const pImg = print.querySelector("img");
-      const pVid = print.querySelector("video");
-      let open = null;
-
-      for (const li of beads) {
-        li.addEventListener("click", (e) => {
-          if (easelOn() || !li.dataset.easel) return;
-          if (e.target.closest("a")) return;
-          if (open === li) {
-            pVid.pause();
-            print.remove();
-            li.classList.remove("is-shown");
-            open = null;
-            return;
+      // The inline pictures are what phones and no-JS visitors read; they
+      // play only when they are actually on screen.
+      const vio = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            const v = e.target.querySelector("video");
+            if (!v) continue;
+            e.isIntersecting ? v.play().catch(() => {}) : v.pause();
           }
-          open?.classList.remove("is-shown");
-          open = li;
-          li.classList.add("is-shown");
-          li.appendChild(print);
-          setMedia(li, pImg, pVid);
-        });
-      }
+        },
+        { threshold: 0.4 }
+      );
+      for (const f of tl.querySelectorAll(".tl-inline")) vio.observe(f);
     })();
   </script>
 
