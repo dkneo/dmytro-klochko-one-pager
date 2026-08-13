@@ -194,10 +194,44 @@
   -webkit-mask: var(--mark) center / contain no-repeat;
 }
 
+/* A company bead keeps the register's shape: the name and what it is on one
+   line, the role beneath — they carry more than a single year does, and it
+   is only natural that they look fatter. */
+[data-mode="dream"] .tl-co-line {
+  display: grid;
+  grid-template-columns: 1.35rem auto 1fr;
+  align-items: baseline;
+  column-gap: 0.5rem;
+  row-gap: 0.1rem;
+}
+
+/* Explicit columns, because not every entry has a mark and a role, and
+   auto-placement slid the ones that don't out of the register's alignment. */
+[data-mode="dream"] .tl-co-line .tl-mark {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  margin-right: 0;
+}
+
 [data-mode="dream"] .log--journey .tl-co {
+  grid-column: 2;
+  grid-row: 1;
   color: var(--bone);
   font-style: normal;
-  font-weight: 500;
+}
+
+[data-mode="dream"] .tl-what {
+  grid-column: 3;
+  grid-row: 1;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .tl-role {
+  grid-column: 2 / -1;
+  grid-row: 2;
+  color: var(--faint);
+  font-size: var(--t-prose-sm);
 }
 
 [data-mode="dream"] .log--journey a {

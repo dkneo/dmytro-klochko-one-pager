@@ -109,34 +109,33 @@ const studyQuote = {
 // and filmmaking lines come from his reference doc. `pic` is what the easel
 // shows on hover — a video where he gave one.
 const journey = [
-  { text: "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy.",
-    pic: "/images/childhood-chess.jpg" },
-  { text: "6 yo: first job {busking, improv}." },
-  { text: "6 yo+: olympiads winner: math, humanities {later: coding, economics}.",
-    pic: "/images/journey/olympiads.jpg" },
-  { text: "9 yo: best kid actor award." },
-  { text: "11 yo: wrote my first song. poetry contest winner.",
-    pic: "/images/journey/piano.jpg" },
-  { text: "13 yo: first filmmaking gig." },
-  { text: "14 yo: toured neighboring countries as band leader.",
-    pic: "/images/journey/touring.jpg" },
-  { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
-    pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg" },
-  { text: "a hundred gigs and strange little jobs in between." },
-  { name: "skyeng", href: "https://skyeng.ru", mark: "/images/marks/skyeng.png",
-    text: "#1 1:1 education platform in europe. product, growth." },
-  { name: "vk", href: "https://vk.com", mark: "/images/marks/vk.png",
-    text: "largest european social network. 100m+ mau. product, growth, ml." },
-  { name: "hily", href: "https://hily.com", mark: "/images/marks/hily.png",
-    text: "#3 dating app in the u.s. by downloads. product, growth, data." },
-  { name: "chatfuel", href: "https://chatfuel.com", mark: "/images/marks/chatfuel.png",
-    text: "marketing ai agent. 150k+ businesses. growth, ai." },
-  { name: "homa", mark: "/images/marks/homa.png",
-    text: "remote team happiness saas. founder and chief executive officer." },
-  { name: "university of vienna", href: "https://www.univie.ac.at/en/",
-    text: "lecturer.", pic: "/video/vlog-vienna-poster.jpg" },
   { text: "to this day: designing fashion items. writing. doing film photography.",
     pic: "/images/journey/today.jpg" },
+  { name: "university of vienna", href: "https://www.univie.ac.at/en/",
+    what: "lecturer.", pic: "/images/journey/lecture.jpg" },
+  { name: "homa", mark: "/images/marks/homa.png",
+    what: "remote team happiness saas", role: "founder and chief executive officer" },
+  { name: "chatfuel", href: "https://chatfuel.com", mark: "/images/marks/chatfuel.png",
+    what: "marketing ai agent. 150k+ businesses", role: "growth, ai" },
+  { name: "hily", href: "https://hily.com", mark: "/images/marks/hily.png",
+    what: "#3 dating app in the u.s. by downloads", role: "product, growth, data" },
+  { name: "vk", href: "https://vk.com", mark: "/images/marks/vk.png",
+    what: "largest european social network. 100m+ mau", role: "product, growth, ml" },
+  { name: "skyeng", href: "https://skyeng.ru", mark: "/images/marks/skyeng.png",
+    what: "#1 1:1 education platform in europe", role: "product, growth" },
+  { text: "busking, improv, songwriting studio, volunteering." },
+  { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
+    pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg" },
+  { text: "14 yo: toured neighboring countries as band leader.",
+    pic: "/images/journey/touring.jpg" },
+  { text: "13 yo: first filmmaking gig." },
+  { text: "11 yo: wrote my first song. poetry contest winner.",
+    pic: "/images/journey/piano.jpg" },
+  { text: "9 yo: best kid actor award." },
+  { text: "6 yo+: olympiads winner: math, humanities {later: coding, economics}.",
+    pic: "/images/journey/olympiads.jpg" },
+  { text: "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy.",
+    pic: "/images/childhood-chess.jpg" },
 ] as const;
 
 const wall = [
@@ -379,7 +378,7 @@ const description =
   <section class="shell session only-dream" id="journey" data-scene="swim" aria-labelledby="s8">
     <div class="card">
       <p class="card-no">04</p>
-      <h2 class="card-title" id="s8">before replika</h2>
+      <h2 class="card-title" id="s8">background</h2>
     </div>
 
     <p class="lede">
@@ -401,15 +400,20 @@ const description =
         {
           journey.map((j) => (
             <li data-easel={j.pic} data-kind={"video" in j && j.video ? "video" : undefined} data-poster={"poster" in j ? j.poster : undefined}>
-              <p>
-                {"mark" in j && j.mark && <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />}
-                {"name" in j && j.name && (
-                  "href" in j && j.href
-                    ? <a href={j.href} target="_blank" rel="noreferrer">{j.name}<span class="arw">↗</span></a>
-                    : <b class="tl-co">{j.name}</b>
-                )}
-                {"name" in j && j.name ? ` – ${j.text}` : j.text}
-              </p>
+              {"name" in j && j.name ? (
+                <p class="tl-co-line">
+                  {"mark" in j && j.mark && <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />}
+                  <span class="tl-co">
+                    {"href" in j && j.href
+                      ? <a href={j.href} target="_blank" rel="noreferrer">{j.name}<span class="arw">↗</span></a>
+                      : j.name}
+                  </span>
+                  <span class="tl-what">{j.what}</span>
+                  {"role" in j && j.role && <span class="tl-role">{j.role}</span>}
+                </p>
+              ) : (
+                <p>{j.text}</p>
+              )}
             </li>
           ))
         }
@@ -417,7 +421,7 @@ const description =
 
       <figure class="easel" aria-hidden="true">
         <span class="cell">
-          <img src="/images/childhood-chess.jpg" alt="" loading="lazy" />
+          <img src="/images/journey/today.jpg" alt="" loading="lazy" />
           <video muted loop playsinline preload="none" hidden></video>
         </span>
       </figure>
