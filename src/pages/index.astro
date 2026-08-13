@@ -127,7 +127,8 @@ const journey = [
     pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg" },
   { text: "14 yo: toured neighboring countries as band leader.",
     pic: "/images/journey/touring.jpg" },
-  { text: "13 yo: first filmmaking gig." },
+  { text: "13 yo: first filmmaking gig.",
+    pic: "/images/journey/filmgig.jpg" },
   { text: "11 yo: wrote my first song. poetry contest winner.",
     pic: "/images/journey/piano.jpg" },
   { text: "9 yo: best kid actor award." },
@@ -517,11 +518,12 @@ const description =
   </section>
 
   <script is:inline>
-    // The easel, and the thread that ties it to the road. Hovering a bead
-    // lights its dot and draws a curve from that dot to the frame, so the
-    // photograph is visibly *that* point in his life rather than a picture
-    // parked nearby. Hover-and-fine-pointer only — phones read the road as
-    // plain text, whole, never a half-working version.
+    // The easel, and how it answers the road. No line is drawn across the
+    // text — a curve over his own sentences was noise. Instead the frame
+    // travels down beside the list as you move down it, and one short rule
+    // reaches from the empty end of the column to the frame at exactly the
+    // hovered line's height. Proximity does the connecting; the rule only
+    // confirms it. Hover-and-fine-pointer only.
     (() => {
       if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
       const bay = document.querySelector(".journey-bay");
@@ -529,28 +531,34 @@ const description =
       const svg = document.querySelector(".thread");
       if (!bay || !easel || !svg) return;
       const path = svg.querySelector("path");
+      const list = bay.querySelector("ol");
       const img = easel.querySelector("img");
       const vid = easel.querySelector("video");
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const beads = [...bay.querySelectorAll(".log--journey li")];
       let active = null;
 
-      // The dot is a ::before, so it cannot be measured; it is drawn at a
-      // known offset inside the first grid column, which we mirror here.
-      const dotOf = (li) => {
+      // The dot is a ::before and cannot be measured; it is drawn at a known
+      // offset inside the first column, mirrored here.
+      const lineY = (li) => {
         const r = li.getBoundingClientRect();
-        const fs = parseFloat(getComputedStyle(li).fontSize);
-        return { x: r.left + 14, y: r.top + fs * 0.66 + 3.5 };
+        return r.top + parseFloat(getComputedStyle(li).fontSize) * 0.66 + 3.5;
       };
 
-      const draw = () => {
+      const place = () => {
         if (!active) return;
         const b = bay.getBoundingClientRect();
+        const travel = Math.max(0, b.height - easel.offsetHeight);
+        const i = beads.indexOf(active);
+        // The frame walks the length of its rail as the hover walks the list,
+        // so it is always near the line it is answering and never clamps.
+        easel.style.setProperty("--ty", `${(i / Math.max(1, beads.length - 1)) * travel}px`);
+
         const e = easel.getBoundingClientRect();
-        const d = dotOf(active);
-        const x1 = d.x - b.left, y1 = d.y - b.top;
-        const x2 = e.left - b.left - 6, y2 = e.top - b.top + e.height * 0.38;
-        const dx = Math.max(60, (x2 - x1) * 0.5);
-        path.setAttribute("d", `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`);
+        const y = lineY(active) - b.top;
+        const x1 = list.getBoundingClientRect().right - b.left + 14;
+        const x2 = e.left - b.left - 7;
+        path.setAttribute("d", `M ${x1} ${y} L ${Math.max(x1 + 8, x2)} ${y}`);
         const len = path.getTotalLength();
         path.style.strokeDasharray = len;
         if (svg.dataset.on !== "1") {
@@ -570,7 +578,7 @@ const description =
         path.style.strokeDashoffset = path.style.strokeDasharray;
       };
 
-      for (const li of document.querySelectorAll(".log--journey li")) {
+      for (const li of beads) {
         li.addEventListener("pointerenter", () => {
           const src = li.dataset.easel;
           if (!src) { clear(); return; }
@@ -586,13 +594,11 @@ const description =
             const want = li.dataset.kind === "video" ? li.dataset.poster : src;
             if (want && !img.src.endsWith(want)) img.src = want;
           }
-          draw();
+          place();
         });
       }
       bay.addEventListener("pointerleave", clear);
-      // The frame is sticky, so the curve has to be redrawn as it slides.
-      addEventListener("scroll", draw, { passive: true });
-      addEventListener("resize", draw);
+      addEventListener("resize", place);
     })();
   </script>
 

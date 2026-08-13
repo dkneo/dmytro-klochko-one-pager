@@ -267,24 +267,6 @@ img {
   color: var(--bone);
 }
 
-.site-nav a[aria-current="page"]::before {
-  color: rgb(255 111 174 / 45%);
-  content: "[";
-}
-
-.site-nav a[aria-current="page"]::after {
-  color: rgb(255 111 174 / 45%);
-  content: "]";
-}
-
-.site-nav a:not([aria-current]) {
-  color: var(--bone);
-}
-
-.site-nav a:not([aria-current]):hover {
-  color: var(--hot);
-}
-
 /* ── session cards ──────────────────────────────────────────────────────────
    The show announces each episode on a card before it starts. So does this. */
 
@@ -363,7 +345,6 @@ img {
 .research a,
 .receipt-src,
 .site-nav a,
-.foot-nav a,
 .to-top {
   padding-block: 0.3rem;
 }
@@ -712,10 +693,14 @@ svg.pin {
   vertical-align: -0.22em;
 }
 
-/* The one link left on the page, and it goes nowhere useful: him dancing. */
+/* The one link left on the page, and it goes nowhere useful: him dancing.
+   Selector carries the nav so it outranks .site-nav a, which was rendering
+   it in bone — it read as the page you were already on. */
+.site-nav .dance-link,
+.site-footer .dance-link,
 .dance-link {
   padding: 0.3rem 0;
-  color: var(--faint);
+  color: var(--dim);
   font-family: var(--mono);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
@@ -724,6 +709,8 @@ svg.pin {
   transition: color var(--dur) var(--ease);
 }
 
+.site-nav .dance-link:hover,
+.site-nav .dance-link:focus-visible,
 .dance-link:hover,
 .dance-link:focus-visible {
   color: var(--hot);
@@ -1517,34 +1504,7 @@ a:focus-visible .arw {
 /* The footer carries the same two pages as the header, so a reader who has
    scrolled to the bottom of either page does not have to scroll back up to
    move. */
-.foot-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.4rem;
-  margin-bottom: var(--sp-2);
-}
-
-.foot-nav a {
-  transition: color var(--dur) var(--ease);
-}
-
-.foot-nav a:hover {
-  color: var(--bone);
-}
-
 /* Same convention as the header: brackets mark where you are. */
-.foot-nav a[aria-current="page"] {
-  color: var(--hot);
-}
-
-.foot-nav a[aria-current="page"]::before {
-  content: "[";
-}
-
-.foot-nav a[aria-current="page"]::after {
-  content: "]";
-}
-
 /* The way back, at the end of the long page. Only the arrow gap differs: it
    leads the words here instead of trailing them. */
 .onward--back {
