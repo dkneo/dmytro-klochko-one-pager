@@ -43,6 +43,7 @@ typography:
   dream-lede: "clamp(1.45rem, 2vw, 1.65rem) italic"
   dream-fact: "1.22rem"        # hero fact values: a step above prose, below the lede
   dream-display: "clamp(2rem, 3.4vw, 2.9rem)"      # Zodiak italic, real headings
+  dream-display-card: "clamp(1.5rem, 2.4vw, 2.1rem)"  # timeline chapter titles
   dream-display-hero: "clamp(3.4rem, 7vw, 6rem)"   # a poster's title
   raster:
     art-cell-sm: "0.55rem"
