@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/pages/index.astro"
+        ],
+        "createdAt": "2026-08-13T18:50:55.735Z",
+        "reason": "Template <img> built in JS: starts hidden and detached, src assigned by setMedia() before it is ever appended"
+      }
+    ]
+  }
+}
