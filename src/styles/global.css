@@ -474,6 +474,7 @@ svg.pin {
   margin: 0 0 var(--sp-3);
 }
 
+.reg-line .reg-what,
 .reg-line .reg-role {
   grid-column: 1;
 }
