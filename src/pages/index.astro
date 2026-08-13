@@ -110,11 +110,12 @@ const studyQuote = {
 // shows on hover — a video where he gave one.
 const journey = [
   { name: "university of vienna", href: "https://www.univie.ac.at/en/",
-    what: "lecturer.", glyph: "🎓", pic: "/images/journey/lecture.jpg" },
+    role: "lecturer", glyph: "🎓", pic: "/images/journey/lecture.jpg" },
   { name: "homa", mark: "/images/marks/homa.png",
     what: "remote team happiness saas", role: "founder and chief executive officer" },
   { name: "chatfuel", href: "https://chatfuel.com", mark: "/images/marks/chatfuel.png",
-    what: "marketing ai agent. 150k+ businesses", role: "growth, ai" },
+    what: "marketing ai agent. 150k+ businesses", role: "growth, ai",
+    pic: "/images/journey/chatfuel.jpg" },
   { name: "hily", href: "https://hily.com", mark: "/images/marks/hily.png",
     what: "#3 dating app in the u.s. by downloads", role: "product, growth, data" },
   { name: "vk", href: "https://vk.com", mark: "/images/marks/vk.png",
@@ -409,7 +410,7 @@ const description =
                       ? <a href={j.href} target="_blank" rel="noreferrer">{j.name}<span class="arw">↗</span></a>
                       : j.name}
                   </span>
-                  <span class="tl-what">{j.what}</span>
+                  {"what" in j && j.what && <span class="tl-what">{j.what}</span>}
                   {"role" in j && j.role && <span class="tl-role">{j.role}</span>}
                 </p>
               ) : (
