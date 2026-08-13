@@ -76,7 +76,6 @@ const ways = [
   'my sense of urgency is outstanding. but i know where to slow down – to <b>go dreamy</b>, reach the next peak of ideas, find serendipity, and make the 10x thing that doesn&rsquo;t exist yet.',
   'i have a natural aptitude for <b>taste</b> and strong action bias. i am aggressively optimistic and <b>clairvoyant</b>, so i am best at building futuristic products.',
   "the culture in my teams: intolerance for mediocre work. <b>anime-level camaraderie</b>. fearlessness. relentless pursuit of the mission.",
-  "i have more users in my slack than team members lol.",
 ] as const;
 
 const press = {
@@ -104,6 +103,41 @@ const studyQuote = {
   line: "“companion chatbot users indicated that these relationships were beneficial to their social health.”",
   meta: "guingrich & graziano, oxford intersections: ai in society, 2025",
 };
+
+// The whole road in one thread, five years old to now. Childhood lines are
+// the log verbatim; career entries reuse the register's fields; the busking
+// and filmmaking lines come from his reference doc. `pic` is what the easel
+// shows on hover — a video where he gave one.
+const journey = [
+  { text: "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy.",
+    pic: "/images/childhood-chess.jpg" },
+  { text: "6 yo: first job {busking, improv}." },
+  { text: "6 yo+: olympiads winner: math, humanities {later: coding, economics}.",
+    pic: "/images/journey/olympiads.jpg" },
+  { text: "9 yo: best kid actor award." },
+  { text: "11 yo: wrote my first song. poetry contest winner.",
+    pic: "/images/journey/piano.jpg" },
+  { text: "13 yo: first filmmaking gig." },
+  { text: "14 yo: toured neighboring countries as band leader.",
+    pic: "/images/journey/touring.jpg" },
+  { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
+    pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg" },
+  { text: "a hundred gigs and strange little jobs in between." },
+  { name: "skyeng", href: "https://skyeng.ru", mark: "/images/marks/skyeng.png",
+    text: "#1 1:1 education platform in europe. product, growth." },
+  { name: "vk", href: "https://vk.com", mark: "/images/marks/vk.png",
+    text: "largest european social network. 100m+ mau. product, growth, ml." },
+  { name: "hily", href: "https://hily.com", mark: "/images/marks/hily.png",
+    text: "#3 dating app in the u.s. by downloads. product, growth, data." },
+  { name: "chatfuel", href: "https://chatfuel.com", mark: "/images/marks/chatfuel.png",
+    text: "marketing ai agent. 150k+ businesses. growth, ai." },
+  { name: "homa", mark: "/images/marks/homa.png",
+    text: "remote team happiness saas. founder and chief executive officer." },
+  { name: "university of vienna", href: "https://www.univie.ac.at/en/",
+    text: "lecturer.", pic: "/video/vlog-vienna-poster.jpg" },
+  { text: "to this day: designing fashion items. writing. doing film photography.",
+    pic: "/images/journey/today.jpg" },
+] as const;
 
 const wall = [
   { src: "/images/wall/w01.jpg", cap: "dieter rams" },
@@ -326,7 +360,6 @@ const description =
         <p set:html={ways[1]} />
         <p set:html={ways[2]} />
         <p set:html={ways[3]} />
-        <p set:html={ways[4]} />
       </div>
 
       <figure class="lynch">
@@ -339,7 +372,59 @@ const description =
     </div>
   </section>
 
-  <section class="shell session" id="before" data-scene="swim" aria-labelledby="s3">
+  {/* Dream's version of everything pre-replika: one chronological thread,
+      the war note carrying the photograph of him at sixteen, and an easel
+      on the right that shows each bead's picture on hover. Bebop keeps its
+      two original sections above. */}
+  <section class="shell session only-dream" id="journey" data-scene="swim" aria-labelledby="s8">
+    <div class="card">
+      <p class="card-no">04</p>
+      <h2 class="card-title" id="s8">before replika</h2>
+    </div>
+
+    <p class="lede">
+      born &amp; raised in 🇺🇦 donetsk. fled <button
+        class="gloss"
+        type="button"
+        popovertarget="war-j"
+        aria-label="war – what happened"
+      >war</button> as a teenager. slept on the streets for weeks.
+    </p>
+
+    <div class="gloss-note gloss-note--pic" id="war-j" popover>
+      <img src="/images/war-16.jpg" alt="Dmytro at sixteen, at a night rally under ukrainian flags" loading="lazy" />
+      russia took my hometown in 2014, when i was sixteen.
+    </div>
+
+    <div class="bay journey-bay">
+      <ol class="log log--journey">
+        {
+          journey.map((j) => (
+            <li data-easel={j.pic} data-kind={"video" in j && j.video ? "video" : undefined} data-poster={"poster" in j ? j.poster : undefined}>
+              <p>
+                {"mark" in j && j.mark && <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />}
+                {"name" in j && j.name && (
+                  "href" in j && j.href
+                    ? <a href={j.href} target="_blank" rel="noreferrer">{j.name}<span class="arw">↗</span></a>
+                    : <b class="tl-co">{j.name}</b>
+                )}
+                {"name" in j && j.name ? ` – ${j.text}` : j.text}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <figure class="easel" aria-hidden="true">
+        <span class="cell">
+          <img src="/images/childhood-chess.jpg" alt="" loading="lazy" />
+          <video muted loop playsinline preload="none" hidden></video>
+        </span>
+      </figure>
+    </div>
+  </section>
+
+  <section class="shell session only-bebop" id="before" data-scene="swim" aria-labelledby="s3">
     <div class="bay bay--flush">
       <div>
         <div class="card">
@@ -386,7 +471,7 @@ const description =
     </div>
   </section>
 
-  <section class="shell session" id="origin" data-scene="swim" aria-labelledby="s4">
+  <section class="shell session only-bebop" id="origin" data-scene="swim" aria-labelledby="s4">
     <div class="card">
       <p class="card-no">05</p>
       <h2 class="card-title" id="s4">upbringing</h2>
@@ -424,6 +509,35 @@ const description =
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    // The easel: hovering a bead of the road swaps in that year's picture,
+    // or plays its clip. Hover-and-fine-pointer only — phones read the road
+    // as plain text, whole, never a half-working version. Direct writes,
+    // no rAF, same as every other reveal on the site.
+    (() => {
+      if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+      const easel = document.querySelector(".easel");
+      if (!easel) return;
+      const img = easel.querySelector("img");
+      const vid = easel.querySelector("video");
+      const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      for (const li of document.querySelectorAll(".log--journey li[data-easel]")) {
+        li.addEventListener("pointerenter", () => {
+          const src = li.dataset.easel;
+          if (li.dataset.kind === "video" && !still) {
+            if (vid.dataset.src !== src) { vid.src = src; vid.dataset.src = src; }
+            img.hidden = true; vid.hidden = false;
+            vid.play().catch(() => {});
+          } else {
+            vid.pause(); vid.hidden = true; img.hidden = false;
+            const want = li.dataset.kind === "video" ? li.dataset.poster : src;
+            if (want && !img.src.endsWith(want)) img.src = want;
+          }
+        });
+      }
+    })();
+  </script>
 
   <section class="shell session" id="me" data-scene="swim" aria-labelledby="s6">
     <div class="card">

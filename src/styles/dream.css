@@ -182,6 +182,85 @@
   background: var(--hot);
 }
 
+/* The road's company beads carry their marks, pink like the sentence's. */
+[data-mode="dream"] .tl-mark {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-right: 0.3em;
+  vertical-align: -0.12em;
+  background: var(--hot);
+  mask: var(--mark) center / contain no-repeat;
+  -webkit-mask: var(--mark) center / contain no-repeat;
+}
+
+[data-mode="dream"] .log--journey .tl-co {
+  color: var(--bone);
+  font-style: normal;
+  font-weight: 500;
+}
+
+[data-mode="dream"] .log--journey a {
+  color: var(--bone);
+}
+
+[data-mode="dream"] .journey-bay {
+  align-items: start;
+}
+
+/* The easel: one matted print beside the road, sticky so it walks with you,
+   swapped by whichever bead the cursor rests on. Hover devices only. */
+[data-mode="dream"] .easel {
+  position: sticky;
+  top: 16vh;
+  margin: 0;
+  justify-self: end;
+  width: min(100%, 26rem);
+}
+
+[data-mode="dream"] .easel .cell {
+  display: block;
+  background: var(--mat);
+  padding: 0.5rem;
+  border-radius: 2px;
+  box-shadow:
+    0 2px 5px rgb(8 10 22 / 58%),
+    0 18px 40px rgb(8 10 22 / 42%);
+  transform: rotate(1.4deg);
+}
+
+[data-mode="dream"] .easel img,
+[data-mode="dream"] .easel video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1px;
+}
+
+[data-mode="dream"] .easel img[hidden],
+[data-mode="dream"] .easel video[hidden] {
+  display: none;
+}
+
+@media (hover: none), (max-width: 860px) {
+  [data-mode="dream"] .easel {
+    display: none;
+  }
+}
+
+/* The war note carries him at sixteen. */
+[data-mode="dream"] .gloss-note--pic {
+  max-width: min(17rem, calc(100vw - 2rem));
+}
+
+[data-mode="dream"] .gloss-note--pic img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  margin-bottom: 0.6rem;
+}
+
 /* The vinyl keeps spinning, in dusk and pink. */
 [data-mode="dream"] .ascii {
   --ink-void: #262b44;
