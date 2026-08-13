@@ -109,10 +109,8 @@ const studyQuote = {
 // and filmmaking lines come from his reference doc. `pic` is what the easel
 // shows on hover — a video where he gave one.
 const journey = [
-  { text: "to this day: designing fashion items. writing. doing film photography.",
-    pic: "/images/journey/today.jpg" },
   { name: "university of vienna", href: "https://www.univie.ac.at/en/",
-    what: "lecturer.", pic: "/images/journey/lecture.jpg" },
+    what: "lecturer.", glyph: "🎓", pic: "/images/journey/lecture.jpg" },
   { name: "homa", mark: "/images/marks/homa.png",
     what: "remote team happiness saas", role: "founder and chief executive officer" },
   { name: "chatfuel", href: "https://chatfuel.com", mark: "/images/marks/chatfuel.png",
@@ -123,7 +121,8 @@ const journey = [
     what: "largest european social network. 100m+ mau", role: "product, growth, ml" },
   { name: "skyeng", href: "https://skyeng.ru", mark: "/images/marks/skyeng.png",
     what: "#1 1:1 education platform in europe", role: "product, growth" },
-  { text: "busking, improv, songwriting studio, volunteering." },
+  { text: "busking, improv, songwriting studio, volunteering.",
+    pic: "/video/busking.mp4", video: true, poster: "/video/busking-poster.jpg" },
   { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
     pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg" },
   { text: "14 yo: toured neighboring countries as band leader.",
@@ -403,6 +402,7 @@ const description =
               {"name" in j && j.name ? (
                 <p class="tl-co-line">
                   {"mark" in j && j.mark && <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />}
+                  {"glyph" in j && j.glyph && <span class="tl-mark tl-glyph pin" aria-hidden="true">{j.glyph}</span>}
                   <span class="tl-co">
                     {"href" in j && j.href
                       ? <a href={j.href} target="_blank" rel="noreferrer">{j.name}<span class="arw">↗</span></a>
@@ -419,9 +419,11 @@ const description =
         }
       </ol>
 
+      <svg class="thread" aria-hidden="true"><path /></svg>
+
       <figure class="easel" aria-hidden="true">
         <span class="cell">
-          <img src="/images/journey/today.jpg" alt="" loading="lazy" />
+          <img src="/images/journey/lecture.jpg" alt="" loading="lazy" />
           <video muted loop playsinline preload="none" hidden></video>
         </span>
       </figure>
@@ -515,20 +517,66 @@ const description =
   </section>
 
   <script is:inline>
-    // The easel: hovering a bead of the road swaps in that year's picture,
-    // or plays its clip. Hover-and-fine-pointer only — phones read the road
-    // as plain text, whole, never a half-working version. Direct writes,
-    // no rAF, same as every other reveal on the site.
+    // The easel, and the thread that ties it to the road. Hovering a bead
+    // lights its dot and draws a curve from that dot to the frame, so the
+    // photograph is visibly *that* point in his life rather than a picture
+    // parked nearby. Hover-and-fine-pointer only — phones read the road as
+    // plain text, whole, never a half-working version.
     (() => {
       if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+      const bay = document.querySelector(".journey-bay");
       const easel = document.querySelector(".easel");
-      if (!easel) return;
+      const svg = document.querySelector(".thread");
+      if (!bay || !easel || !svg) return;
+      const path = svg.querySelector("path");
       const img = easel.querySelector("img");
       const vid = easel.querySelector("video");
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-      for (const li of document.querySelectorAll(".log--journey li[data-easel]")) {
+      let active = null;
+
+      // The dot is a ::before, so it cannot be measured; it is drawn at a
+      // known offset inside the first grid column, which we mirror here.
+      const dotOf = (li) => {
+        const r = li.getBoundingClientRect();
+        const fs = parseFloat(getComputedStyle(li).fontSize);
+        return { x: r.left + 14, y: r.top + fs * 0.66 + 3.5 };
+      };
+
+      const draw = () => {
+        if (!active) return;
+        const b = bay.getBoundingClientRect();
+        const e = easel.getBoundingClientRect();
+        const d = dotOf(active);
+        const x1 = d.x - b.left, y1 = d.y - b.top;
+        const x2 = e.left - b.left - 6, y2 = e.top - b.top + e.height * 0.38;
+        const dx = Math.max(60, (x2 - x1) * 0.5);
+        path.setAttribute("d", `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`);
+        const len = path.getTotalLength();
+        path.style.strokeDasharray = len;
+        if (svg.dataset.on !== "1") {
+          path.style.transition = "none";
+          path.style.strokeDashoffset = len;
+          path.getBoundingClientRect();
+          path.style.transition = "";
+          svg.dataset.on = "1";
+        }
+        path.style.strokeDashoffset = "0";
+      };
+
+      const clear = () => {
+        active?.classList.remove("is-shown");
+        active = null;
+        svg.dataset.on = "0";
+        path.style.strokeDashoffset = path.style.strokeDasharray;
+      };
+
+      for (const li of document.querySelectorAll(".log--journey li")) {
         li.addEventListener("pointerenter", () => {
           const src = li.dataset.easel;
+          if (!src) { clear(); return; }
+          if (active && active !== li) active.classList.remove("is-shown");
+          active = li;
+          li.classList.add("is-shown");
           if (li.dataset.kind === "video" && !still) {
             if (vid.dataset.src !== src) { vid.src = src; vid.dataset.src = src; }
             img.hidden = true; vid.hidden = false;
@@ -538,8 +586,13 @@ const description =
             const want = li.dataset.kind === "video" ? li.dataset.poster : src;
             if (want && !img.src.endsWith(want)) img.src = want;
           }
+          draw();
         });
       }
+      bay.addEventListener("pointerleave", clear);
+      // The frame is sticky, so the curve has to be redrawn as it slides.
+      addEventListener("scroll", draw, { passive: true });
+      addEventListener("resize", draw);
     })();
   </script>
 

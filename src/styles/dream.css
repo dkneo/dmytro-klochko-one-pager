@@ -159,11 +159,6 @@
   transition: background var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .log li:last-child::before {
-  background: var(--hot);
-  box-shadow: 0 0 0 4px rgb(255 155 192 / 16%);
-}
-
 [data-mode="dream"] .log li::after {
   content: "";
   position: absolute;
@@ -178,8 +173,66 @@
   display: none;
 }
 
-[data-mode="dream"] .log li:hover::before {
+/* The bead the frame is showing: lit, ringed, and roped to the picture. */
+[data-mode="dream"] .log--journey li.is-shown::before {
   background: var(--hot);
+  box-shadow: 0 0 0 4px rgb(255 155 192 / 18%);
+  scale: 1.25;
+}
+
+[data-mode="dream"] .log--journey li::before {
+  transition:
+    background var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    scale var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .log--journey li.is-shown p {
+  color: var(--bone);
+}
+
+[data-mode="dream"] .log--journey li p {
+  transition: color var(--dur) var(--ease);
+}
+
+/* The thread itself: one pink curve from the bead to the frame's edge,
+   drawn on hover, erased when the road is left alone. */
+[data-mode="dream"] .thread {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-mode="dream"] .thread path {
+  fill: none;
+  stroke: var(--hot);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  opacity: 0.55;
+  transition: stroke-dashoffset 420ms var(--ease);
+}
+
+[data-mode="dream"] .journey-bay {
+  position: relative;
+}
+
+/* The frame answers the thread: it lifts a little and the picture fades in
+   rather than snapping. */
+[data-mode="dream"] .easel .cell {
+  transition:
+    transform var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .journey-bay:hover .easel .cell {
+  transform: rotate(0.6deg) translateY(-4px);
+  box-shadow:
+    0 3px 8px rgb(8 10 22 / 62%),
+    0 26px 54px rgb(8 10 22 / 48%);
 }
 
 /* The road's company beads carry their marks, pink like the sentence's. */
@@ -207,6 +260,19 @@
 
 /* Explicit columns, because not every entry has a mark and a role, and
    auto-placement slid the ones that don't out of the register's alignment. */
+/* Vienna's crest is line-art that turns to mush at mark size, so the slot
+   carries a cap from the same monochrome cut as the city pins. Better a
+   real glyph than an empty gutter or a grey blob. */
+[data-mode="dream"] .tl-glyph {
+  background: none;
+  mask: none;
+  -webkit-mask: none;
+  color: var(--hot);
+  font-size: 0.9em;
+  line-height: 1;
+  text-align: center;
+}
+
 [data-mode="dream"] .tl-co-line .tl-mark {
   grid-column: 1;
   grid-row: 1;

@@ -1,0 +1,133 @@
+---
+// The whole page is one loop of him dancing. No shell, no scroll, no copy —
+// the joke is that you clicked "dance" and the site simply dances. The
+// masthead stays so there is a way back, and it fades until you reach for it.
+const title = "dance · dmytro klochko";
+const description = "dmytro klochko, dancing.";
+---
+
+<html lang="en" data-mode="dream">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#14161f" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={new URL("/dance", Astro.site)} />
+
+    <style is:inline>
+      @font-face {
+        font-family: "Zodiak";
+        src: url("/fonts/zodiak-300.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+      }
+
+      * { margin: 0; box-sizing: border-box; }
+
+      html, body { height: 100%; }
+
+      body {
+        display: grid;
+        place-items: center;
+        background: #14161f;
+        overflow: hidden;
+      }
+
+      /* The loop fills what it can without ever being cropped. */
+      video {
+        max-width: 100%;
+        max-height: 100vh;
+        max-height: 100dvh;
+        width: auto;
+        height: auto;
+        display: block;
+      }
+
+      .back {
+        position: fixed;
+        left: clamp(1rem, 4vw, 2.5rem);
+        top: clamp(1rem, 4vw, 2rem);
+        z-index: 2;
+        color: rgb(236 230 217 / 45%);
+        font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 0.4rem 0;
+        transition: color 200ms cubic-bezier(0.2, 0, 0.2, 1);
+      }
+
+      .back:hover,
+      .back:focus-visible { color: #ff9bc0; }
+
+      .sig {
+        position: fixed;
+        right: clamp(1rem, 4vw, 2.5rem);
+        bottom: clamp(1rem, 4vw, 2rem);
+        z-index: 2;
+        color: rgb(236 230 217 / 30%);
+        font-family: "Zodiak", Georgia, serif;
+        font-weight: 300;
+        font-size: 1rem;
+      }
+
+      /* Looping video is moving content that never stops, so there has to be
+         a way out; CSS cannot pause a video, hence the one line of script. */
+      .stop {
+        position: fixed;
+        right: clamp(1rem, 4vw, 2.5rem);
+        top: clamp(1rem, 4vw, 2rem);
+        z-index: 2;
+        border: 0;
+        background: none;
+        color: rgb(236 230 217 / 45%);
+        font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 0.4rem 0;
+      }
+
+      .stop:hover { color: #ff9bc0; }
+    </style>
+  </head>
+  <body>
+    <a class="back" href="/">&larr; back</a>
+    <button class="stop" type="button" data-playing="1">pause</button>
+
+    <video autoplay muted loop playsinline poster="/video/dance-poster.jpg" aria-label="Dmytro dancing in his living room">
+      <source src="/video/dance.webm" type="video/webm" />
+      <source src="/video/dance.mp4" type="video/mp4" />
+    </video>
+
+    <p class="sig">go dreamy.</p>
+
+    <script is:inline>
+      (() => {
+        const v = document.querySelector("video");
+        const b = document.querySelector(".stop");
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          v.pause(); b.textContent = "play"; b.dataset.playing = "0";
+        }
+        b.addEventListener("click", () => {
+          const on = b.dataset.playing === "1";
+          on ? v.pause() : v.play();
+          b.dataset.playing = on ? "0" : "1";
+          b.textContent = on ? "play" : "pause";
+        });
+      })();
+    </script>
+  </body>
+</html>
