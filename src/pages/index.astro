@@ -112,28 +112,24 @@ const journey = [
   { name: "university of vienna", href: "https://www.univie.ac.at/en/",
     role: "lecturer", glyph: "🎓", pic: "/images/journey/lecture.jpg" },
   { name: "hunch", mark: "/images/marks/homa.png",
-    what: "remote team happiness saas", role: "founder and chief executive officer",
-    pic: "/video/homa.mp4", video: true, poster: "/video/homa-poster.jpg", screen: true },
+    what: "remote team happiness saas", role: "founder and chief executive officer" },
   { name: "chatfuel", href: "https://chatfuel.com", mark: "/images/marks/chatfuel.png",
-    what: "marketing ai agent. 150k+ businesses", role: "growth, ai",
-    pic: "/images/journey/chatfuel.jpg" },
+    what: "marketing ai agent. 150k+ businesses", role: "growth, ai" },
   { name: "hily", href: "https://hily.com", mark: "/images/marks/hily.png",
-    what: "#3 dating app in the u.s. by downloads", role: "product, growth, data",
-    pic: "/images/journey/hily.jpg", screen: true },
+    what: "#3 dating app in the u.s. by downloads", role: "product, growth, data" },
   { name: "vk", href: "https://vk.com", mark: "/images/marks/vk.png",
-    what: "largest european social network. 100m+ mau", role: "product, growth, ml",
-    pic: "/images/journey/vk.jpg", screen: true },
+    what: "largest european social network. 100m+ mau", role: "product, growth, ml" },
   { name: "skyeng", href: "https://skyeng.ru", mark: "/images/marks/skyeng.png",
-    what: "#1 1:1 education platform in europe", role: "product, growth",
-    pic: "/images/journey/skyeng.jpg", screen: true },
+    what: "#1 1:1 education platform in europe", role: "product, growth" },
   { text: "busking, improv, songwriting studio, volunteering.",
-    pic: "/video/busking.mp4", video: true, poster: "/video/busking-poster.jpg" },
+    pic: "/video/busking.mp4", video: true, poster: "/video/busking-poster.jpg",
+    pos: "50% 30%" },
   { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
     pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg" },
   { text: "14 yo: toured neighboring countries as band leader.",
     pic: "/images/journey/touring.jpg" },
   { text: "13 yo: first filmmaking gig.",
-    pic: "/images/journey/filmgig.jpg" },
+    pic: "/images/journey/filmgig.jpg", pos: "50% 24%" },
   { text: "11 yo: wrote my first song. poetry contest winner.",
     pic: "/images/journey/piano.jpg" },
   { text: "9 yo: best kid actor award.",
@@ -405,7 +401,7 @@ const description =
       <ol class="log log--journey">
         {
           journey.map((j) => (
-            <li data-easel={j.pic} data-screen={"screen" in j && j.screen ? "1" : undefined} data-kind={"video" in j && j.video ? "video" : undefined} data-poster={"poster" in j ? j.poster : undefined}>
+            <li data-easel={j.pic} data-pos={"pos" in j ? j.pos : undefined} data-kind={"video" in j && j.video ? "video" : undefined} data-poster={"poster" in j ? j.poster : undefined}>
               {"name" in j && j.name ? (
                 <p class="tl-co-line">
                   {"mark" in j && j.mark && <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />}
@@ -542,8 +538,19 @@ const description =
 
       const setMedia = (li, imgEl, vidEl) => {
         const src = li.dataset.easel;
+        // Portrait sources lose their top to `cover`; a per-picture anchor
+        // keeps the face in the window.
+        const pos = li.dataset.pos || "";
+        imgEl.style.objectPosition = pos;
+        vidEl.style.objectPosition = pos;
         if (li.dataset.kind === "video" && !still) {
-          if (vidEl.dataset.src !== src) { vidEl.src = src; vidEl.dataset.src = src; }
+          if (vidEl.dataset.src !== src) {
+            vidEl.src = src;
+            vidEl.dataset.src = src;
+            // A poster means the frame is never briefly empty while the
+            // clip decodes, and it is what shows if autoplay is refused.
+            if (li.dataset.poster) vidEl.poster = li.dataset.poster;
+          }
           imgEl.hidden = true; vidEl.hidden = false;
           vidEl.play().catch(() => {});
         } else {
@@ -558,7 +565,6 @@ const description =
         active = li;
         li.classList.add("is-shown");
         easel.classList.add("is-lit");
-        easel.classList.toggle("is-screen", li.dataset.screen === "1");
         setMedia(li, img, vid);
       };
 
@@ -592,7 +598,6 @@ const description =
           open?.classList.remove("is-shown");
           open = li;
           li.classList.add("is-shown");
-          print.classList.toggle("is-screen", li.dataset.screen === "1");
           li.appendChild(print);
           setMedia(li, pImg, pVid);
         });

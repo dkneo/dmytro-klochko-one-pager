@@ -298,10 +298,10 @@
   width: min(100%, 30rem);
 }
 
-/* Two materials, honestly. A photograph is a print: cream mat, tilted,
-   filling its window. A product screenshot is a screen: no mat at all,
-   because cream around a phone UI looks like a mistake, not a mount.
-   Both obey the same window height, so the scale stays even. */
+/* Every picture here is a photograph now — the product screenshots were
+   pulled — so one material: a print in a cream mat, filling its window.
+   Portrait sources carry their own object-position so `cover` crops from
+   the feet rather than the face. */
 [data-mode="dream"] .easel .cell {
   display: grid;
   grid-template-rows: minmax(0, 1fr);
@@ -328,26 +328,6 @@
   height: 100%;
   object-fit: cover;
   border-radius: 1px;
-}
-
-/* A screen keeps its own edges: no mat, no tilt, nothing cropped. */
-[data-mode="dream"] .easel.is-screen .cell {
-  background: none;
-  padding: 0;
-  transform: none;
-  box-shadow: none;
-}
-
-[data-mode="dream"] .easel.is-screen img,
-[data-mode="dream"] .easel.is-screen video {
-  object-fit: contain;
-  border-radius: 8px;
-  filter: drop-shadow(0 18px 38px rgb(8 10 22 / 52%));
-}
-
-[data-mode="dream"] .journey-bay:hover .easel.is-screen .cell {
-  transform: translateY(-4px);
-  box-shadow: none;
 }
 
 [data-mode="dream"] .easel img[hidden],
