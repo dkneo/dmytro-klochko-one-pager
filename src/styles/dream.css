@@ -815,6 +815,7 @@ html:not([data-scene="swim"]) .scenes .sunpulse {
 }
 
 html[data-scene="swim"] .scenes .glints,
+html[data-scene="fuji"] .scenes .glints,
 html[data-scene="estuary"] .scenes .glints {
   opacity: 1;
 }
