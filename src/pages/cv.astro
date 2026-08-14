@@ -1,0 +1,206 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Everything here is lifted from DK_CV_Dmytro_Klochko_05.26.docx as written.
+// Nothing was invented, softened or promoted; the only edits are lowercase,
+// spaced en dashes, and the site's habit of leading with the number.
+const summary =
+  "visionary technology executive with 8+ years scaling consumer ai products from concept to profitability. as ceo of replika, led the company through a transformative turnaround – tripling revenue to $40m arr and reaching profitability while serving 40+ million users globally.";
+
+const jobs = [
+  {
+    role: "chief executive officer",
+    co: "replika {luka, inc.}",
+    what: "world's leading ai companion platform",
+    when: "december 2023 – present",
+    note: "previously chief operating officer & chief product officer, promoted within 12 months",
+    href: "https://replika.com",
+    mark: "/images/marks/replika.png",
+    points: [
+      "tripled annual recurring revenue from $13m to $40m arr {~$3.3m mrr}, reaching company-wide profitability for the first time in its history",
+      "scaled the global user base to 40+ million registered users across 145+ countries, with significant growth in european markets",
+      "executed a comprehensive rebranding with a top-tier creative agency, transforming public perception and securing global coverage {time, cnn, bbc, reuters}",
+      "reduced infrastructure costs by 50% while increasing platform stability and development velocity",
+      "improved user retention by 2.5x by personally rebuilding the product architecture and restructuring the engineering team",
+      "orchestrated the sale of a managed project asset for $2.5m as part of portfolio optimisation",
+      "resolved critical legal and compliance challenges in a complex regulatory environment",
+    ],
+  },
+  {
+    role: "founder & chief executive officer",
+    co: "hunch {homa industries}",
+    what: "global hr platform & marketplace for remote teams",
+    when: "february 2022 – december 2023",
+    mark: "/images/marks/homa.png",
+    points: [
+      "built a b2b saas platform from concept to $100k monthly recurring revenue within 18 months",
+      "raised pre-seed funding from top silicon valley angel investors",
+      "personally closed the first 14 b2b enterprise contracts, running 600+ customer development calls to validate product-market fit",
+      "designed and launched a self-service skills marketplace, driving a 70% improvement in employee retention for enterprise clients",
+      "assembled and led a fully remote, cross-functional team across multiple time zones",
+    ],
+  },
+  {
+    role: "head of marketing & expansion",
+    co: "chatfuel",
+    what: "meta business partner {saas}",
+    when: "july 2021 – january 2022",
+    href: "https://chatfuel.com",
+    mark: "/images/marks/chatfuel.png",
+    points: [
+      "hired and managed a team of 12 across marketing, growth and user research",
+      "developed positioning and user acquisition across 3 international markets: north america, latin america, russia",
+      "reduced customer acquisition cost by 2.5x through 15+ channel experiments",
+      "exceeded lead generation targets by 300% through event marketing and content",
+    ],
+  },
+  {
+    role: "strategic product manager",
+    co: "hily",
+    what: "top-3 dating app in the u.s. by downloads",
+    when: "may 2021 – july 2021",
+    href: "https://hily.com",
+    mark: "/images/marks/hily.png",
+    points: [
+      "led creation and validation of the u.s. usp for a product with 300,000+ daily active users",
+      "coordinated 4 cross-functional teams for full-cycle hypothesis testing",
+      "developed 30+ hypotheses with 3 validated, increasing trial-to-paid conversion while reducing cac",
+    ],
+  },
+  {
+    role: "senior product manager",
+    co: "vk {vkontakte}",
+    what: "largest social network in russia/cis",
+    when: "january 2021 – may 2021",
+    href: "https://vk.com",
+    mark: "/images/marks/vk.png",
+    points: [
+      "conducted 40+ user interviews and 10 stakeholder interviews across 7 teams in the ecosystem",
+      "built a prototype for an educational platform with full customer journey mapping",
+    ],
+  },
+  {
+    role: "product manager",
+    co: "skyeng",
+    what: "largest edtech company in eastern europe",
+    when: "march 2018 – january 2021",
+    href: "https://skyeng.ru",
+    mark: "/images/marks/skyeng.png",
+    points: [
+      "launched 'speaking clubs' from scratch, managing a 30-person operational team and its revenue plan",
+      "orchestrated collaboration across 10+ teams on marketing products and partnership integrations {yandex, sber, s7}",
+      "surpassed lead generation targets by 400% and reach plan by 200%",
+      "increased mobile install-to-lead conversion by 40% and activation by 40% through ux redesign and a/b testing",
+    ],
+  },
+] as const;
+
+const teaching = [
+  { what: "lecturer", where: "british higher school of art & design" },
+  { what: "lecturer in marketing and product management", where: "netology" },
+  { what: "product management mentor", where: "genesis" },
+  { what: "lecturer", where: "university of vienna", href: "https://www.univie.ac.at/en/" },
+] as const;
+
+const languages = [
+  { name: "english", level: "fluent / c2" },
+  { name: "ukrainian", level: "native" },
+  { name: "russian", level: "native" },
+] as const;
+
+const skills = [
+  "executive leadership", "product strategy", "international expansion",
+  "team building", "fundraising", "p&l management", "ai/ml products",
+  "consumer mobile apps", "b2b saas", "growth marketing", "user research",
+] as const;
+
+const title = "cv · dmytro klochko";
+const description =
+  "dmytro klochko — chief executive officer, product executive, founder. replika, hunch, chatfuel, hily, vk, skyeng.";
+---
+
+<Layout title={title} description={description} current="home">
+  <section class="shell session cv" id="cv" data-scene="fire" aria-labelledby="c1">
+    <div class="card">
+      <h1 class="card-title" id="c1">curriculum vitae</h1>
+    </div>
+
+    <p class="lede cv-summary">{summary}</p>
+
+    <dl class="cv-facts">
+      <div><dt>role</dt><dd>chief executive officer · product executive · founder</dd></div>
+      <div><dt>reach</dt><dd><a href="mailto:dk@replika.com">dk@replika.com</a></dd></div>
+      <div><dt>elsewhere</dt><dd><a href="https://www.linkedin.com/in/heydmytro/" target="_blank" rel="noreferrer">linkedin<span class="arw">↗</span></a></dd></div>
+      <div><dt>citizenship</dt><dd>🇺🇦 ukrainian</dd></div>
+    </dl>
+
+    <h2 class="cv-head">experience</h2>
+
+    <ol class="cv-jobs">
+      {
+        jobs.map((j) => (
+          <li>
+            <div class="cv-when">{j.when}</div>
+            <div class="cv-body">
+              <p class="cv-line">
+                <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />
+                <span class="cv-co">
+                  {"href" in j && j.href
+                    ? <a href={j.href} target="_blank" rel="noreferrer">{j.co}<span class="arw">↗</span></a>
+                    : j.co}
+                </span>
+                <span class="cv-what">{j.what}</span>
+              </p>
+              <p class="cv-role">{j.role}</p>
+              {"note" in j && j.note && <p class="cv-note">{j.note}</p>}
+              <ul class="cv-points">
+                {j.points.map((p) => <li>{p}</li>)}
+              </ul>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="bay cv-bay">
+      <div>
+        <h2 class="cv-head">teaching</h2>
+        <ul class="cv-list">
+          {
+            teaching.map((t) => (
+              <li>
+                <b>{t.what}</b>
+                <span>
+                  {"href" in t && t.href
+                    ? <a href={t.href} target="_blank" rel="noreferrer">{t.where}<span class="arw">↗</span></a>
+                    : t.where}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <h2 class="cv-head">education</h2>
+        <ul class="cv-list">
+          <li><b>bachelor's degree in marketing</b><span>donetsk national university, 2017</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="cv-head">languages</h2>
+        <ul class="cv-list">
+          {languages.map((l) => <li><b>{l.name}</b><span>{l.level}</span></li>)}
+        </ul>
+
+        <h2 class="cv-head">competencies</h2>
+        <p class="cv-skills">
+          {skills.map((s, i) => <span class="cv-chip">{s}</span>)}
+        </p>
+      </div>
+    </div>
+
+    <a class="onward onward--back" href="/">
+      <span class="arw" aria-hidden="true">↖</span><span>back to the main page</span>
+    </a>
+  </section>
+</Layout>

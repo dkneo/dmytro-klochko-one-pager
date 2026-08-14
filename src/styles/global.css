@@ -1623,3 +1623,9 @@ a:focus-visible .arw {
   }
 
 }
+
+/* Three small ways out of the page, in one row rather than stacked. */
+.foot-links {
+  display: flex;
+  gap: 1.4rem;
+}

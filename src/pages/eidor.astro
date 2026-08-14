@@ -1,0 +1,297 @@
+---
+import Layout from "../layouts/Layout.astro";
+import works from "../data/eidor.json";
+
+// Thirty-one paintings from the Met's open-access collection, all public
+// domain, chosen for range rather than fame: renaissance to impressionism,
+// woodblock to natural history. Each carries four numbers — how still it is,
+// how much it is about people, how ordered, how lit — and the portrait at
+// the end is only ever the average of the ones you kept.
+const title = "eidor · dmytro klochko";
+const description = "swipe through paintings, find out what your eye is actually after.";
+---
+
+<Layout title={title} description={description} current="home">
+  <section class="shell session" id="eidor" data-scene="fire" aria-labelledby="e1">
+    <div class="card">
+      <h1 class="card-title" id="e1">eidor</h1>
+    </div>
+
+    <p class="lede eidor-lede">
+      thirty-one paintings, one at a time. keep the ones that stop you,
+      pass the ones that don't. no right answers – at the end you get a
+      reading of what your eye was actually after.
+    </p>
+
+    <div class="eidor" data-stage="intro">
+      {/* ── the deck ── */}
+      <div class="eidor-deck" hidden>
+        <div class="eidor-cards">
+          {
+            works.map((w, i) => (
+              <article
+                class="eidor-card"
+                data-i={i}
+                data-calm={w.calm}
+                data-human={w.human}
+                data-order={w.order}
+                data-light={w.light}
+                data-artist={w.artist}
+                data-src={w.src}
+              >
+                <figure>
+                  <span class="cell"><img alt="" loading="lazy" decoding="async" /></span>
+                  <figcaption>
+                    <b>{w.artist}</b>
+                    <em>{w.title}{w.date ? `, ${w.date}` : ""}</em>
+                  </figcaption>
+                </figure>
+                <span class="eidor-stamp eidor-stamp--keep" aria-hidden="true">keep</span>
+                <span class="eidor-stamp eidor-stamp--pass" aria-hidden="true">pass</span>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="eidor-bar">
+          <button class="eidor-btn eidor-btn--pass" type="button" aria-label="pass">
+            <span aria-hidden="true">✕</span>
+          </button>
+          <p class="eidor-count"><b>1</b> / {works.length}</p>
+          <button class="eidor-btn eidor-btn--keep" type="button" aria-label="keep">
+            <span aria-hidden="true">♥</span>
+          </button>
+        </div>
+
+        <p class="eidor-hint">drag, or use ← and →</p>
+      </div>
+
+      {/* ── the way in ── */}
+      <div class="eidor-intro">
+        <button class="eidor-start" type="button">start looking<span class="arw" aria-hidden="true">→</span></button>
+      </div>
+
+      {/* ── the reading ── */}
+      <div class="eidor-out" hidden>
+        <p class="eidor-kicker">your eye</p>
+        <h2 class="eidor-name"></h2>
+        <div class="eidor-read prose"></div>
+        <div class="eidor-picks"></div>
+        <div class="eidor-again">
+          <button class="eidor-restart" type="button">go again</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="credit eidor-credit">
+      paintings from the metropolitan museum of art's open access collection,
+      all public domain.
+    </p>
+  </section>
+
+  <script is:inline>
+    // The whole game: a stack of cards you throw left or right, four running
+    // totals, and a reading assembled from whichever way those totals lean.
+    // Pointer, keyboard and buttons all drive the same two functions, so the
+    // thing works with a thumb, a trackpad or no pointer at all.
+    (() => {
+      const root = document.querySelector(".eidor");
+      if (!root) return;
+      const deck = root.querySelector(".eidor-deck");
+      const intro = root.querySelector(".eidor-intro");
+      const out = root.querySelector(".eidor-out");
+      const cards = [...root.querySelectorAll(".eidor-card")];
+      const countEl = root.querySelector(".eidor-count b");
+      const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // Shuffled once per visit, so a second run is a different order.
+      const order = cards.map((_, i) => i);
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+
+      let at = 0;
+      let kept = [];
+      let dragging = null;
+      let startX = 0;
+      let dx = 0;
+
+      const top = () => cards[order[at]];
+
+      const paint = () => {
+        // Only three cards are ever mounted: the one you are looking at and
+        // the two behind it, so a deck of thirty-one costs three images.
+        cards.forEach((c) => { c.hidden = true; c.style.transform = ""; c.classList.remove("is-top"); });
+        for (let k = 0; k < 3 && at + k < order.length; k++) {
+          const c = cards[order[at + k]];
+          const img = c.querySelector("img");
+          if (!img.src) { img.src = c.dataset.src; img.alt = c.dataset.artist; }
+          c.hidden = false;
+          c.style.zIndex = String(50 - k);
+          c.style.setProperty("--behind", String(k));
+          if (k === 0) c.classList.add("is-top");
+        }
+        countEl.textContent = String(Math.min(at + 1, order.length));
+      };
+
+      const finish = () => {
+        deck.hidden = true;
+        root.dataset.stage = "out";
+        const sum = { calm: 0, human: 0, order: 0, light: 0 };
+        for (const c of kept) {
+          sum.calm += +c.dataset.calm;
+          sum.human += +c.dataset.human;
+          sum.order += +c.dataset.order;
+          sum.light += +c.dataset.light;
+        }
+        const n = Math.max(1, kept.length);
+        const avg = {
+          calm: sum.calm / n, human: sum.human / n,
+          order: sum.order / n, light: sum.light / n,
+        };
+        render(avg, kept);
+        out.hidden = false;
+        out.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "center" });
+      };
+
+      const throwIt = (dir) => {
+        const c = top();
+        if (!c) return;
+        if (dir > 0) kept.push(c);
+        c.style.transition = still ? "none" : "transform 420ms cubic-bezier(0.2,0,0.2,1), opacity 420ms";
+        c.style.transform = `translate3d(${dir * 140}%, ${dir > 0 ? -8 : 8}%, 0) rotate(${dir * 18}deg)`;
+        c.style.opacity = "0";
+        const done = () => { at++; if (at >= order.length) finish(); else paint(); };
+        still ? done() : setTimeout(done, 260);
+      };
+
+      root.querySelector(".eidor-start").addEventListener("click", () => {
+        intro.hidden = true;
+        deck.hidden = false;
+        root.dataset.stage = "deck";
+        paint();
+      });
+
+      root.querySelector(".eidor-btn--keep").addEventListener("click", () => throwIt(1));
+      root.querySelector(".eidor-btn--pass").addEventListener("click", () => throwIt(-1));
+
+      addEventListener("keydown", (e) => {
+        if (root.dataset.stage !== "deck") return;
+        if (e.key === "ArrowRight") { e.preventDefault(); throwIt(1); }
+        if (e.key === "ArrowLeft") { e.preventDefault(); throwIt(-1); }
+      });
+
+      // Dragging: the card follows the finger, tilts as it goes, and the
+      // stamp that will apply fades up so the gesture says what it means.
+      root.querySelector(".eidor-cards").addEventListener("pointerdown", (e) => {
+        const c = top();
+        if (!c || root.dataset.stage !== "deck") return;
+        dragging = c; startX = e.clientX; dx = 0;
+        c.style.transition = "none";
+        c.setPointerCapture?.(e.pointerId);
+      });
+
+      addEventListener("pointermove", (e) => {
+        if (!dragging) return;
+        dx = e.clientX - startX;
+        dragging.style.transform = `translate3d(${dx}px, 0, 0) rotate(${dx / 22}deg)`;
+        dragging.style.setProperty("--keep", String(Math.max(0, Math.min(1, dx / 90))));
+        dragging.style.setProperty("--pass", String(Math.max(0, Math.min(1, -dx / 90))));
+      }, { passive: true });
+
+      addEventListener("pointerup", () => {
+        if (!dragging) return;
+        const c = dragging; dragging = null;
+        c.style.setProperty("--keep", "0");
+        c.style.setProperty("--pass", "0");
+        if (Math.abs(dx) > 90) { throwIt(dx > 0 ? 1 : -1); return; }
+        c.style.transition = "transform 300ms cubic-bezier(0.2,0,0.2,1)";
+        c.style.transform = "";
+      });
+
+      root.querySelector(".eidor-restart").addEventListener("click", () => location.reload());
+
+      // ── the reading ──
+      // Each axis contributes one clause, strongest first, so the paragraph
+      // is different for different eyes rather than a horoscope that fits
+      // everyone. Names come from whoever you actually kept.
+      function render(a, keptCards) {
+        const lines = [];
+        const strength = [
+          ["calm", a.calm], ["human", a.human], ["order", a.order], ["light", a.light],
+        ].sort((p, q) => Math.abs(q[1]) - Math.abs(p[1]));
+
+        const say = {
+          calm: [
+            "you want a picture to hold still. what you kept is quiet on purpose — rooms where nothing is about to happen, water that has already settled.",
+            "you are not drawn to stillness. the ones you kept are mid-event: weather arriving, water breaking, something about to go wrong or has just gone.",
+          ],
+          human: [
+            "and you look for people. faces, hands, someone caught in the middle of their own life — the landscape only matters to you when a person is standing in it.",
+            "and you would rather be left alone with the world. you kept weather, water, forests and objects; the paintings with people in them went past without stopping you.",
+          ],
+          order: [
+            "your eye likes a made thing: composition you can feel, edges that were decided, a picture arranged before it was painted.",
+            "your eye distrusts tidiness. you kept the loose ones, the gestural ones, the paintings that look like they happened rather than were planned.",
+          ],
+          light: [
+            "and you keep reaching for the light — the bright, the open, the sunlit.",
+            "and you keep reaching into the dark. the ones you kept are lit by a candle at most.",
+          ],
+        };
+
+        for (const [k, v] of strength) {
+          if (Math.abs(v) < 0.35) continue;
+          lines.push(say[k][v > 0 ? 0 : 1]);
+        }
+        if (!lines.length) {
+          lines.push("your eye refuses a type. you kept a little of everything and nothing dominates — which is its own answer: you are led by the single picture in front of you, not by a taste you carry around.");
+        }
+
+        const names = {};
+        for (const c of keptCards) names[c.dataset.artist] = (names[c.dataset.artist] || 0) + 1;
+        const top3 = Object.keys(names).slice(0, 3);
+
+        const nameOf = () => {
+          const c = a.calm >= 0 ? "still" : "restless";
+          const l = a.light >= 0 ? "daylight" : "candlelight";
+          const h = a.human >= 0 ? "company" : "solitude";
+          return `${c} ${l}, kept in ${h}`;
+        };
+
+        root.querySelector(".eidor-name").textContent = kept.length ? nameOf() : "you kept nothing";
+        const read = root.querySelector(".eidor-read");
+        read.innerHTML = "";
+        if (!kept.length) {
+          const p = document.createElement("p");
+          p.textContent = "thirty-one paintings and not one of them stopped you. either the set is wrong or you were never really looking — both are worth knowing.";
+          read.appendChild(p);
+        } else {
+          for (const l of lines) {
+            const p = document.createElement("p");
+            p.textContent = l;
+            read.appendChild(p);
+          }
+          const p = document.createElement("p");
+          p.className = "eidor-tally";
+          p.textContent = `you kept ${kept.length} of ${order.length}` +
+            (top3.length ? ` — most often ${top3.join(", ")}.` : ".");
+          read.appendChild(p);
+        }
+
+        const picks = root.querySelector(".eidor-picks");
+        picks.innerHTML = "";
+        for (const c of keptCards.slice(0, 6)) {
+          const fig = document.createElement("figure");
+          const img = document.createElement("img");
+          img.src = c.dataset.src;
+          img.alt = c.dataset.artist;
+          img.loading = "lazy";
+          fig.appendChild(img);
+          picks.appendChild(fig);
+        }
+      }
+    })();
+  </script>
+</Layout>

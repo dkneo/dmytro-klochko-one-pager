@@ -1,0 +1,312 @@
+[
+ {
+  "src": "/images/eidor/01.webp",
+  "artist": "Vincent van Gogh",
+  "title": "Wheat Field with Cypresses",
+  "date": "1889",
+  "calm": -1,
+  "human": -2,
+  "order": -1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidor/02.webp",
+  "artist": "Paul Gauguin",
+  "title": "Ia Orana Maria (Hail Mary)",
+  "date": "1891",
+  "calm": 1,
+  "human": 2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidor/03.webp",
+  "artist": "Georges Seurat",
+  "title": "Circus Sideshow (Parade de cirque)",
+  "date": "1887–88",
+  "calm": 1,
+  "human": 1,
+  "order": 2,
+  "light": -1
+ },
+ {
+  "src": "/images/eidor/04.webp",
+  "artist": "Edgar Degas",
+  "title": "The Dance Class",
+  "date": "1874",
+  "calm": 0,
+  "human": 2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidor/05.webp",
+  "artist": "Camille Pissarro",
+  "title": "The Boulevard Montmartre on a Winter Morning",
+  "date": "1897",
+  "calm": 0,
+  "human": 1,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidor/06.webp",
+  "artist": "Edouard Manet",
+  "title": "Boating",
+  "date": "1874",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": 2
+ },
+ {
+  "src": "/images/eidor/07.webp",
+  "artist": "Gustave Courbet",
+  "title": "The Woman in the Waves",
+  "date": "1868",
+  "calm": -1,
+  "human": 2,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidor/08.webp",
+  "artist": "John Constable",
+  "title": "Salisbury Cathedral from the Bishop's Grounds",
+  "date": "ca. 1825",
+  "calm": 1,
+  "human": -1,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidor/09.webp",
+  "artist": "Johannes Vermeer",
+  "title": "A Maid Asleep",
+  "date": "ca. 1656–57",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidor/10.webp",
+  "artist": "Rembrandt",
+  "title": "Flora",
+  "date": "ca. 1654",
+  "calm": 2,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidor/11.webp",
+  "artist": "Frans Hals",
+  "title": "Boy with a Lute",
+  "date": "ca. 1625",
+  "calm": 0,
+  "human": 2,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidor/12.webp",
+  "artist": "El Greco",
+  "title": "The Adoration of the Shepherds",
+  "date": "ca. 1605–10",
+  "calm": -1,
+  "human": 2,
+  "order": -1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidor/13.webp",
+  "artist": "Pieter Bruegel",
+  "title": "The Harvesters",
+  "date": "1565",
+  "calm": 1,
+  "human": 1,
+  "order": 0,
+  "light": 2
+ },
+ {
+  "src": "/images/eidor/14.webp",
+  "artist": "Botticelli",
+  "title": "The Annunciation",
+  "date": "ca. 1490",
+  "calm": 2,
+  "human": 1,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidor/15.webp",
+  "artist": "Caravaggio",
+  "title": "The Musicians",
+  "date": "1597",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidor/16.webp",
+  "artist": "Goya",
+  "title": "Manuel Osorio Manrique de Zuñiga (1784–1792)",
+  "date": "1787–88",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidor/17.webp",
+  "artist": "Jean Auguste Dominique Ingres",
+  "title": "Madame Jacques-Louis Leblanc (Françoise Poncelle, 1788–1839)",
+  "date": "1823",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidor/18.webp",
+  "artist": "Eugène Delacroix",
+  "title": "Christ Asleep during the Tempest",
+  "date": "ca. 1853",
+  "calm": -2,
+  "human": 1,
+  "order": -1,
+  "light": -2
+ },
+ {
+  "src": "/images/eidor/19.webp",
+  "artist": "Théodore Rousseau",
+  "title": "The Forest in Winter at Sunset",
+  "date": "ca. 1846–67",
+  "calm": 1,
+  "human": -2,
+  "order": -1,
+  "light": -2
+ },
+ {
+  "src": "/images/eidor/20.webp",
+  "artist": "Odilon Redon",
+  "title": "Etruscan Vase with Flowers",
+  "date": "1900–1910",
+  "calm": 2,
+  "human": -2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidor/21.webp",
+  "artist": "Joseph Mallord William Turner",
+  "title": "Whalers",
+  "date": "ca. 1845",
+  "calm": -2,
+  "human": -1,
+  "order": -2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidor/22.webp",
+  "artist": "Winslow Homer",
+  "title": "The Gulf Stream",
+  "date": "1899; reworked by 1906",
+  "calm": -2,
+  "human": 1,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidor/23.webp",
+  "artist": "John Singer Sargent",
+  "title": "Madame X (Virginie Amélie Avegno Gautreau)",
+  "date": "1883–84",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": -1
+ },
+ {
+  "src": "/images/eidor/24.webp",
+  "artist": "Katsushika Hokusai",
+  "title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), or The Great Wave, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+  "date": "ca. 1830–32",
+  "calm": -2,
+  "human": -1,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidor/25.webp",
+  "artist": "Utagawa Hiroshige",
+  "title": "Six Jewel Rivers from Various Provinces",
+  "date": "1857",
+  "calm": 2,
+  "human": 0,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidor/26.webp",
+  "artist": "Kitagawa Utamaro",
+  "title": "Two Women",
+  "date": "ca. 1790",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": 2
+ },
+ {
+  "src": "/images/eidor/27.webp",
+  "artist": "Monk Jie",
+  "title": "Landscape",
+  "date": "Dated 1599 (or 1659)",
+  "calm": 2,
+  "human": -2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidor/28.webp",
+  "artist": "Bhawani Das",
+  "title": "Great Indian Fruit Bat",
+  "date": "ca. 1777–82",
+  "calm": 2,
+  "human": -2,
+  "order": 2,
+  "light": 2
+ },
+ {
+  "src": "/images/eidor/29.webp",
+  "artist": "Jean Honoré Fragonard",
+  "title": "The Stolen Kiss",
+  "date": "ca. 1760",
+  "calm": 0,
+  "human": 2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidor/30.webp",
+  "artist": "Georges de La Tour",
+  "title": "The Fortune-Teller",
+  "date": "probably 1630s",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidor/31.webp",
+  "artist": "Camille Corot",
+  "title": "Hagar in the Wilderness",
+  "date": "1835",
+  "calm": 0,
+  "human": -1,
+  "order": 0,
+  "light": 0
+ }
+]

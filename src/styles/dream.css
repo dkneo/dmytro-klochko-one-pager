@@ -1459,3 +1459,475 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   .weather { display: none; }
 }
+
+/* ── eidor ──────────────────────────────────────────────────────────────────
+   A deck of paintings you throw left or right. The card is the only bright
+   thing on the page; everything around it stays out of the way, because the
+   whole point is looking at one picture at a time. */
+
+[data-mode="dream"] .eidor-lede {
+  max-width: 46ch;
+}
+
+[data-mode="dream"] .eidor {
+  margin-top: var(--sp-4);
+}
+
+[data-mode="dream"] .eidor-start,
+[data-mode="dream"] .eidor-restart {
+  border: 1px solid rgb(236 230 217 / 30%);
+  border-radius: 999px;
+  background: none;
+  padding: 0.7rem 1.5rem;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .eidor-start:hover,
+[data-mode="dream"] .eidor-restart:hover {
+  border-color: var(--hot);
+  color: var(--hot);
+}
+
+/* The stack: three cards mounted, the two behind peeking out by a few
+   pixels so the deck reads as a deck and not a single image. */
+[data-mode="dream"] .eidor-cards {
+  position: relative;
+  height: min(62vh, 30rem);
+  margin-inline: auto;
+  max-width: 34rem;
+  touch-action: pan-y;
+}
+
+[data-mode="dream"] .eidor-card {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform-origin: 50% 120%;
+  translate: 0 calc(var(--behind, 0) * 10px);
+  scale: calc(1 - var(--behind, 0) * 0.04);
+  will-change: transform;
+}
+
+[data-mode="dream"] .eidor-card.is-top {
+  cursor: grab;
+}
+
+[data-mode="dream"] .eidor-card.is-top:active {
+  cursor: grabbing;
+}
+
+[data-mode="dream"] .eidor-card figure {
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+  justify-items: center;
+}
+
+[data-mode="dream"] .eidor-card .cell {
+  display: grid;
+  place-items: center;
+  height: min(48vh, 23rem);
+  width: min(88vw, 32rem);
+  overflow: hidden;
+  background: var(--mat);
+  padding: 0.6rem;
+  border-radius: 2px;
+  box-shadow:
+    0 2px 6px rgb(8 10 22 / 60%),
+    0 22px 48px rgb(8 10 22 / 48%);
+}
+
+[data-mode="dream"] .eidor-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1px;
+}
+
+/* Only the card you are looking at names itself; the two behind it would
+   otherwise stack three captions in the same place. */
+[data-mode="dream"] .eidor-card figcaption {
+  display: grid;
+  gap: 0.15rem;
+  justify-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .eidor-card.is-top figcaption {
+  opacity: 1;
+}
+
+[data-mode="dream"] .eidor-card:not(.is-top) .cell {
+  filter: brightness(0.7);
+}
+
+[data-mode="dream"] .eidor-card figcaption b {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  font-weight: 400;
+}
+
+/* Museum titles run to three lines of parentheses; two is plenty. */
+[data-mode="dream"] .eidor-card figcaption em {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 34rem;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-style: normal;
+  letter-spacing: 0.06em;
+}
+
+/* The stamps only exist while you are dragging, and only the one you are
+   about to commit to shows up. */
+[data-mode="dream"] .eidor-stamp {
+  position: absolute;
+  top: 12%;
+  padding: 0.3rem 0.9rem;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+[data-mode="dream"] .eidor-stamp--keep {
+  left: 10%;
+  color: var(--hot);
+  rotate: -12deg;
+  opacity: var(--keep, 0);
+}
+
+[data-mode="dream"] .eidor-stamp--pass {
+  right: 10%;
+  color: var(--dim);
+  rotate: 12deg;
+  opacity: var(--pass, 0);
+}
+
+[data-mode="dream"] .eidor-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+
+[data-mode="dream"] .eidor-btn {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgb(236 230 217 / 26%);
+  border-radius: 50%;
+  background: none;
+  color: var(--dim);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease), scale var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .eidor-btn--keep:hover { color: var(--hot); border-color: var(--hot); scale: 1.08; }
+[data-mode="dream"] .eidor-btn--pass:hover { color: var(--bone); border-color: var(--bone); scale: 1.08; }
+
+[data-mode="dream"] .eidor-count {
+  min-width: 5rem;
+  text-align: center;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+}
+
+[data-mode="dream"] .eidor-count b { color: var(--bone); font-weight: 400; }
+
+[data-mode="dream"] .eidor-hint {
+  margin-top: var(--sp-2);
+  text-align: center;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+}
+
+/* ── the reading ── */
+[data-mode="dream"] .eidor-kicker {
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .eidor-name {
+  margin: 0.4rem 0 var(--sp-2);
+  color: var(--bone);
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+[data-mode="dream"] .eidor-read {
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .eidor-tally {
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .eidor-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+}
+
+[data-mode="dream"] .eidor-picks figure {
+  margin: 0;
+  width: calc((100% - 5 * var(--sp-2)) / 6);
+  min-width: 6.5rem;
+  background: var(--mat);
+  padding: 0.35rem;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgb(8 10 22 / 55%), 0 12px 26px rgb(8 10 22 / 38%);
+}
+
+[data-mode="dream"] .eidor-picks img {
+  display: block;
+  width: 100%;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 1px;
+}
+
+[data-mode="dream"] .eidor-again { margin-top: var(--sp-3); }
+
+[data-mode="dream"] .eidor-credit {
+  margin-top: var(--sp-4);
+  color: var(--faint);
+  font-size: var(--t-prose-sm);
+}
+
+@media (max-width: 720px) {
+  [data-mode="dream"] .eidor-cards { height: min(58vh, 26rem); }
+  [data-mode="dream"] .eidor-card .cell { height: min(42vh, 19rem); }
+  [data-mode="dream"] .eidor-picks figure { width: calc((100% - 2 * var(--sp-2)) / 3); }
+}
+
+/* ── cv ─────────────────────────────────────────────────────────────────────
+   The register, given room: a date rail on the left, the company and what it
+   was on one line, the role beneath, then the evidence. Same materials as
+   the rest of dream — no boxes, no cards, nothing that looks like a resume
+   template. */
+
+[data-mode="dream"] .cv-summary {
+  max-width: 62ch;
+}
+
+[data-mode="dream"] .cv-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: var(--sp-3) var(--sp-2);
+  margin: var(--sp-4) 0 0;
+}
+
+[data-mode="dream"] .cv-facts dt {
+  margin-bottom: 0.4rem;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .cv-facts dd {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: 1.06rem;
+}
+
+[data-mode="dream"] .cv-facts dd a,
+[data-mode="dream"] .cv-list a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 34%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .cv-facts dd a:hover,
+[data-mode="dream"] .cv-list a:hover {
+  color: var(--hot);
+  border-color: var(--hot);
+}
+
+[data-mode="dream"] .cv-head {
+  margin: var(--sp-5) 0 var(--sp-2);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .cv-jobs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-mode="dream"] .cv-jobs > li {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: var(--sp-2);
+  padding-bottom: var(--sp-4);
+}
+
+[data-mode="dream"] .cv-when {
+  padding-top: 0.28rem;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .cv-line {
+  display: grid;
+  grid-template-columns: 1.35rem auto 1fr;
+  align-items: baseline;
+  column-gap: 0.5rem;
+  margin: 0;
+}
+
+[data-mode="dream"] .cv-line .tl-mark {
+  grid-column: 1;
+  align-self: center;
+  margin-right: 0;
+}
+
+[data-mode="dream"] .cv-co {
+  grid-column: 2;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: 1.16rem;
+}
+
+[data-mode="dream"] .cv-what {
+  grid-column: 3;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+}
+
+[data-mode="dream"] .cv-role {
+  margin: 0.1rem 0 0 1.85rem;
+  color: var(--hot);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--t-prose-sm);
+}
+
+[data-mode="dream"] .cv-note {
+  margin: 0.2rem 0 0 1.85rem;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .cv-points {
+  margin: var(--sp-2) 0 0 1.85rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+[data-mode="dream"] .cv-points li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .cv-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgb(255 155 192 / 55%);
+}
+
+[data-mode="dream"] .cv-bay { align-items: start; }
+
+[data-mode="dream"] .cv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+}
+
+[data-mode="dream"] .cv-list li {
+  display: grid;
+  gap: 0.1rem;
+}
+
+[data-mode="dream"] .cv-list b {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  font-weight: 400;
+}
+
+[data-mode="dream"] .cv-list span {
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .cv-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+}
+
+[data-mode="dream"] .cv-chip {
+  padding: 0.28rem 0.7rem;
+  border: 1px solid rgb(236 230 217 / 18%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 720px) {
+  [data-mode="dream"] .cv-jobs > li { grid-template-columns: 1fr; gap: 0.35rem; }
+  [data-mode="dream"] .cv-line { grid-template-columns: 1.35rem 1fr; }
+  [data-mode="dream"] .cv-what { grid-column: 2; }
+}
