@@ -1947,6 +1947,48 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   letter-spacing: 0.06em;
 }
 
+/* The thread between the page's two replikas. Quiet by default — it is a
+   way through, not a claim — and it lights on hover like every other link
+   here. The arrow leads going up and follows going down, so the direction
+   is legible before the words are read. */
+[data-mode="dream"] .thread {
+  margin: var(--sp-2) 0 0;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .thread--up {
+  margin: 0.35rem 0 0 1.85rem;
+}
+
+[data-mode="dream"] .thread a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  color: var(--faint);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .thread a:hover {
+  color: var(--hot);
+  border-color: rgb(255 155 192 / 40%);
+}
+
+[data-mode="dream"] .thread .arw {
+  transition: transform var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .thread--up a:hover .arw {
+  transform: translateY(-0.18em);
+}
+
+[data-mode="dream"] .thread:not(.thread--up) a:hover .arw {
+  transform: translateY(0.18em);
+}
+
 /* The one thing true of every role, said once at the top instead of
    thirty times inside the bullets. */
 [data-mode="dream"] .cv-lede {

@@ -162,6 +162,10 @@ const jobs = [
     role: "chief executive officer",
     href: "https://replika.com",
     mark: "/images/marks/replika.png",
+    // Said twice on this page on purpose: at length up in 02, and here as
+    // what it came to. Each end points at the other, so neither reads as a
+    // repeat the page forgot it had already made.
+    story: { href: "#now", label: "the long version, up top" },
     points: [
       "tripled revenue and made the company profitable",
       "x1.8 arpu, +58% d30 retention",
@@ -393,6 +397,10 @@ const also = [
             design the outfits for each avatar myself. 💅
           </p>
         </div>
+
+        <p class="thread">
+          <a href="#experience">the short version, further down<span class="arw" aria-hidden="true">↓</span></a>
+        </p>
       </div>
 
       <div class="joi-col">
@@ -499,6 +507,11 @@ const also = [
               <span class="cv-what">{j.what}</span>
             </p>
             <p class="cv-role">{j.role}</p>
+            {"story" in j && j.story && (
+              <p class="thread thread--up">
+                <a href={j.story.href}><span class="arw" aria-hidden="true">↑</span>{j.story.label}</a>
+              </p>
+            )}
             <ul class="cv-points">
               {j.points.map((p) => <li set:html={p} />)}
             </ul>
