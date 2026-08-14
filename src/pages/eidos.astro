@@ -136,8 +136,8 @@ const description = "swipe through paintings, find out what your eye is actually
           if (k === 0) c.classList.add("is-top");
         }
         countEl.textContent = String(Math.min(at + 1, order.length));
-        root.querySelector(".eidos-progress i").style.width =
-          ((at / order.length) * 100).toFixed(1) + "%";
+        root.querySelector(".eidos-progress i").style.setProperty(
+          "--p", (at / order.length).toFixed(4));
       };
 
       const finish = () => {
