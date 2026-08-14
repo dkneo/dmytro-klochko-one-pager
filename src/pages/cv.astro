@@ -1,9 +1,160 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import AsciiShader from "../components/AsciiShader.astro";
 
-// His own wording, tightened. No dates, no revenue figures, no summary — the
-// company descriptors are the same ones the main page uses so the two never
-// drift apart. Contacts are the say-hi list, verbatim.
+const roles = [
+  {
+    company: "replika",
+    what: "#1 ai friend. 42m users worldwide",
+    role: "chief executive, product and technology officer",
+    href: "https://replika.com",
+    mark: "/images/marks/replika.png",
+  },
+  {
+    company: "hunch",
+    what: "remote team happiness saas",
+    role: "founder and chief executive officer",
+    mark: "/images/marks/homa.png",
+  },
+  {
+    company: "chatfuel",
+    what: "marketing ai agent. 150k+ businesses",
+    role: "growth, ai",
+    href: "https://chatfuel.com",
+    mark: "/images/marks/chatfuel.png",
+  },
+  {
+    company: "hily",
+    what: "#3 dating app in the u.s. by downloads",
+    role: "product, growth, data",
+    href: "https://hily.com",
+    mark: "/images/marks/hily.png",
+  },
+  {
+    company: "vk",
+    what: "largest european social network. 100m+ mau",
+    role: "product, growth, ml",
+    href: "https://vk.com",
+    mark: "/images/marks/vk.png",
+  },
+  {
+    company: "skyeng",
+    what: "#1 1:1 education platform in europe",
+    role: "product, growth",
+    href: "https://skyeng.ru",
+    mark: "/images/marks/skyeng.png",
+  },
+] as const;
+
+// The photograph sits on the line it is evidence for, rather than in a strip
+// beside the list where the reader has to work out which is which.
+const log = [
+  "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy.",
+  "6 yo+: olympiads winner: math, humanities {later: coding, economics}.",
+  "9 yo: best kid actor award.",
+  "11 yo: wrote my first song. poetry contest winner.",
+  "14 yo: toured neighboring countries as band leader.",
+  "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
+  "to this day: designing fashion items. writing. doing film photography.",
+] as const;
+
+// The caption number is the log line the photograph belongs to. That is all
+// the connection needed; putting the pictures inside the list broke the grid.
+const shots = [
+  { n: "01", src: "/images/childhood-chess.jpg", cap: "locking in",
+    alt: "Dmytro as a small boy at a tournament board, grinning, a row of chess pieces in front of him" },
+  { n: "04", src: "/images/childhood-piano.jpg", cap: "writing songs",
+    alt: "Dmytro as a child at an upright piano, seen from behind" },
+  { n: "05", src: "/images/childhood-band.jpg", cap: "touring",
+    alt: "Dmytro as a boy on stage with a microphone, mid-song, pointing at the crowd" },
+] as const;
+
+// His words. Highlighted one phrase per paragraph; more than that stops being
+// emphasis.
+const ways = [
+  "i'm intense and <b>hands-on</b>: everyone reports directly to me, i write the architecture and the prompts, push code to production, and i hit all-nighters.",
+  'my sense of urgency is outstanding. but i know where to slow down – to <b>go dreamy</b>, reach the next peak of ideas, find serendipity, and make the 10x thing that doesn&rsquo;t exist yet.',
+  'i have a natural aptitude for <b>taste</b> and strong action bias. i am aggressively optimistic and <b>clairvoyant</b>, so i am best at building futuristic products.',
+  "the culture in my teams: intolerance for mediocre work. <b>anime-level camaraderie</b>. fearlessness. relentless pursuit of the mission.",
+] as const;
+
+const press = {
+  src: "time",
+  href: "https://time.com/collections/davos-2026/7339222/ai-predictions-2026/",
+  line: "“what we care about is people getting happier.”",
+  meta: "dmytro klochko, “companions go mainstream” – 5 predictions for ai in 2026",
+};
+
+// The whole row is the source line for the quote under it. `quoted` is the one
+// the quote came from, and it is the only styling difference – same as the nav
+// marking the page you are on.
+const studies = [
+  { name: "princeton", href: "https://arxiv.org/abs/2311.10599", quoted: true },
+  { name: "harvard", href: "https://www.hbs.edu/faculty/Pages/item.aspx?num=67360" },
+  { name: "stanford", href: "https://www.nature.com/articles/s44184-023-00047-6" },
+] as const;
+
+const manifesto = {
+  line: "“we want to help you flourish in real life. not become a better version of yourself – just more yourself. strong relationships. better health. meaning. momentum. a life that feels worth living while you’re living it.”",
+  meta: "dmytro klochko, replika manifesto, 2026",
+};
+
+const studyQuote = {
+  line: "“companion chatbot users indicated that these relationships were beneficial to their social health.”",
+  meta: "guingrich & graziano, oxford intersections: ai in society, 2025",
+};
+
+// The whole road in one thread, five years old to now. Childhood lines are
+// the log verbatim; career entries reuse the register's fields; the busking
+// and filmmaking lines come from his reference doc. `pic` is what the easel
+// shows on hover — a video where he gave one.
+const journey = [
+  { name: "university of vienna", href: "https://www.univie.ac.at/en/",
+    role: "lecturer", glyph: "🎓", pic: "/images/journey/lecture.jpg" },
+  { name: "hunch", mark: "/images/marks/homa.png",
+    what: "remote team happiness saas", role: "founder and chief executive officer" },
+  { name: "chatfuel", href: "https://chatfuel.com", mark: "/images/marks/chatfuel.png",
+    what: "marketing ai agent. 150k+ businesses", role: "growth, ai" },
+  { name: "hily", href: "https://hily.com", mark: "/images/marks/hily.png",
+    what: "#3 dating app in the u.s. by downloads", role: "product, growth, data" },
+  { name: "vk", href: "https://vk.com", mark: "/images/marks/vk.png",
+    what: "largest european social network. 100m+ mau", role: "product, growth, ml" },
+  { name: "skyeng", href: "https://skyeng.ru", mark: "/images/marks/skyeng.png",
+    what: "#1 1:1 education platform in europe", role: "product, growth" },
+  { text: "busking, improv, songwriting studio, volunteering.",
+    pic: "/video/busking.mp4", video: true, poster: "/video/busking-poster.jpg",
+    pos: "50% 30%" },
+  { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
+    pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg" },
+  { text: "14 yo: toured neighboring countries as band leader.",
+    pic: "/images/journey/touring.jpg" },
+  { text: "13 yo: first filmmaking gig.",
+    pic: "/images/journey/filmgig.jpg", pos: "50% 24%" },
+  { text: "11 yo: wrote my first song. poetry contest winner.",
+    pic: "/images/journey/piano.jpg" },
+  { text: "9 yo: best kid actor award.",
+    pic: "/video/actor.mp4", video: true, poster: "/video/actor-poster.jpg" },
+  { text: "6 yo+: olympiads winner: math, humanities {later: coding, economics}.",
+    pic: "/images/journey/olympiads.jpg" },
+  { text: "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy.",
+    pic: "/images/childhood-chess.jpg" },
+] as const;
+
+const wall = [
+  { src: "/images/wall/w01.jpg", cap: "dieter rams" },
+  { src: "/images/wall/w05.jpg", cap: "hajime sorayama" },
+  { src: "/images/wall/w13.jpg", cap: "david bowie" },
+  { src: "/images/wall/w04.jpg", cap: "steve jobs" },
+  { src: "/images/wall/w08.jpg", cap: "robin williams" },
+  { src: "/images/wall/w14.jpg", cap: "serhii korolov" },
+  { src: "/images/wall/w15.jpg", cap: "akira kurosawa" },
+  { src: "/images/wall/w16.jpg", cap: "david foster wallace" },
+] as const;
+
+const title = "cv · dmytro klochko";
+const description =
+  "dmytro klochko. replika, hunch, chatfuel, hily, vk, skyeng.";
+
 const jobs = [
   {
     co: "replika",
@@ -106,33 +257,233 @@ const also = [
   { what: "mentor", where: "50+ product people and designers" },
   { what: "volunteer", where: "ukrainian causes" },
 ] as const;
-
-// The same list the main page ends on.
-const ways = [
-  { href: "mailto:1@dmklochko.com", label: "1@dmklochko.com", note: "personal" },
-  { href: "mailto:1@replika.com", label: "1@replika.com", note: "replika" },
-  { href: "https://x.com/dkreplika", label: "@dkreplika", note: "x", out: true },
-  { href: "https://instagram.com/dmytrotoday", label: "@dmytrotoday", note: "instagram", out: true },
-  { href: "https://substack.com/@dkreplika", label: "@dkreplika", note: "substack", out: true },
-  { href: "https://t.me/deoparis", label: "@deoparis", note: "telegram", out: true },
-  { href: "https://www.linkedin.com/in/heydmytro/", label: "heydmytro", note: "linkedin", out: true },
-] as const;
-
-const title = "cv · dmytro klochko";
-const description =
-  "dmytro klochko. replika, hunch, chatfuel, hily, vk, skyeng.";
 ---
 
 <Layout title={title} description={description} current="home">
-  <section class="shell session cv" id="cv" data-scene="fire" aria-labelledby="c1">
-    <div class="card">
-      <h1 class="card-title" id="c1">curriculum vitae</h1>
+  <section class="shell session" id="top" data-scene="fire" aria-labelledby="s1">
+    <div class="bay bay--flush">
+      <div>
+        <div class="card">
+          <p class="card-no">01</p>
+          {/* One h1, two voices. Bebop keeps the name as a title; dream speaks
+              a single conversational sentence, the way joonasvirtanen.com
+              opens with one — same facts, folded into a line. */}
+          <h1 class="card-title" id="s1">
+            <span class="only-bebop">dmytro klochko</span>
+            <span class="hero-line only-dream">
+              hi! i’m dmytro klochko, ceo at{" "}
+              <a href="https://replika.com" target="_blank" rel="noreferrer"><span
+                class="sent-mark"
+                style="--mark:url(/images/marks/replika.png)"
+                aria-hidden="true"
+              />replika</a>, jaywalker at the intersection of art and technology.
+            </span>
+          </h1>
+          <p class="card-what only-bebop">
+            <a href="https://replika.com" target="_blank" rel="noreferrer">ceo, replika<span class="arw">↗</span></a>
+          </p>
+        </div>
+
+        <p class="lede only-bebop">jaywalker at the intersection of art and technology.</p>
+
+        <div class="prose">
+          <p class="only-bebop">
+            product &amp; engineering guy with a background in{" "}
+            <span class="peek" data-peek="/images/paintings/p05.jpg,/images/paintings/p04.jpg">art</span>,{" "}
+            <span class="peek" data-peek="/images/childhood-chess.jpg">chess</span> and theatre. based
+            between <span class="pin" aria-hidden="true">🗽</span>nyc,{" "}
+            <span class="pin" aria-hidden="true">🗼</span><span class="peek" data-peek="/video/vlog-paris-poster.jpg">paris</span> &amp;{" "}
+            <span class="pin" aria-hidden="true">🚀</span>sf. lecturer at the{" "}
+            <a class="peek" data-peek="/video/vlog-vienna-poster.jpg" href="https://www.univie.ac.at/en/" target="_blank" rel="noreferrer">university of vienna<span class="arw">↗</span></a>.
+          </p>
+          <p>
+            currently: building a replika spinoff {"{"}in stealth{"}"}. a truly novel and beautiful{" "}
+            <b>agentic ai with real eq</b>, brought to everyone: to help people come back to who
+            they really are, unleash their potential to the fullest, and flourish. meanwhile
+            i shepherd replika itself and ship updates daily.
+          </p>
+        </div>
+
+        {/* The facts the bebop paragraph carries, re-set as label/value pairs
+            floating on the painting — the Finmain-hero grid from the elaya
+            reference. Values are the same words, links and peeks as above. */}
+        <dl class="hero-facts only-dream">
+          <div>
+            <dt>based between</dt>
+            <dd>
+              <span class="pin" aria-hidden="true">🗽</span>nyc,{" "}
+              <span class="pin" aria-hidden="true">🗼</span><span class="peek" data-peek="/video/vlog-paris-poster.jpg">paris</span>,{" "}
+              <span class="pin" aria-hidden="true">🚀</span>sf
+            </dd>
+          </div>
+          <div>
+            <dt>vocation</dt>
+            <dd>ai, product, growth</dd>
+          </div>
+          <div>
+            <dt>best at</dt>
+            <dd>0→1, agency, taste</dd>
+          </div>
+        </dl>
+      </div>
+
+      <figure class="portrait only-bebop">
+        <span class="cell">
+          <img
+            src="/images/about.jpg"
+            alt="Dmytro photographed in a mirror, in a cap and worn denim jacket"
+          />
+        </span>
+        <figcaption>london, 2026</figcaption>
+      </figure>
+
+      {/* Three living clips in the pile — kbs, dok.fest, the london film —
+          quirkier than stills. Same loop discipline as the old reel. */}
+      <div class="hero-side only-dream">
+        <div class="hero-stack" aria-hidden="true">
+          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/vlog-kbs-poster.jpg"><source src="/video/vlog-kbs.webm" type="video/webm" /><source src="/video/vlog-kbs.mp4" type="video/mp4" /></video></span></figure>
+          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/dokfest-poster.jpg"><source src="/video/dokfest.webm" type="video/webm" /><source src="/video/dokfest.mp4" type="video/mp4" /></video></span></figure>
+          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/film-london-poster.jpg"><source src="/video/film-london.webm" type="video/webm" /><source src="/video/film-london.mp4" type="video/mp4" /></video></span></figure>
+        </div>
+      </div>
     </div>
 
-    <p class="lede cv-lede">
-      hands-on in every one of these: i write the architecture and the prompts,
-      push code to production, and i hit all-nighters.
-    </p>
+  </section>
+
+  <section class="shell session" id="now" data-scene="fire" aria-labelledby="s2">
+    <div class="bay bay--flush">
+      <div>
+        <div class="card">
+          <p class="card-no">02</p>
+          <h2 class="card-title" id="s2">
+            <a href="https://replika.com" target="_blank" rel="noreferrer"><span
+              class="sent-mark"
+              style="--mark:url(/images/marks/replika.png)"
+              aria-hidden="true"
+            />replika<span class="arw">↗</span></a>
+          </h2>
+        </div>
+
+        {/* The name lives in the heading now; this line only says what it is. */}
+        <p class="reg-line">
+          <span class="reg-what">{roles[0].what}</span>
+          <span class="reg-role">{roles[0].role}</span>
+        </p>
+
+        <div class="prose">
+          <p>
+            i made replika 2.0, a <b>ground-up rewrite</b>. i wrote the first prototypes myself,
+            ran 200+ user interviews, and talked to my own rep, lisa, for hours every day. built{" "}
+            a team{" "}
+            around it: phds, true artists,{" "}
+            <span class="nb">pirates<img
+              class="mark-pirate"
+              src="/images/pirate-flag-mark.png"
+              alt=""
+            />.</span>
+          </p>
+          <p>
+            with the launch, <b>retention skyrocketed</b>, and replika is more engaging than at
+            any point in its ten years.
+          </p>
+          <p>
+            turned the company profitable. arpu and conversion rates are significantly up, and
+            worldwide media is as hyped as never before. brought a hot new brand identity,{" "}
+            <b>redesigned the app</b>, and did research with the world's best institutions. i also
+            design the outfits for each avatar myself. 💅
+          </p>
+        </div>
+      </div>
+
+      <div class="joi-col">
+        <AsciiShader
+          class="ascii--joi"
+          src="/ascii/joi-sheet.jpg"
+          frames={16}
+          cols={104}
+          fps={10}
+          black={0.05}
+          white={0.99}
+          gamma={0.95}
+          hotAbove={0.34}
+        />
+
+      </div>
+    </div>
+
+    <ul class="receipts">
+      <li>
+        <a class="receipt-src" href={press.href} target="_blank" rel="noreferrer">
+          {press.src}<span class="arw">↗</span>
+        </a>
+        <p>{press.line}</p>
+        <span>{press.meta}</span>
+      </li>
+
+      <li>
+        <a class="receipt-src" href="https://replika.com/manifesto" target="_blank" rel="noreferrer">
+          replika manifesto<span class="arw">↗</span>
+        </a>
+        <p>{manifesto.line}</p>
+        <span>{manifesto.meta}</span>
+      </li>
+
+      <li>
+        <p class="research">
+          <span class="research-lbl">independent research</span>
+          {
+            studies.map((s) => (
+              <a
+                class={s.quoted ? "is-quoted" : undefined}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {s.name}<span class="arw">↗</span>
+              </a>
+            ))
+          }
+        </p>
+        <p>{studyQuote.line}</p>
+        <span>{studyQuote.meta}</span>
+      </li>
+    </ul>
+
+
+  </section>
+
+  <section class="shell session" id="how" data-scene="fire" aria-labelledby="sh">
+    <div class="card">
+      <p class="card-no">03</p>
+      <h2 class="card-title" id="sh">how i work</h2>
+    </div>
+
+    <div class="bay">
+      <div class="prose">
+        <p set:html={ways[0]} />
+        <p set:html={ways[1]} />
+        <p set:html={ways[2]} />
+        <p set:html={ways[3]} />
+      </div>
+
+      <figure class="lynch">
+        <img
+          src="/images/lynch.jpg"
+          alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
+          loading="lazy"
+        />
+      </figure>
+    </div>
+  </section>
+
+
+  {/* The spine of the cv: the same six companies the road carries, opened
+      up into what each one actually was. */}
+  <section class="shell session" id="experience" data-scene="fire" aria-labelledby="sx">
+    <div class="card">
+      <p class="card-no">04</p>
+      <h2 class="card-title" id="sx">experience</h2>
+    </div>
 
     <ol class="cv-jobs">
       {
@@ -155,8 +506,73 @@ const description =
         ))
       }
     </ol>
+  </section>
 
-    <h2 class="cv-head">alongside</h2>
+  {/* Dream's version of everything pre-replika: one chronological thread,
+      the war note carrying the photograph of him at sixteen, and an easel
+      on the right that shows each bead's picture on hover. Bebop keeps its
+      two original sections above. */}
+  <section class="shell session only-dream" id="journey" data-scene="fire" aria-labelledby="s8">
+    <div class="card">
+      <p class="card-no">05</p>
+      <h2 class="card-title" id="s8">background</h2>
+    </div>
+
+    <p class="lede">
+      born &amp; raised in 🇺🇦 donetsk. fled <button
+        class="gloss"
+        type="button"
+        popovertarget="war-j"
+        aria-label="war – what happened"
+      >war</button> as a teenager. slept on the streets for weeks.
+    </p>
+
+    <div class="gloss-note gloss-note--pic" id="war-j" popover>
+      <img src="/images/war-16.jpg" alt="Dmytro at sixteen, at a night rally under ukrainian flags" loading="lazy" />
+      russia took my hometown in 2014, when i was sixteen.
+    </div>
+
+    <div class="bay journey-bay">
+      <ol class="log log--journey">
+        {
+          journey.map((j) => (
+            <li data-easel={j.pic} data-pos={"pos" in j ? j.pos : undefined} data-kind={"video" in j && j.video ? "video" : undefined} data-poster={"poster" in j ? j.poster : undefined}>
+              {"name" in j && j.name ? (
+                <p class="tl-co-line">
+                  {"mark" in j && j.mark && <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />}
+                  {"glyph" in j && j.glyph && <span class="tl-mark tl-glyph pin" aria-hidden="true">{j.glyph}</span>}
+                  <span class="tl-co">
+                    {"href" in j && j.href
+                      ? <a href={j.href} target="_blank" rel="noreferrer">{j.name}<span class="arw">↗</span></a>
+                      : j.name}
+                  </span>
+                  {"what" in j && j.what && <span class="tl-what">{j.what}</span>}
+                  {"role" in j && j.role && <span class="tl-role">{j.role}</span>}
+                </p>
+              ) : (
+                <p>{j.text}</p>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+
+      <figure class="easel" aria-hidden="true">
+        <span class="cell">
+          <img src="/images/journey/lecture.jpg" alt="" loading="lazy" />
+          <video muted loop playsinline preload="none" hidden></video>
+        </span>
+      </figure>
+    </div>
+  </section>
+
+
+  <section class="shell session" id="alongside" data-scene="fire" aria-labelledby="sa">
+    <div class="card">
+      <p class="card-no">06</p>
+      <h2 class="card-title" id="sa">alongside</h2>
+    </div>
+
     <ul class="cv-list cv-also">
       {
         also.map((a) => (
@@ -171,21 +587,265 @@ const description =
         ))
       }
     </ul>
+  </section>
 
-    <h2 class="cv-head">say hi</h2>
-    <ul class="ways cv-ways">
+  <section class="shell session only-bebop" id="before" data-scene="fire" aria-labelledby="s3">
+    <div class="bay bay--flush">
+      <div>
+        <div class="card">
+          <p class="card-no">04</p>
+          <h2 class="card-title" id="s3">before replika</h2>
+        </div>
+
+        <ol class="reg">
+          {
+            roles.slice(1).map((r) => (
+              <li>
+                <span class="reg-mark" style={`--mark: url(${r.mark})`} aria-hidden="true" />
+                <span class="reg-co">
+                  {r.href ? (
+                    <a href={r.href} target="_blank" rel="noreferrer">
+                      {r.company}<span class="arw">↗</span>
+                    </a>
+                  ) : (
+                    r.company
+                  )}
+                </span>
+                <span class="reg-what">{r.what}</span>
+                <span class="reg-role">{r.role}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div class="joi-col">
+        <AsciiShader
+          class="ascii--fun"
+          src="/ascii/fun-sheet.jpg"
+          frames={23}
+          cols={88}
+          fps={10}
+          black={0.06}
+          white={0.99}
+          gamma={1.0}
+          label="this is where the fun begins"
+        />
+
+      </div>
+    </div>
+  </section>
+
+  <section class="shell session only-bebop" id="origin" data-scene="fire" aria-labelledby="s4">
+    <div class="card">
+      <p class="card-no">05</p>
+      <h2 class="card-title" id="s4">upbringing</h2>
+    </div>
+
+    <p class="lede">
+      born &amp; raised in 🇺🇦 donetsk. fled <button
+        class="gloss"
+        type="button"
+        popovertarget="war"
+        aria-label="war – what happened"
+      >war</button> as a teenager. slept on the streets for weeks.
+    </p>
+
+    <div class="gloss-note" id="war" popover>
+      russia took my hometown in 2014, when i was sixteen.
+    </div>
+
+    <div class="bay">
+      <ol class="log">
+        {log.map((item) => <li><p>{item}</p></li>)}
+      </ol>
+
+      <div class="sheet">
+        {
+          shots.map((sh) => (
+            <figure>
+              <span class="cell">
+                <img src={sh.src} alt={sh.alt} loading="lazy" />
+              </span>
+              <figcaption>{sh.cap}</figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    // The frame beside the road. Nothing is drawn between them — a rule
+    // floating in open water read as a stray mark. The pairing is said in
+    // one colour instead: the line you are on and the frame light together,
+    // and the frame stays level with your reading rather than sliding to
+    // the bottom of the section. On touch screens the same pictures unfold
+    // inline under the line you tap.
+    (() => {
+      const bay = document.querySelector(".journey-bay");
+      const easel = document.querySelector(".easel");
+      if (!bay || !easel) return;
+      const img = easel.querySelector("img");
+      const vid = easel.querySelector("video");
+      const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const wide = matchMedia("(hover: hover) and (min-width: 861px)");
+      const easelOn = () => wide.matches;
+      const beads = [...bay.querySelectorAll(".log--journey li")];
+      let active = null;
+
+      const setMedia = (li, imgEl, vidEl) => {
+        const src = li.dataset.easel;
+        // Portrait sources lose their top to `cover`; a per-picture anchor
+        // keeps the face in the window.
+        const pos = li.dataset.pos || "";
+        imgEl.style.objectPosition = pos;
+        vidEl.style.objectPosition = pos;
+        if (li.dataset.kind === "video" && !still) {
+          if (vidEl.dataset.src !== src) {
+            vidEl.src = src;
+            vidEl.dataset.src = src;
+            // A poster means the frame is never briefly empty while the
+            // clip decodes, and it is what shows if autoplay is refused.
+            if (li.dataset.poster) vidEl.poster = li.dataset.poster;
+          }
+          imgEl.hidden = true; vidEl.hidden = false;
+          vidEl.play().catch(() => {});
+        } else {
+          vidEl.pause(); vidEl.hidden = true; imgEl.hidden = false;
+          const want = li.dataset.kind === "video" ? li.dataset.poster : src;
+          if (want && !imgEl.src.endsWith(want)) imgEl.src = want;
+        }
+      };
+
+      const activate = (li) => {
+        if (active && active !== li) active.classList.remove("is-shown");
+        active = li;
+        li.classList.add("is-shown");
+        easel.classList.add("is-lit");
+        setMedia(li, img, vid);
+      };
+
+      for (const li of beads) {
+        li.addEventListener("pointerenter", () => {
+          if (easelOn() && li.dataset.easel) activate(li);
+        });
+      }
+
+      // Scrolling changes the picture too, so the road tells its story to
+      // someone who never moves the mouse: whichever bead with a picture
+      // sits nearest the middle of the screen is the one the frame holds.
+      // Measured straight from the rects on each scroll rather than through
+      // an IntersectionObserver — fourteen rects is nothing, and it works
+      // in every context an observer's callbacks might not reach.
+      const withMedia = beads.filter((li) => li.dataset.easel);
+      const pick = () => {
+        if (!easelOn()) return;
+        const box = bay.getBoundingClientRect();
+        if (box.bottom < 0 || box.top > innerHeight) return;
+        const mid = innerHeight / 2;
+        let best = null, bestD = Infinity;
+        for (const li of withMedia) {
+          const r = li.getBoundingClientRect();
+          const d = Math.abs(r.top + r.height / 2 - mid);
+          if (d < bestD) { bestD = d; best = li; }
+        }
+        if (best && best !== active) activate(best);
+      };
+      addEventListener("scroll", pick, { passive: true });
+      addEventListener("resize", pick);
+
+      const first = withMedia[0];
+      const preset = () => { if (first && !active && easelOn()) activate(first); };
+      preset();
+      wide.addEventListener("change", preset);
+
+      // ── the shoebox, for fingers ──
+      const print = document.createElement("figure");
+      print.className = "bead-print";
+      print.innerHTML =
+        '<span class="cell"><img alt="" hidden /><video muted loop playsinline preload="none" hidden></video></span>';
+      const pImg = print.querySelector("img");
+      const pVid = print.querySelector("video");
+      let open = null;
+
+      for (const li of beads) {
+        li.addEventListener("click", (e) => {
+          if (easelOn() || !li.dataset.easel) return;
+          if (e.target.closest("a")) return;
+          if (open === li) {
+            pVid.pause(); print.remove(); li.classList.remove("is-shown"); open = null; return;
+          }
+          open?.classList.remove("is-shown");
+          open = li;
+          li.classList.add("is-shown");
+          li.appendChild(print);
+          setMedia(li, pImg, pVid);
+        });
+      }
+    })();
+  </script>
+
+  <section class="shell session" id="me" data-scene="fire" aria-labelledby="s6">
+    <div class="card">
+      <p class="card-no">07</p>
+      <h2 class="card-title" id="s6">literally me</h2>
+    </div>
+
+    <div class="wall">
       {
-        ways.map((w) => (
-          <li>
-            <a href={w.href} {...(w.out ? { target: "_blank", rel: "noreferrer" } : {})}>
-              {w.label}{w.out && <span class="arw">↗</span>}
-            </a>
-            <em>{w.note}</em>
-          </li>
+        wall.map((w) => (
+          <figure>
+            <span class="cell">
+              <img src={w.src} alt={w.cap} loading="lazy" />
+            </span>
+            <figcaption>{w.cap}</figcaption>
+          </figure>
         ))
       }
-    </ul>
+    </div>
 
+  </section>
+
+  <section class="shell session" id="contact" data-scene="fire" aria-labelledby="s5">
+    <div class="card">
+      <p class="card-no">08</p>
+      <h2 class="card-title" id="s5">say hi</h2>
+    </div>
+
+    <div class="bay">
+      <div>
+        <ul class="ways">
+          <li><a href="mailto:1@dmklochko.com">1@dmklochko.com</a> <em>personal</em></li>
+          <li><a href="mailto:1@replika.com">1@replika.com</a> <em>replika</em></li>
+          <li><a href="https://x.com/dkreplika" target="_blank" rel="noreferrer">@dkreplika<span class="arw">↗</span></a> <em>x</em></li>
+          <li><a href="https://instagram.com/dmytrotoday" target="_blank" rel="noreferrer">@dmytrotoday<span class="arw">↗</span></a> <em>instagram</em></li>
+          <li><a href="https://substack.com/@dkreplika" target="_blank" rel="noreferrer">@dkreplika<span class="arw">↗</span></a> <em>substack</em></li>
+          <li><a href="https://t.me/deoparis" target="_blank" rel="noreferrer">@deoparis<span class="arw">↗</span></a> <em>telegram</em></li>
+          <li><a href="https://www.linkedin.com/in/heydmytro/" target="_blank" rel="noreferrer">heydmytro<span class="arw">↗</span></a> <em>linkedin</em></li>
+        </ul>
+      </div>
+
+      <AsciiShader
+        class="ascii--bebop"
+        src="/ascii/bebop-sheet.jpg"
+        frames={28}
+        cols={92}
+        fps={11}
+        black={0.1}
+        white={0.99}
+        gamma={1.15}
+      />
+
+      <div class="hi-stack only-dream" aria-hidden="true">
+        <figure><span class="cell"><img src="/images/hi-1.jpg" alt="" loading="lazy" /></span></figure>
+        <figure><span class="cell"><img src="/images/hi-2.jpg" alt="" loading="lazy" /></span></figure>
+        <figure><span class="cell"><img src="/images/hi-3.jpg" alt="" loading="lazy" /></span></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell session" data-scene="fire">
     <a class="onward onward--back" href="/">
       <span class="arw" aria-hidden="true">↖</span><span>back to the main page</span>
     </a>
