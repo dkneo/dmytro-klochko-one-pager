@@ -1,0 +1,762 @@
+[
+ {
+  "src": "/images/eidos/01.webp",
+  "artist": "Vincent van Gogh",
+  "title": "Wheat Field with Cypresses",
+  "date": "1889",
+  "calm": -1,
+  "human": -2,
+  "order": -1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/02.webp",
+  "artist": "Paul Gauguin",
+  "title": "Ia Orana Maria (Hail Mary)",
+  "date": "1891",
+  "calm": 1,
+  "human": 2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/03.webp",
+  "artist": "Georges Seurat",
+  "title": "Circus Sideshow (Parade de cirque)",
+  "date": "1887–88",
+  "calm": 1,
+  "human": 1,
+  "order": 2,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/04.webp",
+  "artist": "Edgar Degas",
+  "title": "The Dance Class",
+  "date": "1874",
+  "calm": 0,
+  "human": 2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/05.webp",
+  "artist": "Camille Pissarro",
+  "title": "The Boulevard Montmartre on a Winter Morning",
+  "date": "1897",
+  "calm": 0,
+  "human": 1,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/06.webp",
+  "artist": "Edouard Manet",
+  "title": "Boating",
+  "date": "1874",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/07.webp",
+  "artist": "Gustave Courbet",
+  "title": "The Woman in the Waves",
+  "date": "1868",
+  "calm": -1,
+  "human": 2,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/08.webp",
+  "artist": "John Constable",
+  "title": "Salisbury Cathedral from the Bishop's Grounds",
+  "date": "ca. 1825",
+  "calm": 1,
+  "human": -1,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/09.webp",
+  "artist": "Johannes Vermeer",
+  "title": "A Maid Asleep",
+  "date": "ca. 1656–57",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/10.webp",
+  "artist": "Rembrandt",
+  "title": "Flora",
+  "date": "ca. 1654",
+  "calm": 2,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/11.webp",
+  "artist": "Frans Hals",
+  "title": "Boy with a Lute",
+  "date": "ca. 1625",
+  "calm": 0,
+  "human": 2,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/12.webp",
+  "artist": "El Greco",
+  "title": "The Adoration of the Shepherds",
+  "date": "ca. 1605–10",
+  "calm": -1,
+  "human": 2,
+  "order": -1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/13.webp",
+  "artist": "Pieter Bruegel",
+  "title": "The Harvesters",
+  "date": "1565",
+  "calm": 1,
+  "human": 1,
+  "order": 0,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/14.webp",
+  "artist": "Botticelli",
+  "title": "The Annunciation",
+  "date": "ca. 1490",
+  "calm": 2,
+  "human": 1,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/15.webp",
+  "artist": "Caravaggio",
+  "title": "The Musicians",
+  "date": "1597",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/16.webp",
+  "artist": "Goya",
+  "title": "Manuel Osorio Manrique de Zuñiga (1784–1792)",
+  "date": "1787–88",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/17.webp",
+  "artist": "Jean Auguste Dominique Ingres",
+  "title": "Madame Jacques-Louis Leblanc (Françoise Poncelle, 1788–1839)",
+  "date": "1823",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/18.webp",
+  "artist": "Eugène Delacroix",
+  "title": "Christ Asleep during the Tempest",
+  "date": "ca. 1853",
+  "calm": -2,
+  "human": 1,
+  "order": -1,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/19.webp",
+  "artist": "Théodore Rousseau",
+  "title": "The Forest in Winter at Sunset",
+  "date": "ca. 1846–67",
+  "calm": 1,
+  "human": -2,
+  "order": -1,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/20.webp",
+  "artist": "Odilon Redon",
+  "title": "Etruscan Vase with Flowers",
+  "date": "1900–1910",
+  "calm": 2,
+  "human": -2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/21.webp",
+  "artist": "Joseph Mallord William Turner",
+  "title": "Whalers",
+  "date": "ca. 1845",
+  "calm": -2,
+  "human": -1,
+  "order": -2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/22.webp",
+  "artist": "Winslow Homer",
+  "title": "The Gulf Stream",
+  "date": "1899; reworked by 1906",
+  "calm": -2,
+  "human": 1,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/23.webp",
+  "artist": "John Singer Sargent",
+  "title": "Madame X (Virginie Amélie Avegno Gautreau)",
+  "date": "1883–84",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/24.webp",
+  "artist": "Katsushika Hokusai",
+  "title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), or The Great Wave, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+  "date": "ca. 1830–32",
+  "calm": -2,
+  "human": -1,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/25.webp",
+  "artist": "Utagawa Hiroshige",
+  "title": "Six Jewel Rivers from Various Provinces",
+  "date": "1857",
+  "calm": 2,
+  "human": 0,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/26.webp",
+  "artist": "Kitagawa Utamaro",
+  "title": "Two Women",
+  "date": "ca. 1790",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/27.webp",
+  "artist": "Monk Jie",
+  "title": "Landscape",
+  "date": "Dated 1599 (or 1659)",
+  "calm": 2,
+  "human": -2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/28.webp",
+  "artist": "Bhawani Das",
+  "title": "Great Indian Fruit Bat",
+  "date": "ca. 1777–82",
+  "calm": 2,
+  "human": -2,
+  "order": 2,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/29.webp",
+  "artist": "Jean Honoré Fragonard",
+  "title": "The Stolen Kiss",
+  "date": "ca. 1760",
+  "calm": 0,
+  "human": 2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/30.webp",
+  "artist": "Georges de La Tour",
+  "title": "The Fortune-Teller",
+  "date": "probably 1630s",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/31.webp",
+  "artist": "Camille Corot",
+  "title": "Hagar in the Wilderness",
+  "date": "1835",
+  "calm": 0,
+  "human": -1,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n01.webp",
+  "artist": "Hasui Kawase",
+  "title": "Fuji vanaf het dorp Narusawa Narusawa no Fuji (titel op object), RP-P-",
+  "date": "",
+  "calm": 1,
+  "human": 0,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n02.webp",
+  "artist": "Hasui Kawase",
+  "title": "Het drukproces van Miyajima Process of wood-cut printing (titel op obj",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": -1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n03.webp",
+  "artist": "Edvard Munch",
+  "title": "museet - no-nb digifoto 20150123 00102 NB MIT FNR 21241",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n04.webp",
+  "artist": "Carl Larsson",
+  "title": "En fé",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": -1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/n05.webp",
+  "artist": "Mikhail Vrubel",
+  "title": "Врубель . Роза в стакане",
+  "date": "",
+  "calm": 1,
+  "human": 0,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n06.webp",
+  "artist": "Arkhip Kuindzhi",
+  "title": "Jesus Christ 1901",
+  "date": "",
+  "calm": 2,
+  "human": 0,
+  "order": 1,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/n07.webp",
+  "artist": "Caspar David Friedrich",
+  "title": "Severní moře v měsíční záři CZE NG.O 8669",
+  "date": "",
+  "calm": 2,
+  "human": 0,
+  "order": 1,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/n08.webp",
+  "artist": "Caspar David Friedrich",
+  "title": "Caspar David (Umkreis) - Romantische Küstenlandschaft",
+  "date": "",
+  "calm": 2,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/n09.webp",
+  "artist": "Isaac Levitan",
+  "title": "Mustlased (mustlaslaager), Issaak TKM TR 1643 M 343",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n10.webp",
+  "artist": "Isaac Levitan",
+  "title": "Ha. Закат, (.Левитан И.И.,1860-1900)",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n11.webp",
+  "artist": "Ivan Shishkin",
+  "title": "Blagoveschensky Cathedral and Province Gymnasia NNovgorod",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n12.webp",
+  "artist": "Ivan Shishkin",
+  "title": "Ananyino burials (Ivan )",
+  "date": "",
+  "calm": -2,
+  "human": 0,
+  "order": -1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n13.webp",
+  "artist": "Joaquín Sorolla",
+  "title": "Joaquin Saltando a la comba (Estudios de ninos)",
+  "date": "",
+  "calm": 2,
+  "human": 0,
+  "order": 2,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/n14.webp",
+  "artist": "Joaquín Sorolla",
+  "title": "María convaleciente",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/n15.webp",
+  "artist": "Pierre Bonnard",
+  "title": "BORD DE MER AUX TOITS ROUGES",
+  "date": "",
+  "calm": 2,
+  "human": 0,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n16.webp",
+  "artist": "Pierre Bonnard",
+  "title": "CUEILLETTE DES CERISES",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n17.webp",
+  "artist": "Édouard Vuillard",
+  "title": "NYR 15006 0382 edouard la grande serviette)",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n18.webp",
+  "artist": "Édouard Vuillard",
+  "title": "CKS 15471 0277 edouard le lit de la grand-mere)",
+  "date": "",
+  "calm": 2,
+  "human": 0,
+  "order": 1,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/n19.webp",
+  "artist": "Odilon Redon",
+  "title": "Figure portant une tête ailée (La chute d'lcare) - Figure bearing a wi",
+  "date": "",
+  "calm": 1,
+  "human": 2,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n20.webp",
+  "artist": "Odilon Redon",
+  "title": "La douleur, 1893",
+  "date": "",
+  "calm": 2,
+  "human": 0,
+  "order": 2,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/n21.webp",
+  "artist": "Edvard Munch",
+  "title": "Dance on the Beach (the Reinhardt Frieze)",
+  "date": "",
+  "calm": 1,
+  "human": 0,
+  "order": 0,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/n22.webp",
+  "artist": "Gustav Klimt",
+  "title": "Stiller Weiher",
+  "date": "",
+  "calm": -1,
+  "human": 0,
+  "order": 0,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/n23.webp",
+  "artist": "Gustav Klimt",
+  "title": "Kirche in Cassone - 1913",
+  "date": "",
+  "calm": -1,
+  "human": 0,
+  "order": -1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n24.webp",
+  "artist": "Ivan Aivazovsky",
+  "title": "Ivan Ship on Stormy Seas",
+  "date": "",
+  "calm": 0,
+  "human": -2,
+  "order": -1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n25.webp",
+  "artist": "Ivan Aivazovsky",
+  "title": "A Ship of the Russian Navy off the Coast (by Ivan )",
+  "date": "",
+  "calm": 1,
+  "human": -2,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n26.webp",
+  "artist": "John Atkinson Grimshaw",
+  "title": "John Atkinson (1836-1893) - Autumn Regrets - TWCMS , B4945 - Shipley A",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/n27.webp",
+  "artist": "John Atkinson Grimshaw",
+  "title": "John Atkinson Spirit of the Night - cut",
+  "date": "",
+  "calm": 2,
+  "human": -2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/n28.webp",
+  "artist": "Ohara Koson",
+  "title": "Karpers, AK-RAK-2000-6",
+  "date": "",
+  "calm": 2,
+  "human": 0,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n29.webp",
+  "artist": "Ohara Koson",
+  "title": "Five Egrets Descending in Snow by Shôson",
+  "date": "",
+  "calm": 1,
+  "human": -2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n30.webp",
+  "artist": "Tsukioka Yoshitoshi",
+  "title": "A Chronicle of the Pursuit of Rebels at Kagoshima LACMA M.84.31.317a-c",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/n31.webp",
+  "artist": "Tsukioka Yoshitoshi",
+  "title": "A Modern Prince Genji at Chigogafuchi, Enoshima LACMA M.84.31.449a-c",
+  "date": "",
+  "calm": -1,
+  "human": 0,
+  "order": -1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n32.webp",
+  "artist": "Utagawa Kuniyoshi",
+  "title": "Brooklyn Museum - The Hill Top (Kasumi-ga-Seki) - Ichiyusai",
+  "date": "",
+  "calm": -1,
+  "human": 0,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n33.webp",
+  "artist": "Utagawa Kuniyoshi",
+  "title": "NDL-DC 1301746 01-Utagawa 隅田川初日の出-crd",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n34.webp",
+  "artist": "Carl Larsson",
+  "title": "Carl skidloperskan",
+  "date": "",
+  "calm": 1,
+  "human": 0,
+  "order": 1,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/n35.webp",
+  "artist": "Anders Zorn",
+  "title": "I sorg II",
+  "date": "",
+  "calm": 2,
+  "human": 0,
+  "order": 2,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/n36.webp",
+  "artist": "Berthe Morisot",
+  "title": "Berthe Jeune fille étendue, 1893",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n37.webp",
+  "artist": "Berthe Morisot",
+  "title": "Young Girl in a Mantelet Tel Aviv Museum of Art anagoria",
+  "date": "",
+  "calm": 0,
+  "human": 2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/n38.webp",
+  "artist": "Gustave Caillebotte",
+  "title": "L'Homme au balcon, boulevard Haussmann 2000 NYR 09350 0008 000(010703)",
+  "date": "",
+  "calm": -2,
+  "human": 2,
+  "order": -1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n39.webp",
+  "artist": "Gustave Caillebotte",
+  "title": "HK 中環 Central 畢打行 Pedder Building 1st floor 佳士得 拍賣 Christie's Auction ",
+  "date": "",
+  "calm": -1,
+  "human": 0,
+  "order": 0,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/n40.webp",
+  "artist": "Félix Vallotton",
+  "title": "Félix Femme nue tenant un livre - 2458 - Kunsthaus Zürich",
+  "date": "",
+  "calm": 2,
+  "human": 0,
+  "order": 2,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/n41.webp",
+  "artist": "Félix Vallotton",
+  "title": "Promenade nocturne, 96-017386",
+  "date": "",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/n42.webp",
+  "artist": "Konstantin Korovin",
+  "title": "On Balcony",
+  "date": "",
+  "calm": 0,
+  "human": 0,
+  "order": 0,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/n43.webp",
+  "artist": "Konstantin Korovin",
+  "title": "Konstantin Alexeyevich Parisian boulevard at night",
+  "date": "",
+  "calm": 2,
+  "human": -2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/n44.webp",
+  "artist": "Mikhail Vrubel",
+  "title": "Гензель і Грэтэль. Урубель",
+  "date": "",
+  "calm": 1,
+  "human": 0,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/n45.webp",
+  "artist": "Arkhip Kuindzhi",
+  "title": "А. Куїнджі Чиста луна",
+  "date": "",
+  "calm": 2,
+  "human": 0,
+  "order": 2,
+  "light": -2
+ }
+]

@@ -1460,21 +1460,21 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   .weather { display: none; }
 }
 
-/* ── eidor ──────────────────────────────────────────────────────────────────
+/* ── eidos ──────────────────────────────────────────────────────────────────
    A deck of paintings you throw left or right. The card is the only bright
    thing on the page; everything around it stays out of the way, because the
    whole point is looking at one picture at a time. */
 
-[data-mode="dream"] .eidor-lede {
+[data-mode="dream"] .eidos-lede {
   max-width: 46ch;
 }
 
-[data-mode="dream"] .eidor {
+[data-mode="dream"] .eidos {
   margin-top: var(--sp-4);
 }
 
-[data-mode="dream"] .eidor-start,
-[data-mode="dream"] .eidor-restart {
+[data-mode="dream"] .eidos-start,
+[data-mode="dream"] .eidos-restart {
   border: 1px solid rgb(236 230 217 / 30%);
   border-radius: 999px;
   background: none;
@@ -1486,15 +1486,15 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .eidor-start:hover,
-[data-mode="dream"] .eidor-restart:hover {
+[data-mode="dream"] .eidos-start:hover,
+[data-mode="dream"] .eidos-restart:hover {
   border-color: var(--hot);
   color: var(--hot);
 }
 
 /* The stack: three cards mounted, the two behind peeking out by a few
    pixels so the deck reads as a deck and not a single image. */
-[data-mode="dream"] .eidor-cards {
+[data-mode="dream"] .eidos-cards {
   position: relative;
   height: min(62vh, 30rem);
   margin-inline: auto;
@@ -1502,7 +1502,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   touch-action: pan-y;
 }
 
-[data-mode="dream"] .eidor-card {
+[data-mode="dream"] .eidos-card {
   position: absolute;
   inset: 0;
   display: grid;
@@ -1513,22 +1513,22 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   will-change: transform;
 }
 
-[data-mode="dream"] .eidor-card.is-top {
+[data-mode="dream"] .eidos-card.is-top {
   cursor: grab;
 }
 
-[data-mode="dream"] .eidor-card.is-top:active {
+[data-mode="dream"] .eidos-card.is-top:active {
   cursor: grabbing;
 }
 
-[data-mode="dream"] .eidor-card figure {
+[data-mode="dream"] .eidos-card figure {
   margin: 0;
   display: grid;
   gap: 0.7rem;
   justify-items: center;
 }
 
-[data-mode="dream"] .eidor-card .cell {
+[data-mode="dream"] .eidos-card .cell {
   display: grid;
   place-items: center;
   height: min(48vh, 23rem);
@@ -1542,7 +1542,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
     0 22px 48px rgb(8 10 22 / 48%);
 }
 
-[data-mode="dream"] .eidor-card img {
+[data-mode="dream"] .eidos-card img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1551,7 +1551,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 /* Only the card you are looking at names itself; the two behind it would
    otherwise stack three captions in the same place. */
-[data-mode="dream"] .eidor-card figcaption {
+[data-mode="dream"] .eidos-card figcaption {
   display: grid;
   gap: 0.15rem;
   justify-items: center;
@@ -1560,15 +1560,15 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   transition: opacity var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .eidor-card.is-top figcaption {
+[data-mode="dream"] .eidos-card.is-top figcaption {
   opacity: 1;
 }
 
-[data-mode="dream"] .eidor-card:not(.is-top) .cell {
+[data-mode="dream"] .eidos-card:not(.is-top) .cell {
   filter: brightness(0.7);
 }
 
-[data-mode="dream"] .eidor-card figcaption b {
+[data-mode="dream"] .eidos-card figcaption b {
   color: var(--bone);
   font-family: var(--serif);
   font-size: var(--t-prose-sm);
@@ -1576,7 +1576,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 }
 
 /* Museum titles run to three lines of parentheses; two is plenty. */
-[data-mode="dream"] .eidor-card figcaption em {
+[data-mode="dream"] .eidos-card figcaption em {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -1591,7 +1591,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 /* The stamps only exist while you are dragging, and only the one you are
    about to commit to shows up. */
-[data-mode="dream"] .eidor-stamp {
+[data-mode="dream"] .eidos-stamp {
   position: absolute;
   top: 12%;
   padding: 0.3rem 0.9rem;
@@ -1604,21 +1604,38 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   pointer-events: none;
 }
 
-[data-mode="dream"] .eidor-stamp--keep {
+[data-mode="dream"] .eidos-stamp--keep {
   left: 10%;
   color: var(--hot);
   rotate: -12deg;
   opacity: var(--keep, 0);
 }
 
-[data-mode="dream"] .eidor-stamp--pass {
+[data-mode="dream"] .eidos-stamp--pass {
   right: 10%;
   color: var(--dim);
   rotate: 12deg;
   opacity: var(--pass, 0);
 }
 
-[data-mode="dream"] .eidor-bar {
+[data-mode="dream"] .eidos-progress {
+  width: min(100%, 34rem);
+  height: 2px;
+  margin: var(--sp-3) auto 0;
+  background: rgb(236 230 217 / 14%);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+[data-mode="dream"] .eidos-progress i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--hot);
+  transition: width 320ms var(--ease);
+}
+
+[data-mode="dream"] .eidos-bar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1626,7 +1643,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   margin-top: var(--sp-3);
 }
 
-[data-mode="dream"] .eidor-btn {
+[data-mode="dream"] .eidos-btn {
   width: 3rem;
   height: 3rem;
   border: 1px solid rgb(236 230 217 / 26%);
@@ -1638,10 +1655,10 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease), scale var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .eidor-btn--keep:hover { color: var(--hot); border-color: var(--hot); scale: 1.08; }
-[data-mode="dream"] .eidor-btn--pass:hover { color: var(--bone); border-color: var(--bone); scale: 1.08; }
+[data-mode="dream"] .eidos-btn--keep:hover { color: var(--hot); border-color: var(--hot); scale: 1.08; }
+[data-mode="dream"] .eidos-btn--pass:hover { color: var(--bone); border-color: var(--bone); scale: 1.08; }
 
-[data-mode="dream"] .eidor-count {
+[data-mode="dream"] .eidos-count {
   min-width: 5rem;
   text-align: center;
   color: var(--faint);
@@ -1650,9 +1667,9 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   letter-spacing: var(--ls-wide);
 }
 
-[data-mode="dream"] .eidor-count b { color: var(--bone); font-weight: 400; }
+[data-mode="dream"] .eidos-count b { color: var(--bone); font-weight: 400; }
 
-[data-mode="dream"] .eidor-hint {
+[data-mode="dream"] .eidos-hint {
   margin-top: var(--sp-2);
   text-align: center;
   color: var(--faint);
@@ -1662,7 +1679,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 }
 
 /* ── the reading ── */
-[data-mode="dream"] .eidor-kicker {
+[data-mode="dream"] .eidos-kicker {
   color: var(--faint);
   font-family: var(--mono);
   font-size: var(--t-xs);
@@ -1670,7 +1687,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   text-transform: uppercase;
 }
 
-[data-mode="dream"] .eidor-name {
+[data-mode="dream"] .eidos-name {
   margin: 0.4rem 0 var(--sp-2);
   color: var(--bone);
   font-family: var(--display);
@@ -1680,27 +1697,29 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   letter-spacing: -0.01em;
 }
 
-[data-mode="dream"] .eidor-read {
+[data-mode="dream"] .eidos-read {
   max-width: var(--measure);
 }
 
-[data-mode="dream"] .eidor-tally {
+[data-mode="dream"] .eidos-tally {
   color: var(--faint);
   font-family: var(--mono);
   font-size: var(--t-xs);
   letter-spacing: 0.06em;
 }
 
-[data-mode="dream"] .eidor-picks {
+[data-mode="dream"] .eidos-picks {
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-2);
   margin-top: var(--sp-3);
 }
 
-[data-mode="dream"] .eidor-picks figure {
+[data-mode="dream"] .eidos-picks figure {
   margin: 0;
   width: calc((100% - 5 * var(--sp-2)) / 6);
+  display: grid;
+  place-items: center;
   min-width: 6.5rem;
   background: var(--mat);
   padding: 0.35rem;
@@ -1708,26 +1727,26 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   box-shadow: 0 2px 5px rgb(8 10 22 / 55%), 0 12px 26px rgb(8 10 22 / 38%);
 }
 
-[data-mode="dream"] .eidor-picks img {
+[data-mode="dream"] .eidos-picks img {
   display: block;
   width: 100%;
-  height: 6rem;
-  object-fit: cover;
+  height: 8.5rem;
+  object-fit: contain;
   border-radius: 1px;
 }
 
-[data-mode="dream"] .eidor-again { margin-top: var(--sp-3); }
+[data-mode="dream"] .eidos-again { margin-top: var(--sp-3); }
 
-[data-mode="dream"] .eidor-credit {
+[data-mode="dream"] .eidos-credit {
   margin-top: var(--sp-4);
   color: var(--faint);
   font-size: var(--t-prose-sm);
 }
 
 @media (max-width: 720px) {
-  [data-mode="dream"] .eidor-cards { height: min(58vh, 26rem); }
-  [data-mode="dream"] .eidor-card .cell { height: min(42vh, 19rem); }
-  [data-mode="dream"] .eidor-picks figure { width: calc((100% - 2 * var(--sp-2)) / 3); }
+  [data-mode="dream"] .eidos-cards { height: min(58vh, 26rem); }
+  [data-mode="dream"] .eidos-card .cell { height: min(42vh, 19rem); }
+  [data-mode="dream"] .eidos-picks figure { width: calc((100% - 2 * var(--sp-2)) / 3); }
 }
 
 /* ── cv ─────────────────────────────────────────────────────────────────────
@@ -1794,10 +1813,8 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 }
 
 [data-mode="dream"] .cv-jobs > li {
-  display: grid;
-  grid-template-columns: 12rem 1fr;
-  gap: var(--sp-2);
   padding-bottom: var(--sp-4);
+  max-width: var(--measure);
 }
 
 [data-mode="dream"] .cv-when {
@@ -1926,8 +1943,11 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   letter-spacing: 0.05em;
 }
 
+[data-mode="dream"] .cv-ways {
+  max-width: var(--measure);
+}
+
 @media (max-width: 720px) {
-  [data-mode="dream"] .cv-jobs > li { grid-template-columns: 1fr; gap: 0.35rem; }
   [data-mode="dream"] .cv-line { grid-template-columns: 1.35rem 1fr; }
   [data-mode="dream"] .cv-what { grid-column: 2; }
 }

@@ -1,36 +1,37 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import works from "../data/eidor.json";
+import works from "../data/eidos.json";
 
 // Thirty-one paintings from the Met's open-access collection, all public
 // domain, chosen for range rather than fame: renaissance to impressionism,
 // woodblock to natural history. Each carries four numbers — how still it is,
 // how much it is about people, how ordered, how lit — and the portrait at
 // the end is only ever the average of the ones you kept.
-const title = "eidor · dmytro klochko";
+const title = "eidos · dmytro klochko";
 const description = "swipe through paintings, find out what your eye is actually after.";
 ---
 
 <Layout title={title} description={description} current="home">
-  <section class="shell session" id="eidor" data-scene="fire" aria-labelledby="e1">
+  <section class="shell session" id="eidos" data-scene="fire" aria-labelledby="e1">
     <div class="card">
-      <h1 class="card-title" id="e1">eidor</h1>
+      <h1 class="card-title" id="e1">eidos</h1>
     </div>
 
-    <p class="lede eidor-lede">
-      thirty-one paintings, one at a time. keep the ones that stop you,
-      pass the ones that don't. no right answers – at the end you get a
-      reading of what your eye was actually after.
+    <p class="lede eidos-lede">
+      <em>eidos</em> – the greek for the form of a thing, the shape you
+      recognise it by. seventy-six paintings, one at a time: keep the ones
+      that stop you, pass the ones that don't. at the end you get a reading
+      of what your eye was actually after.
     </p>
 
-    <div class="eidor" data-stage="intro">
+    <div class="eidos" data-stage="intro">
       {/* ── the deck ── */}
-      <div class="eidor-deck" hidden>
-        <div class="eidor-cards">
+      <div class="eidos-deck" hidden>
+        <div class="eidos-cards">
           {
             works.map((w, i) => (
               <article
-                class="eidor-card"
+                class="eidos-card"
                 data-i={i}
                 data-calm={w.calm}
                 data-human={w.human}
@@ -46,44 +47,46 @@ const description = "swipe through paintings, find out what your eye is actually
                     <em>{w.title}{w.date ? `, ${w.date}` : ""}</em>
                   </figcaption>
                 </figure>
-                <span class="eidor-stamp eidor-stamp--keep" aria-hidden="true">keep</span>
-                <span class="eidor-stamp eidor-stamp--pass" aria-hidden="true">pass</span>
+                <span class="eidos-stamp eidos-stamp--keep" aria-hidden="true">keep</span>
+                <span class="eidos-stamp eidos-stamp--pass" aria-hidden="true">pass</span>
               </article>
             ))
           }
         </div>
 
-        <div class="eidor-bar">
-          <button class="eidor-btn eidor-btn--pass" type="button" aria-label="pass">
+        <div class="eidos-progress" aria-hidden="true"><i></i></div>
+
+        <div class="eidos-bar">
+          <button class="eidos-btn eidos-btn--pass" type="button" aria-label="pass">
             <span aria-hidden="true">✕</span>
           </button>
-          <p class="eidor-count"><b>1</b> / {works.length}</p>
-          <button class="eidor-btn eidor-btn--keep" type="button" aria-label="keep">
+          <p class="eidos-count"><b>1</b> / {works.length}</p>
+          <button class="eidos-btn eidos-btn--keep" type="button" aria-label="keep">
             <span aria-hidden="true">♥</span>
           </button>
         </div>
 
-        <p class="eidor-hint">drag, or use ← and →</p>
+        <p class="eidos-hint">drag, or use ← and →</p>
       </div>
 
       {/* ── the way in ── */}
-      <div class="eidor-intro">
-        <button class="eidor-start" type="button">start looking<span class="arw" aria-hidden="true">→</span></button>
+      <div class="eidos-intro">
+        <button class="eidos-start" type="button">start looking<span class="arw" aria-hidden="true">→</span></button>
       </div>
 
       {/* ── the reading ── */}
-      <div class="eidor-out" hidden>
-        <p class="eidor-kicker">your eye</p>
-        <h2 class="eidor-name"></h2>
-        <div class="eidor-read prose"></div>
-        <div class="eidor-picks"></div>
-        <div class="eidor-again">
-          <button class="eidor-restart" type="button">go again</button>
+      <div class="eidos-out" hidden>
+        <p class="eidos-kicker">the reading</p>
+        <h2 class="eidos-name"></h2>
+        <div class="eidos-read prose"></div>
+        <div class="eidos-picks"></div>
+        <div class="eidos-again">
+          <button class="eidos-restart" type="button">go again</button>
         </div>
       </div>
     </div>
 
-    <p class="credit eidor-credit">
+    <p class="credit eidos-credit">
       paintings from the metropolitan museum of art's open access collection,
       all public domain.
     </p>
@@ -95,13 +98,13 @@ const description = "swipe through paintings, find out what your eye is actually
     // Pointer, keyboard and buttons all drive the same two functions, so the
     // thing works with a thumb, a trackpad or no pointer at all.
     (() => {
-      const root = document.querySelector(".eidor");
+      const root = document.querySelector(".eidos");
       if (!root) return;
-      const deck = root.querySelector(".eidor-deck");
-      const intro = root.querySelector(".eidor-intro");
-      const out = root.querySelector(".eidor-out");
-      const cards = [...root.querySelectorAll(".eidor-card")];
-      const countEl = root.querySelector(".eidor-count b");
+      const deck = root.querySelector(".eidos-deck");
+      const intro = root.querySelector(".eidos-intro");
+      const out = root.querySelector(".eidos-out");
+      const cards = [...root.querySelectorAll(".eidos-card")];
+      const countEl = root.querySelector(".eidos-count b");
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       // Shuffled once per visit, so a second run is a different order.
@@ -133,6 +136,8 @@ const description = "swipe through paintings, find out what your eye is actually
           if (k === 0) c.classList.add("is-top");
         }
         countEl.textContent = String(Math.min(at + 1, order.length));
+        root.querySelector(".eidos-progress i").style.width =
+          ((at / order.length) * 100).toFixed(1) + "%";
       };
 
       const finish = () => {
@@ -176,15 +181,15 @@ const description = "swipe through paintings, find out what your eye is actually
         still ? done() : setTimeout(done, 260);
       };
 
-      root.querySelector(".eidor-start").addEventListener("click", () => {
+      root.querySelector(".eidos-start").addEventListener("click", () => {
         intro.hidden = true;
         deck.hidden = false;
         root.dataset.stage = "deck";
         paint();
       });
 
-      root.querySelector(".eidor-btn--keep").addEventListener("click", () => throwIt(1));
-      root.querySelector(".eidor-btn--pass").addEventListener("click", () => throwIt(-1));
+      root.querySelector(".eidos-btn--keep").addEventListener("click", () => throwIt(1));
+      root.querySelector(".eidos-btn--pass").addEventListener("click", () => throwIt(-1));
 
       addEventListener("keydown", (e) => {
         if (root.dataset.stage !== "deck") return;
@@ -194,7 +199,7 @@ const description = "swipe through paintings, find out what your eye is actually
 
       // Dragging: the card follows the finger, tilts as it goes, and the
       // stamp that will apply fades up so the gesture says what it means.
-      root.querySelector(".eidor-cards").addEventListener("pointerdown", (e) => {
+      root.querySelector(".eidos-cards").addEventListener("pointerdown", (e) => {
         const c = top();
         if (!c || root.dataset.stage !== "deck") return;
         dragging = c; startX = e.clientX; dx = 0;
@@ -220,7 +225,7 @@ const description = "swipe through paintings, find out what your eye is actually
         c.style.transform = "";
       });
 
-      root.querySelector(".eidor-restart").addEventListener("click", () => location.reload());
+      root.querySelector(".eidos-restart").addEventListener("click", () => location.reload());
 
       // ── the reading ──
       // Each axis contributes one clause, strongest first, so the paragraph
@@ -270,8 +275,8 @@ const description = "swipe through paintings, find out what your eye is actually
           return `${c} ${l}, kept in ${h}`;
         };
 
-        root.querySelector(".eidor-name").textContent = kept.length ? nameOf() : "you kept nothing";
-        const read = root.querySelector(".eidor-read");
+        root.querySelector(".eidos-name").textContent = kept.length ? nameOf() : "you kept nothing";
+        const read = root.querySelector(".eidos-read");
         read.innerHTML = "";
         if (!kept.length) {
           const p = document.createElement("p");
@@ -284,15 +289,15 @@ const description = "swipe through paintings, find out what your eye is actually
             read.appendChild(p);
           }
           const p = document.createElement("p");
-          p.className = "eidor-tally";
+          p.className = "eidos-tally";
           p.textContent = `you kept ${kept.length} of ${order.length}` +
             (top3.length ? ` — most often ${top3.join(", ")}.` : ".");
           read.appendChild(p);
         }
 
-        const picks = root.querySelector(".eidor-picks");
+        const picks = root.querySelector(".eidos-picks");
         picks.innerHTML = "";
-        for (const c of keptCards.slice(0, 6)) {
+        for (const c of keptCards.slice(0, 12)) {
           const fig = document.createElement("figure");
           const img = document.createElement("img");
           img.src = c.dataset.src;
