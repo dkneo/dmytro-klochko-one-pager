@@ -389,6 +389,12 @@
   margin-bottom: 0.6rem;
 }
 
+/* Petals still fall over the fire — falling pink against rising ember is
+   the whole mood — but they step back so the fire leads its own scene. */
+html[data-scene="fire"] .dream-sky b {
+  opacity: 0.5;
+}
+
 /* The vinyl keeps spinning, in dusk and pink. */
 [data-mode="dream"] .ascii {
   --ink-void: #262b44;
@@ -772,7 +778,7 @@
 
 @keyframes scene-breathe {
   from { scale: 1.04; }
-  to { scale: 1.1; }
+  to { scale: 1.08; }
 }
 
 /* The painted sun warms and cools on a slow clock — light over the art,
@@ -800,6 +806,36 @@ html:not([data-scene="swim"]) .scenes .sunpulse {
 @keyframes sun-pulse {
   from { opacity: 0.25; scale: 1; }
   to { opacity: 1; scale: 1.05; }
+}
+
+.scenes .firelight {
+  position: absolute;
+  inset: -6%;
+  background:
+    radial-gradient(9% 13% at 74% 80%, rgb(255 186 110 / 62%), rgb(from var(--ember-deep) r g b / 26%) 55%, transparent 72%),
+    radial-gradient(26% 30% at 74% 78%, rgb(240 138 84 / 20%), transparent 70%);
+  mix-blend-mode: soft-light;
+  transform: translateY(calc(var(--scroll, 0) * -4vh))
+    translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px));
+  opacity: 0;
+}
+
+html[data-scene="fire"] .scenes .firelight {
+  opacity: 1;
+  animation: fire-flicker 5.4s ease-in-out infinite;
+}
+
+@keyframes fire-flicker {
+  0%   { opacity: 0.72; scale: 1; }
+  9%   { opacity: 1;    scale: 1.035; }
+  17%  { opacity: 0.62; scale: 0.99; }
+  28%  { opacity: 0.94; scale: 1.02; }
+  41%  { opacity: 0.7;  scale: 1.005; }
+  53%  { opacity: 1;    scale: 1.045; }
+  62%  { opacity: 0.66; scale: 0.985; }
+  74%  { opacity: 0.9;  scale: 1.025; }
+  86%  { opacity: 0.6;  scale: 1; }
+  100% { opacity: 0.72; scale: 1; }
 }
 
 /* Light moves on the water: three soft glints drifting across the lower
@@ -1291,36 +1327,38 @@ svg.pin {
 html[data-scene="fire"] .weather--fire { opacity: 1; }
 html[data-scene="snow"] .weather--snow { opacity: 1; }
 
-/* Embers: warm sparks born low, rising with a sway, dying mid-sky. */
+/* Embers: born at the flame, not along the whole bottom of the screen —
+   the fire sits at 74% across, 80% down, so they start there, cluster
+   tightly, sway as they climb and die well before the sky. */
 .weather--fire s {
   position: absolute;
-  bottom: -2vh;
-  width: 5px;
-  height: 5px;
+  bottom: 18vh;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, var(--ember), var(--ember-deep) 65%);
-  box-shadow: 0 0 8px 2px rgb(240 138 84 / 45%);
+  box-shadow: 0 0 7px 2px rgb(240 138 84 / 40%);
   opacity: 0;
   animation: ember-rise var(--rise, 7s) linear infinite;
   animation-delay: var(--wait, 0s);
 }
 
-.weather--fire s:nth-child(1)  { left: 12%; --rise: 8s;   --wait: -2s;  --sway: 40px; }
-.weather--fire s:nth-child(2)  { left: 23%; --rise: 6.5s; --wait: -5s;  --sway: -30px; width: 4px; height: 4px; }
-.weather--fire s:nth-child(3)  { left: 34%; --rise: 9s;   --wait: -1s;  --sway: 55px; }
-.weather--fire s:nth-child(4)  { left: 45%; --rise: 7s;   --wait: -4s;  --sway: -45px; width: 3px; height: 3px; }
-.weather--fire s:nth-child(5)  { left: 55%; --rise: 8.5s; --wait: -6s;  --sway: 35px; }
-.weather--fire s:nth-child(6)  { left: 64%; --rise: 6s;   --wait: -3s;  --sway: -50px; width: 4px; height: 4px; }
-.weather--fire s:nth-child(7)  { left: 73%; --rise: 9.5s; --wait: -7s;  --sway: 48px; }
-.weather--fire s:nth-child(8)  { left: 82%; --rise: 7.5s; --wait: -0.5s;--sway: -35px; width: 3px; height: 3px; }
-.weather--fire s:nth-child(9)  { left: 90%; --rise: 8s;   --wait: -5.5s;--sway: 42px; }
-.weather--fire s:nth-child(10) { left: 6%;  --rise: 7s;   --wait: -6.5s;--sway: -28px; width: 4px; height: 4px; }
+.weather--fire s:nth-child(1)  { left: 73.4%; --rise: 7.5s; --wait: -2s;   --sway: 26px; }
+.weather--fire s:nth-child(2)  { left: 74.6%; --rise: 6.2s; --wait: -5s;   --sway: -18px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(3)  { left: 72.6%; --rise: 8.4s; --wait: -1s;   --sway: 34px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(4)  { left: 75.4%; --rise: 6.8s; --wait: -4s;   --sway: -28px; }
+.weather--fire s:nth-child(5)  { left: 73.9%; --rise: 9s;   --wait: -6.5s; --sway: 20px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(6)  { left: 74.1%; --rise: 5.6s; --wait: -3s;   --sway: -34px; width: 2px; height: 2px; }
+.weather--fire s:nth-child(7)  { left: 72.1%; --rise: 8s;   --wait: -7s;   --sway: 30px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(8)  { left: 75.9%; --rise: 7.1s; --wait: -0.5s; --sway: -22px; width: 2px; height: 2px; }
+.weather--fire s:nth-child(9)  { left: 73.1%; --rise: 6.5s; --wait: -5.5s; --sway: 16px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(10) { left: 74.9%; --rise: 9.4s; --wait: -8s;   --sway: -30px; width: 2px; height: 2px; }
 
 @keyframes ember-rise {
-  0% { transform: translate3d(0, 0, 0); opacity: 0; }
-  8% { opacity: 0.9; }
-  60% { opacity: 0.55; }
-  100% { transform: translate3d(var(--sway, 40px), -78vh, 0); opacity: 0; }
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0; }
+  10% { opacity: 0.95; }
+  55% { opacity: 0.5; }
+  100% { transform: translate3d(var(--sway, 26px), -46vh, 0) scale(0.4); opacity: 0; }
 }
 
 /* Snow: slow, small, endless. */

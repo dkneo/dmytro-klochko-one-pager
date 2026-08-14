@@ -1,5 +1,5 @@
 // The share card, rebuilt from the page rather than drawn beside it: the same
-// swim scene, the same smoked glass, the same Zodiak sentence. Run it whenever
+// scene as the site, the same smoked glass, the same Zodiak sentence. Run it whenever
 // the hero's voice changes so the most twitter-visible surface never lags the
 // site. The previous card was made by hand and drifted two art directions.
 //
@@ -23,7 +23,7 @@ const font = b64("public/fonts/zodiak-300.woff2", "font/woff2");
 const mark = b64("public/images/marks/replika.png", "image/png");
 // The scene is 2560px wide; the card only needs 1200, and the smaller the
 // data URI the faster Chrome parses it.
-const sceneBuf = await sharp("public/images/scenes/swim.webp")
+const sceneBuf = await sharp("public/images/scenes/fire.webp")
   .resize(1600, null, { kernel: "lanczos3" })
   .jpeg({ quality: 92 })
   .toBuffer();
@@ -35,10 +35,10 @@ const html = `<!doctype html><meta charset="utf-8"><style>
   html, body { width: ${W}px; height: ${H}px; overflow: hidden }
   body { position: relative; background: #262b44 }
 
-  /* His painting, full bleed, framed so the swimmer keeps the lower right. */
+  /* His painting, full bleed, framed so the campfire keeps the lower right. */
   .scene {
     position: absolute; inset: 0;
-    background: url(${scene}) center 42% / cover no-repeat;
+    background: url(${scene}) center 46% / cover no-repeat;
   }
 
   /* The smoked glass, in the gradient form the site falls back to where
@@ -47,14 +47,14 @@ const html = `<!doctype html><meta charset="utf-8"><style>
   .glass {
     position: absolute; inset: 0;
     /* Uniform, like the site's full-viewport glass ... */
-    background: rgb(20 24 40 / 52%);
+    background: rgb(20 24 40 / 26%);
   }
 
   .glass::after {
     content: ""; position: absolute; inset: 0;
     /* ... with one more breath of dusk under the sentence. */
     background: linear-gradient(102deg,
-      rgb(16 20 34 / 45%) 0 34%, rgb(16 20 34 / 18%) 56%, transparent 72%);
+      rgb(16 20 34 / 34%) 0 34%, rgb(16 20 34 / 14%) 56%, transparent 72%);
   }
 
   .copy {

@@ -22,7 +22,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#2c3357" />
+    <meta name="theme-color" content="#131a2b" />
     <!--
       Two art directions share this markup. Dream is the default now that it
       is finished; bebop lives on behind the toggle. localStorage is written
@@ -38,7 +38,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         } catch {}
         document.querySelector('meta[name="theme-color"]')?.setAttribute(
           "content",
-          document.documentElement.dataset.mode === "bebop" ? "#0b0b0d" : "#2c3357"
+          document.documentElement.dataset.mode === "bebop" ? "#0b0b0d" : "#131a2b"
         );
       })();
     </script>
@@ -58,7 +58,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <meta property="og:description" content={ogDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
-    <meta property="og:image" content={new URL("/og.png?v=2", Astro.site)} />
+    <meta property="og:image" content={new URL("/og.png?v=3", Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta property="og:image:alt" content="dmytro klochko" />
@@ -66,7 +66,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
-    <meta name="twitter:image" content={new URL("/og.png?v=2", Astro.site)} />
+    <meta name="twitter:image" content={new URL("/og.png?v=3", Astro.site)} />
   </head>
   <body>
     <!--
@@ -98,10 +98,20 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
          paintings — and the sky crossfades to match as you scroll. All
          layers are fixed; only opacity and compositor transforms move. -->
     <div class="scenes" aria-hidden="true">
-      <i data-s="fuji"></i>
+      <i data-s="fire"></i>
       <i data-s="estuary"></i>
       <span class="sunpulse"></span>
+      <span class="firelight"></span>
       <span class="glints"><s></s><s></s><s></s><s></s></span>
+    </div>
+
+    <div class="weather weather--fire" aria-hidden="true">
+      <s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s>
+    </div>
+
+    <div class="weather weather--snow" aria-hidden="true">
+      <s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s>
+      <s></s><s></s><s></s><s></s><s></s><s></s><s></s><s></s>
     </div>
 
     <!-- The dream sky: an orange moon and a slow field of stars, after
