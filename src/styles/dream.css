@@ -1890,6 +1890,23 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   line-height: 1.6;
 }
 
+[data-mode="dream"] .cv-points b {
+  color: var(--bone);
+  font-weight: 500;
+}
+
+[data-mode="dream"] .cv-points a {
+  color: var(--hot);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(255 155 192 / 40%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .cv-points a:hover {
+  color: var(--bone);
+  border-color: var(--bone);
+}
+
 [data-mode="dream"] .cv-points li::before {
   content: "";
   position: absolute;

@@ -12,16 +12,16 @@ const jobs = [
     href: "https://replika.com",
     mark: "/images/marks/replika.png",
     points: [
-      "tripled revenue and turned the company profitable",
-      "x1.8 arpu, +58% d30 retention",
-      "reached 42m users during my tenure",
-      "rebranded with studio dumbar and redesigned the app",
-      "ran research with stanford, harvard, princeton and vienna",
-      "rehired the team around phds, true artists and pirates",
-      "took the product through the coolest media in the world",
+      "took a company that was burning cash and made it profitable – tripling revenue on the way",
+      "x1.8 arpu and +58% d30 retention: the two numbers that decide whether a consumer product lives",
+      "grew it to 42m people worldwide, across 145+ countries",
+      "commissioned <b>studio dumbar</b> to rebuild the brand from the ground up, then redesigned the app around it – replika stopped looking like a chatbot and started looking like a company you would trust with your inner life",
+      'made independent science a pillar of the product rather than a press release: peer-reviewed work with <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=67360" target="_blank" rel="noreferrer">harvard<span class="arw">↗</span></a>, <a href="https://www.nature.com/articles/s44184-023-00047-6" target="_blank" rel="noreferrer">stanford<span class="arw">↗</span></a>, <a href="https://arxiv.org/abs/2311.10599" target="_blank" rel="noreferrer">princeton<span class="arw">↗</span></a> and the <a href="https://www.univie.ac.at/en/" target="_blank" rel="noreferrer">university of vienna<span class="arw">↗</span></a> – so every claim we make about wellbeing is one a scientist will defend',
+      "rebuilt the team from the ground up around phds, true artists and pirates",
+      "put replika on the desks of time, cnn, bbc and reuters",
       "sold a managed product for multiple millions",
-      "cut infrastructure cost by 90%",
-      "carried the legal and compliance work, including the u.s. senate and european governments",
+      "cut infrastructure cost by 90% and shipped faster afterwards",
+      "answered for the company in front of the <b>u.s. senate</b> and european governments, and came out the other side with the business whole",
     ],
   },
   {
@@ -30,11 +30,11 @@ const jobs = [
     role: "founder and chief executive officer",
     mark: "/images/marks/homa.png",
     points: [
-      "built a b2b saas platform from nothing to hundreds of thousands in arr",
-      "raised pre-seed from top silicon valley angels",
-      "closed the first 14 enterprise contracts myself, on 600+ customer calls",
-      "built a supertalented engineering and design founding team",
-      "launched a self-service skills marketplace used weekly by more than half of every client's team",
+      "founded it and took it from an empty repository to hundreds of thousands in arr",
+      "raised pre-seed from the silicon valley angels everyone wants on the cap table",
+      "closed the first 14 contracts myself – four of them enterprise – on 600+ customer calls",
+      "recruited a founding team of engineers and designers most startups never get near",
+      "shipped a self-service skills marketplace that more than half of each client's team opened every week",
     ],
   },
   {
@@ -44,9 +44,9 @@ const jobs = [
     mark: "/images/marks/chatfuel.png",
     href: "https://chatfuel.com",
     points: [
-      "expanded the product into a lot of new markets",
-      "repositioned it, which opened marketing channels that were closed before",
-      "worked with the ml and ai teams on what the product could become",
+      "opened the product into new markets across three continents",
+      "repositioned it, and in doing so unlocked acquisition channels that had been shut",
+      "worked shoulder to shoulder with the ml and ai teams on what the product could become",
     ],
   },
   {
@@ -56,10 +56,9 @@ const jobs = [
     mark: "/images/marks/hily.png",
     href: "https://hily.com",
     points: [
-      "grew the flagship product through tens of successful experiments",
-      "built a factory for testing the craziest things quickly",
-      "found beautiful insights in pmf expansion discovery, and founded a new app out of them",
-      "300k daily active users",
+      "grew the flagship – 300k people opening it every day – through tens of winning experiments",
+      "built a factory for testing the craziest ideas in days instead of quarters",
+      "found the insight in pmf expansion discovery that became an entirely new app, and founded it",
     ],
   },
   {
@@ -69,8 +68,8 @@ const jobs = [
     mark: "/images/marks/vk.png",
     href: "https://vk.com",
     points: [
-      "worked with the ml teams on fascinating pipelines serving millions of people",
-      "and a few things that stay under nda",
+      "built ml pipelines with the ml teams that served millions of people a day",
+      "and work that stays under nda",
     ],
   },
   {
@@ -81,9 +80,9 @@ const jobs = [
     href: "https://skyeng.ru",
     points: [
       "launched a run of products 0→1",
-      "ran over a hundred successful experiments and campaigns",
+      "ran over a hundred winning experiments and campaigns",
       "doubled mobile conversion and activation",
-      "fixed the most complicated things nobody else would touch",
+      "fixed the problems nobody else in the building would touch",
     ],
   },
 ] as const;
@@ -125,7 +124,7 @@ const description =
             </p>
             <p class="cv-role">{j.role}</p>
             <ul class="cv-points">
-              {j.points.map((p) => <li>{p}</li>)}
+              {j.points.map((p) => <li set:html={p} />)}
             </ul>
           </li>
         ))
