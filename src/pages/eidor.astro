@@ -155,14 +155,24 @@ const description = "swipe through paintings, find out what your eye is actually
         out.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "center" });
       };
 
+      // A card is not retired until its throw finishes, so without this guard
+      // a held arrow key or a fast thumb counts the same painting several
+      // times over — which quietly poisons the reading at the end.
+      let throwing = false;
+
       const throwIt = (dir) => {
         const c = top();
-        if (!c) return;
+        if (!c || throwing) return;
+        throwing = true;
         if (dir > 0) kept.push(c);
         c.style.transition = still ? "none" : "transform 420ms cubic-bezier(0.2,0,0.2,1), opacity 420ms";
         c.style.transform = `translate3d(${dir * 140}%, ${dir > 0 ? -8 : 8}%, 0) rotate(${dir * 18}deg)`;
         c.style.opacity = "0";
-        const done = () => { at++; if (at >= order.length) finish(); else paint(); };
+        const done = () => {
+          at++;
+          throwing = false;
+          if (at >= order.length) finish(); else paint();
+        };
         still ? done() : setTimeout(done, 260);
       };
 
