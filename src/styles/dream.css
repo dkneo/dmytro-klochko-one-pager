@@ -1947,6 +1947,45 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   letter-spacing: 0.06em;
 }
 
+/* The one thing true of every role, said once at the top instead of
+   thirty times inside the bullets. */
+[data-mode="dream"] .cv-lede {
+  max-width: var(--measure);
+  margin: 0 0 var(--sp-4);
+  color: var(--dim);
+}
+
+/* Label/value, like the hero facts: these are standing facts, not
+   achievements, so they read as a register rather than a list. */
+[data-mode="dream"] .cv-also li {
+  grid-template-columns: 7.5rem 1fr;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+[data-mode="dream"] .cv-also b {
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .cv-also span {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (max-width: 560px) {
+  [data-mode="dream"] .cv-also li {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+}
+
 [data-mode="dream"] .cv-skills {
   display: flex;
   flex-wrap: wrap;

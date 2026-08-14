@@ -23,6 +23,7 @@ const jobs = [
       "cut product and infrastructure cost by 90% while retention kept climbing",
       "went to war for the company in legislatures and in public, from the <b>u.s. senate</b> to european governments",
       "won as much of it with public stunts as with lawyers",
+      'designed the merch myself, <a href="https://x.com/replika/status/1991136959385817336" target="_blank" rel="noreferrer">down to the label<span class="arw">↗</span></a>',
     ],
   },
   {
@@ -48,6 +49,8 @@ const jobs = [
       "opened the product into new markets across three continents",
       "repositioned it, which unlocked new acquisition channels",
       "worked with the ml and ai teams on where the product could go",
+      'made the <a href="/video/meta-chatfuel.mp4" target="_blank" rel="noreferrer">meta ad<span class="arw">↗</span></a> that turned into a hit',
+      'hosted a <a href="https://www.youtube.com/watch?v=WOm_XzkFNWE" target="_blank" rel="noreferrer">podcast<span class="arw">↗</span></a> people still write to me about',
     ],
   },
   {
@@ -60,6 +63,7 @@ const jobs = [
       "ran tens of winning experiments on the flagship, an app 300k people opened every day",
       "turned the company's testing into a startup accelerator, from one concept a month to thirty of the riskiest a week",
       "founded a new app out of an insight from pmf expansion discovery",
+      'lectured for the company and for its <a href="/images/cv-lecture.jpg" target="_blank" rel="noreferrer">users<span class="arw">↗</span></a>',
     ],
   },
   {
@@ -82,12 +86,25 @@ const jobs = [
     mark: "/images/marks/skyeng.png",
     href: "https://skyeng.ru",
     points: [
-      "launched a run of products 0→1",
-      "ran over a hundred winning experiments and campaigns",
-      "doubled mobile conversion and activation",
-      "took on the hardest problems in the product and fixed them",
+      "ran a one-person accelerator inside the company, launching products 0→1 and rebuilding the ones that stayed",
+      "owned every funnel, gate and conversion rate in the company, for every user, from the front page to app onboarding",
+      "built hundreds of landing pages, 43 of them in a single night",
+      "rebuilt mobile onboarding and experimented until conversion and activation doubled",
+      "taught onboarding to spot which influencer had just sent you and rebuild itself around them, 3.7x funnel conversion",
+      "fixed mobile marketing analytics in ten days, first time ever touching it, after years of it defeating everyone",
+      "ran growth and product for skyeng's magazine, millions of visitors, turning its stories into personalised self-serve funnels",
+      "rebuilt the data pipelines under all of it",
+      'wrote for it too: <a href="https://skyeng.ru/magazine/moj-edinstvennyj-uchitel-anglijskogo-bomzh-na-gorodskoj-ploshadi/" target="_blank" rel="noreferrer">the only english teacher i had<span class="arw">↗</span></a> and <a href="https://vc.ru/hr/192417-pochemu-prodaktu-vazhno-ostavatsya-chelovekom-i-pochemu-eto-polezno-dlya-biznesa" target="_blank" rel="noreferrer">on staying human<span class="arw">↗</span></a>',
     ],
   },
+] as const;
+
+// The things that run underneath all of it.
+const also = [
+  { what: "lecturer", where: "british higher school of art & design", href: "https://britishdesign.ru/about/tutors/196920/" },
+  { what: "lecturer", where: "university of vienna", href: "https://www.univie.ac.at/en/" },
+  { what: "mentor", where: "50+ product people and designers" },
+  { what: "volunteer", where: "ukrainian causes" },
 ] as const;
 
 // The same list the main page ends on.
@@ -112,6 +129,11 @@ const description =
       <h1 class="card-title" id="c1">curriculum vitae</h1>
     </div>
 
+    <p class="lede cv-lede">
+      hands-on in every one of these: i write the architecture and the prompts,
+      push code to production, and i hit all-nighters.
+    </p>
+
     <ol class="cv-jobs">
       {
         jobs.map((j) => (
@@ -133,6 +155,22 @@ const description =
         ))
       }
     </ol>
+
+    <h2 class="cv-head">alongside</h2>
+    <ul class="cv-list cv-also">
+      {
+        also.map((a) => (
+          <li>
+            <b>{a.what}</b>
+            <span>
+              {"href" in a && a.href
+                ? <a href={a.href} target="_blank" rel="noreferrer">{a.where}<span class="arw">↗</span></a>
+                : a.where}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
 
     <h2 class="cv-head">say hi</h2>
     <ul class="ways cv-ways">
