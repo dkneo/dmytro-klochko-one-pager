@@ -2392,7 +2392,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   outline-offset: 4px;
 }
 
-[data-mode="dream"] .cv-gist {
+[data-mode="dream"] .cv-brief {
   margin: 0.4rem 0 0 1.85rem;
   max-width: var(--measure);
   color: var(--dim);

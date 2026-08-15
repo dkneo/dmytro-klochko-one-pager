@@ -169,11 +169,12 @@ const jobs = [
   },
   {
     co: "hunch",
-    gist: "founded it and took it to hundreds of thousands in arr",
+    brief: "the whole company: the raise, the code, the customers and the team.",
     what: "remote team happiness saas",
     role: "founder and chief executive officer",
     mark: "/images/marks/homa.png",
     points: [
+      "founded it and took it to hundreds of thousands in arr",
       "raised pre-seed from top silicon valley angels",
       "closed the first 14 contracts myself {four of them enterprise} on 600+ customer calls",
       "recruited a world-class founding engineering and design team",
@@ -184,7 +185,7 @@ const jobs = [
   },
   {
     co: "chatfuel",
-    gist: "took the product into new markets across three continents and won every one of them",
+    brief: "growth and ai, and the markets the product had not reached yet.",
     what: "marketing ai agent. 150k+ businesses",
     role: "head of marketing and expansion",
     mark: "/images/marks/chatfuel.png",
@@ -199,6 +200,7 @@ const jobs = [
       screen: true,
     },
     points: [
+      "took the product into new markets across three continents and won every one of them",
       "repositioned the product into new product-market fit, which opened acquisition channels that had been closed to us",
       "reshaped the ai core of the product to unlock growth",
       "ran the partnership with <b>meta</b> hands-on, shipping a long run of work with their teams",
@@ -206,7 +208,7 @@ const jobs = [
   },
   {
     co: "hily",
-    gist: "ran tens of winning experiments on the flagship, an app 300k people opened every day",
+    brief: "the flagship's experiments, and the machinery the whole company came to run them on.",
     what: "#3 dating app in the u.s. by downloads",
     role: "strategic product manager",
     mark: "/images/marks/hily.png",
@@ -217,19 +219,21 @@ const jobs = [
       cap: "lecturing",
     },
     points: [
-      "turned the company's testing into a startup accelerator: one concept a month became thirty of the riskiest a week",
+      "ran tens of winning experiments on the flagship, an app 300k people opened every day",
+      "rebuilt how the company tested ideas: from one concept a month to thirty of the riskiest a week",
       "founded a new app out of an insight from pmf expansion discovery",
       "lectured for the company and for its users",
     ],
   },
   {
     co: "vk",
-    gist: "changed what millions of people do daily on the largest social network, from doomscrolling to microlearning",
+    brief: "product, growth and ml, at the scale of a hundred million people.",
     what: "largest european social network. 100m+ mau",
     role: "senior product manager",
     mark: "/images/marks/vk.png",
     href: "https://vk.com",
     points: [
+      "changed what millions of people do daily on the largest social network, from doomscrolling to microlearning",
       "built ml pipelines that read what a hundred million people were interested in and good at, then pointed them at learning",
       "redrew ui and ux patterns inside a machine that size",
       "drove retention and time spent up, and made that time worth spending",
@@ -237,12 +241,13 @@ const jobs = [
   },
   {
     co: "skyeng",
-    gist: "ran a one-person accelerator inside the company, launching products 0→1",
+    brief: "every funnel in the company, and the products that came out of what they taught.",
     what: "#1 1:1 education platform in europe",
     role: "product manager",
     mark: "/images/marks/skyeng.png",
     href: "https://skyeng.ru",
     points: [
+      "ran a one-person accelerator inside the company, launching products 0→1",
       "owned every funnel, gate and conversion rate in the company, from the front page to app onboarding",
       "built hundreds of landing pages, 43 of them in a single night",
       "rebuilt mobile onboarding and experimented until conversion and activation doubled",
@@ -514,10 +519,10 @@ const also = [
                   <span class="cv-what">{j.what}</span>
                 </p>
                 <p class="cv-role">{j.role}</p>
-                {/* The line that argues for the job, as a line rather than a
-                    list of one, which read as a bullet somebody forgot to
-                    finish. The way in sits under it, where what it opens is. */}
-                <p class="cv-gist" set:html={j.gist} />
+                {/* A summary of the job in one grey line, then the way in.
+                    The bullets stay whole underneath rather than having their
+                    first line pulled out and greyed. */}
+                <p class="cv-brief">{j.brief}</p>
                 <span class="cv-more">
                   <i class="cv-more-shut">read more</i>
                   <i class="cv-more-open">read less</i>
