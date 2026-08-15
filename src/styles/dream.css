@@ -2367,6 +2367,9 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   stroke-width: 1.5;
 }
 
+/* These two sizes are viewBox units, not page pixels: the svg scales as a
+   whole, so a rem from the type ramp would be the wrong unit here and would
+   stop scaling with the drawing. Documented in DESIGN.md under map. */
 [data-mode="dream"] .map-anchor text {
   fill: var(--dim);
   font-family: var(--mono);
@@ -2474,7 +2477,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .k-quote { background: var(--hot); }
 [data-mode="dream"] .k-poem { background: rgb(236 230 217 / 78%); }
 [data-mode="dream"] .k-painting {
-  background: rgb(120 150 170);
+  background: var(--tint, var(--dim));
   border: 1px solid rgb(236 230 217 / 35%);
 }
 

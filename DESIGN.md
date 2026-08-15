@@ -45,6 +45,10 @@ typography:
   dream-display: "clamp(2rem, 3.4vw, 2.9rem)"      # Zodiak italic, real headings
   dream-display-card: "clamp(1.5rem, 2.4vw, 2.1rem)"  # timeline chapter titles
   dream-display-hero: "clamp(3.4rem, 7vw, 6rem)"   # a poster's title
+  # The map is one svg with a 1000x760 viewBox, so its label sizes are viewBox
+  # units and scale with the drawing. Off the rem ramp on purpose: a rem here
+  # would not scale with the diagram it labels.
+  map-label: "15px in viewBox units (20px under 720px, where the svg is smaller)"
   raster:
     art-cell-sm: "0.55rem"
     art-cell-lg: "1.05rem"

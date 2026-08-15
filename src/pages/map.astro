@@ -144,7 +144,9 @@ const description = "everything in the vault, by weather.";
     <ul class="map-key">
       <li><i class="k-quote"></i>quote</li>
       <li><i class="k-poem"></i>poem</li>
-      <li><i class="k-painting"></i>painting, in its own colour</li>
+      {/* The swatch borrows a real painting's tint rather than inventing a
+          blue to stand for "colour". */}
+      <li><i class="k-painting" style={`--tint:${(nodes.find((n) => n.tint) || {}).tint || "rgb(236 230 217)"}`}></i>painting, in its own colour</li>
     </ul>
 
     <a class="onward onward--back" href="/today">
