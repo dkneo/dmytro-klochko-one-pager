@@ -1,0 +1,58 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+// Two pieces from the skyeng years, in english for the first time. The source
+// line is part of the entry rather than a footnote: one he wrote, one an editor
+// wrote from his telling, and a cv should not blur those.
+const pieces = [
+  {
+    href: "/writing/staying-human",
+    title: "why a product person should stay human, and why that is good for business",
+    dek: "on motivation that outlives kpis, the maker's day that produced his best ideas, and the three-week integration he killed over two payments.",
+    by: "his own column for vc.ru",
+    ru: "https://vc.ru/hr/192417-pochemu-prodaktu-vazhno-ostavatsya-chelovekom-i-pochemu-eto-polezno-dlya-biznesa",
+  },
+  {
+    href: "/writing/english-teacher",
+    title: "my only english teacher was a homeless man on the town square",
+    dek: "donetsk, the war, bread with condensed milk in kyiv, eight hours a day of english, and uncle sasha, who had a brooklyn accent and opinions about oscar wilde.",
+    by: "as told to anna dubinskaya, skyeng magazine",
+    ru: "https://skyeng.ru/magazine/moj-edinstvennyj-uchitel-anglijskogo-bomzh-na-gorodskoj-ploshadi/",
+  },
+] as const;
+
+const title = "writing · dmytro klochko";
+const description = "two pieces from the skyeng years, translated from russian.";
+---
+
+<Layout title={title} description={description} current="home">
+  <section class="shell session" data-scene="fire" aria-labelledby="w0">
+    <div class="card">
+      <h1 class="card-title" id="w0">writing</h1>
+    </div>
+
+    <p class="lede">
+      two pieces from the skyeng years. both ran in russian; these are the first
+      english versions, translated whole rather than summarised.
+    </p>
+
+    <ol class="pieces">
+      {
+        pieces.map((p) => (
+          <li>
+            <a class="piece-link" href={p.href}>{p.title}</a>
+            <p class="piece-dek">{p.dek}</p>
+            <p class="piece-src">
+              {p.by}.{" "}
+              <a href={p.ru} target="_blank" rel="noreferrer">in russian<span class="arw">↗</span></a>
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <a class="onward onward--back" href="/">
+      <span class="arw" aria-hidden="true">↖</span><span>back to the main page</span>
+    </a>
+  </section>
+</Layout>

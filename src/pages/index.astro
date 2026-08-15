@@ -73,7 +73,7 @@ const shots = [
 // emphasis.
 const ways = [
   "i'm intense and <b>hands-on</b>: everyone reports directly to me, i write the architecture and the prompts, push code to production, and i hit all-nighters.",
-  'my sense of urgency is outstanding. but i know where to slow down – to <b>go dreamy</b>, reach the next peak of ideas, find serendipity, and make the 10x thing that doesn&rsquo;t exist yet.',
+  'my sense of urgency is outstanding. but i know where to slow down, to <b>go dreamy</b>, reach the next peak of ideas, find serendipity, and make the 10x thing that doesn&rsquo;t exist yet.',
   'i have a natural aptitude for <b>taste</b> and strong action bias. i am aggressively optimistic and <b>clairvoyant</b>, so i am best at building futuristic products.',
   "the culture in my teams: intolerance for mediocre work. <b>anime-level camaraderie</b>. fearlessness. relentless pursuit of the mission.",
 ] as const;
@@ -82,7 +82,7 @@ const press = {
   src: "time",
   href: "https://time.com/collections/davos-2026/7339222/ai-predictions-2026/",
   line: "“what we care about is people getting happier.”",
-  meta: "dmytro klochko, “companions go mainstream” – 5 predictions for ai in 2026",
+  meta: "dmytro klochko, “companions go mainstream”, 5 predictions for ai in 2026",
 };
 
 // The whole row is the source line for the quote under it. `quoted` is the one
@@ -123,7 +123,9 @@ const journey = [
     what: "#1 1:1 education platform in europe", role: "product, growth" },
   { text: "busking, improv, songwriting studio, volunteering.",
     pic: "/video/busking.mp4", video: true, poster: "/video/busking-poster.jpg",
-    pos: "50% 30%" },
+    // The clip pushes in over ten seconds; anchoring near the top keeps his
+    // face in the frame at every point of it, wide or close.
+    pos: "50% 20%" },
   { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
     pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg" },
   { text: "14 yo: toured neighboring countries as band leader.",
@@ -370,6 +372,20 @@ const description =
           loading="lazy"
         />
       </figure>
+    </div>
+
+    {/* Eight photographs of the work itself, under the paragraphs that describe
+        it. No captions: this is what the days look like, not a list of claims. */}
+    <div class="worklog">
+      {
+        Array.from({ length: 8 }, (_, i) => (
+          <figure>
+            <span class="cell">
+              <img src={`/images/work/w0${i + 1}.jpg`} alt="" loading="lazy" />
+            </span>
+          </figure>
+        ))
+      }
     </div>
   </section>
 

@@ -18,7 +18,7 @@ const description = "swipe through paintings, find out what your eye is actually
     </div>
 
     <p class="lede eidos-lede">
-      <em>eidos</em> – the greek for the form of a thing, the shape you
+      <em>eidos</em>, the greek for the form of a thing, the shape you
       recognise it by. seventy-six paintings, one at a time: keep the ones
       that stop you, pass the ones that don't. at the end you get a reading
       of what your eye was actually after.
@@ -41,7 +41,7 @@ const description = "swipe through paintings, find out what your eye is actually
                 data-src={w.src}
               >
                 <figure>
-                  <span class="cell"><img alt="" loading="lazy" decoding="async" /></span>
+                  <span class="cell"><img alt={w.artist} loading="lazy" decoding="async" /></span>
                   <figcaption>
                     <b>{w.artist}</b>
                     <em>{w.title}{w.date ? `, ${w.date}` : ""}</em>
