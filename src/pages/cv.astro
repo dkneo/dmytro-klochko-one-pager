@@ -130,14 +130,14 @@ const journey = [
 ] as const;
 
 const wall = [
-  { src: "/images/wall/w01.jpg", cap: "dieter rams" },
-  { src: "/images/wall/w05.jpg", cap: "hajime sorayama" },
-  { src: "/images/wall/w13.jpg", cap: "david bowie" },
-  { src: "/images/wall/w04.jpg", cap: "steve jobs" },
-  { src: "/images/wall/w08.jpg", cap: "robin williams" },
-  { src: "/images/wall/w14.jpg", cap: "serhii korolov" },
-  { src: "/images/wall/w15.jpg", cap: "akira kurosawa" },
-  { src: "/images/wall/w16.jpg", cap: "david foster wallace" },
+  { src: "/images/wall/w01.webp", cap: "dieter rams" },
+  { src: "/images/wall/w05.webp", cap: "hajime sorayama" },
+  { src: "/images/wall/w13.webp", cap: "david bowie" },
+  { src: "/images/wall/w04.webp", cap: "steve jobs" },
+  { src: "/images/wall/w08.webp", cap: "robin williams" },
+  { src: "/images/wall/w14.webp", cap: "serhii korolov" },
+  { src: "/images/wall/w15.webp", cap: "akira kurosawa" },
+  { src: "/images/wall/w16.webp", cap: "david foster wallace" },
 ] as const;
 
 const title = "cv · dmytro klochko";
@@ -338,6 +338,10 @@ const also = [
           <img
             src="/images/about.jpg"
             alt="Dmytro photographed in a mirror, in a cap and worn denim jacket"
+            width="720"
+            height="1280"
+            loading="lazy"
+            decoding="async"
           />
         </span>
         <figcaption>london, 2026</figcaption>
@@ -347,9 +351,9 @@ const also = [
           quirkier than stills. Same loop discipline as the old reel. */}
       <div class="hero-side only-dream">
         <div class="hero-stack" aria-hidden="true">
-          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/vlog-kbs-poster.jpg"><source src="/video/vlog-kbs.webm" type="video/webm" /><source src="/video/vlog-kbs.mp4" type="video/mp4" /></video></span></figure>
-          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/dokfest-poster.jpg"><source src="/video/dokfest.webm" type="video/webm" /><source src="/video/dokfest.mp4" type="video/mp4" /></video></span></figure>
-          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/film-london-poster.jpg"><source src="/video/film-london.webm" type="video/webm" /><source src="/video/film-london.mp4" type="video/mp4" /></video></span></figure>
+          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/vlog-kbs-poster.webp"><source src="/video/vlog-kbs.mp4" type="video/mp4" /><source src="/video/vlog-kbs.webm" type="video/webm" /></video></span></figure>
+          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/dokfest-poster.webp"><source src="/video/dokfest.mp4" type="video/mp4" /><source src="/video/dokfest.webm" type="video/webm" /></video></span></figure>
+          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/film-london-poster.webp"><source src="/video/film-london.mp4" type="video/mp4" /><source src="/video/film-london.webm" type="video/webm" /></video></span></figure>
         </div>
       </div>
     </div>
@@ -823,7 +827,7 @@ const also = [
         wall.map((w) => (
           <figure>
             <span class="cell">
-              <img src={w.src} alt={w.cap} loading="lazy" />
+              <img src={w.src} alt={w.cap} width="520" height="520" loading="lazy" decoding="async" />
             </span>
             <figcaption>{w.cap}</figcaption>
           </figure>
@@ -864,9 +868,9 @@ const also = [
       />
 
       <div class="hi-stack only-dream" aria-hidden="true">
-        <figure><span class="cell"><img src="/images/hi-1.jpg" alt="" loading="lazy" /></span></figure>
-        <figure><span class="cell"><img src="/images/hi-2.jpg" alt="" loading="lazy" /></span></figure>
-        <figure><span class="cell"><img src="/images/hi-3.jpg" alt="" loading="lazy" /></span></figure>
+        <figure><span class="cell"><img src="/images/hi-1.webp" alt="" loading="lazy" /></span></figure>
+        <figure><span class="cell"><img src="/images/hi-2.webp" alt="" loading="lazy" /></span></figure>
+        <figure><span class="cell"><img src="/images/hi-3.webp" alt="" loading="lazy" /></span></figure>
       </div>
     </div>
   </section>
@@ -876,7 +880,7 @@ const also = [
   <section class="shell session" id="poems" data-scene="fire" aria-labelledby="sp">
     <div class="card">
       <p class="card-no">08</p>
-      <h2 class="card-title" id="sp">and some poems</h2>
+      <h2 class="card-title" id="sp">and some poems of mine</h2>
     </div>
 
     <div class="poems">
@@ -894,8 +898,6 @@ const also = [
         for she carries inside her an eternal summer, an eternal summer
       </blockquote>
     </div>
-
-    <p class="poem-by">mine, 2026.</p>
   </section>
 
   {/* A coda, not a claim. These are cute and they know it, so they sit after
@@ -906,7 +908,7 @@ const also = [
         Array.from({ length: 8 }, (_, i) => (
           <figure>
             <span class="cell">
-              <img src={`/images/work/w0${i + 1}.jpg`} alt="" loading="lazy" />
+              <img src={`/images/work/w0${i + 1}.webp`} alt="" width="440" height="440" loading="lazy" decoding="async" />
             </span>
           </figure>
         ))

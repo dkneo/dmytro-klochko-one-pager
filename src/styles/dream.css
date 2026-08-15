@@ -2330,3 +2330,19 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .coda .poem-by {
   margin-top: var(--sp-3);
 }
+
+/* Upright and closer to prose size: two stanzas of italic display type is a
+   texture, not a read. The lines still hold their own measure, and the
+   stanzas sit nearer each other than the page's sections do. */
+[data-mode="dream"] .poems {
+  gap: var(--sp-4);
+  margin-top: var(--sp-2);
+}
+
+[data-mode="dream"] .poem {
+  font-family: var(--serif);
+  font-style: normal;
+  font-size: var(--t-prose);
+  line-height: 1.7;
+  color: var(--bone);
+}
