@@ -351,9 +351,17 @@ html.is-shook .scenes {
 
 /* Words in the sentence that go somewhere carry a thin still underline —
    joonas's move — warming to pink under the cursor. Never wavy. */
-[data-mode="dream"] .hero-line a,
+[data-mode="dream"] .hero-line a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 38%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
 
-[data-mode="dream"] .hero-line a:hover,
+[data-mode="dream"] .hero-line a:hover {
+  color: var(--hot);
+  border-color: var(--hot);
+}
 
 /* The facts the sentence doesn't carry, as label/value pairs straight on the
    painting — the elaya hero grid. Mono whispers the label; serif answers. */
@@ -2086,4 +2094,44 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   [data-mode="dream"] .bead-cue {
     display: none !important;
   }
+}
+
+/* The way out. A real target rather than another quiet link, because it is
+   the one thing on the page that asks for nothing. */
+[data-mode="dream"] .cta {
+  display: flex;
+  justify-content: center;
+  padding-top: 0;
+}
+
+[data-mode="dream"] .dance-cta {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.7em;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid rgb(255 155 192 / 45%);
+  border-radius: 999px;
+  color: var(--hot);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--t-fact);
+  text-decoration: none;
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .dance-cta .arw {
+  transition: transform var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .dance-cta:hover {
+  background: rgb(255 155 192 / 12%);
+  border-color: var(--hot);
+  color: var(--bone);
+}
+
+[data-mode="dream"] .dance-cta:hover .arw {
+  transform: translateX(0.25em);
 }

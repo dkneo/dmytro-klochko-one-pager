@@ -119,7 +119,10 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <header class="site-header">
       <a class="masthead" href="/">dmytro klochko</a>
       {current !== "home" && <span class="crumb">/ {current.replace("-", " ")}</span>}
-      <nav class="site-nav" aria-label="mode">
+      <nav class="site-nav" aria-label="elsewhere">
+        {/* Absolute, so it reaches the section from the pages that do not
+            have one of their own. */}
+        <a class="dance-link" href="/#contact">say hi</a>
         <a class="dance-link" href="/dance">dance</a>
       </nav>
     </header>
