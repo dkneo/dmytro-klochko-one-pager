@@ -6,9 +6,13 @@ interface Props {
   title: string;
   description: string;
   current?: "home" | "taste";
+  /** Reachable by url, kept out of search. Not a robots.txt block: a blocked
+      page is never crawled, so the tag below is never read and the bare url
+      can still surface. */
+  unlisted?: boolean;
 }
 
-const { title, description, current = "home" } = Astro.props;
+const { title, description, current = "home", unlisted = false } = Astro.props;
 
 const ogTitle = "dmytro klochko";
 const ogDescription = "ceo at replika. product and engineering, out of art, chess and theatre.";
@@ -53,6 +57,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    {unlisted && <meta name="robots" content="noindex, follow" />}
 
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
@@ -143,9 +148,6 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <footer class="site-footer">
       <p class="signoff">see you space cowboy&hellip;</p>
       <span class="foot-links">
-        <a class="dance-link dance-link--foot" href="/cv">cv</a>
-        <a class="dance-link dance-link--foot" href="/writing">writing</a>
-        <a class="dance-link dance-link--foot" href="/eidos">eidos</a>
         <a class="dance-link dance-link--foot" href="/dance">dance</a>
       </span>
       <div class="foot-row">

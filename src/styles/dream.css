@@ -1952,7 +1952,9 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
    width before the register narrows to one line and a handful of bullets for
    everything that came before. */
 [data-mode="dream"] .cv-jobs > li.cv-job--lead {
-  padding-bottom: var(--sp-5);
+  /* The same gap every other pair of jobs gets. The spread already reads as
+     a different kind of block; it does not need double the air to say so. */
+  padding-bottom: var(--sp-4);
   /* The measure cap belongs to the bullet entries; this one is a spread. */
   max-width: none;
 }
@@ -2075,25 +2077,11 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 }
 
 @media (min-width: 861px) {
+  /* An entry carrying evidence needs room for the rail beside its text, so
+     it comes off the measure cap the bullet-only rows keep. The grid itself
+     lives on the open panel, since the summary stays one column. */
   [data-mode="dream"] .cv-jobs > li.cv-job--media {
-    display: grid;
-    /* The text keeps roughly its measure; the rail is the width of the
-       picture and no wider, so the pair stays a column with a margin note
-       rather than a two-column spread competing with the lead. */
-    grid-template-columns: minmax(0, 34rem) minmax(0, 15rem);
-    column-gap: var(--sp-4);
     max-width: 52rem;
-  }
-
-  [data-mode="dream"] .cv-job--media > * {
-    grid-column: 1;
-  }
-
-  [data-mode="dream"] .cv-job--media .cv-media {
-    grid-column: 2;
-    grid-row: 1 / span 4;
-    align-self: start;
-    margin-top: 0.5rem;
   }
 }
 
@@ -2364,3 +2352,130 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   align-self: start;
 }
 [data-mode="dream"] .worklog--aside .worklog-cap { grid-column: 1 / -1; }
+
+/* ── the register that opens ────────────────────────────────────────────── */
+
+/* Rows two through six are <details>. Shut, each is a company, a role and the
+   one line that makes its case; open, it adds the rest. The marker goes and
+   the summary becomes a block, so the row keeps the same shape either way. */
+[data-mode="dream"] .cv-job > summary {
+  display: block;
+  position: relative;
+  padding: 0.15rem 0 0.45rem;
+  cursor: pointer;
+  list-style: none;
+  border-radius: 3px;
+  transition: background var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .cv-job > summary::-webkit-details-marker {
+  display: none;
+}
+
+[data-mode="dream"] .cv-job > summary:hover .cv-co,
+[data-mode="dream"] .cv-job[open] > summary .cv-co {
+  color: var(--hot);
+}
+
+[data-mode="dream"] .cv-job > summary:focus-visible {
+  outline: 2px solid var(--hot);
+  outline-offset: 4px;
+}
+
+[data-mode="dream"] .cv-gist {
+  margin: 0.35rem 0 0 1.85rem;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.6;
+}
+
+/* The count sits at the end of the gist rather than off in a corner, so the
+   thing you click and the thing that tells you what you get are together. */
+[data-mode="dream"] .cv-more {
+  display: inline-block;
+  margin: 0.3rem 0 0 1.85rem;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .cv-more::before {
+  content: "+ ";
+}
+
+[data-mode="dream"] .cv-job[open] .cv-more::before {
+  content: "− ";
+}
+
+[data-mode="dream"] .cv-job > summary:hover .cv-more {
+  color: var(--hot);
+}
+
+[data-mode="dream"] .cv-more-open,
+[data-mode="dream"] .cv-job[open] .cv-more-shut {
+  display: none;
+}
+
+[data-mode="dream"] .cv-job[open] .cv-more-open {
+  display: inline;
+  font-style: normal;
+}
+
+[data-mode="dream"] .cv-more-shut {
+  font-style: normal;
+}
+
+[data-mode="dream"] .cv-open {
+  padding-top: var(--sp-1);
+  animation: cv-unfold 0.34s var(--ease) both;
+}
+
+@keyframes cv-unfold {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* An entry with evidence keeps the rail it had, now inside the open panel. */
+@media (min-width: 861px) {
+  [data-mode="dream"] .cv-open--media {
+    display: grid;
+    grid-template-columns: minmax(0, 34rem) minmax(0, 15rem);
+    column-gap: var(--sp-4);
+    align-items: start;
+  }
+
+  [data-mode="dream"] .cv-open--media .cv-media {
+    margin-top: 0.35rem;
+  }
+}
+
+/* Printed or saved as a pdf, a cv has no clicks in it. */
+@media print {
+  [data-mode="dream"] .cv-job > *:not(summary) {
+    display: block !important;
+  }
+
+  [data-mode="dream"] .cv-job::details-content {
+    content-visibility: visible !important;
+    block-size: auto !important;
+  }
+
+  [data-mode="dream"] .cv-more {
+    display: none;
+  }
+
+  [data-mode="dream"] .cv-open {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .cv-open {
+    animation: none;
+  }
+}
