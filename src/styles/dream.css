@@ -2262,14 +2262,16 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 /* ── the pile of him working ────────────────────────────────────────────── */
 
-/* Eight photographs under how-i-work, laid out like prints on a table rather
-   than a gallery grid: same mat as every other print here, each tilted a
-   different way, and no captions, because they are texture and not evidence. */
+/* Eight photographs laid out like prints left on a table rather than a
+   gallery grid: same mat as every other print here, each tilted a different
+   way, and no captions, because they are texture and not evidence. */
 [data-mode="dream"] .worklog {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--sp-3) var(--sp-2);
-  margin-top: var(--sp-4);
+  /* Narrower than the page: a coda should read as smaller than what it
+     follows, not as a gallery the page was building toward. */
+  max-width: 46rem;
 }
 
 [data-mode="dream"] .worklog figure {
@@ -2323,4 +2325,8 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   align-items: baseline;
   gap: 0.4em;
   border-bottom-color: transparent;
+}
+
+[data-mode="dream"] .coda .poem-by {
+  margin-top: var(--sp-3);
 }

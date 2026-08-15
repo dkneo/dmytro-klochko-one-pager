@@ -155,7 +155,7 @@ const jobs = [
       "tripled revenue and made the company profitable",
       "x1.8 arpu, +58% d30 retention",
       "grew it to 42m users across 145+ countries",
-      'commissioned <a href="https://studiodumbar.com/" target="_blank" rel="noreferrer">studio dumbar<span class="arw">↗</span></a> for a full rebrand',
+      'led the rebrand end to end: picked <a href="https://studiodumbar.com/" target="_blank" rel="noreferrer">studio dumbar<span class="arw">↗</span></a> and every piece that shipped, and rewrote the tone of voice and the whole vibe myself',
       "redesigned the whole experience: new avatars, voice and video calls that can see, and a memory that holds the people and the arcs of a life in one place",
       'ran peer-reviewed research with <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=67360" target="_blank" rel="noreferrer">harvard<span class="arw">↗</span></a>, <a href="https://www.nature.com/articles/s44184-023-00047-6" target="_blank" rel="noreferrer">stanford<span class="arw">↗</span></a>, <a href="https://arxiv.org/abs/2311.10599" target="_blank" rel="noreferrer">princeton<span class="arw">↗</span></a> and the <a href="https://www.univie.ac.at/en/" target="_blank" rel="noreferrer">university of vienna<span class="arw">↗</span></a>',
       "rebuilt the team from the ground up: phds, true artists and pirates",
@@ -376,20 +376,6 @@ const also = [
           loading="lazy"
         />
       </figure>
-    </div>
-
-    {/* Eight photographs of the work itself, under the paragraphs that describe
-        it. No captions: this is what the days look like, not a list of claims. */}
-    <div class="worklog">
-      {
-        Array.from({ length: 8 }, (_, i) => (
-          <figure>
-            <span class="cell">
-              <img src={`/images/work/w0${i + 1}.jpg`} alt="" loading="lazy" />
-            </span>
-          </figure>
-        ))
-      }
     </div>
   </section>
 
@@ -909,6 +895,24 @@ const also = [
     </div>
 
     <p class="poem-by">mine, 2026.</p>
+  </section>
+
+  {/* A coda, not a claim. These are cute and they know it, so they sit after
+      everything that had to be argued, with a caption that undersells them. */}
+  <section class="shell session coda" data-scene="fire">
+    <div class="worklog">
+      {
+        Array.from({ length: 8 }, (_, i) => (
+          <figure>
+            <span class="cell">
+              <img src={`/images/work/w0${i + 1}.jpg`} alt="" loading="lazy" />
+            </span>
+          </figure>
+        ))
+      }
+    </div>
+
+    <p class="poem-by">the days, mostly.</p>
   </section>
 
   <section class="shell session" data-scene="fire">
