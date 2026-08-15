@@ -140,11 +140,6 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     </footer>
 
     <!--
-      The only JavaScript on the site, and it removes motion rather than adding
-      it. Looping autoplay is moving content that never stops, so WCAG 2.2.2
-      wants a way out, and CSS cannot pause a video.
-    -->
-    <!--
       The sky leans toward the cursor. Two custom properties on the root, read
       by CSS; no layout is touched and nothing is measured per frame, so it
       costs a pointermove listener and a compositor transform. Skipped
@@ -183,6 +178,10 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
       })();
     </script>
 
+    <!--
+      Motion removed rather than added: looping autoplay is moving content that
+      never stops, so WCAG 2.2.2 wants a way out, and CSS cannot pause a video.
+    -->
     <script is:inline>
       if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
         for (const v of document.querySelectorAll("video[autoplay]")) {
@@ -333,58 +332,5 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
       })();
     </script>
 
-    <!--
-      The peek. Hovering a word that names something real lifts a small stack
-      of photographs of it above the cursor, like prints dropped on a desk.
-      Hover only, so phones never see a half-working version; the words are
-      plain text there. The photograph sits on the line it is evidence for —
-      this is that rule at its logical extreme.
-    -->
-    <script is:inline>
-      (() => {
-        if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-        let pop = null, raf = 0, x = 0, y = 0, tx = 0, ty = 0;
-        const ease = () => {
-          x += (tx - x) * 0.22;
-          y += (ty - y) * 0.22;
-          if (pop) pop.style.transform = `translate(${x}px, ${y}px)`;
-          raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.3 ? requestAnimationFrame(ease) : 0;
-        };
-        for (const el of document.querySelectorAll("[data-peek]")) {
-          el.addEventListener("pointerenter", (e) => {
-            pop?.remove();
-            pop = document.createElement("div");
-            pop.className = "peek-pop";
-            if (e.clientY < 230) pop.classList.add("below");
-            for (const src of el.dataset.peek.split(",")) {
-              const img = new Image();
-              img.src = src.trim();
-              img.alt = "";
-              pop.appendChild(img);
-            }
-            document.body.appendChild(pop);
-            x = tx = e.clientX; y = ty = e.clientY;
-            pop.style.transform = `translate(${x}px, ${y}px)`;
-            // Flush styles, then reveal on a timer rather than a frame:
-            // requestAnimationFrame is throttled in background/embedded
-            // contexts and the stack would silently never appear.
-            pop.getBoundingClientRect();
-            const p = pop;
-            setTimeout(() => { if (p === pop) p.classList.add("on"); }, 20);
-          });
-          el.addEventListener("pointermove", (e) => {
-            tx = e.clientX; ty = e.clientY;
-            if (!raf) raf = requestAnimationFrame(ease);
-          });
-          el.addEventListener("pointerleave", () => {
-            const dying = pop;
-            pop = null;
-            if (!dying) return;
-            dying.classList.remove("on");
-            setTimeout(() => dying.remove(), 220);
-          });
-        }
-      })();
-    </script>
   </body>
 </html>

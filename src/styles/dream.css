@@ -8,7 +8,7 @@
    parallax happens inside its frame.
 
    Survivors from the failed eras, kept because he responded to them: the
-   falling petals, the hanko seals, the pink marker swash, the peek, the
+   falling petals, the hanko seals, the pink marker swash, the
    serif voice for sentences. Buried: full-bleed art, veils, glass, paper
    slabs, the lantern, the generated sky.
    ═══════════════════════════════════════════════════════════════════════ */
@@ -352,18 +352,8 @@ html.is-shook .scenes {
 /* Words in the sentence that go somewhere carry a thin still underline —
    joonas's move — warming to pink under the cursor. Never wavy. */
 [data-mode="dream"] .hero-line a,
-[data-mode="dream"] .hero-line .peek {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid rgb(236 230 217 / 38%);
-  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
-}
 
 [data-mode="dream"] .hero-line a:hover,
-[data-mode="dream"] .hero-line .peek:hover {
-  color: var(--hot);
-  border-color: var(--hot);
-}
 
 /* The facts the sentence doesn't carry, as label/value pairs straight on the
    painting — the elaya hero grid. Mono whispers the label; serif answers. */
@@ -661,7 +651,6 @@ html.is-shook .scenes {
    how he works, the boy fishing for childhood, the lavender walk for the
    camera, the snowlit village for saying hi, the estuary for taste. All
    fixed layers; only opacity and compositor transforms ever change. */
-
 
 .scenes {
   position: fixed;
@@ -977,63 +966,6 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   color: var(--dim);
 }
 
-/* ── the peek ───────────────────────────────────────────────────────────── */
-
-.peek {
-  text-decoration: underline dotted;
-  text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
-  text-underline-offset: 3px;
-}
-
-.peek-pop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 200;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  will-change: transform;
-}
-
-.peek-pop img {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  width: 148px;
-  height: auto;
-  opacity: 0;
-  transition:
-    opacity var(--dur) var(--ease),
-    scale var(--dur-slow) var(--ease);
-  scale: 0.75;
-}
-
-.peek-pop.below img {
-  top: 26px;
-  bottom: auto;
-}
-
-.peek-pop img:nth-child(1) { translate: -88% 0; rotate: -6deg; }
-.peek-pop img:nth-child(2) { translate: -22% -5%; rotate: 4.5deg; }
-.peek-pop img:nth-child(3) { translate: -55% -12%; rotate: -2deg; }
-
-.peek-pop.on img {
-  opacity: 1;
-  scale: 1;
-}
-
-.peek-pop.on img:nth-child(2) { transition-delay: 45ms; }
-.peek-pop.on img:nth-child(3) { transition-delay: 90ms; }
-
-[data-mode="dream"] .peek-pop img {
-  border: 6px solid var(--mat);
-  border-bottom-width: 20px;
-  border-radius: 3px;
-  box-shadow: 0 14px 34px rgb(10 10 26 / 50%);
-}
-
-
 /* ── copied ─────────────────────────────────────────────────────────────────
    Clicking an email address also copies it, and says so where the label
    was. The smallest kind of craft, and the kind that gets noticed. */
@@ -1084,7 +1016,6 @@ svg.pin {
   opacity: 0;
   transition: opacity 900ms var(--ease);
 }
-
 
 html[data-scene="fire"] .weather--fire { opacity: 1; }
 html[data-scene="snow"] .weather--snow { opacity: 1; }
