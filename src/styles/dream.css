@@ -2131,3 +2131,213 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .dance-cta:hover .arw {
   transform: translateX(0.25em);
 }
+
+/* ── today ──────────────────────────────────────────────────────────────── */
+
+/* One chord: a painting, a line, a poem. The three sit in one column at
+   reading width so they are met in order rather than compared side by side. */
+[data-mode="dream"] .today .chord {
+  max-width: 42rem;
+  margin-top: var(--sp-4);
+}
+
+[data-mode="dream"] .chord-art {
+  margin: 0 0 var(--sp-4);
+}
+
+[data-mode="dream"] .chord-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow:
+    0 2px 6px rgb(8 10 22 / 55%),
+    0 22px 60px rgb(8 10 22 / 45%);
+}
+
+[data-mode="dream"] .chord-art figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+  margin-top: 0.7rem;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .chord-art figcaption b {
+  color: var(--dim);
+  font-weight: 400;
+}
+
+[data-mode="dream"] .chord-art figcaption i {
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .chord-art figcaption a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .chord-art figcaption a:hover {
+  color: var(--hot);
+  border-color: rgb(255 155 192 / 45%);
+}
+
+/* The line is the loudest thing on the page, which is the point of the page. */
+[data-mode="dream"] .chord-quote {
+  margin: 0 0 var(--sp-4);
+  padding: 0;
+  border: 0;
+}
+
+[data-mode="dream"] .chord-line {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--display-scroll);
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+}
+
+[data-mode="dream"] .chord-english {
+  margin: 0.7rem 0 0;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .chord-quote cite {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: var(--sp-2);
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-style: normal;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .chord-quote cite span {
+  color: var(--faint);
+}
+
+/* The poem keeps its own line breaks; that is most of what a poem is. */
+[data-mode="dream"] .chord-verse {
+  margin: 0;
+  white-space: pre-line;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.75;
+}
+
+[data-mode="dream"] .chord-verse--en {
+  margin-top: var(--sp-2);
+  color: var(--dim);
+}
+
+[data-mode="dream"] .chord-by {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: var(--sp-2) 0 0;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .chord-by span {
+  color: var(--faint);
+}
+
+[data-mode="dream"] .chord-by em {
+  color: var(--faint);
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0.06em;
+}
+
+/* Occasion, not analysis: who, when, what was happening. */
+[data-mode="dream"] .chord-note {
+  margin: 0.8rem 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+  line-height: 1.65;
+}
+
+[data-mode="dream"] .chord-share {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: var(--sp-4);
+}
+
+[data-mode="dream"] .share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.5rem 1.1rem;
+  background: none;
+  border: 1px solid rgb(255 155 192 / 40%);
+  border-radius: 999px;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .share-btn:hover {
+  background: rgb(255 155 192 / 12%);
+  border-color: var(--hot);
+  color: var(--bone);
+}
+
+[data-mode="dream"] .share-btn .arw {
+  transition: transform var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .share-btn:hover .arw {
+  transform: translate(0.15em, 0.1em);
+}
+
+[data-mode="dream"] .chord-when {
+  margin-top: var(--sp-5);
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .story-canvas {
+  display: none;
+}
+
+/* The poem is set at prose size, so its own paragraphs need the room the
+   page gives every other block rather than the tight run of a stanza. */
+[data-mode="dream"] .chord-poem {
+  margin-bottom: var(--sp-2);
+}

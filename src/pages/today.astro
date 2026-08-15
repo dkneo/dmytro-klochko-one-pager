@@ -1,0 +1,196 @@
+---
+import Layout from "../layouts/Layout.astro";
+import data from "../data/today.json";
+
+// Every chord ships in the markup and one is revealed by date, because the
+// site is static assets: a build-time pick would freeze whatever day it was
+// deployed on. Only the chosen painting gets a src, so six of the seven are
+// never fetched.
+const chords = data.chords;
+
+const title = "today · dmytro klochko";
+const description =
+  "one painting, one poem and one line a day. chosen so the three agree.";
+---
+
+<Layout title={title} description={description} current="home">
+  <section class="shell session today" data-scene="fire" aria-labelledby="td">
+    <div class="card">
+      <h1 class="card-title" id="td">today</h1>
+    </div>
+
+    <p class="lede">
+      a painting, a poem and a line. picked so the three of them agree about
+      the weather.
+    </p>
+
+    {
+      chords.map((c, i) => (
+        <article class="chord" data-i={i} data-weather={c.weather} hidden>
+          <figure class="chord-art">
+            <img
+              data-src={c.painting.src}
+              alt={`${c.painting.title}, ${c.painting.who}`}
+              width="1500"
+              height="1000"
+              decoding="async"
+            />
+            <figcaption>
+              <b>{c.painting.who}</b>
+              <i>{c.painting.title}</i>
+              <span>{c.painting.year} · {c.painting.where}</span>
+              <a href={c.painting.source} target="_blank" rel="noreferrer">
+                source<span class="arw">↗</span>
+              </a>
+            </figcaption>
+          </figure>
+
+          <blockquote class="chord-quote">
+            <p class="chord-line" data-share={c.quote.english}>{c.quote.text}</p>
+            {c.quote.english !== c.quote.text && (
+              <p class="chord-english">{c.quote.english}</p>
+            )}
+            <cite>
+              {c.quote.who}<span>{c.quote.where}</span>
+            </cite>
+          </blockquote>
+
+          <div class="chord-poem">
+            <p class="chord-verse">{c.poem.text}</p>
+            {c.poem.english && c.poem.english !== c.poem.text && (
+              <p class="chord-verse chord-verse--en">{c.poem.english}</p>
+            )}
+            <p class="chord-by">
+              {c.poem.who}<span>{c.poem.where}</span>
+              {c.poem.roman && <em>{c.poem.roman}</em>}
+            </p>
+            {c.poem.note && <p class="chord-note">{c.poem.note}</p>}
+          </div>
+
+          <div class="chord-share">
+            <button class="share-btn" type="button" data-share="tweet">
+              <span>post it</span><span class="arw" aria-hidden="true">↗</span>
+            </button>
+            <button class="share-btn" type="button" data-share="story">
+              <span>save a story</span><span class="arw" aria-hidden="true">↓</span>
+            </button>
+          </div>
+        </article>
+      ))
+    }
+
+    <p class="chord-when"><span class="today-date"></span> · <span class="today-weather"></span></p>
+
+    <canvas class="story-canvas" width="1080" height="1920" hidden></canvas>
+  </section>
+
+  <script is:inline define:vars={{ chords }}>
+    (() => {
+      const root = document.querySelector(".today");
+      if (!root) return;
+      const cards = [...root.querySelectorAll(".chord")];
+
+      // The same chord for everyone on the same calendar day, so a link you
+      // send points at what you were looking at. Days counted in UTC.
+      const now = new Date();
+      const day = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
+      const at = ((day % cards.length) + cards.length) % cards.length;
+
+      const card = cards[at];
+      const chord = chords[at];
+      const img = card.querySelector("img");
+      img.src = img.dataset.src;
+      card.hidden = false;
+
+      root.querySelector(".today-date").textContent = now.toLocaleDateString("en-GB", {
+        day: "numeric", month: "long", year: "numeric",
+      }).toLowerCase();
+      root.querySelector(".today-weather").textContent = chord.weather;
+
+      const line = chord.quote.english;
+      const who = chord.quote.who;
+
+      card.querySelector('[data-share="tweet"]').addEventListener("click", () => {
+        const text = `“${line}”\n— ${who}`;
+        open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) +
+             "&url=" + encodeURIComponent("https://dmklochko.com/today"), "_blank", "noopener");
+      });
+
+      // The story is drawn here rather than fetched: same recipe as the share
+      // card, turned portrait. The page already has the painting and the font.
+      card.querySelector('[data-share="story"]').addEventListener("click", async () => {
+        const cv = root.querySelector(".story-canvas");
+        const g = cv.getContext("2d");
+        const W = cv.width, H = cv.height;
+
+        try { await document.fonts.load("300 74px Zodiak"); } catch {}
+        try { await document.fonts.load("400 26px 'JetBrains Mono'"); } catch {}
+
+        // the painting, covering, biased to its upper half where the light is
+        const s = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+        const w = img.naturalWidth * s, h = img.naturalHeight * s;
+        g.fillStyle = "#131a2b";
+        g.fillRect(0, 0, W, H);
+        g.drawImage(img, (W - w) / 2, (H - h) * 0.34, w, h);
+
+        // the site's own smoked glass, not a slab over the art
+        g.fillStyle = "rgba(16, 20, 34, 0.46)";
+        g.fillRect(0, 0, W, H);
+        const grad = g.createLinearGradient(0, H * 0.35, 0, H);
+        grad.addColorStop(0, "rgba(12, 16, 28, 0)");
+        grad.addColorStop(1, "rgba(12, 16, 28, 0.78)");
+        g.fillStyle = grad;
+        g.fillRect(0, 0, W, H);
+
+        const pad = 96;
+        const wrap = (text, font, max) => {
+          g.font = font;
+          const out = [];
+          for (const para of text.split("\n")) {
+            let cur = "";
+            for (const word of para.split(" ")) {
+              const t = cur ? cur + " " + word : word;
+              if (g.measureText(t).width > max && cur) { out.push(cur); cur = word; }
+              else cur = t;
+            }
+            out.push(cur);
+          }
+          return out;
+        };
+
+        const size = line.length > 120 ? 58 : line.length > 70 ? 68 : 78;
+        const lines = wrap("“" + line + "”", `300 ${size}px Zodiak, Georgia, serif`, W - pad * 2);
+        const lead = size * 1.28;
+        let y = H - pad - 150 - lines.length * lead;
+
+        g.fillStyle = "#ece6d9";
+        g.textBaseline = "top";
+        for (const l of lines) { g.fillText(l, pad, y); y += lead; }
+
+        y += 26;
+        g.font = "400 30px 'JetBrains Mono', ui-monospace, monospace";
+        g.fillStyle = "#ff9bc0";
+        g.fillText(who.toLowerCase(), pad, y);
+
+        // Stacked rather than set at both ends: a long painting title and the
+        // url were running into each other in the middle.
+        g.font = "400 24px 'JetBrains Mono', ui-monospace, monospace";
+        g.fillStyle = "rgba(236, 230, 217, 0.62)";
+        const credit = `${chord.painting.who.toLowerCase()}, ${chord.painting.title.toLowerCase()}, ${chord.painting.year}`;
+        for (const l of wrap(credit, g.font, W - pad * 2).slice(0, 2)) {
+          g.fillText(l, pad, H - pad - 86);
+        }
+        g.fillStyle = "rgba(236, 230, 217, 0.42)";
+        g.fillText("dmklochko.com/today", pad, H - pad - 40);
+
+        cv.toBlob((blob) => {
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = `today-${chord.id}.png`;
+          a.click();
+          setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+        }, "image/png");
+      });
+    })();
+  </script>
+</Layout>
