@@ -1,8 +1,39 @@
 {
-  "_doc": "One chord per day. The shape here is the vault's shape: when the vault lands, each of these becomes three markdown files (a quote, a poem, a painting) joined by a weather. Every text below was checked against a source before it shipped; where an attribution is disputed, the note says so.",
+  "_doc": "Generated from vault/ by scripts/vault-build.mjs. Do not edit by hand: edit the markdown and rebuild.",
+  "built": "vault",
+  "weathers": [
+    {
+      "name": "cold clarity",
+      "note": "winter light, precision, attention. the feeling of a room where the dust is visible."
+    },
+    {
+      "name": "dissolution",
+      "note": "edges going. fog, late light, the moment a shape stops being a shape."
+    },
+    {
+      "name": "invincible summer",
+      "note": "heat held against the dark. not optimism: the thing that survives the winter."
+    },
+    {
+      "name": "the dark and the lamp",
+      "note": "night, solitude, one light on. company at a distance."
+    },
+    {
+      "name": "the plain thing",
+      "note": "one object, looked at properly, until it stops being ordinary."
+    },
+    {
+      "name": "vastness",
+      "note": "the scale that puts you in your place, and the relief in that."
+    },
+    {
+      "name": "weight and grace",
+      "note": "gravity, falling, and being held anyway."
+    }
+  ],
   "chords": [
     {
-      "id": "cold-clarity-hammershoi",
+      "id": "cold-clarity-0",
       "weather": "cold clarity",
       "quote": {
         "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
@@ -30,32 +61,7 @@
       }
     },
     {
-      "id": "invincible-summer-monet",
-      "weather": "invincible summer",
-      "quote": {
-        "text": "Au milieu de l’hiver, j’apprenais enfin qu’il y avait en moi un été invincible.",
-        "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
-        "who": "Albert Camus",
-        "where": "Retour à Tipasa, 1952"
-      },
-      "poem": {
-        "text": "To make a prairie it takes a clover and one bee,\nOne clover, and a bee,\nAnd revery.\nThe revery alone will do,\nIf bees are few.",
-        "who": "Emily Dickinson",
-        "where": "c. 1879",
-        "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote."
-      },
-      "painting": {
-        "src": "/images/today/monet.webp",
-        "who": "Claude Monet",
-        "title": "Water Lilies",
-        "year": "c. 1915",
-        "where": "Google Art Project",
-        "source": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_Google_Art_Project_(431238).jpg",
-        "licence": "public domain"
-      }
-    },
-    {
-      "id": "dissolution-turner",
+      "id": "dissolution-0",
       "weather": "dissolution",
       "quote": {
         "text": "Le vent se lève !… il faut tenter de vivre !",
@@ -82,7 +88,59 @@
       }
     },
     {
-      "id": "plain-thing-chardin",
+      "id": "invincible-summer-0",
+      "weather": "invincible summer",
+      "quote": {
+        "text": "Au milieu de l’hiver, j’apprenais enfin qu’il y avait en moi un été invincible.",
+        "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
+        "who": "Albert Camus",
+        "where": "Retour à Tipasa, 1952"
+      },
+      "poem": {
+        "text": "To make a prairie it takes a clover and one bee,\nOne clover, and a bee,\nAnd revery.\nThe revery alone will do,\nIf bees are few.",
+        "who": "Emily Dickinson",
+        "where": "c. 1879",
+        "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote."
+      },
+      "painting": {
+        "src": "/images/today/monet.webp",
+        "who": "Claude Monet",
+        "title": "Water Lilies",
+        "year": "c. 1915",
+        "where": "Google Art Project",
+        "source": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_Google_Art_Project_(431238).jpg",
+        "licence": "public domain"
+      }
+    },
+    {
+      "id": "the-dark-and-the-lamp-0",
+      "weather": "the dark and the lamp",
+      "quote": {
+        "text": "Que otros se jacten de las páginas que han escrito; a mí me enorgullecen las que he leído.",
+        "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
+        "who": "Jorge Luis Borges",
+        "where": "Un lector, 1969"
+      },
+      "poem": {
+        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
+        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
+        "who": "attributed to Sappho",
+        "where": "fragment 168B",
+        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "translator": "translated here"
+      },
+      "painting": {
+        "src": "/images/today/whistler.webp",
+        "who": "James McNeill Whistler",
+        "title": "Nocturne: Blue and Gold — Old Battersea Bridge",
+        "year": "c. 1872",
+        "where": "Tate, London",
+        "source": "https://commons.wikimedia.org/wiki/File:James_McNeill_Whistler_-_Nocturne_en_bleu_et_or.jpg",
+        "licence": "public domain"
+      }
+    },
+    {
+      "id": "the-plain-thing-0",
       "weather": "the plain thing",
       "quote": {
         "text": "Gutta cavat lapidem, consumitur anulus usu.",
@@ -110,61 +168,7 @@
       }
     },
     {
-      "id": "dark-and-lamp-whistler",
-      "weather": "the dark and the lamp",
-      "quote": {
-        "text": "Que otros se jacten de las páginas que han escrito; a mí me enorgullecen las que he leído.",
-        "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
-        "who": "Jorge Luis Borges",
-        "where": "Un lector, 1969"
-      },
-      "poem": {
-        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
-        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
-        "who": "attributed to Sappho",
-        "where": "fragment 168B",
-        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
-        "translator": "translated here"
-      },
-      "painting": {
-        "src": "/images/today/whistler.webp",
-        "who": "James McNeill Whistler",
-        "title": "Nocturne: Blue and Gold — Old Battersea Bridge",
-        "year": "c. 1872",
-        "where": "Tate, London",
-        "source": "https://commons.wikimedia.org/wiki/File:James_McNeill_Whistler_-_Nocturne_en_bleu_et_or.jpg",
-        "licence": "public domain"
-      }
-    },
-    {
-      "id": "weight-and-grace-afklint",
-      "weather": "weight and grace",
-      "quote": {
-        "text": "Forsan et haec olim meminisse iuvabit.",
-        "english": "Perhaps one day it will be a pleasure to remember even this.",
-        "who": "Virgil",
-        "where": "Aeneid, I.203"
-      },
-      "poem": {
-        "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
-        "english": "Whoever has no house now will not build one.\nWhoever is alone now will stay alone:\nwill sit up, read, write long letters,\nand wander the avenues, back and forth,\nrestless, as the leaves drift down.",
-        "who": "Rainer Maria Rilke",
-        "where": "Herbsttag, 1902",
-        "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
-        "translator": "translated here"
-      },
-      "painting": {
-        "src": "/images/today/afklint.webp",
-        "who": "Hilma af Klint",
-        "title": "The Ten Largest, No. 7, Adulthood",
-        "year": "1907",
-        "where": "Hilma af Klint Foundation, Stockholm",
-        "source": "https://commons.wikimedia.org/wiki/File:Hilma_af_Klint_-_The_Ten_Largest_No._7_-_Adulthood_-_1907.jpg",
-        "licence": "public domain"
-      }
-    },
-    {
-      "id": "vastness-friedrich",
+      "id": "vastness-0",
       "weather": "vastness",
       "quote": {
         "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
@@ -187,6 +191,33 @@
         "year": "1808–1810",
         "where": "Alte Nationalgalerie, Berlin",
         "source": "https://commons.wikimedia.org/wiki/File:Friedrich,_Caspar_David_-_M%C3%B6nch_am_Meer_-_Alte_Nationalgalerie_in_Berlin.jpg",
+        "licence": "public domain"
+      }
+    },
+    {
+      "id": "weight-and-grace-0",
+      "weather": "weight and grace",
+      "quote": {
+        "text": "Forsan et haec olim meminisse iuvabit.",
+        "english": "Perhaps one day it will be a pleasure to remember even this.",
+        "who": "Virgil",
+        "where": "Aeneid, I.203"
+      },
+      "poem": {
+        "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+        "english": "Whoever has no house now will not build one.\nWhoever is alone now will stay alone:\nwill sit up, read, write long letters,\nand wander the avenues, back and forth,\nrestless, as the leaves drift down.",
+        "who": "Rainer Maria Rilke",
+        "where": "Herbsttag, 1902",
+        "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
+        "translator": "translated here"
+      },
+      "painting": {
+        "src": "/images/today/afklint.webp",
+        "who": "Hilma af Klint",
+        "title": "The Ten Largest, No. 7, Adulthood",
+        "year": "1907",
+        "where": "Hilma af Klint Foundation, Stockholm",
+        "source": "https://commons.wikimedia.org/wiki/File:Hilma_af_Klint_-_The_Ten_Largest_No._7_-_Adulthood_-_1907.jpg",
         "licence": "public domain"
       }
     }

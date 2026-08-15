@@ -2341,3 +2341,257 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .chord-poem {
   margin-bottom: var(--sp-2);
 }
+
+/* ── the map ────────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .map-wrap {
+  position: relative;
+  margin-top: var(--sp-4);
+}
+
+[data-mode="dream"] .map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+[data-mode="dream"] .map-thread {
+  stroke: rgb(236 230 217 / 14%);
+  stroke-width: 1;
+}
+
+[data-mode="dream"] .map-anchor circle {
+  fill: none;
+  stroke: var(--hot);
+  stroke-width: 1.5;
+}
+
+[data-mode="dream"] .map-anchor text {
+  fill: var(--dim);
+  font-family: var(--mono);
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .map-hit {
+  fill: transparent;
+}
+
+[data-mode="dream"] .map-node {
+  cursor: pointer;
+}
+
+[data-mode="dream"] .map-node > circle + circle {
+  transition: r var(--dur) var(--ease), fill var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .map-node--quote > circle + circle { fill: var(--hot); }
+[data-mode="dream"] .map-node--poem > circle + circle { fill: rgb(236 230 217 / 78%); }
+[data-mode="dream"] .map-node--painting > circle + circle {
+  fill: var(--tint, rgb(236 230 217 / 60%));
+  stroke: rgb(236 230 217 / 35%);
+  stroke-width: 1;
+}
+
+[data-mode="dream"] .map-node:hover > circle + circle,
+[data-mode="dream"] .map-node.is-on > circle + circle {
+  r: 10;
+}
+
+[data-mode="dream"] .map-node:focus-visible {
+  outline: 2px solid var(--hot);
+  outline-offset: 2px;
+}
+
+/* The reader sits under the map rather than floating over it: a card that
+   follows the cursor would cover the thing it is describing. */
+[data-mode="dream"] .map-read {
+  margin: var(--sp-3) 0 0;
+  padding: var(--sp-2) 0 0;
+  border-top: 1px solid rgb(236 230 217 / 14%);
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .map-read figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .map-read figcaption span {
+  color: var(--faint);
+}
+
+[data-mode="dream"] .map-text {
+  margin: 0.5rem 0 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .map-kind {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .map-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  margin: var(--sp-4) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .map-key li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-mode="dream"] .map-key i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+[data-mode="dream"] .k-quote { background: var(--hot); }
+[data-mode="dream"] .k-poem { background: rgb(236 230 217 / 78%); }
+[data-mode="dream"] .k-painting {
+  background: rgb(120 150 170);
+  border: 1px solid rgb(236 230 217 / 35%);
+}
+
+@media (max-width: 720px) {
+  [data-mode="dream"] .map-anchor text { font-size: 20px; }
+}
+
+/* ── curate ─────────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .curate-status code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  color: var(--hot);
+}
+
+[data-mode="dream"] .cur-cards {
+  position: relative;
+  height: 26rem;
+  margin-top: var(--sp-4);
+}
+
+[data-mode="dream"] .cur-card {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.7rem;
+  transform: translateY(calc(var(--d) * 10px)) scale(calc(1 - var(--d) * 0.04));
+  opacity: calc(1 - var(--d) * 0.28);
+  transition: transform 0.22s var(--ease), opacity 0.22s var(--ease);
+}
+
+[data-mode="dream"] .cur-card .cell {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--mat);
+  padding: 0.5rem;
+  border-radius: 2px;
+  box-shadow:
+    0 2px 6px rgb(8 10 22 / 55%),
+    0 20px 50px rgb(8 10 22 / 42%);
+}
+
+[data-mode="dream"] .cur-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+[data-mode="dream"] .cur-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .cur-meta b { color: var(--bone); font-weight: 400; }
+[data-mode="dream"] .cur-meta i {
+  color: var(--dim); font-family: var(--serif); font-size: var(--t-prose-sm);
+}
+[data-mode="dream"] .cur-meta span {
+  color: var(--hot); text-transform: uppercase; letter-spacing: var(--ls-wide);
+}
+
+[data-mode="dream"] .cur-card.is-kept {
+  transform: translateX(30%) rotate(7deg);
+  opacity: 0;
+}
+
+[data-mode="dream"] .cur-card.is-passed {
+  transform: translateX(-30%) rotate(-7deg);
+  opacity: 0;
+}
+
+[data-mode="dream"] .cur-bar {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: var(--sp-4);
+}
+
+[data-mode="dream"] .cur-btn {
+  padding: 0.55rem 1.4rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 22%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .cur-btn--keep {
+  border-color: rgb(255 155 192 / 45%);
+  color: var(--hot);
+}
+
+[data-mode="dream"] .cur-btn:hover {
+  background: rgb(236 230 217 / 6%);
+  color: var(--bone);
+}
+
+[data-mode="dream"] .cur-btn--keep:hover {
+  background: rgb(255 155 192 / 12%);
+  border-color: var(--hot);
+}
+
+[data-mode="dream"] .cur-count {
+  margin-top: var(--sp-2);
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}

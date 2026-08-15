@@ -1,0 +1,176 @@
+---
+import Layout from "../layouts/Layout.astro";
+import data from "../data/today.json";
+import sharp from "sharp";
+
+// The vault made visible. Weathers are anchors on a ring; everything filed
+// under a weather orbits it. Positions are computed here, at build, from the
+// counts themselves, so the map redraws itself as the vault grows and nothing
+// is placed by hand.
+//
+// Paintings are drawn in their own average colour, read off the file, so the
+// constellation is coloured by the art rather than by a palette I chose.
+
+const chords = data.chords;
+const weathers = data.weathers;
+
+const tintOf = async (src) => {
+  try {
+    const { dominant } = await sharp("public" + src).stats();
+    return `rgb(${dominant.r} ${dominant.g} ${dominant.b})`;
+  } catch {
+    return "rgb(236 230 217)";
+  }
+};
+
+// One entry per distinct thing in the vault, grouped by its weather.
+const groups = new Map();
+for (const c of chords) {
+  if (!groups.has(c.weather)) groups.set(c.weather, { quotes: [], poems: [], paintings: [] });
+  const g = groups.get(c.weather);
+  const add = (list, key, item) => {
+    if (!list.some((x) => x.key === key)) list.push({ key, ...item });
+  };
+  add(g.quotes, c.quote.english, {
+    kind: "quote", who: c.quote.who, where: c.quote.where, text: c.quote.english,
+  });
+  add(g.poems, c.poem.who + c.poem.where, {
+    kind: "poem", who: c.poem.who, where: c.poem.where,
+    text: (c.poem.english || c.poem.text).split("\n")[0] + "…",
+  });
+  add(g.paintings, c.painting.src, {
+    kind: "painting", who: c.painting.who, where: c.painting.year,
+    text: c.painting.title, src: c.painting.src,
+  });
+}
+
+const W = 1000, H = 760;
+const cx = W / 2, cy = H / 2;
+const names = [...groups.keys()];
+const ring = Math.min(W, H) * 0.31;
+
+const nodes = [];
+const anchors = [];
+for (let i = 0; i < names.length; i++) {
+  const a = (i / names.length) * Math.PI * 2 - Math.PI / 2;
+  const ax = cx + Math.cos(a) * ring;
+  const ay = cy + Math.sin(a) * ring * 0.86;
+  // Labels sit outside the ring, above the anchors on the top half and below
+  // on the bottom, and the lower ones stagger, because two long weather names
+  // side by side at the foot of the ring ran into each other.
+  const below = ay > cy;
+  const stagger = below && i % 2 ? 20 : 0;
+  anchors.push({
+    name: names[i], x: ax, y: ay,
+    ty: below ? ay + 30 + stagger : ay - 18,
+    note: (weathers.find((w) => w.name === names[i]) || {}).note,
+  });
+
+  const g = groups.get(names[i]);
+  const items = [...g.quotes, ...g.poems, ...g.paintings];
+  const orbit = 52 + items.length * 5;
+  for (let j = 0; j < items.length; j++) {
+    // Fanned outward from the centre so orbits never overlap the middle.
+    const spread = Math.PI * 1.15;
+    const t = items.length === 1 ? 0 : j / (items.length - 1) - 0.5;
+    const b = a + t * spread;
+    nodes.push({
+      ...items[j],
+      weather: names[i],
+      ax, ay,
+      x: ax + Math.cos(b) * orbit,
+      y: ay + Math.sin(b) * orbit * 0.9,
+      tint: items[j].kind === "painting" ? await tintOf(items[j].src) : null,
+    });
+  }
+}
+
+const title = "map · dmytro klochko";
+const description = "everything in the vault, by weather.";
+---
+
+<Layout title={title} description={description} current="home" unlisted>
+  <section class="shell session mapp" data-scene="fire" aria-labelledby="mp">
+    <div class="card">
+      <h1 class="card-title" id="mp">the map</h1>
+    </div>
+
+    <p class="lede">
+      everything the vault holds, arranged by weather. {nodes.length} things so
+      far, across {names.length} weathers. it grows.
+    </p>
+
+    <div class="map-wrap">
+      <svg class="map-svg" viewBox={`0 0 ${W} ${H}`} role="img"
+           aria-label={`${nodes.length} entries across ${names.length} weathers`}>
+        {nodes.map((n) => (
+          <line class="map-thread" x1={n.ax} y1={n.ay} x2={n.x} y2={n.y} />
+        ))}
+
+        {anchors.map((a) => (
+          <g class="map-anchor">
+            <circle cx={a.x} cy={a.y} r="6" />
+            <text x={a.x} y={a.ty} text-anchor="middle">{a.name}</text>
+          </g>
+        ))}
+
+        {nodes.map((n, i) => (
+          <g
+            class={`map-node map-node--${n.kind}`}
+            data-i={i}
+            data-kind={n.kind}
+            data-who={n.who}
+            data-where={n.where}
+            data-text={n.text}
+            data-weather={n.weather}
+            tabindex="0"
+            role="button"
+            aria-label={`${n.kind}: ${n.who}`}
+          >
+            <circle cx={n.x} cy={n.y} r="14" class="map-hit" />
+            <circle cx={n.x} cy={n.y} r={n.kind === "painting" ? 7 : 5}
+                    style={n.tint ? `--tint:${n.tint}` : undefined} />
+          </g>
+        ))}
+      </svg>
+
+      <figure class="map-read" hidden>
+        <figcaption><b class="map-who"></b><span class="map-where"></span></figcaption>
+        <p class="map-text"></p>
+        <span class="map-kind"></span>
+      </figure>
+    </div>
+
+    <ul class="map-key">
+      <li><i class="k-quote"></i>quote</li>
+      <li><i class="k-poem"></i>poem</li>
+      <li><i class="k-painting"></i>painting, in its own colour</li>
+    </ul>
+
+    <a class="onward onward--back" href="/today">
+      <span class="arw" aria-hidden="true">↖</span><span>today’s chord</span>
+    </a>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const wrap = document.querySelector(".map-wrap");
+      if (!wrap) return;
+      const read = wrap.querySelector(".map-read");
+      const show = (g) => {
+        read.querySelector(".map-who").textContent = g.dataset.who;
+        read.querySelector(".map-where").textContent = g.dataset.where;
+        read.querySelector(".map-text").textContent = g.dataset.text;
+        read.querySelector(".map-kind").textContent = `${g.dataset.kind} · ${g.dataset.weather}`;
+        read.hidden = false;
+        for (const o of wrap.querySelectorAll(".map-node.is-on")) o.classList.remove("is-on");
+        g.classList.add("is-on");
+      };
+      for (const g of wrap.querySelectorAll(".map-node")) {
+        g.addEventListener("pointerenter", () => show(g));
+        g.addEventListener("focus", () => show(g));
+        g.addEventListener("click", () => show(g));
+      }
+    })();
+  </script>
+</Layout>

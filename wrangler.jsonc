@@ -2,8 +2,26 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "dmytro-klochko-one-pager",
   "compatibility_date": "2026-08-07",
+  // The site is still static assets. The worker exists only for the curation
+  // queue and hands every other path straight to ASSETS, so the pages are
+  // served the same way they were before it existed.
+  "main": "worker/index.js",
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "not_found_handling": "404-page"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "VAULT",
+      "id": "d5e466fe143e4b8aadce72dd01da4507"
+    }
+  ],
+  "vars": {
+    // Set once the Cloudflare Access application exists. Until both are real
+    // the curation routes answer 503 and nothing can be written.
+    "ACCESS_TEAM_DOMAIN": "",
+    "ACCESS_AUD": "",
+    "CURATOR": "1@dmklochko.com"
   }
 }

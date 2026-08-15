@@ -1,0 +1,126 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// The page is public html; the data behind it is not. Everything here comes
+// from /api/curate/*, which Cloudflare Access gates and the worker verifies,
+// so opening this url without being him shows an empty room and an error.
+//
+// Put Access in front of /curate too, and it never renders for anyone else.
+
+const title = "curate · dmytro klochko";
+const description = "the queue.";
+---
+
+<Layout title={title} description={description} current="home" unlisted>
+  <section class="shell session curate" data-scene="fire" aria-labelledby="cu">
+    <div class="card">
+      <h1 class="card-title" id="cu">the queue</h1>
+    </div>
+
+    <p class="lede curate-status">checking…</p>
+
+    <div class="curate-deck" hidden>
+      <div class="cur-cards"></div>
+
+      <div class="cur-bar">
+        <button class="cur-btn cur-btn--pass" type="button">pass</button>
+        <button class="cur-btn cur-btn--keep" type="button">keep</button>
+      </div>
+
+      <p class="cur-count"></p>
+    </div>
+
+    <a class="onward onward--back" href="/map">
+      <span class="arw" aria-hidden="true">↖</span><span>the map</span>
+    </a>
+  </section>
+
+  <script is:inline>
+    (() => {
+      const root = document.querySelector(".curate");
+      if (!root) return;
+      const status = root.querySelector(".curate-status");
+      const deck = root.querySelector(".curate-deck");
+      const cards = root.querySelector(".cur-cards");
+      const count = root.querySelector(".cur-count");
+
+      let queue = [], at = 0, busy = false;
+
+      const paint = () => {
+        cards.innerHTML = "";
+        // Three mounted at a time, as on the swipe deck: the one being judged
+        // and two behind it, so the stack has depth without loading the lot.
+        for (let i = Math.min(at + 2, queue.length - 1); i >= at; i--) {
+          const c = queue[i];
+          const el = document.createElement("article");
+          el.className = "cur-card";
+          el.style.setProperty("--d", String(i - at));
+          el.innerHTML =
+            '<span class="cell"><img alt="" loading="lazy"></span>' +
+            '<div class="cur-meta"><b></b><i></i><span></span></div>';
+          el.querySelector("img").src = c.src;
+          el.querySelector("img").alt = `${c.title}, ${c.who}`;
+          el.querySelector("b").textContent = c.who;
+          el.querySelector("i").textContent = `${c.title}, ${c.year}`;
+          el.querySelector("span").textContent = c.weather;
+          cards.appendChild(el);
+        }
+        count.textContent = queue.length - at
+          ? `${queue.length - at} left of ${queue.length}`
+          : "queue empty. nothing left to judge.";
+      };
+
+      const judge = async (verdict) => {
+        if (busy || at >= queue.length) return;
+        busy = true;
+        const c = queue[at];
+        const top = cards.querySelector('.cur-card[style*="--d: 0"], .cur-card:last-child');
+        if (top) top.classList.add(verdict === "keep" ? "is-kept" : "is-passed");
+        try {
+          await fetch("/api/curate/verdict", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ id: c.id, verdict }),
+          });
+        } catch {}
+        setTimeout(() => { at++; busy = false; paint(); }, 220);
+      };
+
+      root.querySelector(".cur-btn--keep").addEventListener("click", () => judge("keep"));
+      root.querySelector(".cur-btn--pass").addEventListener("click", () => judge("pass"));
+      addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") judge("keep");
+        if (e.key === "ArrowLeft") judge("pass");
+      });
+
+      (async () => {
+        let r;
+        try {
+          r = await fetch("/api/curate/queue");
+        } catch {
+          status.textContent = "the queue is unreachable.";
+          return;
+        }
+        if (r.status === 503) {
+          const d = await r.json().catch(() => ({}));
+          status.innerHTML =
+            "curation is not switched on yet. it needs a cloudflare access " +
+            "application in front of <code>/curate</code>, and its team domain " +
+            "and audience tag set as worker vars" +
+            (d.need ? ` (${d.need.join(", ")})` : "") + ".";
+          return;
+        }
+        if (r.status === 403) { status.textContent = "not you."; return; }
+        if (!r.ok) { status.textContent = "the queue returned " + r.status + "."; return; }
+
+        const d = await r.json();
+        queue = d.queue || [];
+        status.textContent = queue.length
+          ? "keep or pass. only what survives becomes vault markdown."
+          : `nothing waiting. ${d.judged} judged so far.`;
+        deck.hidden = false;
+        paint();
+      })();
+    })();
+  </script>
+</Layout>

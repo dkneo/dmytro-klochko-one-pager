@@ -8,8 +8,9 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "node scripts/vault-build.mjs && astro build",
+    "preview": "astro preview",
+    "vault": "node scripts/vault-build.mjs"
   },
   "dependencies": {
     "astro": "^7.2.0"
