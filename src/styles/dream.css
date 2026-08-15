@@ -2361,6 +2361,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .cv-job > summary {
   display: block;
   position: relative;
+  max-width: var(--measure);
   padding: 0.15rem 0 0.45rem;
   cursor: pointer;
   list-style: none;
@@ -2382,20 +2383,23 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   outline-offset: 4px;
 }
 
-[data-mode="dream"] .cv-gist {
-  margin: 0.35rem 0 0 1.85rem;
+/* The lead bullet and the bullets in the panel are one list split across the
+   summary boundary, so the gap between them is the gap between any two
+   bullets and the seam does not show. */
+[data-mode="dream"] .cv-points--lead {
   max-width: var(--measure);
-  color: var(--dim);
-  font-family: var(--serif);
-  font-size: var(--t-prose);
-  line-height: 1.6;
 }
 
 /* The count sits at the end of the gist rather than off in a corner, so the
    thing you click and the thing that tells you what you get are together. */
+/* Out of the flow entirely, at the top right of the row. In the flow it had
+   to sit either before the bullets, where it interrupted the list, or after
+   them, where a control cannot go: <summary> is the only thing that toggles.
+   The summary keeps the measure so every row's control lines up. */
 [data-mode="dream"] .cv-more {
-  display: inline-block;
-  margin: 0.3rem 0 0 1.85rem;
+  position: absolute;
+  top: 0.15rem;
+  right: 0;
   color: var(--faint);
   font-family: var(--mono);
   font-size: var(--t-xs);
@@ -2431,8 +2435,15 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 }
 
 [data-mode="dream"] .cv-open {
-  padding-top: var(--sp-1);
   animation: cv-unfold 0.34s var(--ease) both;
+}
+
+[data-mode="dream"] .cv-open .cv-points {
+  margin-top: 0.55rem;
+}
+
+[data-mode="dream"] .cv-job > summary {
+  padding-bottom: 0;
 }
 
 @keyframes cv-unfold {

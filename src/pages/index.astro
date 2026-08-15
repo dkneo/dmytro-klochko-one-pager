@@ -513,8 +513,12 @@ const also = [
                   <span class="cv-what">{j.what}</span>
                 </p>
                 <p class="cv-role">{j.role}</p>
-                <p class="cv-gist">{j.gist}</p>
-                <span class="cv-more" aria-hidden="true">
+                {/* The strongest line, drawn as what it is: the first bullet.
+                    Then "5 more" can only mean five more of these. */}
+                <ul class="cv-points cv-points--lead">
+                  <li set:html={j.gist} />
+                </ul>
+                <span class="cv-more">
                   <i class="cv-more-shut">{j.points.length} more</i>
                   <i class="cv-more-open">less</i>
                 </span>
