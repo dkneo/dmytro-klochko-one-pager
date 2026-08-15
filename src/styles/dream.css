@@ -1990,15 +1990,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   outline-offset: 4px;
 }
 
-[data-mode="dream"] .cv-brief {
-  margin: 0.4rem 0 0 1.85rem;
-  max-width: var(--measure);
-  color: var(--dim);
-  font-family: var(--serif);
-  font-size: var(--t-prose);
-  line-height: 1.6;
-}
-
 /* The count sits at the end of the gist rather than off in a corner, so the
    thing you click and the thing that tells you what you get are together. */
 /* Out of the flow entirely, at the top right of the row. In the flow it had
