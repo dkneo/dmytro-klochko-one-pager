@@ -568,6 +568,14 @@ const also = [
               ) : (
                 <p>{j.text}</p>
               )}
+
+              {/* Where there is no cursor there is no easel, so the line has to
+                  say for itself that it is holding something. Server-rendered,
+                  so it is there before any script is. */}
+              <span class="bead-cue">
+                {"video" in j && j.video ? "clip" : "photo"}
+                <b class="cv-chev" aria-hidden="true" />
+              </span>
             </li>
           ))
         }

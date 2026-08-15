@@ -217,12 +217,10 @@
 }
 
 [data-mode="dream"] .bead-print .cell {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr);
-  grid-template-columns: minmax(0, 1fr);
-  place-items: center;
-  height: 15rem;
-  overflow: hidden;
+  display: block;
+  /* No fixed height. It used to be 15rem, which cropped every portrait and
+     left the rest of the mat showing under anything short. The picture sets
+     its own height and the mat follows it. */
   background: var(--mat);
   padding: 0.4rem;
   border-radius: 2px;
@@ -238,6 +236,9 @@
   width: 100%;
   height: auto;
   border-radius: 1px;
+  /* A <video> paints its own black behind the frame, which showed as bars
+     wherever the clip did not fill the box. */
+  background: transparent;
 }
 
 [data-mode="dream"] .bead-print img[hidden],
@@ -2119,4 +2120,39 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 [data-mode="dream"] .cv-job--lead-more .cv-points {
   margin-left: 0;
+}
+
+/* The cue that a line on the road is holding a picture. It belongs to touch:
+   where a cursor exists the easel already shows everything on hover. */
+[data-mode="dream"] .bead-cue {
+  display: none;
+  /* The bead is a two-column grid, dot then text. Left to place itself the
+     cue landed in the dot column, reading as a label for the line below, and
+     as a grid item it stretched its underline the width of the column. */
+  grid-column: 2;
+  justify-self: start;
+  align-items: center;
+  gap: 0.45em;
+  margin: 0.35rem 0 0;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(255 155 192 / 30%);
+  padding-bottom: 1px;
+}
+
+[data-mode="dream"] li[data-easel] .bead-cue {
+  display: inline-flex;
+}
+
+[data-mode="dream"] li.is-shown .bead-cue .cv-chev {
+  transform: translateY(0.06em) rotate(-135deg);
+}
+
+@media (hover: hover) and (min-width: 861px) {
+  [data-mode="dream"] .bead-cue {
+    display: none !important;
+  }
 }
