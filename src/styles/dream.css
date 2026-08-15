@@ -2358,15 +2358,24 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 /* Rows two through six are <details>. Shut, each is a company, a role and the
    one line that makes its case; open, it adds the rest. The marker goes and
    the summary becomes a block, so the row keeps the same shape either way. */
+/* The whole row is the target, so the whole row has to look like one: it
+   lifts on hover, and the control at its corner is drawn in the link colour
+   with a chevron that turns. Faint grey mono was the register this page uses
+   for labels that do nothing, which is exactly what it looked like. */
 [data-mode="dream"] .cv-job > summary {
   display: block;
   position: relative;
   max-width: var(--measure);
-  padding: 0.15rem 0 0.45rem;
+  padding: 0.5rem 0.7rem 0.6rem;
+  margin-left: -0.7rem;
   cursor: pointer;
   list-style: none;
-  border-radius: 3px;
+  border-radius: 4px;
   transition: background var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .cv-job > summary:hover {
+  background: rgb(236 230 217 / 5%);
 }
 
 [data-mode="dream"] .cv-job > summary::-webkit-details-marker {
@@ -2383,11 +2392,13 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   outline-offset: 4px;
 }
 
-/* The lead bullet and the bullets in the panel are one list split across the
-   summary boundary, so the gap between them is the gap between any two
-   bullets and the seam does not show. */
-[data-mode="dream"] .cv-points--lead {
+[data-mode="dream"] .cv-gist {
+  margin: 0.4rem 0 0 1.85rem;
   max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.6;
 }
 
 /* The count sits at the end of the gist rather than off in a corner, so the
@@ -2397,27 +2408,37 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
    them, where a control cannot go: <summary> is the only thing that toggles.
    The summary keeps the measure so every row's control lines up. */
 [data-mode="dream"] .cv-more {
-  position: absolute;
-  top: 0.15rem;
-  right: 0;
-  color: var(--faint);
+  display: inline-flex;
+  margin: 0.55rem 0 0 1.85rem;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--hot);
   font-family: var(--mono);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  transition: color var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .cv-more::before {
-  content: "+ ";
-}
-
-[data-mode="dream"] .cv-job[open] .cv-more::before {
-  content: "− ";
+  border-bottom: 1px solid rgb(255 155 192 / 30%);
+  padding-bottom: 1px;
+  transition: border-color var(--dur) var(--ease);
 }
 
 [data-mode="dream"] .cv-job > summary:hover .cv-more {
-  color: var(--hot);
+  border-color: var(--hot);
+}
+
+/* Drawn rather than typed: a glyph at this size renders differently in every
+   font, and this one has to sit on the same line as the words. */
+[data-mode="dream"] .cv-chev {
+  width: 0.4em;
+  height: 0.4em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-0.12em) rotate(45deg);
+  transition: transform var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .cv-job[open] .cv-chev {
+  transform: translateY(0.06em) rotate(-135deg);
 }
 
 [data-mode="dream"] .cv-more-open,

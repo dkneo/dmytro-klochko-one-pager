@@ -513,14 +513,14 @@ const also = [
                   <span class="cv-what">{j.what}</span>
                 </p>
                 <p class="cv-role">{j.role}</p>
-                {/* The strongest line, drawn as what it is: the first bullet.
-                    Then "5 more" can only mean five more of these. */}
-                <ul class="cv-points cv-points--lead">
-                  <li set:html={j.gist} />
-                </ul>
+                {/* The line that argues for the job, as a line rather than a
+                    list of one, which read as a bullet somebody forgot to
+                    finish. The way in sits under it, where what it opens is. */}
+                <p class="cv-gist" set:html={j.gist} />
                 <span class="cv-more">
-                  <i class="cv-more-shut">{j.points.length} more</i>
-                  <i class="cv-more-open">less</i>
+                  <i class="cv-more-shut">read more</i>
+                  <i class="cv-more-open">read less</i>
+                  <b class="cv-chev" aria-hidden="true" />
                 </span>
               </summary>
 
