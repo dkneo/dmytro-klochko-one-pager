@@ -2292,6 +2292,10 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .worklog img {
   display: block;
   width: 100%;
+  /* The width/height attributes are there to reserve the box before the file
+     lands, but the height attribute also lands as a presentational 440px,
+     which beats aspect-ratio. Releasing the height hands the shape back. */
+  height: auto;
   aspect-ratio: 1;
   object-fit: cover;
 }
