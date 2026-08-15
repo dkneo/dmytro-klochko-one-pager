@@ -28,30 +28,17 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#131a2b" />
     <!--
-      Two art directions share this markup. Dream is the default now that it
-      is finished; bebop lives on behind the toggle. localStorage is written
-      only when someone clicks that toggle, so a stored value is always a
-      deliberate choice and is honoured over the default. Read before first
-      paint so neither mode ever flashes as the other.
+      One art direction now. Bebop lived here behind a toggle until the page
+      it was skinning moved on without it; it is in the history if it is ever
+      wanted back.
     -->
-    <script is:inline>
-      (() => {
-        try {
-          const m = localStorage.getItem("mode2");
-          if (m === "bebop" || m === "dream") document.documentElement.dataset.mode = m;
-        } catch {}
-        document.querySelector('meta[name="theme-color"]')?.setAttribute(
-          "content",
-          document.documentElement.dataset.mode === "bebop" ? "#0b0b0d" : "#131a2b"
-        );
-      })();
-    </script>
     <meta name="generator" content={Astro.generator} />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png?v=2" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png?v=2" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" sizes="16x16 32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <title>{title}</title>
@@ -134,10 +121,6 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
       {current !== "home" && <span class="crumb">/ {current.replace("-", " ")}</span>}
       <nav class="site-nav" aria-label="mode">
         <a class="dance-link" href="/dance">dance</a>
-        <button class="mode-toggle" type="button">
-          <span class="only-dream">✦ bebop mode</span>
-          <span class="only-bebop">☾ go dreamy</span>
-        </button>
       </nav>
     </header>
 
@@ -338,7 +321,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         // moment they go dreamy.
         let warmed = false;
         const later = () => {
-          if (warmed || root.dataset.mode !== "dream") return;
+          if (warmed) return;
           warmed = true;
           for (const i of document.querySelectorAll(".scenes i")) {
             const img = new Image();
@@ -348,21 +331,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         const idle = () => ("requestIdleCallback" in window)
           ? requestIdleCallback(later, { timeout: 4000 }) : setTimeout(later, 2500);
         idle();
-        new MutationObserver(idle).observe(root, { attributes: true, attributeFilter: ["data-mode"] });
       })();
-    </script>
-
-    <script is:inline>
-      for (const b of document.querySelectorAll(".mode-toggle")) {
-        b.addEventListener("click", () => {
-          const next = document.documentElement.dataset.mode === "bebop" ? "dream" : "bebop";
-          document.documentElement.dataset.mode = next;
-          try { localStorage.setItem("mode2", next); } catch {}
-          document.querySelector('meta[name="theme-color"]')?.setAttribute(
-            "content", next === "bebop" ? "#0b0b0d" : "#131a2b"
-          );
-        });
-      }
     </script>
 
     <!--

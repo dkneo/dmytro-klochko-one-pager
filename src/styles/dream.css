@@ -43,21 +43,8 @@
   background: linear-gradient(180deg, #232840 0%, #262b44 40%, #2a3050 100%)
     fixed var(--void);
 }
-
-/* ── mode plumbing ──────────────────────────────────────────────────────── */
-
-[data-mode="dream"] .only-bebop { display: none; }
-[data-mode="bebop"] .only-dream { display: none; }
 [data-mode="bebop"] .dream-sky { display: none; }
-[data-mode="bebop"] .dream-art { display: none; }
 [data-mode="dream"] .stars { display: none; }
-[data-mode="dream"] .kawase { display: none; }
-
-[data-mode="dream"] .ascii--joi,
-[data-mode="dream"] .ascii--fun,
-[data-mode="dream"] .ascii--bebop {
-  display: none;
-}
 
 [data-mode="dream"] #now .bay--flush,
 [data-mode="dream"] #before .bay--flush {
@@ -67,69 +54,6 @@
 [data-mode="dream"] #now .joi-col,
 [data-mode="dream"] #before .joi-col {
   display: none;
-}
-
-[data-mode="dream"] .hi-stack {
-  position: relative;
-  align-self: center;
-  width: 100%;
-  max-width: 30rem;
-  justify-self: end;
-  aspect-ratio: 1 / 0.72;
-}
-
-[data-mode="dream"] .hi-stack figure {
-  position: absolute;
-  margin: 0;
-}
-
-[data-mode="dream"] .hi-stack .cell {
-  display: block;
-  background: var(--mat);
-  padding: 0.45rem;
-  border-radius: 2px;
-  box-shadow:
-    0 2px 5px rgb(8 10 22 / 58%),
-    0 18px 40px rgb(8 10 22 / 42%);
-  transition: transform var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .hi-stack img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 1px;
-}
-
-[data-mode="dream"] .hi-stack figure:nth-child(1) {
-  top: 0;
-  left: 0;
-  width: 38%;
-  z-index: 1;
-}
-
-[data-mode="dream"] .hi-stack figure:nth-child(1) .cell { transform: rotate(-3.4deg); }
-
-[data-mode="dream"] .hi-stack figure:nth-child(2) {
-  top: 4%;
-  right: 0;
-  width: 46%;
-  z-index: 2;
-}
-
-[data-mode="dream"] .hi-stack figure:nth-child(2) .cell { transform: rotate(2.4deg); }
-
-[data-mode="dream"] .hi-stack figure:nth-child(3) {
-  bottom: 0;
-  left: 20%;
-  width: 52%;
-  z-index: 3;
-}
-
-[data-mode="dream"] .hi-stack figure:nth-child(3) .cell { transform: rotate(-1.2deg); }
-
-[data-mode="dream"] .hi-stack figure:hover .cell {
-  transform: rotate(0deg) scale(1.02);
 }
 
 /* The record stands alone on taste now. */
@@ -207,7 +131,6 @@
   position: relative;
 }
 
-
 [data-mode="dream"] .journey-bay:hover .easel .cell {
   transform: rotate(0.6deg) translateY(-4px);
   box-shadow:
@@ -225,59 +148,6 @@
   background: var(--hot);
   mask: var(--mark) center / contain no-repeat;
   -webkit-mask: var(--mark) center / contain no-repeat;
-}
-
-/* A company bead keeps the register's shape: the name and what it is on one
-   line, the role beneath — they carry more than a single year does, and it
-   is only natural that they look fatter. */
-[data-mode="dream"] .tl-co-line {
-  display: grid;
-  grid-template-columns: 1.35rem auto 1fr;
-  align-items: baseline;
-  column-gap: 0.5rem;
-  row-gap: 0.1rem;
-}
-
-/* Explicit columns, because not every entry has a mark and a role, and
-   auto-placement slid the ones that don't out of the register's alignment. */
-/* Vienna's crest is line-art that turns to mush at mark size, so the slot
-   carries a cap from the same monochrome cut as the city pins. Better a
-   real glyph than an empty gutter or a grey blob. */
-[data-mode="dream"] .tl-glyph {
-  background: none;
-  mask: none;
-  -webkit-mask: none;
-  color: var(--hot);
-  font-size: 0.9em;
-  line-height: 1;
-  text-align: center;
-}
-
-[data-mode="dream"] .tl-co-line .tl-mark {
-  grid-column: 1;
-  grid-row: 1;
-  align-self: center;
-  margin-right: 0;
-}
-
-[data-mode="dream"] .log--journey .tl-co {
-  grid-column: 2;
-  grid-row: 1;
-  color: var(--bone);
-  font-style: normal;
-}
-
-[data-mode="dream"] .tl-what {
-  grid-column: 3;
-  grid-row: 1;
-  color: var(--dim);
-}
-
-[data-mode="dream"] .tl-role {
-  grid-column: 2 / -1;
-  grid-row: 2;
-  color: var(--faint);
-  font-size: var(--t-prose-sm);
 }
 
 [data-mode="dream"] .log--journey a {
@@ -430,7 +300,7 @@ html.is-shook .scenes {
 
 @media (prefers-reduced-motion: reduce) {
   .masthead.is-shook,
-  html.is-shook .scenes {
+html.is-shook .scenes {
     animation: none;
   }
 }
@@ -440,25 +310,6 @@ html.is-shook .scenes {
   --ink-void: #262b44;
   --ink-bone: #ece6d9;
   --ink-hot: #ff9bc0;
-}
-
-/* ── the toggle ─────────────────────────────────────────────────────────── */
-
-.mode-toggle {
-  padding: 0.3rem 0;
-  border: 0;
-  background: none;
-  color: var(--dim);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color var(--dur) var(--ease);
-}
-
-.mode-toggle:hover {
-  color: var(--hot);
 }
 
 /* ── one narrow column ──────────────────────────────────────────────────────
@@ -707,11 +558,6 @@ html.is-shook .scenes {
   vertical-align: 0.55em;
 }
 
-[data-mode="dream"] .card-what {
-  width: 100%;
-  margin-top: 0.1rem;
-}
-
 [data-mode="dream"] .lede {
   font-family: var(--serif);
   font-style: italic;
@@ -935,14 +781,14 @@ html[data-scene="estuary"] .scenes .glints {
   to { transform: translateX(60px); opacity: 0.2; }
 }
 
-.scenes i[data-s="swim"]     { background-image: url("/images/scenes/swim.webp"); }
-.scenes i[data-s="fuji"]     { background-image: url("/images/scenes/fuji.webp"); }
-.scenes i[data-s="fields"]   { background-image: url("/images/scenes/fields.webp"); }
-.scenes i[data-s="fire"]     { background-image: url("/images/scenes/fire.webp"); }
-.scenes i[data-s="dock"]     { background-image: url("/images/scenes/dock.webp"); }
+.scenes i[data-s="swim"] { background-image: url("/images/scenes/swim.webp"); }
+.scenes i[data-s="fuji"] { background-image: url("/images/scenes/fuji.webp"); }
+.scenes i[data-s="fields"] { background-image: url("/images/scenes/fields.webp"); }
+.scenes i[data-s="fire"] { background-image: url("/images/scenes/fire.webp"); }
+.scenes i[data-s="dock"] { background-image: url("/images/scenes/dock.webp"); }
 .scenes i[data-s="lavender"] { background-image: url("/images/scenes/lavender.webp"); }
-.scenes i[data-s="snow"]     { background-image: url("/images/scenes/snow.webp"); }
-.scenes i[data-s="estuary"]  { background-image: url("/images/scenes/estuary.webp"); }
+.scenes i[data-s="snow"] { background-image: url("/images/scenes/snow.webp"); }
+.scenes i[data-s="estuary"] { background-image: url("/images/scenes/estuary.webp"); }
 
 html[data-scene="swim"] .scenes i[data-s="swim"],
 html[data-scene="fuji"] .scenes i[data-s="fuji"],
@@ -987,10 +833,6 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
     backdrop-filter: brightness(0.5) saturate(0.92);
     -webkit-mask-image: none;
     mask-image: none;
-  }
-
-  [data-mode="dream"] .hang {
-    width: 100%;
   }
 }
 
@@ -1057,56 +899,6 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   .dream-sky b {
     display: none;
   }
-
-  .dream-window > i {
-    translate: 0 0;
-  }
-}
-
-/* ── layout ─────────────────────────────────────────────────────────────────
-   Bebop's bones, untouched: the 78rem shell, the 6fr/5fr bays, the 62ch
-   measure. Dream only reskins what sits on them. */
-
-[data-mode="dream"] .bay .portrait {
-  aspect-ratio: auto;
-  position: static;
-}
-
-[data-mode="dream"] .bay .portrait .cell {
-  position: static;
-  inset: auto;
-  aspect-ratio: 0.94;
-  border: 8px solid var(--mat);
-  border-radius: 3px;
-  box-shadow: 0 10px 28px rgb(10 10 26 / 45%);
-  transform: rotate(1.2deg);
-  transition:
-    transform var(--dur-slow) var(--ease),
-    box-shadow var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .bay .portrait:hover .cell {
-  transform: rotate(0deg) translateY(-3px);
-  box-shadow: 0 14px 34px rgb(10 10 26 / 55%);
-}
-
-[data-mode="dream"] .bay .portrait figcaption {
-  position: static;
-  margin-top: 0.5rem;
-  /* The caption lands outside the smoked lane, on open water: it speaks
-     bone with its own breath of dusk so the sun cannot wash it out. */
-  color: var(--dim);
-  text-shadow: 0 1px 10px rgb(20 22 40 / 80%), 0 1px 3px rgb(20 22 40 / 60%);
-}
-
-[data-mode="dream"] .reg li {
-  grid-template-columns: auto 1fr;
-  gap: 0.1rem 0.8rem;
-  padding: 0 0 var(--sp-2);
-}
-
-[data-mode="dream"] .reg-mark {
-  display: none;
 }
 
 [data-mode="dream"] .reg-role {
@@ -1120,35 +912,6 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 [data-mode="dream"] .frame video,
 [data-mode="dream"] .frame img {
   filter: none;
-}
-
-[data-mode="dream"] .reel .cap {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: var(--t-prose-sm);
-  letter-spacing: 0;
-  text-transform: lowercase;
-}
-
-[data-mode="dream"] .sheet .cell {
-  border: 5px solid var(--mat);
-  border-radius: 3px;
-  box-shadow: 0 8px 22px rgb(10 10 26 / 40%);
-  transition:
-    transform var(--dur-slow) var(--ease),
-    box-shadow var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .sheet figure:nth-child(odd) .cell {
-  transform: rotate(-1.8deg);
-}
-
-[data-mode="dream"] .sheet figure:nth-child(even) .cell {
-  transform: rotate(1.4deg);
-}
-
-[data-mode="dream"] .sheet figure:hover .cell {
-  transform: rotate(0deg) translateY(-3px);
 }
 
 [data-mode="dream"] .lynch {
@@ -1176,29 +939,6 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
 
 [data-mode="dream"] .gloss-note {
   border-color: rgb(236 230 217 / 30%);
-}
-
-/* The redon still says hi, contained and bordered like everything else. */
-.dream-art {
-  margin: 0;
-  width: min(100%, 20rem);
-}
-
-.dream-art img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  border: 1px solid rgb(236 230 217 / 14%);
-  box-shadow: 0 14px 36px rgb(10 10 26 / 45%);
-}
-
-.dream-art figcaption {
-  margin-top: 0.5rem;
-  color: var(--faint);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
 }
 
 /* ── taste page ─────────────────────────────────────────────────────────── */
@@ -1234,38 +974,8 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   width: min(100%, 19rem);
 }
 
-/* The paintings deserve width: the hang breaks out of the reading lane
-   into the painting's open wing, four true-proportion frames per row. */
-[data-mode="dream"] .hang {
-  width: min(72rem, calc(100vw - 2 * var(--gutter)));
-}
-
-
-
-[data-mode="dream"] .hang figure {
-  border: 5px solid var(--mat);
-  border-radius: 3px;
-  box-shadow: 0 10px 26px rgb(10 10 26 / 40%);
-  transition:
-    transform var(--dur-slow) var(--ease),
-    box-shadow var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .hang figure:hover {
-  transform: translateY(-3px);
-}
-
-[data-mode="dream"] .wall figcaption,
-[data-mode="dream"] .sheet figcaption {
+[data-mode="dream"] .wall figcaption {
   color: var(--dim);
-}
-
-[data-mode="dream"] .hang figcaption {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: var(--t-prose-sm);
-  letter-spacing: 0.01em;
-  text-transform: lowercase;
 }
 
 /* ── the peek ───────────────────────────────────────────────────────────── */
@@ -1403,15 +1113,15 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   animation-delay: var(--wait, 0s);
 }
 
-.weather--fire s:nth-child(1)  { left: 73.4%; --rise: 7.5s; --wait: -2s;   --sway: 26px; }
-.weather--fire s:nth-child(2)  { left: 74.6%; --rise: 6.2s; --wait: -5s;   --sway: -18px; width: 3px; height: 3px; }
-.weather--fire s:nth-child(3)  { left: 72.6%; --rise: 8.4s; --wait: -1s;   --sway: 34px; width: 3px; height: 3px; }
-.weather--fire s:nth-child(4)  { left: 75.4%; --rise: 6.8s; --wait: -4s;   --sway: -28px; }
-.weather--fire s:nth-child(5)  { left: 73.9%; --rise: 9s;   --wait: -6.5s; --sway: 20px; width: 3px; height: 3px; }
-.weather--fire s:nth-child(6)  { left: 74.1%; --rise: 5.6s; --wait: -3s;   --sway: -34px; width: 2px; height: 2px; }
-.weather--fire s:nth-child(7)  { left: 72.1%; --rise: 8s;   --wait: -7s;   --sway: 30px; width: 3px; height: 3px; }
-.weather--fire s:nth-child(8)  { left: 75.9%; --rise: 7.1s; --wait: -0.5s; --sway: -22px; width: 2px; height: 2px; }
-.weather--fire s:nth-child(9)  { left: 73.1%; --rise: 6.5s; --wait: -5.5s; --sway: 16px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(1) { left: 73.4%; --rise: 7.5s; --wait: -2s;   --sway: 26px; }
+.weather--fire s:nth-child(2) { left: 74.6%; --rise: 6.2s; --wait: -5s;   --sway: -18px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(3) { left: 72.6%; --rise: 8.4s; --wait: -1s;   --sway: 34px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(4) { left: 75.4%; --rise: 6.8s; --wait: -4s;   --sway: -28px; }
+.weather--fire s:nth-child(5) { left: 73.9%; --rise: 9s;   --wait: -6.5s; --sway: 20px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(6) { left: 74.1%; --rise: 5.6s; --wait: -3s;   --sway: -34px; width: 2px; height: 2px; }
+.weather--fire s:nth-child(7) { left: 72.1%; --rise: 8s;   --wait: -7s;   --sway: 30px; width: 3px; height: 3px; }
+.weather--fire s:nth-child(8) { left: 75.9%; --rise: 7.1s; --wait: -0.5s; --sway: -22px; width: 2px; height: 2px; }
+.weather--fire s:nth-child(9) { left: 73.1%; --rise: 6.5s; --wait: -5.5s; --sway: 16px; width: 3px; height: 3px; }
 .weather--fire s:nth-child(10) { left: 74.9%; --rise: 9.4s; --wait: -8s;   --sway: -30px; width: 2px; height: 2px; }
 
 @keyframes ember-rise {
@@ -1434,15 +1144,15 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   animation-delay: var(--wait, 0s);
 }
 
-.weather--snow s:nth-child(1)  { left: 4%;  --fall: 13s; --wait: -2s;  --sway: 30px; }
-.weather--snow s:nth-child(2)  { left: 11%; --fall: 16s; --wait: -9s;  --sway: -24px; width: 3px; height: 3px; }
-.weather--snow s:nth-child(3)  { left: 18%; --fall: 11s; --wait: -5s;  --sway: 20px; }
-.weather--snow s:nth-child(4)  { left: 25%; --fall: 17s; --wait: -12s; --sway: -32px; }
-.weather--snow s:nth-child(5)  { left: 32%; --fall: 12s; --wait: -7s;  --sway: 26px; width: 5px; height: 5px; }
-.weather--snow s:nth-child(6)  { left: 39%; --fall: 15s; --wait: -3s;  --sway: -18px; width: 3px; height: 3px; }
-.weather--snow s:nth-child(7)  { left: 46%; --fall: 13.5s; --wait: -10s; --sway: 24px; }
-.weather--snow s:nth-child(8)  { left: 53%; --fall: 16.5s; --wait: -1s; --sway: -28px; }
-.weather--snow s:nth-child(9)  { left: 60%; --fall: 12.5s; --wait: -8s; --sway: 22px; width: 3px; height: 3px; }
+.weather--snow s:nth-child(1) { left: 4%;  --fall: 13s; --wait: -2s;  --sway: 30px; }
+.weather--snow s:nth-child(2) { left: 11%; --fall: 16s; --wait: -9s;  --sway: -24px; width: 3px; height: 3px; }
+.weather--snow s:nth-child(3) { left: 18%; --fall: 11s; --wait: -5s;  --sway: 20px; }
+.weather--snow s:nth-child(4) { left: 25%; --fall: 17s; --wait: -12s; --sway: -32px; }
+.weather--snow s:nth-child(5) { left: 32%; --fall: 12s; --wait: -7s;  --sway: 26px; width: 5px; height: 5px; }
+.weather--snow s:nth-child(6) { left: 39%; --fall: 15s; --wait: -3s;  --sway: -18px; width: 3px; height: 3px; }
+.weather--snow s:nth-child(7) { left: 46%; --fall: 13.5s; --wait: -10s; --sway: 24px; }
+.weather--snow s:nth-child(8) { left: 53%; --fall: 16.5s; --wait: -1s; --sway: -28px; }
+.weather--snow s:nth-child(9) { left: 60%; --fall: 12.5s; --wait: -8s; --sway: 22px; width: 3px; height: 3px; }
 .weather--snow s:nth-child(10) { left: 67%; --fall: 14s; --wait: -4s;  --sway: -20px; }
 .weather--snow s:nth-child(11) { left: 74%; --fall: 11.5s; --wait: -11s; --sway: 30px; width: 5px; height: 5px; }
 .weather--snow s:nth-child(12) { left: 81%; --fall: 15.5s; --wait: -6s; --sway: -26px; }
@@ -1753,40 +1463,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   [data-mode="dream"] .eidos-picks figure { width: calc((100% - 2 * var(--sp-2)) / 3); }
 }
 
-/* ── cv ─────────────────────────────────────────────────────────────────────
-   The register, given room: a date rail on the left, the company and what it
-   was on one line, the role beneath, then the evidence. Same materials as
-   the rest of dream — no boxes, no cards, nothing that looks like a resume
-   template. */
-
-[data-mode="dream"] .cv-summary {
-  max-width: 62ch;
-}
-
-[data-mode="dream"] .cv-facts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: var(--sp-3) var(--sp-2);
-  margin: var(--sp-4) 0 0;
-}
-
-[data-mode="dream"] .cv-facts dt {
-  margin-bottom: 0.4rem;
-  color: var(--dim);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-}
-
-[data-mode="dream"] .cv-facts dd {
-  margin: 0;
-  color: var(--bone);
-  font-family: var(--serif);
-  font-size: var(--t-fact);
-}
-
-[data-mode="dream"] .cv-facts dd a,
 [data-mode="dream"] .cv-list a {
   color: inherit;
   text-decoration: none;
@@ -1794,20 +1470,9 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .cv-facts dd a:hover,
 [data-mode="dream"] .cv-list a:hover {
   color: var(--hot);
   border-color: var(--hot);
-}
-
-[data-mode="dream"] .cv-head {
-  margin: var(--sp-5) 0 var(--sp-2);
-  color: var(--dim);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  font-weight: 400;
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
 }
 
 [data-mode="dream"] .cv-jobs {
@@ -1819,14 +1484,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .cv-jobs > li {
   padding-bottom: var(--sp-4);
   max-width: var(--measure);
-}
-
-[data-mode="dream"] .cv-when {
-  padding-top: 0.28rem;
-  color: var(--faint);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: 0.06em;
 }
 
 [data-mode="dream"] .cv-line {
@@ -1863,14 +1520,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   font-family: var(--serif);
   font-style: italic;
   font-size: var(--t-prose-sm);
-}
-
-[data-mode="dream"] .cv-note {
-  margin: 0.2rem 0 0 1.85rem;
-  color: var(--faint);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: 0.06em;
 }
 
 [data-mode="dream"] .cv-points {
@@ -1917,8 +1566,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   border-radius: 50%;
   background: rgb(255 155 192 / 55%);
 }
-
-[data-mode="dream"] .cv-bay { align-items: start; }
 
 [data-mode="dream"] .cv-list {
   margin: 0;
@@ -2085,26 +1732,8 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   }
 }
 
-/* The label that says the bullets are additions, not a second telling. */
-[data-mode="dream"] .cv-sub {
-  margin: var(--sp-3) 0 var(--sp-1);
-  color: var(--faint);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-}
-
 [data-mode="dream"] .cv-job--lead .cv-points {
   margin-left: 0;
-}
-
-/* The one thing true of every role, said once at the top instead of
-   thirty times inside the bullets. */
-[data-mode="dream"] .cv-lede {
-  max-width: var(--measure);
-  margin: 0 0 var(--sp-4);
-  color: var(--dim);
 }
 
 /* Label/value, like the hero facts: these are standing facts, not
@@ -2136,27 +1765,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
     grid-template-columns: 1fr;
     gap: 0.1rem;
   }
-}
-
-[data-mode="dream"] .cv-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin: 0;
-}
-
-[data-mode="dream"] .cv-chip {
-  padding: 0.28rem 0.7rem;
-  border: 1px solid rgb(236 230 217 / 18%);
-  border-radius: 999px;
-  color: var(--dim);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: 0.05em;
-}
-
-[data-mode="dream"] .cv-ways {
-  max-width: var(--measure);
 }
 
 @media (max-width: 720px) {
@@ -2318,7 +1926,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   gap: 0.4em;
   border-bottom-color: transparent;
 }
-
 
 /* Upright and closer to prose size: two stanzas of italic display type is a
    texture, not a read. The lines still hold their own measure, and the
@@ -2510,4 +2117,24 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   [data-mode="dream"] .cv-open {
     animation: none;
   }
+}
+
+/* The lead's own control: no company line above it to indent against, so it
+   sits flush with the prose it follows. */
+[data-mode="dream"] .cv-job--lead-more > summary {
+  max-width: none;
+  padding: 0.4rem 0 0.5rem;
+  margin-left: 0;
+}
+
+[data-mode="dream"] .cv-job--lead-more > summary:hover {
+  background: none;
+}
+
+[data-mode="dream"] .cv-job--lead-more .cv-more {
+  margin: 0;
+}
+
+[data-mode="dream"] .cv-job--lead-more .cv-points {
+  margin-left: 0;
 }

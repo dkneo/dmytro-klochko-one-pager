@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import AsciiShader from "../components/AsciiShader.astro";
 
 const roles = [
   {
@@ -283,8 +282,7 @@ const also = [
               a single conversational sentence, the way joonasvirtanen.com
               opens with one — same facts, folded into a line. */}
           <h1 class="card-title" id="s1">
-            <span class="only-bebop">dmytro klochko</span>
-            <span class="hero-line only-dream">
+            <span class="hero-line">
               hi! i’m dmytro klochko, ceo at{" "}
               <a href="https://replika.com" target="_blank" rel="noreferrer"><span
                 class="sent-mark"
@@ -293,23 +291,10 @@ const also = [
               />replika</a>, jaywalker at the intersection of art and technology.
             </span>
           </h1>
-          <p class="card-what only-bebop">
-            <a href="https://replika.com" target="_blank" rel="noreferrer">ceo, replika<span class="arw">↗</span></a>
-          </p>
         </div>
 
-        <p class="lede only-bebop">jaywalker at the intersection of art and technology.</p>
 
         <div class="prose">
-          <p class="only-bebop">
-            product &amp; engineering guy with a background in{" "}
-            <span class="peek" data-peek="/images/paintings/p05.jpg,/images/paintings/p04.jpg">art</span>,{" "}
-            <span class="peek" data-peek="/images/childhood-chess.jpg">chess</span> and theatre. based
-            between <span class="pin" aria-hidden="true">🗽</span>nyc,{" "}
-            <span class="pin" aria-hidden="true">🗼</span><span class="peek" data-peek="/video/vlog-paris-poster.jpg">paris</span> &amp;{" "}
-            <span class="pin" aria-hidden="true">🚀</span>sf. lecturer at the{" "}
-            <a class="peek" data-peek="/video/vlog-vienna-poster.jpg" href="https://www.univie.ac.at/en/" target="_blank" rel="noreferrer">university of vienna<span class="arw">↗</span></a>.
-          </p>
           <p>
             currently: building a replika spinoff {"{"}in stealth{"}"}. a truly novel and beautiful{" "}
             <b>agentic ai with real eq</b>, brought to everyone: to help people come back to who
@@ -321,7 +306,7 @@ const also = [
         {/* The facts the bebop paragraph carries, re-set as label/value pairs
             floating on the painting — the Finmain-hero grid from the elaya
             reference. Values are the same words, links and peeks as above. */}
-        <dl class="hero-facts only-dream">
+        <dl class="hero-facts">
           <div>
             <dt>based between</dt>
             <dd>
@@ -341,23 +326,10 @@ const also = [
         </dl>
       </div>
 
-      <figure class="portrait only-bebop">
-        <span class="cell">
-          <img
-            src="/images/about.jpg"
-            alt="Dmytro photographed in a mirror, in a cap and worn denim jacket"
-            width="720"
-            height="1280"
-            loading="lazy"
-            decoding="async"
-          />
-        </span>
-        <figcaption>london, 2026</figcaption>
-      </figure>
 
       {/* Three living clips in the pile — kbs, dok.fest, the london film —
           quirkier than stills. Same loop discipline as the old reel. */}
-      <div class="hero-side only-dream">
+      <div class="hero-side">
         <div class="hero-stack" aria-hidden="true">
           <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/vlog-kbs-poster.webp"><source src="/video/vlog-kbs.mp4" type="video/mp4" /><source src="/video/vlog-kbs.webm" type="video/webm" /></video></span></figure>
           <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/dokfest-poster.webp"><source src="/video/dokfest.mp4" type="video/mp4" /><source src="/video/dokfest.webm" type="video/webm" /></video></span></figure>
@@ -446,17 +418,6 @@ const also = [
           </div>
 
           <div class="joi-col">
-          <AsciiShader
-            class="ascii--joi"
-            src="/ascii/joi-sheet.jpg"
-            frames={16}
-            cols={104}
-            fps={10}
-            black={0.05}
-            white={0.99}
-            gamma={0.95}
-            hotAbove={0.34}
-          />
           </div>
         </div>
 
@@ -498,10 +459,23 @@ const also = [
           </li>
         </ul>
 
-        <p class="cv-sub">more of it</p>
-        <ul class="cv-points">
-          {jobs[0].points.map((p) => <li set:html={p} />)}
-        </ul>
+        {/* The bullets sit behind the same control as every other job. There
+            is a page of prose and three receipts above them; asking for the
+            list is the same gesture here as it is further down. */}
+        <details class="cv-job cv-job--lead-more">
+          <summary>
+            <span class="cv-more">
+              <i class="cv-more-shut">read more</i>
+              <i class="cv-more-open">read less</i>
+              <b class="cv-chev" aria-hidden="true" />
+            </span>
+          </summary>
+          <div class="cv-open">
+            <ul class="cv-points">
+              {jobs[0].points.map((p) => <li set:html={p} />)}
+            </ul>
+          </div>
+        </details>
       </li>
 
       {
@@ -566,7 +540,7 @@ const also = [
       the war note carrying the photograph of him at sixteen, and an easel
       on the right that shows each bead's picture on hover. Bebop keeps its
       two original sections above. */}
-  <section class="shell session only-dream" id="journey" data-scene="fire" aria-labelledby="s8">
+  <section class="shell session" id="journey" data-scene="fire" aria-labelledby="s8">
     <div class="card">
       <p class="card-no">04</p>
       <h2 class="card-title" id="s8">background</h2>
@@ -641,92 +615,6 @@ const also = [
         ))
       }
     </ul>
-  </section>
-
-  <section class="shell session only-bebop" id="before" data-scene="fire" aria-labelledby="s3">
-    <div class="bay bay--flush">
-      <div>
-        <div class="card">
-          <p class="card-no">04</p>
-          <h2 class="card-title" id="s3">before replika</h2>
-        </div>
-
-        <ol class="reg">
-          {
-            roles.slice(1).map((r) => (
-              <li>
-                <span class="reg-mark" style={`--mark: url(${r.mark})`} aria-hidden="true" />
-                <span class="reg-co">
-                  {r.href ? (
-                    <a href={r.href} target="_blank" rel="noreferrer">
-                      {r.company}<span class="arw">↗</span>
-                    </a>
-                  ) : (
-                    r.company
-                  )}
-                </span>
-                <span class="reg-what">{r.what}</span>
-                <span class="reg-role">{r.role}</span>
-              </li>
-            ))
-          }
-        </ol>
-      </div>
-
-      <div class="joi-col">
-        <AsciiShader
-          class="ascii--fun"
-          src="/ascii/fun-sheet.jpg"
-          frames={23}
-          cols={88}
-          fps={10}
-          black={0.06}
-          white={0.99}
-          gamma={1.0}
-          label="this is where the fun begins"
-        />
-
-      </div>
-    </div>
-  </section>
-
-  <section class="shell session only-bebop" id="origin" data-scene="fire" aria-labelledby="s4">
-    <div class="card">
-      <p class="card-no">05</p>
-      <h2 class="card-title" id="s4">upbringing</h2>
-    </div>
-
-    <p class="lede">
-      born &amp; raised in 🇺🇦 donetsk. fled <button
-        class="gloss"
-        type="button"
-        popovertarget="war"
-        aria-label="war – what happened"
-      >war</button> as a teenager. slept on the streets for weeks.
-    </p>
-
-    <div class="gloss-note" id="war" popover>
-      russia took my hometown in 2014, when i was sixteen.
-    </div>
-
-    <div class="bay">
-      <ol class="log">
-        {log.map((item) => <li><p>{item}</p></li>)}
-      </ol>
-
-      <div class="sheet">
-        {
-          shots.map((sh) => (
-            <figure>
-              <span class="cell">
-                <img src={sh.src} alt={sh.alt} loading="lazy" />
-              </span>
-              <figcaption>{sh.cap}</figcaption>
-            </figure>
-          ))
-        }
-      </div>
-    </div>
   </section>
 
   <script is:inline>
@@ -918,16 +806,6 @@ const also = [
         <p class="worklog-cap">me at work</p>
       </div>
 
-      <AsciiShader
-        class="ascii--bebop"
-        src="/ascii/bebop-sheet.jpg"
-        frames={28}
-        cols={92}
-        fps={11}
-        black={0.1}
-        white={0.99}
-        gamma={1.15}
-      />
     </div>
   </section>
 

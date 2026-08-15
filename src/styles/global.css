@@ -320,28 +320,6 @@ img {
   text-transform: uppercase;
 }
 
-.card-what {
-  margin: 0.5rem 0 0;
-  color: var(--hot);
-  font-size: var(--t-sm);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-}
-
-/* ── target size ────────────────────────────────────────────────────────────
-   Every standalone link on the site measured 17-22px tall: wide enough, but
-   under the 24px WCAG 2.5.8 (AA) asks for, and on a phone that is a fiddly
-   tap. Vertical padding on a genuinely inline box grows the hit area without
-   touching the line box, so .reg-co and .card-what cost nothing at all. The
-   nav and the research row are flex containers, though, which makes their
-   links flex items, and .receipt-src is inline-block — for those three the
-   padding does grow the row, so the containers give the space back below.
-
-   Links inside a sentence are deliberately not here: 2.5.8 exempts targets
-   whose size is set by the line-height of the text around them, and padding
-   them would make neighbouring lines overlap. */
-.card-what a,
-.reg-co a,
 .research a,
 .receipt-src,
 .site-nav a,
@@ -392,48 +370,6 @@ svg.pin {
   margin: 0 0 var(--sp-3);
   font-size: var(--t-lg);
   line-height: 1.45;
-}
-
-/* ── the register ───────────────────────────────────────────────────────── */
-
-.reg {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* The descriptor sits directly after the name and the role directly under
-   both, so a company reads as one block. Previously the name, what it is and
-   the role were three widely spaced pieces and the eye had to assemble them. */
-.reg li {
-  display: grid;
-  grid-template-columns: 1.6rem auto 1fr;
-  gap: 0.15rem 0.9rem;
-  padding: 0 0 var(--sp-3);
-}
-
-.reg-mark {
-  width: 1.15rem;
-  height: 1.15rem;
-  margin-top: 0.28rem;
-  background: var(--cold);
-  mask: var(--mark) center / contain no-repeat;
-  -webkit-mask: var(--mark) center / contain no-repeat;
-}
-
-.reg-co {
-  font-size: var(--t-md);
-  letter-spacing: var(--ls-tight);
-  text-transform: uppercase;
-}
-
-.reg-co a {
-  transition: color var(--dur) var(--ease);
-}
-
-.reg-co a:hover {
-  color: var(--cold);
 }
 
 .reg-what {
@@ -634,22 +570,6 @@ svg.pin {
   color: var(--bone);
 }
 
-/* ── reel ───────────────────────────────────────────────────────────────── */
-
-/* Three across, so six clips make two even rows. auto-fit gave four and left
-   a widowed pair underneath. */
-.reel {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--sp-2);
-}
-
-.reel figure,
-.reel a {
-  display: block;
-  margin: 0;
-}
-
 .frame {
   position: relative;
   display: block;
@@ -667,13 +587,6 @@ svg.pin {
   object-fit: cover;
   filter: grayscale(1) contrast(1.15) brightness(0.9);
   transition: filter var(--dur-slow) var(--ease);
-}
-
-.reel a:hover .frame video,
-.reel a:hover .frame img,
-.reel figure:hover .frame video,
-.reel figure:hover .frame img {
-  filter: none;
 }
 
 .cap {
@@ -755,20 +668,6 @@ svg.pin {
     animation: none !important;
     transition-duration: 120ms !important;
   }
-}
-
-/* The shelf is a log with no numbers: books and records are a list, not a
-   sequence, and numbering them implied a ranking that isn't there. */
-.shelf {
-  margin-top: 0;
-}
-
-.shelf li {
-  grid-template-columns: 1fr;
-}
-
-.shelf li::before {
-  content: none;
 }
 
 /* ── bay ────────────────────────────────────────────────────────────────────
@@ -984,65 +883,6 @@ body::after {
   text-transform: uppercase;
 }
 
-/* The one line of his that had nowhere to live after the rebuild. It is not a
-   section, it is a signature, so it sits with the sign-off. */
-/* ── contact sheet ──────────────────────────────────────────────────────────
-   Photographs stop being features and become records. Small, uniform, indexed,
-   in a strip. A full-colour rectangle on a starfield reads as a hole punched
-   in the void no matter what border you put on it, because the rectangle is
-   the problem; at this size they are evidence filed away rather than art
-   arguing with the type. Which is also honest: most of these are snapshots. */
-
-.sheet {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
-  gap: var(--sp-2);
-  margin: var(--sp-3) 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.sheet figure,
-.sheet li {
-  margin: 0;
-}
-
-.sheet .cell {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 1;
-  border: 1px solid rgb(233 229 216 / 16%);
-  background: var(--deck);
-}
-
-.sheet img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--dur-slow) var(--ease);
-}
-
-.sheet figure:hover img,
-.sheet li:hover img {
-  transform: scale(1.06);
-}
-
-.sheet figcaption {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.4rem;
-  color: var(--faint);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-}
-
-.sheet figcaption b {
-  color: var(--hot);
-  font-weight: 400;
-}
-
 /* No frame, no caption, no heading, no explanation. It is a meme and it lands
    on its own; the paragraph underneath it was me talking over the joke. */
 .lynch {
@@ -1053,44 +893,6 @@ body::after {
 .lynch img {
   width: 100%;
   height: auto;
-}
-
-/* The hero portrait sits beside the copy rather than under it, so the right
-   half of the opening screen is not dead air. */
-/* Fills its column rather than sitting in a corner of it. */
-.portrait {
-  width: 100%;
-  margin: 0;
-}
-
-.portrait .cell {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 1;
-  border: 1px solid rgb(233 229 216 / 16%);
-  background: var(--deck);
-}
-
-.portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.portrait figcaption {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: var(--sp-1);
-  color: var(--faint);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-}
-
-.portrait figcaption b {
-  color: var(--hot);
-  font-weight: 400;
 }
 
 /* ── ascii shader ───────────────────────────────────────────────────────────
@@ -1125,19 +927,6 @@ body::after {
    wrecked the grid. */
 .log li p {
   margin: 0;
-}
-
-/* Joi sits in Replika's column, at the width of the column. */
-.ascii--joi {
-  max-width: 22rem;
-  margin-bottom: var(--sp-4);
-}
-
-/* Spike lights the cigarette above the sign-off. Sized so the footer stays a
-   footer rather than becoming a second hero. */
-.ascii--bebop {
-  max-width: 30rem;
-  margin-bottom: var(--sp-3);
 }
 
 /* ── the wall ───────────────────────────────────────────────────────────────
@@ -1213,15 +1002,6 @@ body::after {
   color: var(--hot);
 }
 
-/* Lives inside a section rather than between two, so it inherits the shell's
-   width instead of insetting itself by another gutter, and the section's own
-   bottom padding is what separates it from the next title. */
-.onward--tail {
-  width: 100%;
-  margin-top: var(--sp-4);
-  padding-bottom: 0;
-}
-
 /* ── gloss ──────────────────────────────────────────────────────────────────
    "war" is one word doing a lot of work. The popover explains it on demand
    without turning the line into a paragraph. Native popover, no script. */
@@ -1285,54 +1065,8 @@ body::after {
   }
 }
 
-/* The picture takes its height from the writing beside it. Its contents are
-   taken out of flow, so the column contributes nothing to the row's intrinsic
-   height and the row is measured by the copy alone; stretch then gives the
-   photograph exactly that height. Simply dropping the aspect-ratio was worse:
-   with no definite height the image asserted its own, 576px against 250px of
-   text. */
-/* A square-ish block starting level with the title, rather than a strip the
-   height of the copy: at the copy's height the box was wide and short, and
-   cover took his head off.
-
-   0.78 spent 119px of that block on the empty ceiling above the hat. The two
-   numbers below are one adjustment: the frame loses that strip, and the crop
-   moves down by exactly the same amount, so the whole loss comes off the top
-   and the bottom edge — the boots — does not move. Both are ratios, so they
-   hold at every width. */
-.bay .portrait {
-  position: relative;
-  align-self: start;
-  aspect-ratio: 0.94;
-}
-
-.bay .portrait .cell {
-  position: absolute;
-  inset: 0 0 1.5rem;
-  aspect-ratio: auto;
-}
-
-.portrait img {
-  object-position: 50% 57%;
-}
-
-.bay .portrait figcaption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin: 0;
-}
-
 .joi-col {
   padding-top: 0.4rem;
-}
-
-.poem-by {
-  margin: var(--sp-3) 0 0;
-  color: var(--faint);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
 }
 
 .crumb {
@@ -1346,10 +1080,6 @@ body::after {
   .wall {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
-
-.ascii--fun {
-  max-width: 24rem;
 }
 
 /* The record spins next to the shelf and is the whole link. */
@@ -1415,15 +1145,9 @@ a:focus-visible .arw {
   left: 0.16em;
 }
 
-/* ── link feedback ──────────────────────────────────────────────────────────
-   Every outbound link now answers the pointer. The underline grows from the
-   left rather than appearing, which is cheap and reads as deliberate. */
-
-.reg-co a,
 .record-meta b,
 .receipt-src,
-.ways a,
-.card-what a {
+.ways a {
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -1433,11 +1157,9 @@ a:focus-visible .arw {
     color var(--dur) var(--ease);
 }
 
-.reg-co a:hover,
 .record:hover .record-meta b,
 .receipt-src:hover,
-.ways a:hover,
-.card-what a:hover {
+.ways a:hover {
   background-size: 100% 1px;
 }
 
@@ -1462,19 +1184,11 @@ a:focus-visible .arw {
   font-weight: 400;
 }
 
-.poem-by {
-  margin: var(--sp-5) 0 var(--sp-3);
-}
-
 /* Keeps the flag with the word it belongs to, and the full stop with the
    flag. Left to wrap, the mark took the sentence's final character onto a
    line of its own. */
 .nb {
   white-space: nowrap;
-}
-
-.ascii--joi {
-  max-width: 100%;
 }
 
 /* A sentence, not a label. It was borrowing the poems' uppercase treatment,
@@ -1494,13 +1208,6 @@ a:focus-visible .arw {
   color: var(--hot);
 }
 
-@media (max-width: 720px) {
-  .hang figure {
-    height: 7rem;
-    flex: var(--ar) 1 calc(var(--ar) * 7rem);
-  }
-}
-
 /* The footer carries the same two pages as the header, so a reader who has
    scrolled to the bottom of either page does not have to scroll back up to
    move. */
@@ -1516,70 +1223,11 @@ a:focus-visible .arw {
   left: -0.16em;
 }
 
-/* ── the hang ───────────────────────────────────────────────────────────────
-   A justified gallery. Each row carries an aspect-ratio equal to the sum of
-   its paintings' ratios, so the row's height resolves to width / sum and
-   every painting in it lands at the same height at its own true proportions.
-   Rows finish flush at any width, nothing is cropped, and there is no ragged
-   final row, which is what flex-wrap alone could not manage. */
-
-.hang {
-  display: grid;
-  /* Row gap leaves room for captions, which hang below their row. */
-  gap: calc(var(--sp-3) + 1.4rem);
-  margin: var(--sp-3) 0 0;
-}
-
-.hang-plates {
-  display: flex;
-  gap: var(--sp-1);
-  aspect-ratio: var(--sum);
-}
-
-.hang figure {
-  position: relative;
-  flex: var(--ar) 1 0;
-  min-width: 0;
-  margin: 0;
-}
-
 .plate-img {
   display: block;
   overflow: hidden;
   height: 100%;
   background: var(--deck);
-}
-
-.hang figcaption {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  margin-top: var(--sp-1);
-  color: var(--faint);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-overflow: ellipsis;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.hang img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--dur-slow) var(--ease);
-}
-
-.hang figure:hover img {
-  transform: scale(1.04);
-}
-
-@media (max-width: 900px) {
-  .reel {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 /* Stays two across on a phone. One column made six clips 2,171px tall — a
@@ -1599,29 +1247,6 @@ a:focus-visible .arw {
   .receipts {
     grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 720px) {
-  /* Four across puts each painting at about 85px and ellipsises every name
-     into nothing. Two across, square, with the caption allowed to wrap: the
-     justified maths is a wide-screen luxury and is worth dropping here. */
-  .hang-plates {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    aspect-ratio: auto;
-  }
-
-  .hang-plates figure {
-    aspect-ratio: 1;
-  }
-
-  .hang figcaption {
-    position: static;
-    overflow: visible;
-    text-overflow: clip;
-    white-space: normal;
-  }
-
 }
 
 /* Three small ways out of the page, in one row rather than stacked. */
