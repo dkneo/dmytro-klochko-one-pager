@@ -104,23 +104,10 @@ const studyQuote = {
   meta: "guingrich & graziano, oxford intersections: ai in society, 2025",
 };
 
-// The whole road in one thread, five years old to now. Childhood lines are
-// the log verbatim; career entries reuse the register's fields; the busking
-// and filmmaking lines come from his reference doc. `pic` is what the easel
-// shows on hover — a video where he gave one.
+// The road, five years old to the student theatre. The six companies used to
+// head it; here they are the experience section above, so the road keeps only
+// what a register cannot hold. `pic` is what the easel shows.
 const journey = [
-  { name: "university of vienna", href: "https://www.univie.ac.at/en/",
-    role: "lecturer", glyph: "🎓", pic: "/images/journey/lecture.jpg" },
-  { name: "hunch", mark: "/images/marks/homa.png",
-    what: "remote team happiness saas", role: "founder and chief executive officer" },
-  { name: "chatfuel", href: "https://chatfuel.com", mark: "/images/marks/chatfuel.png",
-    what: "marketing ai agent. 150k+ businesses", role: "growth, ai" },
-  { name: "hily", href: "https://hily.com", mark: "/images/marks/hily.png",
-    what: "#3 dating app in the u.s. by downloads", role: "product, growth, data" },
-  { name: "vk", href: "https://vk.com", mark: "/images/marks/vk.png",
-    what: "largest european social network. 100m+ mau", role: "product, growth, ml" },
-  { name: "skyeng", href: "https://skyeng.ru", mark: "/images/marks/skyeng.png",
-    what: "#1 1:1 education platform in europe", role: "product, growth" },
   { text: "busking, improv, songwriting studio, volunteering.",
     pic: "/video/busking.mp4", video: true, poster: "/video/busking-poster.jpg",
     pos: "50% 30%" },
@@ -165,16 +152,16 @@ const jobs = [
     points: [
       "tripled revenue and made the company profitable",
       "x1.8 arpu, +58% d30 retention",
-      "grew it to 42m people across 145+ countries",
-      "commissioned <b>studio dumbar</b> for a full rebrand, then redesigned the app around it",
+      "grew it to 42m users across 145+ countries",
+      'commissioned <a href="https://studiodumbar.com/" target="_blank" rel="noreferrer">studio dumbar<span class="arw">↗</span></a> for a full rebrand',
+      "redesigned the whole experience: new avatars, voice and video calls that can see, and a memory that holds the people and the arcs of a life in one place",
       'ran peer-reviewed research with <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=67360" target="_blank" rel="noreferrer">harvard<span class="arw">↗</span></a>, <a href="https://www.nature.com/articles/s44184-023-00047-6" target="_blank" rel="noreferrer">stanford<span class="arw">↗</span></a>, <a href="https://arxiv.org/abs/2311.10599" target="_blank" rel="noreferrer">princeton<span class="arw">↗</span></a> and the <a href="https://www.univie.ac.at/en/" target="_blank" rel="noreferrer">university of vienna<span class="arw">↗</span></a>',
-      "rebuilt the team around phds, true artists and pirates",
-      "put replika back in the zeitgeist {time, cnn, bbc, reuters, cbs, kbs, german national tv, australian and new zealand primetime, mastermind paris}",
-      "spun a product out of the company and sold it for multiple millions",
+      "rebuilt the team from the ground up: phds, true artists and pirates",
+      'put replika back in the zeitgeist {<a href="https://time.com/collections/davos-2026/7339222/ai-predictions-2026/" target="_blank" rel="noreferrer">time<span class="arw">↗</span></a>, cnn, bbc, reuters, cbs, kbs, german national tv, australian and new zealand primetime, mastermind paris}',
+      "spun a new app out of the company and sold it for multiple millions",
       "cut product and infrastructure cost by 90% while retention kept climbing",
-      "went to war for the company in legislatures and in public, from the <b>u.s. senate</b> to european governments",
-      "won as much of it with public stunts as with lawyers",
-      'designed the merch myself, <a href="https://x.com/replika/status/1991136959385817336" target="_blank" rel="noreferrer">down to the label<span class="arw">↗</span></a>',
+      "went full founder mode for the company in legislatures and in public, from the <b>u.s. senate</b> to european governments, with ferocity and <i>true</i> resourcefulness",
+      'designed the swag myself, <a href="https://x.com/replika/status/1991136959385817336" target="_blank" rel="noreferrer">down to the label<span class="arw">↗</span></a>',
     ],
   },
   {
@@ -186,8 +173,9 @@ const jobs = [
       "founded it and took it to hundreds of thousands in arr",
       "raised pre-seed from top silicon valley angels",
       "closed the first 14 contracts myself {four of them enterprise} on 600+ customer calls",
-      "recruited the founding engineering and design team",
-      "shipped a self-service skills marketplace, opened weekly by over half of each client's team",
+      "recruited a world-class founding engineering and design team",
+      "shipped a shape nobody else had: a saas platform with a self-service skills marketplace on top, opened weekly by over half of each client's team",
+      "gave every teammate a trading card that compounded micro-feedback with ai reading of slack, git and email",
     ],
   },
   {
@@ -196,12 +184,20 @@ const jobs = [
     role: "head of marketing and expansion",
     mark: "/images/marks/chatfuel.png",
     href: "https://chatfuel.com",
+    media: {
+      video: true,
+      src: "/video/cv-meta.mp4",
+      webm: "/video/cv-meta.webm",
+      poster: "/video/cv-meta-poster.jpg",
+      full: "/video/meta-chatfuel.mp4",
+      cap: "the ad meta made",
+      screen: true,
+    },
     points: [
-      "opened the product into new markets across three continents",
-      "repositioned it, which unlocked new acquisition channels",
-      "worked with the ml and ai teams on where the product could go",
-      'made the <a href="/video/meta-chatfuel.mp4" target="_blank" rel="noreferrer">meta ad<span class="arw">↗</span></a> that turned into a hit',
-      'hosted a <a href="https://www.youtube.com/watch?v=WOm_XzkFNWE" target="_blank" rel="noreferrer">podcast<span class="arw">↗</span></a> people still write to me about',
+      "took the product into new markets across three continents, and took them whole",
+      "found it new pmf, and with it acquisition channels that had been closed",
+      "reshaped the ai core of the product to unlock growth",
+      "partnered with <b>meta</b> so closely that they made an ad about it",
     ],
   },
   {
@@ -210,11 +206,16 @@ const jobs = [
     role: "strategic product manager",
     mark: "/images/marks/hily.png",
     href: "https://hily.com",
+    media: {
+      src: "/images/cv-lecture.jpg",
+      alt: "Dmytro at a flip chart, microphone in hand, mid-lecture",
+      cap: "lecturing",
+    },
     points: [
       "ran tens of winning experiments on the flagship, an app 300k people opened every day",
-      "turned the company's testing into a startup accelerator, from one concept a month to thirty of the riskiest a week",
+      "turned the company's testing into a startup accelerator: one concept a month became thirty of the riskiest a week",
       "founded a new app out of an insight from pmf expansion discovery",
-      'lectured for the company and for its <a href="/images/cv-lecture.jpg" target="_blank" rel="noreferrer">users<span class="arw">↗</span></a>',
+      "lectured for the company and for its users",
     ],
   },
   {
@@ -225,9 +226,9 @@ const jobs = [
     href: "https://vk.com",
     points: [
       "changed what millions of people do daily on the largest social network, from doomscrolling to microlearning",
-      "built ml pipelines that read interest and aptitude at that scale, education above all",
+      "built ml pipelines that read what a hundred million people were interested in and good at, then pointed them at learning",
       "redrew ui and ux patterns inside a machine that size",
-      "raised retention and time spent, and made the time worth spending",
+      "drove retention and time spent up, and made that time worth spending",
     ],
   },
   {
@@ -237,15 +238,15 @@ const jobs = [
     mark: "/images/marks/skyeng.png",
     href: "https://skyeng.ru",
     points: [
-      "ran a one-person accelerator inside the company, launching products 0→1 and rebuilding the ones that stayed",
-      "owned every funnel, gate and conversion rate in the company, for every user, from the front page to app onboarding",
+      "ran a one-person accelerator inside the company, launching products 0→1",
+      "owned every funnel, gate and conversion rate in the company, from the front page to app onboarding",
       "built hundreds of landing pages, 43 of them in a single night",
       "rebuilt mobile onboarding and experimented until conversion and activation doubled",
-      "taught onboarding to spot which influencer had just sent you and rebuild itself around them, 3.7x funnel conversion",
+      "made onboarding recognise which influencer a user had arrived from and rebuild itself around them, 3.7x funnel conversion",
       "fixed mobile marketing analytics in ten days, first time ever touching it, after years of it defeating everyone",
       "ran growth and product for skyeng's magazine, millions of visitors, turning its stories into personalised self-serve funnels",
       "rebuilt the data pipelines under all of it",
-      'wrote for it too: <a href="https://skyeng.ru/magazine/moj-edinstvennyj-uchitel-anglijskogo-bomzh-na-gorodskoj-ploshadi/" target="_blank" rel="noreferrer">the only english teacher i had<span class="arw">↗</span></a> and <a href="https://vc.ru/hr/192417-pochemu-prodaktu-vazhno-ostavatsya-chelovekom-i-pochemu-eto-polezno-dlya-biznesa" target="_blank" rel="noreferrer">on staying human<span class="arw">↗</span></a>',
+      'wrote for it too {in russian}: <a href="https://skyeng.ru/magazine/moj-edinstvennyj-uchitel-anglijskogo-bomzh-na-gorodskoj-ploshadi/" target="_blank" rel="noreferrer">the only english teacher i had<span class="arw">↗</span></a> and <a href="https://vc.ru/hr/192417-pochemu-prodaktu-vazhno-ostavatsya-chelovekom-i-pochemu-eto-polezno-dlya-biznesa" target="_blank" rel="noreferrer">on staying human<span class="arw">↗</span></a>',
     ],
   },
 ] as const;
@@ -254,6 +255,8 @@ const jobs = [
 const also = [
   { what: "lecturer", where: "british higher school of art & design", href: "https://britishdesign.ru/about/tutors/196920/" },
   { what: "lecturer", where: "university of vienna", href: "https://www.univie.ac.at/en/" },
+  { what: "guest", where: "productsense podcast {in russian}",
+    href: "https://www.youtube.com/watch?v=WOm_XzkFNWE" },
   { what: "mentor", where: "50+ product people and designers" },
   { what: "volunteer", where: "ukrainian causes" },
 ] as const;
@@ -488,7 +491,7 @@ const also = [
 
       {
         jobs.slice(1).map((j) => (
-          <li>
+          <li class={"media" in j && j.media ? "cv-job--media" : undefined}>
             <p class="cv-line">
               <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />
               <span class="cv-co">
@@ -502,6 +505,26 @@ const also = [
             <ul class="cv-points">
               {j.points.map((p) => <li set:html={p} />)}
             </ul>
+
+            {"media" in j && j.media && (
+              <figure class={j.media.screen ? "cv-media cv-media--screen" : "cv-media"}>
+                <span class="cell">
+                  {j.media.video ? (
+                    <video autoplay muted loop playsinline preload="metadata" poster={j.media.poster}>
+                      <source src={j.media.webm} type="video/webm" />
+                      <source src={j.media.src} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img src={j.media.src} alt={j.media.alt} loading="lazy" />
+                  )}
+                </span>
+                <figcaption>
+                  {j.media.full
+                    ? <a href={j.media.full} target="_blank" rel="noreferrer">{j.media.cap}<span class="arw">↗</span></a>
+                    : j.media.cap}
+                </figcaption>
+              </figure>
+            )}
           </li>
         ))
       }
@@ -843,6 +866,33 @@ const also = [
         <figure><span class="cell"><img src="/images/hi-3.jpg" alt="" loading="lazy" /></span></figure>
       </div>
     </div>
+  </section>
+
+  {/* Off the shelf and back on the page: the register ends, and something
+      he made ends it. */}
+  <section class="shell session" id="poems" data-scene="fire" aria-labelledby="sp">
+    <div class="card">
+      <p class="card-no">08</p>
+      <h2 class="card-title" id="sp">and some poems</h2>
+    </div>
+
+    <div class="poems">
+      <blockquote class="poem">
+        i am lost in sorrento<br />
+        for i am the taste of its lemons and its women&rsquo;s feet<br />
+        i&rsquo;m the salt of its breeze<br />
+        i&rsquo;m so glad i can&rsquo;t breathe<br />
+        i&rsquo;m so tall i am whole twelve feet
+      </blockquote>
+      <blockquote class="poem">
+        this girl is the warm sensation of young sun on my bare chest<br />
+        her chestnut irises, and the greens in them, glimmer with playful unrest<br />
+        when she whispers her spells, her tricks, and her promises, i couldn&rsquo;t get any slumber<br />
+        for she carries inside her an eternal summer, an eternal summer
+      </blockquote>
+    </div>
+
+    <p class="poem-by">mine, 2026.</p>
   </section>
 
   <section class="shell session" data-scene="fire">
