@@ -16,7 +16,7 @@
 /* ── palette, still sampled from the paintings ──────────────────────────── */
 
 :root[data-mode="dream"] {
-  --void: #262b44;   /* quiet dusk ground — calmer than bebop's void */
+  --void: #262b44;   /* quiet dusk ground */
   --deck: #2f3554;
   --bone: #ece6d9;
   --dim: #a9aecb;
@@ -43,7 +43,6 @@
   background: linear-gradient(180deg, #232840 0%, #262b44 40%, #2a3050 100%)
     fixed var(--void);
 }
-[data-mode="bebop"] .dream-sky { display: none; }
 [data-mode="dream"] .stars { display: none; }
 
 [data-mode="dream"] #now .bay--flush,
@@ -662,7 +661,6 @@ html.is-shook .scenes {
    camera, the snowlit village for saying hi, the estuary for taste. All
    fixed layers; only opacity and compositor transforms ever change. */
 
-[data-mode="bebop"] .scenes { display: none; }
 
 .scenes {
   position: fixed;
@@ -1034,12 +1032,6 @@ html[data-scene="estuary"] .scenes i[data-s="estuary"] {
   box-shadow: 0 14px 34px rgb(10 10 26 / 50%);
 }
 
-[data-mode="bebop"] .peek-pop img {
-  border: 1px solid rgb(233 229 216 / 25%);
-  background: var(--deck);
-  box-shadow: 0 10px 30px rgb(0 0 0 / 55%);
-  filter: grayscale(1) contrast(1.12);
-}
 
 /* ── copied ─────────────────────────────────────────────────────────────────
    Clicking an email address also copies it, and says so where the label
@@ -1092,7 +1084,6 @@ svg.pin {
   transition: opacity 900ms var(--ease);
 }
 
-[data-mode="bebop"] .weather { display: none; }
 
 html[data-scene="fire"] .weather--fire { opacity: 1; }
 html[data-scene="snow"] .weather--snow { opacity: 1; }
@@ -1639,7 +1630,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 }
 
 /* The shader is hidden in dream, as it is on the main page, so the spread
-   is a single column here and keeps both in bebop. */
+   is a single column here. */
 [data-mode="dream"] .cv-spread {
   grid-template-columns: 1fr;
 }

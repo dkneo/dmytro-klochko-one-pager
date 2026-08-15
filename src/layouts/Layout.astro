@@ -316,9 +316,8 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
           }
         }, { rootMargin: "-42% 0px -42% 0px" });
         for (const s of sections) io.observe(s);
-        // the rest of the journey loads once the page is idle — but only
-        // for eyes that will see it: bebop visitors pay nothing until the
-        // moment they go dreamy.
+        // the rest of the journey loads once the page is idle, so the first
+        // paint only ever waits on the scene it is actually showing.
         let warmed = false;
         const later = () => {
           if (warmed) return;
