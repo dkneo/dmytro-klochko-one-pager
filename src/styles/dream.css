@@ -2331,9 +2331,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   border-bottom-color: transparent;
 }
 
-[data-mode="dream"] .coda .poem-by {
-  margin-top: var(--sp-3);
-}
 
 /* Upright and closer to prose size: two stanzas of italic display type is a
    texture, not a read. The lines still hold their own measure, and the
@@ -2350,3 +2347,20 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   line-height: 1.7;
   color: var(--bone);
 }
+
+[data-mode="dream"] .worklog-cap {
+  margin: var(--sp-2) 0 0;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .worklog--aside {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: none;
+  gap: var(--sp-2) 0.6rem;
+  align-self: start;
+}
+[data-mode="dream"] .worklog--aside .worklog-cap { grid-column: 1 / -1; }

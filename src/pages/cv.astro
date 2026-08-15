@@ -256,11 +256,13 @@ const jobs = [
 
 // The things that run underneath all of it.
 const also = [
+  // Vienna points at the ComAI interview rather than the university's front
+  // page: a row that says lecturer should link to him lecturing, not to a
+  // homepage that has never heard of him.
+  { what: "lecturer", where: "university of vienna",
+    href: "https://comai.space/en/ai-companionship-an-interview-with-dmytro-klochko-ceo-of-replika/" },
   { what: "lecturer", where: "british higher school of art & design", href: "https://britishdesign.ru/about/tutors/196920/" },
-  { what: "lecturer", where: "university of vienna", href: "https://www.univie.ac.at/en/" },
-  { what: "guest", where: "productsense podcast {in russian}",
-    href: "https://www.youtube.com/watch?v=WOm_XzkFNWE" },
-  { what: "mentor", where: "50+ product people and designers" },
+  { what: "mentor", where: "50+ product people, designers and entrepreneurs" },
   { what: "volunteer", where: "ukrainian causes" },
 ] as const;
 ---
@@ -856,6 +858,23 @@ const also = [
         </ul>
       </div>
 
+
+      {/* The pile moves in beside the contact list: at four across it comes
+          out the same height as the list, so the page ends on one block
+          instead of a list, a gap and a gallery. */}
+      <div class="worklog worklog--aside">
+        {
+          Array.from({ length: 8 }, (_, i) => (
+            <figure>
+              <span class="cell">
+                <img src={`/images/work/w0${i + 1}.webp`} alt="" width="440" height="440" loading="lazy" decoding="async" />
+              </span>
+            </figure>
+          ))
+        }
+        <p class="worklog-cap">me at work</p>
+      </div>
+
       <AsciiShader
         class="ascii--bebop"
         src="/ascii/bebop-sheet.jpg"
@@ -894,23 +913,6 @@ const also = [
     </div>
   </section>
 
-  {/* A coda, not a claim. These are cute and they know it, so they sit after
-      everything that had to be argued, with a caption that undersells them. */}
-  <section class="shell session coda" data-scene="fire">
-    <div class="worklog">
-      {
-        Array.from({ length: 8 }, (_, i) => (
-          <figure>
-            <span class="cell">
-              <img src={`/images/work/w0${i + 1}.webp`} alt="" width="440" height="440" loading="lazy" decoding="async" />
-            </span>
-          </figure>
-        ))
-      }
-    </div>
-
-    <p class="poem-by">the days, mostly.</p>
-  </section>
 
   <section class="shell session" data-scene="fire">
     <a class="onward onward--back" href="/">

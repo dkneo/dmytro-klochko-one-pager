@@ -674,6 +674,23 @@ const description =
         </ul>
       </div>
 
+
+      {/* The pile moves in beside the contact list: at four across it comes
+          out the same height as the list, so the page ends on one block
+          instead of a list, a gap and a gallery. */}
+      <div class="worklog worklog--aside">
+        {
+          Array.from({ length: 8 }, (_, i) => (
+            <figure>
+              <span class="cell">
+                <img src={`/images/work/w0${i + 1}.webp`} alt="" width="440" height="440" loading="lazy" decoding="async" />
+              </span>
+            </figure>
+          ))
+        }
+        <p class="worklog-cap">me at work</p>
+      </div>
+
       <AsciiShader
         class="ascii--bebop"
         src="/ascii/bebop-sheet.jpg"
@@ -687,21 +704,4 @@ const description =
     </div>
   </section>
 
-  {/* A coda, not a claim. These are cute and they know it, so they sit after
-      everything that had to be argued, with a caption that undersells them. */}
-  <section class="shell session coda" data-scene="fire">
-    <div class="worklog">
-      {
-        Array.from({ length: 8 }, (_, i) => (
-          <figure>
-            <span class="cell">
-              <img src={`/images/work/w0${i + 1}.webp`} alt="" width="440" height="440" loading="lazy" decoding="async" />
-            </span>
-          </figure>
-        ))
-      }
-    </div>
-
-    <p class="poem-by">the days, mostly.</p>
-  </section>
 </Layout>
