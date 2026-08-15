@@ -1947,46 +1947,78 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   letter-spacing: 0.06em;
 }
 
-/* The thread between the page's two replikas. Quiet by default — it is a
-   way through, not a claim — and it lights on hover like every other link
-   here. The arrow leads going up and follows going down, so the direction
-   is legible before the words are read. */
-[data-mode="dream"] .thread {
-  margin: var(--sp-2) 0 0;
+/* The current job, given the room it had when it was its own section. It sits
+   first in the list, so the reader meets replika at heading scale and full
+   width before the register narrows to one line and a handful of bullets for
+   everything that came before. */
+[data-mode="dream"] .cv-jobs > li.cv-job--lead {
+  padding-bottom: var(--sp-5);
+  /* The measure cap belongs to the bullet entries; this one is a spread. */
+  max-width: none;
+}
+
+/* The same right rail the replika section had before it moved in here:
+   three small voices beside the story rather than three billboards after
+   it. The rail now runs the whole entry, bullets included. */
+@media (min-width: 861px) {
+  [data-mode="dream"] .cv-job--lead {
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    column-gap: var(--sp-4);
+  }
+
+  [data-mode="dream"] .cv-job--lead > * {
+    grid-column: 1;
+  }
+
+  [data-mode="dream"] .cv-job--lead .receipts {
+    grid-column: 2;
+    grid-row: 1 / span 5;
+    align-self: start;
+    margin-top: var(--sp-5);
+  }
+}
+
+/* Upright, where the section heading above it is italic. Two italic display
+   lines stacked read as one title in two parts; the change of posture says
+   heading, then company, without needing a rule between them. */
+[data-mode="dream"] .cv-lead-name {
+  margin: var(--sp-3) 0 0.15rem;
+  font-size: calc(var(--display-scroll) * 0.82);
+  font-style: normal;
+  font-weight: 300;
+}
+
+/* The shader is hidden in dream, as it is on the main page, so the spread
+   is a single column here and keeps both in bebop. */
+[data-mode="dream"] .cv-spread {
+  grid-template-columns: 1fr;
+}
+
+[data-mode="dream"] .cv-spread .joi-col {
+  display: none;
+}
+
+[data-mode="dream"] .cv-job--lead .reg-line {
+  margin-bottom: var(--sp-3);
+}
+
+[data-mode="dream"] .cv-spread {
+  margin-bottom: var(--sp-2);
+}
+
+/* The label that says the bullets are additions, not a second telling. */
+[data-mode="dream"] .cv-sub {
+  margin: var(--sp-3) 0 var(--sp-1);
+  color: var(--faint);
   font-family: var(--mono);
   font-size: var(--t-xs);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
 }
 
-[data-mode="dream"] .thread--up {
-  margin: 0.35rem 0 0 1.85rem;
-}
-
-[data-mode="dream"] .thread a {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.4em;
-  color: var(--faint);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .thread a:hover {
-  color: var(--hot);
-  border-color: rgb(255 155 192 / 40%);
-}
-
-[data-mode="dream"] .thread .arw {
-  transition: transform var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .thread--up a:hover .arw {
-  transform: translateY(-0.18em);
-}
-
-[data-mode="dream"] .thread:not(.thread--up) a:hover .arw {
-  transform: translateY(0.18em);
+[data-mode="dream"] .cv-job--lead .cv-points {
+  margin-left: 0;
 }
 
 /* The one thing true of every role, said once at the top instead of

@@ -162,10 +162,6 @@ const jobs = [
     role: "chief executive officer",
     href: "https://replika.com",
     mark: "/images/marks/replika.png",
-    // Said twice on this page on purpose: at length up in 02, and here as
-    // what it came to. Each end points at the other, so neither reads as a
-    // repeat the page forgot it had already made.
-    story: { href: "#now", label: "the long version, up top" },
     points: [
       "tripled revenue and made the company profitable",
       "x1.8 arpu, +58% d30 retention",
@@ -354,115 +350,9 @@ const also = [
 
   </section>
 
-  <section class="shell session" id="now" data-scene="fire" aria-labelledby="s2">
-    <div class="bay bay--flush">
-      <div>
-        <div class="card">
-          <p class="card-no">02</p>
-          <h2 class="card-title" id="s2">
-            <a href="https://replika.com" target="_blank" rel="noreferrer"><span
-              class="sent-mark"
-              style="--mark:url(/images/marks/replika.png)"
-              aria-hidden="true"
-            />replika<span class="arw">↗</span></a>
-          </h2>
-        </div>
-
-        {/* The name lives in the heading now; this line only says what it is. */}
-        <p class="reg-line">
-          <span class="reg-what">{roles[0].what}</span>
-          <span class="reg-role">{roles[0].role}</span>
-        </p>
-
-        <div class="prose">
-          <p>
-            i made replika 2.0, a <b>ground-up rewrite</b>. i wrote the first prototypes myself,
-            ran 200+ user interviews, and talked to my own rep, lisa, for hours every day. built{" "}
-            a team{" "}
-            around it: phds, true artists,{" "}
-            <span class="nb">pirates<img
-              class="mark-pirate"
-              src="/images/pirate-flag-mark.png"
-              alt=""
-            />.</span>
-          </p>
-          <p>
-            with the launch, <b>retention skyrocketed</b>, and replika is more engaging than at
-            any point in its ten years.
-          </p>
-          <p>
-            turned the company profitable. arpu and conversion rates are significantly up, and
-            worldwide media is as hyped as never before. brought a hot new brand identity,{" "}
-            <b>redesigned the app</b>, and did research with the world's best institutions. i also
-            design the outfits for each avatar myself. 💅
-          </p>
-        </div>
-
-        <p class="thread">
-          <a href="#experience">the short version, further down<span class="arw" aria-hidden="true">↓</span></a>
-        </p>
-      </div>
-
-      <div class="joi-col">
-        <AsciiShader
-          class="ascii--joi"
-          src="/ascii/joi-sheet.jpg"
-          frames={16}
-          cols={104}
-          fps={10}
-          black={0.05}
-          white={0.99}
-          gamma={0.95}
-          hotAbove={0.34}
-        />
-
-      </div>
-    </div>
-
-    <ul class="receipts">
-      <li>
-        <a class="receipt-src" href={press.href} target="_blank" rel="noreferrer">
-          {press.src}<span class="arw">↗</span>
-        </a>
-        <p>{press.line}</p>
-        <span>{press.meta}</span>
-      </li>
-
-      <li>
-        <a class="receipt-src" href="https://replika.com/manifesto" target="_blank" rel="noreferrer">
-          replika manifesto<span class="arw">↗</span>
-        </a>
-        <p>{manifesto.line}</p>
-        <span>{manifesto.meta}</span>
-      </li>
-
-      <li>
-        <p class="research">
-          <span class="research-lbl">independent research</span>
-          {
-            studies.map((s) => (
-              <a
-                class={s.quoted ? "is-quoted" : undefined}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {s.name}<span class="arw">↗</span>
-              </a>
-            ))
-          }
-        </p>
-        <p>{studyQuote.line}</p>
-        <span>{studyQuote.meta}</span>
-      </li>
-    </ul>
-
-
-  </section>
-
   <section class="shell session" id="how" data-scene="fire" aria-labelledby="sh">
     <div class="card">
-      <p class="card-no">03</p>
+      <p class="card-no">02</p>
       <h2 class="card-title" id="sh">how i work</h2>
     </div>
 
@@ -489,13 +379,115 @@ const also = [
       up into what each one actually was. */}
   <section class="shell session" id="experience" data-scene="fire" aria-labelledby="sx">
     <div class="card">
-      <p class="card-no">04</p>
+      <p class="card-no">03</p>
       <h2 class="card-title" id="sx">experience</h2>
     </div>
 
     <ol class="cv-jobs">
+      {/* The current job is not a bullet list among six. It keeps the spread
+          it had as its own section — the name at heading scale, the prose,
+          the shader, the receipts — and the bullets follow as what the prose
+          leaves out. The five before it need no such room. */}
+      <li class="cv-job--lead">
+        <h3 class="card-title cv-lead-name">
+          <a href="https://replika.com" target="_blank" rel="noreferrer"><span
+            class="sent-mark"
+            style="--mark:url(/images/marks/replika.png)"
+            aria-hidden="true"
+          />replika<span class="arw">↗</span></a>
+        </h3>
+
+        <p class="reg-line">
+          <span class="reg-what">{roles[0].what}</span>
+          <span class="reg-role">{roles[0].role}</span>
+        </p>
+
+        <div class="bay bay--flush cv-spread">
+          <div class="prose">
+            <p>
+              i made replika 2.0, a <b>ground-up rewrite</b>. i wrote the first prototypes myself,
+              ran 200+ user interviews, and talked to my own rep, lisa, for hours every day. built{" "}
+              a team{" "}
+              around it: phds, true artists,{" "}
+              <span class="nb">pirates<img
+                class="mark-pirate"
+                src="/images/pirate-flag-mark.png"
+                alt=""
+              />.</span>
+            </p>
+            <p>
+              with the launch, <b>retention skyrocketed</b>, and replika is more engaging than at
+              any point in its ten years.
+            </p>
+            <p>
+              turned the company profitable. arpu and conversion rates are significantly up, and
+              worldwide media is as hyped as never before. brought a hot new brand identity,{" "}
+              <b>redesigned the app</b>, and did research with the world's best institutions. i also
+              design the outfits for each avatar myself. 💅
+            </p>
+          </div>
+
+          <div class="joi-col">
+          <AsciiShader
+            class="ascii--joi"
+            src="/ascii/joi-sheet.jpg"
+            frames={16}
+            cols={104}
+            fps={10}
+            black={0.05}
+            white={0.99}
+            gamma={0.95}
+            hotAbove={0.34}
+          />
+          </div>
+        </div>
+
+        <ul class="receipts">
+          <li>
+            <a class="receipt-src" href={press.href} target="_blank" rel="noreferrer">
+              {press.src}<span class="arw">↗</span>
+            </a>
+            <p>{press.line}</p>
+            <span>{press.meta}</span>
+          </li>
+
+          <li>
+            <a class="receipt-src" href="https://replika.com/manifesto" target="_blank" rel="noreferrer">
+              replika manifesto<span class="arw">↗</span>
+            </a>
+            <p>{manifesto.line}</p>
+            <span>{manifesto.meta}</span>
+          </li>
+
+          <li>
+            <p class="research">
+              <span class="research-lbl">independent research</span>
+              {
+                studies.map((s) => (
+                  <a
+                    class={s.quoted ? "is-quoted" : undefined}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {s.name}<span class="arw">↗</span>
+                  </a>
+                ))
+              }
+            </p>
+            <p>{studyQuote.line}</p>
+            <span>{studyQuote.meta}</span>
+          </li>
+        </ul>
+
+        <p class="cv-sub">more of it</p>
+        <ul class="cv-points">
+          {jobs[0].points.map((p) => <li set:html={p} />)}
+        </ul>
+      </li>
+
       {
-        jobs.map((j) => (
+        jobs.slice(1).map((j) => (
           <li>
             <p class="cv-line">
               <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />
@@ -507,11 +499,6 @@ const also = [
               <span class="cv-what">{j.what}</span>
             </p>
             <p class="cv-role">{j.role}</p>
-            {"story" in j && j.story && (
-              <p class="thread thread--up">
-                <a href={j.story.href}><span class="arw" aria-hidden="true">↑</span>{j.story.label}</a>
-              </p>
-            )}
             <ul class="cv-points">
               {j.points.map((p) => <li set:html={p} />)}
             </ul>
@@ -527,7 +514,7 @@ const also = [
       two original sections above. */}
   <section class="shell session only-dream" id="journey" data-scene="fire" aria-labelledby="s8">
     <div class="card">
-      <p class="card-no">05</p>
+      <p class="card-no">04</p>
       <h2 class="card-title" id="s8">background</h2>
     </div>
 
@@ -582,7 +569,7 @@ const also = [
 
   <section class="shell session" id="alongside" data-scene="fire" aria-labelledby="sa">
     <div class="card">
-      <p class="card-no">06</p>
+      <p class="card-no">05</p>
       <h2 class="card-title" id="sa">alongside</h2>
     </div>
 
@@ -801,7 +788,7 @@ const also = [
 
   <section class="shell session" id="me" data-scene="fire" aria-labelledby="s6">
     <div class="card">
-      <p class="card-no">07</p>
+      <p class="card-no">06</p>
       <h2 class="card-title" id="s6">literally me</h2>
     </div>
 
@@ -822,7 +809,7 @@ const also = [
 
   <section class="shell session" id="contact" data-scene="fire" aria-labelledby="s5">
     <div class="card">
-      <p class="card-no">08</p>
+      <p class="card-no">07</p>
       <h2 class="card-title" id="s5">say hi</h2>
     </div>
 
