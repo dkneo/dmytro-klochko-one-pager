@@ -39,10 +39,20 @@ en moi un été invincible."* Every rule below is derived from what that line do
 5. **It does not explain itself.** No second sentence.
 6. Under about 25 words.
 
-**Disqualifiers.** Anything imperative. Anything that has been on a mug. Living
-self-help, founders, "mindset", "grind". Anything creditable to "Unknown". If it
-could be a LinkedIn post it is out; if it could be the last line of a letter it
-is in.
+**Disqualifiers.** Anything imperative. Anything that has been on a mug.
+Self-help, "mindset", "grind". Anything creditable to "Unknown". If it could be
+a LinkedIn post it is out; if it could be the last line of a letter it is in.
+
+**On founders and operators** (amended 17 August, at his instruction). They are
+in, and the bar does not move: specific, sourced to a place and a date, an
+image or a precise claim rather than an instruction. Kennedy at Rice is in
+because *not because they are easy, but because they are hard* is rhetoric of
+the first order and there is a transcript. Graham is in because *startups take
+off because the founders make them take off* is a claim you can disagree with.
+The Jobs line everyone quotes about saying no to a thousand things is **out**
+until someone can source the wording; the one he actually said to BusinessWeek
+in 2004 is in instead. Twitter finds are welcome and go through the inbox like
+everything else: send the link, not the screenshot.
 
 ## The poem
 

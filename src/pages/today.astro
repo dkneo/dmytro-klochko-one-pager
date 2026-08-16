@@ -24,9 +24,9 @@ const description =
     </p>
 
     <p class="today-how">
-      they are not picked separately. every day has a weather, and the four are
-      chosen because they agree about it, so the painting and the poem and the
-      line are the same thought arriving four ways. today’s is
+      they aren’t picked separately. every day has a weather, and all four are
+      chosen because they agree about it: one thought arriving four ways.
+      today’s weather is{" "}
       <b class="today-weather"></b><span class="today-weather-note"></span>
     </p>
 
@@ -56,8 +56,8 @@ const description =
             </p>
             {c.painting.note && <p class="chord-note">{c.painting.note}</p>}
             <p class="bit-share">
-              <button type="button" data-post="painting">post the painting<span class="arw" aria-hidden="true">↗</span></button>
-              <button type="button" data-story="painting">save a story<span class="arw" aria-hidden="true">↓</span></button>
+              <button type="button" data-post="painting"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the painting</button>
+              <button type="button" data-story="painting"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>`} />save a story<span class="arw" aria-hidden="true">↓</span></button>
             </p>
           </section>
 
@@ -72,8 +72,8 @@ const description =
               <cite>{c.quote.who}<span>{c.quote.where}</span></cite>
             </blockquote>
             <p class="bit-share">
-              <button type="button" data-post="quote">post the line<span class="arw" aria-hidden="true">↗</span></button>
-              <button type="button" data-story="quote">save a story<span class="arw" aria-hidden="true">↓</span></button>
+              <button type="button" data-post="quote"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the line</button>
+              <button type="button" data-story="quote"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>`} />save a story<span class="arw" aria-hidden="true">↓</span></button>
             </p>
           </section>
 
@@ -90,8 +90,8 @@ const description =
             </p>
             {c.poem.note && <p class="chord-note">{c.poem.note}</p>}
             <p class="bit-share">
-              <button type="button" data-post="poem">post the poem<span class="arw" aria-hidden="true">↗</span></button>
-              <button type="button" data-story="poem">save a story<span class="arw" aria-hidden="true">↓</span></button>
+              <button type="button" data-post="poem"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the poem</button>
+              <button type="button" data-story="poem"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>`} />save a story<span class="arw" aria-hidden="true">↓</span></button>
             </p>
           </section>
 
@@ -109,7 +109,7 @@ const description =
               </p>
               {c.song.note && <p class="chord-note">{c.song.note}</p>}
               <p class="bit-share">
-                <button type="button" data-post="song">post the song<span class="arw" aria-hidden="true">↗</span></button>
+                <button type="button" data-post="song"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the song</button>
               </p>
             </section>
           )}
@@ -118,7 +118,7 @@ const description =
     }
 
     <p class="chord-when">
-      <span class="today-date"></span> · from
+      <span class="today-date"></span> · from{" "}
       <a href="/map">the collection</a>
     </p>
 

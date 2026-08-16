@@ -2148,8 +2148,10 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   margin-top: var(--sp-4);
 }
 
+/* The name belongs to the picture, so it sits right under it. The old
+   three-rem gap made them read as two separate things. */
 [data-mode="dream"] .chord-art {
-  margin: 0 0 var(--sp-4);
+  margin: 0;
 }
 
 [data-mode="dream"] .chord-art img {
@@ -2652,7 +2654,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.2rem 0.7rem;
-  margin: 0.8rem 0 0;
+  margin: 0.7rem 0 0;
 }
 
 [data-mode="dream"] .bit-title b {
@@ -3049,4 +3051,12 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   font-style: italic;
   font-size: var(--t-prose-sm);
   line-height: 1.65;
+}
+
+/* The mark says where it goes; the words say what goes there. */
+[data-mode="dream"] .btn-ico {
+  width: 1.05em;
+  height: 1.05em;
+  flex: 0 0 auto;
+  align-self: center;
 }
