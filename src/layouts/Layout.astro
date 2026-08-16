@@ -10,9 +10,13 @@ interface Props {
       page is never crawled, so the tag below is never read and the bare url
       can still surface. */
   unlisted?: boolean;
+  /** Which skies this page can show. The fire extras (embers, firelight) are
+      gated on the fire scene, so a page without it simply has none. */
+  scenes?: string[];
 }
 
-const { title, description, current = "home", unlisted = false } = Astro.props;
+const { title, description, current = "home", unlisted = false,
+        scenes = ["fire", "estuary"] } = Astro.props;
 
 const ogTitle = "dmytro klochko";
 const ogDescription = "ceo at replika. product and engineering, out of art, chess and theatre.";
@@ -90,8 +94,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
          paintings — and the sky crossfades to match as you scroll. All
          layers are fixed; only opacity and compositor transforms move. -->
     <div class="scenes" aria-hidden="true">
-      <i data-s="fire"></i>
-      <i data-s="estuary"></i>
+      {scenes.map((s) => <i data-s={s} />)}
       <span class="sunpulse"></span>
       <span class="firelight"></span>
       <span class="glints"><s></s><s></s><s></s><s></s></span>

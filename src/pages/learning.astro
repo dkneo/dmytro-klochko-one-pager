@@ -38,7 +38,7 @@ const now = [
     why:
       "i can see when a screen is wrong and say so with force, which is most of the job. this is the other part: the words designers and engineers use between themselves, so that a review is a conversation and not a translation.",
     doing:
-      "going through a field guide of the terms people actually use when shipping and reviewing ui. it is below, and it works for anyone who opens it.",
+      "a field guide of the terms people actually use when shipping and reviewing ui. mark the ones you genuinely know, and the drill quizzes you on exactly those, because the useful question is not what you have read but what stuck.",
     artefact: {
       // The asset server drops .html and redirects, so link where it lands.
       href: "/learning/ui-vernacular",
@@ -55,15 +55,21 @@ const title = "learning · dmytro klochko";
 const description = "what dmytro klochko is learning right now, in the open.";
 ---
 
-<Layout title={title} description={description} current="home">
-  <section class="shell session learn" data-scene="fire" aria-labelledby="ln">
+<Layout title={title} description={description} current="home" scenes={["study"]}>
+  <section class="shell session learn" data-scene="study" aria-labelledby="ln">
     <div class="card">
       <h1 class="card-title" id="ln">learning now</h1>
     </div>
 
     <p class="lede">
-      what i’m in the middle of, while i’m in the middle of it. anyone is
-      welcome to use the tools.
+      whatever i happen to be learning, while i’m still learning it.
+    </p>
+
+    <p class="today-how">
+      none of this is a curriculum. it is whatever i got curious about that
+      week, and it usually needs <b>some</b> interface before it is any use to
+      me, so i build the smallest one that works and leave it here running.
+      take it if it is useful to you.
     </p>
 
     {now.map((n) => (

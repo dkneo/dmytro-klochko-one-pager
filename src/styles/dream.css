@@ -785,6 +785,11 @@ html[data-scene="estuary"] .scenes .glints {
 .scenes i[data-s="lavender"] { background-image: url("/images/scenes/lavender.webp"); }
 .scenes i[data-s="snow"] { background-image: url("/images/scenes/snow.webp"); }
 .scenes i[data-s="estuary"] { background-image: url("/images/scenes/estuary.webp"); }
+/* The two reading pages get their own skies: a dark courtyard for today, and
+   one of his own paintings taken down to night for learning. Both are darker
+   than the campfire, which is the whole reason they are there. */
+.scenes i[data-s="nightcourt"] { background-image: url("/images/scenes/nightcourt.webp"); }
+.scenes i[data-s="study"] { background-image: url("/images/scenes/study.webp"); }
 
 html[data-scene="swim"] .scenes i[data-s="swim"],
 html[data-scene="fuji"] .scenes i[data-s="fuji"],
@@ -793,7 +798,9 @@ html[data-scene="fire"] .scenes i[data-s="fire"],
 html[data-scene="dock"] .scenes i[data-s="dock"],
 html[data-scene="lavender"] .scenes i[data-s="lavender"],
 html[data-scene="snow"] .scenes i[data-s="snow"],
-html[data-scene="estuary"] .scenes i[data-s="estuary"] {
+html[data-scene="estuary"] .scenes i[data-s="estuary"],
+html[data-scene="nightcourt"] .scenes i[data-s="nightcourt"],
+html[data-scene="study"] .scenes i[data-s="study"] {
   opacity: 1;
 }
 

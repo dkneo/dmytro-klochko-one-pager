@@ -449,5 +449,156 @@ function render(){
 }
 setup();
 </script>
+<style>
+/* ── drill ──────────────────────────────────────────────────────────────
+   Added to the guide so marking a term known leads somewhere: the ○ you
+   click becomes the pool this quizzes you on. Uses the guide's own terms
+   array and its own known set, so there is one source of truth. */
+#drillBtn{margin-left:10px;cursor:pointer;border:1px solid rgba(255,255,255,.18);
+  background:none;color:inherit;font:inherit;font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;padding:5px 12px;border-radius:999px}
+#drillBtn:hover{border-color:#ff4d8d;color:#ff4d8d}
+#drill{position:fixed;inset:0;z-index:9999;display:none;place-items:center;
+  background:rgba(8,9,14,.86);backdrop-filter:blur(6px)}
+#drill.on{display:grid}
+#drill .box{width:min(640px,calc(100vw - 32px));background:#12141c;color:#ece6d9;
+  border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:26px}
+#drill .step{font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  opacity:.55;display:flex;justify-content:space-between}
+#drill .def{font-size:19px;line-height:1.5;margin:16px 0 20px}
+#drill .opts{display:grid;gap:8px}
+#drill .opt{display:flex;gap:10px;align-items:baseline;text-align:left;width:100%;
+  padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.12);
+  background:none;color:#ece6d9;font:inherit;font-size:15px;cursor:pointer}
+#drill .opt:hover{border-color:rgba(255,255,255,.32)}
+#drill .opt b{opacity:.4;font-weight:400;font-size:12px;min-width:1em}
+#drill .opt.right{border-color:#3ddc97;background:rgba(61,220,151,.10)}
+#drill .opt.wrong{border-color:#ff5470;background:rgba(255,84,112,.10)}
+#drill .foot{margin-top:18px;display:flex;gap:10px;align-items:center;
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.65}
+#drill .foot button{margin-left:auto;cursor:pointer;border:1px solid rgba(255,255,255,.18);
+  background:none;color:#ece6d9;font:inherit;font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;padding:6px 14px;border-radius:999px}
+#drill .foot button:hover{border-color:#ff4d8d;color:#ff4d8d}
+#drill .score{font-size:34px;margin:10px 0 4px}
+</style>
+
+<div id="drill" role="dialog" aria-modal="true" aria-label="drill">
+  <div class="box"></div>
+</div>
+
+<script>
+(function(){
+  var LEN = 10;
+  var el = document.getElementById('drill');
+  var box = el.querySelector('.box');
+  var run = null;
+
+  function pool(){
+    // What you have marked known, because the point is to check what you
+    // think you know. Not enough marked yet? Then everything is fair game.
+    var known = terms.filter(function(t){ return state.known.has(t[0]); });
+    return known.length >= 4 ? known : terms.slice();
+  }
+
+  function shuffle(a){
+    a = a.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function build(){
+    var p = pool();
+    var qs = shuffle(p).slice(0, Math.min(LEN, p.length)).map(function(t){
+      // Wrong answers from the same category where possible: guessing by
+      // topic should not be enough to pass.
+      var sameCat = p.filter(function(x){ return x[1] === t[1] && x[0] !== t[0]; });
+      var rest = p.filter(function(x){ return x[0] !== t[0]; });
+      var wrong = shuffle(sameCat.length >= 3 ? sameCat : rest).slice(0, 3);
+      return { term: t, options: shuffle([t].concat(wrong)) };
+    });
+    return { qs: qs, at: 0, right: 0, locked: false };
+  }
+
+  function paint(){
+    var q = run.qs[run.at];
+    if (!q) return done();
+    box.innerHTML =
+      '<div class="step"><span>question ' + (run.at + 1) + ' of ' + run.qs.length + '</span>' +
+      '<span>' + run.right + ' right</span></div>' +
+      '<p class="def">' + esc(q.term[3]) + '</p>' +
+      '<div class="opts"></div>' +
+      '<div class="foot"><span>1 – 4 to answer · esc to stop</span>' +
+      '<button data-x>stop</button></div>';
+    var opts = box.querySelector('.opts');
+    q.options.forEach(function(o, i){
+      var b = document.createElement('button');
+      b.className = 'opt';
+      b.innerHTML = '<b>' + (i + 1) + '</b><span>' + esc(o[0]) + '</span>';
+      b.addEventListener('click', function(){ answer(i); });
+      opts.appendChild(b);
+    });
+    box.querySelector('[data-x]').addEventListener('click', close);
+  }
+
+  function answer(i){
+    if (run.locked) return;
+    run.locked = true;
+    var q = run.qs[run.at];
+    var buttons = box.querySelectorAll('.opt');
+    var correct = q.options.indexOf(q.term);
+    buttons[correct].classList.add('right');
+    if (i !== correct) buttons[i].classList.add('wrong');
+    else run.right++;
+    setTimeout(function(){ run.at++; run.locked = false; paint(); }, i === correct ? 420 : 1100);
+  }
+
+  function done(){
+    var best = 0;
+    try { best = JSON.parse(localStorage.getItem('ui-drill') || '0'); } catch(e){}
+    var pct = Math.round(run.right / run.qs.length * 100);
+    if (pct > best) { try { localStorage.setItem('ui-drill', JSON.stringify(pct)); } catch(e){} }
+    box.innerHTML =
+      '<div class="step"><span>done</span><span>best ' + Math.max(best, pct) + '%</span></div>' +
+      '<p class="score">' + run.right + ' / ' + run.qs.length + '</p>' +
+      '<p class="def">' + (pct === 100 ? 'every one. mark more terms known and come back.'
+        : pct >= 70 ? 'most of them. the misses are the ones worth rereading.'
+        : 'worth another pass through the cards.') + '</p>' +
+      '<div class="foot"><span>&nbsp;</span><button data-again>again</button>' +
+      '<button data-x>close</button></div>';
+    box.querySelector('[data-again]').addEventListener('click', start);
+    box.querySelector('[data-x]').addEventListener('click', close);
+  }
+
+  function start(){
+    run = build();
+    if (!run.qs.length) return;
+    el.classList.add('on');
+    paint();
+  }
+
+  function close(){ el.classList.remove('on'); run = null; }
+
+  document.addEventListener('keydown', function(e){
+    if (!el.classList.contains('on')) return;
+    if (e.key === 'Escape') return close();
+    if (run && !run.locked && /^[1-4]$/.test(e.key)) {
+      var b = box.querySelectorAll('.opt')[Number(e.key) - 1];
+      if (b) b.click();
+    }
+  });
+
+  var btn = document.createElement('button');
+  btn.id = 'drillBtn';
+  btn.textContent = 'drill';
+  btn.addEventListener('click', start);
+  var prog = document.getElementById('progress');
+  if (prog && prog.parentNode) prog.parentNode.appendChild(btn);
+})();
+</script>
+
 </body>
 </html>

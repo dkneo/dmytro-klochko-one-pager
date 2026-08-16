@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-08-12T18:40:00Z",
-  "title": "Design System: dmytro klochko — dream / bebop",
+  "title": "Design System: dmytro klochko \u2014 dream / bebop",
   "extensions": {
     "colorMeta": {
       "dream-void": {
@@ -111,7 +111,7 @@
       },
       "dream-seal": {
         "role": "accent",
-        "displayName": "Saitō Hanko Vermillion",
+        "displayName": "Sait\u014d Hanko Vermillion",
         "canonical": "#c3452e",
         "tonalRamp": [
           "#32120c",
@@ -309,7 +309,7 @@
       },
       "dream-fact": {
         "displayName": "Dream Fact Value",
-        "purpose": "Hero fact values (--t-fact): 1.22rem serif, a step above prose and below the lede — the elaya label/value grid."
+        "purpose": "Hero fact values (--t-fact): 1.22rem serif, a step above prose and below the lede \u2014 the elaya label/value grid."
       },
       "dream-prose": {
         "displayName": "Dream Prose",
@@ -373,32 +373,32 @@
       {
         "name": "scene-crossfade",
         "value": "opacity 900ms",
-        "purpose": "Fixed scene layers swap when a section claims the sky (IntersectionObserver, −42% centred band)."
+        "purpose": "Fixed scene layers swap when a section claims the sky (IntersectionObserver, \u221242% centred band)."
       },
       {
         "name": "scene-breathe",
-        "value": "scale 1.04 → 1.1, 70s ease-in-out alternate",
+        "value": "scale 1.04 \u2192 1.1, 70s ease-in-out alternate",
         "purpose": "The painting breathes; imperceptible per-frame, alive per-minute."
       },
       {
         "name": "scene-parallax",
-        "value": "translateY(scroll × −4vh) translate(px × −14px, py × −9px)",
+        "value": "translateY(scroll \u00d7 \u22124vh) translate(px \u00d7 \u221214px, py \u00d7 \u22129px)",
         "purpose": "Compositor-only drift against scroll and eased cursor; skipped for reduced motion and coarse pointers."
       },
       {
         "name": "sun-pulse",
         "value": "7s ease-in-out alternate, mix-blend-mode: soft-light",
-        "purpose": "The painted sun warms and cools on the swim scene only — light over the art, never new art."
+        "purpose": "The painted sun warms and cools on the swim scene only \u2014 light over the art, never new art."
       },
       {
         "name": "glint-drift",
-        "value": "9–14s ease-in-out alternate",
+        "value": "9\u201314s ease-in-out alternate",
         "purpose": "Four light glints on the water; swim and estuary scenes."
       },
       {
         "name": "petal-fall",
-        "value": "16–26s linear infinite",
-        "purpose": "Six petals, always, in front of everything; l-i-s-a adds sixteen one-shot petals at 2.4–5s."
+        "value": "16\u201326s linear infinite",
+        "purpose": "Six petals, always, in front of everything; l-i-s-a adds sixteen one-shot petals at 2.4\u20135s."
       },
       {
         "name": "reduced-motion",
@@ -419,7 +419,7 @@
       },
       {
         "name": "small",
-        "value": "700–720px",
+        "value": "700\u2013720px",
         "purpose": "Grids step down; dream portrait caps at min(70%, 300px)."
       }
     ],
@@ -434,7 +434,7 @@
         "/taste": "estuary.webp"
       },
       "rule": "One painting per URL; every future page claims one of its own. Idle preload of other scenes runs only in dream.",
-      "dormant": "Ember and snow weather CSS gates on data-scene fire/snow, which no shipped page names — plumbing, not current behaviour."
+      "dormant": "Ember and snow weather CSS gates on data-scene fire/snow, which no shipped page names \u2014 plumbing, not current behaviour."
     }
   },
   "components": [
@@ -477,10 +477,10 @@
   ],
   "narrative": {
     "northStar": "Two skies over one markup: a terminal in deep space (bebop, default) and his own paintings full-bleed behind smoked glass (dream, behind the toggle).",
-    "overview": "The site ships two complete art directions over the same HTML, switched by data-mode on the root, chosen before first paint. Dream inherits bebop's layout wholesale — the 78rem shell, the 6fr/5fr bays, the 62ch measure, every grid — and only reskins what sits on them: one of his 4K paintings per URL as a fixed, breathing, parallaxing scene, read through full-viewport smoked glass. Serif speaks sentences (Newsreader 1.13rem/1.66, Zodiak 600 italic for display); mono keeps the machinery. Pink is his favourite colour and the only accent.",
+    "overview": "The site ships two complete art directions over the same HTML, switched by data-mode on the root, chosen before first paint. Dream inherits bebop's layout wholesale \u2014 the 78rem shell, the 6fr/5fr bays, the 62ch measure, every grid \u2014 and only reskins what sits on them: one of his 4K paintings per URL as a fixed, breathing, parallaxing scene, read through full-viewport smoked glass. Serif speaks sentences (Newsreader 1.13rem/1.66, Zodiak 600 italic for display); mono keeps the machinery. Pink is his favourite colour and the only accent.",
     "keyCharacteristics": [
       "one painting per URL, full-bleed, breathing",
-      "smoked glass readability — dim the art, never paint over it",
+      "smoked glass readability \u2014 dim the art, never paint over it",
       "bebop's bones under both modes",
       "serif/mono two-voice; Zodiak italic display",
       "cream mats, tilts that straighten on hover, falling petals"
@@ -488,7 +488,7 @@
     "rules": [
       {
         "name": "The Sampled/Derived Sky Rule",
-        "body": "Every colour traces to his paintings; all art is his or a professional's. Nothing figurative is invented here — five rejections carved this in stone.",
+        "body": "Every colour traces to his paintings; all art is his or a professional's. Nothing figurative is invented here \u2014 five rejections carved this in stone.",
         "section": "colors"
       },
       {
@@ -515,20 +515,22 @@
     "dos": [
       "Do derive every colour and every piece of art from his paintings, photographs, or a professional's work.",
       "Do give serif one compensating size step over mono (1.13rem prose).",
-      "Do answer hover with a lift that settles: straighten, −3px, deeper shadow.",
-      "Do keep every standalone link ≥24px tall."
+      "Do answer hover with a lift that settles: straighten, \u22123px, deeper shadow.",
+      "Do keep every standalone link \u226524px tall."
     ],
     "donts": [
       "Don't write copy nobody asked for. Every invented caption on this site has been cut, usually angrily.",
-      "Don't hand-draw figurative art (ASCII or icons). Derived, sampled, or made by professionals — four rejections earned this rule.",
+      "Don't hand-draw figurative art (ASCII or icons). Derived, sampled, or made by professionals \u2014 four rejections earned this rule.",
       "Don't desaturate family photographs.",
       "Don't reach for a hairline to separate things.",
       "Don't let art blur or pixelate: contained sizes or high-res sources only.",
-      "Don't fix readability with cream/white panels — dim the painting itself."
+      "Don't fix readability with cream/white panels \u2014 dim the painting itself."
     ]
   },
   "northStar": "Two skies over one markup: his own paintings full-bleed behind smoked glass (dream, default) and a terminal in deep space (bebop, behind the toggle).",
   "typography": {
-    "dream-display-card": "clamp(1.5rem, 2.4vw, 2.1rem)"
+    "dream-display-card": "clamp(1.5rem, 2.4vw, 2.1rem)",
+    "map-label": "15px (viewBox units, map svg)",
+    "map-label-narrow": "20px (viewBox units, map svg under 720px)"
   }
 }
