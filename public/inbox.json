@@ -111,6 +111,18 @@
       "src": "/images/inbox/vuillard-clarac.webp",
       "source": "https://commons.wikimedia.org/wiki/File%3AEdouard_Vuillard_-_La_Salle_Clarac_-_Google_Art_Project.jpg",
       "licence": "Public domain"
+    },
+    {
+      "id": "hopper-summer-interior",
+      "type": "painting",
+      "who": "Edward Hopper",
+      "title": "Summer Interior",
+      "year": "1909",
+      "weather": "the dark and the lamp",
+      "src": "/images/inbox/hopper-summer-interior.webp",
+      "source": "https://commons.wikimedia.org/wiki/File%3ASummer_Interior%2C_by_Edward_Hopper.jpg",
+      "licence": "Public domain",
+      "note": "his shout, 16 august"
     }
   ]
 }

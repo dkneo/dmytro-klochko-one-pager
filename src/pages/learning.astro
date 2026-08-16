@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { readdirSync, readFileSync, existsSync } from "node:fs";
+import { join } from "node:path";
+
+// Links come from the vault, same as everything else, so a thing he sends is
+// filed once and shows up wherever it belongs rather than being pasted here.
+function links() {
+  const dir = "vault/links";
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => f.endsWith(".md") && !f.startsWith("_"))
+    .map((f) => {
+      const text = readFileSync(join(dir, f), "utf8");
+      const head = text.slice(4, text.indexOf("\n---", 3)).split("\n");
+      const o = {};
+      for (let i = 0; i < head.length; i++) {
+        const m = /^([A-Za-z_][\w-]*):\s*(.*)$/.exec(head[i]);
+        if (!m) continue;
+        if (m[2] === "|-" || m[2] === "|") {
+          const ls = [];
+          while (i + 1 < head.length && /^\s{2,}/.test(head[i + 1])) ls.push(head[++i].slice(2));
+          o[m[1]] = ls.join("\n").trim();
+        } else {
+          o[m[1]] = m[2].replace(/^"|"$/g, "");
+        }
+      }
+      return o;
+    })
+    .sort((a, b) => String(b.added).localeCompare(String(a.added)));
+}
+
+// What he is actually working on, written as what it is rather than as a
+// syllabus. Kept here because it changes often and nothing else depends on it.
+const now = [
+  {
+    subject: "the vocabulary of interface",
+    why:
+      "i can see when a screen is wrong and say so with force, which is most of the job. this is the other part: the words designers and engineers use between themselves, so that a review is a conversation and not a translation.",
+    doing:
+      "going through a field guide of the terms people actually use when shipping and reviewing ui. it is below, and it works for anyone who opens it.",
+    artefact: {
+      href: "/learning/ui-vernacular.html",
+      label: "the field guide",
+      shot: "/images/learning-ui-vernacular.webp",
+      alt: "A dark reference app of interface terms laid out as cards, with a search field",
+    },
+  },
+];
+
+const worth = links();
+
+const title = "learning · dmytro klochko";
+const description = "what dmytro klochko is learning right now, in the open.";
+---
+
+<Layout title={title} description={description} current="home">
+  <section class="shell session learn" data-scene="fire" aria-labelledby="ln">
+    <div class="card">
+      <h1 class="card-title" id="ln">learning now</h1>
+    </div>
+
+    <p class="lede">
+      what i’m in the middle of, while i’m in the middle of it. anyone is
+      welcome to use the tools.
+    </p>
+
+    {now.map((n) => (
+      <article class="learn-now">
+        <h2 class="learn-subject">{n.subject}</h2>
+        <div class="prose learn-prose">
+          <p>{n.why}</p>
+          <p>{n.doing}</p>
+        </div>
+
+        {n.artefact && (
+          <a class="learn-artefact" href={n.artefact.href}>
+            <span class="cell">
+              <img src={n.artefact.shot} alt={n.artefact.alt} width="1200" height="833" loading="lazy" decoding="async" />
+            </span>
+            <span class="learn-open">{n.artefact.label}<span class="arw" aria-hidden="true">→</span></span>
+          </a>
+        )}
+      </article>
+    ))}
+
+    <h2 class="learn-head">worth coming back to</h2>
+    {worth.length ? (
+      <ol class="learn-links">
+        {worth.map((l) => (
+          <li>
+            <a class="learn-link" href={l.url} target="_blank" rel="noreferrer">
+              {l.title}<span class="arw">↗</span>
+            </a>
+            <p class="learn-sum">{l.summary}</p>
+            <p class="learn-meta">
+              {l.who && <b>{l.who}</b>}
+              {l.tags && <span>{l.tags}</span>}
+              {l.added && <em>{l.added}</em>}
+            </p>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <p class="learn-empty">
+        nothing filed yet. send me a link and it lands here with a summary
+        written when it is filed, rather than a bookmark that rots unread.
+      </p>
+    )}
+
+    <a class="onward onward--back" href="/">
+      <span class="arw" aria-hidden="true">↖</span><span>back to the main page</span>
+    </a>
+  </section>
+</Layout>
