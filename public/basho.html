@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#102328" />
+<title>Matsuo Bashō – The Narrowest Door to the World</title>
+<style>
+:root{
+  --night:#102328;
+  --night2:#183339;
+  --ink:#17221f;
+  --paper:#eee7d2;
+  --paper2:#e3dac1;
+  --red:#a53e2d;
+  --red2:#7f2d23;
+  --moss:#607263;
+  --mist:#cad3c7;
+  --gold:#c79a55;
+  --muted:#6d6d61;
+  --line:rgba(23,34,31,.18);
+  --shadow:0 20px 60px rgba(15,29,30,.17);
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua","Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",Georgia,serif;
+  --sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --jp:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--night)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);overflow-x:hidden}
+a{color:inherit}
+::selection{background:var(--red);color:var(--paper)}
+.paper-grain{position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.13;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E")}
+.topbar{position:fixed;left:0;right:0;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;color:#f0ead7;background:linear-gradient(to bottom,rgba(10,27,31,.91),rgba(10,27,31,.66),transparent);font-family:var(--sans);font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:.3s}
+.topbar .brand{display:flex;gap:10px;align-items:center;font-weight:700}.seal{width:27px;height:27px;border:1px solid rgba(255,255,255,.55);display:grid;place-items:center;background:var(--red);font-family:var(--jp);font-size:15px;transform:rotate(-2deg);box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}
+.topbar nav{display:flex;gap:18px}.topbar a{text-decoration:none;opacity:.78}.topbar a:hover{opacity:1}
+.hero{min-height:100svh;position:relative;background:var(--night);color:#f2eddd;display:grid;place-items:end start;overflow:hidden}
+.hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,24,28,.70) 0%,rgba(7,24,28,.22) 45%,rgba(7,24,28,.04) 75%),linear-gradient(0deg,rgba(7,24,28,.68),transparent 45%)}
+.hero-copy{position:relative;z-index:2;width:min(760px,90vw);margin:0 0 9vh max(5vw,32px)}
+.eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.22em;font-size:12px;font-weight:700;color:#d9c898;margin-bottom:18px}
+h1{font-size:clamp(58px,9vw,138px);font-weight:400;letter-spacing:-.055em;line-height:.77;margin:0 0 30px}.hero h1 small{font-size:.28em;display:block;letter-spacing:.15em;margin-left:.1em;margin-top:26px;text-transform:uppercase;font-family:var(--sans);font-weight:500;color:#d9c898}.hero-lede{font-size:clamp(21px,2.1vw,31px);line-height:1.35;max-width:700px;margin:0 0 28px}.hero-lede em{color:#efc79b;font-style:italic}.enter{display:inline-flex;align-items:center;gap:13px;text-decoration:none;font:650 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(240,234,215,.55);padding:14px 16px;background:rgba(16,35,40,.26);backdrop-filter:blur(5px)}.enter span{font-size:18px;transition:.25s}.enter:hover span{transform:translateY(4px)}
+.vertical-jp{position:absolute;right:4vw;top:15vh;z-index:3;font-family:var(--jp);writing-mode:vertical-rl;font-size:20px;letter-spacing:.24em;color:rgba(240,234,215,.72);text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.section{position:relative;padding:110px max(5vw,28px)}
+.wrap{max-width:1180px;margin:0 auto}.narrow{max-width:850px;margin:0 auto}
+.kicker{font:700 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:14px}.display{font-size:clamp(41px,6vw,82px);font-weight:400;line-height:.95;letter-spacing:-.04em;margin:0 0 28px}.lede{font-size:clamp(21px,2.2vw,29px);line-height:1.48;color:#2d3934}.body{font-size:18px;line-height:1.72;color:#35413b}.body strong{color:var(--ink)}
+.rule{height:1px;background:var(--line);margin:50px 0}
+.dark{background:var(--night);color:#e9e5d8}.dark .lede,.dark .body{color:#d4d2c6}.dark .kicker{color:#e4aa7e}.dark .rule{background:rgba(255,255,255,.15)}
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:start}.schoolbook{border-left:3px solid var(--red);padding:0 0 0 28px}.schoolbook .big-no{font:800 clamp(62px,8vw,110px)/.8 var(--sans);letter-spacing:-.08em;color:var(--red);margin-bottom:22px}.schoolbook p{font-size:20px;line-height:1.55;margin:0}
+.sound-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}.sound{border:1px solid var(--line);padding:22px;min-height:165px;background:rgba(255,255,255,.18);position:relative}.sound b{font:800 42px/1 var(--sans);letter-spacing:-.06em;color:var(--red)}.sound h3{font:700 14px var(--sans);text-transform:uppercase;letter-spacing:.08em;margin:12px 0 8px}.sound p{font-size:15px;line-height:1.45;margin:0;color:#4d564f}
+.breaker{margin:70px 0 0;display:grid;grid-template-columns:.8fr 1.2fr;gap:20px;align-items:stretch}.breaker img{width:100%;height:100%;min-height:420px;object-fit:cover;filter:saturate(.65) contrast(1.04)}.breaker-copy{background:#d8ccb2;padding:46px}.jp-big{font-family:var(--jp);font-size:clamp(31px,4vw,56px);line-height:1.5;letter-spacing:.08em}.roman{font:600 12px/1.7 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:#675f50;margin-top:18px}.translation{font-size:clamp(23px,2.5vw,33px);line-height:1.38;margin:26px 0}.annotation{font-size:16px;line-height:1.65;color:#4b514b}.annotation strong{color:var(--red2)}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16);margin-top:60px}.principle{background:var(--night);padding:36px;min-height:310px}.principle .num{font:700 11px var(--sans);letter-spacing:.18em;color:#d7a16d}.principle h3{font-size:30px;font-weight:400;line-height:1.05;margin:28px 0 16px}.principle p{font-size:16px;line-height:1.62;color:#c6c7bd;margin:0}.principle em{color:#e9c7a6}
+.constellation{padding:110px max(5vw,28px);background:#e8e0cb}.constellation:nth-of-type(even){background:#ded4bb}.poem-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:46px}.poem-head .count{font:700 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#777062}.poem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.poem-card{background:rgba(255,255,255,.35);border:1px solid rgba(35,48,42,.15);padding:30px;min-height:365px;display:flex;flex-direction:column;cursor:pointer;transition:transform .25s,background .25s,box-shadow .25s;position:relative;overflow:hidden}.poem-card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:.3s}.poem-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.57);box-shadow:0 14px 40px rgba(40,45,36,.08)}.poem-card:hover::before{transform:scaleX(1)}.poem-card .season{font:700 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:24px}.poem-card .jp{font-family:var(--jp);font-size:28px;line-height:1.65;letter-spacing:.07em}.poem-card .en{font-size:22px;line-height:1.38;margin-top:auto;padding-top:28px}.poem-card .note{font-size:14px;line-height:1.5;color:#66665b;margin-top:14px}.poem-card .hint{font:700 10px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#7d7568;margin-top:18px;opacity:.72}.poem-card.open .note{color:#303b35}.poem-card.open{background:#f1ead7}.poem-card.open .hint::after{content:" · stay here";color:var(--red)}
+.deepread{padding:120px max(5vw,28px);background:#132b30;color:#eae5d5}.deep-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:70px}.deep-poem{position:sticky;top:110px;align-self:start}.deep-poem .jp{font-family:var(--jp);font-size:clamp(40px,5vw,66px);line-height:1.65}.deep-poem .en{font-size:30px;line-height:1.45;color:#eac8a8;margin-top:26px}.deep-steps{display:grid;gap:54px}.step{border-top:1px solid rgba(255,255,255,.17);padding-top:22px}.step b{font:700 11px var(--sans);letter-spacing:.15em;text-transform:uppercase;color:#e3a977}.step h3{font-size:31px;font-weight:400;margin:10px 0 13px}.step p{font-size:17px;line-height:1.72;color:#c8cbc2;margin:0}.sensory{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.pill{border:1px solid rgba(255,255,255,.2);border-radius:40px;padding:7px 10px;font:650 10px var(--sans);text-transform:uppercase;letter-spacing:.12em}
+.pause{background:#a53e2d;color:#f8f0dc;padding:95px max(5vw,28px);text-align:center}.pause small{font:700 11px var(--sans);letter-spacing:.18em;text-transform:uppercase}.pause .jp{font-family:var(--jp);font-size:clamp(44px,7vw,92px);letter-spacing:.11em;margin:26px auto;line-height:1.35}.pause .en{font-size:clamp(24px,3vw,38px);line-height:1.35;max-width:850px;margin:0 auto 25px}.pause button{appearance:none;border:1px solid rgba(255,255,255,.65);background:transparent;color:#fff;padding:13px 17px;font:700 11px var(--sans);letter-spacing:.15em;text-transform:uppercase;cursor:pointer}.reveal{max-height:0;overflow:hidden;transition:max-height .7s ease,margin .7s;max-width:800px;margin:0 auto;font-size:17px;line-height:1.7;color:#f3dfc2}.reveal.show{max-height:320px;margin-top:28px}
+.bio{background:#efe8d6}.timeline{display:grid;grid-template-columns:220px 1fr;gap:0;margin-top:55px}.year{font:800 clamp(38px,4vw,56px) var(--sans);letter-spacing:-.06em;color:var(--red);padding:28px 26px 34px 0;border-top:1px solid var(--line)}.event{border-top:1px solid var(--line);padding:30px 0 40px;font-size:18px;line-height:1.65}.event strong{font-size:24px;font-weight:400}.event .tiny{display:block;font:700 10px var(--sans);text-transform:uppercase;letter-spacing:.15em;color:#777065;margin-bottom:8px}
+.name-stage{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}.kanji-card{background:#182f34;color:#efe9d7;padding:45px;min-height:335px}.kanji-card.place{background:#d9ceb2;color:#1b2925}.kanji-card .kanji{font-family:var(--jp);font-size:90px;line-height:1}.kanji-card .reading{font:750 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;margin:22px 0 14px}.kanji-card p{font-size:19px;line-height:1.55;margin:0}.macron{font-size:clamp(27px,3vw,39px);line-height:1.45;margin-top:26px}.macron b{color:var(--red)}
+.banana{overflow:hidden}.banana-grid{display:grid;grid-template-columns:1fr .95fr;gap:75px;align-items:center}.leaf-scene{height:620px;position:relative;background:#18343a;overflow:hidden;box-shadow:var(--shadow)}.leaf{position:absolute;width:250px;height:92px;background:#6d8069;border-radius:95% 5% 95% 5%;transform-origin:8% 50%;filter:drop-shadow(0 10px 13px rgba(0,0,0,.18));animation:sway 7s ease-in-out infinite}.leaf::after{content:"";position:absolute;left:18px;right:15px;top:48%;height:1px;background:rgba(238,231,210,.38)}.leaf.l1{left:40%;top:13%;transform:rotate(-18deg);animation-delay:-1s}.leaf.l2{left:34%;top:27%;transform:rotate(9deg) scale(.9);animation-delay:-3s}.leaf.l3{left:42%;top:43%;transform:rotate(-6deg) scale(1.05);animation-delay:-5s}.leaf.l4{left:30%;top:58%;transform:rotate(20deg) scale(.82);animation-delay:-2s}.stem{position:absolute;left:39%;top:10%;width:15px;height:85%;background:linear-gradient(90deg,#67785e,#849276,#536d59);transform:rotate(3deg)}.rain{position:absolute;inset:-20%;background-image:repeating-linear-gradient(105deg,transparent 0 20px,rgba(238,231,210,.13) 21px 22px,transparent 23px 33px);animation:rain 1.5s linear infinite}.leaf-quote{position:absolute;left:30px;right:30px;bottom:30px;background:rgba(13,37,42,.78);backdrop-filter:blur(7px);padding:22px;color:#efe6d0;font-size:17px;line-height:1.5}.silvergrass{position:absolute;left:6%;bottom:0;width:35%;height:38%;opacity:.74;background:repeating-linear-gradient(78deg,transparent 0 12px,#a79f79 13px 14px,transparent 15px 26px)}
+@keyframes sway{0%,100%{rotate:-1deg}50%{rotate:3deg}}@keyframes rain{to{transform:translate(90px,180px)}}
+.gallery{background:#d8ceb6}.gallery-grid{display:grid;grid-template-columns:1.25fr .75fr 1fr;grid-auto-rows:250px;gap:12px;margin-top:52px}.art{position:relative;overflow:hidden;background:#c7bea7}.art img{width:100%;height:100%;object-fit:cover;filter:saturate(.62) contrast(1.03);transition:transform .6s ease,filter .6s}.art:hover img{transform:scale(1.025);filter:saturate(.82) contrast(1.04)}.art.tall{grid-row:span 2}.art.wide{grid-column:span 2}.cap{position:absolute;inset:auto 0 0;background:linear-gradient(transparent,rgba(7,20,23,.87));color:#f0ead9;padding:42px 18px 15px;font:600 11px/1.45 var(--sans);letter-spacing:.02em}.cap span{opacity:.75}.gallery-note{font-size:15px;line-height:1.6;max-width:760px;margin-top:25px;color:#55574f}
+.replika{background:#f0e9d6}.replika-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px}.dispatches{display:grid;gap:12px}.dispatch{border:1px solid var(--line);padding:26px;background:rgba(255,255,255,.28)}.dispatch b{font:750 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--red)}.dispatch h3{font-size:26px;margin:10px 0}.dispatch p{font-size:16px;line-height:1.62;margin:0;color:#50574f}.quote-card{background:#152d32;color:#ece7d8;padding:38px;margin-top:32px}.quote-card .q{font-size:28px;line-height:1.45}.quote-card .src{font:600 11px var(--sans);text-transform:uppercase;letter-spacing:.12em;color:#d5a47e;margin-top:20px}
+.translation-room{background:#122a30;color:#eee8d7}.room{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;margin-top:50px}.selector{display:grid;gap:8px;align-content:start;position:sticky;top:100px}.selector button{appearance:none;border:1px solid rgba(255,255,255,.17);background:transparent;color:#d9d8cf;text-align:left;padding:13px 15px;font:650 12px var(--sans);letter-spacing:.04em;cursor:pointer}.selector button.active,.selector button:hover{background:#a34432;color:white;border-color:#a34432}.translated{display:grid;gap:24px}.trans-card{border-top:1px solid rgba(255,255,255,.16);padding-top:26px}.trans-card .orig{font-family:var(--jp);font-size:23px;line-height:1.5;color:#bbb9aa}.trans-card .target{font-size:clamp(27px,3vw,40px);line-height:1.4;margin-top:14px;white-space:pre-line}.trans-card .label{font:700 10px var(--sans);letter-spacing:.15em;text-transform:uppercase;color:#d8a476;margin-bottom:9px}.translation-note{font-size:14px;line-height:1.6;color:#aeb3ac;margin-top:25px}
+.sources{background:#e1d7bf}.sources-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}.source{padding:18px 0;border-top:1px solid var(--line)}.source b{font-size:18px}.source p{font-size:14px;line-height:1.55;color:#5d6058}.source a{font:650 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--red);text-decoration:none}.source a:hover{text-decoration:underline}
+.footer{background:#0e252a;color:#d8d7cb;padding:70px max(5vw,28px)}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:35px;align-items:flex-end}.footer h2{font-size:clamp(36px,5vw,67px);font-weight:400;line-height:1;margin:0}.footer p{font-size:14px;line-height:1.6;color:#aeb3aa;max-width:520px}.footer .mark{font-family:var(--jp);font-size:70px;color:#d7a06e}
+.reveal-on-scroll{opacity:0;transform:translateY(18px);transition:.8s ease}.reveal-on-scroll.visible{opacity:1;transform:none}
+@media(max-width:900px){.topbar nav{display:none}.intro-grid,.breaker,.deep-grid,.banana-grid,.replika-grid,.room{grid-template-columns:1fr}.principles,.poem-grid{grid-template-columns:1fr 1fr}.deep-poem,.selector{position:relative;top:auto}.gallery-grid{grid-template-columns:1fr 1fr}.gallery-grid .wide{grid-column:span 2}.timeline{grid-template-columns:120px 1fr}.name-stage,.sources-grid{grid-template-columns:1fr}.leaf-scene{height:500px}}
+@media(max-width:600px){.section,.constellation,.deepread{padding:82px 22px}.hero-copy{margin-left:22px;margin-right:22px}.vertical-jp{right:16px;top:110px;font-size:14px}.sound-grid,.principles,.poem-grid,.gallery-grid{grid-template-columns:1fr}.gallery-grid .wide{grid-column:span 1}.timeline{grid-template-columns:1fr}.year{padding-bottom:5px}.event{border-top:0;padding-top:0}.name-stage{gap:8px}.kanji-card{padding:30px;min-height:270px}.room{gap:35px}.selector{grid-template-columns:1fr 1fr}.footer-inner{display:block}.footer .mark{margin-top:35px}.topbar{padding:10px 14px}.leaf-scene{height:430px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal-on-scroll{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="paper-grain"></div>
+<header class="topbar">
+  <div class="brand"><span class="seal">蕉</span><span>Bashō / field notes</span></div>
+  <nav aria-label="Main navigation">
+    <a href="#why">Why</a><a href="#poems">Poems</a><a href="#name">Name</a><a href="#images">Images</a><a href="#team">For builders</a><a href="#translations">Translations</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+<svg class="hero-art" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Original woodblock-inspired night landscape: mountain road, moon, banana leaves, a solitary traveler">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#102a32"/><stop offset=".62" stop-color="#36505a"/><stop offset="1" stop-color="#b38a66"/></linearGradient>
+    <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="2" seed="8" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="3" seed="2"/><feBlend mode="multiply" in="SourceGraphic"/></filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <circle cx="1240" cy="230" r="115" fill="#efe6c8" opacity=".87" filter="url(#rough)"/>
+  <path d="M0 580 C190 465 315 555 505 440 C678 335 842 502 1010 389 C1180 276 1350 410 1600 300 L1600 1000 L0 1000Z" fill="#223c41" opacity=".96" filter="url(#rough)"/>
+  <path d="M0 660 C240 520 390 635 610 530 C850 414 1010 590 1220 468 C1382 372 1500 455 1600 435 L1600 1000 L0 1000Z" fill="#193237" filter="url(#rough)"/>
+  <path d="M0 765 C220 632 442 760 690 654 C920 556 1110 720 1360 608 C1460 565 1545 575 1600 573 L1600 1000 L0 1000Z" fill="#12282c" filter="url(#rough)"/>
+  <path d="M795 1000 C747 888 802 822 872 754 C931 696 1023 662 1145 620 C1033 692 982 740 948 793 C907 855 923 917 956 1000Z" fill="#c0a27b" opacity=".55" filter="url(#rough)"/>
+  <g opacity=".83" transform="translate(1170 560)">
+    <path d="M0 0 C55 -145 120 -230 172 -300" stroke="#546d5e" stroke-width="14" fill="none"/>
+    <path d="M88 -176 C185 -248 285 -232 343 -198 C252 -158 184 -147 88 -176Z" fill="#5e7666" transform="rotate(-9 88 -176)"/>
+    <path d="M58 -121 C157 -134 243 -91 290 -43 C198 -38 128 -55 58 -121Z" fill="#748470"/>
+    <path d="M116 -219 C185 -307 277 -339 338 -325 C277 -250 211 -213 116 -219Z" fill="#677d69"/>
+  </g>
+  <g transform="translate(892 760)" fill="#0b1b1e">
+    <circle cx="0" cy="-54" r="11"/>
+    <path d="M-12 -42 Q5 -45 15 -8 L25 52 L-16 52 L-22 0Z"/>
+    <path d="M-10 -37 Q-49 -12 -65 30" stroke="#0b1b1e" stroke-width="8" fill="none"/>
+    <path d="M15 -30 Q43 -3 56 33" stroke="#0b1b1e" stroke-width="8" fill="none"/>
+    <path d="M-55 28 L-77 84 M54 29 L78 84" stroke="#0b1b1e" stroke-width="7"/>
+    <path d="M-10 49 L-27 103 M20 48 L38 103" stroke="#0b1b1e" stroke-width="8"/>
+    <path d="M-32 -52 Q0 -91 34 -50 Q0 -32 -32 -52Z"/>
+  </g>
+  <g opacity=".23" fill="#f4ecd7"><circle cx="190" cy="180" r="2"/><circle cx="320" cy="315" r="1.8"/><circle cx="730" cy="165" r="2"/><circle cx="1070" cy="365" r="1.5"/><circle cx="1440" cy="155" r="1.8"/></g>
+</svg>
+<div class="vertical-jp">古池や　蛙飛びこむ　水の音</div>
+<div class="hero-copy reveal-on-scroll">
+  <div class="eyebrow">Matsuo Bashō · 1644–1694</div>
+  <h1>Bashō<small>the narrowest door to the world</small></h1>
+  <p class="hero-lede">A poet who discovered that <em>less language can contain more life</em>. Not because he made things small, but because he knew exactly what not to explain.</p>
+  <a class="enter" href="#why">Enter the narrow road <span>↓</span></a>
+</div>
+</section>
+
+<section class="section" id="why">
+<div class="wrap intro-grid">
+  <div class="reveal-on-scroll">
+    <div class="kicker">01 · first, unlearn haiku</div>
+    <h2 class="display">The frog is not the point.</h2>
+    <p class="lede">Bashō is often flattened into a classroom formula: nature + 5/7/5 + serenity. That misses the voltage.</p>
+    <p class="body">He wrote <strong>hokku</strong>, opening verses inside the social, comic, associative world of haikai. The modern label “haiku” came later. His great poems are tiny machines for changing consciousness: two precise things are placed beside each other, explanation is withheld, and the reader has to make the final connection.</p>
+  </div>
+  <aside class="schoolbook reveal-on-scroll">
+    <div class="big-no">17?</div>
+    <p><strong>Not a magic number.</strong> Japanese counts morae, not English-style syllables. More importantly, Bashō himself sometimes broke the neat pattern. Form was a pressure vessel, not a prison.</p>
+    <div class="sound-grid">
+      <div class="sound"><b>季</b><h3>Kigo</h3><p>A seasonal word. One small detail quietly imports weather, time, memory, mood.</p></div>
+      <div class="sound"><b>切</b><h3>Kire</h3><p>A cut. Two images do not explain each other. Their distance creates energy.</p></div>
+      <div class="sound"><b>余</b><h3>Yohaku</h3><p>Open space. What is omitted is not empty. It is where the reader enters.</p></div>
+    </div>
+  </aside>
+</div>
+<div class="wrap breaker reveal-on-scroll">
+  <img src="/images/basho/b01.webp" alt="Bashō calligraphy of the withered branch and crow hokku, Metropolitan Museum of Art" />
+  <div class="breaker-copy">
+    <div class="kicker">the rule cracks beautifully</div>
+    <div class="jp-big">枯枝に<br>烏のとまりたるや<br>秋の暮</div>
+    <div class="roman">kareeda ni / karasu tomaritaru ya / aki no kure</div>
+    <div class="translation">on a withered branch<br>a crow has settled<br>autumn dusk</div>
+    <div class="annotation">The Met notes that the second line of this version <strong>does not fit a clean 5–7–5 count</strong>. Yet the poem is unmistakably Bashō: dry branch, black crow, dying light. Three kinds of darkness, with almost no commentary.</div>
+  </div>
+</div>
+</section>
+
+<section class="section dark">
+<div class="wrap">
+  <div class="kicker">02 · what he actually invented</div>
+  <h2 class="display">A way of paying attention.</h2>
+  <p class="lede" style="max-width:900px">He did not invent short poetry. He made short poetry capable of being at once comic, worldly, historical, lonely, sensory, and immense.</p>
+  <div class="principles">
+    <article class="principle reveal-on-scroll"><div class="num">I</div><h3>Tiny frame,<br>enormous field.</h3><p>A seasonal word can carry an entire cultural atmosphere. A ruined battlefield can be summoned by <em>summer grass</em>. Compression is not deletion. It is stored energy.</p></article>
+    <article class="principle reveal-on-scroll"><div class="num">II</div><h3>Juxtapose.<br>Do not explain.</h3><p>Pond / splash. Silence / cicada. Warriors / grass. The poem does not walk you across the bridge. It puts two banks in front of you and lets your mind become the bridge.</p></article>
+    <article class="principle reveal-on-scroll"><div class="num">III</div><h3>Things before<br>ideas.</h3><p>“Learn of the pine from the pine,” his disciple Dohō recorded. The poet is not supposed to paste a feeling onto the world. Look until the thing starts teaching you how to see it.</p></article>
+    <article class="principle reveal-on-scroll"><div class="num">IV</div><h3>Depth can<br>be funny.</h3><p>A monkey wanting a raincoat. A poet who plants a banana and instantly resents the grass beside it. Bashō’s greatness is damaged if we turn him into a solemn incense cloud.</p></article>
+    <article class="principle reveal-on-scroll"><div class="num">V</div><h3>The road is<br>part of the poem.</h3><p>His travel writing makes perception mobile. Weather, hunger, old battlefields, cheap inns, friends, temples, blisters: poetry happens through contact, not retreat from life.</p></article>
+    <article class="principle reveal-on-scroll"><div class="num">VI</div><h3>Late mastery<br>became lightness.</h3><p>His late ideal, <em>karumi</em>, was “lightness”: not shallowness, but freedom from stiffness. The highest art returns to ordinary life and stops announcing that it is high art.</p></article>
+  </div>
+</div>
+</section>
+
+<section class="constellation" id="poems">
+<div class="wrap">
+<div class="poem-head"><div><div class="kicker">03 · constellation I</div><h2 class="display">Silence has texture.</h2></div><div class="count">5 poems · click and linger</div></div>
+<div class="poem-grid">
+<article class="poem-card"><div class="season">spring · water</div><div class="jp">古池や<br>蛙飛びこむ<br>水の音</div><div class="en">old pond –<br>a frog jumps in<br>the sound of water</div><div class="note">The splash matters because the pond was already old and still. The event does not “symbolize” awakening. It changes the scale of time.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">summer · cicada</div><div class="jp">閑さや<br>岩にしみ入る<br>蝉の声</div><div class="en">stillness –<br>the cicada’s cry<br>seeps into stone</div><div class="note">A paradox without argument: sound does not interrupt silence, it makes silence physical enough to enter rock.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">winter · wild ducks</div><div class="jp">海暮れて<br>鴨の声<br>ほのかに白し</div><div class="en">the sea darkens –<br>wild-duck voices<br>faintly white</div><div class="note">Vision disappears. Sound arrives. Then sound itself becomes pale. Three lines, three sensory states.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">spring · violet</div><div class="jp">山路来て<br>何やらゆかし<br>すみれ草</div><div class="en">coming along the mountain path –<br>somehow dear to me,<br>a wild violet</div><div class="note">“Somehow” is the intelligence. He refuses to improve the feeling into a thesis.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">spring · kerria</div><div class="jp">ほろほろと<br>山吹散るか<br>滝の音</div><div class="en">loosening, loosening –<br>kerria petals fall<br>the waterfall’s sound</div><div class="note">Fragile petals and overwhelming water share one moment. The soft “horohoro” almost falls apart in the mouth.</div><div class="hint">deep read</div></article>
+</div>
+</div>
+</section>
+
+<section class="constellation">
+<div class="wrap">
+<div class="poem-head"><div><div class="kicker">04 · constellation II</div><h2 class="display">History becomes weather.</h2></div><div class="count">5 poems · no monuments required</div></div>
+<div class="poem-grid">
+<article class="poem-card"><div class="season">summer · grass</div><div class="jp">夏草や<br>兵どもが<br>夢の跡</div><div class="en">summer grasses –<br>all that remains<br>of warriors’ dreams</div><div class="note">At Hiraizumi, history is not explained. Ambition has become chlorophyll. The grass is alive; the warriors’ grandeur is grammar.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">autumn · Milky Way</div><div class="jp">荒海や<br>佐渡によこたふ<br>天河</div><div class="en">rough sea –<br>stretched over Sado<br>the Milky Way</div><div class="note">Violence below, impossible stillness above. The galaxy becomes a bridge precisely where the sea refuses passage.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">summer · rains</div><div class="jp">五月雨を<br>あつめて早し<br>最上川</div><div class="en">gathering the summer rains –<br>how swiftly it runs,<br>the Mogami River</div><div class="note">The river is not merely fast. An entire wet season appears to have poured itself into one moving body.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">autumn · journey</div><div class="jp">野ざらしを<br>心に風の<br>しむ身かな</div><div class="en">weather-bleached bones<br>in my mind – the wind<br>pierces my body</div><div class="note">He begins a journey imagining his own corpse by the road. Travel is not lifestyle content here. It is exposure.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">autumn · road</div><div class="jp">この道や<br>行く人なしに<br>秋の暮</div><div class="en">this road –<br>no one walking it<br>autumn dusk</div><div class="note">Late Bashō. A road is both literal road and chosen way, yet he never closes the metaphor. Loneliness remains landscape.</div><div class="hint">deep read</div></article>
+</div>
+</div>
+</section>
+
+<section class="constellation">
+<div class="wrap">
+<div class="poem-head"><div><div class="kicker">05 · constellation III</div><h2 class="display">The sage laughs.</h2></div><div class="count">5 poems · lightness is not smallness</div></div>
+<div class="poem-grid">
+<article class="poem-card"><div class="season">winter · first rain</div><div class="jp">初しぐれ<br>猿も小蓑を<br>ほしげ也</div><div class="en">first winter rain –<br>the monkey too seems to want<br>a little straw cape</div><div class="note">Compassion arrives through a tiny joke. The monkey is not allegory. It is cold.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">summer · moon</div><div class="jp">蛸壺や<br>はかなき夢を<br>夏の月</div><div class="en">octopus pots –<br>brief dreams<br>under the summer moon</div><div class="note">Inside the traps, octopuses rest before fishermen return. “Hakanaki” means fleeting, fragile, doomed. The moon makes the cruelty almost unbearably tender.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">winter · snow</div><div class="jp">いざさらば<br>雪見にころぶ<br>所迄</div><div class="en">come then, let’s go –<br>snow-viewing until<br>we tumble</div><div class="note">A great poet, still willing to make the sublime end with somebody falling over.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">summer · horse</div><div class="jp">馬ぼくぼく<br>我を絵に見る<br>夏野かな</div><div class="en">horse, clop-clop –<br>I see myself in a picture<br>on the summer moor</div><div class="note">Self-awareness without narcissism: the traveler suddenly sees himself as one tiny mark in the landscape.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">spring · blossoms</div><div class="jp">花の雲<br>鐘は上野か<br>浅草か</div><div class="en">clouds of blossoms –<br>is that bell from Ueno,<br>or Asakusa?</div><div class="note">No revelation. Just orientation by sound inside a city turned into blossom-cloud. Wonder can be as casual as “which bell is that?”</div><div class="hint">deep read</div></article>
+</div>
+</div>
+</section>
+
+<section class="constellation">
+<div class="wrap">
+<div class="poem-head"><div><div class="kicker">06 · constellation IV</div><h2 class="display">Late light.</h2></div><div class="count">4 poems · the voice gets lighter as death nears</div></div>
+<div class="poem-grid">
+<article class="poem-card"><div class="season">autumn · Fuji</div><div class="jp">霧しぐれ<br>富士を見ぬ日ぞ<br>面白き</div><div class="en">mist and drizzle –<br>a day we cannot see Fuji<br>how interesting</div><div class="note">A master of seeing enjoys not seeing the famous view. Absence is not failure; it is weather’s edit.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">autumn · chrysanthemum</div><div class="jp">白菊の<br>目に立てて見る<br>塵もなし</div><div class="en">white chrysanthemum –<br>looking closely,<br>not a speck</div><div class="note">Almost aggressively clean. The poem’s austerity is the thing it describes.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">autumn · Nara</div><div class="jp">菊の香や<br>奈良には古き<br>仏たち</div><div class="en">scent of chrysanthemums –<br>in Nara,<br>the old Buddhas</div><div class="note">Smell opens historical time. The statues are old; the flower scent is happening now. Neither needs to explain the other.</div><div class="hint">deep read</div></article>
+<article class="poem-card"><div class="season">winter · final journey</div><div class="jp">旅に病んで<br>夢は枯野を<br>かけ廻る</div><div class="en">sick on a journey –<br>my dreams run on<br>through withered fields</div><div class="note">One of his final poems, written while ill in Osaka. The body stops; the dream keeps traveling. Even here, no moral is supplied.</div><div class="hint">deep read</div></article>
+</div>
+</div>
+</section>
+
+<section class="deepread">
+<div class="wrap deep-grid">
+  <div class="deep-poem reveal-on-scroll">
+    <div class="kicker">07 · anatomy of three lines</div>
+    <div class="jp">古池や<br>蛙飛びこむ<br>水の音</div>
+    <div class="en">old pond –<br>a frog jumps in<br>the sound of water</div>
+  </div>
+  <div class="deep-steps">
+    <div class="step reveal-on-scroll"><b>01 · first line</b><h3>Time before action.</h3><p><em>Furu ike</em>, “old pond.” Before anything moves, age and stillness are already present. The poem begins not with the frog but with a world that has been waiting.</p><div class="sensory"><span class="pill">stillness</span><span class="pill">age</span><span class="pill">space</span></div></div>
+    <div class="step reveal-on-scroll"><b>02 · the cut</b><h3><em>Ya</em> opens a gap.</h3><p>The cutting particle does not mean one tidy English word. It arrests the first image and leaves air after it. The pond becomes a complete field before the frog enters.</p><div class="sensory"><span class="pill">pause</span><span class="pill">attention</span></div></div>
+    <div class="step reveal-on-scroll"><b>03 · second line</b><h3>An ordinary animal does an ordinary thing.</h3><p>No “lonely frog,” no “sudden enlightenment,” no adjective doing emotional labor. Bashō trusts the concrete event. This is one reason the poem survives interpretation without being exhausted by it.</p><div class="sensory"><span class="pill">motion</span><span class="pill">no explanation</span></div></div>
+    <div class="step reveal-on-scroll"><b>04 · final line</b><h3>He gives us sound, not splash.</h3><p><em>Mizu no oto</em>: “the sound of water.” The frame suddenly moves from what happened to what was heard. A tiny sound makes the preceding silence perceptible retroactively.</p><div class="sensory"><span class="pill">sound</span><span class="pill">afterimage</span></div></div>
+    <div class="step reveal-on-scroll"><b>05 · the reader</b><h3>The poem ends before its meaning does.</h3><p>That is the Bashō trick worth loving: the poem does not state what the moment “means.” It creates conditions precise enough for meaning to happen in you.</p></div>
+  </div>
+</div>
+</section>
+
+<section class="pause">
+  <small>an experiment · read before clicking</small>
+  <div class="jp">海暮れて　鴨の声　ほのかに白し</div>
+  <div class="en">the sea darkens · wild-duck voices · faintly white</div>
+  <button id="revealBtn">What just happened?</button>
+  <div class="reveal" id="revealText">The poem begins in sight. Then sight fails as the sea darkens. Sound takes over: ducks we cannot see. Then Bashō commits the impossible, quietly, and makes the sound “faintly white.” The poem does not describe an object. It describes perception changing channels.</div>
+</section>
+
+<section class="section bio" id="story">
+<div class="wrap">
+  <div class="kicker">08 · a life that became a road</div><h2 class="display">Bashō, before he was Bashō.</h2>
+  <p class="lede" style="max-width:900px">The biography matters because the work is not a pile of detached miniatures. It is a long experiment in how to live close enough to the world to notice it.</p>
+  <div class="timeline">
+    <div class="year">1644</div><div class="event reveal-on-scroll"><span class="tiny">Iga Province</span><strong>Matsuo Kinsaku is born.</strong><br>He grows up in Iga and enters the household of the Tōdō family. The young heir Yoshitada shares his interest in linked verse. Poetry begins socially, not as solitary mountain mysticism.</div>
+    <div class="year">1670s</div><div class="event reveal-on-scroll"><span class="tiny">Edo</span><strong>A successful urban poet named Tōsei.</strong><br>He teaches, publishes, joins circles, experiments with fashionable haikai. “Tōsei,” green peach, playfully nods toward the Chinese poet Li Bai. Bashō’s later simplicity is built on literary sophistication, not innocence.</div>
+    <div class="year">1680–81</div><div class="event reveal-on-scroll"><span class="tiny">Fukagawa</span><strong>A banana plant changes his name.</strong><br>He moves across the Sumida River to a quieter hut. A disciple gives him a Japanese banana plant. It thrives, the cottage becomes known as Bashō-an, the Banana Hut, and the poet gradually becomes “Bashō.”</div>
+    <div class="year">1684+</div><div class="event reveal-on-scroll"><span class="tiny">the road</span><strong>He starts leaving home on purpose.</strong><br>Major journeys become travel diaries where prose and hokku answer each other. He follows older poetic routes while testing them against rain, bad lodging, landscapes, ruins, and actual fatigue.</div>
+    <div class="year">1689</div><div class="event reveal-on-scroll"><span class="tiny">Oku no Hosomichi</span><strong>The Narrow Road to the Deep North.</strong><br>With Kawai Sora, he travels for months through northern Honshū. The later book is not a raw diary but a crafted work in which geography, literary memory, history, and immediate sensation keep touching.</div>
+    <div class="year">1694</div><div class="event reveal-on-scroll"><span class="tiny">Osaka</span><strong>The body stops. The road does not.</strong><br>He falls ill and dies at fifty. Near the end comes the withered-field poem: sick on a journey, his dreams continue to run across the landscape.</div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="name">
+<div class="wrap">
+  <div class="kicker">09 · the name is a plant, not a place</div><h2 class="display">Bashō ≠ basho.</h2>
+  <p class="lede" style="max-width:940px">In English typography the macron is easy to drop. In Japanese, these are different words with different sounds and different kanji.</p>
+  <div class="name-stage">
+    <div class="kanji-card reveal-on-scroll"><div class="kanji">芭蕉</div><div class="reading">ばしょう · bashō</div><p><strong>Japanese banana / plantain.</strong> The broad-leaved, non-fruiting plant that gave the poet his pen name. The final vowel is long: <em>shō</em>.</p></div>
+    <div class="kanji-card place reveal-on-scroll"><div class="kanji">場所</div><div class="reading">ばしょ · basho</div><p><strong>Place / location.</strong> A common modern Japanese word. The final vowel is short: <em>sho</em>.</p></div>
+  </div>
+  <p class="macron"><b>The little line over ō is doing real work.</b> “Bashō” is the banana poet. “Basho” can be 場所, a place. Same Roman letters only if we erase a sound distinction.</p>
+</div>
+</section>
+
+<section class="section banana">
+<div class="wrap banana-grid">
+  <div class="reveal-on-scroll">
+    <div class="kicker">10 · yes, the banana feud is real-ish</div>
+    <h2 class="display">He planted a banana. Then immediately hated a weed.</h2>
+    <div class="jp-big" style="font-size:36px">ばせを植ゑて<br>まづ憎む荻の<br>二葉哉</div>
+    <div class="roman">bashō uete / mazu nikumu ogi no / futaba kana</div>
+    <div class="translation">I plant a banana –<br>and the first thing I hate:<br>two shoots of silvergrass.</div>
+    <p class="body">This is the seed of the story that “he loved banana so much he started hating other plants.” But the funnier, truer version is specific. After planting the precious bashō, he sees vigorous <em>ogi</em> shoots growing beside it and resents them.</p>
+    <p class="body"><strong>It is not a saintly anecdote.</strong> It is gardener possessiveness, comic and tender. The man we turn into a marble sage could be petty about the plant he loved. That is exactly why he stays alive on the page.</p>
+  </div>
+  <div class="leaf-scene reveal-on-scroll" aria-label="Animated woodblock-inspired banana leaves in rain">
+    <div class="rain"></div><div class="silvergrass"></div><div class="stem"></div><div class="leaf l1"></div><div class="leaf l2"></div><div class="leaf l3"></div><div class="leaf l4"></div>
+    <div class="leaf-quote">Bashō loved the plant’s huge fragile leaves, easily torn by wind, and the sound rain made through them. A magnificent pen name for a poet obsessed with impermanence.</div>
+  </div>
+</div>
+</section>
+
+<section class="section gallery" id="images">
+<div class="wrap">
+  <div class="kicker">11 · the poems acquired images</div><h2 class="display">How later artists saw his world.</h2>
+  <p class="lede" style="max-width:940px">Bashō’s poems became visual culture. Some works pair his own calligraphy with painting; later masters imagined his journeys and the aura around his poems. These reproductions are public-domain museum works.</p>
+  <div class="gallery-grid">
+    <figure class="art tall reveal-on-scroll"><img src="/images/basho/b02.webp" alt="Painting and Bashō calligraphy illustrating the withered branch and crow poem"/><figcaption class="cap">Morikawa Kyoriku + Matsuo Bashō, <b>withered branch / crow / autumn dusk</b>, c. 1680–81 <span>· public domain</span></figcaption></figure>
+    <figure class="art reveal-on-scroll"><img src="/images/basho/b03.webp" alt="Portrait of Bashō with the old pond poem, by Yokoi Kinkoku"/><figcaption class="cap">Yokoi Kinkoku, portrait of Bashō with <b>old pond</b>, c. 1820 <span>· public domain</span></figcaption></figure>
+    <figure class="art reveal-on-scroll"><img src="/images/basho/b04.webp" alt="Portrait of Matsuo Bashō by Yosa Buson"/><figcaption class="cap">Yosa Buson, <b>portrait of Bashō</b> <span>· public domain</span></figcaption></figure>
+    <figure class="art wide reveal-on-scroll"><img src="/images/basho/b05.webp" alt="Yosa Buson scene from The Narrow Road to the Deep North"/><figcaption class="cap">Yosa Buson, scene from <b>The Narrow Road to the Deep North</b>, c. 1780 <span>· The Met / public domain</span></figcaption></figure>
+    <figure class="art wide reveal-on-scroll"><img src="/images/basho/b06.webp" alt="Hiroshige print of a Bashō-associated hermitage at Sekiguchi"/><figcaption class="cap">Utagawa Hiroshige, <b>Bashō-associated hermitage at Sekiguchi</b>, 1857 <span>· later visual memory, not his Fukagawa hut · public domain</span></figcaption></figure>
+    <figure class="art reveal-on-scroll"><img src="/images/basho/b07.webp" alt="Bashō's handwritten haiku exchange on kaishi paper"/><figcaption class="cap">Bashō, <b>record of a haiku exchange</b> <span>· handwriting / The Met / public domain</span></figcaption></figure>
+  </div>
+  <p class="gallery-note">A useful distinction: these are not all “illustrations commissioned for a haiku.” Some are poem-paintings, portraits with poems, or later visualizations of Bashō’s literary world. The history of looking at Bashō is itself part of the story.</p>
+</div>
+</section>
+
+<section class="section replika" id="team">
+<div class="wrap replika-grid">
+  <div>
+    <div class="kicker">12 · for people who build conversations</div>
+    <h2 class="display">Do not turn him into a product framework.</h2>
+    <p class="lede">But steal the deeper lesson: <strong>meaning can grow when the system says less and notices better.</strong></p>
+    <div class="quote-card reveal-on-scroll"><div class="q">“Learn of the pine from the pine, and of the bamboo from the bamboo.”</div><div class="src">Bashō’s teaching, recorded by Hattori Dohō</div></div>
+  </div>
+  <div class="dispatches">
+    <article class="dispatch reveal-on-scroll"><b>Attention > cleverness</b><h3>Personality is what you notice.</h3><p>Bashō’s voice is not a bag of adjectives. It is a selection function: this frog, this bit of grass, this bell somewhere behind blossoms. Taste begins in attention.</p></article>
+    <article class="dispatch reveal-on-scroll"><b>Compression ≠ truncation</b><h3>Short can feel bigger than long.</h3><p>Remove explanation, not specificity. The more exact the observed detail, the more space the reader has to participate without feeling abandoned.</p></article>
+    <article class="dispatch reveal-on-scroll"><b>The cut creates a third thing</b><h3>Two images can outperform a conclusion.</h3><p>Stillness + cicada does not equal a slogan. It produces a tension the mind keeps resolving. Good conversational turns can create that kind of live edge too.</p></article>
+    <article class="dispatch reveal-on-scroll"><b>Karumi</b><h3>The deepest voice may feel the lightest.</h3><p>Late mastery did not make Bashō more grandiose. It made him less stiff. A monkey can stand beside mortality. Great depth does not need to keep proving its depth.</p></article>
+  </div>
+</div>
+</section>
+
+<section class="translation-room section" id="translations">
+<div class="wrap">
+  <div class="kicker">13 · translation room</div><h2 class="display">What survives the crossing?</h2>
+  <p class="lede" style="max-width:930px">Choose a language. These are fresh, close renderings made for this page. They prioritize image, cut, and breath over forcing 5–7–5 into languages that move differently.</p>
+  <div class="room">
+    <div class="selector" id="langButtons" aria-label="Choose translation language"></div>
+    <div><div class="translated" id="translatedPoems"></div><p class="translation-note">Translation is interpretation. The Japanese remains beside every version on purpose. In a production publication, especially for literary register in Kyrgyz and Kazakh, a native-speaker poetry edit would be the final polishing pass.</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section sources" id="sources">
+<div class="wrap">
+  <div class="kicker">14 · source trail</div><h2 class="display">Keep wandering.</h2>
+  <p class="lede" style="max-width:900px">This page is an invitation, not a substitute for the books. The factual spine, image metadata, and several textual checks were grounded in museum and scholarly sources.</p>
+  <div class="sources-grid">
+    <div class="source"><b>The Metropolitan Museum of Art · “On a withered branch”</b><p>Bashō calligraphy, poem text, translation notes, and the unusually important note that this version’s second line breaks the neat 5–7–5 pattern.</p><a href="https://www.metmuseum.org/art/collection/search/845147" target="_blank" rel="noopener">open source ↗</a></div>
+    <div class="source"><b>The Metropolitan Museum of Art · Haiku exchange</b><p>Bashō’s handwriting and social practice of verse exchange, useful evidence against the solitary-genius caricature.</p><a href="https://www.metmuseum.org/art/collection/search/816208" target="_blank" rel="noopener">open source ↗</a></div>
+    <div class="source"><b>Haruo Shirane · Cambridge History of Japanese Literature</b><p>Scholarly context for the rise of haikai, Bashō’s influence, and the literary world from which his poetics emerged.</p><a href="https://www.cambridge.org/core/books/abs/cambridge-history-of-japanese-literature/rise-of-haikai-matsuo-basho-yosa-buson-and-kobayashi-issa/485E76A1794AD35822621A062AFCC8A3" target="_blank" rel="noopener">open source ↗</a></div>
+    <div class="source"><b>Yamagata University Museum · Matsuo Bashō</b><p>Biographical outline, the Bashō-an banana story, the northern journey, Yamadera cicada poem, and final illness.</p><a href="https://basho-yamadera.com/en/basho/matsuo-basho/" target="_blank" rel="noopener">open source ↗</a></div>
+    <div class="source"><b>Wikisource · Bashō Haiku Zenshū</b><p>Japanese text checks, including the delightfully human banana-versus-ogi poem.</p><a href="https://ja.wikisource.org/wiki/Page:Basho_Haiku_Zenshu.djvu/55" target="_blank" rel="noopener">open source ↗</a></div>
+    <div class="source"><b>The Haiku Foundation · Karumi</b><p>A focused essay on Bashō’s late ideal of “lightness,” plain speech, everyday life, humor, and the direction his poetics was still taking in 1694.</p><a href="https://thehaikufoundation.org/juxta/juxta-1-1/karumi-matsuo-bashos-ultimate-poetical-value-or-was-it/" target="_blank" rel="noopener">open source ↗</a></div>
+    <div class="source"><b>Hattori Dohō tradition · “learn of the pine”</b><p>The famous teaching is preserved in records by Bashō’s disciple Dohō and discussed in scholarship on Japanese poetics.</p><a href="https://www.jstor.org/stable/44029791" target="_blank" rel="noopener">scholarly trail ↗</a></div>
+    <div class="source"><b>Public-domain image repositories</b><p>Works by Yosa Buson, Yokoi Kinkoku, Morikawa Kyoriku, and Utagawa Hiroshige via The Met / Wikimedia Commons / Brooklyn Museum records.</p><a href="https://commons.wikimedia.org/wiki/Category:Matsuo_Bash%C5%8D" target="_blank" rel="noopener">browse images ↗</a></div>
+  </div>
+</div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><div><h2>The poem ends.<br>The noticing doesn’t.</h2><p>Made as a field guide for people who build companions, conversations, and little doors into larger worlds. Read Bashō slowly. Then go outside.</p></div><div class="mark">芭蕉</div></div></footer>
+
+<script>
+const translations = {
+  "English": [
+    ["古池や　蛙飛びこむ　水の音", "old pond –\na frog jumps in\nthe sound of water"],
+    ["夏草や　兵どもが　夢の跡", "summer grasses –\nall that remains\nof warriors’ dreams"],
+    ["閑さや　岩にしみ入る　蝉の声", "stillness –\nthe cicada’s cry\nseeps into stone"],
+    ["この道や　行く人なしに　秋の暮", "this road –\nno one walking it\nautumn dusk"]
+  ],
+  "Eesti": [
+    ["古池や　蛙飛びこむ　水の音", "vana tiik –\nkonn hüppab vette\nvee heli"],
+    ["夏草や　兵どもが　夢の跡", "suverohi –\nsõdalaste unistustest\nvaid jälg"],
+    ["閑さや　岩にしみ入る　蝉の声", "vaikus –\ntsikaadi hääl\nimbub kivisse"],
+    ["この道や　行く人なしに　秋の暮", "see tee –\nkedagi ei käi\nsügisõhtu"]
+  ],
+  "Українська": [
+    ["古池や　蛙飛びこむ　水の音", "старий ставок –\nжаба стрибає у воду\nзвук води"],
+    ["夏草や　兵どもが　夢の跡", "літні трави –\nось усе, що лишилось\nвід мрій воїнів"],
+    ["閑さや　岩にしみ入る　蝉の声", "тиша –\nкрик цикади\nпросочується в камінь"],
+    ["この道や　行く人なしに　秋の暮", "ця дорога –\nніхто не йде нею\nосінній присмерк"]
+  ],
+  "Polski": [
+    ["古池や　蛙飛びこむ　水の音", "stary staw –\nżaba wskakuje\nodgłos wody"],
+    ["夏草や　兵どもが　夢の跡", "letnie trawy –\noto, co zostało\nz marzeń wojowników"],
+    ["閑さや　岩にしみ入る　蝉の声", "cisza –\ngłos cykady\nwsiąka w skałę"],
+    ["この道や　行く人なしに　秋の暮", "ta droga –\nnikt nią nie idzie\njesienny zmierzch"]
+  ],
+  "Italiano": [
+    ["古池や　蛙飛びこむ　水の音", "vecchio stagno –\nuna rana si tuffa\nsuono d’acqua"],
+    ["夏草や　兵どもが　夢の跡", "erbe d’estate –\nciò che resta\ndei sogni dei guerrieri"],
+    ["閑さや　岩にしみ入る　蝉の声", "quiete –\nil grido della cicala\npenetra la roccia"],
+    ["この道や　行く人なしに　秋の暮", "questa strada –\nnon la percorre nessuno\ncrepuscolo d’autunno"]
+  ],
+  "Français": [
+    ["古池や　蛙飛びこむ　水の音", "vieil étang –\nune grenouille plonge\nle bruit de l’eau"],
+    ["夏草や　兵どもが　夢の跡", "herbes d’été –\ntout ce qui reste\ndes rêves des guerriers"],
+    ["閑さや　岩にしみ入る　蝉の声", "silence –\nle cri de la cigale\npénètre la pierre"],
+    ["この道や　行く人なしに　秋の暮", "ce chemin –\npersonne ne l’emprunte\ncrépuscule d’automne"]
+  ],
+  "Português (Brasil)": [
+    ["古池や　蛙飛びこむ　水の音", "lago antigo –\numa rã salta na água\no som da água"],
+    ["夏草や　兵どもが　夢の跡", "capim de verão –\ntudo o que restou\ndos sonhos dos guerreiros"],
+    ["閑さや　岩にしみ入る　蝉の声", "silêncio –\no canto da cigarra\npenetra a pedra"],
+    ["この道や　行く人なしに　秋の暮", "este caminho –\nninguém passa por ele\ncrepúsculo de outono"]
+  ],
+  "中文": [
+    ["古池や　蛙飛びこむ　水の音", "古池啊\n青蛙跃入\n水声"],
+    ["夏草や　兵どもが　夢の跡", "夏草啊\n武士们的梦\n只剩遗迹"],
+    ["閑さや　岩にしみ入る　蝉の声", "幽静啊\n蝉声渗入\n岩石之中"],
+    ["この道や　行く人なしに　秋の暮", "这条路啊\n无人行走\n秋日黄昏"]
+  ],
+  "Кыргызча": [
+    ["古池や　蛙飛びこむ　水の音", "эски көлмө –\nбака сууга секирет\nсуунун үнү"],
+    ["夏草や　兵どもが　夢の跡", "жайкы чөп –\nжоокерлердин кыялдарынан\nкалган из"],
+    ["閑さや　岩にしみ入る　蝉の声", "жымжырттык –\nцикаданын үнү\nташка сиңет"],
+    ["この道や　行く人なしに　秋の暮", "бул жол –\nаны менен эч ким баспайт\nкүзгү күүгүм"]
+  ],
+  "Қазақша": [
+    ["古池や　蛙飛びこむ　水の音", "ескі тоған –\nбақа суға секіреді\nсудың дыбысы"],
+    ["夏草や　兵どもが　夢の跡", "жазғы шөп –\nжауынгерлердің армандарынан\nқалған із"],
+    ["閑さや　岩にしみ入る　蝉の声", "тыныштық –\nцикаданың үні\nтасқа сіңеді"],
+    ["この道や　行く人なしに　秋の暮", "осы жол –\nешкім жүрмейді\nкүзгі ымырт"]
+  ]
+};
+const labels = ["old pond","warriors","cicada","road"];
+const btns = document.getElementById('langButtons');
+const area = document.getElementById('translatedPoems');
+function renderLang(lang){
+  [...btns.children].forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  area.innerHTML = translations[lang].map((p,i)=>`<article class="trans-card"><div class="label">${labels[i]}</div><div class="orig">${p[0]}</div><div class="target">${p[1]}</div></article>`).join('');
+}
+Object.keys(translations).forEach((lang,i)=>{const b=document.createElement('button');b.textContent=lang;b.dataset.lang=lang;b.onclick=()=>renderLang(lang);btns.appendChild(b)});
+renderLang('English');
+
+document.querySelectorAll('.poem-card').forEach(card=>card.addEventListener('click',()=>card.classList.toggle('open')));
+document.getElementById('revealBtn').addEventListener('click',()=>document.getElementById('revealText').classList.toggle('show'));
+const io=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.08});
+document.querySelectorAll('.reveal-on-scroll').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

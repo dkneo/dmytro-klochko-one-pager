@@ -3,6 +3,8 @@ type: poem
 who: Bashō
 where: 1684
 weather: cold clarity
+more: /basho
+more_label: "more on bashō"
 added: 2026-08-15
 roman: uma wo sae / nagamuru yuki no / ashita kana
 translator: translated here

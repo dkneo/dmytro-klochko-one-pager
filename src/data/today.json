@@ -52,7 +52,9 @@
         "who": "Bashō",
         "where": "1684",
         "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
-        "translator": "translated here"
+        "translator": "translated here",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
       },
       "painting": {
         "src": "/images/today/hammershoi.webp",
@@ -339,7 +341,9 @@
         "who": "Bashō",
         "where": "1686",
         "note": "The most famous poem in Japanese. His students argued for years about the first line; he kept the plainest one.",
-        "translator": "translated here"
+        "translator": "translated here",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
       },
       "painting": {
         "src": "/images/today/chardin.webp",

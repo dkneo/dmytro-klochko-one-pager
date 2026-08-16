@@ -3,6 +3,8 @@ type: poem
 who: Bashō
 where: 1686
 weather: the plain thing
+more: /basho
+more_label: "more on bashō"
 added: 2026-08-15
 roman: furu ike ya / kawazu tobikomu / mizu no oto
 translator: translated here

@@ -105,6 +105,8 @@ for (const w of names) {
         where: pi.where,
         ...(pi.note ? { note: pi.note } : {}),
         ...(pi.translator ? { translator: pi.translator } : {}),
+        // A poem can point at something longer about its poet.
+        ...(pi.more ? { more: pi.more, moreLabel: pi.more_label || "read more" } : {}),
       },
       painting: {
         src: ai.src,
