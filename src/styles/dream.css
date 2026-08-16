@@ -2096,25 +2096,21 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   }
 }
 
-/* The way out. A real target rather than another quiet link, because it is
-   the one thing on the page that asks for nothing. */
-[data-mode="dream"] .cta {
-  display: flex;
-  justify-content: center;
-  padding-top: 0;
-}
-
+/* The way out, sitting in the footer row between the copyright and the way
+   back up. Small enough to belong to that line, a target rather than a link
+   because it is the only thing down there that asks for nothing. */
 [data-mode="dream"] .dance-cta {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.7em;
-  padding: 0.85rem 1.6rem;
-  border: 1px solid rgb(255 155 192 / 45%);
+  align-items: center;
+  gap: 0.55em;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid rgb(255 155 192 / 40%);
   border-radius: 999px;
   color: var(--hot);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: var(--t-fact);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
   text-decoration: none;
   transition:
     background var(--dur) var(--ease),
