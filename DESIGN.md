@@ -18,6 +18,13 @@ modes:
     ember-deep: "#f08a54"  # the ember's molten core; the sunpulse's warm mid-stop
     hot-lit: "#ffd3df"     # petal highlight — hot where the light hits
     lane: "smoked glass — backdrop brightness(0.48) saturate(0.92), never a colour over the art"
+    # Three literals the ramps do not cover, documented rather than left as
+    # drift: the glow at the heart of the fire, the scrim over the scene, and
+    # the deep shadow under a lifted print.
+    firelight: "rgb(255 186 110 / 55%)"
+    firelight-core: "rgb(255 186 110 / 62%)"
+    scene-scrim: "rgb(24 28 46 / 24%)"
+    shadow-deep: "rgb(6 9 18 / 45%)"
   bebop:
     void: "#0e0a11"
     deck: "#171120"
@@ -37,6 +44,11 @@ typography:
     t-md: "0.98rem"
     t-lg: "clamp(1.15rem, 1.5vw, 1.45rem)"
     display: "clamp(1.9rem, 4.6vw, 3.9rem)"
+    # The map is one svg with a 1000x760 viewBox, so these two are viewBox
+    # units and scale with the drawing. Off the rem ramp on purpose: a rem
+    # here would not scale with the diagram it labels.
+    map-label: "15px"
+    map-label-narrow: "20px"
   # dream reads editorial on bebop's own shell:
   dream-prose: "1.13rem / 1.66"
   dream-prose-sm: "1rem"
@@ -45,10 +57,6 @@ typography:
   dream-display: "clamp(2rem, 3.4vw, 2.9rem)"      # Zodiak italic, real headings
   dream-display-card: "clamp(1.5rem, 2.4vw, 2.1rem)"  # timeline chapter titles
   dream-display-hero: "clamp(3.4rem, 7vw, 6rem)"   # a poster's title
-  # The map is one svg with a 1000x760 viewBox, so its label sizes are viewBox
-  # units and scale with the drawing. Off the rem ramp on purpose: a rem here
-  # would not scale with the diagram it labels.
-  map-label: "15px in viewBox units (20px under 720px, where the svg is smaller)"
   raster:
     art-cell-sm: "0.55rem"
     art-cell-lg: "1.05rem"
