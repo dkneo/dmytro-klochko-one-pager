@@ -141,6 +141,21 @@ for (const c of chords) {
   }
 }
 
+// No unattributed translation ships. A poem carrying an english line that is
+// not its original must name who made that english: a translator and a volume
+// where one exists, or the explicit admission that it is ours. This is a build
+// failure rather than a note to self, because "we will remember to check" is
+// how machine translation ends up on a page under someone's own name.
+for (const p of poems) {
+  const translated = p.english && p.english.trim() !== p.text.trim();
+  if (translated && !p.translator) {
+    throw new Error(
+      `${p.file}: has an english translation with no translator. ` +
+      `Name the translator and the volume, or say it is ours.`
+    );
+  }
+}
+
 writeFileSync(OUT, JSON.stringify({
   _doc: "Generated from vault/ by scripts/vault-build.mjs. Do not edit by hand: edit the markdown and rebuild.",
   built: "vault",

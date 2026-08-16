@@ -71,6 +71,16 @@ everything else: send the link, not the screenshot.
 - Ours is the **fallback**, for the moderns whose good English is all in
   copyright: Pessoa, Cavafy, Camus. There the choice is our own words or a link
   out, and we say which.
+- **Never a machine translation.** Not from me, not from a translation engine,
+  in any language. Polish, German, Russian, Spanish: these poets have real
+  literary translators and their work is often public domain. Find that, or
+  leave the slot empty. An empty slot is honest; a fluent machine paragraph
+  under a poet's name is not, and neither of us can hear the difference in a
+  language we do not read.
+- The build enforces it: a poem carrying an english line that is not its
+  original and no `translator` field **fails the build**. Not a note to self,
+  because "we will remember to check" is exactly how machine text ends up on a
+  page under someone's name.
 - Name the translator on the page, always, with the volume and the year. Where
   the translation is ours it says *translated for this page, not a published
   version*, which is the honest label and also an invitation to replace it.
