@@ -61,7 +61,19 @@ everything else: send the link, not the screenshot.
   what was happening. Never "this poem is about".
 - Best when the note changes the poem: Bashō setting out expecting to die,
   Rilke at twenty-six learning to look at things.
-- Name the translator. Where the translation is ours, say so.
+- **Find the translation before writing one.** He is right that the classics
+  have been translated beautifully many times, and a great deal of that work is
+  public domain: Dryden's Virgil, Voss's German Virgil, Bynner and Kiang's
+  *Jade Mountain* for the Tang poets, Wharton's Sappho, the pre-1930 Loebs,
+  Bethge's Chinese poems that Mahler set. A published translation carries a
+  history ours cannot, and using it is the same instinct as sourcing the
+  paintings instead of generating them.
+- Ours is the **fallback**, for the moderns whose good English is all in
+  copyright: Pessoa, Cavafy, Camus. There the choice is our own words or a link
+  out, and we say which.
+- Name the translator on the page, always, with the volume and the year. Where
+  the translation is ours it says *translated for this page, not a published
+  version*, which is the honest label and also an invitation to replace it.
 - Where an attribution is disputed, say that too. The Sappho fragment is
   better, not worse, for admitting nobody knows who wrote it.
 
