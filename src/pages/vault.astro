@@ -1,0 +1,145 @@
+---
+import Layout from "../layouts/Layout.astro";
+import data from "../data/today.json";
+import { readdirSync, existsSync, readFileSync } from "node:fs";
+
+// The brief. Counts are read from the vault at build so this page can never
+// tell him a number that is out of date.
+const count = (kind) =>
+  existsSync(`vault/${kind}`) ? readdirSync(`vault/${kind}`).filter((f) => f.endsWith(".md")).length : 0;
+
+const held = [
+  { what: "quotes", n: count("quotes") },
+  { what: "poems", n: count("poems") },
+  { what: "paintings", n: count("paintings") },
+  { what: "songs", n: count("songs") },
+  { what: "weathers", n: count("weathers") },
+];
+
+const inbox = existsSync("public/inbox.json")
+  ? (JSON.parse(readFileSync("public/inbox.json", "utf8")).candidates || []).length
+  : 0;
+
+const days = data.chords.length;
+
+const title = "the vault · dmytro klochko";
+const description = "the collection, how it grows, and what to do next.";
+---
+
+<Layout title={title} description={description} current="home" unlisted>
+  <section class="shell session vaultp" data-scene="fire" aria-labelledby="vt">
+    <div class="card">
+      <h1 class="card-title" id="vt">the vault</h1>
+    </div>
+
+    <p class="lede">
+      one collection behind everything: {days} days’ worth so far, and it only
+      grows by you keeping things.
+    </p>
+
+    <dl class="vault-count">
+      {held.map((h) => (
+        <div><dt>{h.what}</dt><dd>{h.n}</dd></div>
+      ))}
+      <div><dt>waiting on you</dt><dd class="is-hot">{inbox}</dd></div>
+    </dl>
+
+    <h2 class="vault-head">what it is</h2>
+    <div class="prose vault-prose">
+      <p>
+        {held[0].n + held[1].n + held[2].n + held[3].n} markdown files in{" "}
+        <code>vault/</code> in the repo, one per thing, with frontmatter and{" "}
+        <code>[[wikilinks]]</code>. Point Obsidian at that folder and it opens
+        as a graph you can edit; git keeps every version. The site compiles the
+        same files into what <a href="/today">today</a> and{" "}
+        <a href="/map">the map</a> read, so the vault is not a copy of the
+        site’s content. It <b>is</b> the content.
+      </p>
+      <p>
+        Nothing is filed loose. Everything belongs to a <b>weather</b>, and a
+        day is a weather with a painting, a poem, a line and a song that agree
+        about it. Where a weather holds several of a slot the lists cycle, so
+        five quotes and two paintings under one weather make five days rather
+        than one. Fill the vault and the calendar fills itself.
+      </p>
+    </div>
+
+    <h2 class="vault-head">the loop</h2>
+    <ol class="vault-steps">
+      <li>
+        <b>a batch arrives.</b>
+        <span>
+          Candidates get swept out of museum collections into an inbox, images
+          and all. A batch is a commit, so it is reviewable before you ever see
+          it. {inbox} are waiting now.
+        </span>
+      </li>
+      <li>
+        <b>you keep or pass.</b>
+        <span>
+          At <a href="/curate">/curate</a>, arrow keys or buttons. That is the
+          whole job, and it is the only step that cannot be automated, because
+          it is the only step that is taste.
+        </span>
+      </li>
+      <li>
+        <b>the keeps become vault files.</b>
+        <span>
+          A script pulls your verdicts out and writes them as markdown; kept
+          images move out of the inbox into the site proper. Passed ones are
+          never served.
+        </span>
+      </li>
+      <li>
+        <b>today and the map redraw.</b>
+        <span>Next build. Nothing to wire, nothing to remember.</span>
+      </li>
+    </ol>
+
+    <h2 class="vault-head">what to do now</h2>
+    <p class="vault-lede">
+      The queue is built and deployed, and deliberately shut: it answers
+      <code>503</code> to everyone, including you, until Cloudflare knows who
+      you are. Three steps, and they are yours because they need your account
+      and a sign-in that should never pass through me.
+    </p>
+
+    <ol class="vault-steps vault-steps--do">
+      <li>
+        <b>turn on zero trust.</b>
+        <span>
+          Cloudflare dashboard → Zero Trust. If it asks for a team name, pick
+          one; it becomes <code>yourteam.cloudflareaccess.com</code>. Free up
+          to fifty people, and you are one.
+        </span>
+      </li>
+      <li>
+        <b>add an application.</b>
+        <span>
+          Access → Applications → Add → Self-hosted. Name it curate. Give it
+          two paths on <code>dmklochko.com</code>: <code>curate</code> and{" "}
+          <code>api/curate</code>. The second one is the one that matters, and
+          it is the one people forget. Policy: Allow, Emails,{" "}
+          <code>1@dmklochko.com</code>.
+        </span>
+      </li>
+      <li>
+        <b>send me two strings.</b>
+        <span>
+          The team domain, and the Application Audience tag Cloudflare shows
+          after you save. Neither is a secret. I put them in the worker and the
+          queue opens.
+        </span>
+      </li>
+    </ol>
+
+    <p class="vault-foot">
+      then: <a href="/curate">the queue</a> · <a href="/map">the map</a> ·{" "}
+      <a href="/today">today</a>
+    </p>
+
+    <a class="onward onward--back" href="/">
+      <span class="arw" aria-hidden="true">↖</span><span>back to the main page</span>
+    </a>
+  </section>
+</Layout>

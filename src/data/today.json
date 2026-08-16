@@ -15,6 +15,10 @@
       "note": "heat held against the dark. not optimism: the thing that survives the winter."
     },
     {
+      "name": "nerve",
+      "note": "ambition with its nerve showing. daring, and the cost of daring, and doing it anyway."
+    },
+    {
       "name": "the dark and the lamp",
       "note": "night, solitude, one light on. company at a distance."
     },
@@ -57,7 +61,16 @@
         "year": "1900",
         "where": "Ordrupgaard, Copenhagen",
         "source": "https://commons.wikimedia.org/wiki/File:Hammersh%C3%B8i_Dust_motes_dancing.jpg",
-        "licence": "public domain"
+        "licence": "public domain",
+        "note": "Painted in his own flat at Strandgade 30, which he painted again and again for a decade. No furniture to speak of, no story, nobody home: an empty room and the light crossing it."
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
       }
     },
     {
@@ -84,7 +97,16 @@
         "year": "c. 1845",
         "where": "Tate, London",
         "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Norham_Castle,_Sunrise_-_WGA23182.jpg",
-        "licence": "public domain"
+        "licence": "public domain",
+        "note": "Never exhibited. It was found in his studio after he died, one of a group he seems to have painted for himself, and the castle has almost finished dissolving into the light."
+      },
+      "song": {
+        "who": "Brian Eno",
+        "title": "An Ending (Ascent)",
+        "year": "1983",
+        "youtube": "https://www.youtube.com/results?search_query=Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "spotify": "https://open.spotify.com/search/Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens."
       }
     },
     {
@@ -109,7 +131,52 @@
         "year": "c. 1915",
         "where": "Google Art Project",
         "source": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_Google_Art_Project_(431238).jpg",
-        "licence": "public domain"
+        "licence": "public domain",
+        "note": "From the pond he dug himself at Giverny and then spent thirty years painting. These late ones were made as his cataracts thickened, which is part of why the lilies stop having edges."
+      },
+      "song": {
+        "who": "Nina Simone",
+        "title": "Feeling Good",
+        "year": "1965",
+        "youtube": "https://www.youtube.com/results?search_query=Nina%20Simone%20Feeling%20Good",
+        "spotify": "https://open.spotify.com/search/Nina%20Simone%20Feeling%20Good",
+        "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds."
+      }
+    },
+    {
+      "id": "nerve-0",
+      "weather": "nerve",
+      "quote": {
+        "text": "Non quia difficilia sunt non audemus, sed quia non audemus difficilia sunt.",
+        "english": "It is not because things are difficult that we do not dare; it is because we do not dare that they are difficult.",
+        "who": "Seneca",
+        "where": "Epistulae Morales, 104.26"
+      },
+      "poem": {
+        "text": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
+        "english": "Honour to those who in their lives\nset out to guard some Thermopylae.\nNever stirring from their duty;\njust and straight in all their dealings,\nbut with pity too, and mercy;\ngenerous when they are rich, and when\nthey are poor, generous again in small ways,\nhelping still as much as they can;\nalways speaking the truth,\nbut without hatred for those who lie.\n\nAnd more honour is due to them\nwhen they foresee (and many do foresee)\nthat Ephialtes will appear in the end,\nand the Medes will get through after all.",
+        "who": "C. P. Cavafy",
+        "where": "Thermopylae, printed in Alexandrian Art, 1927",
+        "note": "Thermopylae is the pass the Spartans held knowing they would lose it, and Ephialtes is the man who showed the Persians the way around. Cavafy's point is that the traitor arriving does not cancel the holding.",
+        "translator": "translated here"
+      },
+      "painting": {
+        "src": "/images/today/turner-staffa.webp",
+        "who": "J. M. W. Turner",
+        "title": "Staffa, Fingal's Cave",
+        "year": "1831–32",
+        "where": "Yale Center for British Art",
+        "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg",
+        "licence": "public domain",
+        "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America."
+      },
+      "song": {
+        "who": "Seatbelts",
+        "title": "Tank!",
+        "year": "1998",
+        "youtube": "https://www.youtube.com/results?search_query=Seatbelts%20Tank%21",
+        "spotify": "https://open.spotify.com/search/Seatbelts%20Tank%21",
+        "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything."
       }
     },
     {
@@ -136,7 +203,16 @@
         "year": "c. 1872",
         "where": "Tate, London",
         "source": "https://commons.wikimedia.org/wiki/File:James_McNeill_Whistler_-_Nocturne_en_bleu_et_or.jpg",
-        "licence": "public domain"
+        "licence": "public domain",
+        "note": "Ruskin said Whistler was flinging a pot of paint in the public's face. Whistler sued him for libel, won, and was awarded one farthing in damages, which bankrupted him."
+      },
+      "song": {
+        "who": "Chet Baker",
+        "title": "Almost Blue",
+        "year": "1987",
+        "youtube": "https://www.youtube.com/results?search_query=Chet%20Baker%20Almost%20Blue",
+        "spotify": "https://open.spotify.com/search/Chet%20Baker%20Almost%20Blue",
+        "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his."
       }
     },
     {
@@ -164,7 +240,16 @@
         "year": "c. 1728",
         "where": "The Phillips Collection, Washington",
         "source": "https://commons.wikimedia.org/wiki/File:Jean-Baptiste_Simeon_Chardin_-_A_Bowl_of_Plums_-_Google_Art_Project.jpg",
-        "licence": "public domain"
+        "licence": "public domain",
+        "note": "Chardin painted more or less the same handful of objects for forty years. Diderot said of him that this one understands the harmony of colours and reflections, and the rest of us paint things."
+      },
+      "song": {
+        "who": "Bill Evans",
+        "title": "Peace Piece",
+        "year": "1958",
+        "youtube": "https://www.youtube.com/results?search_query=Bill%20Evans%20Peace%20Piece",
+        "spotify": "https://open.spotify.com/search/Bill%20Evans%20Peace%20Piece",
+        "note": "One left-hand figure, held for seven minutes, improvised in a single take at the end of a session."
       }
     },
     {
@@ -191,7 +276,16 @@
         "year": "1808–1810",
         "where": "Alte Nationalgalerie, Berlin",
         "source": "https://commons.wikimedia.org/wiki/File:Friedrich,_Caspar_David_-_M%C3%B6nch_am_Meer_-_Alte_Nationalgalerie_in_Berlin.jpg",
-        "licence": "public domain"
+        "licence": "public domain",
+        "note": "Kleist wrote that looking at it felt as though his eyelids had been cut away. Friedrich painted out the ships he had first put on the horizon, leaving nothing between the figure and the sky."
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
       }
     },
     {
@@ -218,7 +312,16 @@
         "year": "1907",
         "where": "Hilma af Klint Foundation, Stockholm",
         "source": "https://commons.wikimedia.org/wiki/File:Hilma_af_Klint_-_The_Ten_Largest_No._7_-_Adulthood_-_1907.jpg",
-        "licence": "public domain"
+        "licence": "public domain",
+        "note": "Painted in 1907, years before abstraction was credited to anyone else. She left instructions that the work not be shown until twenty years after her death, and it was not shown properly for forty."
+      },
+      "song": {
+        "who": "Arvo Pärt",
+        "title": "Spiegel im Spiegel",
+        "year": "1978",
+        "youtube": "https://www.youtube.com/results?search_query=Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "spotify": "https://open.spotify.com/search/Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia."
       }
     }
   ]

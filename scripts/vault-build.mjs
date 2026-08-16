@@ -59,6 +59,7 @@ function load(kind) {
 const quotes = load("quotes");
 const poems = load("poems");
 const paintings = load("paintings");
+const songs = load("songs");
 const weathers = load("weathers");
 
 const byWeather = (list) => {
@@ -71,13 +72,13 @@ const byWeather = (list) => {
   return m;
 };
 
-const Q = byWeather(quotes), P = byWeather(poems), A = byWeather(paintings);
+const Q = byWeather(quotes), P = byWeather(poems), A = byWeather(paintings), S = byWeather(songs);
 const names = [...new Set([...Q.keys(), ...P.keys(), ...A.keys()])].sort();
 
 const chords = [];
 const skipped = [];
 for (const w of names) {
-  const q = Q.get(w) || [], p = P.get(w) || [], a = A.get(w) || [];
+  const q = Q.get(w) || [], p = P.get(w) || [], a = A.get(w) || [], so = S.get(w) || [];
   if (!q.length || !p.length || !a.length) {
     skipped.push(`${w} (${q.length}q ${p.length}p ${a.length}a)`);
     continue;
@@ -85,6 +86,8 @@ for (const w of names) {
   const n = Math.max(q.length, p.length, a.length);
   for (let i = 0; i < n; i++) {
     const qi = q[i % q.length], pi = p[i % p.length], ai = a[i % a.length];
+    // A song is optional: a weather without one still makes a day.
+    const si = so.length ? so[i % so.length] : null;
     chords.push({
       id: `${w.replace(/\s+/g, "-")}-${i}`,
       weather: w,
@@ -111,7 +114,18 @@ for (const w of names) {
         where: ai.collection,
         source: ai.source,
         licence: ai.licence,
+        ...(ai.note ? { note: ai.note } : {}),
       },
+      ...(si ? {
+        song: {
+          who: si.who,
+          title: si.title,
+          year: si.year,
+          youtube: si.youtube,
+          spotify: si.spotify,
+          ...(si.note ? { note: si.note } : {}),
+        },
+      } : {}),
     });
   }
 }
@@ -133,7 +147,7 @@ writeFileSync(OUT, JSON.stringify({
 }, null, 2) + "\n");
 
 console.log(
-  `vault → ${chords.length} chords from ${quotes.length} quotes, ` +
-  `${poems.length} poems, ${paintings.length} paintings across ${names.length} weathers`
+  `vault → ${chords.length} chords from ${quotes.length} quotes, ${poems.length} poems, ` +
+  `${paintings.length} paintings, ${songs.length} songs across ${names.length} weathers`
 );
 if (skipped.length) console.log("  incomplete, not shipped:", skipped.join(", "));
