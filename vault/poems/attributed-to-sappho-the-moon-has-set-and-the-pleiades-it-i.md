@@ -4,7 +4,7 @@ who: attributed to Sappho
 where: fragment 168B
 weather: the dark and the lamp
 added: 2026-08-15
-translator: translated here
+translator: "translated for this page, not a published version"
 english: |-
   The moon has set,
   and the Pleiades. It is midnight.

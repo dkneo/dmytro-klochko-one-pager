@@ -4,7 +4,7 @@ who: C. P. Cavafy
 where: "Thermopylae, printed in Alexandrian Art, 1927"
 weather: nerve
 added: 2026-08-15
-translator: translated here
+translator: "translated for this page, not a published version"
 english: |-
   Honour to those who in their lives
   set out to guard some Thermopylae.

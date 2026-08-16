@@ -4,7 +4,7 @@ who: Fernando Pessoa
 where: Autopsicografia, 1932
 weather: dissolution
 added: 2026-08-15
-translator: translated here
+translator: "translated for this page, not a published version"
 english: |-
   The poet is a faker.
   He fakes it so completely

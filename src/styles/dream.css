@@ -3092,3 +3092,11 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .bit-more a:hover .arw {
   transform: translateX(0.25em);
 }
+
+/* The translation credit sits with the poet and the date, quieter than both. */
+[data-mode="dream"] .bit-tr {
+  color: var(--faint);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}

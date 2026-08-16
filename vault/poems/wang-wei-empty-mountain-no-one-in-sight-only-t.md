@@ -4,7 +4,7 @@ who: Wang Wei
 where: Deer Park, 8th century
 weather: vastness
 added: 2026-08-15
-translator: translated here
+translator: "translated for this page, not a published version"
 english: |-
   Empty mountain, no one in sight —
   only the sound of someone talking.

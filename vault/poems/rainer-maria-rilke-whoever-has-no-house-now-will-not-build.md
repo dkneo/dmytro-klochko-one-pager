@@ -4,7 +4,7 @@ who: Rainer Maria Rilke
 where: Herbsttag, 1902
 weather: weight and grace
 added: 2026-08-15
-translator: translated here
+translator: "translated for this page, not a published version"
 english: |-
   Whoever has no house now will not build one.
   Whoever is alone now will stay alone:

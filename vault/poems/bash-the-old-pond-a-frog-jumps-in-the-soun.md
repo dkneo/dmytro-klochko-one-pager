@@ -7,7 +7,7 @@ more: /basho
 more_label: "more on bashō"
 added: 2026-08-15
 roman: furu ike ya / kawazu tobikomu / mizu no oto
-translator: translated here
+translator: "translated for this page, not a published version"
 english: |-
   the old pond —
   a frog jumps in,

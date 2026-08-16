@@ -87,6 +87,10 @@ const description =
             <p class="bit-where">
               <b>{c.poem.who}</b>{c.poem.where}
               {c.poem.roman && <em>{c.poem.roman}</em>}
+              {/* Whose english this is. It was in the vault from the start and
+                  never reached the page, which meant our translations were
+                  running as if they were somebody's. */}
+              {c.poem.translator && <em class="bit-tr">{c.poem.translator}</em>}
             </p>
             {c.poem.note && <p class="chord-note">{c.poem.note}</p>}
             {c.poem.more && (

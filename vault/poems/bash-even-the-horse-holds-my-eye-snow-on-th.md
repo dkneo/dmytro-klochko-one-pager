@@ -7,7 +7,7 @@ more: /basho
 more_label: "more on bashō"
 added: 2026-08-15
 roman: uma wo sae / nagamuru yuki no / ashita kana
-translator: translated here
+translator: "translated for this page, not a published version"
 english: |-
   even the horse
   holds my eye — snow
