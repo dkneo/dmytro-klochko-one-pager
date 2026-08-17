@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import "../styles/dream.css";
+import AsciiShader from "../components/AsciiShader.astro";
 
 interface Props {
   title: string;
@@ -122,13 +123,22 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <header class="site-header">
       <a class="masthead" href="/">dmytro klochko</a>
       {current !== "home" && <span class="crumb">/ {current.replace("-", " ")}</span>}
+      {/* Say hi stays out in the open because it is the one thing a stranger
+          might want before they have read anything. The rest goes behind the
+          fold: nobody should be offered "learning" before they know who this
+          is. Native details, so it opens without javascript and answers the
+          keyboard on its own. */}
       <nav class="site-nav" aria-label="elsewhere">
-        {/* Absolute, so it reaches the section from the pages that do not
-            have one of their own. */}
-        <a class="dance-link" href="/today">today</a>
-        <a class="dance-link" href="/learning">learning</a>
         <a class="dance-link" href="/#contact">say hi</a>
-        <a class="dance-link" href="/dance">dance</a>
+        <details class="menu">
+          <summary aria-label="more pages"><i></i><i></i><i></i></summary>
+          <div class="menu-drop">
+            <a href="/today">today</a>
+            <a href="/learning">learning</a>
+            <a href="/basho">bashō</a>
+            <a href="/dance">dance</a>
+          </div>
+        </details>
       </nav>
     </header>
 
@@ -137,7 +147,23 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     </main>
 
     <footer class="site-footer">
-      <p class="signoff">see you space cowboy&hellip;</p>
+      <p class="signoff"><button class="signoff-btn" type="button">SEE YOU SPACE COWBOY&hellip;</button></p>
+
+      {/* Five clicks. It is the line the whole site is named after, so the
+          thing it summons is the shader that used to open bebop mode. */}
+      <div class="bebop-pop" hidden>
+        <AsciiShader
+          class="ascii--bebop"
+          src="/ascii/bebop-sheet.jpg"
+          frames={28}
+          cols={92}
+          fps={11}
+          black={0.1}
+          white={0.99}
+          gamma={1.15}
+        />
+        <button class="bebop-close" type="button">close</button>
+      </div>
       <div class="foot-row">
         <p>© 2026 dmytro klochko</p>
         {/* The one thing down here that asks for nothing. */}
@@ -147,6 +173,49 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         <a class="to-top" href="#top">back to top<span class="arw" aria-hidden="true">↑</span></a>
       </div>
     </footer>
+
+    <!--
+      Muted autoplay is allowed everywhere and still refused sometimes: iOS in
+      Low Power Mode blocks it outright, and a tab opened in the background
+      gets deferred. The markup asks nicely; this asks again when the clip is
+      ready, and once more on the first touch, which is the moment iOS relents.
+    -->
+    <script is:inline>
+      (() => {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const clips = [...document.querySelectorAll(".hero-stack video")];
+        if (!clips.length) return;
+        const nudge = () => {
+          for (const v of clips) if (v.paused) v.play().catch(() => {});
+        };
+        for (const v of clips) {
+          v.addEventListener("loadeddata", nudge, { once: true });
+          v.addEventListener("canplay", nudge, { once: true });
+        }
+        nudge();
+        for (const ev of ["pointerdown", "touchstart", "scroll", "visibilitychange"]) {
+          addEventListener(ev, nudge, { passive: true, once: true });
+        }
+      })();
+    </script>
+
+    <script is:inline>
+      (() => {
+        const btn = document.querySelector(".signoff-btn");
+        const pop = document.querySelector(".bebop-pop");
+        if (!btn || !pop) return;
+        let hits = 0, last = 0;
+        btn.addEventListener("click", () => {
+          const now = Date.now();
+          hits = now - last > 1200 ? 1 : hits + 1;
+          last = now;
+          if (hits >= 5) { hits = 0; pop.hidden = false; document.body.classList.add("is-bebop"); }
+        });
+        const shut = () => { pop.hidden = true; document.body.classList.remove("is-bebop"); };
+        pop.querySelector(".bebop-close").addEventListener("click", shut);
+        addEventListener("keydown", (e) => { if (e.key === "Escape") shut(); });
+      })();
+    </script>
 
     <!--
       The sky leans toward the cursor. Two custom properties on the root, read

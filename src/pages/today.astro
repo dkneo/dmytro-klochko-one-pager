@@ -126,9 +126,14 @@ const description =
       ))
     }
 
+    {/* A day at a time hides ten elevenths of the collection, so there is a
+        way to walk it. The date-keyed chord is still what a fresh visit and a
+        shared link both land on. */}
     <p class="chord-when">
       <span class="today-date"></span> · from{" "}
       <a href="/map">the collection</a>
+      <button class="chord-next" type="button">another day<span class="arw" aria-hidden="true">→</span></button>
+      <button class="chord-back" type="button" hidden>back to today</button>
     </p>
 
     <canvas class="story-canvas" width="1080" height="1920" hidden></canvas>
@@ -146,8 +151,23 @@ const description =
       const day = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
       const at = ((day % cards.length) + cards.length) % cards.length;
 
-      const card = cards[at];
-      const chord = chords[at];
+      let showing = at;
+      let card = cards[at];
+      let chord = chords[at];
+      const light = (i) => {
+        cards[showing].hidden = true;
+        showing = ((i % cards.length) + cards.length) % cards.length;
+        card = cards[showing];
+        chord = chords[showing];
+        const im = card.querySelector("img");
+        if (!im.src) im.src = im.dataset.src;
+        card.hidden = false;
+        root.querySelector(".today-weather").textContent = chord.weather;
+        const wn = (weathers.find((w) => w.name === chord.weather) || {}).note;
+        root.querySelector(".today-weather-note").textContent = wn ? ": " + wn : "";
+        root.querySelector(".chord-back").hidden = showing === at;
+        wire(card);
+      };
       const img = card.querySelector("img");
       img.src = img.dataset.src;
       card.hidden = false;
@@ -173,7 +193,9 @@ const description =
         song: () => `the song of the day: ${chord.song.title}, ${chord.song.who}.`,
       };
 
-      for (const b of card.querySelectorAll("[data-post]")) {
+      const wire = (el) => {
+      for (const b of el.querySelectorAll("[data-post]")) {
+        if (b.dataset.wired) continue; b.dataset.wired = "1";
         b.addEventListener("click", () => {
           open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(posts[b.dataset.post]()) +
                "&url=" + encodeURIComponent(URL_), "_blank", "noopener");
@@ -191,7 +213,8 @@ const description =
         }),
       };
 
-      for (const b of card.querySelectorAll("[data-story]")) {
+      for (const b of el.querySelectorAll("[data-story]")) {
+        if (b.dataset.wired) continue; b.dataset.wired = "1";
         b.addEventListener("click", async () => {
           const { big, small } = stories[b.dataset.story]();
           const cv = root.querySelector(".story-canvas");
@@ -266,6 +289,11 @@ const description =
           }, "image/png");
         });
       }
+      };
+
+      wire(card);
+      root.querySelector(".chord-next").addEventListener("click", () => light(showing + 1));
+      root.querySelector(".chord-back").addEventListener("click", () => light(at));
     })();
   </script>
 </Layout>

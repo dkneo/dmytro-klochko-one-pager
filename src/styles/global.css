@@ -182,10 +182,18 @@ body {
 }
 
 main,
-.site-header,
 .site-footer {
   position: relative;
   z-index: 1;
+}
+
+/* The header carries a menu that opens over the page, and a z-index inside a
+   stacking context cannot escape it: sharing 1 with main put the whole header
+   underneath, because siblings that tie are ordered by the document and main
+   comes second. */
+.site-header {
+  position: relative;
+  z-index: 60;
 }
 
 a {

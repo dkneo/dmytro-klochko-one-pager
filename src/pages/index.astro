@@ -324,9 +324,9 @@ const also = [
           quirkier than stills. Same loop discipline as the old reel. */}
       <div class="hero-side">
         <div class="hero-stack" aria-hidden="true">
-          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/vlog-kbs-poster.webp"><source src="/video/vlog-kbs.mp4" type="video/mp4" /><source src="/video/vlog-kbs.webm" type="video/webm" /></video></span></figure>
-          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/dokfest-poster.webp"><source src="/video/dokfest.mp4" type="video/mp4" /><source src="/video/dokfest.webm" type="video/webm" /></video></span></figure>
-          <figure><span class="cell"><video autoplay muted loop playsinline preload="metadata" poster="/video/film-london-poster.webp"><source src="/video/film-london.mp4" type="video/mp4" /><source src="/video/film-london.webm" type="video/webm" /></video></span></figure>
+          <figure><span class="cell"><video autoplay muted loop playsinline preload="auto" poster="/video/vlog-kbs-poster.webp"><source src="/video/vlog-kbs.mp4" type="video/mp4" /><source src="/video/vlog-kbs.webm" type="video/webm" /></video></span></figure>
+          <figure><span class="cell"><video autoplay muted loop playsinline preload="auto" poster="/video/dokfest-poster.webp"><source src="/video/dokfest.mp4" type="video/mp4" /><source src="/video/dokfest.webm" type="video/webm" /></video></span></figure>
+          <figure><span class="cell"><video autoplay muted loop playsinline preload="auto" poster="/video/film-london-poster.webp"><source src="/video/film-london.mp4" type="video/mp4" /><source src="/video/film-london.webm" type="video/webm" /></video></span></figure>
         </div>
       </div>
     </div>
@@ -502,7 +502,7 @@ const also = [
               <figure class={j.media.screen ? "cv-media cv-media--screen" : "cv-media"}>
                 <span class="cell">
                   {j.media.video ? (
-                    <video autoplay muted loop playsinline preload="metadata" poster={j.media.poster}>
+                    <video autoplay muted loop playsinline preload="auto" poster={j.media.poster}>
                       <source src={j.media.webm} type="video/webm" />
                       <source src={j.media.src} type="video/mp4" />
                     </video>
