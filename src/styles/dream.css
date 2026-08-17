@@ -3322,8 +3322,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 /* In the header the switch is just its two letters; the word only appears
    where there is room for it. */
 @media (max-width: 860px) {
-  [data-mode="dream"] .tone-btn .tone-label { display: none; }
-  [data-mode="dream"] .tone-btn { padding: 0.3rem 0.6rem; }
+  [data-mode="dream"] .tone-btn { padding: 0.3rem 0.7rem; }
 }
 
 /* ── the three by say hi ────────────────────────────────────────────────
@@ -3393,10 +3392,29 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   transform: rotate(0deg) scale(1.02);
 }
 
-/* Aa, not AA. The chrome here is uppercase by default, which turned the one
-   glyph whose whole job is to show both cases into two capitals. */
-[data-mode="dream"] .tone-aa {
-  text-transform: none;
-  letter-spacing: 0.02em;
-  font-size: 1.05em;
+
+/* One switch showing at a time: the header keeps it where there is room, the
+   fold keeps it where there is not. */
+[data-mode="dream"] .tone-btn--fold {
+  width: 100%;
+  justify-content: flex-start;
+  border: 0;
+  border-top: 1px solid rgb(236 230 217 / 12%);
+  border-radius: 0;
+  margin-top: 0.3rem;
+  padding: 0.55rem 0.8rem 0.3rem;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .tone-btn--fold:hover {
+  background: rgb(236 230 217 / 6%);
+  color: var(--hot);
+}
+
+@media (max-width: 860px) {
+  [data-mode="dream"] .site-nav > .tone-btn { display: none; }
+}
+
+@media (min-width: 861px) {
+  [data-mode="dream"] .tone-btn--fold { display: none; }
 }

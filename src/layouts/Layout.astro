@@ -136,11 +136,12 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
           <a class="dance-link" href="/learning">learning</a>
         </span>
         <a class="dance-link" href="/#contact">say hi</a>
-        {/* Capitals on or off. It changes how the page reads, so it belongs
-            where the reader is, not at the bottom after they have read it. */}
+        {/* One word, like every other thing in this nav, and it names where
+            you are going rather than where you are. The Aa glyph beside it was
+            a second thing to decode next to a word that already said it. */}
         <button class="tone-btn" type="button" aria-pressed="false"
                 title="capitals on or off">
-          <span class="tone-aa" aria-hidden="true">Aa</span><span class="tone-label">serious</span>
+          <span class="tone-label">serious</span>
         </button>
         <details class="menu">
           <summary aria-label="more pages"><i></i><i></i><i></i></summary>
@@ -149,6 +150,11 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
             <a href="/learning">learning</a>
             <a href="/basho">bashō</a>
             <a href="/dance">dance</a>
+            {/* The same switch, because at 390 the header has no room for a
+                word beside everything else, and the word is the whole point. */}
+            <button class="tone-btn tone-btn--fold" type="button" aria-pressed="false">
+              <span class="tone-label">serious</span>
+            </button>
           </div>
         </details>
       </nav>
@@ -227,8 +233,9 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     -->
     <script is:inline>
       (() => {
-        const btn = document.querySelector(".tone-btn");
-        if (!btn) return;
+        const btns = [...document.querySelectorAll(".tone-btn")];
+        if (!btns.length) return;
+        const btn = btns[0];
 
         const NAMES = ("dmytro klochko replika luka ukraine ukrainian donetsk kyiv " +
           "nyc paris sf vk skyeng hily chatfuel hunch meta harvard stanford princeton " +
@@ -305,13 +312,17 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         const apply = (on) => {
           if (!nodes) collect();
           for (const [n, was, atStart] of nodes) n.nodeValue = on ? fix(was, atStart) : was;
-          btn.setAttribute("aria-pressed", String(on));
-          btn.querySelector(".tone-label").textContent = on ? "lowercase" : "serious";
+          for (const b of btns) {
+            b.setAttribute("aria-pressed", String(on));
+            b.querySelector(".tone-label").textContent = on ? "lowercase" : "serious";
+          }
           document.documentElement.dataset.tone = on ? "serious" : "lower";
           try { localStorage.setItem("tone", on ? "serious" : "lower"); } catch {}
         };
 
-        btn.addEventListener("click", () => apply(btn.getAttribute("aria-pressed") !== "true"));
+        for (const b of btns) {
+          b.addEventListener("click", () => apply(b.getAttribute("aria-pressed") !== "true"));
+        }
         // Lowercase is the house voice, so serious is the departure and only a
         // deliberate switch to it is stored.
         let saved = null;
