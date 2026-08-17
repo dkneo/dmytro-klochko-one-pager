@@ -170,6 +170,12 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         />
         <button class="bebop-close" type="button">close</button>
       </div>
+      <p class="tone-row">
+        <button class="tone-btn" type="button" aria-pressed="false">
+          <span aria-hidden="true">Aa</span><span class="tone-label">serious mode</span>
+        </button>
+      </p>
+
       <nav class="foot-index" aria-label="pages">
         <a href="/today">today</a>
         <a href="/learning">learning</a>
@@ -209,6 +215,92 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         for (const ev of ["pointerdown", "touchstart", "scroll", "visibilitychange"]) {
           addEventListener(ev, nudge, { passive: true, once: true });
         }
+      })();
+    </script>
+
+    <!--
+      Serious mode. It changes no words: it puts the capitals back, so the same
+      copy can be read in a suit. Sentence starts, the pronoun I, and a list of
+      names the page actually uses — anything not on that list is left alone,
+      because guessing at proper nouns is how you get "The Fire" and "A Dance".
+      Every original string is kept so the switch goes both ways exactly.
+    -->
+    <script is:inline>
+      (() => {
+        const btn = document.querySelector(".tone-btn");
+        if (!btn) return;
+
+        const NAMES = ("dmytro klochko replika luka ukraine ukrainian donetsk kyiv " +
+          "nyc paris sf vk skyeng hily chatfuel hunch meta harvard stanford princeton " +
+          "vienna senate obsidian cloudflare youtube spotify instagram linkedin telegram " +
+          "substack english russian japanese portuguese greek german latin french spanish " +
+          "chinese danish oxford tate ordrupgaard giverny sorrento").split(" ");
+        const CAPS = { nyc: "NYC", sf: "SF", vk: "VK", ai: "AI", ui: "UI", ux: "UX",
+          eq: "EQ", arr: "ARR", arpu: "ARPU", saas: "SaaS", ceo: "CEO", cv: "CV",
+          pmf: "PMF", kpi: "KPI", ml: "ML", phds: "PhDs", "u.s.": "U.S." };
+
+        // Only a text node that begins a block can begin a sentence. Without
+        // this, the first word inside every <b> and <a> got a capital, which
+        // is how "agentic ai" became "Agentic AI".
+        const BLOCK = new Set(["P","H1","H2","H3","H4","H5","H6","LI","DIV","BLOCKQUOTE",
+          "DD","DT","FIGCAPTION","SECTION","ARTICLE","TD","TH","BUTTON","SUMMARY","CITE"]);
+        const startsBlock = (n) => {
+          const par = n.parentElement;
+          if (!par || !BLOCK.has(par.tagName)) return false;
+          for (const kid of par.childNodes) {
+            if (kid === n) return true;
+            if (kid.nodeType === 3 && kid.nodeValue.trim()) return false;
+            if (kid.nodeType === 1) return false;
+          }
+          return false;
+        };
+
+        const fix = (text, atStart) => {
+          let out = text;
+          // the pronoun, standing alone or contracted
+          out = out.replace(/\bi\b/g, "I").replace(/\bi(['’])(m|ve|ll|d)\b/g, "I$1$2");
+          // names the page actually uses
+          for (const n of NAMES) {
+            out = out.replace(new RegExp("\\b" + n + "\\b", "g"),
+              n.charAt(0).toUpperCase() + n.slice(1));
+          }
+          for (const k in CAPS) {
+            out = out.replace(new RegExp("\\b" + k.replace(/\./g, "\\.") + "\\b", "gi"), CAPS[k]);
+          }
+          // every sentence after a full stop, always
+          out = out.replace(/([.!?…]\s+|\n\s*)([a-z])/g,
+            (_, lead, ch) => lead + ch.toUpperCase());
+          // and the very first letter, only where a block actually begins
+          if (atStart) out = out.replace(/^(\s*)([a-z])/, (_, sp, ch) => sp + ch.toUpperCase());
+          return out;
+        };
+
+        // Every text node worth touching, with its original kept beside it.
+        const NOPE = new Set(["SCRIPT", "STYLE", "CODE", "PRE"]);
+        let nodes = null;
+        const collect = () => {
+          nodes = [];
+          const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+            acceptNode: (n) =>
+              n.nodeValue.trim() && !NOPE.has(n.parentElement?.tagName)
+                ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT,
+          });
+          for (let n = walk.nextNode(); n; n = walk.nextNode()) {
+            nodes.push([n, n.nodeValue, startsBlock(n)]);
+          }
+        };
+
+        const apply = (on) => {
+          if (!nodes) collect();
+          for (const [n, was, atStart] of nodes) n.nodeValue = on ? fix(was, atStart) : was;
+          btn.setAttribute("aria-pressed", String(on));
+          btn.querySelector(".tone-label").textContent = on ? "lowercase again" : "serious mode";
+          document.documentElement.dataset.tone = on ? "serious" : "";
+          try { localStorage.setItem("tone", on ? "serious" : ""); } catch {}
+        };
+
+        btn.addEventListener("click", () => apply(btn.getAttribute("aria-pressed") !== "true"));
+        try { if (localStorage.getItem("tone") === "serious") apply(true); } catch {}
       })();
     </script>
 

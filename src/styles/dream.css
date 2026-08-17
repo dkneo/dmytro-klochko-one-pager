@@ -3346,3 +3346,54 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 /* A press is feedback, not decoration, so it survives reduced motion; it is
    90ms and three percent. */
+
+/* The tone switch. It sits in the footer with the index because it is a way of
+   reading the page, not a place to go. */
+[data-mode="dream"] .tone-row {
+  margin: 0 0 var(--sp-2);
+}
+
+[data-mode="dream"] .tone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  padding: 0.3rem 0.85rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 20%);
+  border-radius: 999px;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .tone-btn:hover {
+  color: var(--hot);
+  border-color: rgb(255 155 192 / 45%);
+}
+
+[data-mode="dream"] .tone-btn[aria-pressed="true"] {
+  color: var(--hot);
+  border-color: rgb(255 155 192 / 55%);
+  background: rgb(255 155 192 / 10%);
+}
+
+/* Origin-aware: the panel grows from the corner it comes out of rather than
+   from its own middle, which is Emil's fifth tip and the one thing the menu
+   was getting wrong. */
+[data-mode="dream"] .menu-drop {
+  transform-origin: top right;
+  animation: menu-open 0.18s var(--ease) both;
+}
+
+@keyframes menu-open {
+  from { opacity: 0; scale: 0.94; translate: 0 -4px; }
+  to   { opacity: 1; scale: 1; translate: 0 0; }
+}
