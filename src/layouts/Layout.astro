@@ -136,6 +136,12 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
           <a class="dance-link" href="/learning">learning</a>
         </span>
         <a class="dance-link" href="/#contact">say hi</a>
+        {/* Capitals on or off. It changes how the page reads, so it belongs
+            where the reader is, not at the bottom after they have read it. */}
+        <button class="tone-btn" type="button" aria-pressed="true"
+                title="capitals on or off">
+          <span aria-hidden="true">Aa</span><span class="tone-label">lowercase</span>
+        </button>
         <details class="menu">
           <summary aria-label="more pages"><i></i><i></i><i></i></summary>
           <div class="menu-drop">
@@ -170,12 +176,6 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         />
         <button class="bebop-close" type="button">close</button>
       </div>
-      <p class="tone-row">
-        <button class="tone-btn" type="button" aria-pressed="false">
-          <span aria-hidden="true">Aa</span><span class="tone-label">serious mode</span>
-        </button>
-      </p>
-
       <nav class="foot-index" aria-label="pages">
         <a href="/today">today</a>
         <a href="/learning">learning</a>
@@ -239,18 +239,28 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
           eq: "EQ", arr: "ARR", arpu: "ARPU", saas: "SaaS", ceo: "CEO", cv: "CV",
           pmf: "PMF", kpi: "KPI", ml: "ML", phds: "PhDs", "u.s.": "U.S." };
 
-        // Only a text node that begins a block can begin a sentence. Without
-        // this, the first word inside every <b> and <a> got a capital, which
-        // is how "agentic ai" became "Agentic AI".
-        const BLOCK = new Set(["P","H1","H2","H3","H4","H5","H6","LI","DIV","BLOCKQUOTE",
-          "DD","DT","FIGCAPTION","SECTION","ARTICLE","TD","TH","BUTTON","SUMMARY","CITE"]);
+        // Only a text node that opens a block can open a sentence. A tag list
+        // got this wrong both ways: the hero sentence lives in a <span>, so
+        // "hi" stayed lowercase, and the war gloss is a <button> mid-sentence,
+        // so "war" got a capital. Ask the layout instead of guessing: walk out
+        // through inline wrappers, and at each step the node must still be the
+        // first thing in its parent.
+        const isBlock = (el) => {
+          const d = getComputedStyle(el).display;
+          return d === "block" || d === "list-item" || d === "flex" ||
+                 d === "grid" || d === "table-cell" || d === "flow-root";
+        };
         const startsBlock = (n) => {
-          const par = n.parentElement;
-          if (!par || !BLOCK.has(par.tagName)) return false;
-          for (const kid of par.childNodes) {
-            if (kid === n) return true;
-            if (kid.nodeType === 3 && kid.nodeValue.trim()) return false;
-            if (kid.nodeType === 1) return false;
+          let node = n, par = n.parentElement;
+          while (par) {
+            for (const kid of par.childNodes) {
+              if (kid === node) break;
+              if (kid.nodeType === 3 && kid.nodeValue.trim()) return false;
+              if (kid.nodeType === 1 && kid.textContent.trim()) return false;
+            }
+            if (isBlock(par)) return true;
+            node = par;
+            par = par.parentElement;
           }
           return false;
         };
@@ -282,7 +292,9 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
           nodes = [];
           const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
             acceptNode: (n) =>
-              n.nodeValue.trim() && !NOPE.has(n.parentElement?.tagName)
+              n.nodeValue.trim() &&
+              !NOPE.has(n.parentElement?.tagName) &&
+              !n.parentElement?.closest(".tone-btn")
                 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT,
           });
           for (let n = walk.nextNode(); n; n = walk.nextNode()) {
@@ -294,13 +306,17 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
           if (!nodes) collect();
           for (const [n, was, atStart] of nodes) n.nodeValue = on ? fix(was, atStart) : was;
           btn.setAttribute("aria-pressed", String(on));
-          btn.querySelector(".tone-label").textContent = on ? "lowercase again" : "serious mode";
-          document.documentElement.dataset.tone = on ? "serious" : "";
-          try { localStorage.setItem("tone", on ? "serious" : ""); } catch {}
+          btn.querySelector(".tone-label").textContent = on ? "lowercase" : "serious";
+          document.documentElement.dataset.tone = on ? "serious" : "lower";
+          try { localStorage.setItem("tone", on ? "serious" : "lower"); } catch {}
         };
 
         btn.addEventListener("click", () => apply(btn.getAttribute("aria-pressed") !== "true"));
-        try { if (localStorage.getItem("tone") === "serious") apply(true); } catch {}
+        // Serious by default. Only a deliberate switch to lowercase is stored,
+        // so a stored value always means someone chose it.
+        let saved = null;
+        try { saved = localStorage.getItem("tone"); } catch {}
+        apply(saved !== "lower");
       })();
     </script>
 

@@ -3349,10 +3349,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 /* The tone switch. It sits in the footer with the index because it is a way of
    reading the page, not a place to go. */
-[data-mode="dream"] .tone-row {
-  margin: 0 0 var(--sp-2);
-}
-
 [data-mode="dream"] .tone-btn {
   display: inline-flex;
   align-items: center;
@@ -3396,4 +3392,11 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 @keyframes menu-open {
   from { opacity: 0; scale: 0.94; translate: 0 -4px; }
   to   { opacity: 1; scale: 1; translate: 0 0; }
+}
+
+/* In the header the switch is just its two letters; the word only appears
+   where there is room for it. */
+@media (max-width: 860px) {
+  [data-mode="dream"] .tone-btn .tone-label { display: none; }
+  [data-mode="dream"] .tone-btn { padding: 0.3rem 0.6rem; }
 }
