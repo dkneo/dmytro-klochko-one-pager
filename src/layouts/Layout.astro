@@ -116,7 +116,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <div class="dream-sky" aria-hidden="true">
       <span class="moon"></span>
       <i></i><i></i>
-      <b></b><b></b><b></b><b></b><b></b><b></b>
+      <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
     </div>
 
 
@@ -129,6 +129,12 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
           is. Native details, so it opens without javascript and answers the
           keyboard on its own. */}
       <nav class="site-nav" aria-label="elsewhere">
+        {/* Wide screens have the room, and hiding four short words behind a
+            click costs discovery for nothing. Below 861 they fold. */}
+        <span class="nav-wide">
+          <a class="dance-link" href="/today">today</a>
+          <a class="dance-link" href="/learning">learning</a>
+        </span>
         <a class="dance-link" href="/#contact">say hi</a>
         <details class="menu">
           <summary aria-label="more pages"><i></i><i></i><i></i></summary>
@@ -164,6 +170,13 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         />
         <button class="bebop-close" type="button">close</button>
       </div>
+      <nav class="foot-index" aria-label="pages">
+        <a href="/today">today</a>
+        <a href="/learning">learning</a>
+        <a href="/basho">bashō</a>
+        <a href="/#contact">say hi</a>
+      </nav>
+
       <div class="foot-row">
         <p>© 2026 dmytro klochko</p>
         {/* The one thing down here that asks for nothing. */}

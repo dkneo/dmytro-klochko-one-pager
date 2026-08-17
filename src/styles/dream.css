@@ -847,7 +847,7 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 }
 
 /* ── the sky keeps only its petals ──────────────────────────────────────────
-   Quiet ground means no stars, no moon, no washes. Six petals still fall —
+   Quiet ground means no stars, no moon, no washes. Nine petals still fall —
    the one ambient signature — in front of everything, behind nothing. */
 
 .dream-sky {
@@ -880,6 +880,9 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 .dream-sky b:nth-of-type(4) { left: 61%; --fall: 26s; --wait: -17s; --sway: -48px; width: 12px; height: 12px; opacity: 0.35; }
 .dream-sky b:nth-of-type(5) { left: 76%; --fall: 20s; --wait: -1s;  --sway: 58px; width: 8px; height: 8px; }
 .dream-sky b:nth-of-type(6) { left: 91%; --fall: 22s; --wait: -13s; --sway: -40px; }
+.dream-sky b:nth-of-type(7) { left: 17%; --fall: 25s; --wait: -20s; --sway: -56px; width: 8px; height: 8px; opacity: 0.4; }
+.dream-sky b:nth-of-type(8) { left: 53%; --fall: 19s; --wait: -9s;  --sway: 44px; width: 9px; height: 9px; }
+.dream-sky b:nth-of-type(9) { left: 84%; --fall: 28s; --wait: -23s; --sway: 62px; width: 12px; height: 12px; opacity: 0.3; }
 
 @keyframes petal-fall {
   55% { transform: translate3d(var(--sway, 48px), 58vh, 0) rotate(200deg); }
@@ -3278,3 +3281,38 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .chord-next:hover .arw {
   transform: translateX(0.25em);
 }
+
+/* The nav folds at the same width everything else here does. Wide screens
+   show the words; the hamburger is only ever the small-screen fold, because
+   hiding four short words behind a click on a 1400px screen costs discovery
+   and buys nothing. */
+[data-mode="dream"] .nav-wide {
+  display: none;
+  gap: 1.1rem;
+}
+
+@media (min-width: 861px) {
+  [data-mode="dream"] .nav-wide { display: inline-flex; }
+  [data-mode="dream"] .menu { display: none; }
+}
+
+/* The footer is the index of the place: everything the header folds away,
+   said once at the bottom where a reader arrives having already read. */
+[data-mode="dream"] .foot-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+  margin-bottom: var(--sp-3);
+}
+
+[data-mode="dream"] .foot-index a {
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .foot-index a:hover { color: var(--hot); }
