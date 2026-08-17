@@ -1799,62 +1799,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 /* ── the pile of him working ────────────────────────────────────────────── */
 
-/* Eight photographs laid out like prints left on a table rather than a
-   gallery grid: same mat as every other print here, each tilted a different
-   way, and no captions, because they are texture and not evidence. */
-[data-mode="dream"] .worklog {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--sp-3) var(--sp-2);
-  /* Narrower than the page: a coda should read as smaller than what it
-     follows, not as a gallery the page was building toward. */
-  max-width: 46rem;
-}
-
-[data-mode="dream"] .worklog figure {
-  margin: 0;
-}
-
-[data-mode="dream"] .worklog .cell {
-  display: block;
-  background: var(--mat);
-  padding: 0.4rem;
-  border-radius: 2px;
-  box-shadow:
-    0 2px 5px rgb(8 10 22 / 55%),
-    0 14px 30px rgb(8 10 22 / 38%);
-  transition: transform var(--dur-slow) var(--ease), box-shadow var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .worklog img {
-  display: block;
-  width: 100%;
-  /* The width/height attributes are there to reserve the box before the file
-     lands, but the height attribute also lands as a presentational 440px,
-     which beats aspect-ratio. Releasing the height hands the shape back. */
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: cover;
-}
-
-[data-mode="dream"] .worklog figure:nth-child(4n + 1) .cell { transform: rotate(-2.1deg); }
-[data-mode="dream"] .worklog figure:nth-child(4n + 2) .cell { transform: rotate(1.4deg); }
-[data-mode="dream"] .worklog figure:nth-child(4n + 3) .cell { transform: rotate(-0.9deg); }
-[data-mode="dream"] .worklog figure:nth-child(4n + 4) .cell { transform: rotate(2.3deg); }
-
-[data-mode="dream"] .worklog figure:hover .cell {
-  transform: rotate(0deg) translateY(-4px);
-  box-shadow:
-    0 4px 10px rgb(8 10 22 / 55%),
-    0 22px 46px rgb(8 10 22 / 45%);
-}
-
-@media (max-width: 720px) {
-  [data-mode="dream"] .worklog {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 /* The way back up sits above the title, in the mono register the rest of the
    page's small print uses, with a gap before the headline starts. */
 [data-mode="dream"] .piece-up {
@@ -1883,23 +1827,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   line-height: 1.7;
   color: var(--bone);
 }
-
-[data-mode="dream"] .worklog-cap {
-  margin: var(--sp-2) 0 0;
-  color: var(--faint);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-}
-
-[data-mode="dream"] .worklog--aside {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  max-width: none;
-  gap: var(--sp-2) 0.6rem;
-  align-self: start;
-}
-[data-mode="dream"] .worklog--aside .worklog-cap { grid-column: 1 / -1; }
 
 /* ── the register that opens ────────────────────────────────────────────── */
 
@@ -2264,8 +2191,6 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   font-size: var(--t-prose);
   line-height: 1.75;
 }
-
-
 
 [data-mode="dream"] .chord-by {
   display: flex;
@@ -3399,4 +3324,79 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 @media (max-width: 860px) {
   [data-mode="dream"] .tone-btn .tone-label { display: none; }
   [data-mode="dream"] .tone-btn { padding: 0.3rem 0.6rem; }
+}
+
+/* ── the three by say hi ────────────────────────────────────────────────
+   Recovered: these rules went out with the dead-css sweep when the stack
+   itself was cut. Eight squares beside a contact list read as a gallery;
+   three tilted prints read as photographs someone left there. */
+[data-mode="dream"] .hi-stack {
+  position: relative;
+  align-self: center;
+  width: 100%;
+  max-width: 30rem;
+  justify-self: end;
+  aspect-ratio: 1 / 0.72;
+}
+
+[data-mode="dream"] .hi-stack figure {
+  position: absolute;
+  margin: 0;
+}
+
+[data-mode="dream"] .hi-stack .cell {
+  display: block;
+  background: var(--mat);
+  padding: 0.45rem;
+  border-radius: 2px;
+  box-shadow:
+    0 2px 5px rgb(8 10 22 / 58%),
+    0 18px 40px rgb(8 10 22 / 42%);
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .hi-stack img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1px;
+}
+
+[data-mode="dream"] .hi-stack figure:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 38%;
+  z-index: 1;
+}
+
+[data-mode="dream"] .hi-stack figure:nth-child(1) .cell { transform: rotate(-3.4deg); }
+
+[data-mode="dream"] .hi-stack figure:nth-child(2) {
+  top: 4%;
+  right: 0;
+  width: 46%;
+  z-index: 2;
+}
+
+[data-mode="dream"] .hi-stack figure:nth-child(2) .cell { transform: rotate(2.4deg); }
+
+[data-mode="dream"] .hi-stack figure:nth-child(3) {
+  bottom: 0;
+  left: 20%;
+  width: 52%;
+  z-index: 3;
+}
+
+[data-mode="dream"] .hi-stack figure:nth-child(3) .cell { transform: rotate(-1.2deg); }
+
+[data-mode="dream"] .hi-stack figure:hover .cell {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* Aa, not AA. The chrome here is uppercase by default, which turned the one
+   glyph whose whole job is to show both cases into two capitals. */
+[data-mode="dream"] .tone-aa {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 1.05em;
 }

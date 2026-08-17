@@ -786,20 +786,13 @@ const also = [
       </div>
 
 
-      {/* The pile moves in beside the contact list: at four across it comes
-          out the same height as the list, so the page ends on one block
-          instead of a list, a gap and a gallery. */}
-      <div class="worklog worklog--aside">
-        {
-          Array.from({ length: 8 }, (_, i) => (
-            <figure>
-              <span class="cell">
-                <img src={`/images/work/w0${i + 1}.webp`} alt="" width="440" height="440" loading="lazy" decoding="async" />
-              </span>
-            </figure>
-          ))
-        }
-        <p class="worklog-cap">me at work</p>
+      {/* Three, tilted, in the site's own print language. Eight small squares
+          beside a contact list read as a gallery nobody asked for; three read
+          as photographs left on the table. */}
+      <div class="hi-stack" aria-hidden="true">
+        <figure><span class="cell"><img src="/images/hi-1.webp" alt="" width="560" height="885" loading="lazy" decoding="async" /></span></figure>
+        <figure><span class="cell"><img src="/images/hi-2.webp" alt="" width="560" height="499" loading="lazy" decoding="async" /></span></figure>
+        <figure><span class="cell"><img src="/images/hi-3.webp" alt="" width="560" height="431" loading="lazy" decoding="async" /></span></figure>
       </div>
 
     </div>

@@ -138,9 +138,9 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         <a class="dance-link" href="/#contact">say hi</a>
         {/* Capitals on or off. It changes how the page reads, so it belongs
             where the reader is, not at the bottom after they have read it. */}
-        <button class="tone-btn" type="button" aria-pressed="true"
+        <button class="tone-btn" type="button" aria-pressed="false"
                 title="capitals on or off">
-          <span aria-hidden="true">Aa</span><span class="tone-label">lowercase</span>
+          <span class="tone-aa" aria-hidden="true">Aa</span><span class="tone-label">serious</span>
         </button>
         <details class="menu">
           <summary aria-label="more pages"><i></i><i></i><i></i></summary>
@@ -312,11 +312,11 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         };
 
         btn.addEventListener("click", () => apply(btn.getAttribute("aria-pressed") !== "true"));
-        // Serious by default. Only a deliberate switch to lowercase is stored,
-        // so a stored value always means someone chose it.
+        // Lowercase is the house voice, so serious is the departure and only a
+        // deliberate switch to it is stored.
         let saved = null;
         try { saved = localStorage.getItem("tone"); } catch {}
-        apply(saved !== "lower");
+        apply(saved === "serious");
       })();
     </script>
 
