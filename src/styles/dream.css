@@ -3316,3 +3316,33 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 }
 
 [data-mode="dream"] .foot-index a:hover { color: var(--hot); }
+
+/* ── press feedback ─────────────────────────────────────────────────────────
+   Emil Kowalski's first practical tip, and the site had none of it: every
+   control lit on hover and did nothing under the finger. Written against the
+   element rather than a list of class names, because most of the buttons here
+   carry no class at all and a list would have missed them, as my first
+   attempt did. Transform only, so it runs on the compositor. */
+[data-mode="dream"] button:active,
+[data-mode="dream"] .dance-cta:active,
+[data-mode="dream"] .cv-job > summary:active .cv-more {
+  scale: 0.97;
+}
+
+/* The release eases where the control already owns its transition; where it
+   does not, the press is simply instant, which is no worse. */
+[data-mode="dream"] .bit-share button,
+[data-mode="dream"] .cur-btn,
+[data-mode="dream"] .chord-next,
+[data-mode="dream"] .chord-back,
+[data-mode="dream"] .bebop-close,
+[data-mode="dream"] .dance-cta {
+  transition:
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    scale 90ms var(--ease);
+}
+
+/* A press is feedback, not decoration, so it survives reduced motion; it is
+   90ms and three percent. */
