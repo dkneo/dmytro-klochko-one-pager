@@ -12,8 +12,6 @@
 // public keys. It is deliberately fail-closed: with ACCESS_TEAM_DOMAIN or
 // ACCESS_AUD unset the curation routes answer 503 and nothing can be written.
 
-import folio from "./names-folio.js";
-
 const JSON_HEADERS = { "content-type": "application/json; charset=utf-8" };
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
@@ -92,6 +90,13 @@ async function candidates(env) {
 // The cookie is an HMAC of a constant under the password, so it cannot be
 // forged without knowing the password, and knowing the cookie does not reveal
 // it. Scoped to /names, so it travels nowhere else on the site.
+//
+// The folio itself lives in KV, not in this repo and not in dist/. That is
+// forced by two facts at once: the repo is public, so the content cannot be
+// committed, and a push to it triggers a build on cloudflare, so anything
+// kept out of git cannot reach the worker through the pipeline either. KV is
+// the one place that is both outside git and present at runtime. It also
+// means editing the folio never needs a deploy.
 
 const NAMES = /^\/names(?:\/|$)/i;
 const COOKIE = "names_pass";
@@ -182,10 +187,6 @@ async function names(request, env) {
   if (!env.NAMES_PASSWORD) {
     return new Response(door("the door is not configured yet."), { status: 503, headers: PRIVATE });
   }
-  if (!folio) {
-    return new Response("not found", { status: 404, headers: { "content-type": "text/plain" } });
-  }
-
   const good = await passToken(env.NAMES_PASSWORD);
 
   if (request.method === "POST") {
@@ -211,6 +212,10 @@ async function names(request, env) {
   }
 
   if (sameSecret(cookieValue(request, COOKIE) || "", good)) {
+    const folio = env.VAULT && (await env.VAULT.get("names:folio", { type: "text", cacheTtl: 3600 }));
+    if (!folio) {
+      return new Response(door("the folio is not loaded yet."), { status: 503, headers: PRIVATE });
+    }
     return new Response(folio, { status: 200, headers: PRIVATE });
   }
   return new Response(door(""), { status: 401, headers: PRIVATE });
