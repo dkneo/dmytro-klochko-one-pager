@@ -142,7 +142,7 @@ const PRIVATE = {
 // loads the site's stylesheet, so there are no custom properties to read.
 // Each one is a documented step from DESIGN.md typography: dream-display for
 // the title, dream-prose for the input, dream-prose-sm and t-sm below it.
-function door(message) {
+function door(message, action = "/names") {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
@@ -173,7 +173,7 @@ a{color:var(--quiet);font-size:.875rem;display:inline-block;margin-top:2.5rem}
 </style></head><body><main>
 <h1>names</h1>
 <p>nineteen of them, considered as atmosphere. this one is not public yet.</p>
-<form method="post" action="/names">
+<form method="post" action="${action}">
 <input type="password" name="password" autocomplete="current-password"
  aria-label="password" autofocus required>
 <button type="submit">come in</button>
@@ -183,7 +183,13 @@ ${message ? `<b>${message}</b>` : ""}
 </main></body></html>`;
 }
 
-async function names(request, env) {
+async function names(request, env, url) {
+  // Never echo the raw path back into the page or a Location header. URL
+  // parsing already escapes quotes, but the door only ever points at one of
+  // two known places, so say so rather than trust the encoding.
+  const where =
+    url.pathname.toLowerCase().replace(/\/+$/, "") === "/names/ii" ? "/names/ii" : "/names";
+
   if (!env.NAMES_PASSWORD) {
     return new Response(door("the door is not configured yet."), { status: 503, headers: PRIVATE });
   }
@@ -196,7 +202,7 @@ async function names(request, env) {
       return new Response(null, {
         status: 303,
         headers: {
-          location: "/names",
+          location: where,
           "set-cookie": `${COOKIE}=${good}; Path=/names; Max-Age=${60 * 60 * 24 * 30}; HttpOnly; Secure; SameSite=Lax`,
           ...PRIVATE,
         },
@@ -204,7 +210,7 @@ async function names(request, env) {
     }
     // A wrong guess costs a moment, so the door is not worth grinding on.
     await new Promise((r) => setTimeout(r, 700));
-    return new Response(door("that is not it."), { status: 401, headers: PRIVATE });
+    return new Response(door("that is not it.", where), { status: 401, headers: PRIVATE });
   }
 
   if (request.method !== "GET" && request.method !== "HEAD") {
@@ -212,13 +218,20 @@ async function names(request, env) {
   }
 
   if (sameSecret(cookieValue(request, COOKIE) || "", good)) {
-    const folio = env.VAULT && (await env.VAULT.get("names:folio", { type: "text", cacheTtl: 3600 }));
+    // Two volumes, one door. Anything else under /names is nothing.
+    const path = url.pathname.toLowerCase().replace(/\/+$/, "");
+    const key = path === "/names" ? "names:folio"
+      : path === "/names/ii" ? "names:folio2"
+      : null;
+    if (!key) return new Response("no such page", { status: 404, headers: PRIVATE });
+
+    const folio = env.VAULT && (await env.VAULT.get(key, { type: "text", cacheTtl: 3600 }));
     if (!folio) {
-      return new Response(door("the folio is not loaded yet."), { status: 503, headers: PRIVATE });
+      return new Response(door("that volume is not loaded yet."), { status: 503, headers: PRIVATE });
     }
     return new Response(folio, { status: 200, headers: PRIVATE });
   }
-  return new Response(door(""), { status: 401, headers: PRIVATE });
+  return new Response(door("", where), { status: 401, headers: PRIVATE });
 }
 
 export default {
@@ -228,7 +241,7 @@ export default {
     // The folio, behind its shared password. Checked before the asset
     // fallthrough and matching the whole /names subtree, so nothing under it
     // can be reached another way.
-    if (NAMES.test(url.pathname)) return names(request, env);
+    if (NAMES.test(url.pathname)) return names(request, env, url);
 
     // Anything that is not the curation api is the site.
     if (!url.pathname.startsWith("/api/curate")) {
