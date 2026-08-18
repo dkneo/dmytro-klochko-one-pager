@@ -133,6 +133,10 @@ const PRIVATE = {
   "referrer-policy": "no-referrer",
 };
 
+// Sizes are literals because this page is served by the worker and never
+// loads the site's stylesheet, so there are no custom properties to read.
+// Each one is a documented step from DESIGN.md typography: dream-display for
+// the title, dream-prose for the input, dream-prose-sm and t-sm below it.
 function door(message) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -144,12 +148,12 @@ body{margin:0;min-height:100svh;display:grid;place-items:center;padding:2rem;
 background:var(--void);color:var(--bone);
 font-family:Georgia,'Times New Roman',serif;-webkit-font-smoothing:antialiased}
 main{width:100%;max-width:26rem}
-h1{margin:0;font-size:2.4rem;font-weight:400;letter-spacing:-.02em}
+h1{margin:0;font-size:clamp(2rem,3.4vw,2.9rem);font-weight:400;letter-spacing:-.02em}
 p{margin:.6rem 0 2rem;color:var(--quiet);font-size:1rem;line-height:1.6}
 form{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
 input{flex:1 1 12rem;min-width:0;padding:.6rem 0;background:none;border:0;
 border-bottom:1px solid rgb(236 230 217 / 46%);color:var(--bone);
-font-family:inherit;font-size:1.05rem}
+font-family:inherit;font-size:1.13rem}
 input:focus{outline:none;border-bottom-color:var(--hot)}
 button{padding:.45rem 1.1rem;background:none;border:1px solid rgb(236 230 217 / 34%);
 border-radius:999px;color:var(--hot);cursor:pointer;
@@ -158,8 +162,8 @@ letter-spacing:.14em;text-transform:uppercase;
 transition:border-color 200ms cubic-bezier(.2,0,.2,1),scale 90ms cubic-bezier(.2,0,.2,1)}
 button:hover{border-color:rgb(255 155 192 / 45%)}
 button:active{scale:.97}
-b{display:block;margin-top:1.4rem;color:var(--hot);font-weight:400;font-size:.95rem}
-a{color:var(--quiet);font-size:.9rem;display:inline-block;margin-top:2.5rem}
+b{display:block;margin-top:1.4rem;color:var(--hot);font-weight:400;font-size:1rem}
+a{color:var(--quiet);font-size:.875rem;display:inline-block;margin-top:2.5rem}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body><main>
 <h1>names</h1>
