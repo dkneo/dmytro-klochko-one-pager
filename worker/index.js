@@ -12,6 +12,8 @@
 // public keys. It is deliberately fail-closed: with ACCESS_TEAM_DOMAIN or
 // ACCESS_AUD unset the curation routes answer 503 and nothing can be written.
 
+import folio from "./names-folio.js";
+
 const JSON_HEADERS = { "content-type": "application/json; charset=utf-8" };
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
@@ -77,9 +79,147 @@ async function candidates(env) {
   return Array.isArray(d.candidates) ? d.candidates : [];
 }
 
+
+// ── /names ──────────────────────────────────────────────────────────────────
+//
+// A shared password, not an identity check: anyone he sends it to gets in.
+// The folio is compiled into this bundle rather than shipped to dist/, so
+// there is no file to fetch around the gate.
+//
+// The password itself is a worker secret. This repo is public, so it is never
+// written down here. Missing secret means the door does not open at all.
+//
+// The cookie is an HMAC of a constant under the password, so it cannot be
+// forged without knowing the password, and knowing the cookie does not reveal
+// it. Scoped to /names, so it travels nowhere else on the site.
+
+const NAMES = /^\/names(?:\/|$)/i;
+const COOKIE = "names_pass";
+
+const hex = (buf) =>
+  [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+
+async function passToken(password) {
+  const key = await crypto.subtle.importKey(
+    "raw", new TextEncoder().encode(password),
+    { name: "HMAC", hash: "SHA-256" }, false, ["sign"]
+  );
+  return hex(await crypto.subtle.sign("HMAC", key, new TextEncoder().encode("names-v1")));
+}
+
+/** Length-independent compare, so a wrong guess leaks nothing by timing. */
+function sameSecret(a, b) {
+  if (typeof a !== "string" || typeof b !== "string") return false;
+  const x = new TextEncoder().encode(a), y = new TextEncoder().encode(b);
+  let diff = x.length ^ y.length;
+  for (let i = 0; i < Math.max(x.length, y.length); i++) diff |= (x[i] ?? 0) ^ (y[i] ?? 0);
+  return diff === 0;
+}
+
+function cookieValue(request, name) {
+  const raw = request.headers.get("cookie");
+  if (!raw) return null;
+  for (const part of raw.split(";")) {
+    const i = part.indexOf("=");
+    if (i > -1 && part.slice(0, i).trim() === name) return part.slice(i + 1).trim();
+  }
+  return null;
+}
+
+const PRIVATE = {
+  "content-type": "text/html; charset=utf-8",
+  "cache-control": "private, no-store, must-revalidate",
+  "x-robots-tag": "noindex, nofollow, noarchive",
+  "referrer-policy": "no-referrer",
+};
+
+function door(message) {
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>names</title><style>
+:root{--void:#262b44;--bone:#ece6d9;--hot:#ff9bc0;--quiet:#c4beb0}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;display:grid;place-items:center;padding:2rem;
+background:var(--void);color:var(--bone);
+font-family:Georgia,'Times New Roman',serif;-webkit-font-smoothing:antialiased}
+main{width:100%;max-width:26rem}
+h1{margin:0;font-size:2.4rem;font-weight:400;letter-spacing:-.02em}
+p{margin:.6rem 0 2rem;color:var(--quiet);font-size:1rem;line-height:1.6}
+form{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+input{flex:1 1 12rem;min-width:0;padding:.6rem 0;background:none;border:0;
+border-bottom:1px solid rgb(236 230 217 / 46%);color:var(--bone);
+font-family:inherit;font-size:1.05rem}
+input:focus{outline:none;border-bottom-color:var(--hot)}
+button{padding:.45rem 1.1rem;background:none;border:1px solid rgb(236 230 217 / 34%);
+border-radius:999px;color:var(--hot);cursor:pointer;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.75rem;
+letter-spacing:.14em;text-transform:uppercase;
+transition:border-color 200ms cubic-bezier(.2,0,.2,1),scale 90ms cubic-bezier(.2,0,.2,1)}
+button:hover{border-color:rgb(255 155 192 / 45%)}
+button:active{scale:.97}
+b{display:block;margin-top:1.4rem;color:var(--hot);font-weight:400;font-size:.95rem}
+a{color:var(--quiet);font-size:.9rem;display:inline-block;margin-top:2.5rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><main>
+<h1>names</h1>
+<p>nineteen of them, considered as atmosphere. this one is not public yet.</p>
+<form method="post" action="/names">
+<input type="password" name="password" autocomplete="current-password"
+ aria-label="password" autofocus required>
+<button type="submit">come in</button>
+</form>
+${message ? `<b>${message}</b>` : ""}
+<a href="/">back to the main page</a>
+</main></body></html>`;
+}
+
+async function names(request, env) {
+  if (!env.NAMES_PASSWORD) {
+    return new Response(door("the door is not configured yet."), { status: 503, headers: PRIVATE });
+  }
+  if (!folio) {
+    return new Response("not found", { status: 404, headers: { "content-type": "text/plain" } });
+  }
+
+  const good = await passToken(env.NAMES_PASSWORD);
+
+  if (request.method === "POST") {
+    const form = await request.formData().catch(() => null);
+    const tried = form && form.get("password");
+    if (sameSecret(String(tried ?? ""), env.NAMES_PASSWORD)) {
+      return new Response(null, {
+        status: 303,
+        headers: {
+          location: "/names",
+          "set-cookie": `${COOKIE}=${good}; Path=/names; Max-Age=${60 * 60 * 24 * 30}; HttpOnly; Secure; SameSite=Lax`,
+          ...PRIVATE,
+        },
+      });
+    }
+    // A wrong guess costs a moment, so the door is not worth grinding on.
+    await new Promise((r) => setTimeout(r, 700));
+    return new Response(door("that is not it."), { status: 401, headers: PRIVATE });
+  }
+
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return new Response("method not allowed", { status: 405, headers: { allow: "GET, HEAD, POST" } });
+  }
+
+  if (sameSecret(cookieValue(request, COOKIE) || "", good)) {
+    return new Response(folio, { status: 200, headers: PRIVATE });
+  }
+  return new Response(door(""), { status: 401, headers: PRIVATE });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    // The folio, behind its shared password. Checked before the asset
+    // fallthrough and matching the whole /names subtree, so nothing under it
+    // can be reached another way.
+    if (NAMES.test(url.pathname)) return names(request, env);
 
     // Anything that is not the curation api is the site.
     if (!url.pathname.startsWith("/api/curate")) {

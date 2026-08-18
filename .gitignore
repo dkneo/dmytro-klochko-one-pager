@@ -32,3 +32,12 @@ yarn-error.log*
 # raw media you drop in for me to process; the README stays tracked
 /updated-media/*
 !/updated-media/README.md
+
+# the folio is compiled into the worker at build time and must not be committed
+/worker/names-folio.js
+
+# local secrets for wrangler dev
+.dev.vars
+
+# wrangler local dev state (may cache private responses)
+/.wrangler/
