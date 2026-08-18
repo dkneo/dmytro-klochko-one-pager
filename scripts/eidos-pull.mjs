@@ -23,6 +23,7 @@ function kv(key) {
 }
 
 const placed = kv("eidos:placed") || {};
+const verdicts = kv("eidos:verdicts") || {};
 const pairs = kv("eidos:pairs") || [];
 
 // find the note a mark id belongs to
@@ -45,6 +46,34 @@ for (const [id, v] of Object.entries(placed)) {
     writeFileSync(path, next);
   }
 }
+
+// Kept candidates become real notes. The candidate file already carries the
+// attribution and licence, so nothing has to be looked up or guessed; the
+// proposed weather is only used because he saw it on the card and kept it
+// anyway, which is an answer.
+const inbox = JSON.parse(readFileSync("public/inbox.json", "utf8")).candidates || [];
+const kept = Object.entries(verdicts).filter(([, v]) => v.verdict === "keep");
+const born = [];
+for (const [id, v] of kept) {
+  const c = inbox.find((x) => x.id === id);
+  if (!c) { born.push(`  ? ${id}: kept, but no longer in the inbox`); continue; }
+  const file = `vault/paintings/${id}.md`;
+  if (existsSync(file)) { born.push(`  = ${id}: already a note`); continue; }
+  born.push(`  + ${id} → ${c.who}, ${c.title}`);
+  if (apply) {
+    writeFileSync(file, [
+      "---", "type: painting", `who: ${c.who}`, `title: ${c.title}`,
+      c.year ? `year: ${c.year}` : "", `src: ${c.src}`,
+      c.source ? `source: "${c.source}"` : "", c.licence ? `licence: ${c.licence}` : "",
+      (v.weather || c.weather) ? `weather: ${v.weather || c.weather}` : "",
+      `added: ${new Date().toISOString().slice(0, 10)}`,
+      "---", "", "kept from the queue on /eidos.", "",
+    ].filter(Boolean).join("\n"));
+  }
+}
+const passed = Object.values(verdicts).filter((v) => v.verdict === "pass").length;
+console.log(`\ncandidates judged: ${Object.keys(verdicts).length} (${kept.length} kept, ${passed} passed)`);
+console.log(born.join("\n") || "  nothing new");
 
 // The pairs do not edit notes yet: a single answer is not evidence. They
 // accumulate until there are enough to rank a weather by, which is a

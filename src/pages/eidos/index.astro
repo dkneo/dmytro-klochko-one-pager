@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import map from "../../data/map.json";
+import inbox from "../../../public/inbox.json";
 
 // The map of what he likes, drawn from the vault and nothing else.
 //
@@ -19,6 +20,8 @@ import map from "../../data/map.json";
 //   That ring is the page's main piece of work: it asks to be emptied.
 
 const { items, weathers, threads, depth, forms, people, axes, unplaced } = map;
+
+const candidates = inbox.candidates || [];
 
 const K = 41;  // coord → percent of the field, shared by marks and threads
 const FORM_MARK = { painting: "▣", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
@@ -157,6 +160,16 @@ const description =
       they are worth doing.
     </p>
 
+    <section class="em-three" id="three" aria-labelledby="th3">
+      <h3 id="th3">today's three</h3>
+      <p>
+        three things it thinks he might want, picked fresh each day from
+        {candidates.length} waiting. keep or pass; either answer teaches it
+        something, and a pass teaches it as much as a keep.
+      </p>
+      <div class="em-three-cards" id="three-cards"></div>
+    </section>
+
     <ol class="em-teach">
       <li>
         <h3>place the ring</h3>
@@ -222,7 +235,7 @@ const description =
     </a>
   </section>
 
-  <script define:vars={{ items, weathers }}>
+  <script define:vars={{ items, weathers, candidates }}>
     (() => {
       const stage = document.getElementById("stage");
       const field = stage.closest(".em-field");
@@ -393,6 +406,58 @@ const description =
             : `<p class="em-d-note">not saved, the door is shut. it was still worth answering.</p>`;
         }));
       });
+
+      // ── today's three ───────────────────────────────────────────────
+      // The same three all day, different tomorrow: a day number seeds the
+      // pick, so opening the page twice does not reshuffle the question.
+      (async () => {
+        const host = document.getElementById("three-cards");
+        if (!host || !candidates.length) return;
+        let judged = [];
+        try {
+          const r = await fetch("/api/eidos/judged");
+          if (r.ok) judged = (await r.json()).judged || [];
+        } catch {}
+        const pool = candidates.filter((c) => !judged.includes(c.id));
+        if (!pool.length) {
+          host.innerHTML = `<p class="em-three-done">every candidate has been judged. the queue is empty, which means it needs new ones more than it needs him.</p>`;
+          return;
+        }
+        const day = Math.floor(Date.now() / 86400000);
+        const pick = [];
+        for (let i = 0; i < Math.min(3, pool.length); i++) pick.push(pool[(day * 3 + i) % pool.length]);
+
+        host.innerHTML = pick.map((c) => `
+          <article class="em-cand" data-id="${esc(c.id)}">
+            ${c.src ? `<img src="${esc(c.src)}" alt="" loading="lazy" decoding="async">` : ""}
+            <p class="em-cand-t">${esc(c.title || "")}</p>
+            <p class="em-cand-w">${esc(c.who || "")}${c.year ? ", " + esc(c.year) : ""}</p>
+            ${c.weather ? `<p class="em-cand-f">proposed as <b>${esc(c.weather)}</b></p>` : ""}
+            <div class="em-cand-do">
+              <button type="button" data-v="keep">keep</button>
+              <button type="button" data-v="pass">pass</button>
+            </div>
+          </article>`).join("");
+
+        host.querySelectorAll("[data-v]").forEach((b) => b.addEventListener("click", async () => {
+          const card = b.closest(".em-cand");
+          const c = pick.find((x) => x.id === card.dataset.id);
+          const box = card.querySelector(".em-cand-do");
+          box.innerHTML = "<span>filing…</span>";
+          let r = null;
+          try {
+            r = await fetch("/api/eidos/verdict", {
+              method: "POST", headers: { "content-type": "application/json" },
+              body: JSON.stringify({ id: c.id, verdict: b.dataset.v, weather: c.weather || "" }),
+            });
+          } catch {}
+          const ok = r && r.ok;
+          card.classList.add(b.dataset.v === "keep" ? "is-kept" : "is-passed");
+          box.innerHTML = ok
+            ? `<span>${b.dataset.v === "keep" ? "kept" : "passed"}</span>`
+            : `<span>not saved: sign in at /names first</span>`;
+        }));
+      })();
 
       paint();
     })();

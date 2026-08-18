@@ -4696,3 +4696,119 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   [data-mode="dream"] .em-mark,
   [data-mode="dream"] .em-detail { transition: none; animation: none; }
 }
+
+/* ── today's three ──────────────────────────────────────────────────────────
+   The one part of the page that asks him for something every time he opens
+   it. Three cards, two answers, no way to be halfway through. */
+
+[data-mode="dream"] .em-three {
+  margin-top: var(--sp-4);
+  padding: var(--sp-3);
+  border: 1px solid rgb(255 155 192 / 30%);
+  background: rgb(20 24 40 / 55%);
+}
+
+[data-mode="dream"] .em-three h3 {
+  margin: 0;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .em-three > p {
+  margin: 0.5rem 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .em-three-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+}
+
+[data-mode="dream"] .em-cand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: var(--sp-2);
+  border: 1px solid rgb(236 230 217 / 18%);
+  transition: border-color var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-cand img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid rgb(236 230 217 / 14%);
+}
+
+[data-mode="dream"] .em-cand-t {
+  margin: 0.3rem 0 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.35;
+}
+
+[data-mode="dream"] .em-cand-w,
+[data-mode="dream"] .em-cand-f {
+  margin: 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+}
+
+[data-mode="dream"] .em-cand-f b { color: var(--hot); font-weight: 400; }
+
+[data-mode="dream"] .em-cand-do {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+[data-mode="dream"] .em-cand-do button {
+  flex: 1;
+  min-height: 24px;
+  padding: 0.28rem 0.6rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 28%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-cand-do button:hover { color: var(--hot); border-color: rgb(255 155 192 / 45%); }
+[data-mode="dream"] .em-cand-do button:active { scale: 0.97; }
+
+[data-mode="dream"] .em-cand-do span {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .em-cand.is-kept { border-color: rgb(255 155 192 / 55%); }
+[data-mode="dream"] .em-cand.is-passed { opacity: 0.45; }
+
+[data-mode="dream"] .em-three-done {
+  margin: var(--sp-2) 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+}

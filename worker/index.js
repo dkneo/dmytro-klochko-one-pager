@@ -308,6 +308,13 @@ async function eidosAsk(request, env) {
   return json({ answer: answer || "no answer came back." });
 }
 
+/** What he has already judged, so the page stops offering it. */
+async function eidosJudged(env) {
+  if (!env.VAULT) return json({ judged: [] });
+  const seen = (await env.VAULT.get("eidos:verdicts", "json")) || {};
+  return json({ judged: Object.keys(seen) });
+}
+
 /** Teaching writes: same shared password as the folio. */
 async function eidosWrite(request, env, url) {
   if (!env.NAMES_PASSWORD) return json({ error: "the door is not configured" }, 503);
@@ -327,6 +334,17 @@ async function eidosWrite(request, env, url) {
     all[id] = { weather, at: now };
     await env.VAULT.put("eidos:placed", JSON.stringify(all));
     return json({ ok: true, placed: Object.keys(all).length });
+  }
+  if (url.pathname.endsWith("/verdict")) {
+    const { id, verdict, weather } = body || {};
+    if (!id || (verdict !== "keep" && verdict !== "pass")) {
+      return json({ error: "id and verdict:keep|pass required" }, 400);
+    }
+    const seen = (await env.VAULT.get("eidos:verdicts", "json")) || {};
+    seen[id] = { verdict, weather: weather || "", at: now };
+    await env.VAULT.put("eidos:verdicts", JSON.stringify(seen));
+    const kept = Object.values(seen).filter((v) => v.verdict === "keep").length;
+    return json({ ok: true, judged: Object.keys(seen).length, kept });
   }
   if (url.pathname.endsWith("/pair")) {
     const { weather, winner, pair } = body || {};
@@ -350,6 +368,7 @@ export default {
 
     // The map: asking is a read, placing and pairing are writes.
     if (url.pathname === "/api/eidos/ask" && request.method === "POST") return eidosAsk(request, env);
+    if (url.pathname === "/api/eidos/judged" && request.method === "GET") return eidosJudged(env);
     if (url.pathname.startsWith("/api/eidos/") && request.method === "POST") return eidosWrite(request, env, url);
 
     // Anything that is not the curation api is the site.
