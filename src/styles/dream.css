@@ -20,7 +20,8 @@
   --deck: #2f3554;
   --bone: #ece6d9;
   --dim: #a9aecb;
-  --faint: #7d82a6;
+  --faint: #7d82a6;  /* a tint for rules and decoration, not for reading */
+  --quiet: #c4beb0;  /* the reading tier below bone: clears 4.5:1 over the glass */
   --rule: rgb(236 230 217 / 12%);
   --cold: #7fd4d9;
   --hot: #ff9bc0;    /* kawase cloud pink — his favourite colour */
@@ -837,6 +838,15 @@ html[data-scene="study"] .scenes i[data-s="study"] {
     -webkit-mask-image: none;
     mask-image: none;
   }
+}
+
+/* The exercise is the one page you write on rather than read, and the fuji
+   print is the brightest sky in the set. Same smoked glass, one stop darker,
+   so a half-written line stays legible against the rocks. Measured: the
+   backdrop under the writing column goes from 0.071 to 0.033 luminance. */
+[data-mode="dream"] body:has(.hokku)::before {
+  -webkit-backdrop-filter: brightness(0.34) saturate(0.88);
+  backdrop-filter: brightness(0.34) saturate(0.88);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3436,7 +3446,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 [data-mode="dream"] .hk-season {
   margin: 0.4rem 0 0;
-  color: var(--faint);
+  color: var(--quiet);
   font-family: var(--mono);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
@@ -3447,9 +3457,9 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   margin-top: var(--sp-2);
   padding: 0.3rem 0.85rem;
   background: none;
-  border: 1px solid rgb(236 230 217 / 20%);
+  border: 1px solid rgb(236 230 217 / 34%);
   border-radius: 999px;
-  color: var(--faint);
+  color: var(--quiet);
   font-family: var(--mono);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
@@ -3477,12 +3487,14 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   align-items: baseline;
   gap: 0.7rem;
   padding: 0.35rem 0;
-  border-bottom: 1px solid rgb(236 230 217 / 12%);
+  /* The line you write on has to be visible before there is anything on it:
+     46% clears 3:1 against the brightest rock under the column. */
+  border-bottom: 1px solid rgb(236 230 217 / 46%);
 }
 
 [data-mode="dream"] .hk-num,
 [data-mode="dream"] .hk-count {
-  color: var(--faint);
+  color: var(--quiet);
   font-family: var(--mono);
   font-size: var(--t-xs);
   letter-spacing: 0.06em;
@@ -3502,7 +3514,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 }
 
 [data-mode="dream"] .hk-line input::placeholder {
-  color: rgb(236 230 217 / 26%);
+  color: var(--quiet);
   font-style: italic;
 }
 
@@ -3516,7 +3528,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 [data-mode="dream"] .hk-syl {
   margin: var(--sp-2) 0 0;
-  color: var(--faint);
+  color: var(--quiet);
   font-family: var(--mono);
   font-size: var(--t-xs);
   letter-spacing: 0.06em;
@@ -3526,7 +3538,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   display: block;
   margin-top: 0.4rem;
   max-width: var(--measure);
-  color: var(--faint);
+  color: var(--quiet);
   font-family: var(--serif);
   font-size: var(--t-prose-sm);
   font-style: italic;
@@ -3599,7 +3611,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 [data-mode="dream"] .hk-marks li::before {
   content: "○";
-  color: var(--faint);
+  color: var(--quiet);
   font-family: var(--mono);
   font-size: var(--t-xs);
   line-height: 1.7;
@@ -3629,7 +3641,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 [data-mode="dream"] .hk-nudge {
   margin: var(--sp-3) 0 0;
-  color: var(--faint);
+  color: var(--quiet);
   font-family: var(--serif);
   font-style: italic;
   font-size: var(--t-prose-sm);
@@ -3642,7 +3654,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .hk-mine-note {
   max-width: var(--measure);
   margin: 0 0 var(--sp-3);
-  color: var(--faint);
+  color: var(--quiet);
   font-family: var(--serif);
   font-style: italic;
   font-size: var(--t-prose-sm);
@@ -3684,12 +3696,12 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   letter-spacing: var(--ls-wide);
 }
 
-[data-mode="dream"] .hk-meta span { color: var(--faint); }
+[data-mode="dream"] .hk-meta span { color: var(--quiet); }
 
 [data-mode="dream"] .hk-card {
   padding: 0.25rem 0.75rem;
-  border-color: rgb(236 230 217 / 20%);
-  color: var(--faint);
+  border-color: rgb(236 230 217 / 34%);
+  color: var(--quiet);
 }
 
 [data-mode="dream"] .hk-canvas { display: none; }
@@ -3725,7 +3737,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   flex-wrap: wrap;
   gap: 0.3rem 0.7rem;
   margin-top: 0.6rem;
-  color: var(--faint);
+  color: var(--quiet);
   font-family: var(--mono);
   font-size: var(--t-xs);
   letter-spacing: 0.06em;
@@ -3759,5 +3771,5 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 /* The exercise proper starts here, and the gap says so. */
 [data-mode="dream"] .hk-seed {
   padding-top: var(--sp-4);
-  border-top: 1px solid rgb(236 230 217 / 12%);
+  border-top: 1px solid rgb(236 230 217 / 22%);
 }
