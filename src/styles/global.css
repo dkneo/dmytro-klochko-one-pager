@@ -387,7 +387,7 @@ svg.pin {
 
 .reg-role {
   grid-column: 2 / -1;
-  color: var(--faint);
+  color: var(--dim);
   font-size: var(--t-sm);
 }
 
@@ -425,7 +425,7 @@ svg.pin {
 }
 
 .research-lbl {
-  color: var(--faint);
+  color: var(--dim);
 }
 
 .research a {
@@ -489,7 +489,7 @@ svg.pin {
 }
 
 .receipts span {
-  color: var(--faint);
+  color: var(--dim);
   font-size: var(--t-xs);
 }
 
@@ -516,7 +516,7 @@ svg.pin {
 
 .log li::before {
   counter-increment: log;
-  color: var(--faint);
+  color: var(--dim);
   content: counter(log, decimal-leading-zero);
 }
 
@@ -547,7 +547,7 @@ svg.pin {
   width: min(100% - var(--gutter) * 2, 78rem);
   margin-inline: auto;
   padding-block: 2rem 3.5rem;
-  color: var(--faint);
+  color: var(--dim);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
@@ -884,7 +884,7 @@ body::after {
 }
 
 .ways em {
-  color: var(--faint);
+  color: var(--dim);
   font-size: var(--t-xs);
   font-style: normal;
   letter-spacing: var(--ls-wide);
@@ -924,7 +924,7 @@ body::after {
 
 .ascii figcaption {
   margin-top: var(--sp-1);
-  color: var(--faint);
+  color: var(--dim);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
@@ -976,7 +976,7 @@ body::after {
 
 .wall figcaption {
   margin-top: var(--sp-1);
-  color: var(--faint);
+  color: var(--dim);
   font-size: var(--t-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
@@ -1078,7 +1078,7 @@ body::after {
 }
 
 .crumb {
-  color: var(--faint);
+  color: var(--dim);
   font-size: var(--t-sm);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
@@ -1115,7 +1115,7 @@ body::after {
 }
 
 .record-meta em {
-  color: var(--faint);
+  color: var(--dim);
   font-size: var(--t-xs);
   font-style: normal;
   letter-spacing: var(--ls-wide);
