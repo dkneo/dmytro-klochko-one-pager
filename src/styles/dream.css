@@ -22,6 +22,8 @@
   --dim: #a9aecb;
   --faint: #7d82a6;  /* a tint for rules and decoration, not for reading */
   --quiet: #c4beb0;  /* the reading tier below bone: clears 4.5:1 over the glass */
+  --dream-display-card: clamp(1.5rem, 2.4vw, 2.1rem);  /* DESIGN.md typography */
+  --measure-wide: 44rem;  /* a ledger row: headline plus its summary */
   --rule: rgb(236 230 217 / 12%);
   --cold: #7fd4d9;
   --hot: #ff9bc0;    /* kawase cloud pink — his favourite colour */
@@ -3772,4 +3774,228 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .hk-seed {
   padding-top: var(--sp-4);
   border-top: 1px solid rgb(236 230 217 / 22%);
+}
+
+/* ── press ──────────────────────────────────────────────────────────────────
+   A ledger, so it reads like one: the outlet first because that is what a
+   stranger scans for, the date beside it, and the claim underneath in his
+   own register. Rows are separated by a rule rather than a card, since a
+   card here would be thirty boxes down a page. */
+
+[data-mode="dream"] .pr-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-2);
+  margin: var(--sp-4) 0 0;
+  padding: var(--sp-3) 0;
+  border-top: 1px solid rgb(236 230 217 / 22%);
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+}
+
+[data-mode="dream"] .pr-facts dt {
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .pr-facts dd {
+  margin: 0.35rem 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1;
+}
+
+/* The outlets, as words. Their logos are their property and their design. */
+[data-mode="dream"] .pr-wall {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.4rem;
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-mode="dream"] .pr-wall li {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  opacity: 0.86;
+}
+
+[data-mode="dream"] .pr-year { margin-top: var(--sp-5); }
+
+[data-mode="dream"] .pr-year-mark {
+  margin: 0;
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .pr-list {
+  margin: var(--sp-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-mode="dream"] .pr-row {
+  padding: var(--sp-3) 0;
+  border-top: 1px solid rgb(236 230 217 / 16%);
+  max-width: var(--measure-wide);
+}
+
+[data-mode="dream"] .pr-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+  margin: 0;
+}
+
+[data-mode="dream"] .pr-outlet {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  font-weight: 400;
+}
+
+[data-mode="dream"] .pr-when,
+[data-mode="dream"] .pr-kind {
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-style: normal;
+  letter-spacing: 0.06em;
+}
+
+/* Only the two that mean "somebody sat down with him" get the accent. */
+[data-mode="dream"] .pr-row[data-kind="interview"] .pr-kind { color: var(--hot); }
+[data-mode="dream"] .pr-row[data-kind="rewrite"] .pr-kind { opacity: 0.72; }
+
+[data-mode="dream"] .pr-title {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-lg);
+  line-height: 1.35;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 26%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .pr-title:hover {
+  color: var(--hot);
+  border-bottom-color: rgb(255 155 192 / 45%);
+}
+
+[data-mode="dream"] .pr-title .arw { margin-left: 0.4rem; opacity: 0.7; }
+
+[data-mode="dream"] .pr-what {
+  margin: 0.6rem 0 0;
+  max-width: var(--measure);
+  color: var(--quiet);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.62;
+}
+
+[data-mode="dream"] .pr-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  margin: 0.7rem 0 0;
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .pr-meta b { font-weight: 400; color: var(--quiet); }
+[data-mode="dream"] .pr-meta span { opacity: 0.72; text-transform: uppercase; }
+[data-mode="dream"] .pr-meta a { color: var(--hot); text-decoration: none; opacity: 0.9; }
+[data-mode="dream"] .pr-meta a:hover { text-decoration: underline; }
+
+[data-mode="dream"] .pr-head-2 {
+  margin: var(--sp-5) 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1.1;
+}
+
+[data-mode="dream"] .pr-positions {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pos;
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .pr-positions li {
+  counter-increment: pos;
+  position: relative;
+  padding: 0 0 0 2.2rem;
+  margin-top: var(--sp-2);
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .pr-positions li::before {
+  content: counter(pos);
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+}
+
+[data-mode="dream"] .pr-beside {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-mode="dream"] .pr-beside li {
+  padding: var(--sp-2) 0;
+  border-top: 1px solid rgb(236 230 217 / 16%);
+  max-width: var(--measure-wide);
+}
+
+[data-mode="dream"] .pr-beside > li > a {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 26%);
+}
+
+[data-mode="dream"] .pr-beside > li > a:hover {
+  color: var(--hot);
+  border-bottom-color: rgb(255 155 192 / 45%);
+}
+
+[data-mode="dream"] .pr-note {
+  margin: var(--sp-4) 0 0;
+  max-width: var(--measure);
+  color: var(--quiet);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+  line-height: 1.62;
+}
+
+[data-mode="dream"] .pr-note b { font-style: normal; font-weight: 400; color: var(--bone); }
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .pr-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2) var(--sp-1); }
 }

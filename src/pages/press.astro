@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Layout.astro";
+import data from "../data/press.json";
+
+// Everything on this page is one row of the ledger or a count derived from it.
+// Nothing is asserted here that the data cannot back, which is why the numbers
+// are computed rather than typed: a row added later cannot leave a stale
+// headline behind.
+const press = [...data.press].sort((a, b) => b.date.localeCompare(a.date));
+const years = [...new Set(press.map((p) => p.date.slice(0, 4)))].sort().reverse();
+
+const places = new Set(press.map((p) => p.place));
+const langs = new Set(press.map((p) => p.lang));
+const first = [...press].reverse()[0];
+
+// The ledger's own words for each class, so a reader knows what they are
+// looking at without having to infer it from the summary.
+const KIND = {
+  interview: "interview",
+  quote: "quoted",
+  mention: "named",
+  rewrite: "rewrite",
+};
+
+// Outlets worth naming at a glance. Text, never logos: a wall of borrowed
+// trademarks is somebody else's design, and his rule is to derive art rather
+// than invent it.
+const MARQUEE = ["CNN", "TIME", "The Economist", "Nature", "Financial Times",
+                 "The Atlantic", "The Verge", "EL PAÍS", "ABC Australia · 7.30"];
+
+const title = "press · dmytro klochko";
+const description =
+  "where dmytro klochko has been quoted and interviewed on companion ai: cnn, time, the economist, nature, the financial times, the atlantic.";
+---
+
+<Layout title={title} description={description} current="home" scenes={["nightcourt"]}>
+  <section class="shell session press" data-scene="nightcourt" aria-labelledby="pr">
+    <div class="card">
+      <h1 class="card-title" id="pr">press</h1>
+    </div>
+
+    <p class="today-how">
+      the public record of saying it out loud, mostly about whether companion
+      ai is good for people. every line links to the piece.
+    </p>
+
+    <dl class="pr-facts">
+      <div><dt>pieces</dt><dd>{press.length}</dd></div>
+      <div><dt>countries</dt><dd>{places.size}</dd></div>
+      <div><dt>languages</dt><dd>{langs.size}</dd></div>
+      <div><dt>since</dt><dd>{first.when.split(" ").slice(-2).join(" ")}</dd></div>
+    </dl>
+
+    <ul class="pr-wall">
+      {MARQUEE.map((m) => <li>{m}</li>)}
+    </ul>
+
+    {years.map((y) => (
+      <section class="pr-year" aria-labelledby={`y${y}`}>
+        <h2 class="pr-year-mark" id={`y${y}`}>{y}</h2>
+        <ol class="pr-list">
+          {press.filter((p) => p.date.startsWith(y)).map((p) => (
+            <li class="pr-row" data-kind={p.kind}>
+              <p class="pr-head">
+                <b class="pr-outlet">{p.outlet}</b>
+                <i class="pr-when">{p.when}</i>
+                <span class="pr-kind">{KIND[p.kind]}</span>
+              </p>
+              <a class="pr-title" href={p.url} target="_blank" rel="noreferrer">
+                {p.title}<span class="arw" aria-hidden="true">↗</span>
+              </a>
+              <p class="pr-what">{p.what}</p>
+              <p class="pr-meta">
+                {p.by && <b>{p.by}</b>}
+                <span>{p.place}</span>
+                <span>{p.lang}</span>
+                <span>{p.medium}</span>
+                {p.also && p.also.map((a) => (
+                  <a href={a.url} target="_blank" rel="noreferrer">{a.label}<span class="arw" aria-hidden="true">↗</span></a>
+                ))}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+
+    <h2 class="pr-head-2">what he keeps saying</h2>
+    <p class="today-how">
+      the same six positions turn up across four years of interviews, in five
+      languages, to reporters who were mostly asking whether any of this is a
+      good idea.
+    </p>
+    <ol class="pr-positions">
+      {data.positions.map((p) => <li>{p}</li>)}
+    </ol>
+
+    <h2 class="pr-head-2">beside the press</h2>
+    <p class="today-how">
+      real, public, and deliberately kept out of the count above, because none
+      of it is earned coverage.
+    </p>
+    <ul class="pr-beside">
+      {data.beside.map((b) => (
+        <li>
+          <a href={b.url} target="_blank" rel="noreferrer">
+            {b.title}<span class="arw" aria-hidden="true">↗</span>
+          </a>
+          <p class="pr-what">{b.what}</p>
+          <p class="pr-meta"><b>{b.outlet}</b><span>{b.when}</span><span>{b.kind}</span></p>
+        </li>
+      ))}
+    </ul>
+
+    <p class="pr-note">
+      built from a source verified ledger: every row traces to a publisher
+      page, an archive or a transcript. three rows are marked
+      <b>rewrite</b> or derivative because they carry another outlet's
+      reporting rather than new interviews, and the research behind this
+      collapses to roughly two dozen distinct reporting origins once
+      translations and syndications are folded in. broadcast that never
+      reached a public page is not listed, because it cannot be checked.
+    </p>
+
+    <a class="onward onward--back" href="/">
+      <span class="arw" aria-hidden="true">↖</span><span>back to the main page</span>
+    </a>
+  </section>
+</Layout>
