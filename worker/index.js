@@ -220,14 +220,16 @@ async function names(request, env, url) {
   if (sameSecret(cookieValue(request, COOKIE) || "", good)) {
     // Two volumes, one door. Anything else under /names is nothing.
     const path = url.pathname.toLowerCase().replace(/\/+$/, "");
-    const key = path === "/names" ? "names:folio"
-      : path === "/names/ii" ? "names:folio2"
-      : null;
-    if (!key) return new Response("no such page", { status: 404, headers: PRIVATE });
+    // One document now. /names/ii was live for a while, so it redirects
+    // rather than breaking for anyone holding the link.
+    if (path === "/names/ii") {
+      return new Response(null, { status: 301, headers: { location: "/names", ...PRIVATE } });
+    }
+    if (path !== "/names") return new Response("no such page", { status: 404, headers: PRIVATE });
 
-    const folio = env.VAULT && (await env.VAULT.get(key, { type: "text", cacheTtl: 3600 }));
+    const folio = env.VAULT && (await env.VAULT.get("names:folio", { type: "text", cacheTtl: 3600 }));
     if (!folio) {
-      return new Response(door("that volume is not loaded yet."), { status: 503, headers: PRIVATE });
+      return new Response(door("the folio is not loaded yet."), { status: 503, headers: PRIVATE });
     }
     return new Response(folio, { status: 200, headers: PRIVATE });
   }
