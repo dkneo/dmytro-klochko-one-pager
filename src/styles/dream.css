@@ -3699,3 +3699,65 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   text-decoration: none;
   border-bottom: 1px solid rgb(255 155 192 / 32%);
 }
+
+/* The story before the exercise: it is the reason the exercise has rules, so
+   it reads as prose and not as instructions. */
+[data-mode="dream"] .hk-story {
+  max-width: var(--measure);
+  margin-top: var(--sp-3);
+}
+
+/* The example sits in from the prose so the eye knows it is the thing itself
+   rather than more explaining. */
+[data-mode="dream"] .hk-example {
+  margin: var(--sp-3) 0;
+  padding-left: var(--sp-3);
+  border-left: 1px solid rgb(255 155 192 / 30%);
+}
+
+[data-mode="dream"] .hk-example .chord-verse {
+  font-size: var(--t-fact);
+  line-height: 1.7;
+}
+
+[data-mode="dream"] .hk-example figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.7rem;
+  margin-top: 0.6rem;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .hk-example b {
+  color: var(--hot);
+  font-weight: 400;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .hk-example em { font-style: italic; }
+
+[data-mode="dream"] .hk-story-more a {
+  color: var(--hot);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(255 155 192 / 32%);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .hk-story-more a:hover {
+  color: var(--bone);
+  border-color: var(--bone);
+}
+
+/* The exercise proper starts here, and the gap says so. */
+[data-mode="dream"] .hk-seed {
+  padding-top: var(--sp-4);
+  border-top: 1px solid rgb(236 230 217 / 12%);
+}
