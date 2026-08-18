@@ -1,0 +1,372 @@
+---
+import Layout from "../layouts/Layout.astro";
+import seedData from "../data/hokku-seeds.json";
+
+// The exercise the essay describes: two things placed side by side, and the
+// explanation withheld. The reader supplies the connection, which is the whole
+// mechanism, so the review is built to catch explaining rather than to grade
+// beauty.
+//
+// Reviewed by rule, not by model. Every check below is one a person could run
+// on their own poem, which is the point of an exercise: a score you cannot
+// reason about teaches nothing. It also means this runs offline, costs nothing,
+// and cannot say something stupid with confidence.
+const seeds = seedData.seeds;
+
+const title = "hokku · dmytro klochko";
+const description =
+  "a word, three lines, and an honest reading. an exercise in saying less.";
+---
+
+<Layout title={title} description={description} current="home" scenes={["fuji"]}>
+  <section class="shell session hokku" data-scene="fuji" aria-labelledby="hk">
+    <div class="card">
+      <h1 class="card-title" id="hk">hokku</h1>
+    </div>
+
+    <p class="today-how">
+      you get a word. you write three lines around it. then it reads them back
+      to you honestly, which is the part that teaches. bashō’s rule, more or
+      less: <b>put two things beside each other and explain neither</b>.
+      <a href="/basho">more on him →</a>
+    </p>
+
+    <div class="hk-seed">
+      <p class="bit-label">your word</p>
+      <p class="hk-word" aria-live="polite">—</p>
+      <p class="hk-season"></p>
+      <button class="hk-another" type="button">another word</button>
+    </div>
+
+    <div class="hk-write">
+      <label class="hk-line">
+        <span class="hk-num">1</span>
+        <input type="text" data-line="0" autocomplete="off" spellcheck="true"
+               placeholder="the first thing you can point at" />
+        <span class="hk-count" aria-hidden="true">0</span>
+      </label>
+      <label class="hk-line">
+        <span class="hk-num">2</span>
+        <input type="text" data-line="1" autocomplete="off" spellcheck="true"
+               placeholder="turn, or widen" />
+        <span class="hk-count" aria-hidden="true">0</span>
+      </label>
+      <label class="hk-line">
+        <span class="hk-num">3</span>
+        <input type="text" data-line="2" autocomplete="off" spellcheck="true"
+               placeholder="the second thing, and stop" />
+        <span class="hk-count" aria-hidden="true">0</span>
+      </label>
+
+      <p class="hk-syl">
+        <span class="hk-total">0</span> syllables
+        <em>english counts syllables where japanese counts morae, so 5·7·5 is a
+        guide and not a law. bashō broke it often.</em>
+      </p>
+
+      <div class="hk-do">
+        <button class="hk-read" type="button">read it back</button>
+        <button class="hk-publish" type="button" hidden>publish</button>
+      </div>
+    </div>
+
+    <div class="hk-review" hidden aria-live="polite">
+      <p class="bit-label">the reading</p>
+      <p class="hk-verdict"></p>
+      <ul class="hk-marks"></ul>
+      <p class="hk-nudge"></p>
+    </div>
+
+    <div class="hk-mine" hidden>
+      <h2 class="learn-head">yours</h2>
+      <p class="hk-mine-note">
+        kept in this browser only. nothing is uploaded, and the card is yours to
+        save.
+      </p>
+      <ol class="hk-list"></ol>
+    </div>
+
+    <canvas class="hk-canvas" width="1080" height="1350" hidden></canvas>
+
+    <a class="onward onward--back" href="/today">
+      <span class="arw" aria-hidden="true">↖</span><span>today’s chord</span>
+    </a>
+  </section>
+
+  <script is:inline define:vars={{ seeds }}>
+    (() => {
+      const root = document.querySelector(".hokku");
+      if (!root) return;
+
+      const $ = (s) => root.querySelector(s);
+      const inputs = [...root.querySelectorAll(".hk-write input")];
+      let seed = seeds[Math.floor(Math.random() * seeds.length)];
+
+      // ── syllables ────────────────────────────────────────────────────────
+      // A heuristic, and it says so. English syllable counting is genuinely
+      // ambiguous ("fire" is one or two depending on where you grew up), so
+      // the number is offered as a guide and never as a pass mark.
+      const syllables = (word) => {
+        let w = word.toLowerCase().replace(/[^a-z']/g, "");
+        if (!w) return 0;
+        if (w.length <= 3) return 1;
+        w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, "");
+        w = w.replace(/^y/, "");
+        const groups = w.match(/[aeiouy]{1,2}/g);
+        return Math.max(1, groups ? groups.length : 1);
+      };
+      const countLine = (s) =>
+        s.trim().split(/\s+/).filter(Boolean).reduce((n, w) => n + syllables(w), 0);
+
+      // ── the rubric ───────────────────────────────────────────────────────
+      const EXPLAINERS = ["like", "as if", "as though", "seems", "reminds", "symbol",
+        "represents", "means", "because", "therefore", "so that"];
+      const ABSTRACT = ["love", "soul", "eternity", "beauty", "sadness", "loneliness",
+        "hope", "despair", "forever", "destiny", "meaning", "truth", "peace", "joy",
+        "sorrow", "memory", "time itself", "infinity", "heart"];
+      const SEASONS = ["snow", "frost", "ice", "spring", "blossom", "bloom", "thaw",
+        "summer", "cicada", "heat", "autumn", "fall", "leaves", "harvest", "moon",
+        "winter", "rain", "wind", "dusk", "dawn", "night", "morning", "evening"];
+
+      const review = (lines) => {
+        const all = lines.join(" ").toLowerCase();
+        const words = all.split(/\s+/).filter(Boolean);
+        const marks = [];
+
+        const counts = lines.map(countLine);
+        const near = Math.abs(counts[0] - 5) <= 1 && Math.abs(counts[1] - 7) <= 2 &&
+                     Math.abs(counts[2] - 5) <= 1;
+        marks.push({
+          ok: near,
+          name: "the shape",
+          good: `${counts.join("·")}, close enough to 5·7·5 to sound like one`,
+          bad: `${counts.join("·")} is a long way from 5·7·5 — not fatal, but the ear notices`,
+        });
+
+        const explainer = EXPLAINERS.find((e) => all.includes(e));
+        marks.push({
+          ok: !explainer,
+          name: "nothing explained",
+          good: "no comparison, no because. the reader gets to do the work",
+          bad: `“${explainer}” explains the connection. cut it and let the two things sit next to each other`,
+        });
+
+        const abstract = ABSTRACT.find((a) => new RegExp("\\b" + a + "\\b").test(all));
+        marks.push({
+          ok: !abstract,
+          name: "things, not ideas",
+          good: "everything here can be pointed at",
+          bad: `“${abstract}” is an idea rather than a thing. what did you actually see when you felt it?`,
+        });
+
+        const hasSeason = SEASONS.some((s) => all.includes(s)) ||
+                          (seed.season && all.includes(seed.word.split(" ").pop()));
+        marks.push({
+          ok: hasSeason,
+          name: "a season, or an hour",
+          good: "the poem knows when it is happening",
+          bad: "nothing says when this is. a season word is how a hokku tells you where you stand",
+        });
+
+        // The cut: two images rather than one running sentence.
+        const runOn = lines.every((l) => l && !/[—–,.;:!?]$/.test(l.trim())) &&
+                      !/[—–,.;:]/.test(all);
+        marks.push({
+          ok: !runOn,
+          name: "the cut",
+          good: "there is a turn in it — two parts, not one sentence",
+          bad: "it reads as one continuous sentence. a hokku usually breaks in two, and the break is where the poem happens",
+        });
+
+        const score = marks.filter((m) => m.ok).length;
+        const verdicts = [
+          "this is a sentence in three pieces. start again from the thing you actually saw.",
+          "there is something here. it is still telling rather than showing.",
+          "halfway. one image is doing real work, the other is explaining it.",
+          "close. it holds two things and mostly trusts you to connect them.",
+          "good. it points twice and says nothing else.",
+          "this is the exercise done properly: two things, no explanation, and a season.",
+        ];
+        return { marks, score, verdict: verdicts[score], counts };
+      };
+
+      // ── the seed ─────────────────────────────────────────────────────────
+      const showSeed = () => {
+        $(".hk-word").textContent = seed.word;
+        $(".hk-season").textContent = seed.season ? seed.season : "no season — you choose one";
+      };
+      $(".hk-another").addEventListener("click", () => {
+        let next = seed;
+        while (next === seed) next = seeds[Math.floor(Math.random() * seeds.length)];
+        seed = next;
+        showSeed();
+        $(".hk-review").hidden = true;
+        $(".hk-publish").hidden = true;
+      });
+      showSeed();
+
+      // ── typing ───────────────────────────────────────────────────────────
+      const tick = () => {
+        let total = 0;
+        inputs.forEach((inp, i) => {
+          const n = countLine(inp.value);
+          total += n;
+          inp.parentElement.querySelector(".hk-count").textContent = String(n);
+          inp.parentElement.dataset.want = [5, 7, 5][i];
+        });
+        $(".hk-total").textContent = String(total);
+      };
+      for (const inp of inputs) {
+        inp.addEventListener("input", tick);
+        inp.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            const next = inputs[inputs.indexOf(inp) + 1];
+            next ? next.focus() : $(".hk-read").click();
+          }
+        });
+      }
+      tick();
+
+      // ── the reading ──────────────────────────────────────────────────────
+      let last = null;
+      $(".hk-read").addEventListener("click", () => {
+        const lines = inputs.map((i) => i.value.trim());
+        if (lines.filter(Boolean).length < 2) {
+          $(".hk-review").hidden = false;
+          $(".hk-verdict").textContent = "write at least two lines first.";
+          $(".hk-marks").innerHTML = "";
+          $(".hk-nudge").textContent = "";
+          $(".hk-publish").hidden = true;
+          return;
+        }
+        const r = review(lines);
+        last = { lines, seed: seed.word, score: r.score };
+        $(".hk-verdict").textContent = r.verdict;
+        $(".hk-marks").innerHTML = "";
+        for (const m of r.marks) {
+          const li = document.createElement("li");
+          li.className = m.ok ? "is-ok" : "is-off";
+          li.innerHTML = `<b></b><span></span>`;
+          li.querySelector("b").textContent = m.name;
+          li.querySelector("span").textContent = m.ok ? m.good : m.bad;
+          $(".hk-marks").appendChild(li);
+        }
+        $(".hk-nudge").textContent = r.score >= 4
+          ? "publish it, or push one more line and read it again."
+          : "nothing is wrong with reading it back twice. that is the exercise.";
+        $(".hk-review").hidden = false;
+        $(".hk-publish").hidden = false;
+      });
+
+      // ── keeping them ─────────────────────────────────────────────────────
+      const load = () => {
+        try { return JSON.parse(localStorage.getItem("hokku") || "[]"); } catch { return []; }
+      };
+      const paint = () => {
+        const mine = load();
+        if (!mine.length) return;
+        $(".hk-mine").hidden = false;
+        const list = $(".hk-list");
+        list.innerHTML = "";
+        for (const h of mine.slice().reverse()) {
+          const li = document.createElement("li");
+          li.innerHTML = `<p class="hk-poem"></p><p class="hk-meta"><b></b><span></span>` +
+            `<button class="hk-card" type="button">save the card</button></p>`;
+          li.querySelector(".hk-poem").textContent = h.lines.join("\n");
+          li.querySelector("b").textContent = h.seed;
+          li.querySelector("span").textContent = h.when;
+          li.querySelector(".hk-card").addEventListener("click", () => card(h));
+          list.appendChild(li);
+        }
+      };
+
+      $(".hk-publish").addEventListener("click", () => {
+        if (!last) return;
+        const mine = load();
+        mine.push({
+          ...last,
+          when: new Date().toLocaleDateString("en-GB",
+            { day: "numeric", month: "long", year: "numeric" }).toLowerCase(),
+        });
+        try { localStorage.setItem("hokku", JSON.stringify(mine.slice(-60))); } catch {}
+        paint();
+        card(mine[mine.length - 1]);
+        $(".hk-publish").hidden = true;
+        for (const i of inputs) i.value = "";
+        tick();
+        $(".hk-review").hidden = true;
+      });
+
+      // ── the card ─────────────────────────────────────────────────────────
+      // Drawn here rather than fetched, same as the story card: the page has
+      // the font, and the poem is three short lines, so there is nothing to
+      // fetch and nothing to wait for.
+      const card = async (h) => {
+        const cv = $(".hk-canvas");
+        const g = cv.getContext("2d");
+        const W = cv.width, H = cv.height;
+        try { await document.fonts.load("300 76px Zodiak"); } catch {}
+        try { await document.fonts.load("400 26px 'JetBrains Mono'"); } catch {}
+
+        // ground: the site's dusk, with a soft light behind the poem
+        g.fillStyle = "#131a2b";
+        g.fillRect(0, 0, W, H);
+        const glow = g.createRadialGradient(W * 0.5, H * 0.42, 40, W * 0.5, H * 0.42, W * 0.8);
+        glow.addColorStop(0, "rgba(255, 155, 192, 0.16)");
+        glow.addColorStop(0.5, "rgba(38, 43, 68, 0.5)");
+        glow.addColorStop(1, "rgba(12, 16, 28, 0.9)");
+        g.fillStyle = glow;
+        g.fillRect(0, 0, W, H);
+
+        // a few petals, because they are the one ambient signature here
+        for (let i = 0; i < 14; i++) {
+          const x = (i * 97 + 60) % (W - 80) + 40;
+          const y = (i * 211 + 130) % (H - 200) + 80;
+          const r = 5 + (i % 3) * 3;
+          g.save();
+          g.translate(x, y);
+          g.rotate((i * 37 % 90) * Math.PI / 180);
+          g.fillStyle = `rgba(255, 155, 192, ${0.10 + (i % 4) * 0.05})`;
+          g.beginPath();
+          g.ellipse(0, 0, r, r * 0.62, 0, 0, Math.PI * 2);
+          g.fill();
+          g.restore();
+        }
+
+        g.textAlign = "center";
+        g.textBaseline = "middle";
+        g.font = "300 76px Zodiak, Georgia, serif";
+        g.fillStyle = "#ece6d9";
+        const lines = h.lines.filter(Boolean);
+        const lead = 108;
+        let y = H * 0.44 - ((lines.length - 1) * lead) / 2;
+        for (const l of lines) { g.fillText(l, W / 2, y); y += lead; }
+
+        // the seed, under a hairline, so the card says what the exercise was
+        g.strokeStyle = "rgba(236, 230, 217, 0.22)";
+        g.beginPath();
+        g.moveTo(W / 2 - 60, y + 40);
+        g.lineTo(W / 2 + 60, y + 40);
+        g.stroke();
+        g.font = "400 30px 'JetBrains Mono', ui-monospace, monospace";
+        g.fillStyle = "#ff9bc0";
+        g.fillText(h.seed.toLowerCase(), W / 2, y + 92);
+
+        g.font = "400 24px 'JetBrains Mono', ui-monospace, monospace";
+        g.fillStyle = "rgba(236, 230, 217, 0.45)";
+        g.fillText("dmklochko.com/hokku", W / 2, H - 70);
+
+        cv.toBlob((blob) => {
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = `hokku-${h.seed.replace(/\s+/g, "-")}.png`;
+          a.click();
+          setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+        }, "image/png");
+      };
+
+      paint();
+    })();
+  </script>
+</Layout>

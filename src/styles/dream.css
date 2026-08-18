@@ -3418,3 +3418,284 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 @media (min-width: 861px) {
   [data-mode="dream"] .tone-btn--fold { display: none; }
 }
+
+/* ── the hokku exercise ─────────────────────────────────────────────────── */
+
+[data-mode="dream"] .hk-seed {
+  margin-top: var(--sp-5);
+}
+
+[data-mode="dream"] .hk-word {
+  margin: 0.3rem 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--display-scroll);
+  line-height: 1.1;
+}
+
+[data-mode="dream"] .hk-season {
+  margin: 0.4rem 0 0;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .hk-another {
+  margin-top: var(--sp-2);
+  padding: 0.3rem 0.85rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 20%);
+  border-radius: 999px;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .hk-another:hover {
+  color: var(--hot);
+  border-color: rgb(255 155 192 / 45%);
+}
+
+/* Three lines, and the count sits beside each one rather than under the whole
+   thing, because the correction you want to make is per line. */
+[data-mode="dream"] .hk-write {
+  margin-top: var(--sp-4);
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .hk-line {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr 2.2rem;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgb(236 230 217 / 12%);
+}
+
+[data-mode="dream"] .hk-num,
+[data-mode="dream"] .hk-count {
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .hk-count { text-align: right; }
+
+[data-mode="dream"] .hk-line input {
+  width: 100%;
+  padding: 0.35rem 0;
+  background: none;
+  border: 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .hk-line input::placeholder {
+  color: rgb(236 230 217 / 26%);
+  font-style: italic;
+}
+
+[data-mode="dream"] .hk-line input:focus {
+  outline: none;
+}
+
+[data-mode="dream"] .hk-line:focus-within {
+  border-bottom-color: rgb(255 155 192 / 45%);
+}
+
+[data-mode="dream"] .hk-syl {
+  margin: var(--sp-2) 0 0;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .hk-syl em {
+  display: block;
+  margin-top: 0.4rem;
+  max-width: var(--measure);
+  color: var(--faint);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .hk-do {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: var(--sp-3);
+}
+
+[data-mode="dream"] .hk-read,
+[data-mode="dream"] .hk-publish,
+[data-mode="dream"] .hk-card {
+  padding: 0.45rem 1.1rem;
+  background: none;
+  border: 1px solid rgb(255 155 192 / 40%);
+  border-radius: 999px;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .hk-read:hover,
+[data-mode="dream"] .hk-publish:hover,
+[data-mode="dream"] .hk-card:hover {
+  background: rgb(255 155 192 / 12%);
+  border-color: var(--hot);
+  color: var(--bone);
+}
+
+/* The reading. Each mark says what it looked at, so a low score is a lesson
+   rather than a verdict. */
+[data-mode="dream"] .hk-review {
+  margin-top: var(--sp-5);
+  max-width: var(--measure);
+  animation: cv-unfold 0.28s var(--ease) both;
+}
+
+[data-mode="dream"] .hk-verdict {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: calc(var(--display-scroll) * 0.7);
+  line-height: 1.25;
+}
+
+[data-mode="dream"] .hk-marks {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+}
+
+[data-mode="dream"] .hk-marks li {
+  display: grid;
+  grid-template-columns: 1.3rem 1fr;
+  gap: 0.2rem 0.7rem;
+}
+
+[data-mode="dream"] .hk-marks li::before {
+  content: "○";
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  line-height: 1.7;
+}
+
+[data-mode="dream"] .hk-marks li.is-ok::before {
+  content: "●";
+  color: var(--hot);
+}
+
+[data-mode="dream"] .hk-marks b {
+  color: var(--bone);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .hk-marks span {
+  grid-column: 2;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .hk-nudge {
+  margin: var(--sp-3) 0 0;
+  color: var(--faint);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--t-prose-sm);
+}
+
+[data-mode="dream"] .hk-mine {
+  margin-top: var(--sp-5);
+}
+
+[data-mode="dream"] .hk-mine-note {
+  max-width: var(--measure);
+  margin: 0 0 var(--sp-3);
+  color: var(--faint);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--t-prose-sm);
+}
+
+[data-mode="dream"] .hk-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--sp-4);
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .hk-poem {
+  margin: 0;
+  white-space: pre-line;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.75;
+}
+
+[data-mode="dream"] .hk-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+  margin: 0.6rem 0 0;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .hk-meta b {
+  color: var(--hot);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+}
+
+[data-mode="dream"] .hk-meta span { color: var(--faint); }
+
+[data-mode="dream"] .hk-card {
+  padding: 0.25rem 0.75rem;
+  border-color: rgb(236 230 217 / 20%);
+  color: var(--faint);
+}
+
+[data-mode="dream"] .hk-canvas { display: none; }
+
+[data-mode="dream"] .today-how a {
+  color: var(--hot);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(255 155 192 / 32%);
+}
