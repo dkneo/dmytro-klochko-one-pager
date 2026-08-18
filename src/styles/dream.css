@@ -4162,13 +4162,22 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   pointer-events: none;
 }
 
+/* Each thread is drawn twice: a hairline that is always there, and a heavier
+   lit copy sitting on top at zero opacity. Lighting one fades the copy in
+   rather than growing the first, so nothing animates a geometry property. */
 [data-mode="dream"] .em-threads line {
   stroke: rgb(236 230 217 / 14%);
   stroke-width: 0.6;
-  transition: stroke var(--dur) var(--ease), stroke-width var(--dur) var(--ease);
+  transition: opacity var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .em-threads line.is-lit { stroke: rgb(255 155 192 / 70%); stroke-width: 1.2; }
+[data-mode="dream"] .em-threads line.em-lit {
+  stroke: rgb(255 155 192 / 70%);
+  stroke-width: 1.2;
+  opacity: 0;
+}
+
+[data-mode="dream"] .em-threads line.em-lit.is-lit { opacity: 1; }
 
 /* Territory names, quiet until you are close enough to read them. */
 [data-mode="dream"] .em-weather {

@@ -127,7 +127,11 @@ items.filter((i) => !i.unplaced).forEach((it) => delete it.ringIndex);
 // because nothing here has measured resemblance yet.
 const byWho = {};
 for (const it of items) if (it.who) (byWho[it.who] ||= []).push(it.id);
+// His own name is not a thread. Every mark here is his in some sense, so a
+// line saying "you made both of these" carries no information and costs
+// eleven strokes across the ring.
 const threads = Object.entries(byWho)
+  .filter(([who]) => !/^dmytro klochko$/i.test(who.trim()))
   .filter(([, ids]) => ids.length > 1)
   .map(([who, ids]) => ({ who, ids }));
 

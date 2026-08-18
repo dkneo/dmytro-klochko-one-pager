@@ -88,7 +88,10 @@ const description =
               const a = items.find((x) => x.id === id);
               const b = items.find((x) => x.id === t.ids[i + 1]);
               return a && b ? (
-                <line data-who={t.who} x1={a.x * K} y1={a.y * K} x2={b.x * K} y2={b.y * K} />
+                <>
+                  <line data-who={t.who} x1={a.x * K} y1={a.y * K} x2={b.x * K} y2={b.y * K} />
+                  <line class="em-lit" data-who={t.who} x1={a.x * K} y1={a.y * K} x2={b.x * K} y2={b.y * K} />
+                </>
               ) : null;
             })
           )}
@@ -306,7 +309,7 @@ const description =
         document.querySelectorAll(".em-mark").forEach((x) => x.classList.remove("is-on"));
         m.classList.add("is-on");
         // light the people it shares a name with
-        document.querySelectorAll(".em-threads line").forEach((l) =>
+        document.querySelectorAll(".em-threads line.em-lit").forEach((l) =>
           l.classList.toggle("is-lit", !!it.who && l.dataset.who === it.who));
         body.innerHTML =
           (it.src ? `<img src="${esc(it.src)}" alt="">` : "") +
