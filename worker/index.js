@@ -315,6 +315,13 @@ async function eidosJudged(env) {
   return json({ judged: Object.keys(seen) });
 }
 
+/** The latest reading the deck produced, so the map can show it. */
+async function eidosPortrait(env) {
+  if (!env.VAULT) return json({ runs: 0 });
+  const runs = (await env.VAULT.get("eidos:portrait", "json")) || [];
+  return json({ runs: runs.length, latest: runs[runs.length - 1] || null });
+}
+
 /** Teaching writes: same shared password as the folio. */
 async function eidosWrite(request, env, url) {
   if (!env.NAMES_PASSWORD) return json({ error: "the door is not configured" }, 503);
@@ -346,6 +353,14 @@ async function eidosWrite(request, env, url) {
     const kept = Object.values(seen).filter((v) => v.verdict === "keep").length;
     return json({ ok: true, judged: Object.keys(seen).length, kept });
   }
+  if (url.pathname.endsWith("/portrait")) {
+    const { axes, kept, seen } = body || {};
+    if (!axes || typeof axes.calm !== "number") return json({ error: "axes required" }, 400);
+    const runs = (await env.VAULT.get("eidos:portrait", "json")) || [];
+    runs.push({ axes, kept: kept || 0, seen: seen || 0, at: now });
+    await env.VAULT.put("eidos:portrait", JSON.stringify(runs.slice(-50)));
+    return json({ ok: true, runs: runs.length });
+  }
   if (url.pathname.endsWith("/pair")) {
     const { weather, winner, pair } = body || {};
     if (!weather || !winner || !Array.isArray(pair)) return json({ error: "weather, winner and pair required" }, 400);
@@ -369,6 +384,7 @@ export default {
     // The map: asking is a read, placing and pairing are writes.
     if (url.pathname === "/api/eidos/ask" && request.method === "POST") return eidosAsk(request, env);
     if (url.pathname === "/api/eidos/judged" && request.method === "GET") return eidosJudged(env);
+    if (url.pathname === "/api/eidos/portrait" && request.method === "GET") return eidosPortrait(env);
     if (url.pathname.startsWith("/api/eidos/") && request.method === "POST") return eidosWrite(request, env, url);
 
     // Anything that is not the curation api is the site.

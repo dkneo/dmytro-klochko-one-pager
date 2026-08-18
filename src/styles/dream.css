@@ -4812,3 +4812,16 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   font-size: var(--t-prose-sm);
   font-style: italic;
 }
+
+/* The deck's reading, once there is one. Hidden until it exists rather than
+   showing an empty shape asking to be filled. */
+[data-mode="dream"] .em-reading {
+  margin: 0 0 0.7rem;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .em-reading b { color: var(--hot); font-weight: 400; }

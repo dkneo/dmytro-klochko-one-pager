@@ -192,10 +192,11 @@ const description =
       <li>
         <h3>the deck</h3>
         <p>
-          seventy six paintings, keep or pass. it already knows how still, how
-          peopled, how ordered and how lit your eye likes a picture; what it
-          does not yet do is write that back here.
+          seventy six paintings, keep or pass. it reads how still, how peopled,
+          how ordered and how lit your eye wants a picture, and the reading
+          now comes back here instead of dying on the screen it was drawn on.
         </p>
+        <p class="em-reading" id="reading" hidden></p>
         <a class="em-do" href="/eidos/deck">open the deck<span class="arw" aria-hidden="true">→</span></a>
       </li>
     </ol>
@@ -406,6 +407,26 @@ const description =
             : `<p class="em-d-note">not saved, the door is shut. it was still worth answering.</p>`;
         }));
       });
+
+      // ── what the deck last read ────────────────────────────────────
+      (async () => {
+        const el = document.getElementById("reading");
+        if (!el) return;
+        try {
+          const r = await fetch("/api/eidos/portrait");
+          if (!r.ok) return;
+          const d = await r.json();
+          if (!d.latest) return;
+          const a = d.latest.axes;
+          const say = (v, low, high) =>
+            Math.abs(v) < 0.25 ? "either way" : (v > 0 ? high : low);
+          el.hidden = false;
+          el.innerHTML = `last read: your eye wants it <b>${esc(say(a.calm, "restless", "still"))}</b>, ` +
+            `<b>${esc(say(a.human, "empty of people", "peopled"))}</b>, ` +
+            `<b>${esc(say(a.order, "loose", "ordered"))}</b> and <b>${esc(say(a.light, "dark", "lit"))}</b>. ` +
+            `${d.latest.kept} kept of ${d.latest.seen}, over ${d.runs} run${d.runs === 1 ? "" : "s"}.`;
+        } catch {}
+      })();
 
       // ── today's three ───────────────────────────────────────────────
       // The same three all day, different tomorrow: a day number seeds the
