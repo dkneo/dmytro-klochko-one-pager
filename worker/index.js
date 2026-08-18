@@ -89,7 +89,9 @@ async function candidates(env) {
 //
 // The cookie is an HMAC of a constant under the password, so it cannot be
 // forged without knowing the password, and knowing the cookie does not reveal
-// it. Scoped to /names, so it travels nowhere else on the site.
+// it. Path is / rather than /names because the teaching endpoints under
+// /api/eidos need the same door; path is not a security boundary anyway, since
+// any same-origin page can make the request either way.
 //
 // The folio itself lives in KV, not in this repo and not in dist/. That is
 // forced by two facts at once: the repo is public, so the content cannot be
@@ -203,7 +205,7 @@ async function names(request, env, url) {
         status: 303,
         headers: {
           location: where,
-          "set-cookie": `${COOKIE}=${good}; Path=/names; Max-Age=${60 * 60 * 24 * 30}; HttpOnly; Secure; SameSite=Lax`,
+          "set-cookie": `${COOKIE}=${good}; Path=/; Max-Age=${60 * 60 * 24 * 30}; HttpOnly; Secure; SameSite=Lax`,
           ...PRIVATE,
         },
       });
@@ -236,6 +238,107 @@ async function names(request, env, url) {
   return new Response(door("", where), { status: 401, headers: PRIVATE });
 }
 
+
+// ── /api/eidos ──────────────────────────────────────────────────────────────
+//
+// Three endpoints behind the door he already has. Writes use the /names
+// cookie rather than Cloudflare Access, because Access is still unconfigured
+// and a teaching loop nobody can use teaches nothing. Reads are open: the map
+// itself is public.
+//
+// Asking costs money, so it needs his own key as a secret. Without it the
+// endpoint says so plainly rather than pretending to think.
+
+const EIDOS_SYSTEM = `You are the map of one person's taste, speaking for itself.
+
+You are given every note in his vault: paintings, poems, songs, quotes and
+links, each filed under one of eight "weathers" he invented — cold clarity,
+dissolution, invincible summer, nerve, the dark and the lamp, the plain thing,
+vastness, weight and grace.
+
+Rules, in order:
+1. Answer only from the notes. If the notes do not support an answer, say you
+   do not know, and say what would have to be added for you to know.
+2. Never invent a work, a person, or a preference he has not shown.
+3. When you suggest something new, mark it clearly as a guess and say which
+   notes it is a guess from.
+4. Write the way the notes are written: lowercase, plain, no dashes, no
+   flattery, short. Three sentences unless more is genuinely needed.`;
+
+async function eidosAsk(request, env) {
+  if (!env.ANTHROPIC_API_KEY) {
+    return json({ error: "the map cannot talk yet: no api key is set. run wrangler secret put ANTHROPIC_API_KEY." }, 503);
+  }
+  let q = "";
+  try { ({ q } = await request.json()); } catch { return json({ error: "bad json" }, 400); }
+  if (!q || typeof q !== "string" || q.length > 600) return json({ error: "ask something shorter" }, 400);
+
+  const asset = await env.ASSETS.fetch(new Request("https://x/map.json"));
+  if (!asset.ok) return json({ error: "the map data is not published" }, 503);
+  const m = await asset.json();
+
+  // The whole vault fits in a prompt, so it goes in whole rather than being
+  // retrieved in pieces: forty five notes is smaller than any embedding index
+  // would be, and nothing gets missed.
+  const notes = m.items.map((i) =>
+    `- ${i.type} | ${i.weather || "unplaced"} | ${i.who || "unknown"} | ${i.line || i.title}${i.note ? " | " + i.note : ""}`
+  ).join("\n");
+  const weathers = m.weathers.map((w) => `- ${w.name}: ${w.why} (${w.count} notes)`).join("\n");
+
+  const r = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "x-api-key": env.ANTHROPIC_API_KEY,
+      "anthropic-version": "2023-06-01",
+    },
+    body: JSON.stringify({
+      model: "claude-sonnet-5",
+      max_tokens: 600,
+      system: EIDOS_SYSTEM,
+      messages: [{ role: "user", content: `The eight weathers:\n${weathers}\n\nEvery note:\n${notes}\n\nHis question: ${q}` }],
+    }),
+  });
+  if (!r.ok) {
+    const detail = await r.text().catch(() => "");
+    return json({ error: `the model refused: ${r.status}`, detail: detail.slice(0, 200) }, 502);
+  }
+  const d = await r.json();
+  const answer = (d.content || []).filter((c) => c.type === "text").map((c) => c.text).join("").trim();
+  return json({ answer: answer || "no answer came back." });
+}
+
+/** Teaching writes: same shared password as the folio. */
+async function eidosWrite(request, env, url) {
+  if (!env.NAMES_PASSWORD) return json({ error: "the door is not configured" }, 503);
+  if (!env.VAULT) return json({ error: "no kv binding" }, 503);
+  const good = await passToken(env.NAMES_PASSWORD);
+  if (!sameSecret(cookieValue(request, COOKIE) || "", good)) {
+    return json({ error: "not signed in. open /names first." }, 401);
+  }
+  let body;
+  try { body = await request.json(); } catch { return json({ error: "bad json" }, 400); }
+
+  const now = new Date().toISOString();
+  if (url.pathname.endsWith("/place")) {
+    const { id, weather } = body || {};
+    if (!id || !weather) return json({ error: "id and weather required" }, 400);
+    const all = (await env.VAULT.get("eidos:placed", "json")) || {};
+    all[id] = { weather, at: now };
+    await env.VAULT.put("eidos:placed", JSON.stringify(all));
+    return json({ ok: true, placed: Object.keys(all).length });
+  }
+  if (url.pathname.endsWith("/pair")) {
+    const { weather, winner, pair } = body || {};
+    if (!weather || !winner || !Array.isArray(pair)) return json({ error: "weather, winner and pair required" }, 400);
+    const all = (await env.VAULT.get("eidos:pairs", "json")) || [];
+    all.push({ weather, winner, pair, at: now });
+    await env.VAULT.put("eidos:pairs", JSON.stringify(all.slice(-2000)));
+    return json({ ok: true, answered: all.length });
+  }
+  return json({ error: "no such route" }, 404);
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -244,6 +347,10 @@ export default {
     // fallthrough and matching the whole /names subtree, so nothing under it
     // can be reached another way.
     if (NAMES.test(url.pathname)) return names(request, env, url);
+
+    // The map: asking is a read, placing and pairing are writes.
+    if (url.pathname === "/api/eidos/ask" && request.method === "POST") return eidosAsk(request, env);
+    if (url.pathname.startsWith("/api/eidos/") && request.method === "POST") return eidosWrite(request, env, url);
 
     // Anything that is not the curation api is the site.
     if (!url.pathname.startsWith("/api/curate")) {

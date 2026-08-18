@@ -4021,3 +4021,674 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   align-items: center;
   min-height: 24px;
 }
+
+/* ── eidos, the map ─────────────────────────────────────────────────────────
+   A chart of real things. The marks are his paintings at thumbnail size and
+   his words set in type; there is no drawn shape on this page that does not
+   stand for a note in the vault.
+
+   The field gets its own darker ground rather than sitting on a scene: a
+   painting behind a map of paintings is two pictures fighting. The sky stays
+   above and below it. */
+
+[data-mode="dream"] .em-state {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-2);
+  margin: var(--sp-4) 0 0;
+  padding: var(--sp-3) 0;
+  border-top: 1px solid rgb(236 230 217 / 22%);
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+}
+
+[data-mode="dream"] .em-state dt {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .em-state dd {
+  margin: 0.3rem 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The open count is the one number meant to bother him. */
+[data-mode="dream"] .em-state .is-open dd { color: var(--hot); }
+
+[data-mode="dream"] .em-honest {
+  margin: var(--sp-3) 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.62;
+}
+
+[data-mode="dream"] .em-honest b { color: var(--bone); font-weight: 400; }
+
+/* ── controls ───────────────────────────────────────────────────────────── */
+[data-mode="dream"] .em-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: var(--sp-4) 0 var(--sp-2);
+}
+
+[data-mode="dream"] .em-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 24px;
+  padding: 0.28rem 0.8rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 26%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              background var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-chip i { font-style: normal; opacity: 0.8; }
+[data-mode="dream"] .em-chip b { font-weight: 400; opacity: 0.6; }
+[data-mode="dream"] .em-chip:hover { color: var(--bone); border-color: rgb(236 230 217 / 45%); }
+[data-mode="dream"] .em-chip:active { scale: 0.97; }
+
+[data-mode="dream"] .em-chip.is-on {
+  color: var(--void);
+  background: var(--bone);
+  border-color: var(--bone);
+}
+
+[data-mode="dream"] .em-chip--open { border-color: rgb(255 155 192 / 40%); color: var(--hot); }
+[data-mode="dream"] .em-chip--open.is-on { background: var(--hot); border-color: var(--hot); color: var(--void); }
+
+[data-mode="dream"] .em-hint {
+  margin-left: auto;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+
+/* ── the field ──────────────────────────────────────────────────────────── */
+[data-mode="dream"] .em-field {
+  position: relative;
+  height: min(78vh, 720px);
+  margin-top: var(--sp-2);
+  border: 1px solid rgb(236 230 217 / 18%);
+  background:
+    radial-gradient(120% 90% at 50% 45%, rgb(18 21 36 / 55%), rgb(12 14 26 / 78%));
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+  contain: layout paint;
+}
+
+[data-mode="dream"] .em-field.is-dragging { cursor: grabbing; }
+
+[data-mode="dream"] .em-stage {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+  transition: transform 220ms var(--ease);
+  will-change: transform;
+}
+
+[data-mode="dream"] .em-field.is-dragging .em-stage { transition: none; }
+
+[data-mode="dream"] .em-threads {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+[data-mode="dream"] .em-threads line {
+  stroke: rgb(236 230 217 / 14%);
+  stroke-width: 0.6;
+  transition: stroke var(--dur) var(--ease), stroke-width var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-threads line.is-lit { stroke: rgb(255 155 192 / 70%); stroke-width: 1.2; }
+
+/* Territory names, quiet until you are close enough to read them. */
+[data-mode="dream"] .em-weather {
+  position: absolute;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+[data-mode="dream"] .em-weather b {
+  display: block;
+  color: rgb(236 230 217 / 40%);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.5vw, 1.3rem);
+  letter-spacing: 0.02em;
+}
+
+[data-mode="dream"] .em-weather i {
+  display: block;
+  max-width: 22ch;
+  margin: 0.25rem auto 0;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: 0.72rem;
+  font-style: italic;
+  line-height: 1.4;
+  white-space: normal;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .em-field[data-zoom="close"] .em-weather i { opacity: 1; }
+
+/* ── a mark ─────────────────────────────────────────────────────────────── */
+[data-mode="dream"] .em-mark {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  line-height: 0;
+  transition: opacity var(--dur) var(--ease), scale 160ms var(--ease);
+}
+
+[data-mode="dream"] .em-mark img {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgb(236 230 217 / 30%);
+  transition: border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-glyph {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgb(236 230 217 / 26%);
+  background: rgb(24 28 46 / 70%);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: 0.8rem;
+  line-height: 1;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-mark--poem .em-glyph,
+[data-mode="dream"] .em-mark--quote .em-glyph { color: var(--quiet); }
+[data-mode="dream"] .em-mark--song .em-glyph { color: var(--cold); }
+
+/* The ring: still here, visibly not yet part of the map. */
+[data-mode="dream"] .em-mark.is-unplaced .em-glyph {
+  border-style: dashed;
+  border-color: rgb(255 155 192 / 45%);
+  color: var(--hot);
+}
+
+[data-mode="dream"] .em-mark:hover { scale: 1.12; z-index: 4; }
+[data-mode="dream"] .em-mark:active { scale: 1.04; }
+[data-mode="dream"] .em-mark:hover img { border-color: var(--hot); }
+[data-mode="dream"] .em-mark:hover .em-glyph { color: var(--hot); border-color: var(--hot); }
+[data-mode="dream"] .em-mark:focus-visible { outline: 2px solid var(--hot); outline-offset: 4px; border-radius: 50%; }
+
+[data-mode="dream"] .em-mark.is-on { scale: 1.16; z-index: 5; }
+[data-mode="dream"] .em-mark.is-on img { border-color: var(--hot); }
+[data-mode="dream"] .em-mark.is-dim { opacity: 0.12; pointer-events: none; }
+[data-mode="dream"] .em-mark.is-kin { scale: 1.18; z-index: 4; }
+[data-mode="dream"] .em-mark.is-kin img,
+[data-mode="dream"] .em-mark.is-kin .em-glyph { border-color: var(--hot); }
+
+[data-mode="dream"] .em-tip {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.4rem);
+  transform: translateX(-50%);
+  max-width: 20ch;
+  padding: 0.25rem 0.5rem;
+  background: rgb(14 17 30 / 92%);
+  border: 1px solid rgb(236 230 217 / 20%);
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: 0.76rem;
+  line-height: 1.35;
+  white-space: normal;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-mark:hover .em-tip,
+[data-mode="dream"] .em-mark:focus-visible .em-tip { opacity: 1; }
+
+/* ── axes and zoom ──────────────────────────────────────────────────────── */
+[data-mode="dream"] .em-axis {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+[data-mode="dream"] .em-axis i { flex: 1; height: 1px; background: rgb(236 230 217 / 16%); }
+[data-mode="dream"] .em-axis--x { left: 1rem; right: 1rem; bottom: 0.7rem; }
+[data-mode="dream"] .em-axis--y {
+  left: 0.7rem; top: 1rem; bottom: 1rem;
+  flex-direction: column;
+  writing-mode: vertical-rl;
+}
+[data-mode="dream"] .em-axis--y i { width: 1px; height: auto; }
+
+[data-mode="dream"] .em-zoom {
+  position: absolute;
+  right: 0.7rem;
+  top: 0.7rem;
+  display: flex;
+  gap: 0.3rem;
+}
+
+[data-mode="dream"] .em-zoom button {
+  min-width: 26px;
+  min-height: 26px;
+  background: rgb(14 17 30 / 70%);
+  border: 1px solid rgb(236 230 217 / 22%);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-zoom button:hover { color: var(--bone); border-color: rgb(236 230 217 / 45%); }
+[data-mode="dream"] .em-zoom button:active { scale: 0.97; }
+
+/* ── the detail ─────────────────────────────────────────────────────────── */
+[data-mode="dream"] .em-detail {
+  position: relative;
+  margin-top: var(--sp-3);
+  padding: var(--sp-3);
+  border: 1px solid rgb(236 230 217 / 22%);
+  background: rgb(20 24 40 / 72%);
+  max-width: var(--measure-wide);
+  animation: em-rise var(--dur) var(--ease);
+}
+
+@keyframes em-rise { from { opacity: 0; transform: translateY(6px); } }
+
+[data-mode="dream"] .em-detail img {
+  width: 100%;
+  max-width: 18rem;
+  height: auto;
+  display: block;
+  margin-bottom: var(--sp-2);
+  border: 1px solid rgb(236 230 217 / 18%);
+}
+
+[data-mode="dream"] .em-close {
+  position: absolute;
+  right: 0.7rem;
+  top: 0.7rem;
+  min-height: 24px;
+  padding: 0.2rem 0.6rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 22%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  cursor: pointer;
+}
+
+[data-mode="dream"] .em-close:hover { color: var(--hot); border-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .em-d-kind {
+  margin: 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .em-d-kind b { color: var(--hot); font-weight: 400; }
+
+[data-mode="dream"] .em-d-line {
+  margin: 0.5rem 0 0;
+  max-width: var(--measure);
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1.2;
+}
+
+[data-mode="dream"] .em-d-who,
+[data-mode="dream"] .em-d-note,
+[data-mode="dream"] .em-d-go {
+  margin: 0.5rem 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .em-d-go a { color: var(--hot); text-decoration: none; }
+[data-mode="dream"] .em-d-go a:hover { text-decoration: underline; }
+
+/* placing something from the ring, and the pair test */
+[data-mode="dream"] .em-place {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: var(--sp-2);
+  padding-top: var(--sp-2);
+  border-top: 1px solid rgb(236 230 217 / 18%);
+}
+
+[data-mode="dream"] .em-place p { width: 100%; margin: 0 0 0.3rem; color: var(--dim); font-family: var(--serif); font-size: var(--t-prose-sm); }
+[data-mode="dream"] .em-place b { color: var(--hot); font-weight: 400; }
+
+[data-mode="dream"] .em-place button {
+  min-height: 24px;
+  padding: 0.25rem 0.7rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 26%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-place button:hover { color: var(--hot); border-color: rgb(255 155 192 / 45%); }
+[data-mode="dream"] .em-place button:active { scale: 0.97; }
+
+[data-mode="dream"] .em-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+}
+
+[data-mode="dream"] .em-pair button {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--sp-2);
+  background: none;
+  border: 1px solid rgb(236 230 217 / 22%);
+  color: var(--bone);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-pair button:hover { border-color: var(--hot); }
+[data-mode="dream"] .em-pair button:active { scale: 0.97; }
+[data-mode="dream"] .em-pair img { max-width: 100%; margin: 0; }
+[data-mode="dream"] .em-pair i { font-style: normal; font-family: var(--serif); font-size: var(--t-prose-sm); line-height: 1.4; }
+[data-mode="dream"] .em-pair em { color: var(--dim); font-family: var(--mono); font-size: var(--t-xs); font-style: normal; }
+
+/* ── ask it ─────────────────────────────────────────────────────────────── */
+[data-mode="dream"] .em-head {
+  margin: var(--sp-5) 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1.1;
+}
+
+[data-mode="dream"] .em-ask {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: var(--sp-3);
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .em-ask input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid rgb(236 230 217 / 46%);
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+}
+
+[data-mode="dream"] .em-ask input::placeholder { color: var(--dim); font-style: italic; }
+[data-mode="dream"] .em-ask input:focus { outline: none; border-bottom-color: var(--hot); }
+
+[data-mode="dream"] .em-ask button,
+[data-mode="dream"] .em-do {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 24px;
+  padding: 0.3rem 0.9rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 34%);
+  border-radius: 999px;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-ask button:hover,
+[data-mode="dream"] .em-do:hover { border-color: rgb(255 155 192 / 45%); }
+[data-mode="dream"] .em-ask button:active,
+[data-mode="dream"] .em-do:active { scale: 0.97; }
+
+[data-mode="dream"] .em-answer {
+  margin-top: var(--sp-3);
+  padding: var(--sp-3);
+  max-width: var(--measure-wide);
+  border-left: 2px solid rgb(255 155 192 / 45%);
+  background: rgb(20 24 40 / 55%);
+}
+
+[data-mode="dream"] .em-q {
+  margin: 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .em-a {
+  margin: 0.6rem 0 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.62;
+  white-space: pre-wrap;
+}
+
+[data-mode="dream"] .em-a--off { color: var(--dim); font-style: italic; }
+[data-mode="dream"] .em-thinking { margin: 0.6rem 0 0; color: var(--dim); font-family: var(--serif); font-style: italic; }
+
+[data-mode="dream"] .em-suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: var(--sp-2) 0 0;
+}
+
+[data-mode="dream"] .em-suggest button {
+  min-height: 24px;
+  padding: 0.24rem 0.7rem;
+  background: none;
+  border: 1px dashed rgb(236 230 217 / 26%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-suggest button:hover { color: var(--bone); border-color: rgb(236 230 217 / 45%); }
+
+/* ── teach it ───────────────────────────────────────────────────────────── */
+[data-mode="dream"] .em-teach {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: teach;
+  display: grid;
+  gap: var(--sp-3);
+}
+
+[data-mode="dream"] .em-teach li {
+  counter-increment: teach;
+  position: relative;
+  padding-left: 2.2rem;
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .em-teach li::before {
+  content: counter(teach);
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+}
+
+[data-mode="dream"] .em-teach h3 {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  font-weight: 400;
+}
+
+[data-mode="dream"] .em-teach p {
+  margin: 0.4rem 0 0.7rem;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+}
+
+/* ── the company ────────────────────────────────────────────────────────── */
+[data-mode="dream"] .em-people {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-mode="dream"] .em-people li {
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  cursor: default;
+  transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-people li:hover { color: var(--bone); }
+[data-mode="dream"] .em-people li.is-thread { color: var(--bone); }
+[data-mode="dream"] .em-people li b { color: var(--hot); font-weight: 400; font-size: 0.7rem; vertical-align: super; margin-left: 0.15rem; }
+
+/* ── the list, for anything that cannot read a map ──────────────────────── */
+[data-mode="dream"] .em-list { margin-top: var(--sp-4); }
+
+[data-mode="dream"] .em-list summary {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  min-height: 24px;
+}
+
+[data-mode="dream"] .em-list summary:hover { color: var(--bone); }
+
+[data-mode="dream"] .em-list table {
+  width: 100%;
+  margin-top: var(--sp-2);
+  border-collapse: collapse;
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+}
+
+[data-mode="dream"] .em-list th {
+  text-align: left;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem 0.4rem 0;
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+}
+
+[data-mode="dream"] .em-list td {
+  padding: 0.45rem 0.8rem 0.45rem 0;
+  border-bottom: 1px solid rgb(236 230 217 / 10%);
+  color: var(--bone);
+  vertical-align: top;
+}
+
+[data-mode="dream"] .em-list td:first-child,
+[data-mode="dream"] .em-list td:last-child { color: var(--dim); font-family: var(--mono); font-size: var(--t-xs); }
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .em-state { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  [data-mode="dream"] .em-field { height: 62vh; }
+  [data-mode="dream"] .em-hint { margin-left: 0; width: 100%; }
+  [data-mode="dream"] .em-mark img { width: 34px; height: 34px; }
+  [data-mode="dream"] .em-glyph { width: 24px; height: 24px; font-size: 0.72rem; }
+  [data-mode="dream"] .em-pair { grid-template-columns: 1fr; }
+  [data-mode="dream"] .em-list { overflow-x: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .em-stage,
+  [data-mode="dream"] .em-mark,
+  [data-mode="dream"] .em-detail { transition: none; animation: none; }
+}

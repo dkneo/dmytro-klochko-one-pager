@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/vault-build.mjs && astro build && node scripts/sitemap-build.mjs",
+    "build": "node scripts/vault-build.mjs && node scripts/map-build.mjs && astro build && node scripts/sitemap-build.mjs",
     "preview": "astro preview",
     "vault": "node scripts/vault-build.mjs"
   },
