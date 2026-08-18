@@ -21,7 +21,7 @@ import map from "../../data/map.json";
 const { items, weathers, threads, depth, forms, people, axes, unplaced } = map;
 
 const K = 41;  // coord → percent of the field, shared by marks and threads
-const FORM_MARK = { painting: "▣", poem: "❞", song: "♪", quote: "“", link: "↗" };
+const FORM_MARK = { painting: "▣", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
 const thinnest = weathers.slice().sort((a, b) => a.count - b.count)[0];
 
 const title = "eidos · dmytro klochko";
@@ -380,7 +380,7 @@ const description =
           `<p class="em-d-kind">which is more <b>${esc(w)}</b>?</p>` +
           `<div class="em-pair">` +
           [a, b2].map((x) => `<button type="button" data-pick="${esc(x.id)}">` +
-            (x.src ? `<img src="${esc(x.src)}" alt="">` : `<span class="em-glyph">${esc({painting:"▣",poem:"❞",song:"♪",quote:"“",link:"↗"}[x.type] || "·")}</span>`) +
+            (x.src ? `<img src="${esc(x.src)}" alt="">` : `<span class="em-glyph">${esc({painting:"▣",poem:"❞",song:"♪",quote:"“",link:"↗",person:"◉",writing:"¶"}[x.type] || "·")}</span>`) +
             `<i>${esc(x.line || x.title)}</i><em>${esc(x.who)}</em></button>`).join("") +
           `</div>`;
         body.querySelectorAll("[data-pick]").forEach((btn) => btn.addEventListener("click", async () => {

@@ -56,16 +56,15 @@ function jitter(seed, i) {
   let h = 2166136261;
   for (const ch of seed) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); }
   const a = ((h >>> 0) % 1000) / 1000;
-  const b = (((h >>> 9) >>> 0) % 1000) / 1000;
-  const ring = 0.07 + 0.10 * Math.sqrt((i % 7) / 7 + a * 0.5);
-  const ang = a * Math.PI * 2 + i * 2.399;
-  return { dx: Math.cos(ang) * ring, dy: Math.sin(ang) * ring * 0.82, b };
+  const r = Math.min(0.185, 0.055 + 0.062 * Math.sqrt(i));
+  const ang = i * 2.39996 + a * 0.9;          // golden angle, nudged per note
+  return { dx: Math.cos(ang) * r, dy: Math.sin(ang) * r * 0.86 };
 }
 
 const items = [];
 const perWeather = {};
 
-for (const kind of ["paintings", "poems", "songs", "quotes", "links"]) {
+for (const kind of ["paintings", "poems", "songs", "quotes", "links", "people", "writing"]) {
   const dir = join("vault", kind);
   if (!existsSync(dir)) continue;
   const files = readdirSync(dir).filter((f) => f.endsWith(".md") && !f.startsWith("_"));
@@ -80,18 +79,19 @@ for (const kind of ["paintings", "poems", "songs", "quotes", "links"]) {
     let line = "";
     if (fm.type === "poem") line = (fm.english || body).split("\n")[0];
     else if (fm.type === "quote") line = body.split("\n").find((l) => l.trim() && !l.startsWith("weather:")) || "";
+    else if (fm.type === "person") line = fm.name || "";
     else line = fm.title || "";
 
     // Notes with no weather are not hidden and not guessed at. They ride an
     // outer ring, visibly outside the map, which is the whole nudge: the ring
     // is a list of things he has taken in but never said how they felt.
     const ring = !seat;
-    const ringAngle = ring ? (items.filter((z) => z.unplaced).length * 0.55 + 0.3) : 0;
+    const ringAngle = ring ? items.filter((z) => z.unplaced).length : 0;
 
     items.push({
       id: file.replace(/\.md$/, ""),
       type: fm.type || kind.replace(/s$/, ""),
-      who: fm.who || "",
+      who: fm.who || fm.name || "",
       title: fm.title || "",
       line: line.replace(/^["“]|["”]$/g, "").slice(0, 120),
       year: fm.year || "",
@@ -102,12 +102,25 @@ for (const kind of ["paintings", "poems", "songs", "quotes", "links"]) {
       note: fm.note || "",
       added: fm.added || "",
       // where it sits, and how sure that is
-      x: seat ? +(seat.x + j.dx).toFixed(4) : +(Math.cos(ringAngle) * 1.16).toFixed(4),
-      y: seat ? +(seat.y + j.dy).toFixed(4) : +(Math.sin(ringAngle) * 1.16).toFixed(4),
+      x: seat ? +(seat.x + j.dx).toFixed(4) : ringAngle,   // index for now
+      y: seat ? +(seat.y + j.dy).toFixed(4) : ringAngle,   // resolved below
+      ringIndex: ring ? ringAngle : -1,
       unplaced: ring,
     });
   });
 }
+
+// The ring can only be laid out once its size is known, so it happens here
+// rather than per note: evenly spaced, so twenty nine sit as comfortably as
+// three did.
+const ringTotal = items.filter((i) => i.unplaced).length;
+items.filter((i) => i.unplaced).forEach((it) => {
+  const a = (it.ringIndex / ringTotal) * Math.PI * 2 - Math.PI / 2;
+  it.x = +(Math.cos(a) * 1.06).toFixed(4);
+  it.y = +(Math.sin(a) * 1.06).toFixed(4);
+  delete it.ringIndex;
+});
+items.filter((i) => !i.unplaced).forEach((it) => delete it.ringIndex);
 
 // Real relationships only: two works are joined when the same person made
 // both, or when they share a weather. Nothing is joined by resemblance,
@@ -136,7 +149,7 @@ const out = {
   weathers,
   threads,
   unplaced: items.filter((i) => i.unplaced).length,
-  forms: ["painting", "poem", "song", "quote", "link"].map((f) => ({
+  forms: ["painting", "poem", "song", "quote", "link", "person", "writing"].map((f) => ({
     form: f, n: items.filter((i) => i.type === f).length,
   })),
   people: Object.entries(byWho)

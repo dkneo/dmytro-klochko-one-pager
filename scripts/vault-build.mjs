@@ -43,6 +43,7 @@ function frontmatter(text, file) {
 
 // The wikilink trail at the foot of each note is for Obsidian's graph, not for
 // the page, so it comes off before the text is used.
+const unplaced = [];
 const strip = (body) => body.replace(/\n*^weather:.*$/m, "").trimEnd();
 
 function load(kind) {
@@ -65,7 +66,10 @@ const weathers = load("weathers");
 const byWeather = (list) => {
   const m = new Map();
   for (const x of list) {
-    if (!x.weather) throw new Error(`${x.file}: no weather`);
+    // A note with no weather is not a mistake any more: /eidos keeps those on
+    // its ring until he says how they feel. They cannot form a chord, so they
+    // sit this build out and get counted at the end.
+    if (!x.weather) { unplaced.push(x.file); continue; }
     if (!m.has(x.weather)) m.set(x.weather, []);
     m.get(x.weather).push(x);
   }
@@ -165,6 +169,7 @@ writeFileSync(OUT, JSON.stringify({
 
 console.log(
   `vault → ${chords.length} chords from ${quotes.length} quotes, ${poems.length} poems, ` +
-  `${paintings.length} paintings, ${songs.length} songs across ${names.length} weathers`
+  `${paintings.length} paintings, ${songs.length} songs across ${names.length} weathers` +
+  (unplaced.length ? `, ${unplaced.length} unplaced and waiting on the ring` : "")
 );
 if (skipped.length) console.log("  incomplete, not shipped:", skipped.join(", "));

@@ -26,8 +26,8 @@
    "url": "",
    "note": "Kleist wrote that looking at it felt as though his eyelids had been cut away. Friedrich painted out the ships he had first put on the horizon, leaving nothing between the figure and the sky.",
    "added": "2026-08-15",
-   "x": -0.4193,
-   "y": 0.9562,
+   "x": -0.2503,
+   "y": 0.9702,
    "unplaced": false
   },
   {
@@ -43,8 +43,8 @@
    "url": "",
    "note": "From the pond he dug himself at Giverny and then spent thirty years painting. These late ones were made as his cataracts thickened, which is part of why the lilies stop having edges.",
    "added": "2026-08-15",
-   "x": 0.7273,
-   "y": 0.4197,
+   "x": 0.8326,
+   "y": 0.3538,
    "unplaced": false
   },
   {
@@ -60,9 +60,179 @@
    "url": "",
    "note": "Painted in 1907, years before abstraction was credited to anyone else. She left instructions that the work not be shown until twenty years after her death, and it was not shown properly for forty.",
    "added": "2026-08-15",
-   "x": 0.2593,
-   "y": 0.2758,
+   "x": 0.2742,
+   "y": 0.2079,
    "unplaced": false
+  },
+  {
+   "id": "his-dock",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "dock",
+   "line": "dock",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/dock.webp",
+   "url": "",
+   "note": "the boy fishing. stands behind childhood.",
+   "added": "2026-08-18",
+   "x": 0,
+   "y": -1.06,
+   "unplaced": true
+  },
+  {
+   "id": "his-estuary",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "estuary",
+   "line": "estuary",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/estuary.webp",
+   "url": "",
+   "note": "the estuary. stands behind taste.",
+   "added": "2026-08-18",
+   "x": 0.2279,
+   "y": -1.0352,
+   "unplaced": true
+  },
+  {
+   "id": "his-fields",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "fields",
+   "line": "fields",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/fields.webp",
+   "url": "",
+   "note": "sunflowers. stands behind what came before.",
+   "added": "2026-08-18",
+   "x": 0.4451,
+   "y": -0.962,
+   "unplaced": true
+  },
+  {
+   "id": "his-fire",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "fire",
+   "line": "fire",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/fire.webp",
+   "url": "",
+   "note": "the campfire. stands behind how he works.",
+   "added": "2026-08-18",
+   "x": 0.6415,
+   "y": -0.8439,
+   "unplaced": true
+  },
+  {
+   "id": "his-fuji",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "fuji",
+   "line": "fuji",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/fuji.webp",
+   "url": "",
+   "note": "the fuji rafts. stands behind replika.",
+   "added": "2026-08-18",
+   "x": 0.8079,
+   "y": -0.6862,
+   "unplaced": true
+  },
+  {
+   "id": "his-lavender",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "lavender",
+   "line": "lavender",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/lavender.webp",
+   "url": "",
+   "note": "the lavender walk. stands behind the camera.",
+   "added": "2026-08-18",
+   "x": 0.9365,
+   "y": -0.4965,
+   "unplaced": true
+  },
+  {
+   "id": "his-nightcourt",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "nightcourt",
+   "line": "nightcourt",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/nightcourt.webp",
+   "url": "",
+   "note": "a dark courtyard. carries the reading pages.",
+   "added": "2026-08-18",
+   "x": 1.0214,
+   "y": -0.2836,
+   "unplaced": true
+  },
+  {
+   "id": "his-snow",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "snow",
+   "line": "snow",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/snow.webp",
+   "url": "",
+   "note": "the snowlit village. stands behind saying hi.",
+   "added": "2026-08-18",
+   "x": 1.0584,
+   "y": -0.0574,
+   "unplaced": true
+  },
+  {
+   "id": "his-study",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "study",
+   "line": "study",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/study.webp",
+   "url": "",
+   "note": "one of his own, taken down to night, for learning.",
+   "added": "2026-08-18",
+   "x": 1.046,
+   "y": 0.1715,
+   "unplaced": true
+  },
+  {
+   "id": "his-swim",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "swim",
+   "line": "swim",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/swim.webp",
+   "url": "",
+   "note": "the swimmer under the orange sun. the opening screen.",
+   "added": "2026-08-18",
+   "x": 0.9847,
+   "y": 0.3923,
+   "unplaced": true
   },
   {
    "id": "j-m-w-turner-norham-castle-sunrise",
@@ -77,8 +247,8 @@
    "url": "",
    "note": "Never exhibited. It was found in his studio after he died, one of a group he seems to have painted for himself, and the castle has almost finished dissolving into the light.",
    "added": "2026-08-15",
-   "x": -0.3414,
-   "y": 0.5042,
+   "x": -0.445,
+   "y": 0.5565,
    "unplaced": false
   },
   {
@@ -94,8 +264,8 @@
    "url": "",
    "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
    "added": "2026-08-15",
-   "x": 0.7848,
-   "y": -0.1547,
+   "x": 0.9483,
+   "y": -0.0973,
    "unplaced": false
   },
   {
@@ -111,8 +281,8 @@
    "url": "",
    "note": "Ruskin said Whistler was flinging a pot of paint in the public's face. Whistler sued him for libel, won, and was awarded one farthing in damages, which bankrupted him.",
    "added": "2026-08-15",
-   "x": 0.0214,
-   "y": -0.6102,
+   "x": 0.1899,
+   "y": -0.6,
    "unplaced": false
   },
   {
@@ -128,8 +298,8 @@
    "url": "",
    "note": "Chardin painted more or less the same handful of objects for forty years. Diderot said of him that this one understands the harmony of colours and reflections, and the rest of us paint things.",
    "added": "2026-08-15",
-   "x": -0.2057,
-   "y": -0.9735,
+   "x": -0.0525,
+   "y": -0.8961,
    "unplaced": false
   },
   {
@@ -145,8 +315,8 @@
    "url": "",
    "note": "Painted in his own flat at Strandgade 30, which he painted again and again for a decade. No furniture to speak of, no story, nobody home: an empty room and the light crossing it.",
    "added": "2026-08-15",
-   "x": -1.0185,
-   "y": -0.3896,
+   "x": -0.8501,
+   "y": -0.3801,
    "unplaced": false
   },
   {
@@ -162,8 +332,8 @@
    "url": "",
    "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
    "added": "2026-08-15",
-   "x": 0.0528,
-   "y": -0.5666,
+   "x": 0.0526,
+   "y": -0.5531,
    "unplaced": false
   },
   {
@@ -179,8 +349,8 @@
    "url": "",
    "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
    "added": "2026-08-15",
-   "x": -0.7649,
-   "y": -0.4155,
+   "x": -1.0145,
+   "y": -0.3795,
    "unplaced": false
   },
   {
@@ -196,8 +366,8 @@
    "url": "",
    "note": "The most famous poem in Japanese. His students argued for years about the first line; he kept the plainest one.",
    "added": "2026-08-15",
-   "x": -0.2124,
-   "y": -0.9479,
+   "x": -0.197,
+   "y": -0.8638,
    "unplaced": false
   },
   {
@@ -213,8 +383,8 @@
    "url": "",
    "note": "Thermopylae is the pass the Spartans held knowing they would lose it, and Ephialtes is the man who showed the Persians the way around. Cavafy's point is that the traitor arriving does not cancel the holding.",
    "added": "2026-08-15",
-   "x": 0.8079,
-   "y": -0.0236,
+   "x": 0.7841,
+   "y": -0.1335,
    "unplaced": false
   },
   {
@@ -230,8 +400,8 @@
    "url": "",
    "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote.",
    "added": "2026-08-15",
-   "x": 0.6649,
-   "y": 0.3282,
+   "x": 0.6846,
+   "y": 0.3983,
    "unplaced": false
   },
   {
@@ -247,8 +417,8 @@
    "url": "",
    "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
    "added": "2026-08-15",
-   "x": -0.5777,
-   "y": 0.4627,
+   "x": -0.58,
+   "y": 0.5723,
    "unplaced": false
   },
   {
@@ -264,8 +434,8 @@
    "url": "",
    "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
    "added": "2026-08-15",
-   "x": 0.1119,
-   "y": 0.2253,
+   "x": 0.1287,
+   "y": 0.2629,
    "unplaced": false
   },
   {
@@ -281,8 +451,8 @@
    "url": "",
    "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
    "added": "2026-08-15",
-   "x": -0.1796,
-   "y": 1.0091,
+   "x": -0.4163,
+   "y": 0.9608,
    "unplaced": false
   },
   {
@@ -298,8 +468,8 @@
    "url": "",
    "note": "One left-hand figure, held for seven minutes, improvised in a single take at the end of a session.",
    "added": "2026-08-15",
-   "x": -0.0024,
-   "y": -0.9891,
+   "x": -0.0719,
+   "y": -1.0403,
    "unplaced": false
   },
   {
@@ -315,8 +485,8 @@
    "url": "",
    "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his.",
    "added": "2026-08-15",
-   "x": 0.2374,
-   "y": -0.5395,
+   "x": 0.1973,
+   "y": -0.7324,
    "unplaced": false
   },
   {
@@ -332,8 +502,8 @@
    "url": "",
    "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens.",
    "added": "2026-08-15",
-   "x": -0.3541,
-   "y": 0.5621,
+   "x": -0.4303,
+   "y": 0.405,
    "unplaced": false
   },
   {
@@ -349,8 +519,8 @@
    "url": "",
    "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds.",
    "added": "2026-08-15",
-   "x": 0.6625,
-   "y": 0.4132,
+   "x": 0.8672,
+   "y": 0.2429,
    "unplaced": false
   },
   {
@@ -366,8 +536,8 @@
    "url": "",
    "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia.",
    "added": "2026-08-15",
-   "x": 0.3485,
-   "y": 0.2354,
+   "x": 0.2685,
+   "y": 0.0846,
    "unplaced": false
   },
   {
@@ -383,8 +553,8 @@
    "url": "",
    "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician.",
    "added": "2026-08-15",
-   "x": -1.0308,
-   "y": -0.3425,
+   "x": -0.8103,
+   "y": -0.4954,
    "unplaced": false
   },
   {
@@ -400,8 +570,8 @@
    "url": "",
    "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything.",
    "added": "2026-08-15",
-   "x": 0.8985,
-   "y": -0.0029,
+   "x": 0.9717,
+   "y": -0.2261,
    "unplaced": false
   },
   {
@@ -417,8 +587,8 @@
    "url": "",
    "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it.",
    "added": "2026-08-15",
-   "x": -0.325,
-   "y": 0.8225,
+   "x": -0.1837,
+   "y": 0.8789,
    "unplaced": false
   },
   {
@@ -434,8 +604,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 0.6586,
-   "y": 0.2663,
+   "x": 0.8192,
+   "y": 0.4755,
    "unplaced": false
   },
   {
@@ -451,8 +621,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": -0.393,
-   "y": 1.0394,
+   "x": -0.2281,
+   "y": 1.0752,
    "unplaced": false
   },
   {
@@ -468,8 +638,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 0.2285,
-   "y": -0.7276,
+   "x": 0.1441,
+   "y": -0.4804,
    "unplaced": false
   },
   {
@@ -485,8 +655,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.8518,
-   "y": -0.0111,
+   "x": 0.9793,
+   "y": 0.0019,
    "unplaced": false
   },
   {
@@ -502,8 +672,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 0.0625,
-   "y": -0.9138,
+   "x": -0.1197,
+   "y": -0.7814,
    "unplaced": false
   },
   {
@@ -519,8 +689,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.8821,
-   "y": -0.2438,
+   "x": 0.7324,
+   "y": -0.174,
    "unplaced": false
   },
   {
@@ -536,8 +706,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": -0.3336,
-   "y": 0.4657,
+   "x": -0.4888,
+   "y": 0.6594,
    "unplaced": false
   },
   {
@@ -553,8 +723,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 0.7764,
-   "y": -0.0273,
+   "x": 1.0832,
+   "y": -0.1423,
    "unplaced": false
   },
   {
@@ -570,8 +740,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": -0.7858,
-   "y": -0.4908,
+   "x": -0.9008,
+   "y": -0.2603,
    "unplaced": false
   },
   {
@@ -587,8 +757,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.8105,
-   "y": -0.0073,
+   "x": 0.8438,
+   "y": 0.0316,
    "unplaced": false
   },
   {
@@ -604,8 +774,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 0.0788,
-   "y": 0.1596,
+   "x": 0.266,
+   "y": 0.3339,
    "unplaced": false
   },
   {
@@ -621,8 +791,8 @@
    "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
    "note": "",
    "added": "2026-08-17",
-   "x": 1.1082,
-   "y": 0.3428,
+   "x": 0.8774,
+   "y": 0.5949,
    "unplaced": true
   },
   {
@@ -638,8 +808,8 @@
    "url": "https://emilkowal.ski/ui/agents-with-taste",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.7656,
-   "y": 0.8715,
+   "x": 0.729,
+   "y": 0.7696,
    "unplaced": true
   },
   {
@@ -655,8 +825,8 @@
    "url": "https://emilkowal.ski/ui/building-a-drawer-component",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.1972,
-   "y": 1.1431,
+   "x": 0.5465,
+   "y": 0.9083,
    "unplaced": true
   },
   {
@@ -672,8 +842,8 @@
    "url": "https://emilkowal.ski/ui/building-a-toast-component",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.4294,
-   "y": 1.0776,
+   "x": 0.3385,
+   "y": 1.0045,
    "unplaced": true
   },
   {
@@ -689,8 +859,8 @@
    "url": "https://emilkowal.ski/ui/building-an-animation-course",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.9293,
-   "y": 0.6942,
+   "x": 0.1146,
+   "y": 1.0538,
    "unplaced": true
   },
   {
@@ -706,8 +876,8 @@
    "url": "https://emilkowal.ski/ui/developing-taste",
    "note": "",
    "added": "2026-08-17",
-   "x": -1.1551,
-   "y": 0.1061,
+   "x": -0.1146,
+   "y": 1.0538,
    "unplaced": true
   },
   {
@@ -723,8 +893,8 @@
    "url": "https://emilkowal.ski/ui/friction-as-a-feature",
    "note": "",
    "added": "2026-08-17",
-   "x": -1.0402,
-   "y": -0.5133,
+   "x": -0.3385,
+   "y": 1.0045,
    "unplaced": true
   },
   {
@@ -740,8 +910,8 @@
    "url": "https://emilkowal.ski/ui/the-magic-of-clip-path",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.6185,
-   "y": -0.9813,
+   "x": -0.5465,
+   "y": 0.9083,
    "unplaced": true
   },
   {
@@ -757,8 +927,8 @@
    "url": "https://emilkowal.ski/ui/train-your-judgement",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.0144,
-   "y": -1.1599,
+   "x": -0.729,
+   "y": 0.7696,
    "unplaced": true
   },
   {
@@ -774,8 +944,161 @@
    "url": "https://emilkowal.ski/ui/you-dont-need-animations",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.594,
-   "y": -0.9964,
+   "x": -0.8774,
+   "y": 0.5949,
+   "unplaced": true
+  },
+  {
+   "id": "akira-kurosawa",
+   "type": "person",
+   "who": "akira kurosawa",
+   "title": "",
+   "line": "akira kurosawa",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/wall/w15.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-18",
+   "x": -0.9847,
+   "y": 0.3923,
+   "unplaced": true
+  },
+  {
+   "id": "david-bowie",
+   "type": "person",
+   "who": "david bowie",
+   "title": "",
+   "line": "david bowie",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/wall/w13.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-18",
+   "x": -1.046,
+   "y": 0.1715,
+   "unplaced": true
+  },
+  {
+   "id": "david-foster-wallace",
+   "type": "person",
+   "who": "david foster wallace",
+   "title": "",
+   "line": "david foster wallace",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/wall/w16.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-18",
+   "x": -1.0584,
+   "y": -0.0574,
+   "unplaced": true
+  },
+  {
+   "id": "dieter-rams",
+   "type": "person",
+   "who": "dieter rams",
+   "title": "",
+   "line": "dieter rams",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/wall/w01.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-18",
+   "x": -1.0214,
+   "y": -0.2836,
+   "unplaced": true
+  },
+  {
+   "id": "hajime-sorayama",
+   "type": "person",
+   "who": "hajime sorayama",
+   "title": "",
+   "line": "hajime sorayama",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/wall/w05.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-18",
+   "x": -0.9365,
+   "y": -0.4965,
+   "unplaced": true
+  },
+  {
+   "id": "robin-williams",
+   "type": "person",
+   "who": "robin williams",
+   "title": "",
+   "line": "robin williams",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/wall/w08.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-18",
+   "x": -0.8079,
+   "y": -0.6862,
+   "unplaced": true
+  },
+  {
+   "id": "serhii-korolov",
+   "type": "person",
+   "who": "serhii korolov",
+   "title": "",
+   "line": "serhii korolov",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/wall/w14.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-18",
+   "x": -0.6415,
+   "y": -0.8439,
+   "unplaced": true
+  },
+  {
+   "id": "my-only-english-teacher-was-a-homeless-man-on-the-town-squar",
+   "type": "writing",
+   "who": "Dmytro Klochko",
+   "title": "my only english teacher was a homeless man on the town square",
+   "line": "my only english teacher was a homeless man on the town square",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "/writing/english-teacher",
+   "note": "",
+   "added": "2026-08-18",
+   "x": -0.4451,
+   "y": -0.962,
+   "unplaced": true
+  },
+  {
+   "id": "why-a-product-person-should-stay-human-and-why-that-is-good-",
+   "type": "writing",
+   "who": "Dmytro Klochko",
+   "title": "why a product person should stay human, and why that is good for business",
+   "line": "why a product person should stay human, and why that is good for business",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "/writing/staying-human",
+   "note": "",
+   "added": "2026-08-18",
+   "x": -0.2279,
+   "y": -1.0352,
    "unplaced": true
   }
  ],
@@ -983,6 +1306,23 @@
  ],
  "threads": [
   {
+   "who": "Dmytro Klochko",
+   "ids": [
+    "his-dock",
+    "his-estuary",
+    "his-fields",
+    "his-fire",
+    "his-fuji",
+    "his-lavender",
+    "his-nightcourt",
+    "his-snow",
+    "his-study",
+    "his-swim",
+    "my-only-english-teacher-was-a-homeless-man-on-the-town-squar",
+    "why-a-product-person-should-stay-human-and-why-that-is-good-"
+   ]
+  },
+  {
    "who": "J. M. W. Turner",
    "ids": [
     "j-m-w-turner-norham-castle-sunrise",
@@ -1012,11 +1352,11 @@
    ]
   }
  ],
- "unplaced": 10,
+ "unplaced": 29,
  "forms": [
   {
    "form": "painting",
-   "n": 8
+   "n": 18
   },
   {
    "form": "poem",
@@ -1033,9 +1373,21 @@
   {
    "form": "link",
    "n": 10
+  },
+  {
+   "form": "person",
+   "n": 7
+  },
+  {
+   "form": "writing",
+   "n": 2
   }
  ],
  "people": [
+  {
+   "who": "Dmytro Klochko",
+   "n": 12
+  },
   {
    "who": "emil kowalski",
    "n": 10
@@ -1047,6 +1399,10 @@
   {
    "who": "J. M. W. Turner",
    "n": 2
+  },
+  {
+   "who": "akira kurosawa",
+   "n": 1
   },
   {
    "who": "Albert Camus",
@@ -1089,6 +1445,18 @@
    "n": 1
   },
   {
+   "who": "david bowie",
+   "n": 1
+  },
+  {
+   "who": "david foster wallace",
+   "n": 1
+  },
+  {
+   "who": "dieter rams",
+   "n": 1
+  },
+  {
    "who": "Emily Dickinson",
    "n": 1
   },
@@ -1098,6 +1466,10 @@
   },
   {
    "who": "Fernando Pessoa",
+   "n": 1
+  },
+  {
+   "who": "hajime sorayama",
    "n": 1
   },
   {
@@ -1141,11 +1513,19 @@
    "n": 1
   },
   {
+   "who": "robin williams",
+   "n": 1
+  },
+  {
    "who": "Seatbelts",
    "n": 1
   },
   {
    "who": "Seneca",
+   "n": 1
+  },
+  {
+   "who": "serhii korolov",
    "n": 1
   },
   {
@@ -1174,8 +1554,8 @@
   }
  ],
  "depth": {
-  "notes": 45,
-  "people": 34,
+  "notes": 64,
+  "people": 42,
   "thinnest": "cold clarity",
   "oneDeep": 7
  }
