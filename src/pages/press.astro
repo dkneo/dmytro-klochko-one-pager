@@ -1,12 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import data from "../data/press.json";
+import logos from "../data/press-logos.json";
 
 // Everything on this page is one row of the ledger or a count derived from it.
 // Nothing is asserted here that the data cannot back, which is why the numbers
 // are computed rather than typed: a row added later cannot leave a stale
 // headline behind.
 const press = [...data.press].sort((a, b) => b.date.localeCompare(a.date));
+const pinned = press.filter((p) => p.pin);
+// One wordmark per outlet, biggest names first, deduped.
+const WALL = ["cnn", "time", "economist", "nature", "ft", "atlantic", "verge", "elpais", "abc"];
 const years = [...new Set(press.map((p) => p.date.slice(0, 4)))].sort().reverse();
 
 const places = new Set(press.map((p) => p.place));
@@ -22,11 +26,6 @@ const KIND = {
   rewrite: "rewrite",
 };
 
-// Outlets worth naming at a glance. Text, never logos: a wall of borrowed
-// trademarks is somebody else's design, and his rule is to derive art rather
-// than invent it.
-const MARQUEE = ["CNN", "TIME", "The Economist", "Nature", "Financial Times",
-                 "The Atlantic", "The Verge", "EL PAÍS", "ABC Australia · 7.30"];
 
 const title = "press · dmytro klochko";
 const description =
@@ -40,8 +39,8 @@ const description =
     </div>
 
     <p class="today-how">
-      the public record of saying it out loud, mostly about whether companion
-      ai is good for people. every line links to the piece.
+      what i have said in public, mostly to reporters asking whether companion
+      ai is good for people. every line links to the piece it came from.
     </p>
 
     <dl class="pr-facts">
@@ -51,9 +50,40 @@ const description =
       <div><dt>since</dt><dd>{first.when.split(" ").slice(-2).join(" ")}</dd></div>
     </dl>
 
-    <ul class="pr-wall">
-      {MARQUEE.map((m) => <li>{m}</li>)}
+    <ul class="pr-marks" aria-label="outlets">
+      {WALL.filter((k) => logos[k]).map((k) => (
+        <li style={`--mh:${logos[k].h}px`} set:html={logos[k].svg} />
+      ))}
     </ul>
+
+    {pinned.length > 0 && (
+      <section class="pr-pinned" aria-labelledby="said">
+        <h2 class="pr-head-2" id="said">in my own words</h2>
+        <p class="today-how">
+          four i can quote exactly, because i went back to the piece and read
+          it. everywhere else on this page you get what was said, not a
+          sentence dressed up in quote marks.
+        </p>
+        <div class="pr-quotes">
+          {pinned.map((p) => (
+            <figure class="pr-quote">
+              {p.logo && logos[p.logo]
+                ? <span class="pr-quote-mark" style={`--mh:${logos[p.logo].h}px`} set:html={logos[p.logo].svg} />
+                : <span class="pr-quote-name">{p.outlet}</span>}
+              <blockquote>{p.quote}</blockquote>
+              {p.qen && <p class="pr-quote-en">{p.qen}</p>}
+              <figcaption>
+                <a href={p.url} target="_blank" rel="noreferrer">
+                  {p.outlet}<span class="arw" aria-hidden="true">↗</span>
+                </a>
+                <span>{p.when}</span>
+                <em>{p.qsrc}</em>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    )}
 
     {years.map((y) => (
       <section class="pr-year" aria-labelledby={`y${y}`}>
@@ -62,7 +92,9 @@ const description =
           {press.filter((p) => p.date.startsWith(y)).map((p) => (
             <li class="pr-row" data-kind={p.kind}>
               <p class="pr-head">
-                <b class="pr-outlet">{p.outlet}</b>
+                {p.logo && logos[p.logo]
+                  ? <b class="pr-outlet pr-outlet--mark" style={`--mh:${Math.round(logos[p.logo].h * 0.78)}px`} set:html={logos[p.logo].svg} />
+                  : <b class="pr-outlet">{p.outlet}</b>}
                 <i class="pr-when">{p.when}</i>
                 <span class="pr-kind">{KIND[p.kind]}</span>
               </p>
@@ -85,11 +117,11 @@ const description =
       </section>
     ))}
 
-    <h2 class="pr-head-2">what he keeps saying</h2>
+    <h2 class="pr-head-2">what i keep saying</h2>
     <p class="today-how">
       the same six positions turn up across four years of interviews, in five
-      languages, to reporters who were mostly asking whether any of this is a
-      good idea.
+      languages, mostly to reporters asking whether any of this is a good
+      idea.
     </p>
     <ol class="pr-positions">
       {data.positions.map((p) => <li>{p}</li>)}
@@ -114,7 +146,8 @@ const description =
 
     <p class="pr-note">
       built from a source verified ledger: every row traces to a publisher
-      page, an archive or a transcript. three rows are marked
+      page, an archive or a transcript. the wordmarks are the publishers' own,
+      used to say who ran the piece. three rows are marked
       <b>rewrite</b> or derivative because they carry another outlet's
       reporting rather than new interviews, and the research behind this
       collapses to roughly two dozen distinct reporting origins once

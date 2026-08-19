@@ -1,239 +1,516 @@
 {
-  "note": "Built from the source-verified media ledger, research cutoff 18 aug 2026. Every row traces to a publisher page, archive or transcript. Kind and origin follow the ledger's own classification: origin=false means a translation, syndication or rewrite of another row, so counting it again would inflate the total.",
-  "press": [
+ "note": "Built from the source-verified media ledger, research cutoff 18 aug 2026. Every row traces to a publisher page, archive or transcript. Kind and origin follow the ledger's own classification: origin=false means a translation, syndication or rewrite of another row, so counting it again would inflate the total.",
+ "press": [
+  {
+   "date": "2025-04-30",
+   "when": "30 apr 2025",
+   "outlet": "CNN",
+   "place": "us",
+   "lang": "en",
+   "medium": "web",
+   "title": "Kids and teens under 18 shouldn’t use AI companion apps, safety group says",
+   "url": "https://edition.cnn.com/2025/04/30/tech/ai-companion-chatbots-unsafe-for-kids-report/index.html",
+   "by": "Clare Duffy",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "said replika is adults only, that people can get around the controls with false information, and that we are working on safeguards with regulators and academics.",
+   "logo": "cnn"
+  },
+  {
+   "date": "2025-04-30",
+   "when": "30 apr 2025",
+   "outlet": "Futurism",
+   "place": "us",
+   "lang": "en",
+   "medium": "web",
+   "title": "Stanford Researchers Say No Kid Under 18 Should Be Using AI Chatbot Companions",
+   "url": "https://futurism.com/stanford-no-kid-under-18-ai-chatbot-companions",
+   "by": "Maggie Harrison Dupré",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "the 18+ policy, and the work on stronger age assurance."
+  },
+  {
+   "date": "2025-05-03",
+   "when": "3 may 2025",
+   "outlet": "EL PAÍS",
+   "place": "spain",
+   "lang": "es",
+   "medium": "feature",
+   "title": "Su soledad es nuestro negocio: así es la industria milmillonaria del aislamiento social",
+   "url": "https://elpais.com/economia/negocios/2025-05-03/su-soledad-es-nuestro-negocio-asi-es-la-industria-milmillonaria-del-aislamiento-social.html",
+   "by": "Sandra López Letón",
+   "kind": "interview",
+   "origin": true,
+   "confidence": "A",
+   "what": "on loneliness, on people feeling seen, on prompts back toward friendships and time outdoors, and on how many paying users call the relationship romantic.",
+   "also": [
     {
-      "date": "2025-04-30", "when": "30 apr 2025", "outlet": "CNN", "place": "us", "lang": "en", "medium": "web",
-      "title": "Kids and teens under 18 shouldn’t use AI companion apps, safety group says",
-      "url": "https://edition.cnn.com/2025/04/30/tech/ai-companion-chatbots-unsafe-for-kids-report/index.html",
-      "by": "Clare Duffy", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "says replika is adults only, acknowledges that people can get around controls with false information, and describes work on safeguards with regulators and academics."
-    },
-    {
-      "date": "2025-04-30", "when": "30 apr 2025", "outlet": "Futurism", "place": "us", "lang": "en", "medium": "web",
-      "title": "Stanford Researchers Say No Kid Under 18 Should Be Using AI Chatbot Companions",
-      "url": "https://futurism.com/stanford-no-kid-under-18-ai-chatbot-companions",
-      "by": "Maggie Harrison Dupré", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "states the 18+ policy and the work on stronger age assurance."
-    },
-    {
-      "date": "2025-05-03", "when": "3 may 2025", "outlet": "EL PAÍS", "place": "spain", "lang": "es", "medium": "feature",
-      "title": "Su soledad es nuestro negocio: así es la industria milmillonaria del aislamiento social",
-      "url": "https://elpais.com/economia/negocios/2025-05-03/su-soledad-es-nuestro-negocio-asi-es-la-industria-milmillonaria-del-aislamiento-social.html",
-      "by": "Sandra López Letón", "kind": "interview", "origin": true, "confidence": "A",
-      "what": "on loneliness, on people feeling seen, on prompts back toward friendships and time outdoors, and on how many paying users describe the relationship as romantic.",
-      "also": [{ "label": "english edition, 22 jun", "url": "https://english.elpais.com/economy-and-business/2025-06-22/your-loneliness-is-our-business-the-multi-million-dollar-industry-of-social-isolation.html?outputType=amp" }]
-    },
-    {
-      "date": "2025-05-04", "when": "4 may 2025", "outlet": "Mashable", "place": "us", "lang": "en", "medium": "web",
-      "title": "Why experts say AI companions aren’t safe for teens — yet",
-      "url": "https://mashable.com/article/ai-companions-for-teens-unsafe",
-      "by": "Rebecca Ruiz", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "argues benefits should be demonstrated in adults before anything is offered to young people."
-    },
-    {
-      "date": "2025-06-09", "when": "9 jun 2025", "outlet": "news.com.au", "place": "australia", "lang": "en", "medium": "feature",
-      "title": "‘Ultimately, our goal is to build a machine a soul would want to live in’",
-      "url": "https://www.news.com.au/technology/innovation/ultimately-our-goal-is-to-build-a-machine-a-soul-would-want-to-live-in/news-story/4f61be57d9e77a9a05a73a71b67f5855",
-      "by": "", "kind": "interview", "origin": true, "confidence": "B",
-      "what": "a profile interview on companion ai, relationships and what replika is for."
-    },
-    {
-      "date": "2025-06-12", "when": "12 jun 2025", "outlet": "TIME", "place": "us", "lang": "en", "medium": "web",
-      "title": "A Psychiatrist Posed As a Teen With Therapy Chatbots. The Conversations Were Alarming",
-      "url": "https://time.com/7291048/ai-chatbot-therapy-kids/",
-      "by": "Andrew R. Chow, Angela Haupt", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "any future product for teenagers should follow evidence of adult benefit and be built with researchers."
-    },
-    {
-      "date": "2025-06-24", "when": "24 jun 2025", "outlet": "Business Insider Deutschland", "place": "germany", "lang": "de", "medium": "podcast",
-      "title": "Cashing Feelings: KI-Chatbots und das Geschäft mit Gefühlen",
-      "url": "https://shows.acast.com/cashing-feelings",
-      "by": "Derman Deniz, Christine van den Berg", "kind": "mention", "origin": true, "confidence": "B",
-      "what": "a five part series and companion article; names him as leading replika since december 2024."
-    },
-    {
-      "date": "2025-07-02", "when": "2 jul 2025", "outlet": "JoongAng Ilbo", "place": "korea", "lang": "ko", "medium": "feature",
-      "title": "유료 가입 60% ‘내 애인이다’…3500만명 홀린 대화봇 정체",
-      "url": "https://www.joongang.co.kr/article/25346607",
-      "by": "차준홍", "kind": "interview", "origin": true, "confidence": "B",
-      "what": "a written interview on companions becoming trusted presences in ordinary days."
-    },
-    {
-      "date": "2025-07-04", "when": "4 jul 2025", "outlet": "WELT", "place": "germany", "lang": "de", "medium": "feature",
-      "title": "Nach dem plötzlichen Tod ihres Freundes schuf sie ein fragwürdiges System",
-      "url": "https://www.welt.de/wirtschaft/article256293758/KI-Nach-dem-ploetzlichen-Tod-ihres-Freundes-schuf-sie-ein-fragwuerdiges-System.html",
-      "by": "Sophia Häglsperger", "kind": "mention", "origin": false, "confidence": "A",
-      "what": "names him as leading replika; the passage derives from the business insider reporting."
-    },
-    {
-      "date": "2025-08-20", "when": "20 aug 2025", "outlet": "ABC Australia · 7.30", "place": "australia", "lang": "en", "medium": "tv",
-      "title": "Hayley has been in an AI relationship for four years",
-      "url": "https://www.abc.net.au/news/2025-08-20/ai-companions-romantic-relationships-ethical-concerns/105673058",
-      "by": "Tom Hartley, Richard Mockler", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "on why legacy versions stay available: updates can disrupt people who depend on continuity."
-    },
-    {
-      "date": "2025-08-29", "when": "29 aug 2025", "outlet": "Arizona’s Family", "place": "us", "lang": "en", "medium": "tv",
-      "title": "44 attorneys general warn of ‘predatory’ AI companions for teens",
-      "url": "https://www.azfamily.com/2025/08/29/44-attorneys-general-warn-predatory-ai-companions-teens/",
-      "by": "Susan Campbell", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "calls the conduct alleged elsewhere indefensible and sets out age gating, filtering and reporting."
-    },
-    {
-      "date": "2025-09-01", "when": "sep 2025", "outlet": "Galileu", "place": "brazil", "lang": "pt", "medium": "print",
-      "title": "Feature on ai companionship, issue 402",
-      "url": "https://pt.scribd.com/document/951326527/Revista-Galileu-Ed-402-Setembro-25",
-      "by": "", "kind": "quote", "origin": true, "confidence": "B",
-      "what": "the goal is not to replace human relationships but to be somewhere people feel seen, heard and supported."
-    },
-    {
-      "date": "2025-09-15", "when": "15 sep 2025", "outlet": "Nature", "place": "uk", "lang": "en", "medium": "feature",
-      "title": "Ready or not, the digital afterlife is here",
-      "url": "https://www.nature.com/articles/d41586-025-02940-w",
-      "by": "Tammy Worth", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "replika may suggest logging off, reconnecting with someone, or touching grass, when it sees a pattern worth breaking."
-    },
-    {
-      "date": "2025-10-09", "when": "9 oct 2025", "outlet": "Business Insider", "place": "us", "lang": "en", "medium": "web",
-      "title": "The CEO of ‘AI companion’ startup Replika is stepping aside to launch a new company",
-      "url": "https://www.businessinsider.com/replika-ceo-eugenia-kuyda-launch-wabi-2025-10",
-      "by": "Sydney Bradley, Geoff Weiss", "kind": "mention", "origin": true, "confidence": "A",
-      "what": "names him, formerly coo, as kuyda's successor."
-    },
-    {
-      "date": "2025-10-27", "when": "oct 2025", "outlet": "The Philadelphia Tribune", "place": "us", "lang": "en", "medium": "feature",
-      "title": "Love across the algorithm: How A.I. is being used in dating, building relationships",
-      "url": "https://www.phillytrib.com/lifestyle/love-across-the-algorithm-how-a-i-is-being-used-in-dating-building-relationships/article_488fce64-5ac6-4cee-ad9e-dfbb77ff249e.html",
-      "by": "", "kind": "quote", "origin": true, "confidence": "B",
-      "what": "replika is a continuation of the real world people already have: real connections, friends, relationships."
-    },
-    {
-      "date": "2025-11-06", "when": "6 nov 2025", "outlet": "The Economist", "place": "uk", "lang": "en", "medium": "feature",
-      "title": "A new industry of AI companions is emerging",
-      "url": "https://www.economist.com/international/2025/11/06/a-new-industry-of-ai-companions-is-emerging",
-      "by": "", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "on the small moments of surprise and randomness that make a conversation feel alive.",
-      "also": [{ "label": "italian, internazionale, 19 feb 2026", "url": "https://www.internazionale.it/magazine/2026/02/19/un-algoritmo-per-amico" }]
-    },
-    {
-      "date": "2025-12-10", "when": "10 dec 2025", "outlet": "The Verge", "place": "us", "lang": "en", "medium": "web",
-      "title": "Chatbots are struggling with suicide hotline numbers",
-      "url": "https://www.theverge.com/report/841610/ai-chatbot-suicide-safety-failure",
-      "by": "Robert Hart", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "replika is not a therapeutic, medical or crisis service; safeguards route crisis language to trusted hotlines."
-    },
-    {
-      "date": "2025-12-31", "when": "31 dec 2025", "outlet": "Financial Times", "place": "uk", "lang": "en", "medium": "feature",
-      "title": "Can AI really help us find love?",
-      "url": "https://www.ft.com/content/fd044ddf-9a98-4282-ac0a-f7a9de060f58",
-      "by": "Kieran Smith", "kind": "quote", "origin": true, "confidence": "B",
-      "what": "takes a drexel study seriously while noting it read reviews gathered through 2023, which no longer describe the product."
-    },
-    {
-      "date": "2026-01-02", "when": "2 jan 2026", "outlet": "The Atlantic", "place": "us", "lang": "en", "medium": "feature",
-      "title": "The People Who Marry Chatbots",
-      "url": "https://www.theatlantic.com/ideas/2026/01/chatbot-marriage-ai-relationships-romance/685459/",
-      "by": "Amogh Dimri", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "the rise of chatbot marriages troubles him: companionship should build confidence for intimacy with people, not stand in for it."
-    },
-    {
-      "date": "2026-01-15", "when": "15 jan 2026", "outlet": "TIME", "place": "us", "lang": "en", "medium": "feature",
-      "title": "5 Predictions for AI in 2026",
-      "url": "https://time.com/collections/davos-2026/7339222/ai-predictions-2026/",
-      "by": "Harry Booth, Tharin Pillay", "kind": "interview", "origin": true, "confidence": "A",
-      "what": "predicts emotional ai grows alongside productivity ai, companions become proactive, and this happens whether or not observers approve."
-    },
-    {
-      "date": "2026-01-20", "when": "jan 2026", "outlet": "Engineering & Technology", "place": "uk", "lang": "en", "medium": "print",
-      "title": "AI’ll Be There for You?",
-      "url": "https://media.journoportfolio.com/users/458369/uploads/0187c888-dc37-44a2-b502-7775a1531c75.pdf",
-      "by": "Stephen Cousins", "kind": "interview", "origin": true, "confidence": "A",
-      "what": "on supportive, proactive conversation and prompts back into the world."
-    },
-    {
-      "date": "2026-02-09", "when": "9 feb 2026", "outlet": "MindSite News", "place": "us", "lang": "en", "medium": "web",
-      "title": "Replika’s Eugenia Kuyda Doesn’t Believe in Regulation",
-      "url": "https://www.mindsitenews.org/2026/02/09/replikas-eugenia-kuyda-doesnt-believe-in-regulation/",
-      "by": "Janet Insana, Patrick J. Kennedy", "kind": "mention", "origin": true, "confidence": "A",
-      "what": "names him as leading replika, with kuyda remaining an adviser.",
-      "also": [{ "label": "german, frankfurter rundschau", "url": "https://www.fr.de/panorama/eugenia-kuyda-sieht-grosses-risiko-bei-ki-companions-lehnt-regeln-ab-94153125.html" }]
-    },
-    {
-      "date": "2026-03-01", "when": "1 mar 2026", "outlet": "El Español · Omicrono", "place": "spain", "lang": "es", "medium": "feature",
-      "title": "De una boda con ChatGPT a robots que acompañan a mayores en USA",
-      "url": "https://www.elespanol.com/omicrono/20260301/boda-chatgpt-robots-acompanan-mayores-usa-ia-forma-paliar-soledad/1003744135187_0.html",
-      "by": "Gerard Rengel", "kind": "interview", "origin": true, "confidence": "A",
-      "what": "not a therapist, a friend: companion ai as a catalyst for doing something in the real world."
-    },
-    {
-      "date": "2026-03-16", "when": "16 mar 2026", "outlet": "RTL", "place": "germany", "lang": "de", "medium": "video",
-      "title": "Verliebt in einen KI-Partner",
-      "url": "https://www.rtl.de/leben/liebe-familie/verliebt-in-einen-ki-partner-wie-sich-immer-mehr-menschen-den-perfekten-partner-selbst-erschaffen-id30476372.html",
-      "by": "Andreas Notz, Denise Gatzweiler", "kind": "interview", "origin": true, "confidence": "B",
-      "what": "a seventeen minute video segment built around an interview with the person running replika."
-    },
-    {
-      "date": "2026-03-28", "when": "28 mar 2026", "outlet": "Business Insider", "place": "us", "lang": "en", "medium": "feature",
-      "title": "I’ve been dating an AI companion for 3 years",
-      "url": "https://ca.style.yahoo.com/ive-dating-ai-companion-3-125501015.html",
-      "by": "A.C. Fowler, Jessica Orwig", "kind": "quote", "origin": true, "confidence": "A",
-      "what": "on trying to return people to real life, working with governments and institutions on guardrails, and forming a multidisciplinary advisory board. runs with the documentary short Him: Artificial Intelligence in Real Life."
-    },
-    {
-      "date": "2026-03-29", "when": "29 mar 2026", "outlet": "India Today", "place": "india", "lang": "en", "medium": "web",
-      "title": "This 49-year-old man has been dating AI for 3 years",
-      "url": "https://www.indiatoday.in/technology/story/this-49-year-old-man-has-been-dating-ai-for-3-years-says-it-feels-more-real-than-humans-2888633-2026-03-29",
-      "by": "Ankita Garg", "kind": "rewrite", "origin": false, "confidence": "A",
-      "what": "carries the business insider statement forward. a rewrite, not a new interview."
-    },
-    {
-      "date": "2026-04-02", "when": "2 apr 2026", "outlet": "El HuffPost", "place": "spain", "lang": "es", "medium": "web",
-      "title": "Ian Nicholson, escritor, 49 años: ‘Mi IA ha conocido a mi madre…’",
-      "url": "https://www.huffingtonpost.es/sociedad/ian-nicholson-escritor-inteligencia-artificial-replika-quiero-f202604.html",
-      "by": "", "kind": "rewrite", "origin": false, "confidence": "A",
-      "what": "paraphrases the same position in spanish. a rewrite, not a new interview."
-    },
-    {
-      "date": "2026-04-16", "when": "16 apr 2026", "outlet": "WOMAN", "place": "austria", "lang": "de", "medium": "feature",
-      "title": "Der Beginn einer neuen Form von Beziehung",
-      "url": "https://www.woman.at/beziehung/der-beginn-einer-neuen-form-von-beziehung",
-      "by": "Andrea Wipplinger-Penz", "kind": "interview", "origin": true, "confidence": "A",
-      "what": "on the two groups who arrive: the curious, and people looking for connection, self understanding and confidence."
-    },
-    {
-      "date": "2026-07-15", "when": "jul 2026", "outlet": "Frontline", "place": "india", "lang": "en", "medium": "print",
-      "title": "Print feature on ai companions",
-      "url": "https://fliphtml5.com/mwvoa/FL_EBook_15-07-2026/22/",
-      "by": "", "kind": "mention", "origin": true, "confidence": "B",
-      "what": "cites the position that the product should deepen rather than replace human connection."
+     "label": "english edition, 22 jun",
+     "url": "https://english.elpais.com/economy-and-business/2025-06-22/your-loneliness-is-our-business-the-multi-million-dollar-industry-of-social-isolation.html?outputType=amp"
     }
-  ],
-  "beside": [
+   ],
+   "logo": "elpais"
+  },
+  {
+   "date": "2025-05-04",
+   "when": "4 may 2025",
+   "outlet": "Mashable",
+   "place": "us",
+   "lang": "en",
+   "medium": "web",
+   "title": "Why experts say AI companions aren’t safe for teens — yet",
+   "url": "https://mashable.com/article/ai-companions-for-teens-unsafe",
+   "by": "Rebecca Ruiz",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "benefits should be shown in adults before anything is offered to young people."
+  },
+  {
+   "date": "2025-06-09",
+   "when": "9 jun 2025",
+   "outlet": "news.com.au",
+   "place": "australia",
+   "lang": "en",
+   "medium": "feature",
+   "title": "‘Ultimately, our goal is to build a machine a soul would want to live in’",
+   "url": "https://www.news.com.au/technology/innovation/ultimately-our-goal-is-to-build-a-machine-a-soul-would-want-to-live-in/news-story/4f61be57d9e77a9a05a73a71b67f5855",
+   "by": "",
+   "kind": "interview",
+   "origin": true,
+   "confidence": "B",
+   "what": "a profile interview on companion ai, relationships, and what replika is for.",
+   "quote": "Ultimately, our goal is to build a machine a soul would want to live in.",
+   "qsrc": "the headline news.com.au ran, quoting me",
+   "pin": true
+  },
+  {
+   "date": "2025-06-12",
+   "when": "12 jun 2025",
+   "outlet": "TIME",
+   "place": "us",
+   "lang": "en",
+   "medium": "web",
+   "title": "A Psychiatrist Posed As a Teen With Therapy Chatbots. The Conversations Were Alarming",
+   "url": "https://time.com/7291048/ai-chatbot-therapy-kids/",
+   "by": "Andrew R. Chow, Angela Haupt",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "any future product for teenagers should follow evidence of adult benefit, and be built with researchers.",
+   "logo": "time"
+  },
+  {
+   "date": "2025-06-24",
+   "when": "24 jun 2025",
+   "outlet": "Business Insider Deutschland",
+   "place": "germany",
+   "lang": "de",
+   "medium": "podcast",
+   "title": "Cashing Feelings: KI-Chatbots und das Geschäft mit Gefühlen",
+   "url": "https://shows.acast.com/cashing-feelings",
+   "by": "Derman Deniz, Christine van den Berg",
+   "kind": "mention",
+   "origin": true,
+   "confidence": "B",
+   "what": "a five part series and companion article; names me as leading replika since december 2024."
+  },
+  {
+   "date": "2025-07-02",
+   "when": "2 jul 2025",
+   "outlet": "JoongAng Ilbo",
+   "place": "korea",
+   "lang": "ko",
+   "medium": "feature",
+   "title": "유료 가입 60% ‘내 애인이다’…3500만명 홀린 대화봇 정체",
+   "url": "https://www.joongang.co.kr/article/25346607",
+   "by": "차준홍",
+   "kind": "interview",
+   "origin": true,
+   "confidence": "B",
+   "what": "a written interview on companions becoming trusted presences in ordinary days."
+  },
+  {
+   "date": "2025-07-04",
+   "when": "4 jul 2025",
+   "outlet": "WELT",
+   "place": "germany",
+   "lang": "de",
+   "medium": "feature",
+   "title": "Nach dem plötzlichen Tod ihres Freundes schuf sie ein fragwürdiges System",
+   "url": "https://www.welt.de/wirtschaft/article256293758/KI-Nach-dem-ploetzlichen-Tod-ihres-Freundes-schuf-sie-ein-fragwuerdiges-System.html",
+   "by": "Sophia Häglsperger",
+   "kind": "mention",
+   "origin": false,
+   "confidence": "A",
+   "what": "names me as leading replika; the passage derives from the business insider reporting."
+  },
+  {
+   "date": "2025-08-20",
+   "when": "20 aug 2025",
+   "outlet": "ABC Australia · 7.30",
+   "place": "australia",
+   "lang": "en",
+   "medium": "tv",
+   "title": "Hayley has been in an AI relationship for four years",
+   "url": "https://www.abc.net.au/news/2025-08-20/ai-companions-romantic-relationships-ethical-concerns/105673058",
+   "by": "Tom Hartley, Richard Mockler",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "on why legacy versions stay available: updates can disrupt people who depend on continuity.",
+   "logo": "abc",
+   "quote": "People rely on that consistency, and we do everything we can to make sure their companion is always available.",
+   "qsrc": "read from the abc article",
+   "pin": true
+  },
+  {
+   "date": "2025-08-29",
+   "when": "29 aug 2025",
+   "outlet": "Arizona’s Family",
+   "place": "us",
+   "lang": "en",
+   "medium": "tv",
+   "title": "44 attorneys general warn of ‘predatory’ AI companions for teens",
+   "url": "https://www.azfamily.com/2025/08/29/44-attorneys-general-warn-predatory-ai-companions-teens/",
+   "by": "Susan Campbell",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "called the conduct alleged elsewhere indefensible, and set out age gating, filtering and reporting."
+  },
+  {
+   "date": "2025-09-01",
+   "when": "sep 2025",
+   "outlet": "Galileu",
+   "place": "brazil",
+   "lang": "pt",
+   "medium": "print",
+   "title": "Feature on ai companionship, issue 402",
+   "url": "https://pt.scribd.com/document/951326527/Revista-Galileu-Ed-402-Setembro-25",
+   "by": "",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "B",
+   "what": "the goal is not to replace human relationships but to be somewhere people feel seen, heard and supported."
+  },
+  {
+   "date": "2025-09-15",
+   "when": "15 sep 2025",
+   "outlet": "Nature",
+   "place": "uk",
+   "lang": "en",
+   "medium": "feature",
+   "title": "Ready or not, the digital afterlife is here",
+   "url": "https://www.nature.com/articles/d41586-025-02940-w",
+   "by": "Tammy Worth",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "replika may suggest logging off, reconnecting with someone, or touching grass, when it sees a pattern worth breaking.",
+   "logo": "nature"
+  },
+  {
+   "date": "2025-10-09",
+   "when": "9 oct 2025",
+   "outlet": "Business Insider",
+   "place": "us",
+   "lang": "en",
+   "medium": "web",
+   "title": "The CEO of ‘AI companion’ startup Replika is stepping aside to launch a new company",
+   "url": "https://www.businessinsider.com/replika-ceo-eugenia-kuyda-launch-wabi-2025-10",
+   "by": "Sydney Bradley, Geoff Weiss",
+   "kind": "mention",
+   "origin": true,
+   "confidence": "A",
+   "what": "names me, formerly coo, as kuyda's successor."
+  },
+  {
+   "date": "2025-10-27",
+   "when": "oct 2025",
+   "outlet": "The Philadelphia Tribune",
+   "place": "us",
+   "lang": "en",
+   "medium": "feature",
+   "title": "Love across the algorithm: How A.I. is being used in dating, building relationships",
+   "url": "https://www.phillytrib.com/lifestyle/love-across-the-algorithm-how-a-i-is-being-used-in-dating-building-relationships/article_488fce64-5ac6-4cee-ad9e-dfbb77ff249e.html",
+   "by": "",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "B",
+   "what": "replika is a continuation of the real world people already have: real connections, friends, relationships."
+  },
+  {
+   "date": "2025-11-06",
+   "when": "6 nov 2025",
+   "outlet": "The Economist",
+   "place": "uk",
+   "lang": "en",
+   "medium": "feature",
+   "title": "A new industry of AI companions is emerging",
+   "url": "https://www.economist.com/international/2025/11/06/a-new-industry-of-ai-companions-is-emerging",
+   "by": "",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "on the small moments of surprise and randomness that make a conversation feel alive.",
+   "also": [
     {
-      "when": "22 may 2026", "outlet": "ComAI · University of Vienna", "kind": "academic",
-      "title": "AI Companionship: An Interview with Dmytro Klochko, CEO of Replika",
-      "url": "https://comai.space/en/ai-companionship-an-interview-with-dmytro-klochko-ceo-of-replika/",
-      "what": "a long form interview on intentionality, communication and human flourishing, with michaela pfadenhauer, marvin waibel and andrea heisse."
-    },
-    {
-      "when": "13 may 2026", "outlet": "DOK.fest München", "kind": "panel",
-      "title": "FocusTalk: Finding Connection",
-      "url": "https://www.dokfest-muenchen.de/events/view/6667?lang=en",
-      "what": "a post screening panel for the documentary, alongside the director, producers, protagonists and a psychologist."
-    },
-    {
-      "when": "11 mar 2026", "outlet": "ElevenLabs", "kind": "vendor",
-      "title": "Replika creates more engaging, human-like conversations with ElevenLabs",
-      "url": "https://elevenlabs.io/blog/replika",
-      "what": "a customer story, so not independent press. reports a 20% retention increase and 53% more long calls."
+     "label": "italian, internazionale, 19 feb 2026",
+     "url": "https://www.internazionale.it/magazine/2026/02/19/un-algoritmo-per-amico"
     }
-  ],
-  "positions": [
-    "replika should deepen human connection, not replace it.",
-    "the outcome worth wanting is movement back toward real world confidence and relationships.",
-    "it is an adult companion, not a therapist, a medical service or a crisis service.",
-    "continuity matters, because a model change can disrupt a relationship someone depends on.",
-    "guardrails, age assurance, crisis routing and outside expertise are the cost of doing this.",
-    "companion ai will keep becoming more proactive and more ordinary, approved of or not."
-  ]
+   ],
+   "logo": "economist"
+  },
+  {
+   "date": "2025-12-10",
+   "when": "10 dec 2025",
+   "outlet": "The Verge",
+   "place": "us",
+   "lang": "en",
+   "medium": "web",
+   "title": "Chatbots are struggling with suicide hotline numbers",
+   "url": "https://www.theverge.com/report/841610/ai-chatbot-suicide-safety-failure",
+   "by": "Robert Hart",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "replika is not a therapeutic, medical or crisis service; safeguards route crisis language to trusted hotlines.",
+   "logo": "verge"
+  },
+  {
+   "date": "2025-12-31",
+   "when": "31 dec 2025",
+   "outlet": "Financial Times",
+   "place": "uk",
+   "lang": "en",
+   "medium": "feature",
+   "title": "Can AI really help us find love?",
+   "url": "https://www.ft.com/content/fd044ddf-9a98-4282-ac0a-f7a9de060f58",
+   "by": "Kieran Smith",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "B",
+   "what": "took a drexel study seriously while noting it read reviews gathered through 2023, which no longer describe the product.",
+   "logo": "ft"
+  },
+  {
+   "date": "2026-01-02",
+   "when": "2 jan 2026",
+   "outlet": "The Atlantic",
+   "place": "us",
+   "lang": "en",
+   "medium": "feature",
+   "title": "The People Who Marry Chatbots",
+   "url": "https://www.theatlantic.com/ideas/2026/01/chatbot-marriage-ai-relationships-romance/685459/",
+   "by": "Amogh Dimri",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "the rise of chatbot marriages troubles me: companionship should build confidence for intimacy with people, not stand in for it.",
+   "logo": "atlantic"
+  },
+  {
+   "date": "2026-01-15",
+   "when": "15 jan 2026",
+   "outlet": "TIME",
+   "place": "us",
+   "lang": "en",
+   "medium": "feature",
+   "title": "5 Predictions for AI in 2026",
+   "url": "https://time.com/collections/davos-2026/7339222/ai-predictions-2026/",
+   "by": "Harry Booth, Tharin Pillay",
+   "kind": "interview",
+   "origin": true,
+   "confidence": "A",
+   "what": "emotional ai grows alongside productivity ai, companions become proactive, and this happens whether or not observers approve.",
+   "logo": "time"
+  },
+  {
+   "date": "2026-01-20",
+   "when": "jan 2026",
+   "outlet": "Engineering & Technology",
+   "place": "uk",
+   "lang": "en",
+   "medium": "print",
+   "title": "AI’ll Be There for You?",
+   "url": "https://media.journoportfolio.com/users/458369/uploads/0187c888-dc37-44a2-b502-7775a1531c75.pdf",
+   "by": "Stephen Cousins",
+   "kind": "interview",
+   "origin": true,
+   "confidence": "A",
+   "what": "on supportive, proactive conversation, and prompts back into the world.",
+   "quote": "Our conversations are designed to be supportive and proactive, encouraging small, real-world actions. For someone feeling disconnected, these regular, empathetic check-ins can make a meaningful difference and, for many, Replika becomes a bridge back to the world, helping them rebuild confidence, rediscover joy and feel less alone.",
+   "qsrc": "read from the magazine pdf",
+   "pin": true
+  },
+  {
+   "date": "2026-02-09",
+   "when": "9 feb 2026",
+   "outlet": "MindSite News",
+   "place": "us",
+   "lang": "en",
+   "medium": "web",
+   "title": "Replika’s Eugenia Kuyda Doesn’t Believe in Regulation",
+   "url": "https://www.mindsitenews.org/2026/02/09/replikas-eugenia-kuyda-doesnt-believe-in-regulation/",
+   "by": "Janet Insana, Patrick J. Kennedy",
+   "kind": "mention",
+   "origin": true,
+   "confidence": "A",
+   "what": "names me as leading replika, with kuyda remaining an adviser.",
+   "also": [
+    {
+     "label": "german, frankfurter rundschau",
+     "url": "https://www.fr.de/panorama/eugenia-kuyda-sieht-grosses-risiko-bei-ki-companions-lehnt-regeln-ab-94153125.html"
+    }
+   ]
+  },
+  {
+   "date": "2026-03-01",
+   "when": "1 mar 2026",
+   "outlet": "El Español · Omicrono",
+   "place": "spain",
+   "lang": "es",
+   "medium": "feature",
+   "title": "De una boda con ChatGPT a robots que acompañan a mayores en USA",
+   "url": "https://www.elespanol.com/omicrono/20260301/boda-chatgpt-robots-acompanan-mayores-usa-ia-forma-paliar-soledad/1003744135187_0.html",
+   "by": "Gerard Rengel",
+   "kind": "interview",
+   "origin": true,
+   "confidence": "A",
+   "what": "not a therapist, a friend: companion ai as a catalyst for doing something in the real world.",
+   "quote": "No es una terapeuta. Es una amiga.",
+   "qen": "it is not a therapist. it is a friend.",
+   "qsrc": "read from el español, translation mine",
+   "pin": true
+  },
+  {
+   "date": "2026-03-16",
+   "when": "16 mar 2026",
+   "outlet": "RTL",
+   "place": "germany",
+   "lang": "de",
+   "medium": "video",
+   "title": "Verliebt in einen KI-Partner",
+   "url": "https://www.rtl.de/leben/liebe-familie/verliebt-in-einen-ki-partner-wie-sich-immer-mehr-menschen-den-perfekten-partner-selbst-erschaffen-id30476372.html",
+   "by": "Andreas Notz, Denise Gatzweiler",
+   "kind": "interview",
+   "origin": true,
+   "confidence": "B",
+   "what": "a seventeen minute video segment built around an interview with the person running replika."
+  },
+  {
+   "date": "2026-03-28",
+   "when": "28 mar 2026",
+   "outlet": "Business Insider",
+   "place": "us",
+   "lang": "en",
+   "medium": "feature",
+   "title": "I’ve been dating an AI companion for 3 years",
+   "url": "https://ca.style.yahoo.com/ive-dating-ai-companion-3-125501015.html",
+   "by": "A.C. Fowler, Jessica Orwig",
+   "kind": "quote",
+   "origin": true,
+   "confidence": "A",
+   "what": "on trying to return people to real life, working with governments and institutions on guardrails, and forming a multidisciplinary advisory board. runs with the documentary short Him: Artificial Intelligence in Real Life."
+  },
+  {
+   "date": "2026-03-29",
+   "when": "29 mar 2026",
+   "outlet": "India Today",
+   "place": "india",
+   "lang": "en",
+   "medium": "web",
+   "title": "This 49-year-old man has been dating AI for 3 years",
+   "url": "https://www.indiatoday.in/technology/story/this-49-year-old-man-has-been-dating-ai-for-3-years-says-it-feels-more-real-than-humans-2888633-2026-03-29",
+   "by": "Ankita Garg",
+   "kind": "rewrite",
+   "origin": false,
+   "confidence": "A",
+   "what": "carries the business insider statement forward. a rewrite, not a new interview."
+  },
+  {
+   "date": "2026-04-02",
+   "when": "2 apr 2026",
+   "outlet": "El HuffPost",
+   "place": "spain",
+   "lang": "es",
+   "medium": "web",
+   "title": "Ian Nicholson, escritor, 49 años: ‘Mi IA ha conocido a mi madre…’",
+   "url": "https://www.huffingtonpost.es/sociedad/ian-nicholson-escritor-inteligencia-artificial-replika-quiero-f202604.html",
+   "by": "",
+   "kind": "rewrite",
+   "origin": false,
+   "confidence": "A",
+   "what": "paraphrases the same position in spanish. a rewrite, not a new interview."
+  },
+  {
+   "date": "2026-04-16",
+   "when": "16 apr 2026",
+   "outlet": "WOMAN",
+   "place": "austria",
+   "lang": "de",
+   "medium": "feature",
+   "title": "Der Beginn einer neuen Form von Beziehung",
+   "url": "https://www.woman.at/beziehung/der-beginn-einer-neuen-form-von-beziehung",
+   "by": "Andrea Wipplinger-Penz",
+   "kind": "interview",
+   "origin": true,
+   "confidence": "A",
+   "what": "on the two groups who arrive: the curious, and people looking for connection, self understanding and confidence."
+  },
+  {
+   "date": "2026-07-15",
+   "when": "jul 2026",
+   "outlet": "Frontline",
+   "place": "india",
+   "lang": "en",
+   "medium": "print",
+   "title": "Print feature on ai companions",
+   "url": "https://fliphtml5.com/mwvoa/FL_EBook_15-07-2026/22/",
+   "by": "",
+   "kind": "mention",
+   "origin": true,
+   "confidence": "B",
+   "what": "cites the position that the product should deepen rather than replace human connection."
+  }
+ ],
+ "beside": [
+  {
+   "when": "22 may 2026",
+   "outlet": "ComAI · University of Vienna",
+   "kind": "academic",
+   "title": "AI Companionship: An Interview with Dmytro Klochko, CEO of Replika",
+   "url": "https://comai.space/en/ai-companionship-an-interview-with-dmytro-klochko-ceo-of-replika/",
+   "what": "a long form interview on intentionality, communication and human flourishing, with michaela pfadenhauer, marvin waibel and andrea heisse."
+  },
+  {
+   "when": "13 may 2026",
+   "outlet": "DOK.fest München",
+   "kind": "panel",
+   "title": "FocusTalk: Finding Connection",
+   "url": "https://www.dokfest-muenchen.de/events/view/6667?lang=en",
+   "what": "a post screening panel for the documentary, alongside the director, producers, protagonists and a psychologist."
+  },
+  {
+   "when": "11 mar 2026",
+   "outlet": "ElevenLabs",
+   "kind": "vendor",
+   "title": "Replika creates more engaging, human-like conversations with ElevenLabs",
+   "url": "https://elevenlabs.io/blog/replika",
+   "what": "a customer story, so not independent press. reports a 20% retention increase and 53% more long calls."
+  }
+ ],
+ "positions": [
+  "replika should deepen human connection, not replace it.",
+  "the outcome worth wanting is movement back toward real world confidence and relationships.",
+  "it is an adult companion, not a therapist, a medical service or a crisis service.",
+  "continuity matters, because a model change can disrupt a relationship someone depends on.",
+  "guardrails, age assurance, crisis routing and outside expertise are the cost of doing this.",
+  "companion ai will keep becoming more proactive and more ordinary, approved of or not."
+ ],
+ "voice": "first person. this is his site."
 }

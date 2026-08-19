@@ -4834,3 +4834,156 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 }
 
 [data-mode="dream"] .em-reading b { color: var(--hot); font-weight: 400; }
+
+/* ── press: the wall and the quotes ─────────────────────────────────────────
+   The wordmarks are the publishers' own, recoloured to one cream so the strip
+   reads as a set rather than nine competing brand palettes. They sit at one
+   optical weight, not one pixel height: a tall serif mark and a wide sans one
+   need different boxes to look the same size. */
+
+[data-mode="dream"] .pr-marks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3) var(--sp-4);
+  margin: var(--sp-4) 0 0;
+  /* The strip sits on its own shelf. The marks clear 7:1 on their own, but a
+     painting of a lit building behind nine small wordmarks is visual noise
+     rather than a contrast problem, and the shelf quiets it. */
+  padding: var(--sp-3) var(--sp-3);
+  background: rgb(18 22 38 / 52%);
+  border-top: 1px solid rgb(236 230 217 / 18%);
+  border-bottom: 1px solid rgb(236 230 217 / 18%);
+  list-style: none;
+}
+
+[data-mode="dream"] .pr-marks li {
+  display: flex;
+  align-items: center;
+  color: var(--bone);
+  opacity: 0.9;
+  transition: opacity var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .pr-marks li:hover { opacity: 1; }
+
+[data-mode="dream"] .pr-marks svg { max-width: 168px; }
+
+/* Height comes from the build, which sizes each mark by area rather than by
+   height, so a square roundel and a long masthead carry the same weight. */
+[data-mode="dream"] .pr-marks svg {
+  display: block;
+  width: auto;
+  height: var(--mh, 18px);
+  max-width: 150px;
+  fill: currentColor;
+}
+
+[data-mode="dream"] .pr-pinned { margin-top: var(--sp-5); }
+
+[data-mode="dream"] .pr-quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+
+[data-mode="dream"] .pr-quote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: var(--sp-3);
+  border: 1px solid rgb(236 230 217 / 18%);
+  border-top: 2px solid rgb(255 155 192 / 45%);
+  background: rgb(20 24 40 / 55%);
+}
+
+[data-mode="dream"] .pr-quote-mark {
+  display: block;
+  color: var(--bone);
+  opacity: 0.8;
+}
+
+[data-mode="dream"] .pr-quote-mark svg {
+  display: block;
+  width: auto;
+  height: var(--mh, 18px);
+  max-width: 130px;
+  fill: currentColor;
+}
+
+[data-mode="dream"] .pr-quote-name {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .pr-quote blockquote {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-lg);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+[data-mode="dream"] .pr-quote blockquote::before { content: "“"; }
+[data-mode="dream"] .pr-quote blockquote::after { content: "”"; }
+
+[data-mode="dream"] .pr-quote-en {
+  margin: 0;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+[data-mode="dream"] .pr-quote figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  align-items: baseline;
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  border-top: 1px solid rgb(236 230 217 / 12%);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.05em;
+}
+
+[data-mode="dream"] .pr-quote figcaption a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  color: var(--hot);
+  text-decoration: none;
+}
+
+[data-mode="dream"] .pr-quote figcaption a:hover { text-decoration: underline; }
+[data-mode="dream"] .pr-quote figcaption em { font-style: italic; opacity: 0.72; }
+
+/* the ledger row's own small mark */
+[data-mode="dream"] .pr-outlet--mark {
+  display: inline-flex;
+  align-items: center;
+  color: var(--bone);
+  opacity: 0.85;
+}
+
+[data-mode="dream"] .pr-outlet--mark svg {
+  display: block;
+  width: auto;
+  height: var(--mh, 14px);
+  max-width: 104px;
+  fill: currentColor;
+}
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .pr-marks { gap: var(--sp-2) var(--sp-3); }
+  [data-mode="dream"] .pr-marks svg { height: calc(var(--mh, 18px) * 0.85); max-width: 108px; }
+}
