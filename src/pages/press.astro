@@ -60,12 +60,10 @@ const description =
     {pinned.length > 0 && (
       <section class="pr-pinned" aria-labelledby="said">
         <h2 class="pr-head-2" id="said">in my own words</h2>
+        <p class="today-how">the four i can quote exactly.</p>
         <div class="pr-quotes">
           {pinned.map((p) => (
             <figure class="pr-quote">
-              {p.logo && logos[p.logo]
-                ? <span class="pr-quote-mark" style={`--mh:${logos[p.logo].h}px`} set:html={logos[p.logo].svg} />
-                : <span class="pr-quote-name">{p.outlet}</span>}
               <blockquote>{p.quote}</blockquote>
               {p.qen && <p class="pr-quote-en">{p.qen}</p>}
               <figcaption>
@@ -87,26 +85,27 @@ const description =
         <ol class="pr-list">
           {press.filter((p) => p.date.startsWith(y)).map((p) => (
             <li class="pr-row" data-kind={p.kind}>
-              <p class="pr-head">
-                {p.logo && logos[p.logo]
-                  ? <b class="pr-outlet pr-outlet--mark" style={`--mh:${Math.round(logos[p.logo].h * 0.78)}px`} set:html={logos[p.logo].svg} />
-                  : <b class="pr-outlet">{p.outlet}</b>}
-                <i class="pr-when">{p.when}</i>
-                <span class="pr-kind">{KIND[p.kind]}</span>
-              </p>
-              <a class="pr-title" href={p.url} target="_blank" rel="noreferrer">
-                {p.title}<span class="arw" aria-hidden="true">↗</span>
-              </a>
-              <p class="pr-what">{p.what}</p>
-              <p class="pr-meta">
-                {p.by && <b>{p.by}</b>}
-                <span>{p.place}</span>
-                <span>{p.lang}</span>
-                <span>{p.medium}</span>
-                {p.also && p.also.map((a) => (
-                  <a href={a.url} target="_blank" rel="noreferrer">{a.label}<span class="arw" aria-hidden="true">↗</span></a>
-                ))}
-              </p>
+              <i class="pr-when">{p.when}</i>
+              {/* Names, not marks. A wordmark shrunk to fit this column reads
+                  weaker than the plain name beside it, and the wall above
+                  already does the job a logo is for. */}
+              <span class="pr-mark"><b class="pr-outlet">{p.outlet}</b></span>
+              <span class="pr-piece">
+                <a class="pr-title" href={p.url} target="_blank" rel="noreferrer">
+                  {p.title}<span class="arw" aria-hidden="true">↗</span>
+                </a>
+                <span class="pr-what">{p.what}</span>
+                {(p.by || p.lang !== "en" || (p.also && p.also.length)) && (
+                  <span class="pr-meta">
+                    {p.by && <b>{p.by}</b>}
+                    {p.lang !== "en" && <span>{p.lang}</span>}
+                    {p.also && p.also.map((a) => (
+                      <a href={a.url} target="_blank" rel="noreferrer">{a.label}<span class="arw" aria-hidden="true">↗</span></a>
+                    ))}
+                  </span>
+                )}
+              </span>
+              <span class="pr-kind">{KIND[p.kind]}</span>
             </li>
           ))}
         </ol>
@@ -150,6 +149,15 @@ const description =
       translations and syndications are folded in. broadcast that never
       reached a public page is not listed, because it cannot be checked.
     </p>
+
+    <h2 class="pr-head-2">get in touch</h2>
+    <ul class="pr-contact">
+      <li><span>press and everything else</span><a href="mailto:1@dmklochko.com">1@dmklochko.com</a></li>
+      <li><span>replika</span><a href="mailto:1@replika.com">1@replika.com</a></li>
+      <li><span>x</span><a href="https://x.com/dkreplika" target="_blank" rel="noreferrer">@dkreplika<span class="arw" aria-hidden="true">↗</span></a></li>
+      <li><span>instagram</span><a href="https://instagram.com/dmytrotoday" target="_blank" rel="noreferrer">@dmytrotoday<span class="arw" aria-hidden="true">↗</span></a></li>
+      <li><span>telegram</span><a href="https://t.me/deoparis" target="_blank" rel="noreferrer">@deoparis<span class="arw" aria-hidden="true">↗</span></a></li>
+    </ul>
 
     <a class="onward onward--back" href="/">
       <span class="arw" aria-hidden="true">↖</span><span>back to the main page</span>
