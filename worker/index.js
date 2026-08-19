@@ -232,7 +232,7 @@ async function names(request, env, url) {
       : null;
     if (!key) return new Response("no such page", { status: 404, headers: PRIVATE });
 
-    const folio = env.VAULT && (await env.VAULT.get(key, { type: "text", cacheTtl: 3600 }));
+    const folio = env.VAULT && (await env.VAULT.get(key, { type: "text", cacheTtl: 60 }   // a folio edit should show up in a minute, not an hour));
     if (!folio) {
       return new Response(door("the folio is not loaded yet."), { status: 503, headers: PRIVATE });
     }
