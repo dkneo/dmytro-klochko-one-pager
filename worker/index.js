@@ -189,8 +189,8 @@ async function names(request, env, url) {
   // Never echo the raw path back into the page or a Location header. URL
   // parsing already escapes quotes, but the door only ever points at one of
   // two known places, so say so rather than trust the encoding.
-  const where =
-    url.pathname.toLowerCase().replace(/\/+$/, "") === "/names/ii" ? "/names/ii" : "/names";
+  const p = url.pathname.toLowerCase().replace(/\/+$/, "");
+  const where = p === "/names/old" ? "/names/old" : "/names";
 
   if (!env.NAMES_PASSWORD) {
     return new Response(door("the door is not configured yet."), { status: 503, headers: PRIVATE });
@@ -222,14 +222,17 @@ async function names(request, env, url) {
   if (sameSecret(cookieValue(request, COOKIE) || "", good)) {
     // Two volumes, one door. Anything else under /names is nothing.
     const path = url.pathname.toLowerCase().replace(/\/+$/, "");
-    // One document now. /names/ii was live for a while, so it redirects
-    // rather than breaking for anyone holding the link.
+    // /names/ii was live for a while, so it redirects rather than breaking
+    // for anyone holding the link.
     if (path === "/names/ii") {
       return new Response(null, { status: 301, headers: { location: "/names", ...PRIVATE } });
     }
-    if (path !== "/names") return new Response("no such page", { status: 404, headers: PRIVATE });
+    const key = path === "/names" ? "names:folio"
+      : path === "/names/old" ? "names:folio-old"
+      : null;
+    if (!key) return new Response("no such page", { status: 404, headers: PRIVATE });
 
-    const folio = env.VAULT && (await env.VAULT.get("names:folio", { type: "text", cacheTtl: 3600 }));
+    const folio = env.VAULT && (await env.VAULT.get(key, { type: "text", cacheTtl: 3600 }));
     if (!folio) {
       return new Response(door("the folio is not loaded yet."), { status: 503, headers: PRIVATE });
     }

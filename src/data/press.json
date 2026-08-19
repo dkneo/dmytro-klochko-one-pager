@@ -49,7 +49,8 @@
    "also": [
     {
      "label": "english edition, 22 jun",
-     "url": "https://english.elpais.com/economy-and-business/2025-06-22/your-loneliness-is-our-business-the-multi-million-dollar-industry-of-social-isolation.html?outputType=amp"
+     "url": "https://english.elpais.com/economy-and-business/2025-06-22/your-loneliness-is-our-business-the-multi-million-dollar-industry-of-social-isolation.html?outputType=amp",
+     "lang": "en"
     }
    ],
    "logo": "elpais"
@@ -260,7 +261,8 @@
    "also": [
     {
      "label": "italian, internazionale, 19 feb 2026",
-     "url": "https://www.internazionale.it/magazine/2026/02/19/un-algoritmo-per-amico"
+     "url": "https://www.internazionale.it/magazine/2026/02/19/un-algoritmo-per-amico",
+     "lang": "it"
     }
    ],
    "logo": "economist"
@@ -295,7 +297,14 @@
    "origin": true,
    "confidence": "B",
    "what": "took a drexel study seriously while noting it read reviews gathered through 2023, which no longer describe the product.",
-   "logo": "ft"
+   "logo": "ft",
+   "also": [
+    {
+     "label": "chinese full text",
+     "url": "https://m.sohu.com/a/971626301_211762",
+     "lang": "zh"
+    }
+   ]
   },
   {
    "date": "2026-01-02",
@@ -311,7 +320,14 @@
    "origin": true,
    "confidence": "A",
    "what": "the rise of chatbot marriages troubles me: companionship should build confidence for intimacy with people, not stand in for it.",
-   "logo": "atlantic"
+   "logo": "atlantic",
+   "also": [
+    {
+     "label": "german, süddeutsche zeitung",
+     "url": "https://www.sueddeutsche.de/projekte/artikel/gesellschaft/the-people-who-marry-chatbots-e206588/?reduced=true",
+     "lang": "de"
+    }
+   ]
   },
   {
    "date": "2026-01-15",
@@ -364,7 +380,8 @@
    "also": [
     {
      "label": "german, frankfurter rundschau",
-     "url": "https://www.fr.de/panorama/eugenia-kuyda-sieht-grosses-risiko-bei-ki-companions-lehnt-regeln-ab-94153125.html"
+     "url": "https://www.fr.de/panorama/eugenia-kuyda-sieht-grosses-risiko-bei-ki-companions-lehnt-regeln-ab-94153125.html",
+     "lang": "de"
     }
    ]
   },
@@ -415,7 +432,14 @@
    "kind": "quote",
    "origin": true,
    "confidence": "A",
-   "what": "on trying to return people to real life, working with governments and institutions on guardrails, and forming a multidisciplinary advisory board. runs with the documentary short Him: Artificial Intelligence in Real Life."
+   "what": "on trying to return people to real life, working with governments and institutions on guardrails, and forming a multidisciplinary advisory board. runs with the documentary short Him: Artificial Intelligence in Real Life.",
+   "also": [
+    {
+     "label": "german edition",
+     "url": "https://www.businessinsider.de/leben/3-jahre-beziehung-mein-ki-freund-hat-meine-mutter-kennengelernt/",
+     "lang": "de"
+    }
+   ]
   },
   {
    "date": "2026-03-29",

@@ -13,9 +13,11 @@ const pinned = press.filter((p) => p.pin);
 const WALL = ["cnn", "time", "economist", "nature", "ft", "atlantic", "verge", "elpais", "abc"];
 const years = [...new Set(press.map((p) => p.date.slice(0, 4)))].sort().reverse();
 
-const places = new Set(press.map((p) => p.place));
-const langs = new Set(press.map((p) => p.lang));
-const first = [...press].reverse()[0];
+const langs = new Set([
+  ...press.map((p) => p.lang),
+  ...press.flatMap((p) => (p.also || []).map((a) => a.lang).filter(Boolean)),
+]);
+const interviews = press.filter((p) => p.kind === "interview").length;
 
 // The ledger's own words for each class, so a reader knows what they are
 // looking at without having to infer it from the summary.
@@ -45,9 +47,8 @@ const description =
 
     <dl class="pr-facts">
       <div><dt>pieces</dt><dd>{press.length}</dd></div>
-      <div><dt>countries</dt><dd>{places.size}</dd></div>
+      <div><dt>interviews</dt><dd>{interviews}</dd></div>
       <div><dt>languages</dt><dd>{langs.size}</dd></div>
-      <div><dt>since</dt><dd>{first.when.split(" ").slice(-2).join(" ")}</dd></div>
     </dl>
 
     <ul class="pr-marks" aria-label="outlets">
@@ -59,11 +60,6 @@ const description =
     {pinned.length > 0 && (
       <section class="pr-pinned" aria-labelledby="said">
         <h2 class="pr-head-2" id="said">in my own words</h2>
-        <p class="today-how">
-          four i can quote exactly, because i went back to the piece and read
-          it. everywhere else on this page you get what was said, not a
-          sentence dressed up in quote marks.
-        </p>
         <div class="pr-quotes">
           {pinned.map((p) => (
             <figure class="pr-quote">
