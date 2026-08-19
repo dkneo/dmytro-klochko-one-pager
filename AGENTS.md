@@ -266,3 +266,48 @@ vastness, weight and grace. Everything is filed by feeling, not by kind.
   question: the pond should be **pale paper, not dark**, because Hoji painted
   the frog's belly in light wash and it cuts out hollow on a dark ground.
 - `/today` ships 119KB of HTML (inlines all days). Not slow yet.
+
+---
+
+## 11. Two agents, one repo
+
+Codex and Claude both work here. Git protects files — two edits to the same
+`.astro` collide on push and someone merges. **KV has no such protection:**
+two writes to `names:folio` and the second silently wins.
+
+**Claim before any KV write.** The lock lives in KV and expires by itself
+after two hours, because a forgotten lock is worse than the collision.
+
+```bash
+node scripts/lock.mjs status
+node scripts/lock.mjs claim names "swapping the esse illustration"
+node scripts/lock.mjs release names
+```
+
+Set `AGENT=codex` in the environment so the lock says who holds it. Lockable:
+`names`, `ask`, `eidos`, `vault`.
+
+### Handing work over: `drop/`
+
+Do not export a zip and send it through chat. Write the file into `drop/` and
+the other agent picks it up:
+
+```bash
+node scripts/drop.mjs          # what is waiting, and where each thing goes
+node scripts/drop.mjs --file   # put them where they belong
+```
+
+Name the file for where it belongs and the pickup needs no explanation:
+
+```
+scene-ember.jpg        → public/images/scenes/ember.webp
+press-logo-nature.svg  → the press wordmarks
+pond-frog.png          → the pond game
+wall-kurosawa.jpg      → the wall on the main page
+names-folio.html       → KV names:folio
+note-anything.md       → just read it
+```
+
+Anything else: drop it and say what it is in `drop/notes.md`. `drop/` is
+gitignored apart from its README, so raw material stays off the public repo.
+Read `drop/README.md`.

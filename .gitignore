@@ -41,3 +41,7 @@ yarn-error.log*
 
 # wrangler local dev state (may cache private responses)
 /.wrangler/
+
+# the handoff folder: raw material stays local, the readme is tracked
+/drop/*
+!/drop/README.md
