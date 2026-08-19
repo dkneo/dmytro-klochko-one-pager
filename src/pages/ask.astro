@@ -1,0 +1,182 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// The request desk. Stella files changes here and they land in KV, where the
+// next working session picks them up.
+//
+// Two rules shape it:
+//
+//   Structured, not prose. "Add this link, remove that section, reorder
+//   these" arrives unambiguous if the form asks for the parts separately. A
+//   free-text box is still there for anything that does not fit, but it is
+//   the exception rather than the shape.
+//
+//   Nothing is ever overwritten. A request is immutable once filed; every
+//   status change is appended as an event with its own timestamp. The history
+//   is the point: she can see what happened to something she asked for three
+//   weeks ago, and so can he.
+//
+// The page is served only to someone holding the door cookie. Its own
+// password, not the folio's, so the two audiences stay separate.
+
+const title = "ask · dmytro klochko";
+const description = "file a change.";
+---
+
+<Layout title={title} description={description} current="home" scenes={["study"]} unlisted>
+  <section class="shell session askdesk" aria-labelledby="ak">
+    <div class="card">
+      <h1 class="card-title" id="ak">ask</h1>
+    </div>
+
+    <p class="today-how">
+      file a change to the site. be specific and it gets done exactly; be
+      vague and it comes back as a question. everything filed here is kept,
+      including what happened to it.
+    </p>
+
+    <form class="ask-form" id="askform">
+      <div class="ask-row">
+        <label class="ask-field">
+          <span>what kind</span>
+          <select name="kind" required>
+            <option value="add">add something</option>
+            <option value="remove">remove something</option>
+            <option value="reorder">reorder things</option>
+            <option value="copy">change wording</option>
+            <option value="fix">something is broken</option>
+            <option value="other">something else</option>
+          </select>
+        </label>
+
+        <label class="ask-field">
+          <span>which page</span>
+          <select name="page" required>
+            <option value="/">the main page</option>
+            <option value="/press">press</option>
+            <option value="/today">today</option>
+            <option value="/learning">learning</option>
+            <option value="/hokku">hokku</option>
+            <option value="/eidos">eidos</option>
+            <option value="/names">names</option>
+            <option value="/basho">bashō</option>
+            <option value="site">the whole site</option>
+            <option value="unsure">not sure</option>
+          </select>
+        </label>
+
+        <label class="ask-field">
+          <span>how urgent</span>
+          <select name="urgency">
+            <option value="whenever">whenever</option>
+            <option value="this week">this week</option>
+            <option value="today">today</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="ask-field ask-field--wide">
+        <span>where exactly</span>
+        <input type="text" name="where" autocomplete="off"
+               placeholder="the section, the heading, the row. anything that points at it." />
+      </label>
+
+      <label class="ask-field ask-field--wide">
+        <span>what should happen</span>
+        <textarea name="what" rows="4" required
+                  placeholder="the link to add, the new wording in full, the order you want. exact words save a round trip."></textarea>
+      </label>
+
+      <label class="ask-field ask-field--wide">
+        <span>who is asking</span>
+        <input type="text" name="who" autocomplete="off" placeholder="your name" required />
+      </label>
+
+      <div class="ask-do">
+        <button type="submit">file it</button>
+        <span class="ask-note" id="askmsg"></span>
+      </div>
+    </form>
+
+    <h2 class="ask-head">what has been asked</h2>
+    <p class="today-how" id="askcount">loading…</p>
+    <ol class="ask-list" id="asklist"></ol>
+
+    <a class="onward onward--back" href="/">
+      <span class="arw" aria-hidden="true">↖</span><span>back to the main page</span>
+    </a>
+  </section>
+
+  <script>
+    (() => {
+      const form = document.getElementById("askform");
+      const msg = document.getElementById("askmsg");
+      const list = document.getElementById("asklist");
+      const count = document.getElementById("askcount");
+      const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
+        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      const when = (iso) => {
+        const d = new Date(iso);
+        return isNaN(d) ? iso : d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }) +
+          " " + d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
+      };
+
+      async function draw() {
+        let d = null;
+        try {
+          const r = await fetch("/api/ask/list");
+          if (r.ok) d = await r.json();
+        } catch {}
+        if (!d) { count.textContent = "cannot reach the list right now."; return; }
+        const reqs = (d.requests || []).slice().reverse();
+        const open = reqs.filter((x) => (x.events.at(-1) || {}).status !== "done").length;
+        count.textContent = reqs.length
+          ? `${reqs.length} filed, ${open} still open. nothing here is ever deleted.`
+          : "nothing filed yet.";
+        list.innerHTML = reqs.map((x) => {
+          const last = x.events.at(-1) || {};
+          return `<li class="ask-item" data-status="${esc(last.status || "new")}">
+            <p class="ask-item-head">
+              <b>${esc(x.kind)}</b>
+              <i>${esc(x.page)}</i>
+              <span class="ask-status">${esc(last.status || "new")}</span>
+            </p>
+            ${x.where ? `<p class="ask-where">${esc(x.where)}</p>` : ""}
+            <p class="ask-what">${esc(x.what)}</p>
+            <p class="ask-meta">
+              <b>${esc(x.who)}</b><span>${esc(when(x.at))}</span>
+              ${x.urgency && x.urgency !== "whenever" ? `<em>${esc(x.urgency)}</em>` : ""}
+            </p>
+            ${x.events.length > 1 ? `<ol class="ask-history">${x.events.map((e) =>
+              `<li><span>${esc(when(e.at))}</span>${esc(e.status)}${e.note ? ": " + esc(e.note) : ""}</li>`
+            ).join("")}</ol>` : ""}
+          </li>`;
+        }).join("");
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const body = Object.fromEntries(new FormData(form).entries());
+        msg.textContent = "filing…";
+        try {
+          const r = await fetch("/api/ask/file", {
+            method: "POST", headers: { "content-type": "application/json" },
+            body: JSON.stringify(body),
+          });
+          const d = await r.json().catch(() => ({}));
+          if (r.ok) {
+            msg.textContent = "filed. it is on the list below.";
+            form.reset();
+            draw();
+          } else {
+            msg.textContent = d.error || "not saved.";
+          }
+        } catch {
+          msg.textContent = "not saved: the request did not get through.";
+        }
+      });
+
+      draw();
+    })();
+  </script>
+</Layout>

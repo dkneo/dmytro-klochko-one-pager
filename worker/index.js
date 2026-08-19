@@ -377,6 +377,111 @@ async function eidosWrite(request, env, url) {
   return json({ error: "no such route" }, 404);
 }
 
+
+// ── /ask ────────────────────────────────────────────────────────────────────
+//
+// The request desk. Its own password, not the folio's: the folio is shared
+// with people choosing a name, this is a working door for one assistant. One
+// password should never open both.
+//
+// The page is gated, not only the api, and the gate covers the whole /ask
+// prefix so the built asset cannot be fetched around it.
+//
+// Nothing is ever overwritten. A request is written once; every status change
+// appends an event, so a change of mind three weeks later still has a trail.
+
+const ASK_COOKIE = "ask_pass";
+
+async function askAuthed(request, env) {
+  if (!env.ASK_PASSWORD) return false;
+  const good = await passToken(env.ASK_PASSWORD);
+  return sameSecret(cookieValue(request, ASK_COOKIE) || "", good);
+}
+
+function askDoor(message) {
+  return door(message, "/ask")
+    .replace(">names</h1>", ">ask</h1>")
+    .replace("nineteen of them, considered as atmosphere. this one is not public yet.",
+             "the request desk. changes filed here get made.");
+}
+
+async function ask(request, env, url) {
+  if (!env.ASK_PASSWORD) {
+    return new Response(askDoor("the desk is not configured yet."), { status: 503, headers: PRIVATE });
+  }
+
+  if (request.method === "POST" && url.pathname.replace(/\/+$/, "") === "/ask") {
+    const form = await request.formData().catch(() => null);
+    if (sameSecret(String((form && form.get("password")) ?? ""), env.ASK_PASSWORD)) {
+      return new Response(null, {
+        status: 303,
+        headers: {
+          location: "/ask",
+          "set-cookie": ASK_COOKIE + "=" + (await passToken(env.ASK_PASSWORD)) +
+            "; Path=/; Max-Age=" + (60 * 60 * 24 * 30) + "; HttpOnly; Secure; SameSite=Lax",
+          ...PRIVATE,
+        },
+      });
+    }
+    await new Promise((r) => setTimeout(r, 700));
+    return new Response(askDoor("that is not it."), { status: 401, headers: PRIVATE });
+  }
+
+  if (!(await askAuthed(request, env))) {
+    return new Response(askDoor(""), { status: 401, headers: PRIVATE });
+  }
+
+  const asset = await env.ASSETS.fetch(new Request("https://x/ask/index.html"));
+  if (!asset.ok) return new Response("the desk page is not built", { status: 503, headers: PRIVATE });
+  return new Response(asset.body, { status: 200, headers: PRIVATE });
+}
+
+async function askApi(request, env, url) {
+  if (!env.VAULT) return json({ error: "no kv binding" }, 503);
+  if (!(await askAuthed(request, env))) return json({ error: "not signed in. open /ask first." }, 401);
+
+  const now = new Date().toISOString();
+  const all = (await env.VAULT.get("ask:requests", "json")) || [];
+
+  if (url.pathname.endsWith("/list")) return json({ requests: all });
+
+  if (url.pathname.endsWith("/file") && request.method === "POST") {
+    let b;
+    try { b = await request.json(); } catch { return json({ error: "bad json" }, 400); }
+    const clean = (v, n) => String(v ?? "").trim().slice(0, n);
+    const what = clean(b.what, 2000), who = clean(b.who, 80);
+    if (!what || !who) return json({ error: "say what should happen, and who is asking" }, 400);
+    const req = {
+      id: "r" + Date.now().toString(36),
+      kind: clean(b.kind, 20) || "other",
+      page: clean(b.page, 40) || "unsure",
+      urgency: clean(b.urgency, 20) || "whenever",
+      where: clean(b.where, 300),
+      what: what, who: who, at: now,
+      events: [{ status: "new", at: now, note: "" }],
+    };
+    all.push(req);
+    await env.VAULT.put("ask:requests", JSON.stringify(all.slice(-500)));
+    return json({ ok: true, id: req.id, total: all.length });
+  }
+
+  if (url.pathname.endsWith("/status") && request.method === "POST") {
+    let b;
+    try { b = await request.json(); } catch { return json({ error: "bad json" }, 400); }
+    const r = all.find((x) => x.id === b.id);
+    if (!r) return json({ error: "no such request" }, 404);
+    const status = String(b.status || "").trim();
+    if (["new", "doing", "done", "declined", "question"].indexOf(status) < 0) {
+      return json({ error: "status must be new, doing, done, declined or question" }, 400);
+    }
+    r.events.push({ status: status, at: now, note: String(b.note || "").slice(0, 500) });
+    await env.VAULT.put("ask:requests", JSON.stringify(all));
+    return json({ ok: true, id: r.id, events: r.events.length });
+  }
+
+  return json({ error: "no such route" }, 404);
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -385,6 +490,10 @@ export default {
     // fallthrough and matching the whole /names subtree, so nothing under it
     // can be reached another way.
     if (NAMES.test(url.pathname)) return names(request, env, url);
+
+    // The request desk, behind its own password.
+    if (url.pathname.startsWith("/api/ask/")) return askApi(request, env, url);
+    if (/^\/ask(?:\/|$)/i.test(url.pathname)) return ask(request, env, url);
 
     // The map: asking is a read, placing and pairing are writes.
     if (url.pathname === "/api/eidos/ask" && request.method === "POST") return eidosAsk(request, env);
