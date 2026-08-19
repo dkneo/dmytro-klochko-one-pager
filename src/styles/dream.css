@@ -798,6 +798,10 @@ html[data-scene="estuary"] .scenes .glints {
    than the campfire, which is the whole reason they are there. */
 .scenes i[data-s="nightcourt"] { background-image: url("/images/scenes/nightcourt.webp"); }
 .scenes i[data-s="study"] { background-image: url("/images/scenes/study.webp"); }
+/* One of his own, the darkest of the set: a night sky with an ember moon over
+   still water. It carries the press ledger, which is the densest reading on
+   the site and wanted the quietest sky. */
+.scenes i[data-s="ember"] { background-image: url("/images/scenes/ember.webp"); }
 
 html[data-scene="swim"] .scenes i[data-s="swim"],
 html[data-scene="fuji"] .scenes i[data-s="fuji"],
@@ -808,6 +812,7 @@ html[data-scene="lavender"] .scenes i[data-s="lavender"],
 html[data-scene="snow"] .scenes i[data-s="snow"],
 html[data-scene="estuary"] .scenes i[data-s="estuary"],
 html[data-scene="nightcourt"] .scenes i[data-s="nightcourt"],
+html[data-scene="ember"] .scenes i[data-s="ember"],
 html[data-scene="study"] .scenes i[data-s="study"] {
   opacity: 1;
 }
