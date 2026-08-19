@@ -193,8 +193,16 @@ Hard-won and non-obvious. Ignoring these produces confident wrong conclusions:
 - **Sections use `svh` units**, so resizing an iframe reflows everything and
   moves what you were measuring. Shift with `transform: translateY()` instead
   of changing height.
-- Astro **collapses whitespace** around `{expr}`. `from{count} waiting` renders
-  as "from23". Use `{" "}`. This has bitten three times.
+- Astro **collapses whitespace** around `{expr}` **and around inline tags on
+  their own source line**. `needs\n<b>a bit of ui</b>` renders as
+  "needsa bit of ui". This has bitten four times.
+  **Do not fix it with `{" "}` in lists** — use `display:flex; gap:` on the
+  container, so the layout does not depend on source whitespace at all. That
+  is what `.learn-queue li` does.
+  To find them, render the page and look for an inline element whose left edge
+  touches the previous text on the same line. A static scan of the HTML
+  over-reports badly: block-level children look joined in the markup and are
+  fine on screen. Check the rendered geometry, not the string.
 
 ### The CSS mistake made three times
 

@@ -2986,6 +2986,57 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 [data-mode="dream"] .learn-meta em { font-style: normal; }
 
+/* The reading queue. Laid out with a gap rather than source whitespace: astro
+   collapses the newlines between inline elements, so anything relying on them
+   renders as "emil kowalskitaste". */
+[data-mode="dream"] .learn-queue {
+  margin: var(--sp-2) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--sp-2);
+  max-width: var(--measure-wide);
+}
+
+[data-mode="dream"] .learn-queue li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.8rem;
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid rgb(236 230 217 / 12%);
+}
+
+[data-mode="dream"] .learn-queue a {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.35;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .learn-queue a:hover { color: var(--hot); border-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .learn-queue b,
+[data-mode="dream"] .learn-queue span {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+[data-mode="dream"] .learn-queue span { text-transform: uppercase; opacity: 0.75; }
+
+/* The section between the lede and the first subject had no rule, so the
+   only thing setting the gap was the heading's own top margin. */
+[data-mode="dream"] .learn-now { margin-top: var(--sp-4); }
+[data-mode="dream"] .learn-now:first-of-type { margin-top: var(--sp-3); }
+[data-mode="dream"] .learn-now .learn-subject { margin-top: 0; }
+[data-mode="dream"] .learn-now + .learn-now .learn-subject { margin-top: var(--sp-4); }
+
 [data-mode="dream"] .learn-empty {
   max-width: var(--measure);
   color: var(--dim);
