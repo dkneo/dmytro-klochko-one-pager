@@ -23,6 +23,21 @@ test("the image derivative pipeline is complete", () => {
   assert.equal(result.status, 0, result.stderr || result.stdout);
 });
 
+test("the derivative manifest records the complete renderer recipe", () => {
+  const manifest = JSON.parse(read("scripts/image-derivatives.json"));
+
+  assert.deepEqual(manifest.jobs["/images/thumbs/today/friedrich.webp"].recipe, {
+    width: 320,
+    height: 320,
+    fit: "cover",
+    position: "centre",
+    withoutEnlargement: true,
+    format: "webp",
+    quality: 76,
+    effort: 6,
+  });
+});
+
 test("the image derivative check rejects substituted pixels", async () => {
   const target = path.join(root, "public/images/thumbs/today/friedrich.webp");
   const original = fs.readFileSync(target);
@@ -40,6 +55,23 @@ test("the image derivative check rejects substituted pixels", async () => {
     assert.match(result.stderr, /content differs/);
   } finally {
     fs.writeFileSync(target, original);
+  }
+});
+
+test("the image derivative check rejects a changed source even when its decoded pixels match", () => {
+  const source = path.join(root, "public/images/today/friedrich.webp");
+  const original = fs.readFileSync(source);
+
+  try {
+    fs.appendFileSync(source, Buffer.from([0]));
+    const result = spawnSync(process.execPath, ["scripts/image-build.mjs", "--check"], {
+      cwd: root,
+      encoding: "utf8",
+    });
+    assert.notEqual(result.status, 0, "a changed source passed validation");
+    assert.match(result.stderr, /source differs/);
+  } finally {
+    fs.writeFileSync(source, original);
   }
 });
 

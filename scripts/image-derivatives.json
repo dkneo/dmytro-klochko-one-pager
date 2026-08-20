@@ -1,0 +1,604 @@
+{
+  "version": 1,
+  "jobs": {
+    "/images/thumbs/today/friedrich.webp": {
+      "src": "/images/today/friedrich.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "196bc333bc2454c6be0d533b1987bcae2ec1204af58c64b254c98eff99cd3ec8",
+      "outputSha256": "c68236681a42d5f212b2203843a2403dec8ca8518ce995d0bc0fdf1c81fda34e"
+    },
+    "/images/thumbs/today/monet.webp": {
+      "src": "/images/today/monet.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1714655da6c020653eff7dfb51807013633525568e03eb87d9a223e6ca44b0fc",
+      "outputSha256": "c9ed96bfae253735f4c2994f320eae1e4f5c5a39027bc0d2163c9aadf439643e"
+    },
+    "/images/thumbs/today/afklint.webp": {
+      "src": "/images/today/afklint.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d2fa05eb286bdab61b4bb5c761e72d1b742c0bb079c647ca04c8afe155647cd5",
+      "outputSha256": "03ae658946fe6c91a9bcbd19786050a557b8eb4100df071b85f5a38ea4190c1b"
+    },
+    "/images/thumbs/scenes/dock.webp": {
+      "src": "/images/scenes/dock.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a9e4f003af315d915bd342625e4c4275350c8aa2d2cf09e61d546288130532ff",
+      "outputSha256": "3f58926663cbcde25f7e89753d45daf52b0a484f6921420929d5249c765f66a7"
+    },
+    "/images/thumbs/scenes/estuary.webp": {
+      "src": "/images/scenes/estuary.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "290c47237877a0df57774f670851030512eac8d9850fec73dae24b84cf305f0c",
+      "outputSha256": "64d242e04f26e47c9335abd169f9eb5bc9f710586e3c3ade67d8bd70b39e39cb"
+    },
+    "/images/thumbs/scenes/fields.webp": {
+      "src": "/images/scenes/fields.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6c23b5130c9a1b406ee98a2a44de2d0a2c058134b69763081c50f0932a6385da",
+      "outputSha256": "4e6b0f902f5a84553281abc81821797157519e47883f56328ce3382c7e436b66"
+    },
+    "/images/thumbs/scenes/fire.webp": {
+      "src": "/images/scenes/fire.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8507cd23fb3e2028c53c7afa31ed2452c2fa03e4acf18cb75d7cef7b419bd142",
+      "outputSha256": "aab4672f753d875ee24e5e203726803685611c061b4817af554e81eb951924da"
+    },
+    "/images/thumbs/scenes/fuji.webp": {
+      "src": "/images/scenes/fuji.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8146e48b1b654634f193a053b4e53ad69fad1facf10c34faaaf1a94d579b7dcc",
+      "outputSha256": "b178cb0a928cfe5f9efa79652dbfea711380368a20cb77b540c43029b001e253"
+    },
+    "/images/thumbs/scenes/lavender.webp": {
+      "src": "/images/scenes/lavender.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7f21f2477f5ba123cc8c44b6ad5156772ad4f69a21fefc0a762cd4bdf3962137",
+      "outputSha256": "98e37d578841902bbe2499477b2355552c4dd6bb3651f161fe4cbd96c49c4f0c"
+    },
+    "/images/thumbs/scenes/nightcourt.webp": {
+      "src": "/images/scenes/nightcourt.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ec790ef94b9de36179793ea22c3ac9012130dbbf364cba1d9bab3443834fdc3a",
+      "outputSha256": "97d0d9b1256ff0b2acc03666b0c2001cbc6fc1b170726d2b81c5864fd8e432d7"
+    },
+    "/images/thumbs/scenes/snow.webp": {
+      "src": "/images/scenes/snow.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f3673745fb0e12fcf69a9bc64238fad70f1f5c962778541c1fa76c4267f8e37d",
+      "outputSha256": "efbd451323c384bf3b72440307fab62035bafc1c4eca3f339470ee1f606e3620"
+    },
+    "/images/thumbs/scenes/study.webp": {
+      "src": "/images/scenes/study.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "aaaca69f919a0083a7cc9f499600af15eb3d362370aa941ac4d1cfdc9ce3e9f5",
+      "outputSha256": "9636045e382bfbdf627f7f10befc40987c37fbc00406a6cea0de019d3d9d4f2d"
+    },
+    "/images/thumbs/scenes/swim.webp": {
+      "src": "/images/scenes/swim.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "46178135c9a02485eabc45eb2e2bbc19b0ed8c77b47a2c646ab896ebfef04a07",
+      "outputSha256": "80226d146ea77a8d51e505a8d9a1d080b639cbd68fc5a470053384ad538cc4c2"
+    },
+    "/images/thumbs/today/turner.webp": {
+      "src": "/images/today/turner.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e64745e28e7262eae39ee1a72e0fb02b94a077eabb49f58157108a611b8727cc",
+      "outputSha256": "5e77813d527a84a3d8bf580b650935e480da3da14823e9dbe908e95290d225cf"
+    },
+    "/images/thumbs/today/turner-staffa.webp": {
+      "src": "/images/today/turner-staffa.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c9cd3f6b1f2ddf2fcd0e607c42b47ca0754843a62ea8e9b7e40ac3149bed888b",
+      "outputSha256": "c2af0d40d46e1ee9308236781b35e9d828a37c337f510c0fbe5855da44c594b1"
+    },
+    "/images/thumbs/today/whistler.webp": {
+      "src": "/images/today/whistler.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "5402b161b1cd14a5f7d12e9e44f7c9c0c6f22e261a137f3a7581b963236f54e9",
+      "outputSha256": "9eb97b4c0a3d2731ad4101d9ef78a1a8b43a1398cce4315ca9eafa43defdd860"
+    },
+    "/images/thumbs/today/chardin.webp": {
+      "src": "/images/today/chardin.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f2330af0638a26a58f664c0fc7484a88ff1690eaec2bfc205c47aae2cceeac79",
+      "outputSha256": "ab37da2ce9df02921fc53f97df9c83cee02a79407f389f3995e7071df24ae277"
+    },
+    "/images/thumbs/today/hammershoi.webp": {
+      "src": "/images/today/hammershoi.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "40e55880213f333c240906c2f2e747eda6658310a8b61a6d50f4250026b2361b",
+      "outputSha256": "1a358aff8b526335d7695030170ff8a77c810aa47d66c2776a8ba5f59fcab6e8"
+    },
+    "/images/thumbs/wall/w15.webp": {
+      "src": "/images/wall/w15.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "74d60461cdf969946d969882e88b66c22c5ee066db944d170b58108a66c386e1",
+      "outputSha256": "1ef3efd28a013821b823073c60a796c837f79d0ad2481c094eee3231bd60a108"
+    },
+    "/images/thumbs/wall/w13.webp": {
+      "src": "/images/wall/w13.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "abf0ffe4cbca16d324dcad465afa1c3961d616eb69646bc3291ba57fb355fca4",
+      "outputSha256": "3929a517b4e8e8b38219249537fbddfa5b574d7f7b48c7ccecb3a68d85e2bd8b"
+    },
+    "/images/thumbs/wall/w16.webp": {
+      "src": "/images/wall/w16.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a665228a59920a6731ae97b5aa2d13a31a72f6d664fe5b089837193ecc8f1778",
+      "outputSha256": "fa548a3d98f56d0ddd9be469faa86136109611ec48205b465246af5a6c4c5f8c"
+    },
+    "/images/thumbs/wall/w01.webp": {
+      "src": "/images/wall/w01.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c2521226f1c89402c0bf4421160f973caac1be11c629a94b6a11ccddf6974212",
+      "outputSha256": "7f50667d9de5d7951dc2de28a64995a71b833218588968779768694a190537fa"
+    },
+    "/images/thumbs/wall/w05.webp": {
+      "src": "/images/wall/w05.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a576156ede39ce834e9ae71d674ad3ab635e7c7d7f1b632253efa3b42c51db05",
+      "outputSha256": "b7f1ce9ef12a71febd587c74f041a9cf3c88b33452181a49c29088bae95f0516"
+    },
+    "/images/thumbs/wall/w08.webp": {
+      "src": "/images/wall/w08.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "18ace225d44ea9fd8d77a6459baca38db0b7e28b04336fdff604593cc93ff025",
+      "outputSha256": "9a86b63e2098098325911c6619621654329595e2d5dde85731f527e281080b9a"
+    },
+    "/images/thumbs/wall/w14.webp": {
+      "src": "/images/wall/w14.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a925e2b1f70554b064e5dad34c35b3467f61a410fd4fb2cee43d194120004877",
+      "outputSha256": "4c0e2bf27fbdae8761f6cac39da17b9440b3884c5c7f5e23e974b1ec9ccd1a3b"
+    },
+    "/images/responsive/today/hammershoi-480.webp": {
+      "src": "/images/today/hammershoi.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "40e55880213f333c240906c2f2e747eda6658310a8b61a6d50f4250026b2361b",
+      "outputSha256": "b79c101056f5bb24b3ac1189de6f68531458ddf9e7a520884a2e310d12e4aacb"
+    },
+    "/images/responsive/today/hammershoi-960.webp": {
+      "src": "/images/today/hammershoi.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "40e55880213f333c240906c2f2e747eda6658310a8b61a6d50f4250026b2361b",
+      "outputSha256": "944a2480e48713d743e716f4a62239f7bae115936bb053e9ae17c5e228633e4c"
+    },
+    "/images/responsive/today/turner-480.webp": {
+      "src": "/images/today/turner.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e64745e28e7262eae39ee1a72e0fb02b94a077eabb49f58157108a611b8727cc",
+      "outputSha256": "d4343d445bf1482151414b9d3d7802e9d4d707271917a235683bc94995bdc233"
+    },
+    "/images/responsive/today/turner-960.webp": {
+      "src": "/images/today/turner.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e64745e28e7262eae39ee1a72e0fb02b94a077eabb49f58157108a611b8727cc",
+      "outputSha256": "cd658840ee883dfe5b23f08b25db9928d2fb78cdb090a8c1b2c928df60c5a89e"
+    },
+    "/images/responsive/today/monet-480.webp": {
+      "src": "/images/today/monet.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1714655da6c020653eff7dfb51807013633525568e03eb87d9a223e6ca44b0fc",
+      "outputSha256": "edfa91502eec84304ca850be9c1277b21db984dba98ddd79ee88f91948aba2dd"
+    },
+    "/images/responsive/today/monet-960.webp": {
+      "src": "/images/today/monet.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1714655da6c020653eff7dfb51807013633525568e03eb87d9a223e6ca44b0fc",
+      "outputSha256": "ccd21bc63f81252d9fcaded40c376be8dc161fbbea57b02eb8130fbf096e0e8a"
+    },
+    "/images/responsive/today/turner-staffa-480.webp": {
+      "src": "/images/today/turner-staffa.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c9cd3f6b1f2ddf2fcd0e607c42b47ca0754843a62ea8e9b7e40ac3149bed888b",
+      "outputSha256": "30fa4c7cbdfd7b1b13ba7309fb6062006e9d4862165fa3db93a6bd885b05b480"
+    },
+    "/images/responsive/today/turner-staffa-960.webp": {
+      "src": "/images/today/turner-staffa.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c9cd3f6b1f2ddf2fcd0e607c42b47ca0754843a62ea8e9b7e40ac3149bed888b",
+      "outputSha256": "d373bdf3647c662e1b52c49cc82bdfbf584f341e4c3e74638fd2445cc30f8770"
+    },
+    "/images/responsive/today/whistler-480.webp": {
+      "src": "/images/today/whistler.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "5402b161b1cd14a5f7d12e9e44f7c9c0c6f22e261a137f3a7581b963236f54e9",
+      "outputSha256": "f5fd5504038cc15a2af074a9b4e28464d68d38213b75d7207d7af612e4370046"
+    },
+    "/images/responsive/today/whistler-960.webp": {
+      "src": "/images/today/whistler.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "5402b161b1cd14a5f7d12e9e44f7c9c0c6f22e261a137f3a7581b963236f54e9",
+      "outputSha256": "46c54485f0ae32cf8faae2fca72eee9c201ccfb980242d8baf62a8d9dbc47c45"
+    },
+    "/images/responsive/today/chardin-480.webp": {
+      "src": "/images/today/chardin.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f2330af0638a26a58f664c0fc7484a88ff1690eaec2bfc205c47aae2cceeac79",
+      "outputSha256": "7651b9c2a8c051f419dae39b9cd36297fa584754ce981e40f72def897759bcee"
+    },
+    "/images/responsive/today/chardin-960.webp": {
+      "src": "/images/today/chardin.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f2330af0638a26a58f664c0fc7484a88ff1690eaec2bfc205c47aae2cceeac79",
+      "outputSha256": "6e5aacba3715c543fd4583a16e47213c344cab34382877f51d6c6cd48ac685d3"
+    },
+    "/images/responsive/today/friedrich-480.webp": {
+      "src": "/images/today/friedrich.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "196bc333bc2454c6be0d533b1987bcae2ec1204af58c64b254c98eff99cd3ec8",
+      "outputSha256": "fccc79f924f1efce01bd867a47532a6173a92955b5163039c06fb927f75cc401"
+    },
+    "/images/responsive/today/friedrich-960.webp": {
+      "src": "/images/today/friedrich.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "196bc333bc2454c6be0d533b1987bcae2ec1204af58c64b254c98eff99cd3ec8",
+      "outputSha256": "0d98be424c0c24d0a4b5eff3d1559122d9627606f8fd3bb1343b780406ecf04e"
+    },
+    "/images/responsive/today/afklint-480.webp": {
+      "src": "/images/today/afklint.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d2fa05eb286bdab61b4bb5c761e72d1b742c0bb079c647ca04c8afe155647cd5",
+      "outputSha256": "4eff7ec63f9355155bb874d28e9dc639772fc72abbdfbdb0020d9fefaf731c79"
+    },
+    "/images/responsive/today/afklint-960.webp": {
+      "src": "/images/today/afklint.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d2fa05eb286bdab61b4bb5c761e72d1b742c0bb079c647ca04c8afe155647cd5",
+      "outputSha256": "83a9b402ddf06970e7266477ff17c9f82b1716df7d8a094e51354de82f5715ea"
+    }
+  }
+}

@@ -7,6 +7,7 @@
 
 import fs from "node:fs";
 import fsp from "node:fs/promises";
+import crypto from "node:crypto";
 import path from "node:path";
 
 import sharp from "sharp";
@@ -14,6 +15,7 @@ import sharp from "sharp";
 const root = process.cwd();
 const apply = process.argv.includes("--apply");
 const check = process.argv.includes("--check");
+const manifestFile = path.join(root, "scripts/image-derivatives.json");
 
 if (apply && check) {
   console.error("choose --apply or --check, not both");
@@ -22,6 +24,17 @@ if (apply && check) {
 
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), "utf8"));
 const publicFile = (url) => path.join(root, "public", url.replace(/^\//, ""));
+const sha256 = (buffer) => crypto.createHash("sha256").update(buffer).digest("hex");
+const recipeFor = ({ width, height, fit, quality }) => ({
+  width,
+  ...(height ? { height } : {}),
+  fit,
+  position: "centre",
+  withoutEnlargement: true,
+  format: "webp",
+  quality,
+  effort: 6,
+});
 const thumbnailFor = (src) => {
   const relative = src.replace(/^\/images\//, "");
   const parsed = path.posix.parse(relative);
@@ -57,16 +70,19 @@ const jobs = [
   }),
 ];
 
-const render = (job) => sharp(publicFile(job.src))
-  .resize({
-    width: job.width,
-    height: job.height,
-    fit: job.fit,
-    position: "centre",
-    withoutEnlargement: true,
-  })
-  .webp({ quality: job.quality, effort: 6 })
-  .toBuffer();
+const render = (job) => {
+  const recipe = recipeFor(job);
+  return sharp(publicFile(job.src))
+    .resize({
+      width: recipe.width,
+      height: recipe.height,
+      fit: recipe.fit,
+      position: recipe.position,
+      withoutEnlargement: recipe.withoutEnlargement,
+    })
+    .webp({ quality: recipe.quality, effort: recipe.effort })
+    .toBuffer();
+};
 
 const inspect = async (job) => {
   const out = publicFile(job.out);
@@ -75,10 +91,23 @@ const inspect = async (job) => {
   if (metadata.format !== "webp") return `format ${metadata.format}`;
   if (metadata.width !== job.width) return `width ${metadata.width}`;
   if (job.height && metadata.height !== job.height) return `height ${metadata.height}`;
-  const [actual, expected] = await Promise.all([fsp.readFile(out), render(job)]);
-  if (!actual.equals(expected)) return "content differs";
+  const recorded = manifest.jobs[job.out];
+  if (!recorded) return "manifest entry missing";
+  if (recorded.src !== job.src || JSON.stringify(recorded.recipe) !== JSON.stringify(recipeFor(job))) {
+    return "recipe differs";
+  }
+  const [source, actual] = await Promise.all([
+    fsp.readFile(publicFile(job.src)),
+    fsp.readFile(out),
+  ]);
+  if (recorded.sourceSha256 !== sha256(source)) return "source differs";
+  if (recorded.outputSha256 !== sha256(actual)) return "content differs";
   return "ready";
 };
+
+const manifest = fs.existsSync(manifestFile)
+  ? JSON.parse(fs.readFileSync(manifestFile, "utf8"))
+  : { version: 1, jobs: {} };
 
 if (check) {
   const wrong = [];
@@ -101,16 +130,30 @@ if (!apply) {
 
 let before = 0;
 let after = 0;
+const nextManifest = { version: 1, jobs: {} };
 for (const job of jobs) {
   const source = publicFile(job.src);
   const out = publicFile(job.out);
   const temporary = `${out}.tmp`;
   await fsp.mkdir(path.dirname(out), { recursive: true });
-  before += fs.statSync(source).size;
-  await fsp.writeFile(temporary, await render(job));
+  const [sourceBuffer, outputBuffer] = await Promise.all([
+    fsp.readFile(source),
+    render(job),
+  ]);
+  before += sourceBuffer.length;
+  await fsp.writeFile(temporary, outputBuffer);
   await fsp.rename(temporary, out);
-  after += fs.statSync(out).size;
+  after += outputBuffer.length;
+  nextManifest.jobs[job.out] = {
+    src: job.src,
+    recipe: recipeFor(job),
+    sourceSha256: sha256(sourceBuffer),
+    outputSha256: sha256(outputBuffer),
+  };
 }
+
+await fsp.writeFile(`${manifestFile}.tmp`, `${JSON.stringify(nextManifest, null, 2)}\n`);
+await fsp.rename(`${manifestFile}.tmp`, manifestFile);
 
 console.log(
   `image derivatives: ${jobs.length}, ${Math.round(before / 1024)}KB sources → ${Math.round(after / 1024)}KB`,
