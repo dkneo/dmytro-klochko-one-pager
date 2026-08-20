@@ -21,6 +21,7 @@ const ROUTES = [
   [/^scene-(.+)\.(jpe?g|png|webp)$/i, (m) => ({ to: `public/images/scenes/${m[1]}.webp`, note: "a site scene; convert to webp at 2560 wide first" })],
   [/^press-logo-(.+)\.svg$/i,          (m) => ({ to: `(src/data/press-logos.json → ${m[1]})`, note: "run scripts/press-logos.mjs or add by hand" })],
   [/^pond-(.+)\.(png|webp|svg|jpe?g)$/i, (m) => ({ to: `public/images/pond/${m[1]}${extname(m[0] || "")}`, note: "pond game asset" })],
+  [/^scout-(.+)\.(png|jpe?g|webp)$/i,   (m) => ({ to: `public/images/scout/scout-${m[1]}${extname(m[0] || "")}`, note: "scout school illustration; the page hides empty slots until these exist" })],
   [/^wall-(.+)\.(jpe?g|png|webp)$/i,   (m) => ({ to: `public/images/wall/${m[1]}.webp`, note: "a face for the wall on the main page" })],
   [/^names?-(.+)\.html$/i,             (m) => ({ to: "KV names:folio", note: "the folio lives in KV, not the repo. upload with wrangler kv key put" })],
   [/^note-(.+)\.md$/i,                 (m) => ({ to: "(read it)", note: "a message, not an asset" })],

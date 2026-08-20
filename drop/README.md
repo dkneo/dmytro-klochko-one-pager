@@ -14,6 +14,7 @@ unambiguous:
     scene-ember.jpg           → becomes a site scene
     press-logo-nature.svg     → a press wordmark
     pond-frog.png             → the pond game
+    scout-adlibrary.png       → scout school (the taso course)
     names-folio.html          → the /names folio (goes to KV)
     note-whatever.md          → just read it
 
