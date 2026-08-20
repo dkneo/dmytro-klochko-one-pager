@@ -39,3 +39,41 @@ test("scout guide rejects claims and punctuation that failed the audit", () => {
   assert.ok(issues.some((issue) => issue.includes("unsupported phrase")));
   assert.ok(issues.length >= 4);
 });
+
+test("scout guide rejects the retired petrol palette", () => {
+  const issues = checkScoutHtml(shell(`
+    <style>:root{--night:#102f33;--seal:#9f3f2c}</style>
+  `));
+
+  assert.ok(issues.some((issue) => issue.includes("retired petrol palette")));
+});
+
+test("scout guide accepts the baby-pink and aubergine palette", () => {
+  const issues = checkScoutHtml(shell(`
+    <style>:root{--pink:#ff9bc0;--night:#2b1d2b;--seal:#96345f}</style>
+  `));
+
+  assert.deepEqual(issues, []);
+});
+
+test("scout guide requires 44px mobile course and action targets", () => {
+  const issues = checkScoutHtml(shell(`
+    <style id="field-manual">
+      @media(max-width:700px){.tick{min-height:36px}.prompt-copy{min-height:28px}}
+    </style>
+  `));
+
+  assert.ok(issues.some((issue) => issue.includes("44px mobile action targets")));
+});
+
+test("scout guide requires a late tablet reading-lane override", () => {
+  const issues = checkScoutHtml(shell(`
+    <style id="field-manual">
+      :root{--mobile-target:44px}
+      .cols{grid-template-columns:12.5rem minmax(0,44rem)}
+      @media(max-width:700px){.cols{display:block}}
+    </style>
+  `));
+
+  assert.ok(issues.some((issue) => issue.includes("tablet reading lane")));
+});

@@ -194,12 +194,14 @@ Slice) all still bind inside bebop, and several bind everywhere.
 
 `/scout` deliberately does not inherit the public dream/bebop skin. It is
 Taso's working field manual, not a public-facing variation or a marketing
-page. Warm paper (`#f1ead7`) and paper-deep (`#dfd3b8`) are the ground; deep
-petrol (`#102f33`) and raised petrol (`#1c4145`) mark chapter changes. Dark ink
-(`#172927`) and soft ink (`#3d4a45`) carry light sections. Seal red (`#9f3f2c`)
-marks action and state on paper; its brighter counterpart (`#ff876e`) clears
-petrol. Mist (`#c8d1c1`) and rain (`#48666a`) support secondary dark-ground
-copy. Gold (`#6d582f`) is reserved for caution, never a second accent.
+page. Blush paper (`#fff7f3`) and paper-deep (`#f1dfe5`) are the ground; deep
+aubergine (`#2b1d2b`) and raised aubergine (`#3c293a`) mark chapter changes.
+Dark plum ink (`#2b2028`) and soft plum (`#5f4f58`) carry light sections.
+Baby pink (`#ff9bc0`) is the primary voice on dark ground and owns the hero,
+primary action, focus, selection and active wayfinding. Berry (`#96345f`) is
+its contrast-safe text counterpart on paper; pink wash (`#f8cbdc`) marks the
+current course stop. Green is reserved for successful answers and saved state,
+never atmosphere. Gold (`#7a5c2d`) remains caution, never a second accent.
 
 Newsreader carries instruction at 18px/1.58 on desktop and 17px on mobile.
 Zodiak 400 carries the hero and lesson titles. The system sans supports compact
@@ -213,19 +215,22 @@ The desktop hero is a two-part editorial cover, words beside Taso's derived
 collage, with a minimum 660px field. Lessons use a 76rem spread: a 12.5rem
 label rail, a minmax reading lane capped at 44rem, and a 28–72px seam. Media
 may span the spread in balanced two-column compositions. At 960px the cover
-and media stack. Under 700px the label rail becomes ordinary reading order,
-the six-stop strip becomes a 3×2 grid, and the tracker defaults from its wide
-table to one-column cards. The page keeps 22px mobile gutters and never asks
-the viewport to absorb a shrunken desktop table.
+and media stack; from 701–860px the lesson spread becomes one full reading
+lane so content never falls into the 12.5rem label rail. Under 700px the label
+rail becomes ordinary reading order, the six-stop strip becomes a 3×2 grid,
+and the tracker defaults from its wide table to one-column cards. The page
+keeps 22px mobile gutters and never asks the viewport to absorb a shrunken
+desktop table.
 
-Paper is the page itself, never a readability card laid over art. Petrol bands
-divide the course; near-paper cards (`#f7f0dd`) sit inside them for drills and
-threads. Containers use restrained 2px corners, one-pixel edges and low,
-green-black ambient shadows. The deliberate exceptions are pill-shaped action
+Paper is the page itself, never a readability card laid over art. Aubergine
+bands divide the course; near-paper blush cards (`#fff4f7`) sit inside them for
+drills and threads. Containers use restrained 2px corners, one-pixel edges and
+low plum ambient shadows. The deliberate exceptions are pill-shaped action
 controls and small circular state dots. The primary start action is 48px high
-on desktop and 44px on mobile; tracker toolbar actions are at least 40px,
-course checks 36px with 24px boxes, and standalone controls never fall below
-24px.
+on desktop. On mobile, course checks, copy actions, drill choices, tracker
+actions, recovery and dialog controls all reach 44px while checkbox boxes stay
+24px. Desktop tracker actions remain at least 40px, and standalone controls
+never fall below 24px.
 
 The sticky six-stop course strip is both navigation and progress: the current
 lesson receives paper-deep, completed lessons receive a seal dot, and the hero

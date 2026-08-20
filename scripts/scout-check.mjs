@@ -31,6 +31,18 @@ export function checkScoutHtml(html) {
     if (lower.includes(phrase)) issues.push(`unsupported phrase: ${phrase}`);
   }
 
+  if (lower.includes("--night:#102f33") || lower.includes("--seal:#9f3f2c")) {
+    issues.push("guide uses the retired petrol palette");
+  }
+
+  if (lower.includes('id="field-manual"') && !lower.includes("--mobile-target:44px")) {
+    issues.push("guide needs 44px mobile action targets");
+  }
+
+  if (lower.includes('id="field-manual"') && !lower.includes("@media(min-width:701px) and (max-width:860px)")) {
+    issues.push("guide needs a tablet reading lane override");
+  }
+
   for (const match of source.matchAll(/<img\b[^>]*>/gi)) {
     const tag = match[0];
     const src = attribute(tag, "src") || "";
