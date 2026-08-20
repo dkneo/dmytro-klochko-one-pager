@@ -12,7 +12,7 @@
     "not_found_handling": "404-page",
     // The request desk is gated by the worker. Without this, the asset server
     // answers /ask/ directly and the password is decorative.
-    "run_worker_first": ["/ask", "/ask/*", "/api/ask/*"]
+    "run_worker_first": ["/ask", "/ask/*", "/api/ask/*", "/scout", "/scout/*"]
   },
   "kv_namespaces": [
     {

@@ -144,11 +144,14 @@ const PRIVATE = {
 // loads the site's stylesheet, so there are no custom properties to read.
 // Each one is a documented step from DESIGN.md typography: dream-display for
 // the title, dream-prose for the input, dream-prose-sm and t-sm below it.
-function door(message, action = "/names") {
+function door(message, action = "/names", options = {}) {
+  const title = options.title || "names";
+  const heading = options.heading || title;
+  const copy = options.copy || "nineteen of them, considered as atmosphere. this one is not public yet.";
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>names</title><style>
+<title>${title}</title><style>
 :root{--void:#262b44;--bone:#ece6d9;--hot:#ff9bc0;--quiet:#c4beb0}
 *{box-sizing:border-box}
 body{margin:0;min-height:100svh;display:grid;place-items:center;padding:2rem;
@@ -173,8 +176,8 @@ b{display:block;margin-top:1.4rem;color:var(--hot);font-weight:400;font-size:1re
 a{color:var(--quiet);font-size:.875rem;display:inline-block;margin-top:2.5rem}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body><main>
-<h1>names</h1>
-<p>nineteen of them, considered as atmosphere. this one is not public yet.</p>
+<h1>${heading}</h1>
+<p>${copy}</p>
 <form method="post" action="${action}">
 <input type="password" name="password" autocomplete="current-password"
  aria-label="password" autofocus required>
@@ -493,10 +496,97 @@ async function askApi(request, env, url) {
 const SCOUT_COOKIE = "scout_pass";
 
 function scoutDoor(message) {
-  return door(message, "/scout")
-    .replace("names</h1>", "scout school</h1>")
-    .replace("nineteen of them, considered as atmosphere. this one is not public yet.",
-             "the ugc scouting program. taso, this is yours.");
+  return door(message, "/scout", {
+    title: "scout school",
+    heading: "scout school",
+    copy: "the ugc scouting program. taso, this is yours.",
+  });
+}
+
+const SCOUT_PAGE = /^\/scout(?:\/|\/index\.html)?$/i;
+const SCOUT_MEDIA = /^\/scout\/media\/([a-z0-9](?:[a-z0-9-]{0,126}[a-z0-9])?\.(?:webp|png|jpe?g|mp4|webm))$/;
+const SCOUT_MEDIA_TYPES = {
+  webp: "image/webp",
+  png: "image/png",
+  jpg: "image/jpeg",
+  jpeg: "image/jpeg",
+  mp4: "video/mp4",
+  webm: "video/webm",
+};
+
+function scoutMediaHeaders(slug, length) {
+  const extension = slug.slice(slug.lastIndexOf(".") + 1);
+  return {
+    "content-type": SCOUT_MEDIA_TYPES[extension],
+    "content-length": String(length),
+    "cache-control": "private, no-store, must-revalidate",
+    "content-disposition": "inline",
+    "accept-ranges": "bytes",
+    "x-content-type-options": "nosniff",
+    "x-robots-tag": "noindex, nofollow, noarchive",
+    "referrer-policy": "no-referrer",
+  };
+}
+
+function requestedRange(request, length) {
+  const raw = request.headers.get("range");
+  if (!raw) return null;
+  const match = raw.match(/^bytes=(\d*)-(\d*)$/);
+  if (!match || (!match[1] && !match[2])) return false;
+
+  let start, end;
+  if (!match[1]) {
+    const suffix = Number(match[2]);
+    if (!Number.isSafeInteger(suffix) || suffix <= 0) return false;
+    start = Math.max(0, length - suffix);
+    end = length - 1;
+  } else {
+    start = Number(match[1]);
+    end = match[2] ? Number(match[2]) : length - 1;
+    if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end)) return false;
+  }
+
+  if (start < 0 || start >= length || end < start) return false;
+  return { start, end: Math.min(end, length - 1) };
+}
+
+async function scoutMedia(request, env, slug) {
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return new Response("method not allowed", {
+      status: 405,
+      headers: { allow: "GET, HEAD", "cache-control": "private, no-store" },
+    });
+  }
+  if (!env.VAULT || typeof env.VAULT.getWithMetadata !== "function") {
+    return new Response("media unavailable", { status: 503, headers: PRIVATE });
+  }
+
+  const { value } = await env.VAULT.getWithMetadata(`scout:media:${slug}`, {
+    type: "arrayBuffer",
+    cacheTtl: 60,
+  });
+  if (!value) return new Response("not found", { status: 404, headers: PRIVATE });
+
+  const headers = scoutMediaHeaders(slug, value.byteLength);
+  const range = requestedRange(request, value.byteLength);
+  if (range === false) {
+    return new Response(null, {
+      status: 416,
+      headers: { ...headers, "content-range": `bytes */${value.byteLength}` },
+    });
+  }
+  if (range) {
+    const body = request.method === "HEAD" ? null : value.slice(range.start, range.end + 1);
+    return new Response(body, {
+      status: 206,
+      headers: {
+        ...headers,
+        "content-length": String(range.end - range.start + 1),
+        "content-range": `bytes ${range.start}-${range.end}/${value.byteLength}`,
+      },
+    });
+  }
+  return new Response(request.method === "HEAD" ? null : value, { status: 200, headers });
 }
 
 async function scout(request, env, url) {
@@ -505,7 +595,9 @@ async function scout(request, env, url) {
   }
   const good = await passToken(env.SCOUT_PASSWORD);
 
-  if (request.method === "POST") {
+  const pagePath = SCOUT_PAGE.test(url.pathname);
+
+  if (pagePath && request.method === "POST") {
     const form = await request.formData().catch(() => null);
     if (sameSecret(String((form && form.get("password")) ?? ""), env.SCOUT_PASSWORD)) {
       return new Response(null, {
@@ -525,9 +617,16 @@ async function scout(request, env, url) {
     return new Response(scoutDoor(""), { status: 401, headers: PRIVATE });
   }
 
+  const media = url.pathname.match(SCOUT_MEDIA);
+  if (media) return scoutMedia(request, env, media[1]);
+  if (!pagePath) return new Response("not found", { status: 404, headers: PRIVATE });
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return new Response("method not allowed", { status: 405, headers: { allow: "GET, HEAD, POST" } });
+  }
+
   const page = env.VAULT && (await env.VAULT.get("scout:page", { type: "text", cacheTtl: 60 }));
   if (!page) return new Response(scoutDoor("the program is not loaded yet."), { status: 503, headers: PRIVATE });
-  return new Response(page, { status: 200, headers: PRIVATE });
+  return new Response(request.method === "HEAD" ? null : page, { status: 200, headers: PRIVATE });
 }
 
 export default {
