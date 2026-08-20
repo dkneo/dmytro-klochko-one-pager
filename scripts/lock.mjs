@@ -35,7 +35,7 @@ const ago = (iso) => {
   return m < 1 ? "just now" : m < 60 ? `${m} min ago` : `${Math.round(m / 60)}h ago`;
 };
 
-const ALL = ["names", "ask", "eidos", "vault"];
+const ALL = ["names", "ask", "eidos", "vault", "scout"];
 
 if (cmd === "status" || !cmd) {
   let any = false;

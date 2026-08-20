@@ -28,7 +28,7 @@ public/          static assets, copied verbatim
 **Build chain** (`npm run build`):
 
 ```
-vault-build.mjs → map-build.mjs → astro build → sitemap-build.mjs
+vault-build.mjs → map-build.mjs → image-build.mjs --check → astro build → sitemap-build.mjs
 ```
 
 `vault-build` compiles `vault/**` into `src/data/today.json`. `map-build`
@@ -79,6 +79,7 @@ This trips up everyone. Some content lives in Cloudflare KV, not the repo.
 | the names folio (`/names`) | KV `names:folio` | repo is public; the folio isn't |
 | the earlier folio (`/names/old`) | KV `names:folio-old` | same |
 | Stella's requests (`/ask`) | KV `ask:requests` | append-only log |
+| scout school (`/scout`) | KV `scout:page` | source: `contents/scout-school.html` |
 | taste verdicts / pairs / portrait | KV `eidos:*` | written by the live page |
 | raw source material | `/contents/`, `/updated-media/` | **gitignored** |
 
@@ -109,6 +110,7 @@ static site down.
 |---|---|---|
 | `/names`, `/names/old` | `NAMES_PASSWORD` | shared with people choosing a name |
 | `/ask`, `/api/ask/*` | `ASK_PASSWORD` | his assistant only |
+| `/scout` | `SCOUT_PASSWORD` | Taso — the UGC scouting program |
 | `/curate`, `/api/curate/*` | Cloudflare Access | him only — **not configured yet** |
 | `/api/eidos/*` writes | reuses `NAMES_PASSWORD` | low stakes teaching loop |
 | `/api/eidos/ask` | `ANTHROPIC_API_KEY` | **not set** — returns 503 by design |
@@ -160,6 +162,7 @@ claim traceable. If you can't verify it, don't write it.
 ```
 vault-build.mjs    vault/**        → src/data/today.json     (build step)
 map-build.mjs      vault/**        → src/data/map.json       (build step)
+image-build.mjs    tracked images  → responsive copies       --apply to write
 sitemap-build.mjs  dist/**         → dist/sitemap.xml        (build step)
 harvest.mjs        the site itself → proposes vault notes     --apply to write
 candidates.mjs     Wikimedia       → public/inbox.json        --apply to write
@@ -230,6 +233,22 @@ programmatic CSS removal, scan for bodyless selectors and check brace balance.
 
 ## 8. How we work
 
+- **Take the shortest connected path first.** Before asking Dmytro to paste a
+  log, sign in manually, run a terminal command, or ferry data between tools,
+  check the native tools, installed plugins and recommended plugins available
+  to the task. If the exact service has a plugin or MCP, connect and use it.
+  Prefer, in order: service connector/MCP, authenticated CLI or API, signed-in
+  browser, then manual user handoff. Manual work is the last resort, not the
+  first response to a sandbox or authentication error.
+- **Cloudflare work starts with the Cloudflare plugin.** Use its official MCP
+  for build status, build logs, deployments, account data and other live
+  Cloudflare state. Use Wrangler when it is the better operation or the MCP
+  lacks the capability. Do not ask for copied Cloudflare logs until both paths
+  have been checked.
+- **Think in shortcuts.** A local restriction does not mean the task is
+  blocked. Look for a native app action, connector, MCP, authenticated CLI,
+  existing signed-in browser, or small repo script that reaches the same
+  outcome safely. State exactly which paths were checked before escalating.
 - **Measure, don't assert.** Every claim in the commit log has a number behind
   it. "It looks fine" has been wrong repeatedly.
 - **Look at the page before saying it's done.** A structural check passing is

@@ -482,6 +482,54 @@ async function askApi(request, env, url) {
   return json({ error: "no such route" }, 404);
 }
 
+
+// ── /scout ──────────────────────────────────────────────────────────────────
+//
+// Scout school: the UGC sourcing program written for Taso. Its own password,
+// because she is a fourth audience — not the folio's readers, not Stella's
+// desk, not his curation. The content lives in KV (scout:page), never in
+// dist, so the public repo holds only this gate.
+
+const SCOUT_COOKIE = "scout_pass";
+
+function scoutDoor(message) {
+  return door(message, "/scout")
+    .replace("names</h1>", "scout school</h1>")
+    .replace("nineteen of them, considered as atmosphere. this one is not public yet.",
+             "the ugc scouting program. taso, this is yours.");
+}
+
+async function scout(request, env, url) {
+  if (!env.SCOUT_PASSWORD) {
+    return new Response(scoutDoor("the school is not configured yet."), { status: 503, headers: PRIVATE });
+  }
+  const good = await passToken(env.SCOUT_PASSWORD);
+
+  if (request.method === "POST") {
+    const form = await request.formData().catch(() => null);
+    if (sameSecret(String((form && form.get("password")) ?? ""), env.SCOUT_PASSWORD)) {
+      return new Response(null, {
+        status: 303,
+        headers: {
+          location: "/scout",
+          "set-cookie": `${SCOUT_COOKIE}=${good}; Path=/; Max-Age=${60 * 60 * 24 * 90}; HttpOnly; Secure; SameSite=Lax`,
+          ...PRIVATE,
+        },
+      });
+    }
+    await new Promise((r) => setTimeout(r, 700));
+    return new Response(scoutDoor("that is not it."), { status: 401, headers: PRIVATE });
+  }
+
+  if (!sameSecret(cookieValue(request, SCOUT_COOKIE) || "", good)) {
+    return new Response(scoutDoor(""), { status: 401, headers: PRIVATE });
+  }
+
+  const page = env.VAULT && (await env.VAULT.get("scout:page", { type: "text", cacheTtl: 60 }));
+  if (!page) return new Response(scoutDoor("the program is not loaded yet."), { status: 503, headers: PRIVATE });
+  return new Response(page, { status: 200, headers: PRIVATE });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -490,6 +538,9 @@ export default {
     // fallthrough and matching the whole /names subtree, so nothing under it
     // can be reached another way.
     if (NAMES.test(url.pathname)) return names(request, env, url);
+
+    // Scout school, behind its own password.
+    if (/^\/scout(?:\/|$)/i.test(url.pathname)) return scout(request, env, url);
 
     // The request desk, behind its own password.
     if (url.pathname.startsWith("/api/ask/")) return askApi(request, env, url);
