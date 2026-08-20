@@ -504,7 +504,7 @@ function scoutDoor(message) {
 }
 
 const SCOUT_PAGE = /^\/scout(?:\/|\/index\.html)?$/i;
-const SCOUT_MEDIA = /^\/scout\/media\/([a-z0-9](?:[a-z0-9-]{0,126}[a-z0-9])?\.(?:webp|png|jpe?g|mp4|webm))$/;
+const SCOUT_MEDIA = /^\/scout\/media\/([a-z0-9](?:[a-z0-9-]{0,126}[a-z0-9])?\.(?:webp|png|jpe?g|mp4|webm|vtt))$/;
 const SCOUT_MEDIA_TYPES = {
   webp: "image/webp",
   png: "image/png",
@@ -512,6 +512,7 @@ const SCOUT_MEDIA_TYPES = {
   jpeg: "image/jpeg",
   mp4: "video/mp4",
   webm: "video/webm",
+  vtt: "text/vtt; charset=utf-8",
 };
 
 function scoutMediaHeaders(slug, length) {

@@ -5,6 +5,7 @@ import worker from "../worker/index.js";
 
 const scoutPage = "<!doctype html><title>scout school</title><h1>field manual</h1>";
 const portrait = new TextEncoder().encode("private portrait bytes").buffer;
+const captions = new TextEncoder().encode("WEBVTT\n\n00:00.000 --> 00:01.000\nverify the advertiser\n").buffer;
 
 function env() {
   return {
@@ -20,6 +21,9 @@ function env() {
             value: portrait.slice(0),
             metadata: { contentType: "image/webp" },
           };
+        }
+        if (key === "scout:media:meta-talkie-walkthrough.vtt") {
+          return { value: captions.slice(0), metadata: { contentType: "text/vtt" } };
         }
         return { value: null, metadata: null };
       },
@@ -84,6 +88,16 @@ test("authenticated scout media preserves bytes, type and private headers", asyn
   assert.equal(new TextDecoder().decode(await response.arrayBuffer()), "private portrait bytes");
 });
 
+test("authenticated scout captions are served as WebVTT", async () => {
+  const bindings = env();
+  const cookie = await login(bindings);
+  const response = await worker.fetch(request("/scout/media/meta-talkie-walkthrough.vtt", cookie), bindings);
+
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("content-type"), "text/vtt; charset=utf-8");
+  assert.match(await response.text(), /^WEBVTT/);
+});
+
 test("private scout media supports HEAD and byte ranges for video playback", async () => {
   const bindings = env();
   const cookie = await login(bindings);
@@ -131,4 +145,3 @@ test("scout media accepts only GET and HEAD", async () => {
   assert.equal(response.status, 405);
   assert.equal(response.headers.get("allow"), "GET, HEAD");
 });
-

@@ -190,6 +190,81 @@ Type, Advance Is Not 0.6em, Writing Sets The Row, No Free Hairlines,
 Rectangle Is The Problem, Found Object, Bloom Is Not A Text Shadow, Frame
 Slice) all still bind inside bebop, and several bind everywhere.
 
+## Private Scout Surface
+
+`/scout` deliberately does not inherit the public dream/bebop skin. It is
+Taso's working field manual, not a public-facing variation or a marketing
+page. Warm paper (`#f1ead7`) and paper-deep (`#dfd3b8`) are the ground; deep
+petrol (`#102f33`) and raised petrol (`#1c4145`) mark chapter changes. Dark ink
+(`#172927`) and soft ink (`#3d4a45`) carry light sections. Seal red (`#9f3f2c`)
+marks action and state on paper; its brighter counterpart (`#ff876e`) clears
+petrol. Mist (`#c8d1c1`) and rain (`#48666a`) support secondary dark-ground
+copy. Gold (`#6d582f`) is reserved for caution, never a second accent.
+
+Newsreader carries instruction at 18px/1.58 on desktop and 17px on mobile.
+Zodiak 400 carries the hero and lesson titles. The system sans supports compact
+explanation and the system mono marks controls, progress, state and source
+captions. The hero title runs at `clamp(3.4rem, 5.5vw, 4.8rem)` with a tight
+0.88 line-height; lesson titles run at `clamp(2.4rem, 5vw, 4.5rem)`. Type gets
+large only where it names the course or a lesson. Reading copy stays near
+69ch.
+
+The desktop hero is a two-part editorial cover, words beside Taso's derived
+collage, with a minimum 660px field. Lessons use a 76rem spread: a 12.5rem
+label rail, a minmax reading lane capped at 44rem, and a 28–72px seam. Media
+may span the spread in balanced two-column compositions. At 960px the cover
+and media stack. Under 700px the label rail becomes ordinary reading order,
+the six-stop strip becomes a 3×2 grid, and the tracker defaults from its wide
+table to one-column cards. The page keeps 22px mobile gutters and never asks
+the viewport to absorb a shrunken desktop table.
+
+Paper is the page itself, never a readability card laid over art. Petrol bands
+divide the course; near-paper cards (`#f7f0dd`) sit inside them for drills and
+threads. Containers use restrained 2px corners, one-pixel edges and low,
+green-black ambient shadows. The deliberate exceptions are pill-shaped action
+controls and small circular state dots. The primary start action is 48px high
+on desktop and 44px on mobile; tracker toolbar actions are at least 40px,
+course checks 36px with 24px boxes, and standalone controls never fall below
+24px.
+
+The sticky six-stop course strip is both navigation and progress: the current
+lesson receives paper-deep, completed lessons receive a seal dot, and the hero
+action advances to the first unfinished day. Choice cards lift 2px on hover,
+then resolve to a green right state or a deliberately quieter wrong state.
+Wide reference tables label their own horizontal scroll. The scout desk tells
+the truth through saved, saving, warning and blocked states; it switches to
+cards on mobile, supports CSV and JSON export, asks before merge or replace,
+and keeps deletion recoverable through an eight-second undo toast.
+
+Taso is the subject of every commissioned collage. Screens and examples remain
+secondary evidence, captioned with their source and capture context. All
+illustrations, captures and video stay behind authenticated `/scout/media/*`;
+this surface never puts Taso's photographs in `public/` or `dist/`.
+
+The only entrance animation is the hero image's 900ms clip reveal on the
+standard emphatic curve (`cubic-bezier(.16, 1, .3, 1)`). Small hover lifts and
+the transient toast may transition, but the course never runs ambient motion.
+Reduced motion removes the reveal, smooth scrolling and all component
+transitions.
+
+### Named Rules (scout)
+
+**The Field Manual Is Its Own World Rule.** Do not import dream skies, bebop
+ASCII or the public mode toggle. This is a private operating surface with its
+own paper-and-petrol grammar.
+
+**The Paper Is The Ground Rule.** Warm paper may be the page and the material
+of a working card. It may not become a floating readability slab over art.
+
+**The Work Survives The Lesson Rule.** Progress, drills and tracker rows save
+locally, but the interface names that boundary and always offers a portable
+backup. A storage failure stays usable for the session and says exactly what
+will be lost.
+
+**The One Reveal Rule.** One authored entrance belongs to Taso's hero image.
+Everything after it moves only to explain hover, navigation, feedback or
+recovery.
+
 ## Cross-Mode Rules
 
 **The Arrow Is Inline Rule.** `.arw` is plain inline with a relative-offset
