@@ -73,8 +73,11 @@ if (cmd === "release") {
     console.log(`  ${resource} is held by ${held.who}, not you. leaving it alone.`);
     process.exit(1);
   }
-  kv(["delete", key(resource)]);
-  console.log(`  ${resource} released`);
+  const out = kv(["delete", key(resource)]);
+  // wrangler prints "Deleting the key..." on success; silence means the call
+  // never reached the api (expired auth taught us this one).
+  if (/deleting/i.test(out)) console.log(`  ${resource} released`);
+  else { console.log(`  release did not reach cloudflare (auth? network?). check wrangler whoami.`); process.exit(1); }
   process.exit(0);
 }
 
