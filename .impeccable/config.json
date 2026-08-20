@@ -1,7 +1,13 @@
 {
   "detector": {
     "ignoreRules": [],
-    "ignoreFiles": [],
+    "ignoreFiles": [
+      {
+        "path": "contents/scout-school.html",
+        "createdAt": "2026-08-20T15:30:00.000Z",
+        "reason": "Gated KV content (scout:page), deliberately in the folio's palette, not the site's DESIGN.md ramp. User approved the design ('it's awesome') and owns its aesthetics with GPT/Codex from here."
+      }
+    ],
     "ignoreValues": [
       {
         "rule": "broken-image",
