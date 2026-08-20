@@ -211,6 +211,8 @@ const jobs = [
     href: "https://hily.com",
     media: {
       src: "/images/cv-lecture.jpg",
+      width: 1100,
+      height: 734,
       alt: "Dmytro at a flip chart, microphone in hand, mid-lecture",
       cap: "lecturing",
     },
@@ -351,7 +353,10 @@ const also = [
         <img
           src="/images/lynch.jpg"
           alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
+          width="640"
+          height="389"
           loading="lazy"
+          decoding="async"
         />
       </figure>
     </div>
@@ -396,6 +401,9 @@ const also = [
                 class="mark-pirate"
                 src="/images/pirate-flag-mark.png"
                 alt=""
+                width="128"
+                height="128"
+                decoding="async"
               />.</span>
             </p>
             <p>
@@ -507,7 +515,14 @@ const also = [
                       <source src={j.media.src} type="video/mp4" />
                     </video>
                   ) : (
-                    <img src={j.media.src} alt={j.media.alt} loading="lazy" />
+                    <img
+                      src={j.media.src}
+                      alt={j.media.alt}
+                      width={"width" in j.media ? j.media.width : undefined}
+                      height={"height" in j.media ? j.media.height : undefined}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   )}
                 </span>
                 <figcaption>
@@ -544,7 +559,7 @@ const also = [
     </p>
 
     <div class="gloss-note gloss-note--pic" id="war-j" popover>
-      <img src="/images/war-16.jpg" alt="Dmytro at sixteen, at a night rally under ukrainian flags" loading="lazy" />
+      <img src="/images/war-16.jpg" alt="Dmytro at sixteen, at a night rally under ukrainian flags" width="520" height="924" loading="lazy" decoding="async" />
       russia took my hometown in 2014, when i was sixteen.
     </div>
 
@@ -583,7 +598,7 @@ const also = [
 
       <figure class="easel" aria-hidden="true">
         <span class="cell">
-          <img src="/images/journey/lecture.jpg" alt="" loading="lazy" />
+          <img src="/images/journey/lecture.jpg" alt="" width="900" height="612" loading="lazy" decoding="async" />
           <video muted loop playsinline preload="none" hidden></video>
         </span>
       </figure>

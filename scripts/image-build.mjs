@@ -1,0 +1,117 @@
+#!/usr/bin/env node
+
+// Derive small, purpose-specific copies from tracked source images. Like the
+// other writing scripts in this repo, this is a dry run unless --apply is
+// explicit. --check is for CI and tests: it writes nothing and exits non-zero
+// when a derivative is missing, malformed, or stale.
+
+import fs from "node:fs";
+import fsp from "node:fs/promises";
+import path from "node:path";
+
+import sharp from "sharp";
+
+const root = process.cwd();
+const apply = process.argv.includes("--apply");
+const check = process.argv.includes("--check");
+
+if (apply && check) {
+  console.error("choose --apply or --check, not both");
+  process.exit(2);
+}
+
+const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), "utf8"));
+const publicFile = (url) => path.join(root, "public", url.replace(/^\//, ""));
+const thumbnailFor = (src) => {
+  const relative = src.replace(/^\/images\//, "");
+  const parsed = path.posix.parse(relative);
+  return path.posix.join("/images/thumbs", parsed.dir, `${parsed.name}.webp`);
+};
+
+const map = readJson("src/data/map.json");
+const today = readJson("src/data/today.json");
+
+const mapSources = [...new Set(
+  map.items.map((item) => item.src).filter((src) => src?.startsWith("/images/")),
+)];
+const todaySources = [...new Set(today.chords.map((chord) => chord.painting.src))];
+
+const jobs = [
+  ...mapSources.map((src) => ({
+    src,
+    out: thumbnailFor(src),
+    width: 320,
+    height: 320,
+    fit: "cover",
+    quality: 76,
+  })),
+  ...todaySources.flatMap((src) => {
+    const stem = path.basename(src, path.extname(src));
+    return [480, 960].map((width) => ({
+      src,
+      out: `/images/responsive/today/${stem}-${width}.webp`,
+      width,
+      fit: "inside",
+      quality: width === 480 ? 76 : 80,
+    }));
+  }),
+];
+
+const render = (job) => sharp(publicFile(job.src))
+  .resize({
+    width: job.width,
+    height: job.height,
+    fit: job.fit,
+    position: "centre",
+    withoutEnlargement: true,
+  })
+  .webp({ quality: job.quality, effort: 6 })
+  .toBuffer();
+
+const inspect = async (job) => {
+  const out = publicFile(job.out);
+  if (!fs.existsSync(out)) return "missing";
+  const metadata = await sharp(out).metadata();
+  if (metadata.format !== "webp") return `format ${metadata.format}`;
+  if (metadata.width !== job.width) return `width ${metadata.width}`;
+  if (job.height && metadata.height !== job.height) return `height ${metadata.height}`;
+  const [actual, expected] = await Promise.all([fsp.readFile(out), render(job)]);
+  if (!actual.equals(expected)) return "content differs";
+  return "ready";
+};
+
+if (check) {
+  const wrong = [];
+  for (const job of jobs) {
+    const state = await inspect(job);
+    if (state !== "ready") wrong.push(`${job.out}: ${state}`);
+  }
+  if (wrong.length) {
+    console.error(wrong.join("\n"));
+    process.exit(1);
+  }
+  console.log(`image derivatives: ${jobs.length} ready`);
+  process.exit(0);
+}
+
+if (!apply) {
+  console.log(`would derive ${jobs.length} images; pass --apply to write them`);
+  process.exit(0);
+}
+
+let before = 0;
+let after = 0;
+for (const job of jobs) {
+  const source = publicFile(job.src);
+  const out = publicFile(job.out);
+  const temporary = `${out}.tmp`;
+  await fsp.mkdir(path.dirname(out), { recursive: true });
+  before += fs.statSync(source).size;
+  await fsp.writeFile(temporary, await render(job));
+  await fsp.rename(temporary, out);
+  after += fs.statSync(out).size;
+}
+
+console.log(
+  `image derivatives: ${jobs.length}, ${Math.round(before / 1024)}KB sources → ${Math.round(after / 1024)}KB`,
+);

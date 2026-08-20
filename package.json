@@ -8,12 +8,14 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/vault-build.mjs && node scripts/map-build.mjs && astro build && node scripts/sitemap-build.mjs",
+    "build": "node scripts/vault-build.mjs && node scripts/map-build.mjs && node scripts/image-build.mjs --check && astro build && node scripts/sitemap-build.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs",
     "preview": "astro preview",
     "vault": "node scripts/vault-build.mjs"
   },
   "dependencies": {
-    "astro": "^7.2.0"
+    "astro": "^7.2.0",
+    "sharp": "^0.35.3"
   },
   "devDependencies": {
     "wrangler": "^4.92.0"

@@ -1,11 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import data from "../data/today.json";
+import sharp from "sharp";
 
 // Every chord ships in the markup and one is revealed by date, because the
 // site is static assets: a build-time pick would freeze whatever day it was
 // deployed on. Only the chosen painting gets a src, so the rest never load.
 const chords = data.chords;
+const paintingSources = [...new Set(chords.map((chord) => chord.painting.src))];
+const paintingMeta = Object.fromEntries(await Promise.all(
+  paintingSources.map(async (src) => {
+    const metadata = await sharp(`public${src}`).metadata();
+    const stem = src.split("/").pop().replace(/\.[^.]+$/, "");
+    return [src, {
+      width: metadata.width,
+      height: metadata.height,
+      srcset: [
+        `/images/responsive/today/${stem}-480.webp 480w`,
+        `/images/responsive/today/${stem}-960.webp 960w`,
+        `${src} ${metadata.width}w`,
+      ].join(", "),
+    }];
+  }),
+));
 
 const title = "today · dmytro klochko";
 const description =
@@ -38,9 +55,11 @@ const description =
             <figure class="chord-art">
               <img
                 data-src={c.painting.src}
+                data-srcset={paintingMeta[c.painting.src].srcset}
                 alt={`${c.painting.title}, ${c.painting.who}`}
-                width="1500"
-                height="1000"
+                width={paintingMeta[c.painting.src].width}
+                height={paintingMeta[c.painting.src].height}
+                sizes="(max-width: 720px) calc(100vw - 2.5rem), 42rem"
                 decoding="async"
               />
             </figure>
@@ -160,7 +179,10 @@ const description =
         card = cards[showing];
         chord = chords[showing];
         const im = card.querySelector("img");
-        if (!im.src) im.src = im.dataset.src;
+        if (!im.src) {
+          im.srcset = im.dataset.srcset;
+          im.src = im.dataset.src;
+        }
         card.hidden = false;
         root.querySelector(".today-weather").textContent = chord.weather;
         const wn = (weathers.find((w) => w.name === chord.weather) || {}).note;
@@ -169,6 +191,7 @@ const description =
         wire(card);
       };
       const img = card.querySelector("img");
+      img.srcset = img.dataset.srcset;
       img.src = img.dataset.src;
       card.hidden = false;
 

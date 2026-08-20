@@ -26,6 +26,9 @@ const candidates = inbox.candidates || [];
 const K = 41;  // coord → percent of the field, shared by marks and threads
 const FORM_MARK = { painting: "▣", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
 const thinnest = weathers.slice().sort((a, b) => a.count - b.count)[0];
+const thumbFor = (src: string) => src
+  .replace("/images/", "/images/thumbs/")
+  .replace(/\.[^.]+$/, ".webp");
 
 const title = "eidos · dmytro klochko";
 const description =
@@ -115,7 +118,7 @@ const description =
             aria-label={`${it.type}: ${it.line || it.title} ${it.who ? "by " + it.who : ""}`}
           >
             {it.src ? (
-              <img src={it.src} alt="" width="120" height="120" loading="lazy" decoding="async" />
+              <img src={thumbFor(it.src)} alt="" width="320" height="320" loading="lazy" decoding="async" />
             ) : (
               <span class="em-glyph" aria-hidden="true">{FORM_MARK[it.type]}</span>
             )}
