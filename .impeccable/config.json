@@ -6,6 +6,11 @@
         "path": "contents/scout-school.html",
         "createdAt": "2026-08-20T15:30:00.000Z",
         "reason": "Gated KV content (scout:page), deliberately in the folio's palette, not the site's DESIGN.md ramp. User approved the design ('it's awesome') and owns its aesthetics with GPT/Codex from here."
+      },
+      {
+        "path": "contents/updated media/poetic-name-folio.html",
+        "createdAt": "2026-08-21T09:31:21.000Z",
+        "reason": "Gated KV content (names:folio) in its own paper/night design system, assembled from the user's own Codex exports. Not a site page; DESIGN.md does not govern it."
       }
     ],
     "ignoreValues": [

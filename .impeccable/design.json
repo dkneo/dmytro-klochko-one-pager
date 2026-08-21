@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-19",
+  "generatedAt": "2026-08-21",
   "title": "Design System: dmytro klochko \u2014 dream / bebop",
   "extensions": {
     "colorMeta": {
@@ -438,6 +438,13 @@
     },
     "measures": {
       "measure-wide": "44rem"
+    },
+    "spacing": {
+      "sp-1": "0.5rem",
+      "sp-2": "1rem",
+      "sp-3": "1.75rem",
+      "sp-4": "3rem",
+      "sp-5": "clamp(4rem, 7vw, 6.5rem)"
     }
   },
   "components": [
@@ -535,7 +542,20 @@
     "dream-display-card": "clamp(1.5rem, 2.4vw, 2.1rem)",
     "map-label": "15px",
     "map-label-narrow": "20px",
-    "t-map-name": "clamp(0.95rem, 1.5vw, 1.3rem)"
+    "t-map-name": "clamp(0.95rem, 1.5vw, 1.3rem)",
+    "display": "clamp(1.9rem, 4.6vw, 3.9rem)",
+    "t-xs": "0.75rem",
+    "t-sm": "0.875rem",
+    "t-md": "0.98rem",
+    "t-lg": "clamp(1.15rem, 1.5vw, 1.45rem)",
+    "dream-prose": "1.13rem / 1.66",
+    "dream-prose-sm": "1rem",
+    "dream-lede": "clamp(1.45rem, 2vw, 1.65rem) italic",
+    "dream-fact": "1.22rem",
+    "dream-display": "clamp(2rem, 3.4vw, 2.9rem)",
+    "dream-display-hero": "clamp(3.4rem, 7vw, 6rem)",
+    "art-cell-sm": "0.55rem",
+    "art-cell-lg": "1.05rem"
   },
   "colors": {
     "firelight": "rgb(255 186 110 / 55%)",
@@ -544,6 +564,29 @@
     "shadow-deep": "rgb(6 9 18 / 45%)",
     "quiet": "#c4beb0",
     "dim": "#a9aecb",
-    "faint": "#7d82a6"
+    "faint": "#7d82a6",
+    "void": "#262b44",
+    "deck": "#2f3554",
+    "bone": "#ece6d9",
+    "bebop-dim": "#9b90a4",
+    "bebop-faint": "#6b6076",
+    "rule": "rgb(236 230 217 / 12%)",
+    "cold": "#7fd4d9",
+    "hot": "#ff9bc0",
+    "seal": "#c3452e",
+    "mat": "#fbf3e2",
+    "ember": "#ffd2a3",
+    "ember-deep": "#f08a54",
+    "hot-lit": "#ffd3df",
+    "bebop-firelight": "rgb(255 186 110 / 55%)",
+    "bebop-firelight-core": "rgb(255 186 110 / 62%)",
+    "bebop-scene-scrim": "rgb(24 28 46 / 24%)",
+    "bebop-shadow-deep": "rgb(6 9 18 / 45%)",
+    "bebop-void": "#0e0a11",
+    "bebop-deck": "#171120",
+    "bebop-bone": "#e9e5d8",
+    "bebop-rule": "rgb(233 229 216 / 9%)",
+    "bebop-cold": "#d8cfe0",
+    "bebop-hot": "#ff6fae"
   }
 }
