@@ -5356,7 +5356,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: #0a0d18;
+  background: rgb(6 9 18);  /* shadow-deep's base: the documented dark */
   opacity: 0;
   transition: opacity 900ms var(--ease);
 }
@@ -5412,8 +5412,8 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   background: linear-gradient(transparent, rgb(10 13 24 / 85%));
   color: var(--bone);
   font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
+  font-size: var(--t-xs);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   text-align: left;
   white-space: nowrap;
