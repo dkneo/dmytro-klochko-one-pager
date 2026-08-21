@@ -3946,6 +3946,9 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 [data-mode="dream"] .pr-title {
   display: inline;
+  /* vertical padding on an inline box extends the hit area without moving
+     the line: the 29 titles measured 20px tall, under the 24px floor. */
+  padding: 3px 0;
   color: var(--bone);
   font-family: var(--serif);
   font-size: var(--t-prose);
