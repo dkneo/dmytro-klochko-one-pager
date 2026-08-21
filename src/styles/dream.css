@@ -4144,6 +4144,7 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .menu-drop a,
 [data-mode="dream"] .foot-index a,
 [data-mode="dream"] .song-links a,
+[data-mode="dream"] .bit-where a,
 [data-mode="dream"] .pr-meta a,
 [data-mode="dream"] .hk-story-more a,
 [data-mode="dream"] .learn-meta a,
@@ -5312,4 +5313,121 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 @media (max-width: 700px) {
   [data-mode="dream"] .ask-status { margin-left: 0; }
+}
+
+/* ── today: the day's painting is the sky ───────────────────────────────────
+   Two fixed layers at the scenes' depth, crossfaded on day change. The inner
+   <s> is the per-painting extra dim measured by the build's sky gate, so a
+   bright Turner and a dark Whistler land on the same reading floor. The
+   site-wide glass above does the rest. */
+
+[data-mode="dream"] .today-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* the scrim, over the filtered image but under the text: outside the
+   filtered element so the filter cannot double-apply to it */
+[data-mode="dream"] .today-sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(24 28 46 / 24%);
+}
+
+/* The layer lives inside main, which stacks level with the site glass and
+   paints after it, so body::before never dims it. It dims itself instead,
+   with the exact pipeline the build's gate measures: brightness and
+   saturation on the image, the scrim over that, then the per-painting extra. */
+[data-mode="dream"] .today-sky i {
+  position: absolute;
+  inset: -6%;
+  opacity: 0;
+  background: center / cover no-repeat;
+  filter: brightness(0.32) saturate(0.88);
+  transition: opacity 900ms var(--ease);
+}
+
+[data-mode="dream"] .today-sky i.is-on { opacity: 1; }
+
+[data-mode="dream"] .today-sky s {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #0a0d18;
+  opacity: 0;
+  transition: opacity 900ms var(--ease);
+}
+
+/* the almanac fragment rides the existing when-line */
+[data-mode="dream"] .today-rhythm {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.05em;
+}
+
+/* ── the archive of days ────────────────────────────────────────────────── */
+[data-mode="dream"] .today-days {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-3);
+  border-top: 1px solid rgb(236 230 217 / 16%);
+}
+
+[data-mode="dream"] .today-days .bit-label a { color: var(--dim); }
+[data-mode="dream"] .today-days .bit-label a:hover { color: var(--hot); }
+
+[data-mode="dream"] .today-days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  gap: var(--sp-1);
+  margin-top: var(--sp-2);
+  max-width: var(--measure-wide);
+}
+
+[data-mode="dream"] .day-tile {
+  position: relative;
+  padding: 0;
+  border: 1px solid rgb(236 230 217 / 18%);
+  background: rgb(20 24 40 / 55%);
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color var(--dur) var(--ease), scale 120ms var(--ease);
+}
+
+[data-mode="dream"] .day-tile img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  height: auto;
+  object-fit: cover;
+}
+
+[data-mode="dream"] .day-tile span {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 0.9rem 0.5rem 0.35rem;
+  background: linear-gradient(transparent, rgb(10 13 24 / 85%));
+  color: var(--bone);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-mode="dream"] .day-tile:hover { border-color: rgb(255 155 192 / 45%); }
+[data-mode="dream"] .day-tile:active { scale: 0.97; }
+[data-mode="dream"] .day-tile:focus-visible { outline: 2px solid var(--hot); outline-offset: 3px; }
+[data-mode="dream"] .day-tile.is-showing { border-color: var(--hot); }
+[data-mode="dream"] .day-tile.is-showing span::after { content: " · showing"; color: var(--hot); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .today-sky i,
+  [data-mode="dream"] .today-sky s { transition: none; }
 }

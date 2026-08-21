@@ -3,26 +3,28 @@ import Layout from "../layouts/Layout.astro";
 import data from "../data/today.json";
 import sharp from "sharp";
 
-// Every chord ships in the markup and one is revealed by date, because the
-// site is static assets: a build-time pick would freeze whatever day it was
-// deployed on. Only the chosen painting gets a src, so the rest never load.
+// The day's painting is the sky: full bleed behind the whole page, seen
+// through the site's smoked glass, with a per-painting extra dim measured at
+// build time (vault-build's sky gate) so the text floor holds no matter what
+// joins the vault later.
+//
+// The page ships one day, not eleven. A tiny manifest is inlined, the day is
+// chosen client-side by date (a build-time pick would freeze whatever day it
+// was deployed on), and the chord itself is fetched from /today-data/. That
+// took the html from 121kb to a fifth of that.
 const chords = data.chords;
-const paintingSources = [...new Set(chords.map((chord) => chord.painting.src))];
-const paintingMeta = Object.fromEntries(await Promise.all(
-  paintingSources.map(async (src) => {
-    const metadata = await sharp(`public${src}`).metadata();
-    const stem = src.split("/").pop().replace(/\.[^.]+$/, "");
-    return [src, {
-      width: metadata.width,
-      height: metadata.height,
-      srcset: [
-        `/images/responsive/today/${stem}-480.webp 480w`,
-        `/images/responsive/today/${stem}-960.webp 960w`,
-        `${src} ${metadata.width}w`,
-      ].join(", "),
-    }];
-  }),
-));
+const manifest = {
+  weathers: data.weathers,
+  days: chords.map((c) => ({ id: c.id, weather: c.weather })),
+};
+
+// thumbs for the archive strip, dimensions checked at build
+const tileMeta = {};
+for (const c of chords) {
+  const thumb = "/images/thumbs" + c.painting.src.replace("/images", "").replace(/\.[^.]+$/, ".webp");
+  const m = await sharp(`public${thumb}`).metadata();
+  tileMeta[c.id] = { thumb, w: m.width, h: m.height, who: c.painting.who, title: c.painting.title };
+}
 
 const title = "today · dmytro klochko";
 const description =
@@ -30,6 +32,14 @@ const description =
 ---
 
 <Layout title={title} description={description} current="home" scenes={["nightcourt"]}>
+  {/* the day's sky: two layers so a day change crossfades instead of cutting.
+      sits at the scenes' depth, under the glass; the extra dim per painting
+      comes from the build's measurements. */}
+  <div class="today-sky" aria-hidden="true">
+    <i class="today-sky-a"><s></s></i>
+    <i class="today-sky-b"><s></s></i>
+  </div>
+
   <section class="shell session today" data-scene="nightcourt" aria-labelledby="td">
     <div class="card">
       <h1 class="card-title" id="td">today</h1>
@@ -47,167 +57,236 @@ const description =
       <b class="today-weather"></b><span class="today-weather-note"></span>
     </p>
 
-    {
-      chords.map((c, i) => (
-        <article class="chord" data-i={i} data-weather={c.weather} hidden>
-          {/* ── the painting ── */}
-          <section class="bit bit--art" aria-label="the painting">
-            <figure class="chord-art">
-              <img
-                data-src={c.painting.src}
-                data-srcset={paintingMeta[c.painting.src].srcset}
-                alt={`${c.painting.title}, ${c.painting.who}`}
-                width={paintingMeta[c.painting.src].width}
-                height={paintingMeta[c.painting.src].height}
-                sizes="(max-width: 720px) calc(100vw - 2.5rem), 42rem"
-                decoding="async"
-              />
-            </figure>
-            <p class="bit-title">
-              <b>{c.painting.who}</b>
-              <i>{c.painting.title}</i>
-            </p>
-            <p class="bit-where">
-              {c.painting.year} · {c.painting.where} ·{" "}
-              <a href={c.painting.source} target="_blank" rel="noreferrer">
-                source<span class="arw">↗</span>
-              </a>
-            </p>
-            {c.painting.note && <p class="chord-note">{c.painting.note}</p>}
-            <p class="bit-share">
-              <button type="button" data-post="painting"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the painting</button>
-              <button type="button" data-story="painting"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>`} />save a story<span class="arw" aria-hidden="true">↓</span></button>
-            </p>
-          </section>
+    {/* one article, filled by render(). same classes as always, so the whole
+        chord skin carries over untouched. */}
+    <article class="chord" hidden>
+      <section class="bit bit--art" aria-label="the painting">
+        <figure class="chord-art">
+          <img alt="" decoding="async"
+               sizes="(max-width: 720px) calc(100vw - 2.5rem), 42rem" />
+        </figure>
+        <p class="bit-title"><b data-f="p-who"></b><i data-f="p-title"></i></p>
+        <p class="bit-where">
+          <span data-f="p-where"></span>{" "}
+          <a data-f="p-source" href="#" target="_blank" rel="noreferrer">source<span class="arw">↗</span></a>
+        </p>
+        <p class="chord-note" data-f="p-note" hidden></p>
+        <p class="bit-share">
+          <button type="button" data-post="painting"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the painting</button>
+          <button type="button" data-story="painting"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>`} />save a story<span class="arw" aria-hidden="true">↓</span></button>
+        </p>
+      </section>
 
-          {/* ── the line ── */}
-          <section class="bit" aria-label="the line">
-            <p class="bit-label">the line</p>
-            <blockquote class="chord-quote">
-              <p class="chord-line">{c.quote.english}</p>
-              {c.quote.english !== c.quote.text && (
-                <p class="chord-original">{c.quote.text}</p>
-              )}
-              <cite>{c.quote.who}<span>{c.quote.where}</span></cite>
-            </blockquote>
-            <p class="bit-share">
-              <button type="button" data-post="quote"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the line</button>
-              <button type="button" data-story="quote"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>`} />save a story<span class="arw" aria-hidden="true">↓</span></button>
-            </p>
-          </section>
+      <section class="bit" aria-label="the line">
+        <p class="bit-label">the line</p>
+        <blockquote class="chord-quote">
+          <p class="chord-line" data-f="q-en"></p>
+          <p class="chord-original" data-f="q-orig" hidden></p>
+          <cite><span data-f="q-who"></span><span data-f="q-where"></span></cite>
+        </blockquote>
+        <p class="bit-share">
+          <button type="button" data-post="quote"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the line</button>
+          <button type="button" data-story="quote"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>`} />save a story<span class="arw" aria-hidden="true">↓</span></button>
+        </p>
+      </section>
 
-          {/* ── the poem ── */}
-          <section class="bit" aria-label="the poem">
-            <p class="bit-label">the poem</p>
-            <p class="chord-verse">{c.poem.english || c.poem.text}</p>
-            {c.poem.english && c.poem.english !== c.poem.text && (
-              <p class="chord-verse chord-verse--orig">{c.poem.text}</p>
-            )}
-            <p class="bit-where">
-              <b>{c.poem.who}</b>{c.poem.where}
-              {c.poem.roman && <em>{c.poem.roman}</em>}
-              {/* Whose english this is. It was in the vault from the start and
-                  never reached the page, which meant our translations were
-                  running as if they were somebody's. */}
-              {c.poem.translator && <em class="bit-tr">{c.poem.translator}</em>}
-            </p>
-            {c.poem.note && <p class="chord-note">{c.poem.note}</p>}
-            {c.poem.more && (
-              <p class="bit-more">
-                <a href={c.poem.more}>{c.poem.moreLabel}<span class="arw">→</span></a>
-              </p>
-            )}
-            <p class="bit-share">
-              <button type="button" data-post="poem"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the poem</button>
-              <button type="button" data-story="poem"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>`} />save a story<span class="arw" aria-hidden="true">↓</span></button>
-            </p>
-          </section>
+      <section class="bit" aria-label="the poem">
+        <p class="bit-label">the poem</p>
+        <p class="chord-verse" data-f="v-en"></p>
+        <p class="chord-verse chord-verse--orig" data-f="v-orig" hidden></p>
+        <p class="bit-where">
+          <b data-f="v-who"></b><span data-f="v-where"></span>
+          <em data-f="v-roman" hidden></em>
+          <em class="bit-tr" data-f="v-tr" hidden></em>
+        </p>
+        <p class="chord-note" data-f="v-note" hidden></p>
+        <p class="bit-more" data-f="v-morewrap" hidden>
+          <a data-f="v-more" href="#"><span data-f="v-morelabel"></span><span class="arw">→</span></a>
+        </p>
+        <p class="bit-share">
+          <button type="button" data-post="poem"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the poem</button>
+          <button type="button" data-story="poem"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>`} />save a story<span class="arw" aria-hidden="true">↓</span></button>
+        </p>
+      </section>
 
-          {/* ── the song ── */}
-          {c.song && (
-            <section class="bit" aria-label="the song">
-              <p class="bit-label">the song</p>
-              <p class="chord-song">
-                <b>{c.song.title}</b>
-                <span>{c.song.who}, {c.song.year}</span>
-              </p>
-              <p class="song-links">
-                <a href={c.song.youtube} target="_blank" rel="noreferrer">youtube<span class="arw">↗</span></a>
-                <a href={c.song.spotify} target="_blank" rel="noreferrer">spotify<span class="arw">↗</span></a>
-              </p>
-              {c.song.note && <p class="chord-note">{c.song.note}</p>}
-              <p class="bit-share">
-                <button type="button" data-post="song"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the song</button>
-              </p>
-            </section>
-          )}
-        </article>
-      ))
-    }
+      <section class="bit" aria-label="the song" data-f="songwrap" hidden>
+        <p class="bit-label">the song</p>
+        <p class="chord-song"><b data-f="s-title"></b><span data-f="s-who"></span></p>
+        <p class="song-links">
+          <a data-f="s-yt" href="#" target="_blank" rel="noreferrer">youtube<span class="arw">↗</span></a>
+          <a data-f="s-sp" href="#" target="_blank" rel="noreferrer">spotify<span class="arw">↗</span></a>
+        </p>
+        <p class="chord-note" data-f="s-note" hidden></p>
+        <p class="bit-share">
+          <button type="button" data-post="song"><Fragment set:html={`<svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`} />post the song</button>
+        </p>
+      </section>
+    </article>
 
-    {/* A day at a time hides ten elevenths of the collection, so there is a
-        way to walk it. The date-keyed chord is still what a fresh visit and a
-        shared link both land on. */}
+    <noscript>
+      <p class="today-how">
+        the day is chosen in your browser, and yours has javascript off. the
+        collection is still all here: <a href="/map">walk it as a list</a>.
+      </p>
+    </noscript>
+
+    {/* the almanac line: where in the rhythm this day sits, and the honest
+        return date. small collections should say they are small. */}
     <p class="chord-when">
-      <span class="today-date"></span> · from{" "}
-      <a href="/map">the collection</a>
+      <span class="today-date"></span>
+      <span class="today-rhythm"></span>
       <button class="chord-next" type="button">another day<span class="arw" aria-hidden="true">→</span></button>
       <button class="chord-back" type="button" hidden>back to today</button>
     </p>
 
+    {/* every day, walkable. the tile that is showing is marked. */}
+    <section class="today-days" aria-label="all the days">
+      <p class="bit-label">the whole collection, {chords.length} days on rotation · <a href="/map">as a list</a></p>
+      <div class="today-days-grid">
+        {chords.map((c, i) => (
+          <button class="day-tile" type="button" data-i={i} title={`${c.painting.title}, ${c.painting.who}`}>
+            <img src={tileMeta[c.id].thumb} alt={`${c.painting.title}, ${c.painting.who}`}
+                 width={tileMeta[c.id].w} height={tileMeta[c.id].h} loading="lazy" decoding="async" />
+            <span>{c.weather}</span>
+          </button>
+        ))}
+      </div>
+    </section>
+
     <canvas class="story-canvas" width="1080" height="1920" hidden></canvas>
   </section>
 
-  <script is:inline define:vars={{ chords, weathers: data.weathers }}>
+  <script is:inline define:vars={{ manifest }}>
     (() => {
       const root = document.querySelector(".today");
       if (!root) return;
-      const cards = [...root.querySelectorAll(".chord")];
+      const days = manifest.days;
+      const N = days.length;
 
-      // The same chord for everyone on the same calendar day, so a link you
-      // send points at what you were looking at. Days counted in UTC.
+      // the same chord for everyone on the same calendar day (UTC), so a
+      // shared link points at what you were looking at.
       const now = new Date();
-      const day = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
-      const at = ((day % cards.length) + cards.length) % cards.length;
+      const dayNum = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
+      const at = ((dayNum % N) + N) % N;
 
-      let showing = at;
-      let card = cards[at];
-      let chord = chords[at];
-      const light = (i) => {
-        cards[showing].hidden = true;
-        showing = ((i % cards.length) + cards.length) % cards.length;
-        card = cards[showing];
-        chord = chords[showing];
-        const im = card.querySelector("img");
-        if (!im.src) {
-          im.srcset = im.dataset.srcset;
-          im.src = im.dataset.src;
-        }
-        card.hidden = false;
-        root.querySelector(".today-weather").textContent = chord.weather;
-        const wn = (weathers.find((w) => w.name === chord.weather) || {}).note;
-        root.querySelector(".today-weather-note").textContent = wn ? ": " + wn : "";
-        root.querySelector(".chord-back").hidden = showing === at;
-        wire(card);
+      const card = root.querySelector(".chord");
+      const F = (k) => card.querySelector(`[data-f="${k}"]`);
+      const img = card.querySelector(".chord-art img");
+      const skyA = document.querySelector(".today-sky-a");
+      const skyB = document.querySelector(".today-sky-b");
+      let skyFlip = false;
+
+      let showing = -1;
+      let chord = null;
+      const cache = {};
+
+      const respSet = (src) => {
+        const stem = src.split("/").pop().replace(/\.[^.]+$/, "");
+        return [`/images/responsive/today/${stem}-480.webp 480w`,
+                `/images/responsive/today/${stem}-960.webp 960w`,
+                `${src} 1600w`].join(", ");
       };
-      const img = card.querySelector("img");
-      img.srcset = img.dataset.srcset;
-      img.src = img.dataset.src;
-      card.hidden = false;
+
+      const setSky = (c) => {
+        const layer = skyFlip ? skyB : skyA;
+        const other = skyFlip ? skyA : skyB;
+        skyFlip = !skyFlip;
+        // the full painting, loaded off the critical path; the extra dim is
+        // the build's measurement for this exact image.
+        const pre = new Image();
+        pre.onload = () => {
+          layer.style.backgroundImage = `url("${c.painting.src}")`;
+          layer.querySelector("s").style.opacity = c.painting.skyDim || 0;
+          layer.classList.add("is-on");
+          other.classList.remove("is-on");
+        };
+        pre.src = c.painting.src;
+      };
+
+      const text = (k, v) => { const el = F(k); el.textContent = v || ""; };
+      const maybe = (k, v, fill) => {
+        const el = F(k);
+        el.hidden = !v;
+        if (v && fill !== false) el.textContent = v;
+      };
+
+      const render = (c, i) => {
+        chord = c; showing = i;
+        img.srcset = respSet(c.painting.src);
+        img.src = c.painting.src;
+        img.alt = `${c.painting.title}, ${c.painting.who}`;
+        text("p-who", c.painting.who);
+        text("p-title", c.painting.title);
+        text("p-where", `${c.painting.year} · ${c.painting.where} ·`);
+        F("p-source").href = c.painting.source;
+        maybe("p-note", c.painting.note);
+
+        text("q-en", c.quote.english);
+        maybe("q-orig", c.quote.english !== c.quote.text ? c.quote.text : "");
+        text("q-who", c.quote.who);
+        text("q-where", c.quote.where);
+
+        text("v-en", c.poem.english || c.poem.text);
+        maybe("v-orig", c.poem.english && c.poem.english !== c.poem.text ? c.poem.text : "");
+        text("v-who", c.poem.who);
+        text("v-where", c.poem.where);
+        maybe("v-roman", c.poem.roman);
+        maybe("v-tr", c.poem.translator);
+        maybe("v-note", c.poem.note);
+        F("v-morewrap").hidden = !c.poem.more;
+        if (c.poem.more) { F("v-more").href = c.poem.more; text("v-morelabel", c.poem.moreLabel); }
+
+        F("songwrap").hidden = !c.song;
+        if (c.song) {
+          text("s-title", c.song.title);
+          text("s-who", `${c.song.who}, ${c.song.year}`);
+          F("s-yt").href = c.song.youtube;
+          F("s-sp").href = c.song.spotify;
+          maybe("s-note", c.song.note);
+        }
+
+        card.hidden = false;
+        root.querySelector(".today-weather").textContent = c.weather;
+        const wn = (manifest.weathers.find((w) => w.name === c.weather) || {}).note;
+        root.querySelector(".today-weather-note").textContent = wn ? ": " + wn : "";
+        root.querySelector(".chord-back").hidden = i === at;
+
+        // the almanac: which day of the rhythm, and when this one comes back
+        const back = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) + ((i - at + N) % N || N) * 86400000);
+        root.querySelector(".today-rhythm").textContent =
+          ` · day ${i + 1} of ${N}` +
+          (i === at ? `, returns ${back.toLocaleDateString("en-GB", { day: "numeric", month: "long" }).toLowerCase()}`
+                    : `, the sky of ${back.toLocaleDateString("en-GB", { day: "numeric", month: "long" }).toLowerCase()}`);
+
+        for (const t of root.querySelectorAll(".day-tile"))
+          t.classList.toggle("is-showing", +t.dataset.i === i);
+
+        setSky(c);
+      };
+
+      const load = async (i) => {
+        const idx = ((i % N) + N) % N;
+        const id = days[idx].id;
+        if (!cache[id]) {
+          try {
+            const r = await fetch(`/today-data/${id}.json`);
+            if (!r.ok) throw new Error(r.status);
+            cache[id] = await r.json();
+          } catch {
+            root.querySelector(".today-weather").textContent = "unreachable — try a reload";
+            return;
+          }
+        }
+        render(cache[id], idx);
+      };
 
       root.querySelector(".today-date").textContent = now.toLocaleDateString("en-GB", {
         day: "numeric", month: "long", year: "numeric",
       }).toLowerCase();
-      root.querySelector(".today-weather").textContent = chord.weather;
-      const wnote = (weathers.find((w) => w.name === chord.weather) || {}).note;
-      if (wnote) root.querySelector(".today-weather-note").textContent = ": " + wnote;
 
       const URL_ = "https://dmklochko.com/today";
-
-      // What each part says when it goes out on its own.
       const posts = {
-        painting: () =>
-          `the painting of the day: ${chord.painting.who}, ${chord.painting.title}, ${chord.painting.year}.`,
+        painting: () => `the painting of the day: ${chord.painting.who}, ${chord.painting.title}, ${chord.painting.year}.`,
         quote: () => `“${chord.quote.english}”\n— ${chord.quote.who}`,
         poem: () => {
           const t = (chord.poem.english || chord.poem.text).split("\n").slice(0, 4).join("\n");
@@ -216,17 +295,13 @@ const description =
         song: () => `the song of the day: ${chord.song.title}, ${chord.song.who}.`,
       };
 
-      const wire = (el) => {
-      for (const b of el.querySelectorAll("[data-post]")) {
-        if (b.dataset.wired) continue; b.dataset.wired = "1";
+      for (const b of root.querySelectorAll("[data-post]")) {
         b.addEventListener("click", () => {
           open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(posts[b.dataset.post]()) +
                "&url=" + encodeURIComponent(URL_), "_blank", "noopener");
         });
       }
 
-      // The story is drawn here rather than fetched: the page already has the
-      // painting and the font, so the card costs one canvas and no network.
       const stories = {
         painting: () => ({ big: chord.painting.title, small: `${chord.painting.who}, ${chord.painting.year}` }),
         quote: () => ({ big: "“" + chord.quote.english + "”", small: chord.quote.who }),
@@ -236,8 +311,7 @@ const description =
         }),
       };
 
-      for (const b of el.querySelectorAll("[data-story]")) {
-        if (b.dataset.wired) continue; b.dataset.wired = "1";
+      for (const b of root.querySelectorAll("[data-story]")) {
         b.addEventListener("click", async () => {
           const { big, small } = stories[b.dataset.story]();
           const cv = root.querySelector(".story-canvas");
@@ -246,6 +320,7 @@ const description =
 
           try { await document.fonts.load("300 74px Zodiak"); } catch {}
           try { await document.fonts.load("400 26px 'JetBrains Mono'"); } catch {}
+          try { await img.decode(); } catch {}
 
           const s = Math.max(W / img.naturalWidth, H / img.naturalHeight);
           const w = img.naturalWidth * s, h = img.naturalHeight * s;
@@ -253,7 +328,6 @@ const description =
           g.fillRect(0, 0, W, H);
           g.drawImage(img, (W - w) / 2, (H - h) * 0.34, w, h);
 
-          // the site's own smoked glass, not a slab over the art
           g.fillStyle = "rgba(16, 20, 34, 0.46)";
           g.fillRect(0, 0, W, H);
           const grad = g.createLinearGradient(0, H * 0.35, 0, H);
@@ -292,8 +366,6 @@ const description =
           g.fillStyle = "#ff9bc0";
           g.fillText(small.toLowerCase(), pad, y);
 
-          // Stacked rather than set at both ends: a long painting title and
-          // the url were running into each other in the middle.
           g.font = "400 24px 'JetBrains Mono', ui-monospace, monospace";
           g.fillStyle = "rgba(236, 230, 217, 0.62)";
           const credit = `${chord.painting.who.toLowerCase()}, ${chord.painting.title.toLowerCase()}, ${chord.painting.year}`;
@@ -312,11 +384,20 @@ const description =
           }, "image/png");
         });
       }
-      };
 
-      wire(card);
-      root.querySelector(".chord-next").addEventListener("click", () => light(showing + 1));
-      root.querySelector(".chord-back").addEventListener("click", () => light(at));
+      root.querySelector(".chord-next").addEventListener("click", () => load(showing + 1));
+      root.querySelector(".chord-back").addEventListener("click", () => load(at));
+      for (const t of root.querySelectorAll(".day-tile"))
+        t.addEventListener("click", () => load(+t.dataset.i));
+
+      // arrows walk the days; never while typing somewhere
+      document.addEventListener("keydown", (e) => {
+        if (e.target && e.target.closest && e.target.closest("input,textarea,select")) return;
+        if (e.key === "ArrowRight") load(showing + 1);
+        if (e.key === "ArrowLeft") load(showing - 1);
+      });
+
+      load(at);
     })();
   </script>
 </Layout>

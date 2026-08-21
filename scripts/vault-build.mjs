@@ -160,6 +160,86 @@ for (const p of poems) {
   }
 }
 
+
+// ── the sky gate ─────────────────────────────────────────────────────────────
+//
+// On /today the chord's painting is the sky behind the whole page, seen
+// through the site's smoked glass (brightness 0.32 + the scrim). Paintings
+// are not equally dark: Turner's sunrise through the same glass is still
+// bright enough to sink the secondary ink below the 4.5:1 floor.
+//
+// So the build measures each painting the way the browser will composite it,
+// and computes the smallest extra dim (an overlay the page applies per
+// painting) that puts the worst pixel back over the floor. A painting that
+// cannot get there even at 0.6 extra fails the build: better no sky than an
+// unreadable page.
+import sharp from "sharp";
+
+const GLASS = 0.32;                       // body::before brightness
+const SCRIM = { a: 0.24, r: 24, g: 28, b: 46 };
+const lin = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+const lum = (r, g, b) => 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+const INK_DIM = lum(0xa9, 0xae, 0xcb);    // --dim, the weakest ink in use
+const SCRIM_L = lum(SCRIM.r, SCRIM.g, SCRIM.b);
+const FLOOR = 4.6;                        // 4.5 plus margin for jpeg/webp drift
+
+async function skyDim(file) {
+  const { data, info } = await sharp(file)
+    .resize(160, 160, { fit: "fill" })
+    .raw().toBuffer({ resolveWithObject: true });
+  const L = [];
+  for (let i = 0; i < data.length; i += info.channels) {
+    // the browser's pipeline: brightness() scales channels, then the scrim
+    // composites over the result. computed per pixel, worst-case kept.
+    const r = data[i] * GLASS, g = data[i + 1] * GLASS, b = data[i + 2] * GLASS;
+    L.push(lum(
+      r * (1 - SCRIM.a) + SCRIM.r * SCRIM.a,
+      g * (1 - SCRIM.a) + SCRIM.g * SCRIM.a,
+      b * (1 - SCRIM.a) + SCRIM.b * SCRIM.a,
+    ));
+  }
+  L.sort((a, b) => a - b);
+  const p99 = L[Math.floor(0.99 * (L.length - 1))];
+  // extra dim multiplies the composited pixel toward black
+  for (let extra = 0; extra <= 0.61; extra += 0.02) {
+    const worst = p99 * (1 - extra);
+    if ((INK_DIM + 0.05) / (worst + 0.05) >= FLOOR) return { extra: +extra.toFixed(2), p99: +p99.toFixed(4) };
+  }
+  return null;
+}
+
+for (const c of chords) {
+  const gate = await skyDim(join("public", c.painting.src));
+  if (!gate) {
+    throw new Error(`${c.id}: ${c.painting.src} stays too bright for the sky even at maximum dim. ` +
+      `The page would be unreadable over it; darken the image or drop it from /today.`);
+  }
+  c.painting.skyDim = gate.extra;
+}
+
+// ── per-day payloads ─────────────────────────────────────────────────────────
+//
+// /today used to inline all chords (121kb of html for one visible day). Now
+// the page ships a manifest and fetches the day it needs.
+import { mkdirSync } from "node:fs";
+mkdirSync("public/today-data", { recursive: true });
+for (const c of chords) {
+  writeFileSync(join("public/today-data", c.id + ".json"), JSON.stringify(c));
+}
+writeFileSync("public/today-data/manifest.json", JSON.stringify({
+  built: "vault",
+  weathers: weathers.map((w) => ({ name: w.name, note: w.text })),
+  days: chords.map((c) => ({
+    id: c.id,
+    weather: c.weather,
+    who: c.painting.who,
+    title: c.painting.title,
+    thumb: "/images/thumbs" + c.painting.src.replace("/images", "").replace(/\.[^.]+$/, ".webp"),
+    skyDim: c.painting.skyDim,
+    src: c.painting.src,
+  })),
+}));
+
 writeFileSync(OUT, JSON.stringify({
   _doc: "Generated from vault/ by scripts/vault-build.mjs. Do not edit by hand: edit the markdown and rebuild.",
   built: "vault",
