@@ -587,6 +587,7 @@
     "bebop-bone": "#e9e5d8",
     "bebop-rule": "rgb(233 229 216 / 9%)",
     "bebop-cold": "#d8cfe0",
-    "bebop-hot": "#ff6fae"
+    "bebop-hot": "#ff6fae",
+    "shadow-deep-base": "rgb(6 9 18)"
   }
 }
