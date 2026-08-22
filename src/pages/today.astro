@@ -397,6 +397,23 @@ const description =
         if (e.key === "ArrowLeft") load(showing - 1);
       });
 
+      // Walking the days should feel instant, so the neighbours' payloads are
+      // fetched while nobody is looking: yesterday and tomorrow once the page
+      // is idle, and any archive tile the pointer pauses on. Payloads only, a
+      // few KB each; the skies stay lazy.
+      const prefetch = (i) => {
+        const id = days[(((i) % N) + N) % N].id;
+        if (cache[id] || prefetch.seen?.has(id)) return;
+        (prefetch.seen ??= new Set()).add(id);
+        fetch(`/today-data/${id}.json`).then((r) => r.ok && r.json())
+          .then((d) => { if (d) cache[id] = d; }).catch(() => {});
+      };
+      (window.requestIdleCallback || ((f) => setTimeout(f, 2500)))(() => {
+        prefetch(at + 1); prefetch(at - 1);
+      });
+      for (const t of root.querySelectorAll(".day-tile"))
+        t.addEventListener("pointerenter", () => prefetch(+t.dataset.i), { passive: true });
+
       load(at);
     })();
   </script>
