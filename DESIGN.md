@@ -21,6 +21,13 @@ modes:
     # Three literals the ramps do not cover, documented rather than left as
     # drift: the glow at the heart of the fire, the scrim over the scene, and
     # the deep shadow under a lifted print.
+    # The pond (/pond) is a paper world by day: mat is its ground, and its ink
+    # is sampled from Matsumoto Hoji's frog itself, not chosen. At night it
+    # returns home to void/bone/ember.
+    sumi: "#3c444c"        # Hoji's brush, mean of the frog's opaque dark pixels
+    sumi-soft: "#6a6f76"   # quiet text on mat paper — 5.1:1, floor is 4.5
+    sumi-wash: "rgb(60 68 76 / 50%)"   # ripple rings by day
+    bone-wash: "rgb(236 230 217 / 40%)" # ripple rings by night
     firelight: "rgb(255 186 110 / 55%)"
     firelight-core: "rgb(255 186 110 / 62%)"
     scene-scrim: "rgb(24 28 46 / 24%)"
@@ -57,6 +64,7 @@ typography:
   dream-display: "clamp(2rem, 3.4vw, 2.9rem)"      # Zodiak italic, real headings
   dream-display-card: "clamp(1.5rem, 2.4vw, 2.1rem)"  # timeline chapter titles
   dream-display-hero: "clamp(3.4rem, 7vw, 6rem)"   # a poster's title
+  pond-haiku: "clamp(1.35rem, 2.6vw, 1.9rem) italic"  # the poem over the water, Newsreader
   raster:
     art-cell-sm: "0.55rem"
     art-cell-lg: "1.05rem"

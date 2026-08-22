@@ -555,7 +555,8 @@
     "dream-display": "clamp(2rem, 3.4vw, 2.9rem)",
     "dream-display-hero": "clamp(3.4rem, 7vw, 6rem)",
     "art-cell-sm": "0.55rem",
-    "art-cell-lg": "1.05rem"
+    "art-cell-lg": "1.05rem",
+    "pond-haiku": "clamp(1.35rem, 2.6vw, 1.9rem)"
   },
   "colors": {
     "firelight": "rgb(255 186 110 / 55%)",
@@ -588,6 +589,10 @@
     "bebop-rule": "rgb(233 229 216 / 9%)",
     "bebop-cold": "#d8cfe0",
     "bebop-hot": "#ff6fae",
-    "shadow-deep-base": "rgb(6 9 18)"
+    "shadow-deep-base": "rgb(6 9 18)",
+    "sumi": "#3c444c",
+    "sumi-soft": "#6a6f76",
+    "sumi-wash": "rgb(60 68 76 / 50%)",
+    "bone-wash": "rgb(236 230 217 / 40%)"
   }
 }

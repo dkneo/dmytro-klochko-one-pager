@@ -1,0 +1,413 @@
+---
+// The pond. A toy, in the oldest sense: something to sit beside.
+//
+// Nothing on this page is drawn by hand. The frog is Matsumoto Hoji's, four
+// brushstrokes from around 1814, cut from its scroll by luminance so the
+// dry-brush edges stay soft (scripts/pond-assets.mjs). The mountain is
+// Hokusai's Red Fuji, fading into the paper the way the skies fade
+// everywhere else on this site. Even the ink is his: --sumi is the mean of
+// the frog's own dark pixels, sampled, not chosen.
+//
+// Two things can happen here. Tap the water and it ripples. Or do nothing at
+// all for one minute, without leaving, and the page performs the only poem
+// it could: night falls, fireflies come out, the frog jumps in.
+//
+// Standalone on purpose. The rest of the site is indigo with paintings for a
+// sky; this is paper by day, and the masthead's light-on-dark text has no
+// business on it. It borrows the site's night when night falls.
+
+const title = "the pond · dmytro klochko";
+const description = "an old pond. splash it, or be perfectly still.";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fbf3e2" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL("/pond", Astro.site)} />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png?v=2" />
+    <meta property="og:title" content="the pond" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL("/pond", Astro.site)} />
+  </head>
+  <body class="pond">
+    <!-- the mountain, far away -->
+    <div class="pond-fuji" aria-hidden="true">
+      <img src="/images/pond/fuji.webp" alt="" width="1800" height="1201" decoding="async" />
+    </div>
+
+    <!-- the water is the rest of the page; ripples land here -->
+    <div class="pond-water" id="water" aria-hidden="true"></div>
+
+    <!-- the frog, waiting -->
+    <img class="pond-frog" id="frog" src="/images/pond/frog.webp" width="560" height="979"
+         alt="Matsumoto Hoji's frog, ink on paper" decoding="async" />
+
+    <!-- the poem, withheld until it is earned -->
+    <div class="pond-haiku" id="haiku" hidden>
+      <p class="pond-haiku-lines"><span>the old pond —</span>{"\n"}<span>a frog jumps in,</span>{"\n"}<span>the sound of water</span></p>
+      <p class="pond-haiku-who"><span>bashō</span> <i>1686</i></p>
+    </div>
+
+    <div class="pond-corner">
+      <a class="pond-home" href="/">↖ dmytro klochko</a>
+      <p class="pond-rule" id="rule">
+        an old pond. splash it if you like. or be perfectly still for one
+        minute, without leaving, and see.
+      </p>
+      <p class="pond-after" id="after" hidden>the morning is a reload away.</p>
+    </div>
+
+    <p class="pond-credits">
+      frog <a href="https://commons.wikimedia.org/wiki/File:Frog_by_Matsumoto_Hoji.jpg">matsumoto hoji, c. 1814</a>
+      · mountain <a href="https://commons.wikimedia.org/wiki/File:Red_Fuji_southern_wind_clear_morning.jpg">hokusai, 1831</a>
+    </p>
+
+    <style>
+      /* Every colour here is a documented token (DESIGN.md): mat is the
+         paper, sumi is sampled from Hoji's frog, and the night is the site's
+         own void/bone/ember. */
+      @font-face {
+        font-family: "Newsreader";
+        src: url("/fonts/newsreader-400i.woff2") format("woff2");
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      :root {
+        --paper: #fbf3e2;          /* mat */
+        --sumi: #3c444c;
+        --sumi-soft: #6a6f76;
+        --ripple-ink: rgb(60 68 76 / 50%);   /* sumi-wash */
+        --void: #262b44;
+        --bone: #ece6d9;
+        --dim: #a9aecb;
+        --ember: #ffd2a3;
+        --hot: #ff9bc0;
+        --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        --serif: "Newsreader", "Iowan Old Style", Baskerville, Georgia, serif;
+        --dusk: 7s;
+      }
+
+      * { margin: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+
+      body.pond {
+        background: var(--paper);
+        overflow: hidden;
+        cursor: pointer;
+        transition: background-color var(--dusk) ease;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+      }
+      body.pond.night { background: var(--void); }
+
+      /* ── the mountain ─────────────────────────────────────────────── */
+      .pond-fuji {
+        position: fixed; inset: 0 0 auto 0; height: 44svh;
+        -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+        mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+        pointer-events: none;
+      }
+      .pond-fuji img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: center 78%;
+        display: block;
+        transition: filter var(--dusk) ease, opacity var(--dusk) ease;
+      }
+      .night .pond-fuji img { filter: brightness(0.38) saturate(0.7); }
+
+      /* ── the frog ─────────────────────────────────────────────────── */
+      .pond-frog {
+        position: fixed;
+        right: clamp(1.25rem, 7vw, 6rem);
+        bottom: 9svh;
+        width: clamp(96px, 15vw, 168px);
+        height: auto;
+        pointer-events: none;
+        transform-origin: 50% 80%;
+      }
+      .pond-frog.leap {
+        animation: pond-leap 1.15s cubic-bezier(0.3, 0, 0.55, 1) forwards;
+      }
+      @keyframes pond-leap {
+        0%   { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+        45%  { transform: translate(calc(var(--leapx) * 0.5), calc(var(--leapy) - 24svh)) rotate(-16deg); opacity: 1; }
+        88%  { transform: translate(var(--leapx), var(--leapy)) rotate(-30deg) scale(0.72); opacity: 1; }
+        100% { transform: translate(var(--leapx), var(--leapy)) rotate(-30deg) scale(0.66); opacity: 0; }
+      }
+      .pond-frog.gone { opacity: 0; transition: opacity 1.2s ease; }
+
+      /* ── ripples ──────────────────────────────────────────────────── */
+      .pond-water { position: fixed; inset: 0; }
+      .ripple, .ripple::before, .ripple::after {
+        position: absolute;
+        border: 1.5px solid var(--ripple-ink);
+        border-radius: 50%;
+      }
+      .ripple {
+        width: var(--rw); height: calc(var(--rw) * 0.38);
+        left: var(--rx); top: var(--ry);
+        translate: -50% -50%;
+        scale: 0.08;
+        opacity: 0;
+        animation: pond-ring 2.6s ease-out forwards;
+        pointer-events: none;
+      }
+      .ripple::before, .ripple::after {
+        content: ""; inset: 0;
+        scale: 0.55;
+        animation: pond-ring-inner 2.6s ease-out forwards;
+      }
+      .ripple::after { animation-delay: 0.28s; scale: 0.3; }
+      @keyframes pond-ring {
+        0% { scale: 0.08; opacity: 0; }
+        12% { opacity: 1; }
+        100% { scale: 1; opacity: 0; }
+      }
+      @keyframes pond-ring-inner {
+        0% { scale: 0.2; opacity: 0.9; }
+        100% { scale: 0.85; opacity: 0; }
+      }
+
+      /* ── fireflies ────────────────────────────────────────────────── */
+      .firefly {
+        position: fixed;
+        width: 3px; height: 3px; border-radius: 50%;
+        background: var(--ember);
+        box-shadow: 0 0 6px 1px var(--ember);
+        opacity: 0;
+        animation:
+          pond-glow var(--fd) ease-in-out var(--fdelay) infinite,
+          pond-drift calc(var(--fd) * 3.1) ease-in-out var(--fdelay) infinite alternate;
+        pointer-events: none;
+      }
+      @keyframes pond-glow {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0.9; }
+      }
+      @keyframes pond-drift {
+        from { transform: translate(0, 0); }
+        to   { transform: translate(var(--fx), var(--fy)); }
+      }
+
+      /* ── the poem ─────────────────────────────────────────────────── */
+      .pond-haiku {
+        position: fixed;
+        left: clamp(1.5rem, 12vw, 12rem);
+        top: 48svh;
+        pointer-events: none;
+      }
+      .pond-haiku-lines {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+        line-height: 1.75;
+        color: var(--bone);
+        white-space: pre-line;
+      }
+      .pond-haiku-lines span { opacity: 0; transition: opacity 2.4s ease; }
+      .pond-haiku-lines span.lit { opacity: 1; }
+      .pond-haiku-who {
+        margin-top: 1rem;
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        color: var(--dim);
+        opacity: 0;
+        transition: opacity 2.4s ease;
+      }
+      .pond-haiku-who.lit { opacity: 1; }
+      .pond-haiku-who i { font-style: normal; color: var(--hot); margin-left: 0.4rem; }
+
+      /* ── machinery text ───────────────────────────────────────────── */
+      /* One quiet corner. The top of the page belongs to the print, and
+         sumi text was unreadable over its clouds; everything spoken lives
+         together on the paper, bottom left. */
+      .pond-corner {
+        position: fixed; left: 1.25rem; bottom: 1.2rem;
+        display: flex; flex-direction: column; gap: 0.55rem;
+        max-width: 34ch;
+      }
+      .pond-home {
+        font-family: var(--mono); font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        color: var(--sumi);
+        text-decoration: none;
+        padding: 0.5rem 0;   /* 24px tap floor */
+        align-self: flex-start;
+        transition: color var(--dusk) ease;
+      }
+      .night .pond-home { color: var(--dim); }
+
+      .pond-rule {
+        font-family: var(--mono); font-size: 0.78rem; line-height: 1.7;
+        color: var(--sumi-soft);
+        transition: opacity 1.4s ease, color var(--dusk) ease;
+      }
+      .night .pond-rule { color: var(--dim); }
+
+      .pond-after {
+        font-family: var(--mono); font-size: 0.78rem;
+        color: var(--dim);
+        opacity: 0;
+        transition: opacity 3s ease;
+      }
+      .pond-after.lit { opacity: 1; }
+
+      .pond-credits {
+        position: fixed; right: 1.25rem; bottom: 1.2rem;
+        font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
+        color: var(--sumi-soft);
+        transition: color var(--dusk) ease;
+        text-align: right;
+      }
+      .night .pond-credits { color: var(--dim); }
+      .pond-credits a {
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+      }
+
+      @media (max-width: 700px) {
+        .pond-credits { display: none; }  /* small screens keep only the rule */
+        .pond-haiku { top: 44svh; }
+      }
+
+      /* Stillness is the whole game, so the ambient motion must be earnable
+         by everyone: reduced motion keeps the night, loses the choreography. */
+      @media (prefers-reduced-motion: reduce) {
+        :root { --dusk: 1.5s; }
+        .ripple, .ripple::before, .ripple::after { animation-duration: 1.2s; }
+        .pond-frog.leap { animation: none; opacity: 0; transition: opacity 1.5s ease; }
+        .firefly { animation: none; opacity: 0.55; }
+      }
+    </style>
+
+    <script>
+      (() => {
+        // ?still=5 shortens the minute, for showing someone (and for testing
+        // the reward without sitting through it every build).
+        const q = new URLSearchParams(location.search).get("still");
+        const STILL_MS = q ? Math.max(1, +q) * 1000 : 60000;
+        const water = document.getElementById("water");
+        const frog = document.getElementById("frog");
+        const haiku = document.getElementById("haiku");
+        const rule = document.getElementById("rule");
+        const after = document.getElementById("after");
+        const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let night = false;
+
+        // ── splashing ────────────────────────────────────────────────
+        function ripple(x, y, big = false) {
+          const r = document.createElement("i");
+          r.className = "ripple";
+          const w = (big ? 380 : 240) + Math.random() * 90;
+          r.style.setProperty("--rw", w + "px");
+          r.style.setProperty("--rx", x + "px");
+          r.style.setProperty("--ry", y + "px");
+          water.appendChild(r);
+          setTimeout(() => r.remove(), 2700);
+          while (water.children.length > 9) water.firstChild.remove();
+        }
+
+        document.addEventListener("pointerdown", (e) => {
+          // target can be the document itself, which has no closest()
+          if (e.target && e.target.closest && e.target.closest("a")) return;
+          ripple(e.clientX, e.clientY);
+        });
+
+        // ── stillness ────────────────────────────────────────────────
+        // The rule resets on anything that is not sitting: a tap, a key, a
+        // wheel, real mouse travel, or leaving the tab. Tiny mouse jitter is
+        // forgiven; a hand at rest is not a hand in motion.
+        let stillSince = performance.now();
+        let travel = 0, lx = null, ly = null;
+
+        function restless() {
+          if (night) return;
+          stillSince = performance.now();
+          travel = 0;
+          rule.style.opacity = "";
+        }
+        document.addEventListener("pointerdown", restless);
+        document.addEventListener("keydown", restless);
+        document.addEventListener("wheel", restless, { passive: true });
+        document.addEventListener("touchmove", restless, { passive: true });
+        document.addEventListener("pointermove", (e) => {
+          if (lx !== null) travel += Math.hypot(e.clientX - lx, e.clientY - ly);
+          lx = e.clientX; ly = e.clientY;
+          if (travel > 24) restless();
+        });
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) restless();
+        });
+
+        const tick = setInterval(() => {
+          if (night) return;
+          const still = performance.now() - stillSince;
+          // the rule text quietly thins as you hold still: feedback, not a meter
+          rule.style.opacity = String(1 - 0.75 * Math.min(1, still / STILL_MS));
+          if (still >= STILL_MS) nightfall();
+        }, 500);
+
+        // ── the reward ───────────────────────────────────────────────
+        function nightfall() {
+          night = true;
+          clearInterval(tick);
+          document.body.classList.add("night");
+          rule.style.opacity = "0";
+
+          // the frog keeps its promise
+          setTimeout(() => {
+            const fr = frog.getBoundingClientRect();
+            const tx = innerWidth * 0.42 - (fr.left + fr.width / 2);
+            const ty = innerHeight * 0.64 - (fr.top + fr.height * 0.8);
+            frog.style.setProperty("--leapx", tx + "px");
+            frog.style.setProperty("--leapy", ty + "px");
+            frog.classList.add(reduced ? "gone" : "leap");
+            setTimeout(() => {
+              ripple(innerWidth * 0.42, innerHeight * 0.64, true);
+              setTimeout(() => ripple(innerWidth * 0.42, innerHeight * 0.64, true), 420);
+            }, reduced ? 400 : 1050);
+          }, reduced ? 800 : 5500);
+
+          // the poem arrives the way it was written: one thing at a time
+          const lines = haiku.querySelectorAll(".pond-haiku-lines span");
+          const who = haiku.querySelector(".pond-haiku-who");
+          haiku.hidden = false;
+          const t0 = reduced ? 2400 : 8200;
+          lines.forEach((s, i) => setTimeout(() => s.classList.add("lit"), t0 + i * 2200));
+          setTimeout(() => who.classList.add("lit"), t0 + lines.length * 2200 + 800);
+
+          // fireflies
+          const flies = reduced ? 7 : 13;
+          for (let i = 0; i < flies; i++) {
+            setTimeout(() => {
+              const f = document.createElement("i");
+              f.className = "firefly";
+              f.style.left = 4 + Math.random() * 92 + "vw";
+              f.style.top = 30 + Math.random() * 58 + "svh";
+              f.style.setProperty("--fd", 2.4 + Math.random() * 3 + "s");
+              f.style.setProperty("--fdelay", Math.random() * 2 + "s");
+              f.style.setProperty("--fx", (Math.random() * 60 - 30) + "px");
+              f.style.setProperty("--fy", (Math.random() * 40 - 20) + "px");
+              document.body.appendChild(f);
+            }, (reduced ? 1500 : 7000) + i * 900);
+          }
+
+          // and the way back
+          setTimeout(() => { rule.hidden = true; after.hidden = false;
+            requestAnimationFrame(() => after.classList.add("lit"));
+          }, reduced ? 9000 : 21000);
+        }
+      })();
+    </script>
+  </body>
+</html>
