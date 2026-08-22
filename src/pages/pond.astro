@@ -33,6 +33,12 @@ const description = "an old pond. splash it, or be perfectly still.";
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={new URL("/pond", Astro.site)} />
+    <meta property="og:image" content={new URL("/images/pond/fuji.webp", Astro.site)} />
+    <meta property="og:image:alt" content="Hokusai's Red Fuji" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="the pond" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL("/images/pond/fuji.webp", Astro.site)} />
   </head>
   <body class="pond">
     <!-- the mountain, far away -->
