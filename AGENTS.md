@@ -294,11 +294,9 @@ vastness, weight and grace. Everything is filed by feeling, not by kind.
 - `ANTHROPIC_API_KEY` unset, so "ask the map" on `/eidos` returns 503.
 - Cloudflare Access unconfigured, so `/curate` is unreachable; 23 candidates
   wait in `public/inbox.json`.
-- A pond game (Bashō's frog, Hokusai's Fuji) is designed and half-built:
-  assets cut in `public/images/pond/`, `scripts/pond-assets.mjs`. Open
-  question: the pond should be **pale paper, not dark**, because Hoji painted
-  the frog's belly in light wash and it cuts out hollow on a dark ground.
-- `/today` ships 119KB of HTML (inlines all days). Not slow yet.
+- `/pond` shipped: pale paper as decided (Hoji's belly wash cut out hollow on
+  dark), 60s of stillness makes night fall and the frog jump in. `?still=N`
+  shortens the minute for demos. Linked from the bashō figure on `/hokku`.
 
 ---
 
