@@ -116,8 +116,9 @@ const description = "an old pond. splash it, or be perfectly still.";
       /* ── the mountain ─────────────────────────────────────────────── */
       .pond-fuji {
         position: fixed; inset: 0 0 auto 0; height: 44svh;
-        -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
-        mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+        /* a mask reads only the alpha channel, so any opaque token works */
+        -webkit-mask-image: linear-gradient(to bottom, var(--sumi) 58%, transparent 100%);
+        mask-image: linear-gradient(to bottom, var(--sumi) 58%, transparent 100%);
         pointer-events: none;
       }
       .pond-fuji img {
