@@ -80,6 +80,7 @@ This trips up everyone. Some content lives in Cloudflare KV, not the repo.
 | the earlier folio (`/names/old`) | KV `names:folio-old` | same |
 | Stella's requests (`/ask`) | KV `ask:requests` | append-only log |
 | scout school (`/scout`) | KV `scout:page` | source: `contents/scout-school.html` |
+| scout images & film clips | KV `scout:media:<name>.<ext>` | served by the worker with Range support; webp/png/jpg/mp4 only — **no gif**, so "make a gif" means an **animated webp** (`ffmpeg` frames → `img2webp -lossy`; it is **lossless by default** and 15× the size if you forget the flag) |
 | taste verdicts / pairs / portrait | KV `eidos:*` | written by the live page |
 | raw source material | `/contents/`, `/updated-media/` | **gitignored** |
 
@@ -196,6 +197,11 @@ Hard-won and non-obvious. Ignoring these produces confident wrong conclusions:
 - **Sections use `svh` units**, so resizing an iframe reflows everything and
   moves what you were measuring. Shift with `transform: translateY()` instead
   of changing height.
+- **`scroll-behavior: smooth` stalls in the pane** for the same reason the
+  transitions freeze: the animation clock is suspended. `scrollIntoView()`
+  moves a few hundred pixels and stops, which looks exactly like a broken
+  scroll container. Pass `{behavior: "instant"}` when driving the pane;
+  suspect this before suspecting the page.
 - Astro **collapses whitespace** around `{expr}` **and around inline tags on
   their own source line**. `needs\n<b>a bit of ui</b>` renders as
   "needsa bit of ui". This has bitten four times.
