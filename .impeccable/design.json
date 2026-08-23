@@ -376,6 +376,11 @@
         "purpose": "Type entering: present almost at once, long settle. From the kprkr study; first used by the pond's haiku."
       },
       {
+        "name": "ease-slick",
+        "value": "cubic-bezier(0.62, 0.05, 0.01, 0.99)",
+        "purpose": "One-shot entrances only: chapter cards and journey entries rise 16px into place as they reach the viewport (held back, then snapped to rest). Script-gated; no-js and reduced motion never hide anything."
+      },
+      {
         "name": "scene-crossfade",
         "value": "opacity 900ms",
         "purpose": "Fixed scene layers swap when a section claims the sky (IntersectionObserver, \u221242% centred band)."

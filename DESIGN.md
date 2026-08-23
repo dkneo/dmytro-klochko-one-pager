@@ -102,6 +102,7 @@ spacing:
 motion:
   ease: "cubic-bezier(0.2, 0, 0.2, 1)"
   ease-text: "cubic-bezier(0.3, 0, 0, 1)"  # hard ease-out for type entering; docs/kprkr-study.md
+  ease-slick: "cubic-bezier(0.62, 0.05, 0.01, 0.99)"  # hold, then snap to rest; one-shot entrances only
   dur: "200ms"
   dur-slow: "320ms"
 ---

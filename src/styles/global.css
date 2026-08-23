@@ -150,6 +150,7 @@
   --measure: min(100%, 62ch);
 
   --ease: cubic-bezier(0.2, 0, 0.2, 1);
+  --ease-slick: cubic-bezier(0.62, 0.05, 0.01, 0.99); /* hold, then snap to rest; entrances only */
   --dur: 200ms;
   --dur-slow: 320ms;
 }

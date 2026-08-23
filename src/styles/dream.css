@@ -915,6 +915,27 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   opacity: 0.04;
 }
 
+/* ── entrances ──────────────────────────────────────────────────────────────
+   Chapter cards and journey entries rise into place once, on the slick
+   curve: held back, then snapped to rest (docs/kprkr-study.md). Gated by the
+   enter-anim class that only script applies, so no-js reads everything, and
+   reduced motion never opts in. */
+
+.enter-anim .session > .card,
+.enter-anim .log--journey > li {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.9s var(--ease-slick),
+    transform 0.9s var(--ease-slick);
+}
+
+.enter-anim .session > .card.is-in,
+.enter-anim .log--journey > li.is-in {
+  opacity: 1;
+  transform: none;
+}
+
 /* when the webgl field is running, the css petals and weather stand down;
    they remain the fallback for reduced motion, no js, and no webgl */
 .sky-3d .dream-sky b,

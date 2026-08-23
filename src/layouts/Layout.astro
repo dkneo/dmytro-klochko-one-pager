@@ -499,6 +499,27 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
       })();
     </script>
 
+    <!-- Entrances: chapter cards and journey entries rise into place once,
+         on the slick curve, as they reach the viewport. The class is applied
+         here, synchronously before first paint, so nothing ever flashes; and
+         it is never applied at all when motion is unwelcome. -->
+    <script is:inline>
+      (() => {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const targets = document.querySelectorAll(".session > .card, .log--journey > li");
+        if (!targets.length || !("IntersectionObserver" in window)) return;
+        document.documentElement.classList.add("enter-anim");
+        const io = new IntersectionObserver((entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            e.target.classList.add("is-in");
+            io.unobserve(e.target);
+          }
+        }, { rootMargin: "0px 0px -12% 0px" });
+        for (const t of targets) io.observe(t);
+      })();
+    </script>
+
     <!-- The petal field: on idle, when motion is welcome, the nine CSS
          petals hand over to a WebGL hundred with real depth. three.js loads
          only here, only then; if anything declines, the CSS petals never
