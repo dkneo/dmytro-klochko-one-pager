@@ -110,6 +110,12 @@ const description = "an old pond. splash it, or be perfectly still.";
         transition: background-color var(--dusk) ease;
         -webkit-tap-highlight-color: transparent;
         user-select: none;
+        -webkit-user-select: none;
+        /* quick repeated splashes must not double-tap-zoom on iOS */
+        touch-action: manipulation;
+      }
+      .pond-frog, .pond-fuji img {
+        -webkit-touch-callout: none;   /* long-press must not offer to save the art */
       }
       body.pond.night { background: var(--void); }
 
