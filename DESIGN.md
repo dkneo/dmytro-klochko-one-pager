@@ -32,6 +32,7 @@ modes:
     firelight-core: "rgb(255 186 110 / 62%)"
     scene-scrim: "rgb(24 28 46 / 24%)"
     shadow-deep: "rgb(6 9 18 / 45%)"
+    shadow-deep-base: "rgb(6 9 18)"   # the same dark, opaque: /today's self-dimming sky layer
   workbench:   # the /learning artefact pages (ui-vernacular, terminal): light
                # paper tools, siblings of each other rather than of the site's
                # dream shell. Palette established by ui-vernacular and shared.
