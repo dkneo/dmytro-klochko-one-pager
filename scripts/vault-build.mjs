@@ -215,6 +215,12 @@ for (const c of chords) {
       `The page would be unreadable over it; darken the image or drop it from /today.`);
   }
   c.painting.skyDim = gate.extra;
+  // real pixel dimensions ride along so the page can reserve the aspect
+  // ratio before the file arrives, and so srcset descriptors tell the truth
+  // (they used to claim 1600w for paintings that are 1000-1500).
+  const meta = await sharp(join("public", c.painting.src)).metadata();
+  c.painting.w = meta.width;
+  c.painting.h = meta.height;
 }
 
 // ── per-day payloads ─────────────────────────────────────────────────────────

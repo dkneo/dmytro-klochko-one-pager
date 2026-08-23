@@ -65,7 +65,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:Hammersh%C3%B8i_Dust_motes_dancing.jpg",
         "licence": "public domain",
         "note": "Painted in his own flat at Strandgade 30, which he painted again and again for a decade. No furniture to speak of, no story, nobody home: an empty room and the light crossing it.",
-        "skyDim": 0
+        "skyDim": 0,
+        "w": 1277,
+        "h": 1500
       },
       "song": {
         "who": "Erik Satie",
@@ -102,7 +104,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Norham_Castle,_Sunrise_-_WGA23182.jpg",
         "licence": "public domain",
         "note": "Never exhibited. It was found in his studio after he died, one of a group he seems to have painted for himself, and the castle has almost finished dissolving into the light.",
-        "skyDim": 0
+        "skyDim": 0,
+        "w": 1500,
+        "h": 1106
       },
       "song": {
         "who": "Brian Eno",
@@ -137,7 +141,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_Google_Art_Project_(431238).jpg",
         "licence": "public domain",
         "note": "From the pond he dug himself at Giverny and then spent thirty years painting. These late ones were made as his cataracts thickened, which is part of why the lilies stop having edges.",
-        "skyDim": 0
+        "skyDim": 0,
+        "w": 1500,
+        "h": 693
       },
       "song": {
         "who": "Nina Simone",
@@ -174,7 +180,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
-        "skyDim": 0
+        "skyDim": 0,
+        "w": 1000,
+        "h": 740
       },
       "song": {
         "who": "Seatbelts",
@@ -211,7 +219,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
-        "skyDim": 0
+        "skyDim": 0,
+        "w": 1000,
+        "h": 740
       },
       "song": {
         "who": "Seatbelts",
@@ -248,7 +258,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
-        "skyDim": 0
+        "skyDim": 0,
+        "w": 1000,
+        "h": 740
       },
       "song": {
         "who": "Seatbelts",
@@ -285,7 +297,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
-        "skyDim": 0
+        "skyDim": 0,
+        "w": 1000,
+        "h": 740
       },
       "song": {
         "who": "Seatbelts",
@@ -322,7 +336,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:James_McNeill_Whistler_-_Nocturne_en_bleu_et_or.jpg",
         "licence": "public domain",
         "note": "Ruskin said Whistler was flinging a pot of paint in the public's face. Whistler sued him for libel, won, and was awarded one farthing in damages, which bankrupted him.",
-        "skyDim": 0
+        "skyDim": 0,
+        "w": 1118,
+        "h": 1500
       },
       "song": {
         "who": "Chet Baker",
@@ -362,7 +378,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:Jean-Baptiste_Simeon_Chardin_-_A_Bowl_of_Plums_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "note": "Chardin painted more or less the same handful of objects for forty years. Diderot said of him that this one understands the harmony of colours and reflections, and the rest of us paint things.",
-        "skyDim": 0
+        "skyDim": 0,
+        "w": 1500,
+        "h": 1195
       },
       "song": {
         "who": "Bill Evans",
@@ -399,7 +417,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:Friedrich,_Caspar_David_-_M%C3%B6nch_am_Meer_-_Alte_Nationalgalerie_in_Berlin.jpg",
         "licence": "public domain",
         "note": "Kleist wrote that looking at it felt as though his eyelids had been cut away. Friedrich painted out the ships he had first put on the horizon, leaving nothing between the figure and the sky.",
-        "skyDim": 0
+        "skyDim": 0,
+        "w": 1500,
+        "h": 964
       },
       "song": {
         "who": "Vangelis",
@@ -436,7 +456,9 @@
         "source": "https://commons.wikimedia.org/wiki/File:Hilma_af_Klint_-_The_Ten_Largest_No._7_-_Adulthood_-_1907.jpg",
         "licence": "public domain",
         "note": "Painted in 1907, years before abstraction was credited to anyone else. She left instructions that the work not be shown until twenty years after her death, and it was not shown properly for forty.",
-        "skyDim": 0.1
+        "skyDim": 0.1,
+        "w": 1131,
+        "h": 1500
       },
       "song": {
         "who": "Arvo Pärt",

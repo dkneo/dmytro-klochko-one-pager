@@ -1,5 +1,5 @@
 {
- "built": "2026-08-21",
+ "built": "2026-08-23",
  "axes": {
   "x": {
    "from": "cold",
@@ -94,8 +94,8 @@
    "url": "",
    "note": "the estuary. stands behind taste.",
    "added": "2026-08-18",
-   "x": 0.2279,
-   "y": -1.0352,
+   "x": 0.2204,
+   "y": -1.0368,
    "unplaced": true
   },
   {
@@ -111,8 +111,8 @@
    "url": "",
    "note": "sunflowers. stands behind what came before.",
    "added": "2026-08-18",
-   "x": 0.4451,
-   "y": -0.962,
+   "x": 0.4311,
+   "y": -0.9684,
    "unplaced": true
   },
   {
@@ -128,8 +128,8 @@
    "url": "",
    "note": "the campfire. stands behind how he works.",
    "added": "2026-08-18",
-   "x": 0.6415,
-   "y": -0.8439,
+   "x": 0.6231,
+   "y": -0.8576,
    "unplaced": true
   },
   {
@@ -145,8 +145,8 @@
    "url": "",
    "note": "the fuji rafts. stands behind replika.",
    "added": "2026-08-18",
-   "x": 0.8079,
-   "y": -0.6862,
+   "x": 0.7877,
+   "y": -0.7093,
    "unplaced": true
   },
   {
@@ -162,8 +162,8 @@
    "url": "",
    "note": "the lavender walk. stands behind the camera.",
    "added": "2026-08-18",
-   "x": 0.9365,
-   "y": -0.4965,
+   "x": 0.918,
+   "y": -0.53,
    "unplaced": true
   },
   {
@@ -179,8 +179,8 @@
    "url": "",
    "note": "a dark courtyard. carries the reading pages.",
    "added": "2026-08-18",
-   "x": 1.0214,
-   "y": -0.2836,
+   "x": 1.0081,
+   "y": -0.3276,
    "unplaced": true
   },
   {
@@ -196,8 +196,8 @@
    "url": "",
    "note": "the snowlit village. stands behind saying hi.",
    "added": "2026-08-18",
-   "x": 1.0584,
-   "y": -0.0574,
+   "x": 1.0542,
+   "y": -0.1108,
    "unplaced": true
   },
   {
@@ -213,8 +213,8 @@
    "url": "",
    "note": "one of his own, taken down to night, for learning.",
    "added": "2026-08-18",
-   "x": 1.046,
-   "y": 0.1715,
+   "x": 1.0542,
+   "y": 0.1108,
    "unplaced": true
   },
   {
@@ -230,8 +230,8 @@
    "url": "",
    "note": "the swimmer under the orange sun. the opening screen.",
    "added": "2026-08-18",
-   "x": 0.9847,
-   "y": 0.3923,
+   "x": 1.0081,
+   "y": 0.3276,
    "unplaced": true
   },
   {
@@ -791,8 +791,8 @@
    "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.8774,
-   "y": 0.5949,
+   "x": 0.918,
+   "y": 0.53,
    "unplaced": true
   },
   {
@@ -808,8 +808,8 @@
    "url": "https://emilkowal.ski/ui/agents-with-taste",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.729,
-   "y": 0.7696,
+   "x": 0.7877,
+   "y": 0.7093,
    "unplaced": true
   },
   {
@@ -825,8 +825,8 @@
    "url": "https://emilkowal.ski/ui/building-a-drawer-component",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.5465,
-   "y": 0.9083,
+   "x": 0.6231,
+   "y": 0.8576,
    "unplaced": true
   },
   {
@@ -842,8 +842,8 @@
    "url": "https://emilkowal.ski/ui/building-a-toast-component",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.3385,
-   "y": 1.0045,
+   "x": 0.4311,
+   "y": 0.9684,
    "unplaced": true
   },
   {
@@ -859,8 +859,8 @@
    "url": "https://emilkowal.ski/ui/building-an-animation-course",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.1146,
-   "y": 1.0538,
+   "x": 0.2204,
+   "y": 1.0368,
    "unplaced": true
   },
   {
@@ -876,8 +876,8 @@
    "url": "https://emilkowal.ski/ui/developing-taste",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.1146,
-   "y": 1.0538,
+   "x": 0,
+   "y": 1.06,
    "unplaced": true
   },
   {
@@ -893,8 +893,8 @@
    "url": "https://emilkowal.ski/ui/friction-as-a-feature",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.3385,
-   "y": 1.0045,
+   "x": -0.2204,
+   "y": 1.0368,
    "unplaced": true
   },
   {
@@ -910,8 +910,8 @@
    "url": "https://emilkowal.ski/ui/the-magic-of-clip-path",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.5465,
-   "y": 0.9083,
+   "x": -0.4311,
+   "y": 0.9684,
    "unplaced": true
   },
   {
@@ -927,8 +927,8 @@
    "url": "https://emilkowal.ski/ui/train-your-judgement",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.729,
-   "y": 0.7696,
+   "x": -0.6231,
+   "y": 0.8576,
    "unplaced": true
   },
   {
@@ -944,8 +944,25 @@
    "url": "https://emilkowal.ski/ui/you-dont-need-animations",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.8774,
-   "y": 0.5949,
+   "x": -0.7877,
+   "y": 0.7093,
+   "unplaced": true
+  },
+  {
+   "id": "threeui",
+   "type": "link",
+   "who": "meng to",
+   "title": "ThreeUI",
+   "line": "ThreeUI",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://threeui.com",
+   "note": "",
+   "added": "2026-08-23",
+   "x": -0.918,
+   "y": 0.53,
    "unplaced": true
   },
   {
@@ -961,8 +978,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.9847,
-   "y": 0.3923,
+   "x": -1.0081,
+   "y": 0.3276,
    "unplaced": true
   },
   {
@@ -978,8 +995,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.046,
-   "y": 0.1715,
+   "x": -1.0542,
+   "y": 0.1108,
    "unplaced": true
   },
   {
@@ -995,8 +1012,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0584,
-   "y": -0.0574,
+   "x": -1.0542,
+   "y": -0.1108,
    "unplaced": true
   },
   {
@@ -1012,8 +1029,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0214,
-   "y": -0.2836,
+   "x": -1.0081,
+   "y": -0.3276,
    "unplaced": true
   },
   {
@@ -1029,8 +1046,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.9365,
-   "y": -0.4965,
+   "x": -0.918,
+   "y": -0.53,
    "unplaced": true
   },
   {
@@ -1046,8 +1063,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.8079,
-   "y": -0.6862,
+   "x": -0.7877,
+   "y": -0.7093,
    "unplaced": true
   },
   {
@@ -1063,8 +1080,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.6415,
-   "y": -0.8439,
+   "x": -0.6231,
+   "y": -0.8576,
    "unplaced": true
   },
   {
@@ -1080,8 +1097,8 @@
    "url": "/writing/english-teacher",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.4451,
-   "y": -0.962,
+   "x": -0.4311,
+   "y": -0.9684,
    "unplaced": true
   },
   {
@@ -1097,8 +1114,8 @@
    "url": "/writing/staying-human",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.2279,
-   "y": -1.0352,
+   "x": -0.2204,
+   "y": -1.0368,
    "unplaced": true
   }
  ],
@@ -1335,7 +1352,7 @@
    ]
   }
  ],
- "unplaced": 29,
+ "unplaced": 30,
  "forms": [
   {
    "form": "painting",
@@ -1355,7 +1372,7 @@
   },
   {
    "form": "link",
-   "n": 10
+   "n": 11
   },
   {
    "form": "person",
@@ -1476,6 +1493,10 @@
    "n": 1
   },
   {
+   "who": "meng to",
+   "n": 1
+  },
+  {
    "who": "Nina Simone",
    "n": 1
   },
@@ -1537,8 +1558,8 @@
   }
  ],
  "depth": {
-  "notes": 64,
-  "people": 42,
+  "notes": 65,
+  "people": 43,
   "thinnest": "cold clarity",
   "oneDeep": 7
  }

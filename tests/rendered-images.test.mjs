@@ -91,25 +91,36 @@ test("eidos map marks use small derivatives", async () => {
   }
 });
 
-test("today reserves the real aspect ratio and offers responsive candidates", async () => {
-  const html = read("dist/today/index.html");
-  const tags = [...html.matchAll(/<img\b[^>]*data-src="[^"]+"[^>]*>/g)].map(
-    (match) => match[0],
-  );
+// /today no longer inlines a tag per day: one template img is filled from
+// fetched payloads. The guarantees move with the architecture — every payload
+// must carry the truth the runtime needs.
+test("today's payloads carry real dimensions and their responsive candidates exist", async () => {
+  const dir = path.join(root, "public/today-data");
+  const days = fs.readdirSync(dir).filter((f) => f.endsWith(".json") && f !== "manifest.json");
+  assert.ok(days.length > 0);
 
-  assert.ok(tags.length > 0);
-  for (const tag of tags) {
-    const src = attr(tag, "data-src");
+  for (const day of days) {
+    const chord = JSON.parse(read(path.join("public/today-data", day)));
+    const { src, w, h } = chord.painting;
     const metadata = await sharp(localFile(src)).metadata();
-    assert.equal(Number(attr(tag, "width")), metadata.width, `${src} width`);
-    assert.equal(Number(attr(tag, "height")), metadata.height, `${src} height`);
+    assert.equal(w, metadata.width, `${day} painting.w`);
+    assert.equal(h, metadata.height, `${day} painting.h`);
 
-    const srcset = attr(tag, "data-srcset");
-    assert.match(srcset, /-480\.webp 480w/);
-    assert.match(srcset, /-960\.webp 960w/);
-    assert.match(srcset, new RegExp(`${metadata.width}w$`));
-    assert.ok(attr(tag, "sizes"), `${src} needs sizes`);
+    const stem = path.basename(src, path.extname(src));
+    for (const width of [480, 960]) {
+      assert.ok(
+        fs.existsSync(localFile(`/images/responsive/today/${stem}-${width}.webp`)),
+        `${day}: missing ${stem}-${width}.webp`,
+      );
+    }
   }
+
+  // the template the payloads pour into: the one img with sizes but no src
+  const html = read("dist/today/index.html");
+  const template = [...html.matchAll(/<img\b[^>]*>/g)]
+    .map((m) => m[0])
+    .find((tag) => attr(tag, "sizes") && !attr(tag, "src"));
+  assert.ok(template, "today template img (sizes, no src) missing");
 });
 
 test("main-page raster images declare their real dimensions", async () => {

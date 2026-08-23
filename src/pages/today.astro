@@ -180,11 +180,13 @@ const description =
       let chord = null;
       const cache = {};
 
-      const respSet = (src) => {
+      const respSet = (src, w) => {
         const stem = src.split("/").pop().replace(/\.[^.]+$/, "");
+        // the original's descriptor is its real width; it used to say 1600w
+        // for paintings that are 1000-1500, which skews the browser's pick
         return [`/images/responsive/today/${stem}-480.webp 480w`,
                 `/images/responsive/today/${stem}-960.webp 960w`,
-                `${src} 1600w`].join(", ");
+                `${src} ${w || 1500}w`].join(", ");
       };
 
       const setSky = (c) => {
@@ -212,8 +214,10 @@ const description =
 
       const render = (c, i) => {
         chord = c; showing = i;
-        img.srcset = respSet(c.painting.src);
+        img.srcset = respSet(c.painting.src, c.painting.w);
         img.src = c.painting.src;
+        // reserve the real aspect ratio before the file arrives
+        if (c.painting.w) { img.width = c.painting.w; img.height = c.painting.h; }
         img.alt = `${c.painting.title}, ${c.painting.who}`;
         text("p-who", c.painting.who);
         text("p-title", c.painting.title);
