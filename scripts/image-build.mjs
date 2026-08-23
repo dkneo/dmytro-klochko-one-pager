@@ -68,6 +68,22 @@ const jobs = [
       quality: width === 480 ? 76 : 80,
     }));
   }),
+  // The pond: a phone does not need the 1800px print, and the frog renders at
+  // 168px at most, so 340 covers 2x screens.
+  ...[800, 1280].map((width) => ({
+    src: "/images/pond/fuji.webp",
+    out: `/images/responsive/pond/fuji-${width}.webp`,
+    width,
+    fit: "inside",
+    quality: width === 800 ? 78 : 80,
+  })),
+  {
+    src: "/images/pond/frog.webp",
+    out: "/images/responsive/pond/frog-340.webp",
+    width: 340,
+    fit: "inside",
+    quality: 82,
+  },
 ];
 
 const render = (job) => {

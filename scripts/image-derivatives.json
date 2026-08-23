@@ -599,6 +599,48 @@
       },
       "sourceSha256": "d2fa05eb286bdab61b4bb5c761e72d1b742c0bb079c647ca04c8afe155647cd5",
       "outputSha256": "83a9b402ddf06970e7266477ff17c9f82b1716df7d8a094e51354de82f5715ea"
+    },
+    "/images/responsive/pond/fuji-800.webp": {
+      "src": "/images/pond/fuji.webp",
+      "recipe": {
+        "width": 800,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 78,
+        "effort": 6
+      },
+      "sourceSha256": "171ba94a9a33415cf5160b7bc25ac1e926b61e7263f9ce76a03e3e945808f003",
+      "outputSha256": "8043ad3b2b0e5dbfb01e4ca3eb433e2ab74ade1cd6205433afceca36428221e0"
+    },
+    "/images/responsive/pond/fuji-1280.webp": {
+      "src": "/images/pond/fuji.webp",
+      "recipe": {
+        "width": 1280,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "171ba94a9a33415cf5160b7bc25ac1e926b61e7263f9ce76a03e3e945808f003",
+      "outputSha256": "3a99108a45068dab49604f3a09fc6baf2f777e07ac84800c72c9433c47093efb"
+    },
+    "/images/responsive/pond/frog-340.webp": {
+      "src": "/images/pond/frog.webp",
+      "recipe": {
+        "width": 340,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "486779e075b07e658c7b74290447f315102376024e10d57a6364dc3680a18730",
+      "outputSha256": "8ca0fb20b6ea9415972e655fb88deedd4c176b73742f734f8018cc5a70d88579"
     }
   }
 }

@@ -43,14 +43,20 @@ const description = "an old pond. splash it, or be perfectly still.";
   <body class="pond">
     <!-- the mountain, far away -->
     <div class="pond-fuji" aria-hidden="true">
-      <img src="/images/pond/fuji.webp" alt="" width="1800" height="1201" decoding="async" />
+      <img src="/images/pond/fuji.webp"
+           srcset="/images/responsive/pond/fuji-800.webp 800w, /images/responsive/pond/fuji-1280.webp 1280w, /images/pond/fuji.webp 1800w"
+           sizes="100vw"
+           alt="" width="1800" height="1201" decoding="async" />
     </div>
 
     <!-- the water is the rest of the page; ripples land here -->
     <div class="pond-water" id="water" aria-hidden="true"></div>
 
     <!-- the frog, waiting -->
-    <img class="pond-frog" id="frog" src="/images/pond/frog.webp" width="560" height="979"
+    <img class="pond-frog" id="frog" src="/images/pond/frog.webp"
+         srcset="/images/responsive/pond/frog-340.webp 340w, /images/pond/frog.webp 560w"
+         sizes="(max-width: 640px) 96px, (max-width: 1120px) 15vw, 168px"
+         width="560" height="979"
          alt="Matsumoto Hoji's frog, ink on paper" decoding="async" />
 
     <!-- the poem, withheld until it is earned -->
