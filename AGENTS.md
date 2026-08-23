@@ -197,6 +197,10 @@ Hard-won and non-obvious. Ignoring these produces confident wrong conclusions:
 - **Sections use `svh` units**, so resizing an iframe reflows everything and
   moves what you were measuring. Shift with `transform: translateY()` instead
   of changing height.
+- **A pipe eats the exit code.** `node --test ... | tail && git push` pushed a
+  red suite: the chain saw tail's exit 0, not the test runner's 1. This has now
+  hidden a failure twice (a worker syntax error before, a stale test here).
+  Ship steps run separately, capture output to a file, and check `$?` bare.
 - **`scroll-behavior: smooth` stalls in the pane** for the same reason the
   transitions freeze: the animation clock is suspended. `scrollIntoView()`
   moves a few hundred pixels and stops, which looks exactly like a broken
