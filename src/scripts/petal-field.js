@@ -16,6 +16,26 @@ import * as THREE from "three";
 
 const HOT = "#ff9bc0";
 const HOT_LIT = "#ffd3df";
+const EMBER = "#ffd2a3";
+const EMBER_DEEP = "#f08a54";
+const SNOW = "rgb(244 240 230)";
+
+// a soft round sprite: the css radial-gradient dot, redrawn
+function dotTexture(inner, outer) {
+  const S = 64;
+  const c = document.createElement("canvas");
+  c.width = c.height = S;
+  const g = c.getContext("2d");
+  const grad = g.createRadialGradient(S * 0.35, S * 0.35, S * 0.05, S * 0.5, S * 0.5, S * 0.5);
+  grad.addColorStop(0, inner);
+  grad.addColorStop(0.65, outer);
+  grad.addColorStop(1, "rgb(0 0 0 / 0%)");
+  g.fillStyle = grad;
+  g.fillRect(0, 0, S, S);
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+}
 
 function petalTexture() {
   const S = 128;
@@ -92,6 +112,73 @@ export function start() {
   const V = new THREE.Vector3();
   const SC = new THREE.Vector3();
   const HIDE = new THREE.Matrix4().makeScale(0, 0, 0);
+
+  // ── the weather, with depth ─────────────────────────────────────────────
+  // The css .weather already knows the law: embers only while the campfire
+  // holds the sky, snow only over the village, crossfaded in 900ms, born at
+  // the flame (74% across, 80% down) and dead well before the sky. The same
+  // law here — the scene attribute is watched, the intensities chase it.
+  const EMBER_N = 22, SNOW_N = 34;
+
+  const emberMat = new THREE.MeshBasicMaterial({
+    map: dotTexture(EMBER, EMBER_DEEP),
+    transparent: true, opacity: 0,
+    blending: THREE.AdditiveBlending,   // glow the way an ember does
+    depthWrite: false,
+  });
+  const emberMesh = new THREE.InstancedMesh(geo, emberMat, EMBER_N);
+  emberMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  scene.add(emberMesh);
+
+  const snowMat = new THREE.MeshBasicMaterial({
+    map: dotTexture(SNOW, SNOW),
+    transparent: true, opacity: 0,
+    depthWrite: false,
+  });
+  const snowMesh = new THREE.InstancedMesh(geo, snowMat, SNOW_N);
+  snowMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  scene.add(snowMesh);
+
+  const flame = { fx: 0.74, fy: 0.80 };  // the fire in the painting
+  const makeEmber = () => {
+    const z = -2 + 4 * Math.random();
+    const h = worldH(z), w = worldW(z);
+    return {
+      z,
+      x: (flame.fx - 0.5 + (Math.random() - 0.5) * 0.03) * w,
+      y0: -(flame.fy - 0.5) * h,
+      life: Math.random(),                    // 0 birth … 1 gone
+      dur: 5.6 + Math.random() * 3.8,         // the css range
+      sway: (0.1 + Math.random() * 0.2) * (Math.random() < 0.5 ? -1 : 1),
+      p: Math.random() * Math.PI * 2,
+      px: 2.5 + Math.random() * 1.8,          // 2-4px, like the css
+      climb: 0.46,                            // 46vh, like the css
+    };
+  };
+  const embers = Array.from({ length: EMBER_N }, makeEmber);
+
+  const makeFlake = () => {
+    const z = -3 + 5 * Math.random();
+    const h = worldH(z), w = worldW(z);
+    return {
+      z,
+      x: (Math.random() - 0.5) * w * 1.05,
+      y: (Math.random() - 0.5) * h * 1.2,
+      vy: h / (11 + Math.random() * 6),       // 11-17s transits, like the css
+      sway: (0.15 + Math.random() * 0.3) * (Math.random() < 0.5 ? -1 : 1),
+      p: Math.random() * Math.PI * 2,
+      px: 2.5 + Math.random() * 1.5,
+    };
+  };
+  const flakes = Array.from({ length: SNOW_N }, makeFlake);
+
+  // which weather the sky wants right now — read each frame, it is one string
+  const want = () => {
+    const s = document.documentElement.dataset.scene;
+    return { ember: s === "fire" ? 1 : 0, snow: s === "snow" ? 1 : 0 };
+  };
+  const C = new THREE.Color();
+  for (let i = 0; i < EMBER_N; i++) emberMesh.setColorAt(i, C.setScalar(1));
 
   // each petal: position, size from the css range (8–13px at its own depth),
   // a fall speed matching the 16–28s screen transits, sway, tumble phases
@@ -194,6 +281,52 @@ export function start() {
       mesh.setMatrixAt(i, M);
     }
     mesh.instanceMatrix.needsUpdate = true;
+
+    // ── weather ───────────────────────────────────────────────────────────
+    const w = want();
+    const chase = Math.min(1, dt / 0.45);      // the scenes' own 900ms feel
+    emberMat.opacity += (w.ember * 0.9 - emberMat.opacity) * chase;
+    snowMat.opacity += (w.snow * 0.85 - snowMat.opacity) * chase;
+
+    if (emberMat.opacity > 0.01) {
+      for (let i = 0; i < EMBER_N; i++) {
+        const em = embers[i];
+        em.life += dt / em.dur;
+        if (em.life >= 1) { embers[i] = makeEmber(); embers[i].life = 0; continue; }
+        const h = worldH(em.z);
+        em.p += dt * 1.4;
+        const y = em.y0 + em.life * em.climb * h;
+        const x = em.x + Math.sin(em.p) * em.sway * em.life;
+        const s = (em.px / innerHeight) * worldH(0) * (1 - em.life * 0.6) * 3; // soft sprite reads small
+        // the css curve: bright at birth, half by the middle, out at the top
+        const glow = em.life < 0.1 ? em.life / 0.1 : 1 - (em.life - 0.1) * 0.9;
+        emberMesh.setColorAt(i, C.setScalar(glow));
+        V.set(x, y, em.z); SC.set(s, s, s); Q.identity();
+        M.compose(V, Q, SC);
+        emberMesh.setMatrixAt(i, M);
+      }
+      emberMesh.instanceColor.needsUpdate = true;
+      emberMesh.instanceMatrix.needsUpdate = true;
+    }
+    emberMesh.visible = emberMat.opacity > 0.01;
+
+    if (snowMat.opacity > 0.01) {
+      for (let i = 0; i < SNOW_N; i++) {
+        const f = flakes[i];
+        const h = worldH(f.z), ww = worldW(f.z);
+        f.y -= f.vy * dt;
+        f.p += f.sway * dt;
+        f.x += Math.cos(f.p) * 0.12 * dt;
+        if (f.y < -h * 0.62) { f.y = h * 0.62; f.x = (Math.random() - 0.5) * ww * 1.05; }
+        const s = (f.px / innerHeight) * worldH(0) * 3;
+        V.set(f.x, f.y, f.z); SC.set(s, s, s); Q.identity();
+        M.compose(V, Q, SC);
+        snowMesh.setMatrixAt(i, M);
+      }
+      snowMesh.instanceMatrix.needsUpdate = true;
+    }
+    snowMesh.visible = snowMat.opacity > 0.01;
+
     renderer.render(scene, camera);
   };
   renderer.setAnimationLoop(tick);
