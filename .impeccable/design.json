@@ -403,7 +403,7 @@
       {
         "name": "petal-fall",
         "value": "16\u201326s linear infinite",
-        "purpose": "Six petals, always, in front of everything; l-i-s-a adds sixteen one-shot petals at 2.4\u20135s."
+        "purpose": "Six petals, always, in front of everything; l-i-s-a adds sixteen one-shot petals at 2.4\u20135s. On idle, WebGL lends the same petals depth (petal-field.js, 26-44 instanced, sky-3d hides the css nine); css remains the fallback."
       },
       {
         "name": "reduced-motion",

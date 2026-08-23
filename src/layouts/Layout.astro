@@ -480,19 +480,36 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
           buf = "";
           const sky = document.querySelector(".dream-sky");
           if (!sky) return;
-          for (let n = 0; n < 16; n++) {
-            const p = document.createElement("b");
-            p.style.left = Math.random() * 100 + "%";
-            p.style.setProperty("--fall", (2.4 + Math.random() * 2.6) + "s");
-            p.style.setProperty("--wait", (Math.random() * 0.9) + "s");
-            p.style.setProperty("--sway", (Math.random() * 140 - 70) + "px");
-            p.style.animationIterationCount = "1";
-            sky.appendChild(p);
-            setTimeout(() => p.remove(), 6500);
+          // when the webgl field is up, the shower falls through it instead
+          dispatchEvent(new CustomEvent("lisa-shower"));
+          if (!document.documentElement.classList.contains("sky-3d")) {
+            for (let n = 0; n < 16; n++) {
+              const p = document.createElement("b");
+              p.style.left = Math.random() * 100 + "%";
+              p.style.setProperty("--fall", (2.4 + Math.random() * 2.6) + "s");
+              p.style.setProperty("--wait", (Math.random() * 0.9) + "s");
+              p.style.setProperty("--sway", (Math.random() * 140 - 70) + "px");
+              p.style.animationIterationCount = "1";
+              sky.appendChild(p);
+              setTimeout(() => p.remove(), 6500);
+            }
           }
           console.log("%clisa says hi 🌸", "color:#ff9bc0");
         }, { passive: true });
       })();
+    </script>
+
+    <!-- The petal field: on idle, when motion is welcome, the nine CSS
+         petals hand over to a WebGL hundred with real depth. three.js loads
+         only here, only then; if anything declines, the CSS petals never
+         stop falling. -->
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches &&
+          document.querySelector(".dream-sky")) {
+        const boot = () => import("../scripts/petal-field.js")
+          .then((m) => m.start()).catch(() => {});
+        (window.requestIdleCallback || ((f) => setTimeout(f, 3000)))(boot);
+      }
     </script>
 
     <!-- Clicking an email link also copies the address and says so in the

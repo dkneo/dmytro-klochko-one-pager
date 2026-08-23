@@ -915,6 +915,12 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   opacity: 0.04;
 }
 
+/* when the webgl petal field is running, the css petals stand down; they
+   remain the fallback for reduced motion, no js, and no webgl */
+.sky-3d .dream-sky b {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .dream-sky b {
     display: none;
