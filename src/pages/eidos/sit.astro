@@ -1,0 +1,451 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import inbox from "../../../public/inbox.json";
+
+// The sitting. The map only grows if he judges what the harvester brings, so
+// this page makes judging the easiest thing on the site: one painting at a
+// time, huge, and one honest motion — right if it is his, left if it is not.
+//
+// Three decisions shaped it:
+//
+//   Seven is a sitting. An endless deck becomes a chore and chores get
+//   avoided; seven cards is under a minute and leaves him wanting one more,
+//   which is the correct amount of wanting.
+//
+//   Confirm, don't choose. The harvester already filed each candidate under
+//   a weather. "filed under cold clarity — rightly?" is one tap; a list of
+//   eight is a form. The correction, when he makes one, is the best signal
+//   the map ever gets.
+//
+//   Verdicts are server truth. eidos:verdicts in KV, behind the /names door
+//   he already holds. The deck reads what is judged and shrinks; two devices
+//   never show him the same card twice.
+
+const candidates = (inbox.candidates || []).map((c) => ({
+  id: c.id,
+  who: c.who || "",
+  title: c.title || "",
+  year: c.year || "",
+  weather: c.weather || "",
+  src: c.src,
+  source: c.source || "",
+  licence: c.licence || "",
+}));
+
+const WEATHERS = [
+  "cold clarity", "dissolution", "invincible summer", "nerve",
+  "the dark and the lamp", "the plain thing", "vastness", "weight and grace",
+];
+
+const title = "the sitting · dmytro klochko";
+const description = "one painting at a time. his, or not his.";
+---
+
+<Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted>
+  <section class="shell session eidos-sit" data-scene="nightcourt" aria-labelledby="es">
+    <div class="card">
+      <h1 class="card-title" id="es">the sitting</h1>
+    </div>
+
+    <p class="today-how" id="sit-lede">
+      the harvester brings candidates; the map only grows when they are
+      judged. right if it is yours, left if it is not. seven is a sitting.
+    </p>
+
+    <div class="sit-stage" id="stage">
+      <article class="sit-card" id="card" hidden>
+        <div class="sit-art"><img id="art" alt="" decoding="async" /></div>
+        <p class="sit-credit">
+          <b id="c-title"></b>
+          <span id="c-who"></span>
+          <a id="c-source" href="#" target="_blank" rel="noreferrer">source ↗</a>
+        </p>
+        <span class="sit-edge sit-edge--in" aria-hidden="true">mine</span>
+        <span class="sit-edge sit-edge--out" aria-hidden="true">not mine</span>
+      </article>
+
+      <div class="sit-after" id="after" hidden>
+        <p>the harvester filed it under <b id="a-weather"></b>.</p>
+        <div class="sit-after-row">
+          <button type="button" id="a-yes">rightly</button>
+          <button type="button" id="a-no">no, it is…</button>
+        </div>
+        <div class="sit-weathers" id="a-pick" hidden>
+          {WEATHERS.map((w) => <button type="button" data-w={w}>{w}</button>)}
+        </div>
+      </div>
+
+      <p class="sit-note" id="note" hidden></p>
+    </div>
+
+    <div class="sit-do" id="do">
+      <button type="button" id="pass" class="sit-btn sit-btn--pass">not mine <kbd>←</kbd></button>
+      <button type="button" id="undo" class="sit-btn sit-btn--undo" disabled>undo</button>
+      <button type="button" id="keep" class="sit-btn sit-btn--keep"><kbd>→</kbd> mine</button>
+    </div>
+
+    <p class="sit-count" id="count"></p>
+
+    <a class="onward onward--back" href="/eidos">
+      <span class="arw" aria-hidden="true">↖</span><span>back to the map</span>
+    </a>
+  </section>
+
+  <style>
+    .sit-stage {
+      position: relative;
+      max-width: 34rem;
+      margin: 0 auto;
+      min-height: min(58svh, 560px);
+      touch-action: pan-y;
+    }
+
+    .sit-card {
+      position: relative;
+      background: var(--deck);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 0.9rem 0.9rem 0.8rem;
+      box-shadow: 0 22px 60px rgb(6 9 18 / 45%);   /* shadow-deep */
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+      will-change: transform;
+    }
+    .sit-card.is-flying { transition: transform 0.42s var(--ease-slick), opacity 0.42s var(--ease-slick); }
+    .sit-card.is-home { transition: transform 0.45s var(--ease); }
+    .sit-card:active { cursor: grabbing; }
+
+    .sit-art img {
+      display: block;
+      width: 100%;
+      max-height: min(46svh, 460px);
+      object-fit: contain;
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .sit-credit {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.7rem;
+      align-items: baseline;
+      margin: 0.7rem 0.15rem 0;
+      font-size: 0.875rem;   /* t-sm */
+    }
+    .sit-credit b { color: var(--bone); font-weight: 500; }
+    .sit-credit span { color: var(--dim); }
+    .sit-credit a { color: var(--dim); font-size: 0.75rem; margin-left: auto; }
+
+    .sit-edge {
+      position: absolute;
+      top: 1.4rem;
+      font-family: var(--mono, ui-monospace, monospace);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .sit-edge--in { right: 1.4rem; color: var(--hot); border-color: var(--hot); transform: rotate(6deg); }
+    .sit-edge--out { left: 1.4rem; color: var(--dim); border-color: var(--dim); transform: rotate(-6deg); }
+
+    .sit-after {
+      position: absolute;
+      inset: auto 0 -0.5rem;
+      transform: translateY(100%);
+      background: var(--deck);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 0.8rem 1rem 0.9rem;
+      z-index: 2;
+    }
+    .sit-after p { margin: 0 0 0.6rem; font-size: 0.98rem; color: var(--bone); }
+    .sit-after b { color: var(--hot); font-weight: 500; }
+    .sit-after-row { display: flex; gap: 0.5rem; }
+    .sit-after-row button,
+    .sit-weathers button {
+      border: 1px solid var(--rule);
+      background: transparent;
+      color: var(--bone);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: border-color var(--dur) var(--ease);
+    }
+    .sit-after-row button:hover,
+    .sit-weathers button:hover { border-color: var(--hot); }
+    .sit-weathers { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+
+    .sit-note {
+      margin: 1rem 0 0;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: var(--dim);
+    }
+    .sit-note a { color: var(--bone); }
+    .sit-note .sit-kept { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem; }
+    .sit-note .sit-kept img { width: 56px; height: 56px; object-fit: cover; border-radius: 4px; }
+
+    .sit-do {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 1.1rem;
+    }
+    .sit-btn {
+      border: 1px solid var(--rule);
+      background: transparent;
+      color: var(--bone);
+      border-radius: 999px;
+      padding: 0.6rem 1.1rem;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: border-color var(--dur) var(--ease), opacity var(--dur) var(--ease);
+    }
+    .sit-btn kbd {
+      font-family: var(--mono, ui-monospace, monospace);
+      font-size: 0.72rem;
+      color: var(--dim);
+    }
+    .sit-btn--keep:hover { border-color: var(--hot); }
+    .sit-btn--pass:hover { border-color: var(--dim); }
+    .sit-btn--undo { color: var(--dim); }
+    .sit-btn:disabled { opacity: 0.35; cursor: default; }
+
+    .sit-count {
+      margin-top: 0.8rem;
+      text-align: center;
+      font-family: var(--mono, ui-monospace, monospace);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--dim);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sit-card.is-flying, .sit-card.is-home { transition: opacity 0.3s ease; }
+    }
+  </style>
+
+  <script is:inline type="application/json" id="sit-data" set:html={JSON.stringify(candidates)} />
+
+  <script>
+    (() => {
+      const all = JSON.parse(document.getElementById("sit-data").textContent);
+      const $ = (id) => document.getElementById(id);
+      const card = $("card"), art = $("art"), after = $("after"), note = $("note");
+      const SITTING = 7;
+
+      let deck = [], cur = null, sat = 0, keptThis = [];
+      let last = null;               // { cand, verdict } for undo
+      let busy = false;
+
+      const count = () => {
+        $("count").textContent = deck.length || cur
+          ? `${Math.min(sat + 1, SITTING)} of ${SITTING} · ${deck.length + (cur ? 1 : 0)} wait in all`
+          : "";
+      };
+
+      // ── the deck: everything the server has not seen judged ────────────
+      async function build() {
+        let judged = {};
+        try {
+          const r = await fetch("/api/eidos/judged");
+          if (r.ok) judged = (await r.json()).verdicts || {};
+        } catch {}
+        deck = all.filter((c) => !judged[c.id]);
+        // remote images later in the deck than local ones, so the first
+        // card is always instant
+        deck.sort((a, b) => (a.src.startsWith("/") ? 0 : 1) - (b.src.startsWith("/") ? 0 : 1));
+        if (!deck.length) return rest("nothing waits. every candidate has been judged; the harvester will bring more.");
+        next();
+      }
+
+      function prefetch() {
+        if (deck[0]) { const i = new Image(); i.src = deck[0].src; }
+      }
+
+      function next() {
+        if (sat >= SITTING) return rest();
+        cur = deck.shift() || null;
+        if (!cur) return rest("the deck is empty. the harvester will bring more.");
+        art.src = cur.src;
+        art.alt = `${cur.title}, ${cur.who}`;
+        $("c-title").textContent = cur.title;
+        $("c-who").textContent = `${cur.who}${cur.year ? " · " + cur.year : ""}`;
+        $("c-source").href = cur.source || "#";
+        card.hidden = false;
+        card.classList.remove("is-flying");
+        card.style.transform = "";
+        card.style.opacity = "";
+        after.hidden = true;
+        $("a-pick").hidden = true;
+        note.hidden = true;
+        busy = false;
+        count();
+        prefetch();
+      }
+
+      function rest(text) {
+        cur = null;
+        card.hidden = true;
+        after.hidden = true;
+        $("do").hidden = true;
+        note.hidden = false;
+        note.textContent = "";
+        const p = document.createElement("span");
+        p.textContent = text || `a sitting is seven, and this one is done. ${keptThis.length} joined the inbox of the vault; they appear on the map once they are taken in.`;
+        note.append(p);
+        if (keptThis.length) {
+          const row = document.createElement("span");
+          row.className = "sit-kept";
+          for (const k of keptThis) {
+            const im = document.createElement("img");
+            im.src = k.src; im.alt = k.title;
+            row.append(im);
+          }
+          note.append(row);
+        }
+        if (!text && deck.length) {
+          const more = document.createElement("a");
+          more.href = "#";
+          more.textContent = ` one more sitting (${deck.length} wait) →`;
+          more.addEventListener("click", (e) => {
+            e.preventDefault();
+            sat = 0; keptThis = [];
+            $("do").hidden = false;
+            next();
+          });
+          note.append(document.createTextNode(" "), more);
+        }
+        count();
+      }
+
+      // ── the verdicts, spoken to the server ─────────────────────────────
+      async function send(cand, verdict, weather) {
+        try {
+          const r = await fetch("/api/eidos/verdict", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather }),
+          });
+          if (r.status === 401) {
+            note.hidden = false;
+            note.innerHTML = "";
+            const a = document.createElement("a");
+            a.href = "/names"; a.target = "_blank"; a.rel = "noreferrer";
+            a.textContent = "open the door";
+            note.append("the door is closed, so nothing was saved. ", a,
+              document.createTextNode(", then judge this one again."));
+            deck.unshift(cand);  // the card comes back
+            return false;
+          }
+          return r.ok;
+        } catch { return false; }
+      }
+
+      function fly(dir) {
+        card.classList.add("is-flying");
+        card.style.transform = `translateX(${dir * 120}vw) rotate(${dir * 16}deg)`;
+        card.style.opacity = "0";
+      }
+
+      function pass() {
+        if (!cur || busy) return;
+        busy = true;
+        const cand = cur;
+        last = { cand, verdict: "pass" };
+        $("undo").disabled = false;
+        fly(-1);
+        send(cand, "pass");
+        sat++;
+        setTimeout(next, 300);
+      }
+
+      function keep() {
+        if (!cur || busy) return;
+        busy = true;
+        fly(1);
+        $("a-weather").textContent = cur.weather || "nothing yet";
+        setTimeout(() => { after.hidden = false; }, 200);
+      }
+
+      async function keepAs(weather) {
+        const cand = cur;
+        last = { cand, verdict: "keep" };
+        $("undo").disabled = false;
+        keptThis.push(cand);
+        after.hidden = true;
+        send(cand, "keep", weather);
+        sat++;
+        next();
+      }
+
+      $("a-yes").addEventListener("click", () => keepAs(cur.weather));
+      $("a-no").addEventListener("click", () => { $("a-pick").hidden = false; });
+      for (const b of document.querySelectorAll("#a-pick button")) {
+        b.addEventListener("click", () => keepAs(b.dataset.w));
+      }
+
+      $("undo").addEventListener("click", () => {
+        if (!last) return;
+        // the server keys verdicts by id, so judging again simply overwrites
+        if (last.verdict === "keep") keptThis = keptThis.filter((k) => k.id !== last.cand.id);
+        deck.unshift(last.cand);
+        sat = Math.max(0, sat - 1);
+        last = null;
+        $("undo").disabled = true;
+        $("do").hidden = false;
+        next();
+      });
+
+      $("pass").addEventListener("click", pass);
+      $("keep").addEventListener("click", keep);
+      document.addEventListener("keydown", (e) => {
+        if (e.target && e.target.closest && e.target.closest("input,textarea,select")) return;
+        if (!after.hidden) return;   // the weather question wants a click
+        if (e.key === "ArrowLeft") pass();
+        if (e.key === "ArrowRight") keep();
+      });
+
+      // ── the hand on the card ────────────────────────────────────────────
+      let dragging = false, sx = 0, dx = 0;
+      const edgeIn = document.querySelector(".sit-edge--in");
+      const edgeOut = document.querySelector(".sit-edge--out");
+      card.addEventListener("pointerdown", (e) => {
+        if (busy) return;
+        dragging = true; sx = e.clientX; dx = 0;
+        card.classList.remove("is-home");
+        card.setPointerCapture(e.pointerId);
+      });
+      card.addEventListener("pointermove", (e) => {
+        if (!dragging) return;
+        dx = e.clientX - sx;
+        card.style.transform = `translateX(${dx}px) rotate(${dx * 0.05}deg)`;
+        edgeIn.style.opacity = Math.min(1, Math.max(0, dx / 110));
+        edgeOut.style.opacity = Math.min(1, Math.max(0, -dx / 110));
+      });
+      const release = () => {
+        if (!dragging) return;
+        dragging = false;
+        edgeIn.style.opacity = 0;
+        edgeOut.style.opacity = 0;
+        if (dx > 110) keep();
+        else if (dx < -110) pass();
+        else {
+          card.classList.add("is-home");
+          card.style.transform = "";
+        }
+        dx = 0;
+      };
+      card.addEventListener("pointerup", release);
+      card.addEventListener("pointercancel", release);
+
+      build();
+    })();
+  </script>
+</Layout>
