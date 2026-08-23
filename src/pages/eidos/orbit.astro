@@ -1,0 +1,335 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import map from "../../data/map.json";
+
+// The map, given air. Same sixty-five marks, same solved axes — cold to warm
+// across, one-thing to everything up — and a third the flat page could not
+// hold: the weathers themselves, ordered by their own temperature, become
+// planes of depth. Marks that share a mood share a plane of air; the cold
+// moods sit deepest.
+//
+// The law is the map's law: every mark is a real thing. Paintings are their
+// own thumbnails, everything else is its glyph. Sprites always face you, so
+// the art never skews; the space moves, the things do not distort.
+
+const weathersByWarmth = map.weathers.slice().sort((a, b) => a.x - b.x);
+const stratum = new Map(weathersByWarmth.map((w, i) => [w.name, i]));
+const W = weathersByWarmth.length;
+
+const thumbFor = (src) => src
+  .replace("/images/", "/images/thumbs/")
+  .replace(/\.[^.]+$/, ".webp");
+
+const GLYPH = { painting: "▣", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
+
+const marks = map.items.map((it, i) => ({
+  id: it.id,
+  t: it.type,
+  who: it.who || "",
+  line: it.line || it.title || "",
+  year: it.year || "",
+  x: it.x * 4.4,
+  y: -it.y * 3.4,
+  z: ((stratum.get(it.weather) ?? (W - 1) / 2) - (W - 1) / 2) * 1.05
+     + (((i * 2654435761) % 100) / 100 - 0.5) * 0.55, // deterministic jitter
+  thumb: it.src ? thumbFor(it.src) : null,
+  glyph: GLYPH[it.type] || "·",
+}));
+
+const index = new Map(marks.map((m, i) => [m.id, i]));
+const threads = map.threads.flatMap((t) => {
+  const pairs = [];
+  for (let i = 0; i < t.ids.length - 1; i++) {
+    const a = index.get(t.ids[i]), b = index.get(t.ids[i + 1]);
+    if (a != null && b != null) pairs.push([a, b]);
+  }
+  return pairs;
+});
+
+const title = "eidos, in orbit · dmytro klochko";
+const description = "the map of what he likes, with the weathers as depth.";
+---
+
+<Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted>
+  <section class="shell session eidos-orbit" data-scene="nightcourt" aria-labelledby="eo">
+    <div class="card">
+      <h1 class="card-title" id="eo">eidos, in orbit</h1>
+    </div>
+
+    <p class="today-how">
+      the same {marks.length} marks as <a href="/eidos">the flat map</a>, and a
+      third axis it could not hold: each weather is a plane of air, the cold
+      moods deepest, the warm ones near. drag to turn it. the marks are read
+      on the flat map; this page is for seeing the shape.
+    </p>
+
+    <div class="eo-space" id="space">
+      <div class="eo-tip" id="tip" hidden></div>
+      <div class="eo-zoom" role="group" aria-label="zoom">
+        <button type="button" id="zo" aria-label="zoom out">−</button>
+        <button type="button" id="zi" aria-label="zoom in">+</button>
+      </div>
+      <p class="eo-hint">drag to turn · scroll to come closer</p>
+    </div>
+
+    <p class="eo-axes">
+      across: cold → warm · up: one thing → everything · deep: the weather's own warmth
+    </p>
+
+    <a class="onward onward--back" href="/eidos">
+      <span class="arw" aria-hidden="true">↖</span><span>back to the flat map</span>
+    </a>
+  </section>
+
+  <style>
+    .eo-space {
+      position: relative;
+      height: min(74svh, 780px);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow: hidden;
+      touch-action: none;   /* the drag is the interface */
+      cursor: grab;
+    }
+    .eo-space:active { cursor: grabbing; }
+    .eo-space canvas { display: block; }
+
+    .eo-tip {
+      position: absolute;
+      z-index: 2;
+      max-width: 34ch;
+      padding: 0.5rem 0.7rem;
+      background: var(--deck);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      pointer-events: none;
+      font-size: 0.875rem; /* t-sm */
+      line-height: 1.45;
+      color: var(--bone);
+    }
+    .eo-tip b { display: block; font-weight: 500; }
+    .eo-tip span { color: var(--dim); font-size: 0.75rem; /* t-xs */ }
+
+    .eo-zoom {
+      position: absolute;
+      right: 0.75rem;
+      top: 0.75rem;
+      z-index: 2;
+      display: flex;
+      gap: 0.4rem;
+    }
+    .eo-zoom button {
+      width: 32px; height: 32px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--deck);
+      color: var(--bone);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: border-color var(--dur) var(--ease);
+    }
+    .eo-zoom button:hover { border-color: var(--dim); }
+
+    .eo-hint {
+      position: absolute;
+      left: 0.9rem;
+      bottom: 0.65rem;
+      z-index: 2;
+      margin: 0;
+      font-family: var(--mono, ui-monospace, monospace);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--dim);
+      pointer-events: none;
+    }
+
+    .eo-axes {
+      margin-top: 0.8rem;
+      font-family: var(--mono, ui-monospace, monospace);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      color: var(--dim);
+    }
+  </style>
+
+  <script is:inline type="application/json" id="eo-data" set:html={JSON.stringify({ marks, threads })} />
+
+  <script>
+    import * as THREE from "three";
+    (() => {
+      const { marks, threads } = JSON.parse(document.getElementById("eo-data").textContent);
+      const host = document.getElementById("space");
+      const tip = document.getElementById("tip");
+      const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const fine = matchMedia("(pointer: fine)").matches;
+
+      let renderer;
+      try {
+        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "low-power" });
+      } catch {
+        host.querySelector(".eo-hint").textContent = "the space needs webgl; the flat map holds everything.";
+        return;
+      }
+
+      const wRect = () => host.getBoundingClientRect();
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(46, wRect().width / wRect().height, 0.1, 100);
+      camera.position.z = 11;
+      renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+      renderer.setSize(wRect().width, wRect().height);
+      host.prepend(renderer.domElement);
+
+      const group = new THREE.Group();
+      scene.add(group);
+
+      // the palette, read from the page so the space and the site agree
+      const css = getComputedStyle(document.documentElement);
+      const tone = (v, fall) => (css.getPropertyValue(v) || fall).trim() || fall;
+      const COLORS = {
+        painting: tone("--bone", "#ece6d9"),
+        quote: tone("--quiet", "#c4beb0"),
+        poem: tone("--bone", "#ece6d9"),
+        song: tone("--cold", "#7fd4d9"),
+        link: tone("--dim", "#a9aecb"),
+        person: tone("--hot", "#ff9bc0"),
+        writing: tone("--bone", "#ece6d9"),
+      };
+
+      const glyphTexture = (glyph, color) => {
+        const S = 96;
+        const c = document.createElement("canvas");
+        c.width = c.height = S;
+        const g = c.getContext("2d");
+        g.font = "500 64px ui-monospace, Menlo, monospace";
+        g.textAlign = "center";
+        g.textBaseline = "middle";
+        g.fillStyle = color;
+        g.fillText(glyph, S / 2, S / 2 + 4);
+        const t = new THREE.CanvasTexture(c);
+        t.colorSpace = THREE.SRGBColorSpace;
+        return t;
+      };
+
+      const loader = new THREE.TextureLoader();
+      const sprites = [];
+      for (const m of marks) {
+        let mat;
+        if (m.thumb) {
+          const t = loader.load(m.thumb);
+          t.colorSpace = THREE.SRGBColorSpace;
+          mat = new THREE.SpriteMaterial({ map: t, depthWrite: false });
+        } else {
+          mat = new THREE.SpriteMaterial({
+            map: glyphTexture(m.glyph, COLORS[m.t] || "#ece6d9"),
+            depthWrite: false,
+            transparent: true,
+          });
+        }
+        const s = new THREE.Sprite(mat);
+        s.position.set(m.x, m.y, m.z);
+        const size = m.thumb ? 0.62 : 0.42;
+        s.scale.set(size, size, 1);
+        s.userData = m;
+        group.add(s);
+        sprites.push(s);
+      }
+
+      // the threads: same author, joined through the air
+      if (threads.length) {
+        const pos = new Float32Array(threads.length * 6);
+        threads.forEach(([a, b], i) => {
+          pos.set([marks[a].x, marks[a].y, marks[a].z, marks[b].x, marks[b].y, marks[b].z], i * 6);
+        });
+        const tg = new THREE.BufferGeometry();
+        tg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+        const tl = new THREE.LineSegments(tg, new THREE.LineBasicMaterial({
+          color: tone("--bone", "#ece6d9"), transparent: true, opacity: 0.14, depthWrite: false,
+        }));
+        group.add(tl);
+      }
+
+      // ── the hand on it ─────────────────────────────────────────────────
+      let rotY = -0.28, rotX = 0.06, vy = 0, vx = 0, dragging = false, lx = 0, ly = 0;
+      let targetZ = 11;
+      host.addEventListener("pointerdown", (e) => {
+        dragging = true; lx = e.clientX; ly = e.clientY;
+        host.setPointerCapture(e.pointerId);
+      });
+      host.addEventListener("pointermove", (e) => {
+        if (dragging) {
+          vy = (e.clientX - lx) * 0.005;
+          vx = (e.clientY - ly) * 0.003;
+          rotY += vy; rotX += vx;
+          lx = e.clientX; ly = e.clientY;
+        } else if (fine) {
+          hover(e);
+        }
+      });
+      const drop = () => { dragging = false; };
+      host.addEventListener("pointerup", drop);
+      host.addEventListener("pointercancel", drop);
+      host.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        targetZ = Math.min(16, Math.max(6, targetZ + e.deltaY * 0.01));
+      }, { passive: false });
+      document.getElementById("zi").addEventListener("click", () => { targetZ = Math.max(6, targetZ - 1.6); });
+      document.getElementById("zo").addEventListener("click", () => { targetZ = Math.min(16, targetZ + 1.6); });
+
+      // hover: the nearest mark under the pointer names itself
+      const ray = new THREE.Raycaster();
+      const ndc = new THREE.Vector2();
+      function hover(e) {
+        const r = wRect();
+        ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+        ray.setFromCamera(ndc, camera);
+        const hit = ray.intersectObjects(sprites, false)[0];
+        if (hit) {
+          const m = hit.object.userData;
+          tip.hidden = false;
+          tip.innerHTML = "";
+          const b = document.createElement("b");
+          b.textContent = m.line;
+          const sp = document.createElement("span");
+          sp.textContent = m.who + (m.year ? " · " + m.year : "");
+          tip.append(b, sp);
+          tip.style.left = Math.min(e.clientX - r.left + 14, r.width - tip.offsetWidth - 10) + "px";
+          tip.style.top = Math.min(e.clientY - r.top + 10, r.height - tip.offsetHeight - 10) + "px";
+          host.style.cursor = "default";
+        } else {
+          tip.hidden = true;
+          host.style.cursor = "";
+        }
+      }
+      host.addEventListener("pointerleave", () => { tip.hidden = true; });
+
+      let last = performance.now();
+      const tick = (now) => {
+        const dt = Math.min(0.05, (now - last) / 1000);
+        last = now;
+        if (!dragging) {
+          rotY += vy; rotX += vx;
+          vy *= 0.94; vx *= 0.94;
+          if (!reduced) rotY += 0.035 * dt;   // the idle turn
+        }
+        rotX = Math.max(-0.6, Math.min(0.6, rotX));
+        group.rotation.y = rotY;
+        group.rotation.x = rotX;
+        camera.position.z += (targetZ - camera.position.z) * Math.min(1, dt * 5);
+        renderer.render(scene, camera);
+      };
+      renderer.setAnimationLoop(tick);
+
+      addEventListener("resize", () => {
+        const r = wRect();
+        camera.aspect = r.width / r.height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(r.width, r.height);
+      }, { passive: true });
+
+      document.addEventListener("visibilitychange", () => {
+        renderer.setAnimationLoop(document.hidden ? null : tick);
+        last = performance.now();
+      });
+    })();
+  </script>
+</Layout>
