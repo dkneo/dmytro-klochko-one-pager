@@ -915,6 +915,43 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   opacity: 0.04;
 }
 
+/* ── the shape of what he likes, on the porch ──────────────────────────────
+   A small live constellation of the eidos marks at the end of literally-me:
+   catch it and turn it; reading happens on /eidos. Hidden until webgl says
+   yes, so the wall never waits for it. */
+
+[data-mode="dream"] .me-orbit {
+  position: relative;
+  height: min(52svh, 480px);
+  margin-top: var(--sp-3);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+  touch-action: pan-y;   /* horizontal catches the shape, vertical stays the page's */
+  cursor: grab;
+}
+
+[data-mode="dream"] .me-orbit:active { cursor: grabbing; }
+[data-mode="dream"] .me-orbit canvas { display: block; }
+
+[data-mode="dream"] .me-orbit-cap {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.65rem;
+  right: 0.9rem;
+  z-index: 2;
+  margin: 0;
+  font-size: 0.875rem;   /* t-sm */
+  line-height: 1.5;
+  color: var(--dim);
+  pointer-events: none;
+}
+
+[data-mode="dream"] .me-orbit-cap a {
+  color: var(--bone);
+  pointer-events: auto;
+}
+
 /* ── entrances ──────────────────────────────────────────────────────────────
    Chapter cards and journey entries rise into place once, on the slick
    curve: held back, then snapped to rest (docs/kprkr-study.md). Gated by the

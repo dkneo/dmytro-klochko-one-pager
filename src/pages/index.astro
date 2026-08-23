@@ -1,5 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import mapData from "../data/map.json";
+import { toMarks } from "../scripts/eidos-marks.mjs";
+
+const orbitData = toMarks(mapData);
 
 const roles = [
   {
@@ -779,6 +783,36 @@ const also = [
       }
     </div>
 
+    {/* The shape of what he likes, live and turning: the eidos marks in the
+        same space as /eidos/orbit, seen from the porch. Hidden until webgl
+        agrees; the section loses nothing without it. */}
+    <div class="me-orbit" id="me-orbit" hidden>
+      <p class="me-orbit-cap">
+        and this is the shape of what i like — every mark a real painting,
+        poem, song or person, placed by feeling.{" "}
+        <a href="/eidos">open the map</a> · <a href="/eidos/orbit">or the orbit</a>
+      </p>
+    </div>
+    <script is:inline type="application/json" id="me-orbit-data" set:html={JSON.stringify(orbitData)} />
+    <script>
+      // the constellation wakes when the section comes near; webgl declining
+      // simply leaves the wall as the whole section
+      (() => {
+        const host = document.getElementById("me-orbit");
+        if (!host || !("IntersectionObserver" in window)) return;
+        const io = new IntersectionObserver(async (entries) => {
+          if (!entries.some((e) => e.isIntersecting)) return;
+          io.disconnect();
+          try {
+            const m = await import("../scripts/eidos-mini.js");
+            const data = JSON.parse(document.getElementById("me-orbit-data").textContent);
+            host.hidden = false;
+            if (!m.start(host, data)) host.hidden = true;
+          } catch { host.hidden = true; }
+        }, { rootMargin: "900px 0px" });
+        io.observe(host.parentElement);
+      })();
+    </script>
   </section>
 
   <section class="shell session" id="contact" data-scene="fire" aria-labelledby="s5">
