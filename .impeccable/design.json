@@ -371,6 +371,11 @@
         "purpose": "Every transition; dur 200ms, dur-slow 320ms for lifts and mats."
       },
       {
+        "name": "ease-text",
+        "value": "cubic-bezier(0.3, 0, 0, 1)",
+        "purpose": "Type entering: present almost at once, long settle. From the kprkr study; first used by the pond's haiku."
+      },
+      {
         "name": "scene-crossfade",
         "value": "opacity 900ms",
         "purpose": "Fixed scene layers swap when a section claims the sky (IntersectionObserver, \u221242% centred band)."

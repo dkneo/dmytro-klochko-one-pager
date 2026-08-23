@@ -100,6 +100,7 @@ spacing:
   measure: "min(100%, 62ch)"
 motion:
   ease: "cubic-bezier(0.2, 0, 0.2, 1)"
+  ease-text: "cubic-bezier(0.3, 0, 0, 1)"  # hard ease-out for type entering; docs/kprkr-study.md
   dur: "200ms"
   dur-slow: "320ms"
 ---

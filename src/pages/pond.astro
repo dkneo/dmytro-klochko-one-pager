@@ -224,7 +224,9 @@ const description = "an old pond. splash it, or be perfectly still.";
         color: var(--bone);
         white-space: pre-line;
       }
-      .pond-haiku-lines span { opacity: 0; transition: opacity 2.4s ease; }
+      /* type enters on the hard ease-out (--ease-text, docs/kprkr-study.md):
+         present almost at once, then a long settle — poured, not faded */
+      .pond-haiku-lines span { opacity: 0; transition: opacity 2.4s cubic-bezier(0.3, 0, 0, 1); }
       .pond-haiku-lines span.lit { opacity: 1; }
       .pond-haiku-who {
         margin-top: 1rem;
