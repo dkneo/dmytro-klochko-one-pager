@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Terminal, Played Properly — the shortcuts worth your hands</title>
+<meta name="description" content="The line editor, the kill ring, history, jobs. The keystrokes that make a terminal feel like an instrument, marked and drilled." />
+<style>
+/* The workbench palette, shared with /learning/ui-vernacular: the artefact
+   pages are light paper tools, siblings of each other rather than of the
+   site's dream shell. Documented in DESIGN.md under `workbench`. */
+:root{
+  --bg:#f5f2ec; --paper:#fbfaf7; --ink:#161616; --muted:#6b6a66; --line:#d9d5cc;
+  --accent:#ff4fa3; --accent2:#7b61ff; --good:#147a55; --shadow:0 18px 50px rgba(0,0,0,.08);
+  --r:18px; --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif}
+button,input{font:inherit} button{color:inherit;cursor:pointer}
+
+.top{position:sticky;top:0;z-index:40;background:rgba(245,242,236,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(217,213,204,.75)}
+.topin{max-width:1200px;margin:auto;padding:12px 24px;display:flex;gap:14px;align-items:center}
+.brand{font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.brand a{color:inherit;text-decoration:none}
+.brand span{font-family:var(--mono);font-size:11px;font-weight:600;padding:4px 7px;border:1px solid var(--line);border-radius:999px;margin-left:7px;vertical-align:2px}
+.search{flex:1;position:relative}
+.search input{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:11px 14px 11px 38px;outline:0}
+.search input:focus{border-color:#aaa4ff;box-shadow:0 0 0 4px rgba(123,97,255,.12)}
+.search:before{content:'⌕';position:absolute;left:13px;top:8px;font-size:22px;color:var(--muted)}
+.progress{font:12px var(--mono);white-space:nowrap;color:var(--muted)}
+.drillbtn{border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600}
+.drillbtn:disabled{opacity:.35;cursor:default}
+
+.hero{max-width:1200px;margin:0 auto;padding:64px 24px 10px}
+.kicker{font:12px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
+h1{font-size:clamp(44px,6.5vw,88px);line-height:.9;letter-spacing:-.06em;margin:0;max-width:900px}
+.hot{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:17px;line-height:1.6;max-width:640px;color:#3f3e3a;margin:20px 0 0}
+.lede b{font-weight:650}
+.warn{max-width:640px;margin:16px 0 0;padding:12px 14px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;background:var(--paper);font-size:13.5px;line-height:1.55;color:var(--muted)}
+.warn b{color:var(--ink)}
+
+.controls{max-width:1200px;margin:auto;padding:22px 24px 8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:transparent;border-radius:999px;padding:7px 12px;font-size:12px}
+.chip:hover{background:#fff}
+.chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+.main{max-width:1200px;margin:auto;padding:10px 24px 90px}
+.sect{margin-top:34px}
+.sect h2{font-size:13px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.sect .why{font-size:14.5px;color:#3f3e3a;max-width:640px;margin:0 0 16px;line-height:1.55}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(305px,1fr));gap:14px}
+
+.cardk{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 13px;display:flex;flex-direction:column;gap:8px;position:relative;transition:transform .18s cubic-bezier(.2,0,.2,1),box-shadow .18s cubic-bezier(.2,0,.2,1)}
+.cardk:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.keys{display:flex;gap:5px;flex-wrap:wrap;align-items:center;min-height:28px}
+kbd{font:12.5px var(--mono);border:1px solid var(--line);border-bottom-width:2.5px;border-radius:7px;background:#fff;padding:4px 8px;white-space:nowrap}
+.keys i{font-style:normal;color:var(--muted);font-size:12px}
+.what{font-size:14.5px;line-height:1.5}
+.how{font-size:13px;line-height:1.55;color:var(--muted)}
+.how b{color:var(--ink);font-weight:600}
+.gotcha{font-size:12.5px;line-height:1.5;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.gotcha:before{content:'gotcha — ';font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:6px}
+.tag{font:10.5px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.know{border:1px solid var(--line);background:transparent;border-radius:999px;padding:5px 11px;font-size:12px;color:var(--muted)}
+.know.on{background:var(--good);border-color:var(--good);color:#fff}
+
+.drill{position:fixed;inset:0;background:rgba(22,22,22,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:60}
+.drill.open{display:flex}
+.dcard{background:var(--paper);border-radius:22px;max-width:560px;width:100%;padding:30px 30px 24px;box-shadow:var(--shadow)}
+.dcard .tag{display:block;margin-bottom:14px}
+.dq{font-size:21px;line-height:1.4;letter-spacing:-.01em;min-height:88px}
+.da{margin:18px 0 6px;min-height:64px}
+.da .keys kbd{font-size:15px;padding:6px 11px}
+.da .how{margin-top:8px}
+.drow{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+.dbtn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 16px;font-size:14px;font-weight:600}
+.dbtn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.dbtn.good{background:var(--good);border-color:var(--good);color:#fff}
+.dbtn.bad{background:#fff;border-color:var(--accent);color:var(--accent)}
+.dmeta{font:12px var(--mono);color:var(--muted);margin-top:14px}
+.dclose{float:right;border:0;background:none;font-size:22px;color:var(--muted);line-height:1;padding:2px 6px}
+
+.empty{color:var(--muted);font-size:14px;padding:30px 0}
+footer{max-width:1200px;margin:auto;padding:0 24px 60px;font:12px var(--mono);color:var(--muted)}
+footer a{color:inherit}
+@media (max-width:640px){ .topin{flex-wrap:wrap} .search{order:3;flex-basis:100%} }
+</style>
+</head>
+<body>
+
+<div class="top"><div class="topin">
+  <div class="brand"><a href="/learning">← learning</a><span>TERMINAL</span></div>
+  <div class="search"><input id="q" type="search" placeholder="search a move… (try: word, kill, history)" /></div>
+  <div class="progress" id="prog">0 known</div>
+  <button class="drillbtn" id="drillGo" disabled>drill what i know</button>
+</div></div>
+
+<div class="hero">
+  <div class="kicker">a field guide · zsh on macOS, mostly portable</div>
+  <h1>The terminal, <span class="hot">played properly.</span></h1>
+  <p class="lede">the shell has a real editor inside it, with a clipboard, undo,
+  and history search. most people use none of it and arrow-key their way
+  through life. mark the moves you <b>genuinely</b> have in your hands, and
+  the drill quizzes you on exactly those, because the useful question is not
+  what you have read but what stuck.</p>
+  <p class="warn"><b>don't rehearse the chords in this tab.</b> the browser
+  hears them first: <b>ctrl W</b> closes the tab and <b>ctrl S</b> tries to
+  save the page. read here, play them in a real terminal, come back and mark.</p>
+</div>
+
+<div class="controls" id="chips"></div>
+
+<div class="main" id="main"></div>
+
+<div class="drill" id="drill" aria-modal="true" role="dialog">
+  <div class="dcard">
+    <button class="dclose" id="dclose" aria-label="close">×</button>
+    <span class="tag" id="dtag">drill</span>
+    <div class="dq" id="dq"></div>
+    <div class="da" id="da" hidden></div>
+    <div class="drow" id="drow"></div>
+    <div class="dmeta" id="dmeta"></div>
+  </div>
+</div>
+
+<footer>
+  written for the learning page at <a href="/learning">dmklochko.com/learning</a> ·
+  progress lives in this browser only
+</footer>
+
+<script>
+// [keys, section, tier, what, how(detail), gotcha, id]
+// keys: "ctrl a" chords joined by · for alternatives, + never used (terms are
+// literal keys pressed together, space-separated inside one kbd).
+const MOVES = [
+// ── move on the line ─────────────────────────────────────────────────────
+["ctrl a","Move","Core","jump to the start of the line.","half of every long-command edit starts here.","","home"],
+["ctrl e","Move","Core","jump to the end of the line.","pairs with ctrl a; your hands stop hunting for arrow keys.","","end"],
+["alt b · alt f","Move","Core","hop backward / forward one word.","the difference between editing a path and retyping it.","on a mac the option key must be sent as meta: Terminal.app → profile → keyboard → “use option as meta”; iTerm2 → profile → keys → left option = Esc+.","words"],
+["ctrl t","Move","Plus","swap the two characters around the cursor.","tpyo → typo without leaving the middle of the line.","","transpose"],
+["alt t","Move","Plus","swap the word before the cursor with the one before that.","mv target source → mv source target.","","transposew"],
+["ctrl l","Move","Core","clear the screen and keep the line you are typing.","same as the clear command, but it doesn't cost you the command in progress.","","clear"],
+["ctrl x ctrl e","Move","Plus","open the current line in $EDITOR; save-and-quit runs it.","the escape hatch for any command that outgrew one line.","works out of the box in bash. zsh needs three lines in .zshrc: autoload -Uz edit-command-line; zle -N edit-command-line; bindkey '^X^E' edit-command-line.","editline"],
+
+// ── kill & yank ──────────────────────────────────────────────────────────
+["ctrl w","Kill & yank","Core","delete the word before the cursor.","the single most used editing key. deleted text is not gone — it lands in the kill ring.","in this browser tab it closes the tab. that is why the drill never asks you to press anything.","killword"],
+["alt d","Kill & yank","Plus","delete the word after the cursor.","ctrl w's forward twin.","","killfwd"],
+["ctrl k","Kill & yank","Core","kill from the cursor to the end of the line.","type a new ending: ctrl a to go home, ctrl k to behead, done.","","killend"],
+["ctrl u","Kill & yank","Core","kill the line.","the fastest 'never mind'. everything killed is yankable.","zsh kills the whole line; bash kills only from the cursor back to the start. same key, different blast radius.","killline"],
+["ctrl y","Kill & yank","Core","yank: paste back the most recent kill.","kill a path with ctrl w, type a command, ctrl y the path back. the shell has had a clipboard since before clipboards.","press alt y immediately after to cycle older kills.","yank"],
+["ctrl _","Kill & yank","Core","undo, inside the line editor.","almost nobody knows the shell prompt has undo. it does, and it stacks.","that is control plus underscore, so on most keyboards: ctrl shift hyphen.","undo"],
+
+// ── history ──────────────────────────────────────────────────────────────
+["ctrl r","History","Core","incremental search backward through history.","type any fragment; press ctrl r again to walk older matches; enter runs it, arrows edit it first.","ctrl g abandons the search and gives your line back.","revsearch"],
+["!!","History","Core","the whole previous command.","sudo !! is the famous one: rerun what just failed, with feeling.","append :p to print it instead of running it, if you want to look before you leap.","bangbang"],
+["!$","History","Core","the last word of the previous command.","mkdir long/path && cd !$.","","bangdollar"],
+["alt .","History","Core","insert the previous command's last argument, live.","like !$ but you see it land, and pressing alt . again walks back through older commands' last arguments. the best key in the shell.","","lastarg"],
+["^old^new","History","Plus","rerun the previous command with one substitution.","^prod^staging — the apology key.","substitutes the first occurrence only.","caretsub"],
+["fc","History","Plus","open the previous command in $EDITOR; saving runs it.","the multi-line version of ^old^new: fix a whole heredoc, not one word.","","fc"],
+["!cp","History","Plus","rerun the most recent command that started with cp.","works for any prefix. add :p to preview.","history expansion fires on enter; a stray ! in a double-quoted string can trigger it. single quotes are inert.","bangprefix"],
+
+// ── jobs & signals ───────────────────────────────────────────────────────
+["ctrl z · fg · bg","Jobs & signals","Core","suspend the foreground job; resume it in front or in back.","editor open, need the shell for one command: ctrl z, do it, fg. no second tab required.","jobs lists what is parked; fg %2 picks by number.","jobctl"],
+["ctrl c","Jobs & signals","Core","interrupt the foreground job (SIGINT).","asks the program to stop. most listen. it does not clear your unrun typed line in some shells — ctrl u does.","","sigint"],
+["ctrl d","Jobs & signals","Core","end-of-input.","on an empty prompt it exits the shell; inside a REPL it is the polite quit that q sometimes isn't.","it is not a killer like ctrl c; it just says 'no more input'.","eof"],
+["ctrl s · ctrl q","Jobs & signals","Core","freeze / unfreeze terminal output.","the answer to 'my terminal is hung': you pressed ctrl s at some point. ctrl q releases it.","this has been the most common fake hang in unix for fifty years.","flowctl"],
+["kill %1","Jobs & signals","Plus","signal a job by its job number instead of its pid.","no ps, no grep: jobs, then kill %2.","","killjob"],
+["disown","Jobs & signals","Plus","detach a background job from this shell.","started something long, need to log out: ctrl z, bg, disown. the job survives you.","","disown"],
+
+// ── directories ──────────────────────────────────────────────────────────
+["cd -","Directories","Core","go back to the previous directory.","bounces between two places forever. plain cd goes home.","","cdback"],
+["cp file{,.bak}","Directories","Core","brace expansion writes the repetition for you.","expands to cp file file.bak. also mkdir -p app/{src,test}/{unit,e2e}.","","braces"],
+["dirs -v","Directories","Plus","the directory stack, numbered.","with setopt AUTO_PUSHD in .zshrc every cd is remembered: dirs -v to list, cd -3 to jump. teleportation for the four places you actually work in.","the hyphen-number form is zsh; bash uses pushd/popd by hand.","dirstack"],
+
+// ── zsh party tricks ─────────────────────────────────────────────────────
+["esc q","zsh party tricks","Core","push-line: stash the half-typed command.","you are sixty characters into a command and realise the directory doesn't exist yet. esc q clears the line, you run mkdir, and the sixty characters come back by themselves.","the single best reason to be in zsh. bash has no real equivalent.","pushline"],
+["alt h","zsh party tricks","Plus","open the manual for the command you are mid-typing.","the line is stashed, man opens, quit and the line returns. pairs with esc q as 'the shell holds your place'.","","runhelp"],
+["cd -⇥","zsh party tricks","Plus","tab through the directory stack as a menu.","cd - then tab, with AUTO_PUSHD on: recent directories as a picker.","","cdtab"],
+
+// ── macOS & worth installing ─────────────────────────────────────────────
+["option click","macOS & extras","Core","click to move the cursor anywhere in the line.","Terminal.app and iTerm2 replay the arrow keys for you. feels illegal the first time.","","optclick"],
+["cmd k","macOS & extras","Core","clear the scrollback for real.","ctrl l scrolls it away; cmd k deletes it. before a screenshare, cmd k.","","cmdk"],
+["pbcopy · pbpaste","macOS & extras","Core","pipe to and from the system clipboard.","cat key.pub | pbcopy, and pbpaste > notes.txt. the bridge between the shell and everything else on the mac.","","pbcopy"],
+["open .","macOS & extras","Core","open the current directory in Finder.","open works on anything: files by default app, urls in the browser.","","opendot"],
+["fzf: ctrl r · ctrl t · alt c","macOS & extras","Plus","the one install that upgrades three keys.","brew install fzf: ctrl r becomes fuzzy history, ctrl t inserts a fuzzily-found file path, alt c is fuzzy cd. keep the muscle memory, multiply the reach.","run the bundled install script to wire the keybindings.","fzf"],
+["zoxide: z","macOS & extras","Plus","cd that remembers.","brew install zoxide: z pager jumps to ~/work/one_pager from anywhere, ranked by how often you go there.","","zoxide"],
+];
+
+const SECTS = [
+  ["Move", "the prompt is an editor. these keys are its arrows, worth more than arrows."],
+  ["Kill & yank", "deleted text goes to a ring, not to heaven. killing and yanking is the shell's own clipboard."],
+  ["History", "you have typed most commands before. the shell remembers; these keys ask it to."],
+  ["Jobs & signals", "one terminal is plenty when you can park, resume, and un-freeze things."],
+  ["Directories", "getting around without typing paths."],
+  ["zsh party tricks", "your login shell has moves bash users don't believe until they see them."],
+  ["macOS & extras", "the host machine, and the two installs that pay rent."],
+];
+
+const KEY='term-known';
+const load=()=>{try{return new Set(JSON.parse(localStorage.getItem(KEY)||'[]'))}catch(e){return new Set()}};
+const save=s=>{try{localStorage.setItem(KEY,JSON.stringify([...s]))}catch(e){}};
+let state={sect:'All',query:'',known:load()};
+
+const kbds=k=>k.split('·').map(alt=>alt.trim().split(' ').map(x=>'<kbd>'+x+'</kbd>').join(' ')).join(' <i>or</i> ');
+
+function chips(){
+  const el=document.getElementById('chips'); el.innerHTML='';
+  const mk=(name,n)=>{const b=document.createElement('button');b.className='chip'+(state.sect===name?' active':'');
+    b.textContent=n?name+' '+n:name;b.onclick=()=>{state.sect=name;render()};el.appendChild(b)};
+  mk('All',MOVES.length);
+  SECTS.forEach(([s])=>mk(s,MOVES.filter(m=>m[1]===s).length));
+}
+
+function render(){
+  chips();
+  const q=state.query.toLowerCase();
+  const main=document.getElementById('main'); main.innerHTML='';
+  let shown=0;
+  for(const [name,why] of SECTS){
+    if(state.sect!=='All'&&state.sect!==name)continue;
+    const rows=MOVES.filter(m=>m[1]===name&&(!q||m.join(' ').toLowerCase().includes(q)));
+    if(!rows.length)continue;
+    shown+=rows.length;
+    const s=document.createElement('div');s.className='sect';
+    s.innerHTML='<h2>'+name+'</h2><p class="why">'+why+'</p>';
+    const g=document.createElement('div');g.className='grid';
+    for(const m of rows){
+      const known=state.known.has(m[6]);
+      const c=document.createElement('div');c.className='cardk';
+      c.innerHTML='<div class="keys">'+kbds(m[0])+'</div>'
+        +'<div class="what">'+m[3]+'</div>'
+        +'<div class="how">'+m[4]+'</div>'
+        +(m[5]?'<div class="gotcha">'+m[5]+'</div>':'')
+        +'<div class="foot"><span class="tag">'+m[2]+'</span>'
+        +'<button class="know'+(known?' on':'')+'" data-id="'+m[6]+'">'+(known?'known ✓':'i know this')+'</button></div>';
+      g.appendChild(c);
+    }
+    s.appendChild(g);main.appendChild(s);
+  }
+  if(!shown)main.innerHTML='<p class="empty">nothing matches. fewer letters, more luck.</p>';
+  for(const b of main.querySelectorAll('.know'))b.onclick=()=>{
+    const id=b.dataset.id;
+    state.known.has(id)?state.known.delete(id):state.known.add(id);
+    save(state.known);render();
+  };
+  const n=state.known.size;
+  document.getElementById('prog').textContent=n+' known';
+  document.getElementById('drillGo').disabled=n<3;
+  document.getElementById('drillGo').textContent=n<3?'mark 3 to drill':'drill what i know ('+n+')';
+}
+document.getElementById('q').addEventListener('input',e=>{state.query=e.target.value;render()});
+
+// ── the drill: description shown, you recall the keys, reveal, self-grade.
+// Never asks for a real keypress: the browser owns half these chords.
+let round=[],misses=[],cur=null,seen=0,got=0;
+const $=id=>document.getElementById(id);
+function startDrill(){
+  round=MOVES.filter(m=>state.known.has(m[6]));
+  for(let i=round.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[round[i],round[j]]=[round[j],round[i]]}
+  misses=[];seen=0;got=0;
+  $('drill').classList.add('open');next();
+}
+function next(){
+  if(!round.length&&misses.length){round=misses;misses=[]}
+  if(!round.length)return summary();
+  cur=round.shift();
+  $('dtag').textContent='drill · '+cur[1];
+  $('dq').textContent=cur[3];
+  $('da').hidden=true;
+  $('da').innerHTML='<div class="keys">'+kbds(cur[0])+'</div><div class="how">'+cur[4]+'</div>';
+  $('drow').innerHTML='<button class="dbtn primary" id="dr">show the keys</button>';
+  $('dmeta').textContent=(seen+1)+' of '+(seen+1+round.length+misses.length)+(misses.length?' · '+misses.length+' coming back':'');
+  $('dr').onclick=reveal;
+}
+function reveal(){
+  $('da').hidden=false;
+  $('drow').innerHTML='<button class="dbtn good" id="dy">had it</button><button class="dbtn bad" id="dn">missed it</button>';
+  $('dy').onclick=()=>{seen++;got++;next()};
+  $('dn').onclick=()=>{seen++;misses.push(cur);next()};
+}
+function summary(){
+  $('dtag').textContent='drill · done';
+  $('dq').textContent=got+' of '+seen+' on the first try. the missed ones came back until they landed.';
+  $('da').hidden=true;
+  $('drow').innerHTML='<button class="dbtn primary" id="dagain">again</button><button class="dbtn" id="ddone">done</button>';
+  $('dmeta').textContent='';
+  $('dagain').onclick=startDrill;
+  $('ddone').onclick=closeDrill;
+}
+function closeDrill(){$('drill').classList.remove('open')}
+$('drillGo').onclick=startDrill;
+$('dclose').onclick=closeDrill;
+$('drill').addEventListener('click',e=>{if(e.target===$('drill'))closeDrill()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrill()});
+
+render();
+</script>
+</body>
+</html>

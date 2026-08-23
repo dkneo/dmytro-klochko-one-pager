@@ -556,7 +556,22 @@
     "dream-display-hero": "clamp(3.4rem, 7vw, 6rem)",
     "art-cell-sm": "0.55rem",
     "art-cell-lg": "1.05rem",
-    "pond-haiku": "clamp(1.35rem, 2.6vw, 1.9rem)"
+    "pond-haiku": "clamp(1.35rem, 2.6vw, 1.9rem)",
+    "wb-10_5": "10.5px",
+    "wb-11": "11px",
+    "wb-12": "12px",
+    "wb-12_5": "12.5px",
+    "wb-13": "13px",
+    "wb-13_5": "13.5px",
+    "wb-14": "14px",
+    "wb-14_5": "14.5px",
+    "wb-15": "15px",
+    "wb-17": "17px",
+    "wb-18": "18px",
+    "wb-21": "21px",
+    "wb-22": "22px",
+    "wb-hero": "clamp(44px, 6.5vw, 88px)",
+    "wb-hero-lg": "clamp(48px, 7vw, 100px)"
   },
   "colors": {
     "firelight": "rgb(255 186 110 / 55%)",
@@ -593,6 +608,21 @@
     "sumi": "#3c444c",
     "sumi-soft": "#6a6f76",
     "sumi-wash": "rgb(60 68 76 / 50%)",
-    "bone-wash": "rgb(236 230 217 / 40%)"
+    "bone-wash": "rgb(236 230 217 / 40%)",
+    "wb-bg": "#f5f2ec",
+    "wb-paper": "#fbfaf7",
+    "wb-ink": "#161616",
+    "wb-ink-soft": "#3f3e3a",
+    "wb-muted": "#6b6a66",
+    "wb-line": "#d9d5cc",
+    "wb-line-soft": "rgba(217,213,204,.75)",
+    "wb-accent": "#ff4fa3",
+    "wb-accent2": "#7b61ff",
+    "wb-good": "#147a55",
+    "wb-focus": "#aaa4ff",
+    "wb-focus-ring": "rgba(123,97,255,.12)",
+    "wb-white": "#fff",
+    "wb-topbar": "rgba(245,242,236,.88)",
+    "wb-shadow": "rgba(0,0,0,.08)"
   }
 }

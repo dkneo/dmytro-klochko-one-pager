@@ -32,6 +32,28 @@ modes:
     firelight-core: "rgb(255 186 110 / 62%)"
     scene-scrim: "rgb(24 28 46 / 24%)"
     shadow-deep: "rgb(6 9 18 / 45%)"
+  workbench:   # the /learning artefact pages (ui-vernacular, terminal): light
+               # paper tools, siblings of each other rather than of the site's
+               # dream shell. Palette established by ui-vernacular and shared.
+    bg: "#f5f2ec"
+    paper: "#fbfaf7"
+    ink: "#161616"
+    ink-soft: "#3f3e3a"
+    muted: "#6b6a66"
+    line: "#d9d5cc"
+    line-soft: "rgba(217,213,204,.75)"
+    accent: "#ff4fa3"      # its own pink, hotter than dream's kawase
+    accent2: "#7b61ff"
+    good: "#147a55"
+    focus: "#aaa4ff"
+    focus-ring: "rgba(123,97,255,.12)"
+    white: "#fff"
+    topbar: "rgba(245,242,236,.88)"
+    shadow: "0 18px 50px rgba(0,0,0,.08)"
+    # workbench type is px utility steps, not the site rem ramp:
+    # 10.5 11 12 12.5 13 13.5 14 14.5 15 17 18 21 22px, hero clamp(44px,6.5vw,88px)
+    # and clamp(48px,7vw,100px). The hero gradient (accent→accent2 clipped to
+    # text) is ui-vernacular's h1 treatment; the guides keep it for family.
   bebop:
     void: "#0e0a11"
     deck: "#171120"
