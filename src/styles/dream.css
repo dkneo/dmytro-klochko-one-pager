@@ -2037,6 +2037,12 @@ html[data-motion="paused"] .scenes .firelight {
   }
 }
 
+@media (min-width: 1101px) {
+  [data-mode="dream"] .cv-jobs > li.cv-job--media {
+    max-width: none;
+  }
+}
+
 [data-mode="dream"] .cv-job--lead .cv-points {
   margin-left: 0;
 }
