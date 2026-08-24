@@ -143,6 +143,17 @@ const title = "dmytro klochko";
 const description =
   "ceo at replika. product and engineering, out of art, chess and theatre. based between nyc, paris and sf.";
 
+const chapters = [
+  { id: "top", label: "hello" },
+  { id: "experience", label: "experience" },
+  { id: "how", label: "how i work" },
+  { id: "journey", label: "background" },
+  { id: "alongside", label: "alongside" },
+  { id: "me", label: "literally me" },
+  { id: "contact", label: "say hi" },
+  { id: "poems", label: "poems" },
+] as const;
+
 const jobs = [
   {
     co: "replika",
@@ -270,6 +281,59 @@ const also = [
 ---
 
 <Layout title={title} description={description} current="home" scenes={["fire", "ember", "estuary"]}>
+  <nav class="chapter-rail" aria-label="on this page">
+    {
+      chapters.map((chapter, index) => (
+        <a
+          href={`#${chapter.id}`}
+          data-chapter={chapter.id}
+          aria-current={index === 0 ? "location" : undefined}
+        >
+          <i aria-hidden="true" />
+          <span>{chapter.label}</span>
+        </a>
+      ))
+    }
+  </nav>
+
+  <script is:inline>
+    (() => {
+      const links = [...document.querySelectorAll(".chapter-rail [data-chapter]")];
+      const sections = links.map((link) => document.getElementById(link.dataset.chapter)).filter(Boolean);
+      if (!links.length || !sections.length) return;
+      let current = "top";
+      let queued = false;
+
+      const update = () => {
+        queued = false;
+        const readingLine = innerHeight * 0.42;
+        let best = sections[0];
+        let distance = Infinity;
+        for (const section of sections) {
+          const rect = section.getBoundingClientRect();
+          const within = rect.top <= readingLine && rect.bottom >= readingLine;
+          const nextDistance = within ? 0 : Math.min(Math.abs(rect.top - readingLine), Math.abs(rect.bottom - readingLine));
+          if (nextDistance < distance) { best = section; distance = nextDistance; }
+        }
+        if (best.id === current) return;
+        current = best.id;
+        for (const link of links) {
+          if (link.dataset.chapter === current) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        }
+      };
+
+      const queue = () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(update);
+      };
+      addEventListener("scroll", queue, { passive: true });
+      addEventListener("resize", queue);
+      update();
+    })();
+  </script>
+
   <section class="shell session" id="top" data-scene="fire" data-weather="fire" aria-labelledby="s1">
     <div class="bay bay--flush">
       <div>

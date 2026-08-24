@@ -108,6 +108,22 @@ test("every journey preview works from the keyboard and announces its state", ()
   assert.match(page, /aria-expanded/);
 });
 
+test("desktop readers get a real chapter index into the long homepage", () => {
+  const page = read("src/pages/index.astro");
+  const chapters = ["top", "experience", "how", "journey", "alongside", "me", "contact", "poems"];
+
+  assert.match(page, /aria-label="on this page"/);
+  assert.match(page, /href=\{`#\$\{chapter\.id\}`\}/);
+  for (const chapter of chapters) assert.match(page, new RegExp(`id: "${chapter}"`));
+});
+
+test("the journey easel has two media buffers so a new memory cannot teleport in", () => {
+  const page = read("src/pages/index.astro");
+  const layers = [...page.matchAll(/class="easel-layer(?: is-active)?"/g)];
+
+  assert.equal(layers.length, 2);
+});
+
 test("fingerprinted bundles can stay cached while the html remains fresh", () => {
   const headers = "public/_headers";
   assert.ok(exists(headers));
