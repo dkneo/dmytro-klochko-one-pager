@@ -1,0 +1,109 @@
+{
+ "built": "palettes.mjs",
+ "palettes": [
+  {
+   "weather": "cold clarity",
+   "who": "Vilhelm Hammershøi",
+   "title": "Dust Motes Dancing in the Sunbeams",
+   "src": "/images/today/hammershoi.webp",
+   "stops": [
+    "#313132",
+    "#535556",
+    "#6b6a6e",
+    "#938c8a",
+    "#cdc6be"
+   ]
+  },
+  {
+   "weather": "dissolution",
+   "who": "J. M. W. Turner",
+   "title": "Norham Castle, Sunrise",
+   "src": "/images/today/turner.webp",
+   "stops": [
+    "#958c65",
+    "#a0a29b",
+    "#bfc1a4",
+    "#b2bbbe",
+    "#c8d2ca"
+   ]
+  },
+  {
+   "weather": "invincible summer",
+   "who": "Claude Monet",
+   "title": "Water Lilies",
+   "src": "/images/today/monet.webp",
+   "stops": [
+    "#515135",
+    "#6a6556",
+    "#767074",
+    "#827f8f",
+    "#9e97a3"
+   ]
+  },
+  {
+   "weather": "nerve",
+   "who": "J. M. W. Turner",
+   "title": "Staffa, Fingal's Cave",
+   "src": "/images/today/turner-staffa.webp",
+   "stops": [
+    "#403426",
+    "#534f49",
+    "#776e63",
+    "#8e8980",
+    "#ab9f92"
+   ]
+  },
+  {
+   "weather": "the dark and the lamp",
+   "who": "James McNeill Whistler",
+   "title": "Nocturne: Blue and Gold — Old Battersea Bridge",
+   "src": "/images/today/whistler.webp",
+   "stops": [
+    "#103a2e",
+    "#1a5349",
+    "#2b7167",
+    "#41857b",
+    "#53928b"
+   ]
+  },
+  {
+   "weather": "the plain thing",
+   "who": "Jean-Baptiste-Siméon Chardin",
+   "title": "A Bowl of Plums",
+   "src": "/images/today/chardin.webp",
+   "stops": [
+    "#2e281e",
+    "#4e3a1e",
+    "#69522c",
+    "#a28c65",
+    "#cbc4a7"
+   ]
+  },
+  {
+   "weather": "vastness",
+   "who": "Caspar David Friedrich",
+   "title": "The Monk by the Sea",
+   "src": "/images/today/friedrich.webp",
+   "stops": [
+    "#25272d",
+    "#475164",
+    "#6e7888",
+    "#8594ac",
+    "#a4b2c3"
+   ]
+  },
+  {
+   "weather": "weight and grace",
+   "who": "Hilma af Klint",
+   "title": "The Ten Largest, No. 7, Adulthood",
+   "src": "/images/today/afklint.webp",
+   "stops": [
+    "#526548",
+    "#c26935",
+    "#edb332",
+    "#bf9d9c",
+    "#f4ede9"
+   ]
+  }
+ ]
+}
