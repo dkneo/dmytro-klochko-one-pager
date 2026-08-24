@@ -13,6 +13,10 @@ privateSourceTest("scout hero and organic lesson use the new private Taso illust
   assert.match(html, /src="\/scout\/media\/taso-scout\.webp"/);
 });
 
+privateSourceTest("the scout hero keeps a spoken space across its visual line break", () => {
+  assert.match(html, /Find the people<br> the ads are/);
+});
+
 privateSourceTest("scout role includes motion-design research, organic publishing and self-shot UGC", () => {
   assert.match(html, /motion designers/i);
   assert.match(html, /organic/i);
