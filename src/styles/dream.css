@@ -23,6 +23,11 @@
   --faint: #7d82a6;  /* rules and decoration only. never text: it cannot
                         clear 4.5:1 over any of the ten skies. */
   --quiet: #c4beb0;  /* the reading tier below bone: clears 4.5:1 over the glass */
+  /* Documented in DESIGN.md since the /today sky work but never defined
+     here, so every var(--shadow-deep, …) has been quietly living on its
+     literal fallback. */
+  --shadow-deep: rgb(6 9 18 / 45%);
+  --shadow-deep-base: rgb(6 9 18);
   --dream-display-card: clamp(1.5rem, 2.4vw, 2.1rem);  /* DESIGN.md typography */
   --measure-wide: 44rem;  /* a ledger row: headline plus its summary */
   /* Map territory names. Off the rem ramp for the same reason DESIGN.md
@@ -1078,7 +1083,7 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 [data-mode="dream"] .lib-card:focus-visible {
   transform: translateY(-2px);
   border-color: var(--dim);
-  box-shadow: 0 14px 30px var(--shadow-deep, rgb(6 9 18 / 45%));
+  box-shadow: 0 14px 30px var(--shadow-deep);
 }
 
 [data-mode="dream"] .lib-card img {
@@ -5844,7 +5849,7 @@ html[data-motion="paused"] .scenes .firelight {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgb(6 9 18);  /* shadow-deep's base: the documented dark */
+  background: var(--shadow-deep-base);
   opacity: 0;
   transition: opacity 900ms var(--ease);
 }
