@@ -1070,7 +1070,7 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   display: block;
   padding: 0.3rem 0.75rem 0.5rem;
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: var(--t-xs);
   letter-spacing: 0.06em;
   color: var(--dim);
   white-space: nowrap;
@@ -1093,7 +1093,7 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 
 [data-mode="dream"] .lib-word i {
   font-style: normal;
-  color: var(--quiet, #c4beb0);
+  color: var(--quiet);
   font-size: var(--t-md);
   line-height: 1;
 }
@@ -1744,6 +1744,51 @@ html[data-motion="paused"] .scenes .firelight {
 [data-mode="dream"] .cv-jobs > li {
   padding-bottom: var(--sp-4);
   max-width: var(--measure);
+}
+
+/* The earlier roles are a ledger, not five half-width paragraphs. On a
+   desktop the whole summary becomes one scan line: company and product,
+   remit, then the disclosure. This uses the space the page already owns and
+   cuts the dead right column without turning the cv into cards. */
+@media (min-width: 1101px) {
+  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) {
+    max-width: none;
+    padding: var(--sp-1) 0;
+    border-top: 1px solid rgb(236 230 217 / 13%);
+  }
+
+  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead):last-child {
+    border-bottom: 1px solid rgb(236 230 217 / 13%);
+  }
+
+  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) .cv-job > summary {
+    display: grid;
+    grid-template-columns: minmax(25rem, 1.35fr) minmax(13rem, 0.8fr) auto;
+    align-items: center;
+    gap: var(--sp-3);
+    max-width: none;
+    min-height: 3.9rem;
+    padding: var(--sp-1) 0.7rem;
+  }
+
+  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) .cv-role,
+  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) .cv-more {
+    margin: 0;
+  }
+
+  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) .cv-role {
+    line-height: 1.35;
+  }
+
+  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) .cv-more {
+    justify-self: end;
+    white-space: nowrap;
+  }
+
+  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) .cv-open {
+    max-width: 58rem;
+    padding: 0 0.7rem var(--sp-2);
+  }
 }
 
 [data-mode="dream"] .cv-line {

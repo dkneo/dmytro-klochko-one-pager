@@ -8,6 +8,7 @@ modes:
     deck: "#2f3554"
     bone: "#ece6d9"
     dim: "#a9aecb"
+    quiet: "#c4beb0"   # the reading tier below bone; clears 4.5:1 over the glass
     faint: "#7d82a6"
     rule: "rgb(236 230 217 / 12%)"
     cold: "#7fd4d9"
