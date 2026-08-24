@@ -1254,6 +1254,24 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   }
 }
 
+@media (max-width: 860px) {
+  [data-mode="dream"] .gloss-note {
+    position: fixed;
+    inset: 0;
+    position-anchor: auto;
+    position-area: none;
+    position-try-fallbacks: none;
+    max-height: calc(100dvh - 2rem);
+    margin: auto;
+    overflow: auto;
+    transform-origin: center;
+  }
+
+  [data-mode="dream"] .gloss-note::backdrop {
+    background: color-mix(in srgb, var(--void) 72%, transparent);
+  }
+}
+
 /* ── taste page ─────────────────────────────────────────────────────────── */
 
 [data-mode="dream"] .wall {
