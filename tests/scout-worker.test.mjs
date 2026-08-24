@@ -82,6 +82,16 @@ test("the compact Scout update uses the same private door", async () => {
   assert.match(open.headers.get("cache-control"), /private/);
 });
 
+test("logging in from the compact Scout update returns to that update", async () => {
+  const body = new FormData();
+  body.set("password", "tasotaso");
+  const response = await worker.fetch(request("/scout/new", null, { method: "POST", body }), env());
+
+  assert.equal(response.status, 303);
+  assert.equal(response.headers.get("location"), "/scout/new");
+  assert.match(response.headers.get("set-cookie"), /^scout_pass=/);
+});
+
 test("private scout media never crosses the door without authentication", async () => {
   const response = await worker.fetch(request("/scout/media/taso-scout.webp"), env());
 

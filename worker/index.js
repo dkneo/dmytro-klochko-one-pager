@@ -606,7 +606,7 @@ async function scout(request, env, url) {
       return new Response(null, {
         status: 303,
         headers: {
-          location: "/scout",
+          location: newPagePath ? "/scout/new" : "/scout",
           "set-cookie": `${SCOUT_COOKIE}=${good}; Path=/; Max-Age=${60 * 60 * 24 * 90}; HttpOnly; Secure; SameSite=Lax`,
           ...PRIVATE,
         },
