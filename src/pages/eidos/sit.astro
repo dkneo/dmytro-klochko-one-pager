@@ -266,7 +266,6 @@ const description = "one painting at a time. his, or not his.";
       const all = JSON.parse(document.getElementById("sit-data").textContent);
       const $ = (id) => document.getElementById(id);
       const card = $("card"), art = $("art"), note = $("note");
-      const SITTING = 7;
 
       const edgeIn = document.querySelector(".sit-edge--in");
       const edgeOut = document.querySelector(".sit-edge--out");
@@ -274,9 +273,13 @@ const description = "one painting at a time. his, or not his.";
       let last = null;               // { cand, verdict } for undo
       let busy = false;
 
+      // No ceremony every seven. He judges until he stops, and the line just
+      // says where he is: a summary card that interrupts a good run is a
+      // summary card nobody wanted.
       const count = () => {
-        $("count").textContent = deck.length || cur
-          ? `${Math.min(sat + 1, SITTING)} of ${SITTING} · ${deck.length + (cur ? 1 : 0)} wait in all`
+        const left = deck.length + (cur ? 1 : 0);
+        $("count").textContent = left
+          ? `${sat} judged${sat ? " today" : ""} · ${left} left`
           : "";
       };
 
@@ -305,7 +308,6 @@ const description = "one painting at a time. his, or not his.";
       }
 
       function next() {
-        if (sat >= SITTING) return rest();
         cur = deck.shift() || null;
         if (!cur) return rest("the deck is empty. the harvester will bring more.");
         art.onerror = () => {
@@ -340,7 +342,7 @@ const description = "one painting at a time. his, or not his.";
         note.hidden = false;
         note.textContent = "";
         const p = document.createElement("span");
-        p.textContent = text || `a sitting is seven, and this one is done. ${keptThis.length} joined the inbox of the vault; they appear on the map once they are taken in.`;
+        p.textContent = text || `that is all of them. ${keptThis.length} kept; they appear on the map once they are taken in.`;
         note.append(p);
         if (keptThis.length) {
           const row = document.createElement("span");
@@ -351,18 +353,6 @@ const description = "one painting at a time. his, or not his.";
             row.append(im);
           }
           note.append(row);
-        }
-        if (!text && deck.length) {
-          const more = document.createElement("a");
-          more.href = "#";
-          more.textContent = ` one more sitting (${deck.length} wait) →`;
-          more.addEventListener("click", (e) => {
-            e.preventDefault();
-            sat = 0; keptThis = [];
-            $("do").hidden = false;
-            next();
-          });
-          note.append(document.createTextNode(" "), more);
         }
         count();
       }
