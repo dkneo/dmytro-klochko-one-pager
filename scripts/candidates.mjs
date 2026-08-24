@@ -78,9 +78,38 @@ const inboxPath = "public/inbox.json";
 const inbox = existsSync(inboxPath) ? JSON.parse(readFileSync(inboxPath, "utf8")) : { candidates: [] };
 for (const c of inbox.candidates) { known.add((c.source || "").toLowerCase()); known.add((c.title || "").toLowerCase()); }
 
-// thinnest weathers first
+// Aim where paintings are scarce, not where marks are.
+//
+// A weather's mark count includes its quotes, poems and songs, so it says
+// nothing about the thing this harvester actually brings back. The vault
+// holds exactly one painting per weather, and /today casts a painting as the
+// whole sky: nerve makes four days out of one Turner, and a reader gets the
+// same sky four days running. So the order is paintings first, and among
+// weathers equally thin, the one making the most days goes first — that is
+// where the repetition is visible.
 const map = JSON.parse(readFileSync("src/data/map.json", "utf8"));
-const order = map.weathers.slice().sort((a, b) => a.count - b.count).map((w) => w.name);
+const paintingsPer = {};
+for (const f of readdirSync("vault/paintings")) {
+  if (!f.endsWith(".md")) continue;
+  const m = /^weather:\s*(.+)$/m.exec(readFileSync(join("vault/paintings", f), "utf8"));
+  if (m) paintingsPer[m[1].trim()] = (paintingsPer[m[1].trim()] || 0) + 1;
+}
+const daysPer = {};
+try {
+  for (const c of JSON.parse(readFileSync("src/data/today.json", "utf8")).chords || []) {
+    daysPer[c.weather] = (daysPer[c.weather] || 0) + 1;
+  }
+} catch {}
+const order = map.weathers.slice().sort((a, b) =>
+  (paintingsPer[a.name] || 0) - (paintingsPer[b.name] || 0) ||
+  (daysPer[b.name] || 0) - (daysPer[a.name] || 0) ||
+  a.count - b.count,
+).map((w) => w.name);
+console.log("aiming, thinnest in paintings first:");
+for (const w of order) {
+  console.log(`  ${w.padEnd(22)} ${paintingsPer[w] || 0} painting(s), ${daysPer[w] || 0} day(s)`);
+}
+console.log("");
 
 const found = [];
 for (const weather of order) {
