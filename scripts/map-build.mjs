@@ -64,7 +64,7 @@ function jitter(seed, i) {
 const items = [];
 const perWeather = {};
 
-for (const kind of ["paintings", "poems", "songs", "quotes", "links", "people", "writing"]) {
+for (const kind of ["paintings", "objects", "buildings", "poems", "songs", "quotes", "links", "people", "writing"]) {
   const dir = join("vault", kind);
   if (!existsSync(dir)) continue;
   const files = readdirSync(dir).filter((f) => f.endsWith(".md") && !f.startsWith("_"));

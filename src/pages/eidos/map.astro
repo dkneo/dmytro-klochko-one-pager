@@ -24,7 +24,7 @@ const { items, weathers, threads, depth, forms, people, axes, unplaced } = map;
 const candidates = inbox.candidates || [];
 
 const K = 41;  // coord → percent of the field, shared by marks and threads
-const FORM_MARK = { painting: "▣", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
+const FORM_MARK = { painting: "▣", object: "◈", building: "⌂", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
 const thinnest = weathers.slice().sort((a, b) => a.count - b.count)[0];
 const thumbFor = (src: string) => src
   .replace("/images/", "/images/thumbs/")

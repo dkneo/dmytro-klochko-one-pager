@@ -13,7 +13,7 @@ const cut = (v, n) =>
 export function cleanField(v) {
   return (v || "")
     .replace(/<[^>]+>/g, " ")
-    .split(/(?:label|title) QS:/)[0]
+    .split(/(?:label|title|date) QS:/)[0]
     .replace(/^\s*[A-Z][a-z]+:\s*/, "")      // "French: ..."
     .replace(/&[a-z]+;/g, " ")
     .replace(/\s+/g, " ")

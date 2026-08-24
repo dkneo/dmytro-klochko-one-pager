@@ -176,6 +176,19 @@ pond-assets.mjs    Commons         → public/images/pond/
 Every script that writes is **dry-run by default** and needs `--apply`. Keep
 it that way.
 
+### The eidos pages
+
+`/eidos` is **the library** — public, in the sitemap: eight weather-rooms,
+cold to warm, every mark a card, the unfiled closing as "the ring". Views:
+`/eidos/map` (the sketch, with place-the-ring and the pair), `/eidos/orbit`
+(the shape). `/eidos/sit` is his judging door. `/eidos/deck` is legacy,
+unlinked. Reading is public; every write is behind the /names door.
+
+Marks now come in nine kinds: paintings, **objects** (design), **buildings**
+(HABS/HAER survey photographs are the reliable PD vein), poems, songs,
+quotes, links, people, writing. Kept objects/buildings file into
+`vault/objects` and `vault/buildings`.
+
 ### The taste loop, end to end
 
 The one workflow that spans all of them. It only moves when he judges, which

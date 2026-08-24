@@ -85,12 +85,14 @@ const born = [];
 for (const [id, v] of kept) {
   const c = inbox.find((x) => x.id === id);
   if (!c) { born.push(`  ? ${id}: kept, but no longer in the inbox`); continue; }
-  const file = `vault/paintings/${id}.md`;
+  const dirFor = { object: "vault/objects", building: "vault/buildings" };
+  const file = `${dirFor[c.type] || "vault/paintings"}/${id}.md`;
   if (existsSync(file)) { born.push(`  = ${id}: already a note`); continue; }
   const remote = !c.src.startsWith("/");
   born.push(`  + ${id} → ${c.who}, ${c.title}${remote ? " (bringing the picture home)" : ""}`);
   if (!apply) continue;
 
+  mkdirSync(file.slice(0, file.lastIndexOf("/")), { recursive: true });
   let src;
   try {
     src = await bringHome(c);

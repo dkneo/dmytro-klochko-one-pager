@@ -26,23 +26,39 @@ const UA = "dmklochko-taste-map/1.0 (https://dmklochko.com; contact via site)";
 // candidate (the break below keeps the range wide), and most searches come
 // back with nothing that passes the guards, so two terms left whole weathers
 // empty: invincible summer had no candidate waiting at all.
+// Each entry: a Commons search and the kind of thing it hunts. Paintings
+// were first; objects and buildings joined when the library opened to
+// design. For buildings, HABS/HAER survey photographs are the reliable
+// public-domain vein — the US government cannot hold copyright.
 const TERMS = {
-  "cold clarity":          ["winter light interior painting", "snow morning painting",
-                            "frost window painting", "nordic winter landscape painting"],
-  "dissolution":           ["fog painting", "mist landscape painting",
-                            "rain seascape painting", "dusk river painting"],
-  "invincible summer":     ["summer heat painting", "sunlight field painting",
-                            "midday sun painting", "harvest summer landscape painting"],
-  "nerve":                 ["storm sea painting", "climbing mountain painting",
-                            "shipwreck painting", "avalanche painting"],
-  "the dark and the lamp": ["lamplight night interior painting", "candlelight painting",
-                            "night study lamp painting", "nocturne interior painting"],
-  "the plain thing":       ["still life single object painting", "kitchen still life",
-                            "bread still life painting", "earthenware jug painting"],
-  "vastness":              ["mountain vista painting", "night sky landscape painting",
-                            "vast plain painting", "sea horizon painting"],
-  "weight and grace":      ["dancer painting", "falling figure painting",
-                            "acrobat painting", "figure in motion painting"],
+  "cold clarity": [["hoarfrost painting"], ["moonlight snow painting"], ["winter light interior painting"], ["snow morning painting"],
+                            ["frost window painting"], ["nordic winter landscape painting"],
+                            ["white porcelain Metropolitan Museum", "object"],
+                            ["HABS interior stair hall", "building"]],
+  "dissolution": [["twilight harbour painting"], ["nocturne sea painting"], ["fog painting"], ["mist landscape painting"],
+                            ["rain seascape painting"], ["dusk river painting"],
+                            ["raku tea bowl", "object"]],
+  "invincible summer": [["heat haze painting"], ["swimmers river painting"], ["summer heat painting"], ["sunlight field painting"],
+                            ["midday sun painting"], ["harvest summer landscape painting"],
+                            ["HABS porch veranda", "building"]],
+  "nerve": [["volcano eruption painting"], ["rapids river painting"], ["storm sea painting"], ["climbing mountain painting"],
+                            ["shipwreck painting"], ["avalanche painting"],
+                            ["HAER bridge construction", "building"]],
+  "the dark and the lamp": [["lit window night painting"], ["reading by lamplight painting"], ["lamplight night interior painting"], ["candlelight painting"],
+                            ["night study lamp painting"], ["nocturne interior painting"],
+                            ["oil lamp Metropolitan Museum", "object"]],
+  "the plain thing": [["single flower vase painting"], ["kettle hearth painting"], ["still life single object painting"], ["kitchen still life"],
+                            ["bread still life painting"], ["earthenware jug painting"],
+                            ["shaker furniture chair", "object"],
+                            ["bauhaus teapot design", "object"],
+                            ["dieter rams braun", "object"]],
+  "vastness": [["aurora painting"], ["desert dunes painting"], ["deep sea waves painting"], ["mountain vista painting"], ["night sky landscape painting"],
+                            ["vast plain painting"], ["sea horizon painting"],
+                            ["HABS lighthouse", "building"]],
+  "weight and grace": [["diver painting"], ["swans painting"], ["dancer painting"], ["falling figure painting"],
+                            ["acrobat painting"], ["figure in motion painting"],
+                            ["HABS spiral staircase", "building"],
+                            ["calder mobile", "object"]],
 };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -114,7 +130,7 @@ console.log("");
 const found = [];
 for (const weather of order) {
   if (found.length >= WANT) break;
-  for (const term of TERMS[weather] || []) {
+  for (const [term, kind = "painting"] of TERMS[weather] || []) {
     if (found.length >= WANT) break;
     let pages = [];
     try { pages = await commons(term, 8); } catch (e) { console.log(`  ! ${term}: ${e.message}`); continue; }
@@ -129,25 +145,44 @@ for (const weather of order) {
       // from the first "label QS:" or "title QS:" on is machine noise.
       const title = ((v) => v.replace(/([a-z])([A-Z])/g, "$1 $2"))(  // "DarkCorridor"
         cleanField(md.ObjectName?.value || p.title.replace(/^File:|\.\w+$/g, ""))).slice(0, 80);
-      const who = attribution(md.Artist?.value);
-
-      // It must actually be a painting. A satellite photograph is a fine
-      // picture and a bad candidate, and his attention is the scarce thing.
       const cats = (p.categories || []).map((c) => c.title.toLowerCase()).join(" ");
-      const painted = /painting|oil on|watercolou?r|tempera|panel|canvas/.test(cats + " " + cleanField(md.ObjectName?.value));
-      if (!painted) continue;
+      let who = attribution(md.Artist?.value);
+      // For an object or a building the Commons "artist" is very often the
+      // camera, not the hand: the file sits in a "photographs by X" category
+      // and X is credited as author. A chair by Daderot is a false claim,
+      // and every claim here must be traceable — so when the credited name
+      // is the photographer, the card carries the maker or nobody.
+      if (kind !== "painting" && who) {
+        const wl = who.toLowerCase();
+        if (cats.includes(`by ${wl}`) || /^related names|^unknown|^anonymous unknown/i.test(who)) who = "";
+      }
+      if (/^related names/i.test(who)) who = "";
+
+      // A painting search must return a painting; an object or building
+      // search only has to return a photograph of a real thing. Satellite
+      // shots and posters are bad candidates for anything.
+      if (kind === "painting") {
+        const painted = /painting|oil on|watercolou?r|tempera|panel|canvas/.test(cats + " " + cleanField(md.ObjectName?.value));
+        if (!painted) continue;
+      }
       if (/nasa|photograph|satellite/i.test(who + " " + cats)) continue;
       // A wartime poster is a fine object and a bad candidate; so is anything
       // whose title is a catalogue code ("INF3-328 Unity of Strength").
       if (/poster|propaganda|advertis|postcard/i.test(cats)) continue;
       if (/^[A-Z]{2,}[\d-]/.test(title)) continue;
       if (title.length < 3) continue;
-      if (!who || known.has(title.toLowerCase()) || known.has((ii.descriptionurl || "").toLowerCase())) continue;
+      if (kind === "painting" && !who) continue;   // an unattributed painting is not ours to offer
+      if (known.has(title.toLowerCase()) || known.has((ii.descriptionurl || "").toLowerCase())) continue;
       if ((ii.width || 0) < 1200) continue;  // sharpness is not negotiable here
       known.add(title.toLowerCase());
       found.push({
-        id: title.toLowerCase().replace(/[^\w]+/g, "-").replace(/^-|-$/g, "").slice(0, 48),
-        type: "painting", who, title,
+        // a fully CJK title slugs to nothing under [^\w], and an empty id
+        // collides in the verdicts; the commons filename always has ascii
+        id: (title.toLowerCase().replace(/[^\w]+/g, "-").replace(/^-|-$/g, "").slice(0, 48)
+             || (ii.descriptionurl || "").split("File:").pop().toLowerCase()
+                  .replace(/[^\w]+/g, "-").replace(/^-|-$/g, "").slice(0, 48)
+             || "untitled-" + Math.abs([...(p.title || "x")].reduce((h, ch) => (h * 31 + ch.codePointAt(0)) | 0, 7)).toString(36)),
+        type: kind, who, title,
         year: (md.DateTimeOriginal?.value || "").replace(/<[^>]+>/g, "").slice(0, 20),
         remote: ii.thumburl || ii.url,
         source: ii.descriptionurl, licence: licence.toLowerCase(),

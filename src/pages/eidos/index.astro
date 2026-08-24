@@ -26,7 +26,7 @@ import inbox from "../../../public/inbox.json";
 const { items, weathers, depth, forms, unplaced } = map;
 const candidates = (inbox.candidates || []).length;
 
-const FORM_MARK = { painting: "▣", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
+const FORM_MARK = { painting: "▣", object: "◈", building: "⌂", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
 const thumbFor = (src: string) => src
   .replace("/images/", "/images/thumbs/")
   .replace(/\.[^.]+$/, ".webp");
