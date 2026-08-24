@@ -504,6 +504,7 @@ function scoutDoor(message) {
 }
 
 const SCOUT_PAGE = /^\/scout(?:\/|\/index\.html)?$/i;
+const SCOUT_NEW_PAGE = /^\/scout\/new(?:\/|\/index\.html)?$/i;
 const SCOUT_MEDIA = /^\/scout\/media\/([a-z0-9](?:[a-z0-9-]{0,126}[a-z0-9])?\.(?:webp|png|jpe?g|mp4|webm|vtt))$/;
 const SCOUT_MEDIA_TYPES = {
   webp: "image/webp",
@@ -596,7 +597,8 @@ async function scout(request, env, url) {
   }
   const good = await passToken(env.SCOUT_PASSWORD);
 
-  const pagePath = SCOUT_PAGE.test(url.pathname);
+  const newPagePath = SCOUT_NEW_PAGE.test(url.pathname);
+  const pagePath = SCOUT_PAGE.test(url.pathname) || newPagePath;
 
   if (pagePath && request.method === "POST") {
     const form = await request.formData().catch(() => null);
@@ -625,7 +627,8 @@ async function scout(request, env, url) {
     return new Response("method not allowed", { status: 405, headers: { allow: "GET, HEAD, POST" } });
   }
 
-  const page = env.VAULT && (await env.VAULT.get("scout:page", { type: "text", cacheTtl: 60 }));
+  const pageKey = newPagePath ? "scout:new" : "scout:page";
+  const page = env.VAULT && (await env.VAULT.get(pageKey, { type: "text", cacheTtl: 60 }));
   if (!page) return new Response(scoutDoor("the program is not loaded yet."), { status: 503, headers: PRIVATE });
   return new Response(request.method === "HEAD" ? null : page, { status: 200, headers: PRIVATE });
 }

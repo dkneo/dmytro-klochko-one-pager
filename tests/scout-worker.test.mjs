@@ -4,6 +4,7 @@ import test from "node:test";
 import worker from "../worker/index.js";
 
 const scoutPage = "<!doctype html><title>scout school</title><h1>field manual</h1>";
+const scoutNewPage = "<!doctype html><title>new for taso</title><h1>this week</h1>";
 const portrait = new TextEncoder().encode("private portrait bytes").buffer;
 const captions = new TextEncoder().encode("WEBVTT\n\n00:00.000 --> 00:01.000\nverify the advertiser\n").buffer;
 
@@ -13,6 +14,7 @@ function env() {
     VAULT: {
       async get(key) {
         if (key === "scout:page") return scoutPage;
+        if (key === "scout:new") return scoutNewPage;
         return null;
       },
       async getWithMetadata(key) {
@@ -66,6 +68,18 @@ test("the scout page is returned only with its own cookie", async () => {
   assert.equal(response.status, 200);
   assert.equal(await response.text(), scoutPage);
   assert.match(response.headers.get("cache-control"), /private/);
+});
+
+test("the compact Scout update uses the same private door", async () => {
+  const bindings = env();
+  const locked = await worker.fetch(request("/scout/new"), bindings);
+  const cookie = await login(bindings);
+  const open = await worker.fetch(request("/scout/new", cookie), bindings);
+
+  assert.equal(locked.status, 401);
+  assert.equal(open.status, 200);
+  assert.equal(await open.text(), scoutNewPage);
+  assert.match(open.headers.get("cache-control"), /private/);
 });
 
 test("private scout media never crosses the door without authentication", async () => {
