@@ -282,12 +282,16 @@ const description = "one painting at a time. his, or not his.";
 
       // ── the deck: everything the server has not seen judged ────────────
       async function build() {
-        let judged = {};
+        // The endpoint answers { judged: [id, ...] }. This asked it for
+        // `verdicts` and got undefined, so the filter matched nothing and the
+        // whole deck came back every time — ten judgements safe in KV and the
+        // Magpie on top of the pile again, looking exactly like lost work.
+        let judged = new Set();
         try {
           const r = await fetch("/api/eidos/judged");
-          if (r.ok) judged = (await r.json()).verdicts || {};
+          if (r.ok) judged = new Set((await r.json()).judged || []);
         } catch {}
-        deck = all.filter((c) => !judged[c.id]);
+        deck = all.filter((c) => !judged.has(c.id));
         // remote images later in the deck than local ones, so the first
         // card is always instant
         deck.sort((a, b) => (a.src.startsWith("/") ? 0 : 1) - (b.src.startsWith("/") ? 0 : 1));
@@ -304,6 +308,14 @@ const description = "one painting at a time. his, or not his.";
         if (sat >= SITTING) return rest();
         cur = deck.shift() || null;
         if (!cur) return rest("the deck is empty. the harvester will bring more.");
+        art.onerror = () => {
+          // a dead url is not a judgement: drop it and deal the next one
+          if (!cur || art.dataset.failed === cur.id) return;
+          art.dataset.failed = cur.id;
+          note.hidden = false;
+          note.textContent = `${cur.title} would not load, so it is skipped.`;
+          next();
+        };
         art.src = cur.src;
         art.alt = `${cur.title}, ${cur.who}`;
         $("c-title").textContent = cur.title;
