@@ -7,11 +7,39 @@
 //
 //   node scripts/eidos-pull.mjs           show what is waiting
 //   node scripts/eidos-pull.mjs --apply   write it into the notes
-import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { join } from "node:path";
 
+import sharp from "sharp";
+
+import { paintingNote } from "./lib/vault-note.mjs";
+
 const NS = "d5e466fe143e4b8aadce72dd01da4507";
+const UA = "dmklochko-site/1.0 (https://dmklochko.com; keeping a painting)";
+const KEPT_DIR = "public/images/vault";
+
+// The inbox holds most candidates as urls on Wikimedia's servers, on purpose:
+// a picture nobody keeps should never cost a file in this repo. A keep
+// reverses that. Every other note in the vault carries a local src, the map
+// derives its thumbnails from local files, and vault-build refuses outright
+// to ship a chord whose painting is not on disk — so the moment he keeps
+// something, the picture comes home.
+async function bringHome(c) {
+  if (c.src.startsWith("/")) return c.src;              // already ours
+  const out = join(KEPT_DIR, `${c.id}.webp`);
+  const local = `/images/vault/${c.id}.webp`;
+  if (existsSync(out)) return local;
+  const url = c.src.split("?")[0];                      // drop their tracking
+  const r = await fetch(url, { headers: { "user-agent": UA } });
+  if (!r.ok) throw new Error(`${r.status} fetching ${url}`);
+  mkdirSync(KEPT_DIR, { recursive: true });
+  await sharp(Buffer.from(await r.arrayBuffer()))
+    .resize({ width: 1600, withoutEnlargement: true })
+    .webp({ quality: 82 })
+    .toFile(out);
+  return local;
+}
 const apply = process.argv.includes("--apply");
 
 function kv(key) {
@@ -59,17 +87,27 @@ for (const [id, v] of kept) {
   if (!c) { born.push(`  ? ${id}: kept, but no longer in the inbox`); continue; }
   const file = `vault/paintings/${id}.md`;
   if (existsSync(file)) { born.push(`  = ${id}: already a note`); continue; }
-  born.push(`  + ${id} → ${c.who}, ${c.title}`);
-  if (apply) {
-    writeFileSync(file, [
-      "---", "type: painting", `who: ${c.who}`, `title: ${c.title}`,
-      c.year ? `year: ${c.year}` : "", `src: ${c.src}`,
-      c.source ? `source: "${c.source}"` : "", c.licence ? `licence: ${c.licence}` : "",
-      (v.weather || c.weather) ? `weather: ${v.weather || c.weather}` : "",
-      `added: ${new Date().toISOString().slice(0, 10)}`,
-      "---", "", "kept from the queue on /eidos.", "",
-    ].filter(Boolean).join("\n"));
+  const remote = !c.src.startsWith("/");
+  born.push(`  + ${id} → ${c.who}, ${c.title}${remote ? " (bringing the picture home)" : ""}`);
+  if (!apply) continue;
+
+  let src;
+  try {
+    src = await bringHome(c);
+  } catch (e) {
+    born.push(`  ! ${id}: ${e.message} — note not written`);
+    continue;
   }
+  const weather = v.weather || c.weather;
+  writeFileSync(file, paintingNote(c, {
+    weather,
+    src,
+    added: new Date().toISOString().slice(0, 10),
+  }));
+}
+if (apply && born.some((b) => b.startsWith("  +"))) {
+  console.log("\n  run `node scripts/image-build.mjs --apply` next: the new");
+  console.log("  paintings need their thumbnails before the map can show them.");
 }
 const passed = Object.values(verdicts).filter((v) => v.verdict === "pass").length;
 console.log(`\ncandidates judged: ${Object.keys(verdicts).length} (${kept.length} kept, ${passed} passed)`);
