@@ -80,3 +80,10 @@ test("every journey preview works from the keyboard and announces its state", ()
   assert.match(page, /Enter/);
   assert.match(page, /aria-expanded/);
 });
+
+test("fingerprinted bundles can stay cached while the html remains fresh", () => {
+  const headers = "public/_headers";
+  assert.ok(exists(headers));
+  assert.match(read(headers), /\/_astro\/\*/);
+  assert.match(read(headers), /Cache-Control: public, max-age=31536000, immutable/);
+});

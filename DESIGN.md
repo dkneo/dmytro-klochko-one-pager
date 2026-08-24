@@ -17,7 +17,7 @@ modes:
     ember: "#ffd2a3"   # spark highlight in the fire act's weather
     ember-deep: "#f08a54"  # the ember's molten core; the sunpulse's warm mid-stop
     hot-lit: "#ffd3df"     # petal highlight — hot where the light hits
-    lane: "smoked glass — backdrop brightness(0.48) saturate(0.92), never a colour over the art"
+    lane: "smoked glass — backdrop brightness(0.32) saturate(0.88), never a colour over the art"
     # Three literals the ramps do not cover, documented rather than left as
     # drift: the glow at the heart of the fire, the scrim over the scene, and
     # the deep shadow under a lifted print.
@@ -127,8 +127,8 @@ target sizes, the Found Object rule) applies everywhere.
 ## Dream Mode (the default) — The Journey
 
 His own paintings (Seedream, 4K, chosen and named by him) run full-bleed
-as fixed scenes — **one painting per URL**: the swimmer under the orange
-sun holds every section of `/`, the pale estuary holds `/taste`, and each
+as fixed scenes — **one painting per URL**: the campfire holds every
+section of `/`, the pale estuary holds `/taste`, and each
 future page claims one of its own. The scene machinery is more general
 than the mapping: sections carry `data-scene`, an IntersectionObserver
 with a centred band (−42% top and bottom) hands the sky to the section
@@ -145,11 +145,11 @@ warm-up.
 ### Readability — Smoked Glass
 
 The reading surface is a full-viewport fixed layer:
-`backdrop-filter: brightness(0.48) saturate(0.92)` under a faint dusk
+`backdrop-filter: brightness(0.32) saturate(0.88)` under a faint dusk
 tint (`rgb(24 28 46 / 24%)`). It dims the painting itself under the text,
 never lays opaque colour over the art: light scenes darken exactly enough
 for cream text, dark scenes barely change. At ≤900px the filter runs
-brightness(0.5). A left-weighted dusk gradient stands in where
+brightness(0.34). A left-weighted dusk gradient stands in where
 backdrop-filter is unsupported.
 
 ### Layout — Bebop's Bones
@@ -180,17 +180,17 @@ words that go somewhere. The current nav page is held in pink parentheses
 
 ### Ambient Life & Eggs
 
-Six petals always fall, in front of everything (z-index above the glass).
-When the swimmer holds the sky, the painted sun warms and cools on a 7s
-soft-light pulse riding the same parallax so it stays on the sun, and
-four light glints drift across the water (the glints also run on the
-estuary). Film grain sits over everything at 4% overlay. Ember and snow
-weather CSS still exists, gated on `data-scene="fire"` / `"snow"`, but no
-shipped page names those scenes — it is dormant plumbing, not a current
-behaviour. Typing l-i-s-a showers sixteen extra petals. Clicking an email
-copies it and the label whispers "copied ✓". Every ambient system —
-scenes' parallax, petals, weather, autoplaying video — goes still under
-`prefers-reduced-motion`.
+Nine CSS petals form the fallback field, reduced to five at phone width.
+Desktop fine pointers may hand that field to 44 WebGL petals on idle; phones,
+tablets, reduced-motion and data-saver connections never load it. The `/`
+hero alone carries firelight and embers through `data-weather="fire"`; later
+chapters keep the campfire painting but set `data-weather="none"`. Film grain
+sits over everything at 4% overlay. Typing l-i-s-a showers sixteen extra
+petals when the rich field is active. Clicking an email copies it and the
+label whispers "copied ✓". The header's `still` control pauses ambient motion
+and visible videos, and the choice persists. Ambient videos are poster-first
+and play only while visible on a rich desktop. `prefers-reduced-motion`
+always wins.
 
 ### Photographs
 
