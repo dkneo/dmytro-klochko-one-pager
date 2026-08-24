@@ -566,7 +566,7 @@
     "dream-display-hero": "clamp(3.4rem, 7vw, 6rem)",
     "art-cell-sm": "0.55rem",
     "art-cell-lg": "1.05rem",
-    "pond-haiku": "clamp(1.35rem, 2.6vw, 1.9rem)",
+    "pond-haiku": "clamp(1.35rem, 2.6vw, 1.9rem) italic",
     "wb-10_5": "10.5px",
     "wb-11": "11px",
     "wb-12": "12px",
