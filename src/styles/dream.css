@@ -3734,7 +3734,7 @@ html[data-motion="paused"] .scenes .firelight {
     margin-left: 0.52rem;
     border: 1px solid rgb(236 230 217 / 62%);
     border-radius: 50%;
-    background: rgb(15 19 38 / 92%);
+    background: color-mix(in srgb, var(--void) 92%, transparent);
     transform: scale(0.78);
     transition:
       transform 180ms var(--ease),
@@ -3747,10 +3747,10 @@ html[data-motion="paused"] .scenes .firelight {
     left: 1.55rem;
     width: max-content;
     padding: 0.26rem 0.42rem;
-    background: rgb(13 17 34 / 88%);
+    background: color-mix(in srgb, var(--void) 88%, transparent);
     color: var(--bone);
     font-family: var(--mono);
-    font-size: 0.62rem;
+    font-size: var(--t-xs);
     letter-spacing: var(--ls-wide);
     opacity: 0;
     transform: translateX(-4px);
