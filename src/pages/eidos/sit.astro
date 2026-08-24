@@ -64,16 +64,6 @@ const description = "one painting at a time. his, or not his.";
         <span class="sit-edge sit-edge--out" aria-hidden="true">not mine</span>
       </article>
 
-      <div class="sit-after" id="after" hidden>
-        <p>the harvester filed it under <b id="a-weather"></b>.</p>
-        <div class="sit-after-row">
-          <button type="button" id="a-yes">rightly</button>
-          <button type="button" id="a-no">no, it is…</button>
-        </div>
-        <div class="sit-weathers" id="a-pick" hidden>
-          {WEATHERS.map((w) => <button type="button" data-w={w}>{w}</button>)}
-        </div>
-      </div>
 
       <p class="sit-note" id="note" hidden></p>
     </div>
@@ -125,13 +115,6 @@ const description = "one painting at a time. his, or not his.";
       will-change: transform;
     }
     .sit-card.is-flying { transition: transform 0.42s var(--ease-slick), opacity 0.42s var(--ease-slick); }
-    /* kept, but not gone yet: it waits, lit, while its weather is settled */
-    .sit-card.is-held {
-      transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
-      transform: translateX(10px) rotate(0.6deg);
-      border-color: var(--hot);
-      cursor: default;
-    }
     .sit-card.is-home { transition: transform 0.45s var(--ease); }
     .sit-card:active { cursor: grabbing; }
 
@@ -145,11 +128,6 @@ const description = "one painting at a time. his, or not his.";
       transition: max-height 0.3s var(--ease);
     }
 
-    /* While its weather is being settled the painting steps back a little,
-       so the picture and the question it is about fit one screen together
-       on a laptop rather than pushing the answers under the fold. */
-    .sit-card.is-held .sit-art { min-height: 0; }
-    .sit-card.is-held .sit-art img { max-height: min(34svh, 300px); }
 
     .sit-credit {
       display: flex;
@@ -178,33 +156,6 @@ const description = "one painting at a time. his, or not his.";
     }
     .sit-edge--in { right: 1.4rem; color: var(--hot); border-color: var(--hot); transform: rotate(6deg); }
     .sit-edge--out { left: 1.4rem; color: var(--dim); border-color: var(--dim); transform: rotate(-6deg); }
-
-    /* Directly under the card it is about, in the flow: a question about a
-       painting has to be answerable while the painting is still on screen. */
-    .sit-after {
-      margin-top: 0.7rem;
-      background: var(--deck);
-      border: 1px solid var(--rule);
-      border-radius: 10px;
-      padding: 0.8rem 1rem 0.9rem;
-    }
-    .sit-after p { margin: 0 0 0.6rem; font-size: 0.98rem; color: var(--bone); }
-    .sit-after b { color: var(--hot); font-weight: 500; }
-    .sit-after-row { display: flex; gap: 0.5rem; }
-    .sit-after-row button,
-    .sit-weathers button {
-      border: 1px solid var(--rule);
-      background: transparent;
-      color: var(--bone);
-      border-radius: 999px;
-      padding: 0.45rem 0.9rem;
-      font-size: 0.875rem;
-      cursor: pointer;
-      transition: border-color var(--dur) var(--ease);
-    }
-    .sit-after-row button:hover,
-    .sit-weathers button:hover { border-color: var(--hot); }
-    .sit-weathers { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
 
     .sit-note {
       margin: 1rem 0 0;
@@ -262,7 +213,7 @@ const description = "one painting at a time. his, or not his.";
     (() => {
       const all = JSON.parse(document.getElementById("sit-data").textContent);
       const $ = (id) => document.getElementById(id);
-      const card = $("card"), art = $("art"), after = $("after"), note = $("note");
+      const card = $("card"), art = $("art"), note = $("note");
       const SITTING = 7;
 
       const edgeIn = document.querySelector(".sit-edge--in");
@@ -306,13 +257,11 @@ const description = "one painting at a time. his, or not his.";
         $("c-who").textContent = `${cur.who}${cur.year ? " · " + cur.year : ""}`;
         $("c-source").href = cur.source || "#";
         card.hidden = false;
-        card.classList.remove("is-flying", "is-held", "is-home");
+        card.classList.remove("is-flying", "is-home");
         card.style.transform = "";
         edgeIn.style.opacity = 0;
         edgeOut.style.opacity = 0;
         card.style.opacity = "";
-        after.hidden = true;
-        $("a-pick").hidden = true;
         note.hidden = true;
         busy = false;
         count();
@@ -322,7 +271,6 @@ const description = "one painting at a time. his, or not his.";
       function rest(text) {
         cur = null;
         card.hidden = true;
-        after.hidden = true;
         $("do").hidden = true;
         note.hidden = false;
         note.textContent = "";
@@ -398,37 +346,19 @@ const description = "one painting at a time. his, or not his.";
       function keep() {
         if (!cur || busy) return;
         busy = true;
-        // The card stays. Asking which weather a painting belongs to while
-        // the painting is off the screen is asking someone to file from
-        // memory; it also left a screen of empty dark where it had been.
-        card.classList.remove("is-home");
-        card.classList.add("is-held");
-        card.style.transform = "";
-        edgeIn.style.opacity = 1;
-        $("a-weather").textContent = cur.weather || "nothing yet";
-        after.hidden = false;
-      }
-
-      async function keepAs(weather) {
         const cand = cur;
         last = { cand, verdict: "keep" };
         $("undo").disabled = false;
         keptThis.push(cand);
-        after.hidden = true;
-        send(cand, "keep", weather);
+        // The harvester already proposed a weather and he kept the painting
+        // anyway, which is answer enough. Asking him to confirm it turned a
+        // half-second judgement into a form.
+        send(cand, "keep", cand.weather);
         sat++;
-        // settled: now it goes
-        card.classList.remove("is-held");
-        edgeIn.style.opacity = 0;
         fly(1);
         setTimeout(next, 300);
       }
 
-      $("a-yes").addEventListener("click", () => keepAs(cur.weather));
-      $("a-no").addEventListener("click", () => { $("a-pick").hidden = false; });
-      for (const b of document.querySelectorAll("#a-pick button")) {
-        b.addEventListener("click", () => keepAs(b.dataset.w));
-      }
 
       $("undo").addEventListener("click", () => {
         if (!last) return;
@@ -446,7 +376,6 @@ const description = "one painting at a time. his, or not his.";
       $("keep").addEventListener("click", keep);
       document.addEventListener("keydown", (e) => {
         if (e.target && e.target.closest && e.target.closest("input,textarea,select")) return;
-        if (!after.hidden) return;   // the weather question wants a click
         if (e.key === "ArrowLeft") pass();
         if (e.key === "ArrowRight") keep();
       });
@@ -454,7 +383,7 @@ const description = "one painting at a time. his, or not his.";
       // ── the hand on the card ────────────────────────────────────────────
       let dragging = false, sx = 0, dx = 0;
       card.addEventListener("pointerdown", (e) => {
-        if (busy || card.classList.contains("is-held")) return;
+        if (busy) return;
         dragging = true; sx = e.clientX; dx = 0;
         card.classList.remove("is-home");
         card.setPointerCapture(e.pointerId);

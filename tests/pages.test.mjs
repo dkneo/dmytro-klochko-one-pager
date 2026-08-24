@@ -80,9 +80,13 @@ test("the sitting can be sat", () => {
     assert.ok(c.licence, `${c.id} has no licence`);
   }
 
-  // all eight weathers are offered for a correction
-  const picks = [...html.matchAll(/data-w="([^"]+)"/g)].map((m) => m[1]);
-  assert.equal(picks.length, 8, "the weather picker must offer all eight");
+  // Two buttons and nothing else. A weather-confirmation step used to sit
+  // between the keep and the next card; it turned a half-second judgement
+  // into a form and it is not coming back.
+  assert.match(html, /id="keep"/);
+  assert.match(html, /id="pass"/);
+  assert.ok(!html.includes('id="after"'), "the sitting asks one question, not two");
+  assert.ok(!/data-w="/.test(html), "no weather picker in the sitting");
 
   // the card flies to 120vw, so the stage must clip sideways or a phone
   // gains half a screen of horizontal scroll
@@ -97,7 +101,6 @@ test("the sitting can be sat", () => {
   // naive /\.sit-after\{/ never matches and a negative assertion built on one
   // passes while guarding nothing. `scoped` allows for the attribute.
   const scoped = (sel) => sel.replace(/\./g, "\\.") + "(?:\\[[^\\]]*\\])?";
-  assert.match(css, new RegExp(`${scoped(".sit-card")}\\.is-held`));
   assert.ok(
     !new RegExp(`${scoped(".sit-after")}\\{[^}]*position:\\s*absolute`).test(css),
     "the question must sit under its card in the flow, not float below a void",
@@ -107,7 +110,6 @@ test("the sitting can be sat", () => {
     "the stage must not reserve height it may not fill",
   );
   // the guard must be able to fail: prove it sees the rules at all
-  assert.match(css, new RegExp(`${scoped(".sit-after")}\\{`));
   assert.match(css, new RegExp(`${scoped(".sit-stage")}\\{`));
 });
 
@@ -147,11 +149,17 @@ test("the sitemap lists the public pages and only those", () => {
 });
 
 // Astro moves page CSS/JS into hashed bundle files; resolve them from the page.
+// Astro inlines a page's styles once they are small enough, so a helper that
+// only follows <link href> silently returns nothing and every assertion built
+// on it passes while guarding air. Read both.
 function bundledCss(page) {
   const html = read(page);
-  return [...html.matchAll(/href="(\/_astro\/[^"]+\.css)"/g)]
-    .map((m) => read(path.join("dist", m[1])))
-    .join("\n");
+  const linked = [...html.matchAll(/href="(\/_astro\/[^"]+\.css)"/g)]
+    .map((m) => read(path.join("dist", m[1])));
+  const inline = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]);
+  const css = [...linked, ...inline].join("\n");
+  assert.ok(css.length > 0, `no css found for ${page}`);
+  return css;
 }
 function bundled(page, html) {
   return [...html.matchAll(/src="(\/_astro\/[^"]+\.js)"/g)]
