@@ -51,7 +51,9 @@ test("the homepage ships an explicit motion control and poster-first ambient vid
   assert.match(layout, /class="motion-btn motion-btn--fold"/);
   assert.match(layout, /setupMotionControl/);
   assert.doesNotMatch(page, /<video autoplay[^>]*data-ambient-video/);
-  assert.equal([...page.matchAll(/data-ambient-video/g)].length, 4);
+  const ambient = [...page.matchAll(/<video[^>]*data-ambient-video[^>]*>/g)].map((match) => match[0]);
+  assert.equal(ambient.length, 4);
+  assert.ok(ambient.every((tag) => /preload="none"/.test(tag)));
 });
 
 test("the phone stylesheet removes fire effects and keeps at most five petals", () => {
