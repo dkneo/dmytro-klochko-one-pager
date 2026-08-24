@@ -98,6 +98,9 @@ const description = "one painting at a time. his, or not his.";
       margin: 0 auto;
       min-height: min(58svh, 560px);
       touch-action: pan-y;
+      /* the card flies to 120vw; clip that sideways, but let the weather
+         question still spill downward (clip, not hidden, keeps y visible) */
+      overflow-x: clip;
     }
 
     .sit-card {

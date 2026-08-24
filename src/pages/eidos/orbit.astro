@@ -58,7 +58,10 @@ const description = "the map of what he likes, with the weathers as depth.";
       border: 1px solid var(--rule);
       border-radius: 10px;
       overflow: hidden;
-      touch-action: none;   /* the drag is the interface */
+      /* touch-action governs fingers only, so a mouse still turns it on both
+         axes: a finger turns it sideways and keeps the page's own scroll,
+         which a full-height canvas must never eat */
+      touch-action: pan-y;
       cursor: grab;
     }
     .eo-space:active { cursor: grabbing; }

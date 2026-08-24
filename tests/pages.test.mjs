@@ -67,6 +67,55 @@ test("the learning page carries its three subjects and the queue", () => {
   assert.ok(exists("public/images/learning-terminal.webp"), "artefact shot missing");
 });
 
+test("the sitting can be sat", () => {
+  const html = read("dist/eidos/sit/index.html");
+  const css = bundledCss("dist/eidos/sit/index.html");
+
+  // every candidate rides along, and every one of them is attributed
+  const data = JSON.parse(html.match(/id="sit-data"[^>]*>([^<]*)</)[1]);
+  assert.ok(data.length >= 20, `expected 20+ candidates, found ${data.length}`);
+  for (const c of data) {
+    assert.ok(c.id && c.src, `candidate without id or src: ${JSON.stringify(c)}`);
+    assert.ok(c.source, `${c.id} has no source url`);
+    assert.ok(c.licence, `${c.id} has no licence`);
+  }
+
+  // all eight weathers are offered for a correction
+  const picks = [...html.matchAll(/data-w="([^"]+)"/g)].map((m) => m[1]);
+  assert.equal(picks.length, 8, "the weather picker must offer all eight");
+
+  // the card flies to 120vw, so the stage must clip sideways or a phone
+  // gains half a screen of horizontal scroll
+  assert.match(css, /overflow-x:\s*clip/);
+  // and a finger must still be able to scroll the page past the deck
+  assert.match(css, /touch-action:\s*pan-y/);
+});
+
+test("both orbits read from one mapper, and agree", async () => {
+  const { toMarks } = await import("../src/scripts/eidos-marks.mjs");
+  const map = JSON.parse(read("src/data/map.json"));
+  const { marks, threads } = toMarks(map);
+
+  assert.equal(marks.length, map.items.length);
+  for (const m of marks) {
+    for (const k of ["x", "y", "z"]) {
+      assert.equal(Number.isFinite(m[k]), true, `${m.id} has a non-finite ${k}`);
+    }
+    assert.ok(m.thumb || m.glyph, `${m.id} has neither thumbnail nor glyph`);
+  }
+  assert.ok(threads.length > 0, "the author threads vanished");
+
+  // the page and the porch must ship the same geometry
+  const orbit = JSON.parse(read("dist/eidos/orbit/index.html").match(/id="eo-data"[^>]*>([^<]*)</)[1]);
+  const porch = JSON.parse(read("dist/index.html").match(/id="me-orbit-data"[^>]*>([^<]*)</)[1]);
+  assert.deepEqual(porch.marks, orbit.marks, "the porch and the orbit page disagree");
+
+  // the thumbnails they point at have to exist
+  for (const m of marks.filter((x) => x.thumb).slice(0, 8)) {
+    assert.ok(exists(path.join("public", m.thumb)), `missing derivative ${m.thumb}`);
+  }
+});
+
 test("the sitemap lists the public pages and only those", () => {
   const xml = read("dist/sitemap.xml");
   for (const url of ["/pond/", "/learning/terminal", "/today/", "/hokku/"]) {
