@@ -60,3 +60,23 @@ test("the phone stylesheet removes fire effects and keeps at most five petals", 
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.weather--fire[\s\S]*?display:\s*none/);
   assert.match(css, /@media \(max-width: 700px\)[\s\S]*?\.dream-sky b:nth-of-type\(n \+ 6\)[\s\S]*?display:\s*none/);
 });
+
+test("proof arrives before the homepage asks readers to trust its operating style", () => {
+  const page = read("src/pages/index.astro");
+  assert.ok(page.indexOf('id="experience"') < page.indexOf('id="how"'));
+  assert.match(page, /id="experience"[\s\S]*?<p class="card-no">02<\/p>/);
+  assert.match(page, /id="how"[\s\S]*?<p class="card-no">03<\/p>/);
+  assert.doesNotMatch(page, /outstanding|clairvoyant|natural aptitude/i);
+});
+
+test("every journey preview works from the keyboard and announces its state", () => {
+  const page = read("src/pages/index.astro");
+  assert.match(page, /role="button"/);
+  assert.match(page, /tabindex="0"/);
+  assert.match(page, /aria-expanded="false"/);
+  assert.match(page, /aria-controls="journey-preview"/);
+  assert.match(page, /id="journey-preview"/);
+  assert.match(page, /keydown/);
+  assert.match(page, /Enter/);
+  assert.match(page, /aria-expanded/);
+});

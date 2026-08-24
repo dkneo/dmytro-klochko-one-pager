@@ -76,9 +76,9 @@ const shots = [
 // emphasis.
 const ways = [
   "i'm intense and <b>hands-on</b>: everyone reports directly to me, i write the architecture and the prompts, push code to production, and i hit all-nighters.",
-  'my sense of urgency is outstanding. but i know where to slow down, to <b>go dreamy</b>, reach the next peak of ideas, find serendipity, and make the 10x thing that doesn&rsquo;t exist yet.',
-  'i have a natural aptitude for <b>taste</b> and strong action bias. i am aggressively optimistic and <b>clairvoyant</b>, so i am best at building futuristic products.',
-  "the culture in my teams: intolerance for mediocre work. <b>anime-level camaraderie</b>. fearlessness. relentless pursuit of the mission.",
+  'i move fast, but know when to slow down, to <b>go dreamy</b>, find serendipity, and make the 10x thing that doesn&rsquo;t exist yet.',
+  'i build futuristic products with strong action bias, <b>taste</b>, and aggressive optimism.',
+  "the culture in my teams: fearlessness, intolerance for mediocre work, and <b>anime-level camaraderie</b>.",
 ] as const;
 
 const press = {
@@ -296,10 +296,9 @@ const also = [
 
         <div class="prose">
           <p>
-            currently: building a replika spinoff {"{"}in stealth{"}"}. a truly novel and beautiful{" "}
-            <b>agentic ai with real eq</b>, brought to everyone: to help people come back to who
-            they really are, unleash their potential to the fullest, and flourish. meanwhile
-            i shepherd replika itself and ship updates daily.
+            currently: building a replika spinoff {"{"}in stealth{"}"}: an{" "}
+            <b>agentic ai with real eq</b>, made to help people return to who they are and
+            flourish. meanwhile i shepherd replika and ship updates daily.
           </p>
         </div>
 
@@ -339,39 +338,11 @@ const also = [
 
   </section>
 
-  <section class="shell session" id="how" data-scene="fire" data-weather="none" aria-labelledby="sh">
-    <div class="card">
-      <p class="card-no">02</p>
-      <h2 class="card-title" id="sh">how i work</h2>
-    </div>
-
-    <div class="bay">
-      <div class="prose">
-        <p set:html={ways[0]} />
-        <p set:html={ways[1]} />
-        <p set:html={ways[2]} />
-        <p set:html={ways[3]} />
-      </div>
-
-      <figure class="lynch">
-        <img
-          src="/images/lynch.jpg"
-          alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
-          width="640"
-          height="389"
-          loading="lazy"
-          decoding="async"
-        />
-      </figure>
-    </div>
-  </section>
-
-
   {/* The spine of the cv: the same six companies the road carries, opened
       up into what each one actually was. */}
   <section class="shell session" id="experience" data-scene="fire" data-weather="none" aria-labelledby="sx">
     <div class="card">
-      <p class="card-no">03</p>
+      <p class="card-no">02</p>
       <h2 class="card-title" id="sx">experience</h2>
     </div>
 
@@ -544,6 +515,33 @@ const also = [
     </ol>
   </section>
 
+  <section class="shell session" id="how" data-scene="fire" data-weather="none" aria-labelledby="sh">
+    <div class="card">
+      <p class="card-no">03</p>
+      <h2 class="card-title" id="sh">how i work</h2>
+    </div>
+
+    <div class="bay">
+      <div class="prose">
+        <p set:html={ways[0]} />
+        <p set:html={ways[1]} />
+        <p set:html={ways[2]} />
+        <p set:html={ways[3]} />
+      </div>
+
+      <figure class="lynch">
+        <img
+          src="/images/lynch.jpg"
+          alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
+          width="640"
+          height="389"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </section>
+
   {/* Dream's version of everything pre-replika: one chronological thread,
       the war note carrying the photograph of him at sixteen, and an easel
       on the right that shows each bead's picture on hover. */}
@@ -571,7 +569,16 @@ const also = [
       <ol class="log log--journey">
         {
           journey.map((j) => (
-            <li data-easel={j.pic} data-pos={"pos" in j ? j.pos : undefined} data-kind={"video" in j && j.video ? "video" : undefined} data-poster={"poster" in j ? j.poster : undefined}>
+            <li
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+              aria-controls="journey-preview"
+              data-easel={j.pic}
+              data-pos={"pos" in j ? j.pos : undefined}
+              data-kind={"video" in j && j.video ? "video" : undefined}
+              data-poster={"poster" in j ? j.poster : undefined}
+            >
               {"name" in j && j.name ? (
                 <p class="tl-co-line">
                   {"mark" in j && j.mark && <span class="tl-mark" style={`--mark:url(${j.mark})`} aria-hidden="true" />}
@@ -600,7 +607,7 @@ const also = [
         }
       </ol>
 
-      <figure class="easel" aria-hidden="true">
+      <figure class="easel" id="journey-preview" aria-hidden="true">
         <span class="cell">
           <img src="/images/journey/lecture.jpg" alt="" width="900" height="612" loading="lazy" decoding="async" />
           <video muted loop playsinline preload="none" hidden></video>
@@ -672,6 +679,10 @@ const also = [
       const beads = [...bay.querySelectorAll(".log--journey li")];
       let active = null;
 
+      const announce = (shown) => {
+        for (const bead of beads) bead.setAttribute("aria-expanded", String(bead === shown));
+      };
+
       const setMedia = (li, imgEl, vidEl) => {
         const src = li.dataset.easel;
         // Portrait sources lose their top to `cover`; a per-picture anchor
@@ -700,6 +711,7 @@ const also = [
         if (active && active !== li) active.classList.remove("is-shown");
         active = li;
         li.classList.add("is-shown");
+        announce(li);
         easel.classList.add("is-lit");
         setMedia(li, img, vid);
       };
@@ -707,6 +719,15 @@ const also = [
       for (const li of beads) {
         li.addEventListener("pointerenter", () => {
           if (easelOn() && li.dataset.easel) activate(li);
+        });
+        li.addEventListener("focus", () => {
+          if (easelOn() && li.dataset.easel) activate(li);
+        });
+        li.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          if (easelOn()) activate(li);
+          else li.click();
         });
       }
 
@@ -752,11 +773,13 @@ const also = [
           if (easelOn() || !li.dataset.easel) return;
           if (e.target.closest("a")) return;
           if (open === li) {
-            pVid.pause(); print.remove(); li.classList.remove("is-shown"); open = null; return;
+            pVid.pause(); print.remove(); li.classList.remove("is-shown");
+            open = null; announce(null); return;
           }
           open?.classList.remove("is-shown");
           open = li;
           li.classList.add("is-shown");
+          announce(li);
           li.appendChild(print);
           setMedia(li, pImg, pVid);
         });
