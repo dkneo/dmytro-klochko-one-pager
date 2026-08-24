@@ -100,6 +100,13 @@ const description = "one painting at a time. his, or not his.";
   </section>
 
   <style>
+    /* A display rule in author css beats the user agent's [hidden] { display:
+       none }, so every element here that sets display — the gate is a grid,
+       the buttons are a flex row — went on showing after hidden was set. The
+       door appeared to do nothing because it was hiding a gate that could
+       not be hidden. */
+    [hidden] { display: none !important; }
+
     .sit-stage {
       position: relative;
       max-width: 34rem;
@@ -285,7 +292,7 @@ const description = "one painting at a time. his, or not his.";
         // card is always instant
         deck.sort((a, b) => (a.src.startsWith("/") ? 0 : 1) - (b.src.startsWith("/") ? 0 : 1));
         if (!deck.length) return rest("nothing waits. every candidate has been judged; the harvester will bring more.");
-        if (!(await doorOpen())) shutOut(null);
+        if (!(await doorOpen())) return shutOut(null);   // no card behind a shut door
         next();
       }
 
@@ -379,6 +386,7 @@ const description = "one painting at a time. his, or not his.";
         gated = true;
         $("gate").hidden = false;
         $("do").hidden = true;
+        $("stage").hidden = true;      // the deck waits out of sight
         $("gate-note").textContent = pending.length
           ? `${pending.length} judgement${pending.length > 1 ? "s" : ""} waiting to be saved.`
           : "";
@@ -420,6 +428,7 @@ const description = "one painting at a time. his, or not his.";
         field.value = "";
         $("gate").hidden = true;
         $("do").hidden = false;
+        $("stage").hidden = false;
         $("gate-note").textContent = "";
         for (const u of pending.splice(0)) await send(u.cand, u.verdict, u.weather);
         if (!cur) next();
