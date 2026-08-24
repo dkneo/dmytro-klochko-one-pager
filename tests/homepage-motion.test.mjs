@@ -43,12 +43,12 @@ test("the motion policy keeps phones, reduced motion and data saver quiet", asyn
   );
 });
 
-test("the homepage ships an explicit motion control and poster-first ambient video", () => {
+test("homepage navigation contains destinations, not unexplained utility modes", () => {
   const layout = read("src/layouts/Layout.astro");
   const page = read("src/pages/index.astro");
 
-  assert.match(layout, /class="motion-btn"/);
-  assert.match(layout, /class="motion-btn motion-btn--fold"/);
+  assert.doesNotMatch(layout, /class="tone-btn/);
+  assert.doesNotMatch(layout, /class="motion-btn/);
   assert.match(layout, /setupMotionControl/);
   assert.doesNotMatch(page, /<video autoplay[^>]*data-ambient-video/);
   const ambient = [...page.matchAll(/<video[^>]*data-ambient-video[^>]*>/g)].map((match) => match[0]);
@@ -68,7 +68,11 @@ test("proof arrives before the homepage asks readers to trust its operating styl
   assert.ok(page.indexOf('id="experience"') < page.indexOf('id="how"'));
   assert.match(page, /id="experience"[\s\S]*?<p class="card-no">02<\/p>/);
   assert.match(page, /id="how"[\s\S]*?<p class="card-no">03<\/p>/);
-  assert.doesNotMatch(page, /outstanding|clairvoyant|natural aptitude/i);
+  assert.match(page, /my sense of urgency is outstanding/i);
+  assert.match(page, /natural aptitude for <b>taste<\/b>/i);
+  assert.match(page, /<b>clairvoyant<\/b>/i);
+  assert.match(page, /truly novel and beautiful/i);
+  assert.match(page, /unleash their potential to the fullest/i);
 });
 
 test("every journey preview works from the keyboard and announces its state", () => {

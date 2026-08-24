@@ -183,13 +183,11 @@ words that go somewhere. The current nav page is held in pink parentheses
 Nine CSS petals form the fallback field, reduced to five at phone width.
 Desktop fine pointers may hand that field to 44 WebGL petals on idle; phones,
 tablets, reduced-motion and data-saver connections never load it. The `/`
-hero alone carries firelight and embers through `data-weather="fire"`; later
-chapters keep the campfire painting but set `data-weather="none"`. Film grain
-sits over everything at 4% overlay. Typing l-i-s-a showers sixteen extra
+hero alone carries firelight and embers through `data-weather="fire"`. Film
+grain sits over everything at 4% overlay. Typing l-i-s-a showers sixteen extra
 petals when the rich field is active. Clicking an email copies it and the
-label whispers "copied ✓". The header's `still` control pauses ambient motion
-and visible videos, and the choice persists. Ambient videos are poster-first
-and play only while visible on a rich desktop. `prefers-reduced-motion`
+label whispers "copied ✓". Ambient videos are poster-first and play only while
+visible on a rich desktop. Phones keep their posters and `prefers-reduced-motion`
 always wins.
 
 ### Photographs

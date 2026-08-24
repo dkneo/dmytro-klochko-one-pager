@@ -138,16 +138,6 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
           <a class="dance-link" href="/press">press</a>
         </span>
         <a class="dance-link" href="/#contact">say hi</a>
-        {/* One word, like every other thing in this nav, and it names where
-            you are going rather than where you are. The Aa glyph beside it was
-            a second thing to decode next to a word that already said it. */}
-        <button class="tone-btn" type="button" aria-pressed="false"
-                title="capitals on or off">
-          <span class="tone-label">serious</span>
-        </button>
-        <button class="motion-btn" type="button" aria-pressed="false">
-          <span class="motion-label">still</span>
-        </button>
         <details class="menu">
           <summary aria-label="more pages"><i></i><i></i><i></i></summary>
           <div class="menu-drop">
@@ -157,14 +147,6 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
             <a href="/basho">bashō</a>
             <a href="/hokku">hokku</a>
             <a href="/dance">dance</a>
-            {/* The same switch, because at 390 the header has no room for a
-                word beside everything else, and the word is the whole point. */}
-            <button class="tone-btn tone-btn--fold" type="button" aria-pressed="false">
-              <span class="tone-label">serious</span>
-            </button>
-            <button class="motion-btn motion-btn--fold" type="button" aria-pressed="false">
-              <span class="motion-label">still</span>
-            </button>
           </div>
         </details>
       </nav>
@@ -214,113 +196,6 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <script>
       import { setupMotionControl } from "../scripts/motion-control.js";
       setupMotionControl();
-    </script>
-
-    <!--
-      Serious mode. It changes no words: it puts the capitals back, so the same
-      copy can be read in a suit. Sentence starts, the pronoun I, and a list of
-      names the page actually uses — anything not on that list is left alone,
-      because guessing at proper nouns is how you get "The Fire" and "A Dance".
-      Every original string is kept so the switch goes both ways exactly.
-    -->
-    <script is:inline>
-      (() => {
-        const btns = [...document.querySelectorAll(".tone-btn")];
-        if (!btns.length) return;
-        const btn = btns[0];
-
-        const NAMES = ("dmytro klochko replika luka ukraine ukrainian donetsk kyiv " +
-          "nyc paris sf vk skyeng hily chatfuel hunch meta harvard stanford princeton " +
-          "vienna senate obsidian cloudflare youtube spotify instagram linkedin telegram " +
-          "substack english russian japanese portuguese greek german latin french spanish " +
-          "chinese danish oxford tate ordrupgaard giverny sorrento").split(" ");
-        const CAPS = { nyc: "NYC", sf: "SF", vk: "VK", ai: "AI", ui: "UI", ux: "UX",
-          eq: "EQ", arr: "ARR", arpu: "ARPU", saas: "SaaS", ceo: "CEO", cv: "CV",
-          pmf: "PMF", kpi: "KPI", ml: "ML", phds: "PhDs", "u.s.": "U.S." };
-
-        // Only a text node that opens a block can open a sentence. A tag list
-        // got this wrong both ways: the hero sentence lives in a <span>, so
-        // "hi" stayed lowercase, and the war gloss is a <button> mid-sentence,
-        // so "war" got a capital. Ask the layout instead of guessing: walk out
-        // through inline wrappers, and at each step the node must still be the
-        // first thing in its parent.
-        const isBlock = (el) => {
-          const d = getComputedStyle(el).display;
-          return d === "block" || d === "list-item" || d === "flex" ||
-                 d === "grid" || d === "table-cell" || d === "flow-root";
-        };
-        const startsBlock = (n) => {
-          let node = n, par = n.parentElement;
-          while (par) {
-            for (const kid of par.childNodes) {
-              if (kid === node) break;
-              if (kid.nodeType === 3 && kid.nodeValue.trim()) return false;
-              if (kid.nodeType === 1 && kid.textContent.trim()) return false;
-            }
-            if (isBlock(par)) return true;
-            node = par;
-            par = par.parentElement;
-          }
-          return false;
-        };
-
-        const fix = (text, atStart) => {
-          let out = text;
-          // the pronoun, standing alone or contracted
-          out = out.replace(/\bi\b/g, "I").replace(/\bi(['’])(m|ve|ll|d)\b/g, "I$1$2");
-          // names the page actually uses
-          for (const n of NAMES) {
-            out = out.replace(new RegExp("\\b" + n + "\\b", "g"),
-              n.charAt(0).toUpperCase() + n.slice(1));
-          }
-          for (const k in CAPS) {
-            out = out.replace(new RegExp("\\b" + k.replace(/\./g, "\\.") + "\\b", "gi"), CAPS[k]);
-          }
-          // every sentence after a full stop, always
-          out = out.replace(/([.!?…]\s+|\n\s*)([a-z])/g,
-            (_, lead, ch) => lead + ch.toUpperCase());
-          // and the very first letter, only where a block actually begins
-          if (atStart) out = out.replace(/^(\s*)([a-z])/, (_, sp, ch) => sp + ch.toUpperCase());
-          return out;
-        };
-
-        // Every text node worth touching, with its original kept beside it.
-        const NOPE = new Set(["SCRIPT", "STYLE", "CODE", "PRE"]);
-        let nodes = null;
-        const collect = () => {
-          nodes = [];
-          const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-            acceptNode: (n) =>
-              n.nodeValue.trim() &&
-              !NOPE.has(n.parentElement?.tagName) &&
-              !n.parentElement?.closest(".tone-btn")
-                ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT,
-          });
-          for (let n = walk.nextNode(); n; n = walk.nextNode()) {
-            nodes.push([n, n.nodeValue, startsBlock(n)]);
-          }
-        };
-
-        const apply = (on) => {
-          if (!nodes) collect();
-          for (const [n, was, atStart] of nodes) n.nodeValue = on ? fix(was, atStart) : was;
-          for (const b of btns) {
-            b.setAttribute("aria-pressed", String(on));
-            b.querySelector(".tone-label").textContent = on ? "lowercase" : "serious";
-          }
-          document.documentElement.dataset.tone = on ? "serious" : "lower";
-          try { localStorage.setItem("tone", on ? "serious" : "lower"); } catch {}
-        };
-
-        for (const b of btns) {
-          b.addEventListener("click", () => apply(b.getAttribute("aria-pressed") !== "true"));
-        }
-        // Lowercase is the house voice, so serious is the departure and only a
-        // deliberate switch to it is stored.
-        let saved = null;
-        try { saved = localStorage.getItem("tone"); } catch {}
-        apply(saved === "serious");
-      })();
     </script>
 
     <script is:inline>
