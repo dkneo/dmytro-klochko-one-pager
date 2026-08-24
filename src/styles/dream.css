@@ -196,6 +196,28 @@
   transition: transform var(--dur-slow) var(--ease), box-shadow var(--dur-slow) var(--ease);
 }
 
+/* Two prints occupy the same mat. The incoming memory resolves before it
+   becomes visible, then trades places with the old one on the site's strong
+   ease-out instead of arriving as a hard cut. */
+[data-mode="dream"] .easel-layer {
+  grid-area: 1 / 1;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.985);
+  transition:
+    opacity 220ms var(--ease),
+    transform 220ms var(--ease);
+  pointer-events: none;
+}
+
+[data-mode="dream"] .easel-layer.is-active {
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1);
+}
+
 /* object-fit rather than max-height percentages: the picture always lands
    whole inside the mat, whatever its shape, with no clipping. */
 [data-mode="dream"] .easel img,
@@ -1202,6 +1224,34 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 
 [data-mode="dream"] .gloss-note {
   border-color: rgb(236 230 217 / 30%);
+  transform-origin: top left;
+  opacity: 0;
+  transform: translateY(5px) scale(0.96);
+  transition:
+    opacity 140ms var(--ease),
+    transform 140ms var(--ease);
+}
+
+[data-mode="dream"] .gloss-note:popover-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-duration: 190ms;
+}
+
+@starting-style {
+  [data-mode="dream"] .gloss-note:popover-open {
+    opacity: 0;
+    transform: translateY(5px) scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .easel-layer,
+  [data-mode="dream"] .gloss-note,
+  [data-mode="dream"] .gloss-note:popover-open {
+    transform: none;
+    transition-duration: 120ms;
+  }
 }
 
 /* ── taste page ─────────────────────────────────────────────────────────── */

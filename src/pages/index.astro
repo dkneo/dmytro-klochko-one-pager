@@ -606,8 +606,14 @@ const also = [
 
       <figure class="easel" id="journey-preview" aria-hidden="true">
         <span class="cell">
-          <img src="/images/journey/lecture.jpg" alt="" width="900" height="612" loading="lazy" decoding="async" />
-          <video muted loop playsinline preload="none" hidden></video>
+          <span class="easel-layer is-active">
+            <img src="/images/journey/lecture.jpg" alt="" width="900" height="612" loading="lazy" decoding="async" />
+            <video muted loop playsinline preload="none" hidden></video>
+          </span>
+          <span class="easel-layer">
+            <img src="/images/journey/lecture.jpg" alt="" width="900" height="612" loading="lazy" decoding="async" />
+            <video muted loop playsinline preload="none" hidden></video>
+          </span>
         </span>
       </figure>
     </div>
@@ -668,13 +674,14 @@ const also = [
       const bay = document.querySelector(".journey-bay");
       const easel = document.querySelector(".easel");
       if (!bay || !easel) return;
-      const img = easel.querySelector("img");
-      const vid = easel.querySelector("video");
+      const layers = [...easel.querySelectorAll(".easel-layer")];
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
       const wide = matchMedia("(hover: hover) and (min-width: 861px)");
       const easelOn = () => wide.matches;
       const beads = [...bay.querySelectorAll(".log--journey li")];
       let active = null;
+      let layerIndex = 0;
+      let swapToken = 0;
 
       const announce = (shown) => {
         for (const bead of beads) bead.setAttribute("aria-expanded", String(bead === shown));
@@ -701,7 +708,23 @@ const also = [
           vidEl.pause(); vidEl.hidden = true; imgEl.hidden = false;
           const want = li.dataset.kind === "video" ? li.dataset.poster : src;
           if (want && !imgEl.src.endsWith(want)) imgEl.src = want;
+          return imgEl.decode?.().catch(() => {});
         }
+      };
+
+      const crossfadeMedia = async (li) => {
+        const token = ++swapToken;
+        const nextIndex = (layerIndex + 1) % layers.length;
+        const next = layers[nextIndex];
+        const current = layers[layerIndex];
+        const nextImg = next.querySelector("img");
+        const nextVid = next.querySelector("video");
+        await setMedia(li, nextImg, nextVid);
+        if (token !== swapToken) return;
+        next.classList.add("is-active");
+        current.classList.remove("is-active");
+        current.querySelector("video").pause();
+        layerIndex = nextIndex;
       };
 
       const activate = (li) => {
@@ -710,7 +733,7 @@ const also = [
         li.classList.add("is-shown");
         announce(li);
         easel.classList.add("is-lit");
-        setMedia(li, img, vid);
+        crossfadeMedia(li);
       };
 
       for (const li of beads) {
