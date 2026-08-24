@@ -176,6 +176,31 @@ pond-assets.mjs    Commons         → public/images/pond/
 Every script that writes is **dry-run by default** and needs `--apply`. Keep
 it that way.
 
+### The taste loop, end to end
+
+The one workflow that spans all of them. It only moves when he judges, which
+is what `/eidos/sit` exists to make cheap:
+
+1. `node scripts/candidates.mjs --apply` — Wikimedia, public domain only,
+   aimed at the weathers thinnest **on the map**. Four search terms per
+   weather; one search yields at most one candidate, so fewer terms leaves
+   whole weathers empty.
+2. He sits at `/eidos/sit`: right is his, left is not, seven is a sitting.
+   Verdicts land in KV under `eidos:verdicts`, behind the `/names` door.
+3. `node scripts/eidos-pull.mjs --apply` — turns keeps into vault notes. A
+   remote candidate has its picture **brought home** here (fetched, tracking
+   params dropped, webp at 1600 wide, into `public/images/vault/`), because
+   `vault-build` throws on a painting that is not on disk.
+4. `node scripts/image-build.mjs --apply` — the new paintings need thumbnails
+   before the map can show them. `npm run build` runs `--check` and **fails**
+   if they are missing, which is the intended alarm, not a bug.
+5. Commit. The vault is git; the map rebuilds from it.
+
+`scripts/lib/` holds the two pieces of that pipeline worth testing on their
+own: `attribution.mjs` (Commons names arrive wearing catalogue clothes) and
+`vault-note.mjs` (three builds read the shape of a note and none forgive a
+surprise).
+
 ---
 
 ## 7. Verifying — this environment lies to you
