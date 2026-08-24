@@ -2,30 +2,24 @@
  "built": "palettes.mjs",
  "palettes": [
   {
-   "weather": "cold clarity",
-   "who": "Vilhelm Hammershøi",
-   "title": "Dust Motes Dancing in the Sunbeams",
-   "src": "/images/today/hammershoi.webp",
+   "weather": "vastness",
+   "who": "Caspar David Friedrich",
+   "title": "The Monk by the Sea",
+   "src": "/images/today/friedrich.webp",
    "stops": [
-    "#313132",
-    "#535556",
-    "#6b6a6e",
-    "#938c8a",
-    "#cdc6be"
-   ]
-  },
-  {
-   "weather": "dissolution",
-   "who": "J. M. W. Turner",
-   "title": "Norham Castle, Sunrise",
-   "src": "/images/today/turner.webp",
-   "stops": [
-    "#958c65",
-    "#a0a29b",
-    "#bfc1a4",
-    "#b2bbbe",
-    "#c8d2ca"
-   ]
+    "#25272d",
+    "#475164",
+    "#6e7888",
+    "#8594ac",
+    "#a4b2c3"
+   ],
+   "manner": {
+    "edge": 0.22,
+    "band": 0.2,
+    "grain": 0.25,
+    "glaze": 0.7,
+    "calm": 0.75
+   }
   },
   {
    "weather": "invincible summer",
@@ -38,59 +32,14 @@
     "#767074",
     "#827f8f",
     "#9e97a3"
-   ]
-  },
-  {
-   "weather": "nerve",
-   "who": "J. M. W. Turner",
-   "title": "Staffa, Fingal's Cave",
-   "src": "/images/today/turner-staffa.webp",
-   "stops": [
-    "#403426",
-    "#534f49",
-    "#776e63",
-    "#8e8980",
-    "#ab9f92"
-   ]
-  },
-  {
-   "weather": "the dark and the lamp",
-   "who": "James McNeill Whistler",
-   "title": "Nocturne: Blue and Gold — Old Battersea Bridge",
-   "src": "/images/today/whistler.webp",
-   "stops": [
-    "#103a2e",
-    "#1a5349",
-    "#2b7167",
-    "#41857b",
-    "#53928b"
-   ]
-  },
-  {
-   "weather": "the plain thing",
-   "who": "Jean-Baptiste-Siméon Chardin",
-   "title": "A Bowl of Plums",
-   "src": "/images/today/chardin.webp",
-   "stops": [
-    "#2e281e",
-    "#4e3a1e",
-    "#69522c",
-    "#a28c65",
-    "#cbc4a7"
-   ]
-  },
-  {
-   "weather": "vastness",
-   "who": "Caspar David Friedrich",
-   "title": "The Monk by the Sea",
-   "src": "/images/today/friedrich.webp",
-   "stops": [
-    "#25272d",
-    "#475164",
-    "#6e7888",
-    "#8594ac",
-    "#a4b2c3"
-   ]
+   ],
+   "manner": {
+    "edge": 0.28,
+    "band": 0.1,
+    "grain": 0.8,
+    "glaze": 0.55,
+    "calm": 0.4
+   }
   },
   {
    "weather": "weight and grace",
@@ -103,7 +52,314 @@
     "#edb332",
     "#bf9d9c",
     "#f4ede9"
-   ]
+   ],
+   "manner": {
+    "edge": 0.9,
+    "band": 0.88,
+    "grain": 0.15,
+    "glaze": 0.3,
+    "calm": 0.55
+   }
+  },
+  {
+   "weather": "",
+   "who": "Dmytro Klochko",
+   "title": "dock",
+   "src": "/images/scenes/dock.webp",
+   "stops": [
+    "#3a3c35",
+    "#6d6b5b",
+    "#798486",
+    "#a2a2a8",
+    "#cdbdab"
+   ],
+   "manner": {
+    "edge": 0.35,
+    "band": 0.22,
+    "grain": 0.55,
+    "glaze": 0.65,
+    "calm": 0.62
+   }
+  },
+  {
+   "weather": "",
+   "who": "Dmytro Klochko",
+   "title": "estuary",
+   "src": "/images/scenes/estuary.webp",
+   "stops": [
+    "#747959",
+    "#678f8e",
+    "#d0b784",
+    "#8cb9b7",
+    "#ecd9c7"
+   ],
+   "manner": {
+    "edge": 0.35,
+    "band": 0.22,
+    "grain": 0.55,
+    "glaze": 0.65,
+    "calm": 0.62
+   }
+  },
+  {
+   "weather": "",
+   "who": "Dmytro Klochko",
+   "title": "fields",
+   "src": "/images/scenes/fields.webp",
+   "stops": [
+    "#543f2a",
+    "#7f5c3b",
+    "#ac8135",
+    "#bba254",
+    "#cfba8b"
+   ],
+   "manner": {
+    "edge": 0.35,
+    "band": 0.22,
+    "grain": 0.55,
+    "glaze": 0.65,
+    "calm": 0.62
+   }
+  },
+  {
+   "weather": "",
+   "who": "Dmytro Klochko",
+   "title": "fire",
+   "src": "/images/scenes/fire.webp",
+   "stops": [
+    "#0b131b",
+    "#473c32",
+    "#89461d",
+    "#1b7171",
+    "#7d826c"
+   ],
+   "manner": {
+    "edge": 0.35,
+    "band": 0.22,
+    "grain": 0.55,
+    "glaze": 0.65,
+    "calm": 0.62
+   }
+  },
+  {
+   "weather": "",
+   "who": "Dmytro Klochko",
+   "title": "fuji",
+   "src": "/images/scenes/fuji.webp",
+   "stops": [
+    "#55544f",
+    "#6c706c",
+    "#889286",
+    "#aea993",
+    "#f4ddbd"
+   ],
+   "manner": {
+    "edge": 0.35,
+    "band": 0.22,
+    "grain": 0.55,
+    "glaze": 0.65,
+    "calm": 0.62
+   }
+  },
+  {
+   "weather": "",
+   "who": "Dmytro Klochko",
+   "title": "lavender",
+   "src": "/images/scenes/lavender.webp",
+   "stops": [
+    "#48403e",
+    "#605669",
+    "#9f9552",
+    "#8e7887",
+    "#d6c6a0"
+   ],
+   "manner": {
+    "edge": 0.35,
+    "band": 0.22,
+    "grain": 0.55,
+    "glaze": 0.65,
+    "calm": 0.62
+   }
+  },
+  {
+   "weather": "",
+   "who": "Dmytro Klochko",
+   "title": "nightcourt",
+   "src": "/images/scenes/nightcourt.webp",
+   "stops": [
+    "#0e1416",
+    "#222c31",
+    "#3f474c",
+    "#575d5f",
+    "#73726d"
+   ],
+   "manner": {
+    "edge": 0.35,
+    "band": 0.22,
+    "grain": 0.55,
+    "glaze": 0.65,
+    "calm": 0.62
+   }
+  },
+  {
+   "weather": "",
+   "who": "Dmytro Klochko",
+   "title": "snow",
+   "src": "/images/scenes/snow.webp",
+   "stops": [
+    "#070807",
+    "#233747",
+    "#837a6b",
+    "#c0bfbb",
+    "#f7eedb"
+   ],
+   "manner": {
+    "edge": 0.35,
+    "band": 0.22,
+    "grain": 0.55,
+    "glaze": 0.65,
+    "calm": 0.62
+   }
+  },
+  {
+   "weather": "",
+   "who": "Dmytro Klochko",
+   "title": "study",
+   "src": "/images/scenes/study.webp",
+   "stops": [
+    "#29221a",
+    "#2c253c",
+    "#4f490b",
+    "#493644",
+    "#6a5e3f"
+   ],
+   "manner": {
+    "edge": 0.35,
+    "band": 0.22,
+    "grain": 0.55,
+    "glaze": 0.65,
+    "calm": 0.62
+   }
+  },
+  {
+   "weather": "",
+   "who": "Dmytro Klochko",
+   "title": "swim",
+   "src": "/images/scenes/swim.webp",
+   "stops": [
+    "#1d232e",
+    "#2e3c56",
+    "#e88e5f",
+    "#72c3c2",
+    "#d4ceb4"
+   ],
+   "manner": {
+    "edge": 0.35,
+    "band": 0.22,
+    "grain": 0.55,
+    "glaze": 0.65,
+    "calm": 0.62
+   }
+  },
+  {
+   "weather": "dissolution",
+   "who": "J. M. W. Turner",
+   "title": "Norham Castle, Sunrise",
+   "src": "/images/today/turner.webp",
+   "stops": [
+    "#958c65",
+    "#a0a29b",
+    "#bfc1a4",
+    "#b2bbbe",
+    "#c8d2ca"
+   ],
+   "manner": {
+    "edge": 0.1,
+    "band": 0.05,
+    "grain": 0.3,
+    "glaze": 0.92,
+    "calm": 0.35
+   }
+  },
+  {
+   "weather": "nerve",
+   "who": "J. M. W. Turner",
+   "title": "Staffa, Fingal's Cave",
+   "src": "/images/today/turner-staffa.webp",
+   "stops": [
+    "#403426",
+    "#534f49",
+    "#776e63",
+    "#8e8980",
+    "#ab9f92"
+   ],
+   "manner": {
+    "edge": 0.1,
+    "band": 0.05,
+    "grain": 0.3,
+    "glaze": 0.92,
+    "calm": 0.35
+   }
+  },
+  {
+   "weather": "the dark and the lamp",
+   "who": "James McNeill Whistler",
+   "title": "Nocturne: Blue and Gold — Old Battersea Bridge",
+   "src": "/images/today/whistler.webp",
+   "stops": [
+    "#103a2e",
+    "#1a5349",
+    "#2b7167",
+    "#41857b",
+    "#53928b"
+   ],
+   "manner": {
+    "edge": 0.15,
+    "band": 0.12,
+    "grain": 0.35,
+    "glaze": 0.6,
+    "calm": 0.88
+   }
+  },
+  {
+   "weather": "the plain thing",
+   "who": "Jean-Baptiste-Siméon Chardin",
+   "title": "A Bowl of Plums",
+   "src": "/images/today/chardin.webp",
+   "stops": [
+    "#2e281e",
+    "#4e3a1e",
+    "#69522c",
+    "#a28c65",
+    "#cbc4a7"
+   ],
+   "manner": {
+    "edge": 0.55,
+    "band": 0.18,
+    "grain": 0.45,
+    "glaze": 0.22,
+    "calm": 0.8
+   }
+  },
+  {
+   "weather": "cold clarity",
+   "who": "Vilhelm Hammershøi",
+   "title": "Dust Motes Dancing in the Sunbeams",
+   "src": "/images/today/hammershoi.webp",
+   "stops": [
+    "#313132",
+    "#535556",
+    "#6b6a6e",
+    "#938c8a",
+    "#cdc6be"
+   ],
+   "manner": {
+    "edge": 0.45,
+    "band": 0.55,
+    "grain": 0.12,
+    "glaze": 0.25,
+    "calm": 0.92
+   }
   }
  ]
 }

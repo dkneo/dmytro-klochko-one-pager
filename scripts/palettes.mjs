@@ -8,7 +8,8 @@
 //
 //   node scripts/palettes.mjs            print them
 //   node scripts/palettes.mjs --apply    write src/data/palettes.json
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
+import { join } from "node:path";
 import sharp from "sharp";
 
 const apply = process.argv.includes("--apply");
@@ -55,19 +56,42 @@ async function palette(file) {
   return centres.sort((a, b) => lum(a) - lum(b)).map(hex);
 }
 
-const today = JSON.parse(readFileSync("src/data/today.json", "utf8"));
+// How each painter's paint behaves, which is not the same as what colour it
+// is. Turner has no edges and endless glaze; af Klint draws hard geometry;
+// Hammershøi holds still; Monet is all broken stroke. The knobs stay the
+// reading — this is only the hand holding the brush.
+const MANNER = {
+  "J. M. W. Turner":              { edge: 0.10, band: 0.05, grain: 0.30, glaze: 0.92, calm: 0.35 },
+  "Claude Monet":                 { edge: 0.28, band: 0.10, grain: 0.80, glaze: 0.55, calm: 0.40 },
+  "Vilhelm Hammershøi":           { edge: 0.45, band: 0.55, grain: 0.12, glaze: 0.25, calm: 0.92 },
+  "Hilma af Klint":               { edge: 0.90, band: 0.88, grain: 0.15, glaze: 0.30, calm: 0.55 },
+  "Caspar David Friedrich":       { edge: 0.22, band: 0.20, grain: 0.25, glaze: 0.70, calm: 0.75 },
+  "James McNeill Whistler":       { edge: 0.15, band: 0.12, grain: 0.35, glaze: 0.60, calm: 0.88 },
+  "Jean-Baptiste-Siméon Chardin": { edge: 0.55, band: 0.18, grain: 0.45, glaze: 0.22, calm: 0.80 },
+  // his own: painterly, warm, unhurried
+  "Dmytro Klochko":               { edge: 0.35, band: 0.22, grain: 0.55, glaze: 0.65, calm: 0.62 },
+};
+const DEFAULT_MANNER = { edge: 0.4, band: 0.3, grain: 0.4, glaze: 0.5, calm: 0.6 };
+
+// Every painting in the vault, his own among them and first: the site's
+// oldest rule is that his art is the art.
 const seen = new Map();
-for (const c of today.chords) {
-  if (!seen.has(c.painting.src)) {
-    seen.set(c.painting.src, { weather: c.weather, who: c.painting.who, title: c.painting.title });
-  }
+for (const f of readdirSync("vault/paintings")) {
+  if (!f.endsWith(".md")) continue;
+  const text = readFileSync(join("vault/paintings", f), "utf8");
+  const get = (k) => (new RegExp(`^${k}:\\s*(.+)$`, "m").exec(text) || [])[1]?.trim().replace(/^"|"$/g, "");
+  const src = get("src");
+  if (!src || !existsSync("public" + src) || seen.has(src)) continue;
+  seen.set(src, { weather: get("weather") || "", who: get("who") || "", title: get("title") || "" });
 }
 
 const out = [];
 for (const [src, meta] of seen) {
   const stops = await palette("public" + src);
-  out.push({ ...meta, src, stops });
-  console.log(`${meta.weather.padEnd(22)} ${stops.join(" ")}  ${meta.who}`);
+  const manner = MANNER[meta.who] || DEFAULT_MANNER;
+  out.push({ ...meta, src, stops, manner });
+  const label = (meta.weather || meta.title).padEnd(22);
+  console.log(`${label} ${stops.join(" ")}  ${meta.who}`);
 }
 
 if (apply) {
