@@ -52,7 +52,11 @@ const description = "one painting at a time. his, or not his.";
       judged. right if it is yours, left if it is not. seven is a sitting.
     </p>
 
-    <form class="sit-gate" id="gate" hidden>
+    {/* A real form, posting to the real door, so it works with no script at
+        all: the worker sets the cookie and sends you back here. The fetch
+        below is only an enhancement that saves the round trip. */}
+    <form class="sit-gate" id="gate" method="POST" action="/names" hidden>
+      <input type="hidden" name="next" value="/eidos/sit" />
       <p>the sitting writes to the vault, so it needs the door first.</p>
       <label>
         <span>password</span>
@@ -394,8 +398,9 @@ const description = "one painting at a time. his, or not his.";
       }
 
       $("gate").addEventListener("submit", async (e) => {
+        const field = e.target.querySelector('input[type="password"]');
+        if (!field || !field.value.trim()) return;    // let the browser complain
         e.preventDefault();
-        const field = e.target.querySelector("input");
         $("gate-note").textContent = "trying…";
         const body = new URLSearchParams({ password: field.value.trim() });
         let reached = true;

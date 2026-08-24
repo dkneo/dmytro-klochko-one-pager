@@ -203,11 +203,17 @@ async function names(request, env, url) {
   if (request.method === "POST") {
     const form = await request.formData().catch(() => null);
     const tried = form && form.get("password");
+    // The sitting posts this form too, and wants to be sent back to itself
+    // rather than to the folio. An allowlist, never the raw value: a door
+    // that redirects anywhere it is told is an open redirect.
+    const asked = String((form && form.get("next")) || "");
+    const BACK = ["/eidos/sit", "/eidos", "/names", "/names/old"];
+    const back = BACK.includes(asked) ? asked : where;
     if (sameSecret(String(tried ?? ""), env.NAMES_PASSWORD)) {
       return new Response(null, {
         status: 303,
         headers: {
-          location: where,
+          location: back,
           "set-cookie": `${COOKIE}=${good}; Path=/; Max-Age=${60 * 60 * 24 * 30}; HttpOnly; Secure; SameSite=Lax`,
           ...PRIVATE,
         },
