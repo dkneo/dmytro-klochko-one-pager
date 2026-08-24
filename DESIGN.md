@@ -127,20 +127,18 @@ target sizes, the Found Object rule) applies everywhere.
 ## Dream Mode (the default) — The Journey
 
 His own paintings (Seedream, 4K, chosen and named by him) run full-bleed
-as fixed scenes — **one painting per URL**: the campfire holds every
-section of `/`, the pale estuary holds `/taste`, and each
-future page claims one of its own. The scene machinery is more general
-than the mapping: sections carry `data-scene`, an IntersectionObserver
-with a centred band (−42% top and bottom) hands the sky to the section
-nearest mid-viewport, and scene layers crossfade over 900ms — so a page
-*could* change skies mid-scroll, but as shipped no page does, and the sky
-never cuts mid-read. The painting is alive rather than static: it
-breathes (scale 1.04 → 1.1 over 70s, alternating) and parallaxes against
+as fixed scenes. The homepage is a deliberate three-act progression:
+**fire** holds the introduction, **ember** holds the evidence and operating
+method, and **estuary** opens the personal, contact and closing chapters into
+morning. A sky changes only at one of those act boundaries, never between two
+sections that form one thought. Other URLs claim one painting of their own.
+Sections carry `data-scene`; an IntersectionObserver with a centred band
+(−42% top and bottom) hands the sky to the section nearest mid-viewport, and
+scene layers crossfade over 900ms. The painting is alive rather than static:
+it breathes (scale 1.04 → 1.1 over 70s, alternating) and parallaxes against
 scroll (−4vh over the first viewport) and cursor (eased, −14px/−9px),
-compositor transforms and opacity only. Idle preloading of the other
-scenes runs **only in dream** — bebop visitors pay nothing until they
-toggle, at which point a MutationObserver on `data-mode` re-arms the
-warm-up.
+compositor transforms and opacity only. Idle preloading warms the remaining
+scenes after first paint.
 
 ### Readability — Smoked Glass
 

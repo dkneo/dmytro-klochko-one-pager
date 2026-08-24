@@ -1,9 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import mapData from "../data/map.json";
-import { toMarks } from "../scripts/eidos-marks.mjs";
-
-const orbitData = toMarks(mapData);
 
 const roles = [
   {
@@ -273,7 +269,7 @@ const also = [
 ] as const;
 ---
 
-<Layout title={title} description={description} current="home">
+<Layout title={title} description={description} current="home" scenes={["fire", "ember", "estuary"]}>
   <section class="shell session" id="top" data-scene="fire" data-weather="fire" aria-labelledby="s1">
     <div class="bay bay--flush">
       <div>
@@ -341,7 +337,7 @@ const also = [
 
   {/* The spine of the cv: the same six companies the road carries, opened
       up into what each one actually was. */}
-  <section class="shell session" id="experience" data-scene="fire" data-weather="none" aria-labelledby="sx">
+  <section class="shell session" id="experience" data-scene="ember" data-weather="none" aria-labelledby="sx">
     <div class="card">
       <p class="card-no">02</p>
       <h2 class="card-title" id="sx">experience</h2>
@@ -516,7 +512,7 @@ const also = [
     </ol>
   </section>
 
-  <section class="shell session" id="how" data-scene="fire" data-weather="none" aria-labelledby="sh">
+  <section class="shell session" id="how" data-scene="ember" data-weather="none" aria-labelledby="sh">
     <div class="card">
       <p class="card-no">03</p>
       <h2 class="card-title" id="sh">how i work</h2>
@@ -546,7 +542,7 @@ const also = [
   {/* Dream's version of everything pre-replika: one chronological thread,
       the war note carrying the photograph of him at sixteen, and an easel
       on the right that shows each bead's picture on hover. */}
-  <section class="shell session" id="journey" data-scene="fire" data-weather="none" aria-labelledby="s8">
+  <section class="shell session" id="journey" data-scene="ember" data-weather="none" aria-labelledby="s8">
     <div class="card">
       <p class="card-no">04</p>
       <h2 class="card-title" id="s8">background</h2>
@@ -618,7 +614,7 @@ const also = [
   </section>
 
 
-  <section class="shell session" id="alongside" data-scene="fire" data-weather="none" aria-labelledby="sa">
+  <section class="shell session" id="alongside" data-scene="estuary" data-weather="none" aria-labelledby="sa">
     <div class="card">
       <p class="card-no">05</p>
       <h2 class="card-title" id="sa">alongside</h2>
@@ -788,7 +784,7 @@ const also = [
     })();
   </script>
 
-  <section class="shell session" id="me" data-scene="fire" data-weather="none" aria-labelledby="s6">
+  <section class="shell session" id="me" data-scene="estuary" data-weather="none" aria-labelledby="s6">
     <div class="card">
       <p class="card-no">06</p>
       <h2 class="card-title" id="s6">literally me</h2>
@@ -807,39 +803,9 @@ const also = [
       }
     </div>
 
-    {/* The shape of what he likes, live and turning: the eidos marks in the
-        same space as /eidos/orbit, seen from the porch. Hidden until webgl
-        agrees; the section loses nothing without it. */}
-    <div class="me-orbit" id="me-orbit" hidden>
-      <p class="me-orbit-cap">
-        and this is the shape of what i like — every mark a real painting,
-        poem, song or person, placed by feeling.{" "}
-        <a href="/eidos">open the map</a> · <a href="/eidos/orbit">or the orbit</a>
-      </p>
-    </div>
-    <script is:inline type="application/json" id="me-orbit-data" set:html={JSON.stringify(orbitData)} />
-    <script>
-      // the constellation wakes when the section comes near; webgl declining
-      // simply leaves the wall as the whole section
-      (() => {
-        const host = document.getElementById("me-orbit");
-        if (!host || !("IntersectionObserver" in window)) return;
-        const io = new IntersectionObserver(async (entries) => {
-          if (!entries.some((e) => e.isIntersecting)) return;
-          io.disconnect();
-          try {
-            const m = await import("../scripts/eidos-mini.js");
-            const data = JSON.parse(document.getElementById("me-orbit-data").textContent);
-            host.hidden = false;
-            if (!m.start(host, data)) host.hidden = true;
-          } catch { host.hidden = true; }
-        }, { rootMargin: "900px 0px" });
-        io.observe(host.parentElement);
-      })();
-    </script>
   </section>
 
-  <section class="shell session" id="contact" data-scene="fire" data-weather="none" aria-labelledby="s5">
+  <section class="shell session" id="contact" data-scene="estuary" data-weather="none" aria-labelledby="s5">
     <div class="card">
       <p class="card-no">07</p>
       <h2 class="card-title" id="s5">say hi</h2>
@@ -873,7 +839,7 @@ const also = [
 
   {/* Off the shelf and back on the page: the register ends, and something
       he made ends it. */}
-  <section class="shell session" id="poems" data-scene="fire" data-weather="none" aria-labelledby="sp">
+  <section class="shell session" id="poems" data-scene="estuary" data-weather="none" aria-labelledby="sp">
     <div class="card">
       <p class="card-no">08</p>
       <h2 class="card-title" id="sp">and some poems of mine</h2>

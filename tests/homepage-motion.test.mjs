@@ -75,6 +75,23 @@ test("proof arrives before the homepage asks readers to trust its operating styl
   assert.match(page, /unleash their potential to the fullest/i);
 });
 
+test("the homepage moves through three authored acts without changing sky mid-thought", () => {
+  const page = read("src/pages/index.astro");
+  const sceneFor = (id) => page.match(new RegExp(`<section[^>]*id="${id}"[^>]*data-scene="([^"]+)"`))?.[1];
+
+  assert.match(page, /scenes=\{\["fire", "ember", "estuary"\]\}/);
+  assert.deepEqual(
+    ["top", "experience", "how", "journey", "alongside", "me", "contact", "poems"].map(sceneFor),
+    ["fire", "ember", "ember", "ember", "estuary", "estuary", "estuary", "estuary"],
+  );
+});
+
+test("the homepage wall ends with the work itself instead of a second orbit", () => {
+  const page = read("src/pages/index.astro");
+
+  assert.doesNotMatch(page, /me-orbit|me-orbit-data|orbitData|eidos-mini/);
+});
+
 test("every journey preview works from the keyboard and announces its state", () => {
   const page = read("src/pages/index.astro");
   assert.match(page, /role="button"/);

@@ -113,7 +113,7 @@ test("the sitting can be sat", () => {
   assert.match(css, new RegExp(`${scoped(".sit-stage")}\\{`));
 });
 
-test("both orbits read from one mapper, and agree", async () => {
+test("the orbit reads one stable mapper without duplicating its payload onto home", async () => {
   const { toMarks } = await import("../src/scripts/eidos-marks.mjs");
   const map = JSON.parse(read("src/data/map.json"));
   const { marks, threads } = toMarks(map);
@@ -127,10 +127,11 @@ test("both orbits read from one mapper, and agree", async () => {
   }
   assert.ok(threads.length > 0, "the author threads vanished");
 
-  // the page and the porch must ship the same geometry
+  // The dedicated page owns the geometry. Home no longer ships a second,
+  // smaller copy that asks the same content to explain itself twice.
   const orbit = JSON.parse(read("dist/eidos/orbit/index.html").match(/id="eo-data"[^>]*>([^<]*)</)[1]);
-  const porch = JSON.parse(read("dist/index.html").match(/id="me-orbit-data"[^>]*>([^<]*)</)[1]);
-  assert.deepEqual(porch.marks, orbit.marks, "the porch and the orbit page disagree");
+  assert.deepEqual(orbit.marks, marks);
+  assert.doesNotMatch(read("dist/index.html"), /id="me-orbit-data"/);
 
   // the thumbnails they point at have to exist
   for (const m of marks.filter((x) => x.thumb).slice(0, 8)) {
