@@ -56,6 +56,7 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
     <meta name="twitter:image" content="https://dmklochko.com/images/lab-shader-og.jpg" />
     <style is:global>
       :root {
+        --ease-slick: cubic-bezier(0.62, 0.05, 0.01, 0.99);
         --void: #262b44; --bone: #ece6d9; --dim: #a9aecb; --hot: #ff9bc0;
         --deck: #2f3554; --rule: rgb(236 230 217 / 12%);
         --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -113,7 +114,11 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
       /* the form sits in its own frame, not behind everything */
       /* No box and no gradient: the object stands on the page's own ground,
          with air around it, the way a thing on a plinth is given room. */
+      /* You arrive to the poem in the dark. The object gathers into being
+         while you are still reading it, and the controls only appear once
+         there is something to control. */
       .frame {
+        animation: arrive 2.6s var(--ease-slick) both;
         position: relative;
         aspect-ratio: 1;
         max-height: min(56vh, 520px);
@@ -139,7 +144,18 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
       .frame:active { cursor: grabbing; }
       .frame canvas { display: block; width: 100%; height: 100%; }
 
-      .rig { display: grid; gap: 0.55rem; align-content: start; }
+      .rig { display: grid; gap: 0.55rem; align-content: start;
+             animation: settle 1.6s ease 1.0s both; }
+      .plate, .reading { animation: settle 1.8s ease 1.2s both; }
+
+      /* Pure css, on purpose: an arrival gated on a script flag leaves the
+         object invisible forever the moment anything upstream of it fails. */
+      @keyframes arrive { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
+      @keyframes settle { from { opacity: 0; } to { opacity: 1; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        .frame, .rig, .plate, .reading { animation: none; }
+      }
       .knob { display: grid; gap: 0.15rem; }
       .knob-top { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--dim); }
       .knob-top b { color: var(--bone); font-weight: 400; }
@@ -341,10 +357,26 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
             float gray = dot(col, vec3(0.299, 0.587, 0.114));
             col = mix(vec3(gray), col, 0.85 + 0.3 * uComfort);
 
-            // the form reads as a form: light gathers along its turning edge
-            float rim = pow(1.0 - facing, 2.6);
-            col += rim * uPal4 * (0.18 + 0.3 * uComfort + 0.25 * uGlaze);
-            col *= 0.72 + 0.5 * facing;
+            // Light, not shading. One key from the upper left, a cool fill
+            // from below so the dark side is never dead, a rim where the form
+            // turns away, and a varnish highlight whose tightness is the
+            // painter's own glaze. This is the difference between a gradient
+            // on a sphere and something photographed.
+            vec3 N = normalize(vN);
+            vec3 V = normalize(vView);
+            vec3 L = normalize(vec3(-0.45, 0.72, 0.62));
+            float key = max(dot(N, L), 0.0);
+            float fill = max(dot(N, normalize(vec3(0.5, -0.6, 0.35))), 0.0);
+            col *= 0.34 + 0.78 * key + 0.16 * fill;
+
+            float spec = pow(max(dot(reflect(-L, N), V), 0.0), mix(14.0, 90.0, uGlaze));
+            col += spec * mix(0.05, 0.5, uGlaze) * mix(uPal4, vec3(1.0), 0.35);
+
+            float rim = pow(1.0 - facing, 2.8);
+            col += rim * uPal4 * (0.14 + 0.22 * uComfort + 0.2 * uGlaze);
+
+            // the silhouette settles into the ground instead of cutting out
+            col *= 0.55 + 0.45 * smoothstep(0.0, 0.42, facing);
 
             col = col * 1.06 / (1.0 + col * 0.42);
 
@@ -412,12 +444,15 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
           return { renderer, scene, camera, mesh, uniforms, material };
         }
 
-        function setPalette(uniforms, p) {
-          p.stops.forEach((s, i) => uniforms["uPal" + i].value.set(s));
+        function setPalette(uniforms, p, ease) {
           const m = p.manner || {};
           for (const k of ["edge", "band", "grain", "glaze", "calm"]) {
-            if (typeof m[k] === "number") uniforms["u" + k[0].toUpperCase() + k.slice(1)].value = m[k];
+            if (typeof m[k] !== "number") continue;
+            if (ease) ease[k] = m[k];
+            else uniforms["u" + k[0].toUpperCase() + k.slice(1)].value = m[k];
           }
+          if (ease) return p.stops;                     // colours crossfade below
+          p.stops.forEach((s, i) => uniforms["uPal" + i].value.set(s));
         }
 
         const state = { watch: 0.5, gather: 0.5, comfort: 0.5, arrive: 0.5, certain: 0.5, ink: 1 };
@@ -471,6 +506,16 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         S.uniforms.uRes.value.set(rect().width * S.renderer.getPixelRatio(), rect().height * S.renderer.getPixelRatio());
         frame.appendChild(S.renderer.domElement);
         setPalette(S.uniforms, palette);
+
+        // Paint has weight. A knob sets where the object is going, and it
+        // travels there over about a second on the slick curve rather than
+        // cutting to it, so every answer is something you watch happen.
+        const target = {};
+        KEYS.forEach((k, i) => { target[k] = start[i]; });
+        const manner = { edge: 0.4, band: 0.3, grain: 0.4, glaze: 0.5, calm: 0.6 };
+        const mannerTarget = { ...manner };
+
+        let palTarget = palette.stops.map((h) => new THREE.Color(h));
 
         const whoLine = document.getElementById("who");
         // The hand, in words, so switching painter teaches you what you are
@@ -529,7 +574,8 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         for (const input of document.querySelectorAll("[data-knob]")) {
           input.addEventListener("input", () => {
             const k = input.dataset.knob;
-            S.uniforms["u" + k[0].toUpperCase() + k.slice(1)].value = +input.value;
+            // the target, not the value: the paint travels there
+            target[k] = +input.value;
             sayReading();
           });
         }
@@ -552,7 +598,8 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
           b.innerHTML = `<span class="pal">${p.stops.map((s) => `<i style="background:${s}"></i>`).join("")}</span>`;
           b.addEventListener("click", () => {
             palette = p;
-            setPalette(S.uniforms, p);
+            setPalette(S.uniforms, p, mannerTarget);
+            palTarget = p.stops.map((h) => new THREE.Color(h));
             showWho();
             for (const o of palRow.children) o.classList.remove("on");
             b.classList.add("on");
@@ -573,7 +620,7 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         const readingLine = document.getElementById("reading");
         const sayReading = () => {
           readingLine.innerHTML = KEYS.map((k) => {
-            const v = S.uniforms["u" + k[0].toUpperCase() + k.slice(1)].value;
+            const v = target[k] ?? S.uniforms["u" + k[0].toUpperCase() + k.slice(1)].value;
             const w = WORDS[k][v < 0.34 ? 0 : v < 0.67 ? 1 : 2];
             return `<b>${w}</b>`;
           }).join(" · ");
@@ -663,7 +710,19 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         S.renderer.setAnimationLoop(() => {
           const now = (performance.now() - t0) / 1000;
           S.uniforms.uTime.value = now;
-          if (!dragging) { spinY += 0.0016 + vy; vy *= 0.94; }
+
+          // everything travels: answers, the painter's hand, and the colour
+          const step = 0.055;
+          for (const k of KEYS) {
+            const u = S.uniforms["u" + k[0].toUpperCase() + k.slice(1)];
+            u.value += (target[k] - u.value) * step;
+          }
+          for (const k of Object.keys(manner)) {
+            const u = S.uniforms["u" + k[0].toUpperCase() + k.slice(1)];
+            u.value += (mannerTarget[k] - u.value) * step;
+          }
+          palTarget.forEach((c, i) => S.uniforms["uPal" + i].value.lerp(c, step));
+          if (!dragging) { spinY += 0.0009 + vy; vy *= 0.94; }
           // a watching object turns to face the reader; an unaware one does
           // not notice them at all
           const w = S.uniforms.uWatch.value;
