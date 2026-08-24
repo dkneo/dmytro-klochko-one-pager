@@ -56,10 +56,14 @@ const description = "one painting at a time. his, or not his.";
       <p>the sitting writes to the vault, so it needs the door first.</p>
       <label>
         <span>password</span>
-        <input type="password" name="password" autocomplete="current-password" required />
+        <input type="password" name="password" autocomplete="current-password"
+               autocapitalize="none" autocorrect="off" spellcheck="false" required />
       </label>
       <button type="submit">come in</button>
       <span class="sit-gate-note" id="gate-note"></span>
+      <span class="sit-gate-note">
+        or <a href="/names" target="_blank" rel="noreferrer">open the door in a tab</a> and reload this page.
+      </span>
     </form>
 
     <div class="sit-stage" id="stage">
@@ -393,12 +397,16 @@ const description = "one painting at a time. his, or not his.";
         e.preventDefault();
         const field = e.target.querySelector("input");
         $("gate-note").textContent = "trying…";
-        const body = new URLSearchParams({ password: field.value });
+        const body = new URLSearchParams({ password: field.value.trim() });
+        let reached = true;
         try {
-          await fetch("/names", { method: "POST", body, redirect: "follow" });
-        } catch {}
+          const r = await fetch("/names", { method: "POST", body, redirect: "follow" });
+          reached = r.status < 500;
+        } catch { reached = false; }
         if (!(await doorOpen())) {
-          $("gate-note").textContent = "that is not it.";
+          $("gate-note").textContent = reached
+            ? "that is not it. the same password as /names."
+            : "could not reach the door. check the connection and try again.";
           field.select();
           return;
         }
