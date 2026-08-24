@@ -25,12 +25,15 @@ const pals = palettes.palettes;
 // Bashō, 1686, in a plain rendering made for this site.
 const POEM = "the old pond —\na frog jumps in,\nthe sound of water";
 
+// The questions, in full. A slider called "gather" tells a reader nothing;
+// the question it is asking about the poem tells them everything, and the
+// two ends are the two answers they are choosing between.
 const KNOBS = [
-  { id: "watch",   label: "knows you are reading it", a: "unaware",   b: "watching" },
-  { id: "gather",  label: "looking at / away from",   a: "away",      b: "at" },
-  { id: "comfort", label: "comforts / refuses",       a: "refuses",   b: "comforts" },
-  { id: "arrive",  label: "arrives / keeps leaving",  a: "leaving",   b: "arriving" },
-  { id: "certain", label: "certain / performing it",  a: "performing", b: "certain" },
+  { id: "watch",   q: "does it know you are reading it?",        a: "unaware of me",     b: "watching me" },
+  { id: "gather",  q: "is it looking at something, or away?",    a: "looking away",      b: "looking at one thing" },
+  { id: "comfort", q: "does it comfort you, or refuse to?",      a: "refuses comfort",   b: "comforts" },
+  { id: "arrive",  q: "does it arrive, or keep leaving?",        a: "keeps leaving",     b: "arrives" },
+  { id: "certain", q: "is it certain, or performing certainty?", a: "performing",        b: "certain" },
 ];
 
 const SHAPES = ["globe", "pyramid", "flower", "shard"];
@@ -78,32 +81,60 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
          onto it. */
       .poem {
         font-family: "Newsreader", Georgia, serif; font-style: italic;
-        font-size: clamp(1.3rem, 2.6vw, 1.9rem); line-height: 1.7;
+        font-size: clamp(1.15rem, 2.1vw, 1.55rem); line-height: 1.75;
         color: var(--bone); margin: 0 auto 1rem; text-align: center;
-        max-width: min(78vh, 720px);
+        max-width: min(56vh, 520px);
       }
       .poem span { display: block; }
 
+      /* what this is after: the painting itself, named */
+      .plate {
+        display: flex; align-items: center; gap: 0.8rem;
+        margin: clamp(1.6rem, 4vh, 3rem) auto 0;
+        max-width: min(56vh, 520px);
+      }
+      .plate img {
+        width: 58px; height: 58px; flex: none;
+        object-fit: cover; border-radius: 3px;
+        filter: saturate(0.9);
+      }
+      .plate figcaption { display: grid; gap: 0.1rem; min-width: 0; }
+      .plate b { font-family: "Newsreader", Georgia, serif; font-style: italic;
+                 font-size: 1.02rem; font-weight: 400; color: var(--bone); }
+      .plate span { font-size: 0.68rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--dim); }
+      .plate i { font-style: normal; font-size: 0.66rem; letter-spacing: 0.06em; color: var(--hot); opacity: 0.85; }
+
       .reading {
-        max-width: min(78vh, 720px); margin: 0.8rem auto 0; text-align: center;
+        max-width: min(56vh, 520px); margin: 0.7rem auto 0; text-align: left;
         font-size: 0.72rem; letter-spacing: 0.08em; color: var(--dim);
       }
       .reading b { color: var(--hot); font-weight: 400; }
 
       /* the form sits in its own frame, not behind everything */
+      /* No box and no gradient: the object stands on the page's own ground,
+         with air around it, the way a thing on a plinth is given room. */
       .frame {
         position: relative;
         aspect-ratio: 1;
-        max-height: min(78vh, 720px);
+        max-height: min(56vh, 520px);
         margin-inline: auto;
         width: 100%;
-        max-width: min(78vh, 720px);
-        border: 1px solid var(--rule);
-        border-radius: 14px;
-        overflow: hidden;
-        background: radial-gradient(120% 100% at 50% 8%, #2d3352, #1e2338 70%);
+        max-width: min(56vh, 520px);
+        border: 0;
+        overflow: visible;
+        background: none;
         cursor: grab;
         touch-action: pan-y;
+      }
+      /* the shadow it casts on that ground, so it sits rather than floats */
+      .frame::after {
+        content: "";
+        position: absolute;
+        left: 22%; right: 22%; bottom: -2%;
+        height: 7%;
+        background: radial-gradient(50% 50% at 50% 50%, rgb(6 9 18 / 55%), transparent 72%);
+        filter: blur(6px);
+        pointer-events: none;
       }
       .frame:active { cursor: grabbing; }
       .frame canvas { display: block; width: 100%; height: 100%; }
@@ -136,13 +167,21 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
       <h1>the instrument</h1>
       <p class="poem">{POEM.split("\n").map((l) => <span>{l}</span>)}</p>
       <div class="frame" id="frame"></div>
+      <figure class="plate" id="plate">
+        <img id="plate-img" alt="" width="120" height="120" />
+        <figcaption>
+          <b id="plate-title"></b>
+          <span id="plate-who"></span>
+          <i id="plate-hand"></i>
+        </figcaption>
+      </figure>
       <p class="reading" id="reading"></p>
     </div>
 
     <div class="rig" id="rig">
       {KNOBS.map((k) => (
         <label class="knob">
-          <span class="knob-top">{k.label}<b data-out={k.id}>0.50</b></span>
+          <span class="knob-top">{k.q}</span>
           <input type="range" min="0" max="1" step="0.01" value="0.5" data-knob={k.id} />
           <span class="ends"><i>{k.a}</i><i>{k.b}</i></span>
         </label>
@@ -355,7 +394,7 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
           renderer.setSize(width, height, false);
           const scene = new THREE.Scene();
           const camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
-          camera.position.z = 4.4;
+          camera.position.z = 5.9;   // air around the object, not a fishbowl
           const uniforms = {
             uTime: { value: 0 }, uMouse: { value: new THREE.Vector2(0.5, 0.5) },
             uRes: { value: new THREE.Vector2(width, height) },
@@ -434,8 +473,28 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         setPalette(S.uniforms, palette);
 
         const whoLine = document.getElementById("who");
-        // his own paintings carry a title where the museum ones carry a weather
-        const showWho = () => { whoLine.textContent = (palette.weather || palette.title) + " · " + palette.who; };
+        // The hand, in words, so switching painter teaches you what you are
+        // borrowing rather than just recolouring the thing.
+        const HAND = {
+          edge:  [["no edges", 0.25], ["soft edges", 0.55], ["hard edges", 1]],
+          band:  [[null, 0.4], ["banded", 0.7], ["geometric", 1]],
+          grain: [[null, 0.4], ["broken stroke", 0.7], ["all stroke", 1]],
+          glaze: [[null, 0.45], ["glazed", 0.75], ["deeply glazed", 1]],
+          calm:  [[null, 0.5], ["quiet", 0.8], ["still", 1]],
+        };
+        const handWords = (m = {}) => Object.entries(HAND)
+          .map(([k, steps]) => (steps.find(([, top]) => (m[k] ?? 0.5) <= top) || [])[0])
+          .filter(Boolean).join(" · ");
+
+        const showWho = () => {
+          // his own paintings carry a title where the museum ones carry a weather
+          whoLine.textContent = (palette.weather || palette.title) + " · " + palette.who;
+          document.getElementById("plate-img").src = palette.src;
+          document.getElementById("plate-title").textContent = palette.title;
+          document.getElementById("plate-who").textContent =
+            palette.who + (palette.weather ? " · " + palette.weather : "");
+          document.getElementById("plate-hand").textContent = handWords(palette.manner);
+        };
         showWho();
 
         addEventListener("resize", () => {
@@ -462,17 +521,15 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         frame.addEventListener("pointerup", drop);
         frame.addEventListener("pointercancel", drop);
 
-        const out = (id, v) => { document.querySelector(`[data-out="${id}"]`).textContent = v.toFixed(2); };
+        // No numeric readout any more: the line under the object says what
+        // each answer means in words, which is the thing worth reading.
         KEYS.forEach((k, i) => {
-          const input = document.querySelector(`[data-knob="${k}"]`);
-          input.value = start[i];
-          out(k, start[i]);
+          document.querySelector(`[data-knob="${k}"]`).value = start[i];
         });
         for (const input of document.querySelectorAll("[data-knob]")) {
           input.addEventListener("input", () => {
             const k = input.dataset.knob;
             S.uniforms["u" + k[0].toUpperCase() + k.slice(1)].value = +input.value;
-            out(k, +input.value);
             sayReading();
           });
         }
@@ -486,12 +543,6 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
             b.classList.add("on");
           });
         }
-        document.getElementById("roll").addEventListener("click", () => {
-          for (const input of document.querySelectorAll("[data-knob]")) {
-            input.value = Math.random().toFixed(2);
-            input.dispatchEvent(new Event("input"));
-          }
-        });
         const palRow = document.getElementById("pals");
         pals.forEach((p, i) => {
           const b = document.createElement("button");
@@ -590,6 +641,20 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
             setTimeout(() => { URL.revokeObjectURL(a.href); P.renderer.dispose(); }, 4000);
             flash(e.target, "saved ✓");
           }, "image/png");
+        });
+
+        // A random reading is a whole reading: another painter's hand,
+        // another form, five new answers. Rolling only the sliders left the
+        // most interesting half of the instrument untouched.
+        document.getElementById("roll").addEventListener("click", () => {
+          for (const input of document.querySelectorAll("[data-knob]")) {
+            input.value = Math.random().toFixed(2);
+            input.dispatchEvent(new Event("input"));
+          }
+          const shapes = [...document.querySelectorAll("[data-shape]")];
+          shapes[Math.floor(Math.random() * shapes.length)].click();
+          const swatches = [...palRow.children];
+          swatches[Math.floor(Math.random() * swatches.length)].click();
         });
 
         sayReading();

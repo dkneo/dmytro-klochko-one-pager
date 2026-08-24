@@ -1,0 +1,194 @@
+- generic [active] [ref=f4e1]:
+  - navigation "Scout task navigation" [ref=f4e2]:
+    - link "← full scout guide" [ref=f4e3] [cursor=pointer]:
+      - /url: /scout
+    - generic [ref=f4e4]: task this week
+  - banner [ref=f4e5]:
+    - generic [ref=f4e6]:
+      - generic [ref=f4e7]:
+        - heading "Thirty examples. Five to ten finalists." [level=1] [ref=f4e8]
+        - paragraph [ref=f4e9]: Build a review set with real range. For every example, document the hook or concept, target audience, and why you think it could work for Replika.
+      - img "Editorial illustration of Taso reviewing creator work on her phone" [ref=f4e10]
+  - main [ref=f4e11]:
+    - generic [ref=f4e13]:
+      - generic [ref=f4e14]: the deliverable
+      - generic [ref=f4e15]:
+        - heading "One sheet that makes a decision possible." [level=2] [ref=f4e16]
+        - paragraph [ref=f4e17]: Find 30 UGC creators or creative examples. The sheet is not a link dump. Every row must tell Nat what the idea is, who it speaks to, and what Replika could learn from it.
+        - generic "Required fields for every example" [ref=f4e18]:
+          - generic [ref=f4e19]:
+            - generic [ref=f4e20]: 01 · source
+            - paragraph [ref=f4e21]: Creator or brand, direct video link, and where you found it.
+          - generic [ref=f4e22]:
+            - generic [ref=f4e23]: 02 · hook
+            - paragraph [ref=f4e24]: The first line, visual device, or core concept in one sentence.
+          - generic [ref=f4e25]:
+            - generic [ref=f4e26]: 03 · audience
+            - paragraph [ref=f4e27]: The person and situation this is built to reach.
+          - generic [ref=f4e28]:
+            - generic [ref=f4e29]: 04 · rationale
+            - paragraph [ref=f4e30]: The specific Replika angle worth testing, not “good engagement.”
+        - generic [ref=f4e31]:
+          - button "download 30-row csv" [ref=f4e32] [cursor=pointer]
+          - button "copy sheet headers" [ref=f4e33] [cursor=pointer]
+        - paragraph [ref=f4e34]: The sheet already includes the five rubric scores, total, shortlist decision and review notes. Fill it in Google Sheets or Excel.
+        - paragraph [ref=f4e35]: "The final review: mark 5–10 rows as the shortlist. Keep the other rows because they show the range you considered and make the decision legible."
+    - generic [ref=f4e37]:
+      - generic [ref=f4e38]: three worked decisions
+      - generic [ref=f4e39]:
+        - heading "Show your yes, maybe and no." [level=2] [ref=f4e40]
+        - paragraph [ref=f4e41]: These are real ads in TikTok Top Ads, captured for the full guide on 20 August 2026. Open each source before using it. The notes model the difference between what is visible, what you infer, and what Replika might test.
+        - article [ref=f4e42]:
+          - link [ref=f4e43] [cursor=pointer]:
+            - /url: https://ads.tiktok.com/business/creativecenter/topads/7664450461240688660
+            - img "Frame from a DANA digital wallet ad in TikTok Top Ads" [ref=f4e44]
+          - generic [ref=f4e45]:
+            - heading "DANA · clear offer, wrong format" [level=3] [ref=f4e46]
+            - link "watch the source ad ↗" [ref=f4e47] [cursor=pointer]:
+              - /url: https://ads.tiktok.com/business/creativecenter/topads/7664450461240688660
+            - generic [ref=f4e48]:
+              - term [ref=f4e49]: hook / concept
+              - definition [ref=f4e50]: "Observed: the frame leads with a Free Fire promotion, a specific Rp25,000 saving, the brand and the game."
+              - term [ref=f4e51]: target audience
+              - definition [ref=f4e52]: "Inference: price-sensitive Free Fire players already close to making a purchase."
+              - term [ref=f4e53]: why Replika
+              - definition [ref=f4e54]: "Test: the directness of the offer is useful, but the polished game graphic does not help us judge a UGC creator. Keep it only as a contrast row."
+              - term [ref=f4e55]: score
+              - definition [ref=f4e56]: 3/10 · do not shortlist. Hook 2, Replika fit 0, naturalness 0, usability 0, distinctiveness 1.
+        - article [ref=f4e57]:
+          - link [ref=f4e58] [cursor=pointer]:
+            - /url: https://ads.tiktok.com/business/creativecenter/topads/7662194953493954567
+            - img "Frame from a Pantene haircare ad in TikTok Top Ads" [ref=f4e59]
+          - generic [ref=f4e60]:
+            - heading "Pantene · person, problem and product arrive together" [level=3] [ref=f4e61]
+            - link "watch the source ad ↗" [ref=f4e62] [cursor=pointer]:
+              - /url: https://ads.tiktok.com/business/creativecenter/topads/7662194953493954567
+            - generic [ref=f4e63]:
+              - term [ref=f4e64]: hook / concept
+              - definition [ref=f4e65]: "Observed: wet hair fills the frame, the Pantene pack is visible and the caption names the hair need."
+              - term [ref=f4e66]: target audience
+              - definition [ref=f4e67]: "Inference: people who recognize that hair problem and want a practical routine, not a brand film."
+              - term [ref=f4e68]: why Replika
+              - definition [ref=f4e69]: "Test: put the creator, emotional situation and relevant Replika screen in the opening frame so the problem and product arrive together."
+              - term [ref=f4e70]: score
+              - definition [ref=f4e71]: 8/10 · shortlist. Hook 2, Replika fit 1, naturalness 2, usability 2, distinctiveness 1.
+        - article [ref=f4e72]:
+          - link [ref=f4e73] [cursor=pointer]:
+            - /url: https://ads.tiktok.com/business/creativecenter/topads/7662993311967313928
+            - img "Frame from a Dulcolax medicine ad in TikTok Top Ads" [ref=f4e74]
+          - generic [ref=f4e75]:
+            - heading "Dulcolax · expression earns attention before context" [level=3] [ref=f4e76]
+            - link "watch the source ad ↗" [ref=f4e77] [cursor=pointer]:
+              - /url: https://ads.tiktok.com/business/creativecenter/topads/7662993311967313928
+            - generic [ref=f4e78]:
+              - term [ref=f4e79]: hook / concept
+              - definition [ref=f4e80]: "Observed: a creator's face and exaggerated reaction dominate the captured frame; the product is not yet visible."
+              - term [ref=f4e81]: target audience
+              - definition [ref=f4e82]: "Inference: people who recognize the emotion or situation quickly enough to wait for the explanation."
+              - term [ref=f4e83]: why Replika
+              - definition [ref=f4e84]: "Test: open with a recognizable emotional reaction, but make the situation legible in the first spoken line or caption. Reaction alone is not a concept."
+              - term [ref=f4e85]: score
+              - definition [ref=f4e86]: 6/10 · discuss. Hook 1, Replika fit 1, naturalness 2, usability 1, distinctiveness 1.
+        - paragraph [ref=f4e87]:
+          - text: The three rows deliberately do not all pass. A useful scout explains why something is weak instead of forcing every find into the shortlist. TikTok says Top Ads includes ads that meet performance thresholds and have advertiser permission to appear. It is inspiration, not a complete market census.
+          - link "How Top Ads works ↗" [ref=f4e88] [cursor=pointer]:
+            - /url: https://ads.tiktok.com/business/library/NA_Creative_Center_Top_Ads_One_Pager.pdf
+    - generic [ref=f4e90]:
+      - generic [ref=f4e91]: where the thirty come from
+      - generic [ref=f4e92]:
+        - heading "Use three buckets so the set has range." [level=2] [ref=f4e93]
+        - generic [ref=f4e94]:
+          - article [ref=f4e95]:
+            - heading "10 · direct category" [level=3] [ref=f4e96]
+            - paragraph [ref=f4e97]:
+              - link "Meta Ad Library ↗" [ref=f4e98] [cursor=pointer]:
+                - /url: https://www.facebook.com/ads/library/
+              - text: ": Talkie, Character.AI and adjacent AI-companion advertisers. Capture the exact ad link, creator handle when visible, start date and repeated versions. Do not call longevity proof of performance."
+          - article [ref=f4e99]:
+            - heading "10 · useful formats" [level=3] [ref=f4e100]
+            - paragraph [ref=f4e101]:
+              - link "TikTok Top Ads ↗" [ref=f4e102] [cursor=pointer]:
+                - /url: https://ads.tiktok.com/business/creativecenter/inspiration/topads/pc/en
+              - text: ". Ignore category and look for transferable forms: confession, story time, comparison, reaction, routine, awkward truth, before and after."
+          - article [ref=f4e103]:
+            - heading "10 · actual creators" [level=3] [ref=f4e104]
+            - paragraph [ref=f4e105]:
+              - link "TikTok One ↗" [ref=f4e106] [cursor=pointer]:
+                - /url: https://www.tiktok.com/business/en/tiktok-one
+              - text: ","
+              - link "Fiverr UGC ↗" [ref=f4e107] [cursor=pointer]:
+                - /url: https://www.fiverr.com/categories/video-animation/ugc-videos
+              - text: ", Instagram or TikTok manually. Link the creator's strongest relevant video, not their profile homepage, and note whether they already make app or talking-to-camera content."
+        - paragraph [ref=f4e108]: "Balance check: do not bring thirty versions of “pretty girl talks to camera.” Include different ages, genders, emotional situations, energy levels, settings, creator sizes and production styles."
+    - generic [ref=f4e110]:
+      - generic [ref=f4e111]: the fastest clean process
+      - generic [ref=f4e112]:
+        - heading "Collect first. Judge in a second pass." [level=2] [ref=f4e113]
+        - generic [ref=f4e114]:
+          - article [ref=f4e115]:
+            - text: pass 01
+            - heading "Build the range" [level=3] [ref=f4e116]
+            - paragraph [ref=f4e117]: Fill the three 10-row buckets. Save the direct link and write only the literal first-frame or first-line hook. Do not stop to perfect the rationale.
+          - article [ref=f4e118]:
+            - text: pass 02
+            - heading "Make the argument" [level=3] [ref=f4e119]
+            - paragraph [ref=f4e120]: Watch each candidate again, add audience and Replika rationale, score all five criteria, then choose 5–10 finalists that test meaningfully different hypotheses.
+        - paragraph [ref=f4e121]: "Normalize at the end: after row 30, reread rows 1–5. Your standard will be sharper than it was at the start, so early scores usually need correction."
+    - generic [ref=f4e123]:
+      - generic [ref=f4e124]: shortlist rubric
+      - generic [ref=f4e125]:
+        - heading "Score the idea, not your taste." [level=2] [ref=f4e126]
+        - paragraph [ref=f4e127]: Give each row 0, 1 or 2 on five criteria. Write the score after the rationale, then use judgment to preserve range in the final 5–10.
+        - region "Shortlist scoring rubric, horizontally scrollable on small screens" [ref=f4e128]:
+          - table [ref=f4e129]:
+            - rowgroup [ref=f4e130]:
+              - row [ref=f4e131]:
+                - columnheader "criterion" [ref=f4e132]
+                - columnheader "0" [ref=f4e133]
+                - columnheader "1" [ref=f4e134]
+                - columnheader "2" [ref=f4e135]
+            - rowgroup [ref=f4e136]:
+              - row [ref=f4e137]:
+                - rowheader "hook clarity" [ref=f4e138]
+                - cell "unclear after three seconds" [ref=f4e139]
+                - cell "understandable but familiar" [ref=f4e140]
+                - cell "immediate and hard to ignore" [ref=f4e141]
+              - row [ref=f4e142]:
+                - rowheader "Replika fit" [ref=f4e143]
+                - cell "no credible transfer" [ref=f4e144]
+                - cell "transfer needs rewriting" [ref=f4e145]
+                - cell "clear Replika situation already visible" [ref=f4e146]
+              - row [ref=f4e147]:
+                - rowheader "creator naturalness" [ref=f4e148]
+                - cell "performed like an ad" [ref=f4e149]
+                - cell "mixed or uneven" [ref=f4e150]
+                - cell "native, specific and believable" [ref=f4e151]
+              - row [ref=f4e152]:
+                - rowheader "production usability" [ref=f4e153]
+                - cell "hard to reproduce or edit" [ref=f4e154]
+                - cell "usable with constraints" [ref=f4e155]
+                - cell "simple to brief, shoot and version" [ref=f4e156]
+              - row [ref=f4e157]:
+                - rowheader "distinctiveness" [ref=f4e158]
+                - cell "duplicates another row" [ref=f4e159]
+                - cell "one useful difference" [ref=f4e160]
+                - cell "adds a new audience, emotion or form" [ref=f4e161]
+        - generic [ref=f4e162]:
+          - generic [ref=f4e163]: 8–10 · shortlist
+          - generic [ref=f4e164]: 5–7 · discuss
+          - generic [ref=f4e165]: 0–4 · do not shortlist
+        - paragraph [ref=f4e166]: "Portfolio rule: the ten highest scores are not automatically the best shortlist. If eight are the same hook for the same audience, keep the strongest two and use the remaining slots to test different hypotheses."
+    - generic [ref=f4e168]:
+      - generic [ref=f4e169]: definition of done
+      - generic [ref=f4e170]:
+        - heading "Ready for review means all six are true." [level=2] [ref=f4e171]
+        - list [ref=f4e172]:
+          - listitem [ref=f4e173]: Exactly 30 rows, each with a working direct link.
+          - listitem [ref=f4e174]: Every row has a one-sentence hook, audience and Replika rationale.
+          - listitem [ref=f4e175]: Observed facts, your inference and your proposed Replika test are not mixed together.
+          - listitem [ref=f4e176]: The set uses all three source buckets and passes the balance check.
+          - listitem [ref=f4e177]: Every row has a score out of 10; 5–10 rows are visibly shortlisted.
+          - listitem [ref=f4e178]: You can explain in one minute why the finalists are meaningfully different from one another.
+        - link "back to the full guide" [ref=f4e179] [cursor=pointer]:
+          - /url: /scout
+  - contentinfo [ref=f4e180]: taso's task this week · replika growth
