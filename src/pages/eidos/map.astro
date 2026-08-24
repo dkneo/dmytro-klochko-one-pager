@@ -1,0 +1,490 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import map from "../../data/map.json";
+import inbox from "../../../public/inbox.json";
+
+// The map of what he likes, drawn from the vault and nothing else.
+//
+// Three rules held this together:
+//
+//   Every mark is a real thing. The paintings are their own images, the poems
+//   and quotes their own words. No generated marks, no invented shapes; the
+//   art on this page is his art, at the size the map can carry.
+//
+//   Position is derived, not decorative. The two axes come out of his own
+//   descriptions of the eight weathers, and they are printed on the page so
+//   they can be argued with.
+//
+//   The map shows what it does not know. Ten notes have never been given a
+//   weather, so they ride an outer ring rather than being quietly guessed at.
+//   That ring is the page's main piece of work: it asks to be emptied.
+
+const { items, weathers, threads, depth, forms, people, axes, unplaced } = map;
+
+const candidates = inbox.candidates || [];
+
+const K = 41;  // coord → percent of the field, shared by marks and threads
+const FORM_MARK = { painting: "▣", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
+const thinnest = weathers.slice().sort((a, b) => a.count - b.count)[0];
+const thumbFor = (src: string) => src
+  .replace("/images/", "/images/thumbs/")
+  .replace(/\.[^.]+$/, ".webp");
+
+const title = "the sketch · eidos";
+const description = "the map view of the eidos library: every mark placed by feeling on two argued axes.";
+---
+
+<Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted>
+  <section class="shell session eidos-map" data-scene="nightcourt" aria-labelledby="em">
+    <div class="card">
+      <h1 class="card-title" id="em">the sketch</h1>
+    </div>
+
+    <p class="today-how">
+      every mark of <a href="/eidos">the library</a>, placed by feeling on two
+      axes you can argue with: cold to warm across, one thing to everything
+      up. the ring around the edge is what has not said how it feels yet.
+    </p>
+
+    {/* ── the state of it, honestly ─────────────────────────────────── */}
+    <dl class="em-state">
+      <div><dt>marks</dt><dd>{depth.notes}</dd></div>
+      <div><dt>people</dt><dd>{depth.people}</dd></div>
+      <div><dt>weathers</dt><dd>{weathers.length}</dd></div>
+      <div class="is-open"><dt>unplaced</dt><dd>{unplaced}</dd></div>
+    </dl>
+
+    <p class="em-honest">
+      this is a sketch, not a map. {depth.oneDeep} of the {weathers.length}
+      weathers hold one of each form and no more, <b>{thinnest.name}</b> is the
+      thinnest, and {unplaced} notes have never been told how they feel. the
+      ring around the edge is those. it should be empty.
+    </p>
+
+    {/* ── controls ──────────────────────────────────────────────────── */}
+    <div class="em-controls" role="group" aria-label="filter the map">
+      <button class="em-chip is-on" data-filter="all" type="button">everything</button>
+      {forms.filter((f) => f.n).map((f) => (
+        <button class="em-chip" data-filter={f.form} type="button">
+          <i aria-hidden="true">{FORM_MARK[f.form]}</i>{f.form}s<b>{f.n}</b>
+        </button>
+      ))}
+      <button class="em-chip em-chip--open" data-filter="unplaced" type="button">unplaced<b>{unplaced}</b></button>
+      <span class="em-hint">drag to move · scroll to zoom · click a mark</span>
+    </div>
+
+    {/* ── the field ─────────────────────────────────────────────────── */}
+    <div class="em-field" data-zoom="1">
+      <div class="em-axis em-axis--x" aria-hidden="true">
+        <span>{axes.x.from}</span><i></i><span>{axes.x.to}</span>
+      </div>
+      <div class="em-axis em-axis--y" aria-hidden="true">
+        <span>{axes.y.to}</span><i></i><span>{axes.y.from}</span>
+      </div>
+
+      <div class="em-stage" id="stage">
+        <svg class="em-threads" viewBox="-50 -50 100 100" aria-hidden="true" preserveAspectRatio="none">
+          {threads.map((t) =>
+            t.ids.slice(0, -1).map((id, i) => {
+              const a = items.find((x) => x.id === id);
+              const b = items.find((x) => x.id === t.ids[i + 1]);
+              return a && b ? (
+                <>
+                  <line data-who={t.who} x1={a.x * K} y1={a.y * K} x2={b.x * K} y2={b.y * K} />
+                  <line class="em-lit" data-who={t.who} x1={a.x * K} y1={a.y * K} x2={b.x * K} y2={b.y * K} />
+                </>
+              ) : null;
+            })
+          )}
+        </svg>
+
+        {weathers.map((w) => (
+          <p class="em-weather" style={`left:${50 + w.x * K}%;top:${50 + w.y * K}%`} data-weather={w.name}>
+            <b>{w.name}</b><i>{w.why}</i>
+          </p>
+        ))}
+
+        {items.map((it) => (
+          <button
+            class={`em-mark em-mark--${it.type}${it.unplaced ? " is-unplaced" : ""}`}
+            style={`left:${50 + it.x * K}%;top:${50 + it.y * K}%`}
+            data-id={it.id}
+            data-form={it.type}
+            data-weather={it.weather}
+            data-who={it.who}
+            type="button"
+            aria-label={`${it.type}: ${it.line || it.title} ${it.who ? "by " + it.who : ""}`}
+          >
+            {it.src ? (
+              <img src={thumbFor(it.src)} alt="" width="320" height="320" loading="lazy" decoding="async" />
+            ) : (
+              <span class="em-glyph" aria-hidden="true">{FORM_MARK[it.type]}</span>
+            )}
+            <span class="em-tip">{it.line || it.title}</span>
+          </button>
+        ))}
+      </div>
+
+      <div class="em-zoom" role="group" aria-label="zoom">
+        <button type="button" data-zoom-out aria-label="zoom out">−</button>
+        <button type="button" data-zoom-in aria-label="zoom in">+</button>
+        <button type="button" data-zoom-reset>fit</button>
+      </div>
+    </div>
+
+    {/* ── what a mark says when you press it ─────────────────────────── */}
+    <aside class="em-detail" id="detail" hidden aria-live="polite">
+      <button class="em-close" type="button" aria-label="close">close</button>
+      <div class="em-detail-body"></div>
+    </aside>
+
+    {/* ── ask it ────────────────────────────────────────────────────── */}
+    <h2 class="em-head">ask it</h2>
+    <p class="today-how">
+      the map can answer for itself. it reads every note in the vault before
+      it replies, and it is told to say <em>i don't know</em> rather than
+      invent a taste he has not shown.
+    </p>
+    <form class="em-ask" id="ask">
+      <input type="text" name="q" autocomplete="off"
+             placeholder="what do i keep coming back to?" aria-label="ask the map" />
+      <button type="submit">ask</button>
+    </form>
+    <div class="em-answer" id="answer" hidden></div>
+    <p class="em-suggest">
+      <button type="button" data-ask="what do i keep coming back to?">what do i keep coming back to?</button>
+      <button type="button" data-ask="what is missing from this map?">what is missing?</button>
+      <button type="button" data-ask="what would i probably love that is not here yet?">what would i love next?</button>
+    </p>
+
+    {/* ── teach it ──────────────────────────────────────────────────── */}
+    <h2 class="em-head">teach it</h2>
+    <p class="today-how">
+      the map only gets better by being told things. three ways, in the order
+      they are worth doing.
+    </p>
+
+    <section class="em-three" id="three" aria-labelledby="th3">
+      <h3 id="th3">today's three</h3>
+      <p>
+        three things it thinks he might want, picked fresh each day from{" "}
+        {candidates.length} waiting. keep or pass; either answer teaches it
+        something, and a pass teaches it as much as a keep.
+      </p>
+      <div class="em-three-cards" id="three-cards"></div>
+    </section>
+
+    <ol class="em-teach">
+      <li>
+        <h3>place the ring</h3>
+        <p>
+          {unplaced} notes have no weather. pick one, say how it feels, and it
+          leaves the ring and joins the field. this is the shortest path from
+          a sketch to a map.
+        </p>
+        <button class="em-do" type="button" id="place-next">place one now</button>
+      </li>
+      <li>
+        <h3>the pair</h3>
+        <p>
+          two things, one question: which is more <em>nerve</em>. answering is
+          faster than describing, and it moves both marks. the same exercise
+          the hokku reviewer runs, pointed at taste instead of verse.
+        </p>
+        <button class="em-do" type="button" id="pair-next">show me a pair</button>
+      </li>
+      <li>
+        <h3>the deck</h3>
+        <p>
+          seventy six paintings, keep or pass. it reads how still, how peopled,
+          how ordered and how lit your eye wants a picture, and the reading
+          now comes back here instead of dying on the screen it was drawn on.
+        </p>
+        <p class="em-reading" id="reading" hidden></p>
+        <a class="em-do" href="/eidos/deck">open the deck<span class="arw" aria-hidden="true">→</span></a>
+      </li>
+    </ol>
+
+    {/* ── the people ────────────────────────────────────────────────── */}
+    <h2 class="em-head">the company</h2>
+    <p class="today-how">
+      {depth.people} names hold the {depth.notes} marks together. the ones with
+      more than one thing are drawn as threads on the map.
+    </p>
+    <ul class="em-people">
+      {people.map((p) => (
+        <li class={p.n > 1 ? "is-thread" : ""} data-who={p.who}>{p.who}{p.n > 1 && <b>{p.n}</b>}</li>
+      ))}
+    </ul>
+
+    {/* ── the plain list, for anything that cannot read a map ────────── */}
+    <details class="em-list">
+      <summary>the same thing as a list</summary>
+      <table>
+        <thead><tr><th>form</th><th>what</th><th>who</th><th>weather</th></tr></thead>
+        <tbody>
+          {items.map((it) => (
+            <tr>
+              <td>{it.type}</td>
+              <td>{it.line || it.title}</td>
+              <td>{it.who}</td>
+              <td>{it.weather || "unplaced"}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </details>
+
+    <a class="onward onward--back" href="/eidos">
+      <span class="arw" aria-hidden="true">↖</span><span>back to the library</span>
+    </a>
+  </section>
+
+  <script define:vars={{ items, weathers, candidates }}>
+    (() => {
+      const stage = document.getElementById("stage");
+      const field = stage.closest(".em-field");
+      if (!stage) return;
+
+      // ── pan and zoom ────────────────────────────────────────────────
+      let z = 1, ox = 0, oy = 0, dragging = false, sx = 0, sy = 0, moved = 0;
+      const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+      const paint = () => {
+        stage.style.transform = `translate(${ox}px, ${oy}px) scale(${z})`;
+        field.dataset.zoom = z > 1.45 ? "close" : z < 0.75 ? "far" : "1";
+      };
+      field.addEventListener("wheel", (e) => {
+        if (!e.ctrlKey && Math.abs(e.deltaY) < 2) return;
+        e.preventDefault();
+        const before = z;
+        z = clamp(z * (e.deltaY > 0 ? 0.92 : 1.08), 0.6, 3.2);
+        // zoom toward the pointer, so the thing you are looking at stays put
+        const r = field.getBoundingClientRect();
+        const px = e.clientX - r.left - r.width / 2 - ox;
+        const py = e.clientY - r.top - r.height / 2 - oy;
+        ox -= px * (z / before - 1);
+        oy -= py * (z / before - 1);
+        paint();
+      }, { passive: false });
+
+      field.addEventListener("pointerdown", (e) => {
+        if (e.target.closest(".em-zoom")) return;
+        dragging = true; moved = 0; sx = e.clientX - ox; sy = e.clientY - oy;
+        field.setPointerCapture(e.pointerId);
+        field.classList.add("is-dragging");
+      });
+      field.addEventListener("pointermove", (e) => {
+        if (!dragging) return;
+        const nx = e.clientX - sx, ny = e.clientY - sy;
+        moved += Math.abs(nx - ox) + Math.abs(ny - oy);
+        ox = nx; oy = ny; paint();
+      });
+      const stop = () => { dragging = false; field.classList.remove("is-dragging"); };
+      field.addEventListener("pointerup", stop);
+      field.addEventListener("pointercancel", stop);
+
+      field.querySelector("[data-zoom-in]").onclick = () => { z = clamp(z * 1.25, 0.6, 3.2); paint(); };
+      field.querySelector("[data-zoom-out]").onclick = () => { z = clamp(z / 1.25, 0.6, 3.2); paint(); };
+      field.querySelector("[data-zoom-reset]").onclick = () => { z = 1; ox = oy = 0; paint(); };
+
+      // ── filtering ───────────────────────────────────────────────────
+      const chips = [...document.querySelectorAll(".em-chip")];
+      chips.forEach((c) => c.addEventListener("click", () => {
+        chips.forEach((x) => x.classList.toggle("is-on", x === c));
+        const f = c.dataset.filter;
+        document.querySelectorAll(".em-mark").forEach((m) => {
+          const show = f === "all" || (f === "unplaced" ? m.classList.contains("is-unplaced") : m.dataset.form === f);
+          m.classList.toggle("is-dim", !show);
+        });
+      }));
+
+      // ── a mark, pressed ─────────────────────────────────────────────
+      const detail = document.getElementById("detail");
+      const body = detail.querySelector(".em-detail-body");
+      const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+      document.querySelectorAll(".em-mark").forEach((m) => m.addEventListener("click", (e) => {
+        if (moved > 6) return;                 // that was a drag, not a click
+        const it = items.find((x) => x.id === m.dataset.id);
+        if (!it) return;
+        document.querySelectorAll(".em-mark").forEach((x) => x.classList.remove("is-on"));
+        m.classList.add("is-on");
+        // light the people it shares a name with
+        document.querySelectorAll(".em-threads line.em-lit").forEach((l) =>
+          l.classList.toggle("is-lit", !!it.who && l.dataset.who === it.who));
+        body.innerHTML =
+          (it.src ? `<img src="${esc(it.src)}" alt="">` : "") +
+          `<p class="em-d-kind">${esc(it.type)}${it.weather ? " · " + esc(it.weather) : " · unplaced"}</p>` +
+          `<p class="em-d-line">${esc(it.line || it.title)}</p>` +
+          (it.who ? `<p class="em-d-who">${esc(it.who)}${it.year ? ", " + esc(it.year) : ""}${it.where ? " · " + esc(it.where) : ""}</p>` : "") +
+          (it.note ? `<p class="em-d-note">${esc(it.note)}</p>` : "") +
+          (it.url ? `<p class="em-d-go"><a href="${esc(it.url)}" target="_blank" rel="noreferrer">read it<span class="arw">↗</span></a></p>` : "");
+        detail.hidden = false;
+      }));
+      detail.querySelector(".em-close").onclick = () => {
+        detail.hidden = true;
+        document.querySelectorAll(".em-mark.is-on").forEach((x) => x.classList.remove("is-on"));
+        document.querySelectorAll(".em-threads line.is-lit").forEach((l) => l.classList.remove("is-lit"));
+      };
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") detail.hidden = true; });
+
+      // hovering a name lights its marks
+      document.querySelectorAll(".em-people li").forEach((li) => {
+        const on = (state) => document.querySelectorAll(".em-mark").forEach((m) =>
+          m.classList.toggle("is-kin", state && m.dataset.who === li.dataset.who));
+        li.addEventListener("mouseenter", () => on(true));
+        li.addEventListener("mouseleave", () => on(false));
+      });
+
+      // ── ask it ──────────────────────────────────────────────────────
+      const ask = document.getElementById("ask");
+      const answer = document.getElementById("answer");
+      const send = async (q) => {
+        if (!q.trim()) return;
+        answer.hidden = false;
+        answer.innerHTML = `<p class="em-q">${esc(q)}</p><p class="em-thinking">reading the vault…</p>`;
+        try {
+          const r = await fetch("/api/eidos/ask", {
+            method: "POST", headers: { "content-type": "application/json" },
+            body: JSON.stringify({ q }),
+          });
+          const d = await r.json().catch(() => ({}));
+          answer.innerHTML = `<p class="em-q">${esc(q)}</p>` +
+            (r.ok && d.answer
+              ? `<p class="em-a">${esc(d.answer)}</p>`
+              : `<p class="em-a em-a--off">${esc(d.error || "the map cannot talk yet.")}</p>`);
+        } catch {
+          answer.innerHTML = `<p class="em-q">${esc(q)}</p><p class="em-a em-a--off">no answer: the request did not get through.</p>`;
+        }
+      };
+      ask.addEventListener("submit", (e) => { e.preventDefault(); send(ask.q.value); });
+      document.querySelectorAll("[data-ask]").forEach((b) =>
+        b.addEventListener("click", () => { ask.q.value = b.dataset.ask; send(b.dataset.ask); }));
+
+      // ── teach it: place one from the ring ───────────────────────────
+      const names = weathers.map((w) => w.name);
+      document.getElementById("place-next").addEventListener("click", () => {
+        const ring = [...document.querySelectorAll(".em-mark.is-unplaced")];
+        if (!ring.length) { alert("the ring is empty. that is the whole goal."); return; }
+        const m = ring[Math.floor(Math.random() * ring.length)];
+        const it = items.find((x) => x.id === m.dataset.id);
+        m.click();
+        body.insertAdjacentHTML("beforeend",
+          `<div class="em-place"><p>how does this feel?</p>` +
+          names.map((n) => `<button type="button" data-place="${esc(n)}">${esc(n)}</button>`).join("") +
+          `</div>`);
+        body.querySelectorAll("[data-place]").forEach((b) => b.addEventListener("click", async () => {
+          b.closest(".em-place").innerHTML = "<p>filing…</p>";
+          const r = await fetch("/api/eidos/place", {
+            method: "POST", headers: { "content-type": "application/json" },
+            body: JSON.stringify({ id: it.id, weather: b.dataset.place }),
+          }).catch(() => null);
+          const ok = r && r.ok;
+          b.closest(".em-place").innerHTML = ok
+            ? `<p>filed as <b>${esc(b.dataset.place)}</b>. it moves onto the field at the next build.</p>`
+            : `<p>not saved: ${esc(((await r?.json().catch(() => ({}))) || {}).error || "the door is shut")}. the answer was <b>${esc(b.dataset.place)}</b>.</p>`;
+        }));
+      });
+
+      document.getElementById("pair-next").addEventListener("click", () => {
+        const pool = items.filter((i) => i.weather);
+        const a = pool[Math.floor(Math.random() * pool.length)];
+        let b2 = pool[Math.floor(Math.random() * pool.length)];
+        let guard = 0;
+        while (b2.id === a.id && guard++ < 20) b2 = pool[Math.floor(Math.random() * pool.length)];
+        const w = weathers[Math.floor(Math.random() * weathers.length)].name;
+        detail.hidden = false;
+        body.innerHTML =
+          `<p class="em-d-kind">which is more <b>${esc(w)}</b>?</p>` +
+          `<div class="em-pair">` +
+          [a, b2].map((x) => `<button type="button" data-pick="${esc(x.id)}">` +
+            (x.src ? `<img src="${esc(x.src)}" alt="">` : `<span class="em-glyph">${esc({painting:"▣",poem:"❞",song:"♪",quote:"“",link:"↗",person:"◉",writing:"¶"}[x.type] || "·")}</span>`) +
+            `<i>${esc(x.line || x.title)}</i><em>${esc(x.who)}</em></button>`).join("") +
+          `</div>`;
+        body.querySelectorAll("[data-pick]").forEach((btn) => btn.addEventListener("click", async () => {
+          const r = await fetch("/api/eidos/pair", {
+            method: "POST", headers: { "content-type": "application/json" },
+            body: JSON.stringify({ weather: w, winner: btn.dataset.pick, pair: [a.id, b2.id] }),
+          }).catch(() => null);
+          body.querySelector(".em-pair").outerHTML = (r && r.ok)
+            ? `<p class="em-d-note">noted. that is one more thing the map knows about <b>${esc(w)}</b>.</p>`
+            : `<p class="em-d-note">not saved, the door is shut. it was still worth answering.</p>`;
+        }));
+      });
+
+      // ── what the deck last read ────────────────────────────────────
+      (async () => {
+        const el = document.getElementById("reading");
+        if (!el) return;
+        try {
+          const r = await fetch("/api/eidos/portrait");
+          if (!r.ok) return;
+          const d = await r.json();
+          if (!d.latest) return;
+          const a = d.latest.axes;
+          const say = (v, low, high) =>
+            Math.abs(v) < 0.25 ? "either way" : (v > 0 ? high : low);
+          el.hidden = false;
+          el.innerHTML = `last read: your eye wants it <b>${esc(say(a.calm, "restless", "still"))}</b>, ` +
+            `<b>${esc(say(a.human, "empty of people", "peopled"))}</b>, ` +
+            `<b>${esc(say(a.order, "loose", "ordered"))}</b> and <b>${esc(say(a.light, "dark", "lit"))}</b>. ` +
+            `${d.latest.kept} kept of ${d.latest.seen}, over ${d.runs} run${d.runs === 1 ? "" : "s"}.`;
+        } catch {}
+      })();
+
+      // ── today's three ───────────────────────────────────────────────
+      // The same three all day, different tomorrow: a day number seeds the
+      // pick, so opening the page twice does not reshuffle the question.
+      (async () => {
+        const host = document.getElementById("three-cards");
+        if (!host || !candidates.length) return;
+        let judged = [];
+        try {
+          const r = await fetch("/api/eidos/judged");
+          if (r.ok) judged = (await r.json()).judged || [];
+        } catch {}
+        const pool = candidates.filter((c) => !judged.includes(c.id));
+        if (!pool.length) {
+          host.innerHTML = `<p class="em-three-done">every candidate has been judged. the queue is empty, which means it needs new ones more than it needs him.</p>`;
+          return;
+        }
+        const day = Math.floor(Date.now() / 86400000);
+        const pick = [];
+        for (let i = 0; i < Math.min(3, pool.length); i++) pick.push(pool[(day * 3 + i) % pool.length]);
+
+        host.innerHTML = pick.map((c) => `
+          <article class="em-cand" data-id="${esc(c.id)}">
+            ${c.src ? `<img src="${esc(c.src)}" alt="" loading="lazy" decoding="async">` : ""}
+            <p class="em-cand-t">${esc(c.title || "")}</p>
+            <p class="em-cand-w">${esc(c.who || "")}${c.year ? ", " + esc(c.year) : ""}</p>
+            ${c.weather ? `<p class="em-cand-f">proposed as <b>${esc(c.weather)}</b></p>` : ""}
+            <div class="em-cand-do">
+              <button type="button" data-v="keep">keep</button>
+              <button type="button" data-v="pass">pass</button>
+            </div>
+          </article>`).join("");
+
+        host.querySelectorAll("[data-v]").forEach((b) => b.addEventListener("click", async () => {
+          const card = b.closest(".em-cand");
+          const c = pick.find((x) => x.id === card.dataset.id);
+          const box = card.querySelector(".em-cand-do");
+          box.innerHTML = "<span>filing…</span>";
+          let r = null;
+          try {
+            r = await fetch("/api/eidos/verdict", {
+              method: "POST", headers: { "content-type": "application/json" },
+              body: JSON.stringify({ id: c.id, verdict: b.dataset.v, weather: c.weather || "" }),
+            });
+          } catch {}
+          const ok = r && r.ok;
+          card.classList.add(b.dataset.v === "keep" ? "is-kept" : "is-passed");
+          box.innerHTML = ok
+            ? `<span>${b.dataset.v === "keep" ? "kept" : "passed"}</span>`
+            : `<span>not saved: sign in at /names first</span>`;
+        }));
+      })();
+
+      paint();
+    })();
+  </script>
+</Layout>

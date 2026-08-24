@@ -139,12 +139,39 @@ test("the orbit reads one stable mapper without duplicating its payload onto hom
   }
 });
 
+test("the library shelves every mark, signed and filtered", () => {
+  const html = read("dist/eidos/index.html");
+  const map = JSON.parse(read("src/data/map.json"));
+
+  // every mark in the vault is a card; none is silently dropped
+  const cards = [...html.matchAll(/class="lib-card lib-card--(\w+)"/g)];
+  assert.equal(cards.length, map.items.length,
+    `library shows ${cards.length} of ${map.items.length} marks`);
+
+  // eight rooms cold to warm, and the ring for the unfiled
+  const rooms = [...html.matchAll(/class="lib-room[^"]*" id="([^"]+)"/g)].map((m) => m[1]);
+  assert.equal(rooms.length, map.weathers.length + 1);
+  assert.equal(rooms.at(-1), "the-ring", "the ring closes the library");
+
+  // each room header carries its paint chips from the real palette
+  const pal = JSON.parse(read("src/data/palettes.json"));
+  for (const w of map.weathers) {
+    const p = pal.palettes.find((x) => x.weather === w.name);
+    if (p) assert.ok(html.includes(`background:${p.stops[0]}`), `${w.name} lost its paint chips`);
+  }
+
+  // reading is public, teaching stays behind doors
+  assert.ok(html.includes("/eidos/sit"), "the door to the sitting is named");
+  assert.ok(!html.includes("api/eidos/verdict"), "the library itself never writes");
+});
+
 test("the sitemap lists the public pages and only those", () => {
   const xml = read("dist/sitemap.xml");
-  for (const url of ["/pond/", "/learning/terminal", "/today/", "/hokku/"]) {
+  for (const url of ["/pond/", "/learning/terminal", "/today/", "/hokku/", "/eidos/"]) {
     assert.ok(xml.includes(url), `sitemap missing ${url}`);
   }
-  for (const gated of ["/names", "/ask", "/scout", "/curate"]) {
+  for (const gated of ["/names", "/ask", "/scout", "/curate",
+                       "/eidos/sit", "/eidos/map", "/eidos/orbit", "/eidos/deck"]) {
     assert.ok(!xml.includes(gated), `sitemap leaks ${gated}`);
   }
 });

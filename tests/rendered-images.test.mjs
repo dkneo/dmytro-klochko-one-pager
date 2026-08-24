@@ -76,7 +76,8 @@ test("the image derivative check rejects a changed source even when its decoded 
 });
 
 test("eidos map marks use small derivatives", async () => {
-  const html = read("dist/eidos/index.html");
+  // the sketch moved to /eidos/map when the library took the front door
+  const html = read("dist/eidos/map/index.html");
   const stage = html.slice(html.indexOf('id="stage"'), html.indexOf('class="em-zoom"'));
   const tags = [...stage.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
 
@@ -88,6 +89,23 @@ test("eidos map marks use small derivatives", async () => {
     assert.ok(metadata.width <= 320, `${src} is ${metadata.width}px wide`);
     assert.equal(Number(attr(tag, "width")), metadata.width, `${src} width`);
     assert.equal(Number(attr(tag, "height")), metadata.height, `${src} height`);
+  }
+});
+
+test("the library's walls hang thumbnails, not full paintings", async () => {
+  const html = read("dist/eidos/index.html");
+  // per card, and only inside it: a word card has no img, and a lazy
+  // cross-card regex once matched clean into the script's template string
+  const tags = html.split('<button class="lib-card')
+    .slice(1)
+    .map((chunk) => chunk.slice(0, chunk.indexOf("</button>")).match(/<img\b[^>]*>/)?.[0])
+    .filter(Boolean);
+  assert.ok(tags.length > 0);
+  for (const tag of tags) {
+    const src = attr(tag, "src");
+    assert.match(src, /^\/images\/thumbs\//, src);
+    const metadata = await sharp(localFile(src)).metadata();
+    assert.ok(metadata.width <= 320, `${src} is ${metadata.width}px wide`);
   }
 });
 

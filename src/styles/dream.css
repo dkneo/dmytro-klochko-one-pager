@@ -915,6 +915,221 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   opacity: 0.04;
 }
 
+/* ── the library ────────────────────────────────────────────────────────────
+   /eidos as eight rooms, cold to warm. Each room: its name in the display
+   voice, its feeling-line, a paint-chip row sampled from its own painting,
+   and a museum wall of square cards — art bare, words set in type. */
+
+[data-mode="dream"] .lib-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2.4rem;
+  margin: var(--sp-3) 0 0;
+}
+
+[data-mode="dream"] .lib-counts dt {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .lib-counts dd {
+  margin: 0.15rem 0 0;
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-fact, 1.22rem);
+  color: var(--bone);
+}
+
+[data-mode="dream"] .lib-counts .is-open dd { color: var(--hot); }
+
+[data-mode="dream"] .lib-views {
+  margin: var(--sp-2) 0 0;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .lib-views a { color: var(--bone); }
+
+[data-mode="dream"] .lib-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin-top: var(--sp-2);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+}
+
+[data-mode="dream"] .lib-toc a {
+  color: var(--dim);
+  padding: 0.3rem 0;   /* tap floor */
+  transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .lib-toc a:hover { color: var(--hot); }
+[data-mode="dream"] .lib-toc-ring { opacity: 0.75; }
+
+[data-mode="dream"] .lib-room {
+  margin-top: var(--sp-4);
+  scroll-margin-top: 4.5rem;
+}
+
+[data-mode="dream"] .lib-door {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.15rem 1rem;
+  align-items: baseline;
+  margin-bottom: var(--sp-2);
+}
+
+[data-mode="dream"] .lib-chips {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 3px;
+}
+
+[data-mode="dream"] .lib-chips i {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+[data-mode="dream"] .lib-door h2 {
+  margin: 0.35rem 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1.1;
+}
+
+[data-mode="dream"] .lib-door p {
+  grid-column: 1;
+  margin: 0.2rem 0 0;
+  max-width: 52ch;
+  font-family: var(--serif);
+  font-size: var(--t-md);
+  line-height: 1.55;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .lib-door p a { color: var(--bone); }
+
+[data-mode="dream"] .lib-n {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  white-space: nowrap;
+}
+
+[data-mode="dream"] .lib-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+[data-mode="dream"] .lib-card {
+  position: relative;
+  aspect-ratio: 1;
+  min-width: 0;   /* a nowrap caption must never widen its own grid track */
+  padding: 0;
+  overflow: hidden;
+  display: grid;
+  background: var(--deck);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .lib-card:hover,
+[data-mode="dream"] .lib-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--dim);
+  box-shadow: 0 14px 30px var(--shadow-deep, rgb(6 9 18 / 45%));
+}
+
+[data-mode="dream"] .lib-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* the art speaks for itself; words and people keep their names */
+[data-mode="dream"] .lib-cap {
+  display: block;
+  padding: 0.3rem 0.75rem 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-mode="dream"] .lib-card--painting .lib-cap { display: none; }
+
+[data-mode="dream"] .lib-card--person { grid-template-rows: minmax(0, 1fr) auto; }
+[data-mode="dream"] .lib-card--person .lib-cap { padding-left: 0.55rem; }
+
+[data-mode="dream"] .lib-word {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.35rem;
+  padding: 0.65rem 0.75rem 0.2rem;
+  min-width: 0;
+}
+
+[data-mode="dream"] .lib-word i {
+  font-style: normal;
+  color: var(--quiet, #c4beb0);
+  font-size: var(--t-md);
+  line-height: 1;
+}
+
+[data-mode="dream"] .lib-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--t-sm);
+  line-height: 1.45;
+  color: var(--bone);
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+[data-mode="dream"] .lib-card--song i { color: var(--cold); }
+[data-mode="dream"] .lib-card--link .lib-text,
+[data-mode="dream"] .lib-card--writing .lib-text {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .lib-room--ring { opacity: 0.85; }
+[data-mode="dream"] .lib-room--ring .lib-door h2 { color: var(--dim); }
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .lib-wall {
+    grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+    gap: 8px;
+  }
+}
+
 /* ── entrances ──────────────────────────────────────────────────────────────
    Chapter cards and journey entries rise into place once, on the slick
    curve: held back, then snapped to rest (docs/kprkr-study.md). Gated by the
@@ -1064,13 +1279,16 @@ svg.pin {
     display: contents;
   }
 
-  [data-mode="dream"] #top .card { order: 1; }
+  [data-mode="dream"] #top .card {
+    order: 1;
+    margin-bottom: 0;
+  }
   [data-mode="dream"] #top .hero-side { order: 2; }
   [data-mode="dream"] #top .prose { order: 3; }
   [data-mode="dream"] #top .hero-facts { order: 4; }
 
   [data-mode="dream"] #top .hero-stack {
-    margin-top: 0.35rem;
+    margin-top: 0;
     margin-bottom: var(--sp-2);
   }
 
@@ -1187,8 +1405,9 @@ html[data-motion="paused"] .scenes .firelight {
   .weather { display: none; }
 }
 
-/* Phones keep the painting and a handful of petals. Fire particles depend on
-   a desktop crop, and WebGL gives a small screen more churn than atmosphere. */
+/* Phones keep the painting but let the living hero films supply the motion.
+   Fire particles depend on a desktop crop, and WebGL gives a small screen
+   more churn than atmosphere. */
 @media (max-width: 900px) {
   .weather--fire,
   .scenes .firelight {
@@ -1207,10 +1426,6 @@ html[data-motion="paused"] .scenes .firelight {
 
 @media (max-width: 700px) {
   .dream-sky b {
-    opacity: 0.34;
-  }
-
-  .dream-sky b:nth-of-type(n + 6) {
     display: none;
   }
 }

@@ -178,7 +178,8 @@ words that go somewhere. The current nav page is held in pink parentheses
 
 ### Ambient Life & Eggs
 
-Nine CSS petals form the fallback field, reduced to five at phone width.
+Nine CSS petals form the fallback field on larger viewports. Phones remove
+the field entirely because the living hero films carry the motion there.
 Desktop fine pointers may hand that field to 44 WebGL petals on idle; phones,
 tablets, reduced-motion and data-saver connections never load it. The `/`
 hero alone carries firelight and embers through `data-weather="fire"`. Film

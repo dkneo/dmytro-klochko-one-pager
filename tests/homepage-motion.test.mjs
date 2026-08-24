@@ -60,11 +60,11 @@ test("homepage navigation contains destinations, not unexplained utility modes",
   assert.ok(ambient.every((tag) => /preload="none"/.test(tag)));
 });
 
-test("the phone stylesheet removes fire effects and keeps at most five petals", () => {
+test("the phone stylesheet leaves the hero films as its only ambient motion", () => {
   const css = read("src/styles/dream.css");
 
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.weather--fire[\s\S]*?display:\s*none/);
-  assert.match(css, /@media \(max-width: 700px\)[\s\S]*?\.dream-sky b:nth-of-type\(n \+ 6\)[\s\S]*?display:\s*none/);
+  assert.match(css, /@media \(max-width: 700px\)\s*\{\s*\.dream-sky b\s*\{[^}]*display:\s*none[^}]*\}/);
 });
 
 test("proof arrives before the homepage asks readers to trust its operating style", () => {
