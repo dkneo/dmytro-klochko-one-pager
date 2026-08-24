@@ -495,8 +495,8 @@ async function askApi(request, env, url) {
 
 const SCOUT_COOKIE = "scout_pass";
 
-function scoutDoor(message) {
-  return door(message, "/scout", {
+function scoutDoor(message, action = "/scout") {
+  return door(message, action, {
     title: "scout school",
     heading: "scout school",
     copy: "the ugc scouting program. taso, this is yours.",
@@ -592,13 +592,14 @@ async function scoutMedia(request, env, slug) {
 }
 
 async function scout(request, env, url) {
-  if (!env.SCOUT_PASSWORD) {
-    return new Response(scoutDoor("the school is not configured yet."), { status: 503, headers: PRIVATE });
-  }
-  const good = await passToken(env.SCOUT_PASSWORD);
-
   const newPagePath = SCOUT_NEW_PAGE.test(url.pathname);
   const pagePath = SCOUT_PAGE.test(url.pathname) || newPagePath;
+  const doorAction = newPagePath ? "/scout/new" : "/scout";
+
+  if (!env.SCOUT_PASSWORD) {
+    return new Response(scoutDoor("the school is not configured yet.", doorAction), { status: 503, headers: PRIVATE });
+  }
+  const good = await passToken(env.SCOUT_PASSWORD);
 
   if (pagePath && request.method === "POST") {
     const form = await request.formData().catch(() => null);
@@ -613,11 +614,11 @@ async function scout(request, env, url) {
       });
     }
     await new Promise((r) => setTimeout(r, 700));
-    return new Response(scoutDoor("that is not it."), { status: 401, headers: PRIVATE });
+    return new Response(scoutDoor("that is not it.", doorAction), { status: 401, headers: PRIVATE });
   }
 
   if (!sameSecret(cookieValue(request, SCOUT_COOKIE) || "", good)) {
-    return new Response(scoutDoor(""), { status: 401, headers: PRIVATE });
+    return new Response(scoutDoor("", doorAction), { status: 401, headers: PRIVATE });
   }
 
   const media = url.pathname.match(SCOUT_MEDIA);
@@ -629,7 +630,7 @@ async function scout(request, env, url) {
 
   const pageKey = newPagePath ? "scout:new" : "scout:page";
   const page = env.VAULT && (await env.VAULT.get(pageKey, { type: "text", cacheTtl: 60 }));
-  if (!page) return new Response(scoutDoor("the program is not loaded yet."), { status: 503, headers: PRIVATE });
+  if (!page) return new Response(scoutDoor("the program is not loaded yet.", doorAction), { status: 503, headers: PRIVATE });
   return new Response(request.method === "HEAD" ? null : page, { status: 200, headers: PRIVATE });
 }
 

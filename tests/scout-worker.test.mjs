@@ -73,10 +73,12 @@ test("the scout page is returned only with its own cookie", async () => {
 test("the compact Scout update uses the same private door", async () => {
   const bindings = env();
   const locked = await worker.fetch(request("/scout/new"), bindings);
+  const lockedHtml = await locked.text();
   const cookie = await login(bindings);
   const open = await worker.fetch(request("/scout/new", cookie), bindings);
 
   assert.equal(locked.status, 401);
+  assert.match(lockedHtml, /<form method="post" action="\/scout\/new">/);
   assert.equal(open.status, 200);
   assert.equal(await open.text(), scoutNewPage);
   assert.match(open.headers.get("cache-control"), /private/);
