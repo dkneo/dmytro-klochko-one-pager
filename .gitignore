@@ -42,6 +42,10 @@ yarn-error.log*
 # wrangler local dev state (may cache private responses)
 /.wrangler/
 
+# local browser QA captures
+/.playwright-mcp/
+/homepage-mobile-refined.png
+
 # the handoff folder: raw material stays local, the readme is tracked
 /drop/*
 !/drop/README.md
