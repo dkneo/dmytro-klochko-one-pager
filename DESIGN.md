@@ -184,9 +184,10 @@ tablets, reduced-motion and data-saver connections never load it. The `/`
 hero alone carries firelight and embers through `data-weather="fire"`. Film
 grain sits over everything at 4% overlay. Typing l-i-s-a showers sixteen extra
 petals when the rich field is active. Clicking an email copies it and the
-label whispers "copied ✓". Ambient videos are poster-first and play only while
-visible on a rich desktop. Phones keep their posters and `prefers-reduced-motion`
-always wins.
+label whispers "copied ✓". Ambient videos begin poster-first, then play muted
+only while visible. The mobile hero moves its three-film pile directly below
+the introduction so the page's living visual survives the narrow layout.
+Data-saver and `prefers-reduced-motion` always win.
 
 ### Photographs
 

@@ -16,13 +16,17 @@ test("the homepage lights weather only while the hero owns the sky", () => {
   assert.equal(calm.length, 7, "every later homepage chapter should calm the weather");
 });
 
-test("the motion policy keeps phones, reduced motion and data saver quiet", async () => {
+test("visible hero video plays on phones unless the user asks the browser to save data", async () => {
   const file = "src/scripts/motion-control.js";
   assert.ok(exists(file), "the shared motion policy is missing");
   const { motionPolicy } = await import(path.join(root, file));
 
   assert.deepEqual(
     motionPolicy({ width: 390, fine: false, reduced: false, saveData: false, paused: false }),
+    { rich: false, paused: false, autoplay: true },
+  );
+  assert.deepEqual(
+    motionPolicy({ width: 390, fine: false, reduced: false, saveData: true, paused: false }),
     { rich: false, paused: false, autoplay: false },
   );
   assert.deepEqual(

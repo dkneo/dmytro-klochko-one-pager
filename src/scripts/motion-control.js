@@ -1,7 +1,7 @@
 export function motionPolicy({ width, fine, reduced, saveData, paused }) {
   const rich = width > 900 && fine && !reduced && !saveData;
   const still = reduced || paused;
-  return { rich, paused: still, autoplay: rich && !still };
+  return { rich, paused: still, autoplay: !still && !saveData };
 }
 
 export function setupMotionControl() {

@@ -1053,6 +1053,27 @@ svg.pin {
 /* ── mobile ─────────────────────────────────────────────────────────────── */
 
 @media (max-width: 700px) {
+  /* On a phone the living pile is the hero visual, not an appendix below all
+     of its copy. `display: contents` lets the existing semantic groups become
+     grid items so the films can sit directly after the introduction. */
+  [data-mode="dream"] #top .bay--flush {
+    row-gap: var(--sp-2);
+  }
+
+  [data-mode="dream"] #top .bay--flush > :first-child {
+    display: contents;
+  }
+
+  [data-mode="dream"] #top .card { order: 1; }
+  [data-mode="dream"] #top .hero-side { order: 2; }
+  [data-mode="dream"] #top .prose { order: 3; }
+  [data-mode="dream"] #top .hero-facts { order: 4; }
+
+  [data-mode="dream"] #top .hero-stack {
+    margin-top: 0.35rem;
+    margin-bottom: var(--sp-2);
+  }
+
   [data-mode="dream"] #top .portrait {
     width: min(70%, 300px);
   }
