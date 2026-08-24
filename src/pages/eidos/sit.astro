@@ -52,6 +52,16 @@ const description = "one painting at a time. his, or not his.";
       judged. right if it is yours, left if it is not. seven is a sitting.
     </p>
 
+    <form class="sit-gate" id="gate" hidden>
+      <p>the sitting writes to the vault, so it needs the door first.</p>
+      <label>
+        <span>password</span>
+        <input type="password" name="password" autocomplete="current-password" required />
+      </label>
+      <button type="submit">come in</button>
+      <span class="sit-gate-note" id="gate-note"></span>
+    </form>
+
     <div class="sit-stage" id="stage">
       <article class="sit-card" id="card" hidden>
         <div class="sit-art"><img id="art" alt="" decoding="async" /></div>
@@ -157,6 +167,33 @@ const description = "one painting at a time. his, or not his.";
     .sit-edge--in { right: 1.4rem; color: var(--hot); border-color: var(--hot); transform: rotate(6deg); }
     .sit-edge--out { left: 1.4rem; color: var(--dim); border-color: var(--dim); transform: rotate(-6deg); }
 
+    /* Asked once, up front. It used to fail silently on every keep and put
+       the card back at the front of the deck, so the same painting came
+       round seven times and nothing was saved. */
+    .sit-gate {
+      max-width: 34rem;
+      margin: 0 auto var(--sp-3);
+      padding: 0.9rem 1rem 1rem;
+      background: var(--deck);
+      border: 1px solid var(--hot);
+      border-radius: 10px;
+      display: grid;
+      gap: 0.6rem;
+    }
+    .sit-gate p { margin: 0; font-size: 0.98rem; color: var(--bone); }
+    .sit-gate label { display: grid; gap: 0.25rem; }
+    .sit-gate span { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .sit-gate input {
+      font: inherit; color: var(--bone); background: transparent;
+      border: 1px solid var(--rule); border-radius: 8px; padding: 0.5rem 0.7rem;
+    }
+    .sit-gate button {
+      justify-self: start; font: inherit; font-size: 0.875rem; cursor: pointer;
+      color: var(--bone); background: transparent;
+      border: 1px solid var(--hot); border-radius: 999px; padding: 0.5rem 1.1rem;
+    }
+    .sit-gate-note { color: var(--dim); font-size: 0.8rem; }
+
     .sit-note {
       margin: 1rem 0 0;
       font-size: 0.98rem;
@@ -240,6 +277,7 @@ const description = "one painting at a time. his, or not his.";
         // card is always instant
         deck.sort((a, b) => (a.src.startsWith("/") ? 0 : 1) - (b.src.startsWith("/") ? 0 : 1));
         if (!deck.length) return rest("nothing waits. every candidate has been judged; the harvester will bring more.");
+        if (!(await doorOpen())) shutOut(null);
         next();
       }
 
@@ -303,6 +341,14 @@ const description = "one painting at a time. his, or not his.";
       }
 
       // ── the verdicts, spoken to the server ─────────────────────────────
+      // A verdict either lands or it does not. When the door is shut it used
+      // to put the card back at the front of the deck and say so in small
+      // grey text, which produced the same painting seven times in a row and
+      // saved none of them. Now the sitting stops, keeps what is unsaved,
+      // and asks for the door.
+      let gated = false;
+      const pending = [];
+
       async function send(cand, verdict, weather) {
         try {
           const r = await fetch("/api/eidos/verdict", {
@@ -310,20 +356,61 @@ const description = "one painting at a time. his, or not his.";
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather }),
           });
-          if (r.status === 401) {
-            note.hidden = false;
-            note.innerHTML = "";
-            const a = document.createElement("a");
-            a.href = "/names"; a.target = "_blank"; a.rel = "noreferrer";
-            a.textContent = "open the door";
-            note.append("the door is closed, so nothing was saved. ", a,
-              document.createTextNode(", then judge this one again."));
-            deck.unshift(cand);  // the card comes back
-            return false;
-          }
+          if (r.status === 401) { shutOut({ cand, verdict, weather }); return false; }
           return r.ok;
-        } catch { return false; }
+        } catch {
+          note.hidden = false;
+          note.textContent = "that one did not reach the vault. the connection, not you.";
+          return false;
+        }
       }
+
+      function shutOut(unsaved) {
+        if (unsaved) pending.push(unsaved);
+        if (gated) return;
+        gated = true;
+        $("gate").hidden = false;
+        $("do").hidden = true;
+        $("gate-note").textContent = pending.length
+          ? `${pending.length} judgement${pending.length > 1 ? "s" : ""} waiting to be saved.`
+          : "";
+        $("gate").scrollIntoView({ block: "center", behavior: "instant" });
+      }
+
+      // The door is asked before the first card, not discovered on the first
+      // keep. An empty body is a 400 when the cookie is good and a 401 when
+      // it is not, so the check costs nothing and writes nothing.
+      async function doorOpen() {
+        try {
+          const r = await fetch("/api/eidos/verdict", {
+            method: "POST", headers: { "content-type": "application/json" }, body: "{}",
+          });
+          return r.status !== 401;
+        } catch { return true; }   // offline is not a locked door; let him judge
+      }
+
+      $("gate").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const field = e.target.querySelector("input");
+        $("gate-note").textContent = "trying…";
+        const body = new URLSearchParams({ password: field.value });
+        try {
+          await fetch("/names", { method: "POST", body, redirect: "follow" });
+        } catch {}
+        if (!(await doorOpen())) {
+          $("gate-note").textContent = "that is not it.";
+          field.select();
+          return;
+        }
+        // in, and everything that was waiting goes now
+        gated = false;
+        field.value = "";
+        $("gate").hidden = true;
+        $("do").hidden = false;
+        $("gate-note").textContent = "";
+        for (const u of pending.splice(0)) await send(u.cand, u.verdict, u.weather);
+        if (!cur) next();
+      });
 
       function fly(dir) {
         card.classList.add("is-flying");
