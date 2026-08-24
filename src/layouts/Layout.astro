@@ -145,6 +145,9 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
                 title="capitals on or off">
           <span class="tone-label">serious</span>
         </button>
+        <button class="motion-btn" type="button" aria-pressed="false">
+          <span class="motion-label">still</span>
+        </button>
         <details class="menu">
           <summary aria-label="more pages"><i></i><i></i><i></i></summary>
           <div class="menu-drop">
@@ -158,6 +161,9 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
                 word beside everything else, and the word is the whole point. */}
             <button class="tone-btn tone-btn--fold" type="button" aria-pressed="false">
               <span class="tone-label">serious</span>
+            </button>
+            <button class="motion-btn motion-btn--fold" type="button" aria-pressed="false">
+              <span class="motion-label">still</span>
             </button>
           </div>
         </details>
@@ -205,29 +211,9 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
       </div>
     </footer>
 
-    <!--
-      Muted autoplay is allowed everywhere and still refused sometimes: iOS in
-      Low Power Mode blocks it outright, and a tab opened in the background
-      gets deferred. The markup asks nicely; this asks again when the clip is
-      ready, and once more on the first touch, which is the moment iOS relents.
-    -->
-    <script is:inline>
-      (() => {
-        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        const clips = [...document.querySelectorAll(".hero-stack video")];
-        if (!clips.length) return;
-        const nudge = () => {
-          for (const v of clips) if (v.paused) v.play().catch(() => {});
-        };
-        for (const v of clips) {
-          v.addEventListener("loadeddata", nudge, { once: true });
-          v.addEventListener("canplay", nudge, { once: true });
-        }
-        nudge();
-        for (const ev of ["pointerdown", "touchstart", "scroll", "visibilitychange"]) {
-          addEventListener(ev, nudge, { passive: true, once: true });
-        }
-      })();
+    <script>
+      import { setupMotionControl } from "../scripts/motion-control.js";
+      setupMotionControl();
     </script>
 
     <!--
@@ -356,7 +342,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     </script>
 
     <!--
-      The sky leans toward the cursor. Two custom properties on the root, read
+      The sky leans toward the cursor. Two custom properties on the scene, read
       by CSS; no layout is touched and nothing is measured per frame, so it
       costs a pointermove listener and a compositor transform. Skipped
       entirely for reduced motion and for coarse pointers, where there is no
@@ -365,46 +351,34 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
     <script is:inline>
       (() => {
         if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        const root = document.documentElement;
+        if (!matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine)").matches) return;
+        const sky = document.querySelector(".scenes");
+        if (!sky) return;
         // Direct write, no requestAnimationFrame: rAF is throttled in
         // embedded and background contexts, and a sky that only falls dark
         // on some frames is worse than one style write per scroll event.
         const onScroll = () => {
-          root.style.setProperty("--scroll",
+          sky.style.setProperty("--scroll",
             Math.min(1.2, scrollY / (innerHeight * 1.2)).toFixed(4));
         };
         addEventListener("scroll", onScroll, { passive: true });
         onScroll();
-        if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
         let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
         addEventListener("pointermove", (e) => {
           tx = (e.clientX / innerWidth - 0.5) * 2;
           ty = (e.clientY / innerHeight - 0.5) * 2;
-          root.style.setProperty("--mx", (e.clientX / innerWidth) * 100 + "%");
-          root.style.setProperty("--my", (e.clientY / innerHeight) * 100 + "%");
+          sky.style.setProperty("--mx", (e.clientX / innerWidth) * 100 + "%");
+          sky.style.setProperty("--my", (e.clientY / innerHeight) * 100 + "%");
           if (!raf) raf = requestAnimationFrame(ease);
         }, { passive: true });
         function ease() {
           x += (tx - x) * 0.06;
           y += (ty - y) * 0.06;
-          root.style.setProperty("--px", x.toFixed(4));
-          root.style.setProperty("--py", y.toFixed(4));
+          sky.style.setProperty("--px", x.toFixed(4));
+          sky.style.setProperty("--py", y.toFixed(4));
           raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.001 ? requestAnimationFrame(ease) : 0;
         }
       })();
-    </script>
-
-    <!--
-      Motion removed rather than added: looping autoplay is moving content that
-      never stops, so WCAG 2.2.2 wants a way out, and CSS cannot pause a video.
-    -->
-    <script is:inline>
-      if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        for (const v of document.querySelectorAll("video[autoplay]")) {
-          v.removeAttribute("autoplay");
-          v.pause();
-        }
-      }
     </script>
 
     <!-- The pile of prints leans toward the cursor while it is over them,
@@ -520,17 +494,20 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
       })();
     </script>
 
-    <!-- The petal field: on idle, when motion is welcome, the nine CSS
-         petals hand over to a WebGL hundred with real depth. three.js loads
-         only here, only then; if anything declines, the CSS petals never
-         stop falling. -->
+    <!-- Desktop gets depth; phones keep the lighter CSS field. -->
     <script>
-      if (!matchMedia("(prefers-reduced-motion: reduce)").matches &&
-          document.querySelector(".dream-sky")) {
-        const boot = () => import("../scripts/petal-field.js")
-          .then((m) => m.start()).catch(() => {});
-        (window.requestIdleCallback || ((f) => setTimeout(f, 3000)))(boot);
-      }
+      let fieldRequested = false;
+      const bootField = () => {
+        const root = document.documentElement;
+        if (fieldRequested || root.dataset.motionTier !== "rich" ||
+            root.dataset.motion !== "running" || !document.querySelector(".dream-sky")) return;
+        fieldRequested = true;
+        import("../scripts/petal-field.js").then((m) => m.start()).catch(() => {
+          fieldRequested = false;
+        });
+      };
+      (window.requestIdleCallback || ((f) => setTimeout(f, 3000)))(bootField);
+      addEventListener("site-motion-change", bootField);
     </script>
 
     <!-- Clicking an email link also copies the address and says so in the
@@ -563,9 +540,12 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
         if (!sections.length) return;
         const root = document.documentElement;
         root.dataset.scene = sections[0].dataset.scene;
+        root.dataset.weather = sections[0].dataset.weather || sections[0].dataset.scene;
         const io = new IntersectionObserver((entries) => {
           for (const e of entries) {
-            if (e.isIntersecting) root.dataset.scene = e.target.dataset.scene;
+            if (!e.isIntersecting) continue;
+            root.dataset.scene = e.target.dataset.scene;
+            root.dataset.weather = e.target.dataset.weather || e.target.dataset.scene;
           }
         }, { rootMargin: "-42% 0px -42% 0px" });
         for (const s of sections) io.observe(s);

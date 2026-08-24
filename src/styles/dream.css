@@ -273,7 +273,7 @@
 
 /* Petals still fall over the fire — falling pink against rising ember is
    the whole mood — but they step back so the fire leads its own scene. */
-html[data-scene="fire"] .dream-sky b {
+html[data-weather="fire"] .dream-sky b {
   opacity: 0.5;
 }
 
@@ -730,7 +730,7 @@ html:not([data-scene="swim"]) .scenes .sunpulse {
   opacity: 0;
 }
 
-html[data-scene="fire"] .scenes .firelight {
+html[data-weather="fire"] .scenes .firelight {
   opacity: 1;
   animation: fire-flicker 5.4s ease-in-out infinite;
 }
@@ -1114,8 +1114,21 @@ svg.pin {
   transition: opacity 900ms var(--ease);
 }
 
-html[data-scene="fire"] .weather--fire { opacity: 1; }
+html[data-weather="fire"] .weather--fire { opacity: 1; }
 html[data-scene="snow"] .weather--snow { opacity: 1; }
+
+html[data-motion="paused"] .dream-sky b,
+html[data-motion="paused"] .scenes i,
+html[data-motion="paused"] .scenes .sunpulse,
+html[data-motion="paused"] .scenes .firelight,
+html[data-motion="paused"] .weather s {
+  animation-play-state: paused !important;
+}
+
+html[data-motion="paused"] .weather,
+html[data-motion="paused"] .scenes .firelight {
+  opacity: 0 !important;
+}
 
 /* Embers: born at the flame, not along the whole bottom of the screen —
    the fire sits at 74% across, 80% down, so they start there, cluster
@@ -1188,6 +1201,34 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .weather { display: none; }
+}
+
+/* Phones keep the painting and a handful of petals. Fire particles depend on
+   a desktop crop, and WebGL gives a small screen more churn than atmosphere. */
+@media (max-width: 900px) {
+  .weather--fire,
+  .scenes .firelight {
+    display: none;
+  }
+
+  .scenes i {
+    transform: none;
+    animation: none;
+  }
+
+  .scenes i[data-s="fire"] {
+    background-position: 68% center;
+  }
+}
+
+@media (max-width: 700px) {
+  .dream-sky b {
+    opacity: 0.34;
+  }
+
+  .dream-sky b:nth-of-type(n + 6) {
+    display: none;
+  }
 }
 
 /* ── eidos ──────────────────────────────────────────────────────────────────
@@ -3404,7 +3445,8 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 /* The tone switch. It sits in the footer with the index because it is a way of
    reading the page, not a place to go. */
-[data-mode="dream"] .tone-btn {
+[data-mode="dream"] .tone-btn,
+[data-mode="dream"] .motion-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.55em;
@@ -3425,12 +3467,14 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
     scale 90ms var(--ease);
 }
 
-[data-mode="dream"] .tone-btn:hover {
+[data-mode="dream"] .tone-btn:hover,
+[data-mode="dream"] .motion-btn:hover {
   color: var(--hot);
   border-color: rgb(255 155 192 / 45%);
 }
 
-[data-mode="dream"] .tone-btn[aria-pressed="true"] {
+[data-mode="dream"] .tone-btn[aria-pressed="true"],
+[data-mode="dream"] .motion-btn[aria-pressed="true"] {
   color: var(--hot);
   border-color: rgb(255 155 192 / 55%);
   background: rgb(255 155 192 / 10%);
@@ -3452,7 +3496,8 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 /* In the header the switch is just its two letters; the word only appears
    where there is room for it. */
 @media (max-width: 860px) {
-  [data-mode="dream"] .tone-btn { padding: 0.3rem 0.7rem; }
+  [data-mode="dream"] .tone-btn,
+  [data-mode="dream"] .motion-btn { padding: 0.3rem 0.7rem; }
 }
 
 /* ── the three by say hi ────────────────────────────────────────────────
@@ -3525,7 +3570,8 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 
 /* One switch showing at a time: the header keeps it where there is room, the
    fold keeps it where there is not. */
-[data-mode="dream"] .tone-btn--fold {
+[data-mode="dream"] .tone-btn--fold,
+[data-mode="dream"] .motion-btn--fold {
   width: 100%;
   justify-content: flex-start;
   border: 0;
@@ -3536,17 +3582,20 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
   color: var(--dim);
 }
 
-[data-mode="dream"] .tone-btn--fold:hover {
+[data-mode="dream"] .tone-btn--fold:hover,
+[data-mode="dream"] .motion-btn--fold:hover {
   background: rgb(236 230 217 / 6%);
   color: var(--hot);
 }
 
 @media (max-width: 860px) {
-  [data-mode="dream"] .site-nav > .tone-btn { display: none; }
+  [data-mode="dream"] .site-nav > .tone-btn,
+  [data-mode="dream"] .site-nav > .motion-btn { display: none; }
 }
 
 @media (min-width: 861px) {
-  [data-mode="dream"] .tone-btn--fold { display: none; }
+  [data-mode="dream"] .tone-btn--fold,
+  [data-mode="dream"] .motion-btn--fold { display: none; }
 }
 
 /* ── the hokku exercise ─────────────────────────────────────────────────── */
@@ -4226,7 +4275,8 @@ html[data-scene="snow"] .weather--snow { opacity: 1; }
 [data-mode="dream"] .research a,
 [data-mode="dream"] .to-top,
 [data-mode="dream"] .signoff-btn,
-[data-mode="dream"] .tone-btn {
+[data-mode="dream"] .tone-btn,
+[data-mode="dream"] .motion-btn {
   display: inline-flex;
   align-items: center;
   min-height: 24px;

@@ -76,7 +76,7 @@ export function start() {
   // The css sky had nine petals; this is those nine given air, not a storm.
   // Most of the field sits far away and small — near passes stay rare.
   const fine = matchMedia("(pointer: fine)").matches;
-  const N = innerWidth < 720 ? 26 : 44;
+  const N = 44;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 100);
@@ -85,6 +85,7 @@ export function start() {
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
   renderer.setSize(innerWidth, innerHeight);
   const canvas = renderer.domElement;
+  canvas.className = "sky-field";
   canvas.style.cssText = "position:fixed;inset:0;z-index:2;pointer-events:none";
   canvas.setAttribute("aria-hidden", "true");
   document.body.appendChild(canvas);
@@ -117,7 +118,7 @@ export function start() {
   // The css .weather already knows the law: embers only while the campfire
   // holds the sky, snow only over the village, crossfaded in 900ms, born at
   // the flame (74% across, 80% down) and dead well before the sky. The same
-  // law here — the scene attribute is watched, the intensities chase it.
+  // law here — the weather attribute is watched, the intensities chase it.
   const EMBER_N = 22, SNOW_N = 34;
 
   const emberMat = new THREE.MeshBasicMaterial({
@@ -174,7 +175,7 @@ export function start() {
 
   // which weather the sky wants right now — read each frame, it is one string
   const want = () => {
-    const s = document.documentElement.dataset.scene;
+    const s = document.documentElement.dataset.weather;
     return { ember: s === "fire" ? 1 : 0, snow: s === "snow" ? 1 : 0 };
   };
   const C = new THREE.Color();
@@ -331,6 +332,16 @@ export function start() {
   };
   renderer.setAnimationLoop(tick);
 
+  let running = true;
+  const applyMotion = (policy) => {
+    running = policy.rich && !policy.paused;
+    canvas.hidden = !running;
+    document.documentElement.classList.toggle("sky-3d", policy.rich);
+    renderer.setAnimationLoop(running && !document.hidden ? tick : null);
+    last = performance.now();
+  };
+  addEventListener("site-motion-change", (event) => applyMotion(event.detail));
+
   addEventListener("resize", () => {
     camera.aspect = innerWidth / innerHeight;
     camera.updateProjectionMatrix();
@@ -338,7 +349,7 @@ export function start() {
   }, { passive: true });
 
   document.addEventListener("visibilitychange", () => {
-    renderer.setAnimationLoop(document.hidden ? null : tick);
+    renderer.setAnimationLoop(document.hidden || !running ? null : tick);
     last = performance.now();
   });
 }
