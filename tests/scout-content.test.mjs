@@ -17,6 +17,11 @@ privateSourceTest("the scout hero keeps a spoken space across its visual line br
   assert.match(html, /Find the people<br> the ads are/);
 });
 
+privateSourceTest("the Grok Bot row uses the current eligible plan instead of the retired flat price", () => {
+  assert.match(html, /SuperGrok Plus \(\$100\/month when checked\), Heavy/);
+  assert.doesNotMatch(html, /\$300\/month/);
+});
+
 privateSourceTest("scout role includes motion-design research, organic publishing and self-shot UGC", () => {
   assert.match(html, /motion designers/i);
   assert.match(html, /organic/i);
