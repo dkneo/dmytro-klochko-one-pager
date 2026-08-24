@@ -1818,7 +1818,7 @@ html[data-motion="paused"] .scenes .firelight {
    desktop the whole summary becomes one scan line: company and product,
    remit, then the disclosure. This uses the space the page already owns and
    cuts the dead right column without turning the cv into cards. */
-@media (min-width: 1101px) {
+@media (min-width: 861px) {
   [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) {
     max-width: none;
     padding: var(--sp-1) 0;
@@ -2105,7 +2105,7 @@ html[data-motion="paused"] .scenes .firelight {
   }
 }
 
-@media (min-width: 1101px) {
+@media (min-width: 861px) {
   [data-mode="dream"] .cv-jobs > li.cv-job--media {
     max-width: none;
   }
