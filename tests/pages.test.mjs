@@ -89,6 +89,26 @@ test("the sitting can be sat", () => {
   assert.match(css, /overflow-x:\s*clip/);
   // and a finger must still be able to scroll the page past the deck
   assert.match(css, /touch-action:\s*pan-y/);
+
+  // A kept card waits, lit, while its weather is settled: asking which
+  // weather a painting belongs to after throwing the painting off screen is
+  // filing from memory, and it left a screen of empty dark behind.
+  // Astro scopes every selector with a [data-astro-cid-…] attribute, so a
+  // naive /\.sit-after\{/ never matches and a negative assertion built on one
+  // passes while guarding nothing. `scoped` allows for the attribute.
+  const scoped = (sel) => sel.replace(/\./g, "\\.") + "(?:\\[[^\\]]*\\])?";
+  assert.match(css, new RegExp(`${scoped(".sit-card")}\\.is-held`));
+  assert.ok(
+    !new RegExp(`${scoped(".sit-after")}\\{[^}]*position:\\s*absolute`).test(css),
+    "the question must sit under its card in the flow, not float below a void",
+  );
+  assert.ok(
+    !new RegExp(`${scoped(".sit-stage")}\\{[^}]*min-height`).test(css),
+    "the stage must not reserve height it may not fill",
+  );
+  // the guard must be able to fail: prove it sees the rules at all
+  assert.match(css, new RegExp(`${scoped(".sit-after")}\\{`));
+  assert.match(css, new RegExp(`${scoped(".sit-stage")}\\{`));
 });
 
 test("both orbits read from one mapper, and agree", async () => {
