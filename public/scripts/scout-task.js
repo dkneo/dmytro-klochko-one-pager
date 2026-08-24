@@ -2,16 +2,23 @@ const COLUMNS = [
   "number",
   "creator or example",
   "direct link",
+  "source channel",
   "hook or concept",
   "target audience",
   "why it could work for Replika",
-  "source channel",
-  "score",
+  "hook clarity (0-2)",
+  "Replika fit (0-2)",
+  "creator naturalness (0-2)",
+  "production usability (0-2)",
+  "distinctiveness (0-2)",
+  "total score (0-10)",
   "shortlist",
+  "review notes",
 ];
 
 export function buildBlankCsv(count = 30) {
-  const rows = Array.from({ length: count }, (_, index) => `${index + 1},,,,,,,,`);
+  const emptyCells = ",".repeat(COLUMNS.length - 1);
+  const rows = Array.from({ length: count }, (_, index) => `${index + 1}${emptyCells}`);
   return `${COLUMNS.join(",")}\n${rows.join("\n")}\n`;
 }
 
@@ -29,16 +36,19 @@ function downloadCsv() {
 }
 
 async function copyHeaders(button) {
+  const originalLabel = button.textContent;
   try {
     await navigator.clipboard.writeText(COLUMNS.join("\t"));
     button.textContent = "headers copied";
   } catch {
     button.textContent = "copy unavailable";
   }
+  window.setTimeout(() => {
+    button.textContent = originalLabel;
+  }, 1600);
 }
 
 if (typeof document !== "undefined") {
   document.querySelector("#download-sheet")?.addEventListener("click", downloadCsv);
   document.querySelector("#copy-headers")?.addEventListener("click", (event) => copyHeaders(event.currentTarget));
 }
-
