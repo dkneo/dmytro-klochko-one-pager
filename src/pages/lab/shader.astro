@@ -42,6 +42,15 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <title>the instrument · lab</title>
+    <meta name="description" content="a poem, read by turning five knobs. the paint is borrowed from real paintings." />
+    <meta property="og:title" content="the instrument" />
+    <meta property="og:description" content="a poem, read by turning five knobs. the paint is borrowed from real paintings." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://dmklochko.com/images/lab-shader-og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="the instrument" />
+    <meta name="twitter:description" content="a poem, read by turning five knobs. the paint is borrowed from real paintings." />
+    <meta name="twitter:image" content="https://dmklochko.com/images/lab-shader-og.jpg" />
     <style is:global>
       :root {
         --void: #262b44; --bone: #ece6d9; --dim: #a9aecb; --hot: #ff9bc0;
@@ -129,6 +138,10 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
       <div class="row">
         <button type="button" id="ink" class="on">poem on</button>
         <button type="button" id="roll">random</button>
+      </div>
+      <div class="row">
+        <button type="button" id="copy">copy link</button>
+        <button type="button" id="save">save image</button>
         <a href="?grid">32 corners →</a>
       </div>
     </div>
@@ -143,8 +156,15 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         const { pals, poem } = JSON.parse(document.getElementById("pal-data").textContent);
         const params = new URLSearchParams(location.search);
         const grid = params.has("grid");
+        const poster = params.has("poster");
         const palIndex = Math.min(pals.length - 1, Math.max(0, +(params.get("pal") || 0)));
         const shape0 = ["globe", "pyramid", "flower", "shard"].includes(params.get("shape")) ? params.get("shape") : "globe";
+        // A reading is its five answers, its painting and its form, so that
+        // is all a link needs to carry: open someone's link and you are
+        // looking at their object, not at a page about it.
+        const KEYS = ["watch", "gather", "comfort", "arrive", "certain"];
+        const fromUrl = (params.get("k") || "").split(",").map(Number);
+        const start = KEYS.map((k, i) => Number.isFinite(fromUrl[i]) ? Math.min(100, Math.max(0, fromUrl[i])) / 100 : 0.5);
 
         // ── the poem, as a texture wrapped round the form ─────────────────
         function poemCanvas(w, h) {
@@ -345,8 +365,8 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
           const uniforms = {
             uTime: { value: 0 }, uMouse: { value: new THREE.Vector2(0.5, 0.5) },
             uRes: { value: new THREE.Vector2(width, height) },
-            uWatch: { value: 0.5 }, uGather: { value: 0.5 }, uComfort: { value: 0.5 },
-            uArrive: { value: 0.5 }, uCertain: { value: 0.5 }, uInk: { value: 1 },
+            uWatch: { value: start[0] }, uGather: { value: start[1] }, uComfort: { value: start[2] },
+            uArrive: { value: start[3] }, uCertain: { value: start[4] }, uInk: { value: 1 },
             uPal0: { value: new THREE.Color() }, uPal1: { value: new THREE.Color() },
             uPal2: { value: new THREE.Color() }, uPal3: { value: new THREE.Color() },
             uPal4: { value: new THREE.Color() },
@@ -374,7 +394,7 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         // ── the contact sheet ─────────────────────────────────────────────
         if (grid) {
           document.body.innerHTML = "<div class='sheet'><h1>every corner of the five knobs · "
-            + palette.weather + " · " + palette.who + "</h1></div>";
+            + (palette.weather || palette.title) + " · " + palette.who + "</h1></div>";
           const holder = document.querySelector(".sheet");
           const TW = 300, TH = 300, COLS = 8, ROWS = 4, PAD = 22;
           const S = makeScene(TW, TH);
@@ -404,6 +424,16 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         }
 
         // ── the live instrument ───────────────────────────────────────────
+        if (poster) {
+          // The object alone, filling the window: what a pasted link shows.
+          // Hidden, not removed — the controls are still wired up below and
+          // removing them threw before the first frame ever rendered.
+          document.getElementById("rig").style.display = "none";
+          document.querySelector("h1").style.display = "none";
+          const f = document.getElementById("frame");
+          f.style.cssText = "position:fixed;inset:0;max-width:none;max-height:none;aspect-ratio:auto;border:0;border-radius:0";
+          document.body.style.padding = "0";
+        }
         const frame = document.getElementById("frame");
         const rect = () => frame.getBoundingClientRect();
         const S = makeScene(Math.max(1, rect().width), Math.max(1, rect().height));
@@ -415,7 +445,8 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         setPalette(S.uniforms, palette);
 
         const whoLine = document.getElementById("who");
-        const showWho = () => { whoLine.textContent = palette.weather + " · " + palette.who; };
+        // his own paintings carry a title where the museum ones carry a weather
+        const showWho = () => { whoLine.textContent = (palette.weather || palette.title) + " · " + palette.who; };
         showWho();
 
         addEventListener("resize", () => {
@@ -443,6 +474,11 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         frame.addEventListener("pointercancel", drop);
 
         const out = (id, v) => { document.querySelector(`[data-out="${id}"]`).textContent = v.toFixed(2); };
+        KEYS.forEach((k, i) => {
+          const input = document.querySelector(`[data-knob="${k}"]`);
+          input.value = start[i];
+          out(k, start[i]);
+        });
         for (const input of document.querySelectorAll("[data-knob]")) {
           input.addEventListener("input", () => {
             const k = input.dataset.knob;
@@ -487,6 +523,73 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
             b.classList.add("on");
           });
           palRow.appendChild(b);
+        });
+
+        // ── sharing ──────────────────────────────────────────────────────
+        const readingUrl = () => {
+          const u = new URL(location.href);
+          u.search = "";
+          u.searchParams.set("pal", String(pals.indexOf(palette)));
+          u.searchParams.set("shape", document.querySelector("[data-shape].on").dataset.shape);
+          u.searchParams.set("k", KEYS.map((k) =>
+            Math.round(S.uniforms["u" + k[0].toUpperCase() + k.slice(1)].value * 100)).join(","));
+          return u.toString();
+        };
+
+        const flash = (btn, word) => {
+          const had = btn.textContent;
+          btn.textContent = word;
+          btn.classList.add("on");
+          setTimeout(() => { btn.textContent = had; btn.classList.remove("on"); }, 1400);
+        };
+
+        document.getElementById("copy").addEventListener("click", async (e) => {
+          const url = readingUrl();
+          history.replaceState(null, "", url);
+          try {
+            await navigator.clipboard.writeText(url);
+            flash(e.target, "copied ✓");
+          } catch {
+            // no clipboard permission: put the link somewhere the keystroke
+            // can actually reach, rather than telling them to press a key
+            // with nothing selected
+            const field = document.createElement("input");
+            field.value = url;
+            field.style.cssText = "position:fixed;left:1rem;bottom:4.5rem;z-index:9;width:min(30rem,90vw);font:inherit;font-size:.7rem;padding:.4rem .6rem;color:var(--bone);background:var(--deck);border:1px solid var(--hot);border-radius:8px";
+            document.body.appendChild(field);
+            field.select();
+            flash(e.target, "select & copy");
+            field.addEventListener("blur", () => field.remove());
+          }
+        });
+
+        // The still is rendered fresh at poster size rather than scaled up
+        // from the canvas on screen, so what gets posted is sharp.
+        document.getElementById("save").addEventListener("click", (e) => {
+          const W = 1600, H = 1000;
+          const P = makeScene(W, H);
+          P.uniforms.uRes.value.set(W, H);
+          P.mesh.geometry.dispose();
+          P.mesh.geometry = geometry(document.querySelector("[data-shape].on").dataset.shape);
+          P.mesh.rotation.copy(S.mesh.rotation);
+          for (const k of ["Watch", "Gather", "Comfort", "Arrive", "Certain", "Ink"]) {
+            P.uniforms["u" + k].value = S.uniforms["u" + k].value;
+          }
+          P.uniforms.uMouse.value.copy(S.uniforms.uMouse.value);
+          P.uniforms.uTime.value = S.uniforms.uTime.value;
+          const tx = new THREE.CanvasTexture(poemCanvas(W, H));
+          tx.colorSpace = THREE.SRGBColorSpace;
+          P.uniforms.uText.value = tx;
+          setPalette(P.uniforms, palette);
+          P.renderer.render(P.scene, P.camera);
+          P.renderer.domElement.toBlob((blob) => {
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = `reading-${palette.title.replace(/\W+/g, "-")}.png`;
+            a.click();
+            setTimeout(() => { URL.revokeObjectURL(a.href); P.renderer.dispose(); }, 4000);
+            flash(e.target, "saved ✓");
+          }, "image/png");
         });
 
         const t0 = performance.now();
