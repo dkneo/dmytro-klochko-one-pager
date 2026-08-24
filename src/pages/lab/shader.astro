@@ -70,6 +70,26 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
       h1 { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
            color: var(--dim); font-weight: 400; margin-bottom: 0.7rem; }
 
+      @font-face { font-family: "Newsreader"; src: url("/fonts/newsreader-400i.woff2") format("woff2");
+                   font-style: italic; font-weight: 400; font-display: swap; }
+
+      /* The poem is set, not painted. Its letterforms still stir the paint
+         underneath — invisibly — so it is in the image without being stuck
+         onto it. */
+      .poem {
+        font-family: "Newsreader", Georgia, serif; font-style: italic;
+        font-size: clamp(1.3rem, 2.6vw, 1.9rem); line-height: 1.7;
+        color: var(--bone); margin: 0 auto 1rem; text-align: center;
+        max-width: min(78vh, 720px);
+      }
+      .poem span { display: block; }
+
+      .reading {
+        max-width: min(78vh, 720px); margin: 0.8rem auto 0; text-align: center;
+        font-size: 0.72rem; letter-spacing: 0.08em; color: var(--dim);
+      }
+      .reading b { color: var(--hot); font-weight: 400; }
+
       /* the form sits in its own frame, not behind everything */
       .frame {
         position: relative;
@@ -114,7 +134,9 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
   <body>
     <div>
       <h1>the instrument</h1>
+      <p class="poem">{POEM.split("\n").map((l) => <span>{l}</span>)}</p>
       <div class="frame" id="frame"></div>
+      <p class="reading" id="reading"></p>
     </div>
 
     <div class="rig" id="rig">
@@ -136,7 +158,6 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
       <p class="who" id="who"></p>
 
       <div class="row">
-        <button type="button" id="ink" class="on">poem on</button>
         <button type="button" id="roll">random</button>
       </div>
       <div class="row">
@@ -167,27 +188,6 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         const start = KEYS.map((k, i) => Number.isFinite(fromUrl[i]) ? Math.min(100, Math.max(0, fromUrl[i])) / 100 : 0.5);
 
         // ── the poem, as a texture wrapped round the form ─────────────────
-        function poemCanvas(w, h) {
-          const c = document.createElement("canvas");
-          c.width = w; c.height = h;
-          const g = c.getContext("2d");
-          const lines = poem.split("\n");
-          g.textAlign = "center";
-          g.textBaseline = "middle";
-          g.fillStyle = "#fff";
-          const room = w * 0.46;
-          let size = Math.round(Math.min(w / 24, h / 13));
-          for (let i = 0; i < 40; i++) {
-            g.font = `italic ${size}px Georgia, serif`;
-            if (Math.max(...lines.map((l) => g.measureText(l).width)) <= room) break;
-            size = Math.round(size * 0.94);
-          }
-          const lead = size * 1.5;
-          let y = h * 0.5 - (lines.length - 1) * lead / 2;
-          for (const l of lines) { g.fillText(l, w / 2, y); y += lead; }
-          return c;
-        }
-
         const VERT = `
           varying vec2 vUv; varying vec3 vN; varying vec3 vPos; varying vec3 vView;
           void main(){
@@ -202,11 +202,10 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
         const FRAG = `
           precision highp float;
           varying vec2 vUv; varying vec3 vN; varying vec3 vPos; varying vec3 vView;
-          uniform float uTime, uWatch, uGather, uComfort, uArrive, uCertain, uInk;
+          uniform float uTime, uWatch, uGather, uComfort, uArrive, uCertain;
           uniform vec2 uMouse, uRes;
           uniform vec3 uPal0, uPal1, uPal2, uPal3, uPal4;
           uniform float uEdge, uBand, uGrain, uGlaze, uCalm;
-          uniform sampler2D uText;
 
           float hash(vec3 p){ return fract(sin(dot(p, vec3(127.1, 311.7, 74.7))) * 43758.5453123); }
           float noise(vec3 p){
@@ -244,36 +243,30 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
           void main(){
             float t = uTime;
 
-            // The poem is read in screen space, not wrapped round the form:
-            // on a sphere the uv seam carried most of it out of sight, and a
-            // poem you have to rotate to finish is not a poem. It hangs still
-            // while the paint turns underneath it.
-            vec2 suv = gl_FragCoord.xy / uRes;
-            vec2 px = 1.4 / uRes;
-            float ink  = texture2D(uText, suv).a;
-            vec2 grad = vec2(
-              texture2D(uText, suv + vec2(px.x, 0.0)).a - texture2D(uText, suv - vec2(px.x, 0.0)).a,
-              texture2D(uText, suv + vec2(0.0, px.y)).a - texture2D(uText, suv - vec2(0.0, px.y)).a);
+            // The poem is not in here. Two attempts put it in — the
+            // letterforms displacing the paint, then the same softened to a
+            // mass — and both left a rectangle of disturbance in the middle
+            // of every object. It is set in type above instead, where it can
+            // be read, and the paint is only paint.
 
             // watching: the field leans toward where the reader is looking
             vec3 m = vec3((uMouse - 0.5) * 2.0, 0.85);
-            float pull = uWatch * 0.9 * exp(-length(vPos - m) * 1.5);
+            float pull = uWatch * 2.6 * exp(-length(vPos - m) * 1.1);
 
             float dir = mix(-1.0, 1.0, uArrive);
             float tremor = 1.0 - uCertain;
 
-            vec3 q = vPos * mix(2.7, 1.05, uGather);
-            q += normalize(vPos + vec3(1e-4)) * dir * t * mix(0.02, 0.16, abs(uArrive - 0.5) * 2.0);
+            vec3 q = vPos * mix(5.2, 0.5, uGather);
+            q += normalize(vPos + vec3(1e-4)) * dir * t * mix(0.01, 0.62, abs(uArrive - 0.5) * 2.0);
             q -= (vPos - m) * pull;
-            q += vec3(grad * uInk * 7.0, 0.0);
 
             vec3 w = vec3(fbm(q + vec3(0.0, t * 0.05, 0.0)), fbm(q + vec3(5.2, 1.3, 2.1) - t * 0.04), fbm(q - vec3(3.3, 0.7, 6.4)));
-            q += (w - 0.5) * (0.7 + tremor * 2.0);
-            q += (vec3(fbm(q * 4.2 + t * 0.35), fbm(q * 4.4 - t * 0.3), fbm(q * 4.0)) - 0.5) * tremor * 0.7;
+            q += (w - 0.5) * (0.45 + tremor * 3.4);
+            q += (vec3(fbm(q * 4.2 + t * 0.35), fbm(q * 4.4 - t * 0.3), fbm(q * 4.0)) - 0.5) * tremor * 1.5;
 
             float smoothF = fbm(q * 1.45);
             float ridged = ridge(q * 1.8);
-            float bands = 0.5 + 0.5 * sin((smoothF * (4.0 + 7.0 * uBand) + t * 0.05) * 3.14159);
+            float bands = 0.5 + 0.5 * sin((smoothF * (5.0 + 9.0 * uBand) + t * 0.05) * 3.14159 * mix(1.0, 3.2, uCertain));
 
             // The knobs are the reading; the manner is the hand holding the
             // brush. Turner has no edges and endless glaze, af Klint draws
@@ -289,15 +282,19 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
             float glazeLayer = fbm(q * 0.55 + vec3(3.1, 1.4, 0.7));
             f = mix(f, f * (0.55 + 0.9 * glazeLayer), uGlaze * 0.7);
 
-            f += ink * uInk * 0.5;
 
             // gathered toward the pole the reader faces, or pushed outward
             float facing = clamp(dot(normalize(vN), normalize(vView)), 0.0, 1.0);
-            f *= mix(0.5 + 0.95 * (1.0 - facing), 0.55 + 0.9 * facing, uGather);
+            // gathered into a single lit core, or thrown out to the rim
+            float core = pow(facing, mix(1.0, 6.0, uGather));
+            f *= mix(0.25 + 1.7 * pow(1.0 - facing, 1.6), 0.3 + 1.9 * core, uGather);
 
             float c = clamp(f, 0.0, 1.0);
-            float bite = mix(2.1, 4.4, uEdge) * mix(1.0, 0.55, uCalm);
-            float hard = clamp((c - 0.48) * mix(bite, 1.0, uComfort) + 0.46, 0.0, 1.0);
+            float bite = mix(1.6, 7.5, uEdge) * mix(1.0, 0.5, uCalm);
+            float hard = clamp((c - 0.48) * mix(bite, 0.85, uComfort) + 0.46, 0.0, 1.0);
+            // refusing goes all the way to hard steps of colour
+            float steps = floor(hard * 5.0) / 5.0;
+            hard = mix(steps, hard, clamp(uComfort * 2.0, 0.0, 1.0));
             float soft = smoothstep(-0.05 - 0.25 * uGlaze, 1.05 + 0.2 * uGlaze, c + 0.12 * fbm(q * 0.5));
             c = mix(hard, soft, mix(uComfort, 0.5 + 0.5 * uComfort, 1.0 - uEdge));
 
@@ -312,12 +309,9 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
 
             col = col * 1.06 / (1.0 + col * 0.42);
 
-            // the poem takes whichever end of its palette the field is not
-            // using, so it can never be white on white
-            float under = dot(col, vec3(0.299, 0.587, 0.114));
-            vec3 letter = mix(uPal4, uPal0, smoothstep(0.4, 0.7, under));
-            col = mix(col, letter, ink * uInk * 0.66);
-            col += length(grad) * uInk * 0.8 * letter * (0.3 + 0.4 * uCertain);
+            // The poem is not drawn here. It is set in type beside the
+            // object; what it does inside the paint is push it around, which
+            // is why the structure below is the poem's and not noise.
 
             gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
           }`;
@@ -366,13 +360,12 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
             uTime: { value: 0 }, uMouse: { value: new THREE.Vector2(0.5, 0.5) },
             uRes: { value: new THREE.Vector2(width, height) },
             uWatch: { value: start[0] }, uGather: { value: start[1] }, uComfort: { value: start[2] },
-            uArrive: { value: start[3] }, uCertain: { value: start[4] }, uInk: { value: 1 },
+            uArrive: { value: start[3] }, uCertain: { value: start[4] },
             uPal0: { value: new THREE.Color() }, uPal1: { value: new THREE.Color() },
             uPal2: { value: new THREE.Color() }, uPal3: { value: new THREE.Color() },
             uPal4: { value: new THREE.Color() },
             uEdge: { value: 0.4 }, uBand: { value: 0.3 }, uGrain: { value: 0.4 },
             uGlaze: { value: 0.5 }, uCalm: { value: 0.6 },
-            uText: { value: null },
           };
           const material = new THREE.ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, uniforms });
           const mesh = new THREE.Mesh(geometry(shape0), material);
@@ -399,10 +392,7 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
           const TW = 300, TH = 300, COLS = 8, ROWS = 4, PAD = 22;
           const S = makeScene(TW, TH);
           S.uniforms.uRes.value.set(TW * S.renderer.getPixelRatio(), TH * S.renderer.getPixelRatio());
-          const tex = new THREE.CanvasTexture(poemCanvas(1024, 512));
-          tex.colorSpace = THREE.SRGBColorSpace;
-          S.uniforms.uText.value = tex;
-          setPalette(S.uniforms, palette);
+              setPalette(S.uniforms, palette);
           const sheet = document.createElement("canvas");
           sheet.width = COLS * TW; sheet.height = ROWS * (TH + PAD);
           const g = sheet.getContext("2d");
@@ -430,18 +420,17 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
           // removing them threw before the first frame ever rendered.
           document.getElementById("rig").style.display = "none";
           document.querySelector("h1").style.display = "none";
+          document.body.style.gridTemplateColumns = "minmax(0, 1fr)";
           const f = document.getElementById("frame");
-          f.style.cssText = "position:fixed;inset:0;max-width:none;max-height:none;aspect-ratio:auto;border:0;border-radius:0";
-          document.body.style.padding = "0";
+          f.style.maxHeight = "58vh";
+          f.style.maxWidth = "58vh";
+          f.style.border = "0";
         }
         const frame = document.getElementById("frame");
         const rect = () => frame.getBoundingClientRect();
         const S = makeScene(Math.max(1, rect().width), Math.max(1, rect().height));
         S.uniforms.uRes.value.set(rect().width * S.renderer.getPixelRatio(), rect().height * S.renderer.getPixelRatio());
         frame.appendChild(S.renderer.domElement);
-        const tex = new THREE.CanvasTexture(poemCanvas(1400, 700));
-        tex.colorSpace = THREE.SRGBColorSpace;
-        S.uniforms.uText.value = tex;
         setPalette(S.uniforms, palette);
 
         const whoLine = document.getElementById("who");
@@ -484,6 +473,7 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
             const k = input.dataset.knob;
             S.uniforms["u" + k[0].toUpperCase() + k.slice(1)].value = +input.value;
             out(k, +input.value);
+            sayReading();
           });
         }
         for (const b of document.querySelectorAll("[data-shape]")) {
@@ -496,12 +486,6 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
             b.classList.add("on");
           });
         }
-        document.getElementById("ink").addEventListener("click", (e) => {
-          S.uniforms.uInk.value = S.uniforms.uInk.value ? 0 : 1;
-          const on = !!S.uniforms.uInk.value;
-          e.target.classList.toggle("on", on);
-          e.target.textContent = on ? "poem on" : "poem off";
-        });
         document.getElementById("roll").addEventListener("click", () => {
           for (const input of document.querySelectorAll("[data-knob]")) {
             input.value = Math.random().toFixed(2);
@@ -524,6 +508,25 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
           });
           palRow.appendChild(b);
         });
+
+        // ── the reading, said plainly ─────────────────────────────────────
+        // Five sliders are not self-explanatory. This says what you have just
+        // claimed about the poem, in the words of the questions themselves.
+        const WORDS = {
+          watch:   ["unaware of you", "half-aware", "watching you"],
+          gather:  ["looking away", "unfixed", "looking at one thing"],
+          comfort: ["refusing comfort", "even", "comforting"],
+          arrive:  ["keeps leaving", "suspended", "arriving"],
+          certain: ["performing certainty", "unsure", "certain"],
+        };
+        const readingLine = document.getElementById("reading");
+        const sayReading = () => {
+          readingLine.innerHTML = KEYS.map((k) => {
+            const v = S.uniforms["u" + k[0].toUpperCase() + k.slice(1)].value;
+            const w = WORDS[k][v < 0.34 ? 0 : v < 0.67 ? 1 : 2];
+            return `<b>${w}</b>`;
+          }).join(" · ");
+        };
 
         // ── sharing ──────────────────────────────────────────────────────
         const readingUrl = () => {
@@ -572,14 +575,11 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
           P.mesh.geometry.dispose();
           P.mesh.geometry = geometry(document.querySelector("[data-shape].on").dataset.shape);
           P.mesh.rotation.copy(S.mesh.rotation);
-          for (const k of ["Watch", "Gather", "Comfort", "Arrive", "Certain", "Ink"]) {
+          for (const k of ["Watch", "Gather", "Comfort", "Arrive", "Certain"]) {
             P.uniforms["u" + k].value = S.uniforms["u" + k].value;
           }
           P.uniforms.uMouse.value.copy(S.uniforms.uMouse.value);
           P.uniforms.uTime.value = S.uniforms.uTime.value;
-          const tx = new THREE.CanvasTexture(poemCanvas(W, H));
-          tx.colorSpace = THREE.SRGBColorSpace;
-          P.uniforms.uText.value = tx;
           setPalette(P.uniforms, palette);
           P.renderer.render(P.scene, P.camera);
           P.renderer.domElement.toBlob((blob) => {
@@ -592,13 +592,19 @@ const SHAPES = ["globe", "pyramid", "flower", "shard"];
           }, "image/png");
         });
 
+        sayReading();
+
         const t0 = performance.now();
         S.renderer.setAnimationLoop(() => {
           const now = (performance.now() - t0) / 1000;
           S.uniforms.uTime.value = now;
           if (!dragging) { spinY += 0.0016 + vy; vy *= 0.94; }
-          S.mesh.rotation.y = spinY;
-          S.mesh.rotation.x = spinX;
+          // a watching object turns to face the reader; an unaware one does
+          // not notice them at all
+          const w = S.uniforms.uWatch.value;
+          const mx = S.uniforms.uMouse.value.x - 0.5, my = S.uniforms.uMouse.value.y - 0.5;
+          S.mesh.rotation.y = spinY + w * mx * 1.1;
+          S.mesh.rotation.x = spinX - w * my * 0.8;
           S.renderer.render(S.scene, S.camera);
         });
       })();

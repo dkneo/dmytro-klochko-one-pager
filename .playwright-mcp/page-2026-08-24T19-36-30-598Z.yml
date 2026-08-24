@@ -1,0 +1,744 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - generic [ref=f3e3]:
+      - heading "Find the people the ads are made of." [level=1] [ref=f3e4]
+      - paragraph [ref=f3e5]: "Start with creators for Replika ads. The role will probably spread into organic too: research for motion designers, help run TikTok, post, read the numbers, and sometimes shoot the UGC yourself. In five days, build the judgment and pipeline to do all of it while no thread dies."
+      - generic [ref=f3e6]:
+        - link "start day one" [ref=f3e7] [cursor=pointer]:
+          - /url: "#day1"
+        - status [ref=f3e8]: saves on this device. export a backup for real work.
+      - paragraph [ref=f3e9]:
+        - generic [ref=f3e10]: 5 days · about 1 hour each
+        - generic [ref=f3e11]: paid + organic · research + posting
+        - generic [ref=f3e12]: real screens · real metrics · one self-shot
+    - figure [ref=f3e13]:
+      - img "Editorial illustration of Taso in a brown jacket using her phone as a creative operator" [ref=f3e14]
+  - navigation "Scout school days" [ref=f3e15]:
+    - link "day 1 the machine" [ref=f3e16] [cursor=pointer]:
+      - /url: "#day1"
+      - generic [ref=f3e17]: day 1
+      - generic [ref=f3e18]: the machine
+    - link "day 2 the market" [ref=f3e19] [cursor=pointer]:
+      - /url: "#day2"
+      - generic [ref=f3e20]: day 2
+      - generic [ref=f3e21]: the market
+    - link "day 3 the hunt" [ref=f3e22] [cursor=pointer]:
+      - /url: "#day3"
+      - generic [ref=f3e23]: day 3
+      - generic [ref=f3e24]: the hunt
+    - link "day 4 the words" [ref=f3e25] [cursor=pointer]:
+      - /url: "#day4"
+      - generic [ref=f3e26]: day 4
+      - generic [ref=f3e27]: the words
+    - link "day 5 the desk" [ref=f3e28] [cursor=pointer]:
+      - /url: "#day5"
+      - generic [ref=f3e29]: day 5
+      - generic [ref=f3e30]: the desk
+    - link "finish graduate" [ref=f3e31] [cursor=pointer]:
+      - /url: "#grad"
+      - generic [ref=f3e32]: finish
+      - generic [ref=f3e33]: graduate
+  - main [ref=f3e34]:
+    - complementary [ref=f3e35]:
+      - generic [ref=f3e36]:
+        - heading "30 examples. Five to ten finalists." [level=2] [ref=f3e37]
+        - paragraph [ref=f3e38]: "This week: find 30 UGC creators or examples. For every one, save the link, hook or concept, target audience, and why you think it could work for Replika. Review the set together, then select the strongest 5–10."
+      - link "open only what is new" [ref=f3e39] [cursor=pointer]:
+        - /url: /scout/new
+    - generic [ref=f3e40]:
+      - generic [ref=f3e41]:
+        - generic [ref=f3e42]: Day 01
+        - heading "Why this job runs the machine" [level=2] [ref=f3e43]
+        - generic [ref=f3e44] [cursor=pointer]:
+          - checkbox "mark day one complete" [ref=f3e45]
+          - text: done
+      - generic [ref=f3e46]:
+        - heading "The money logic" [level=3] [ref=f3e47]
+        - paragraph [ref=f3e48]: "Replika grows by buying ads on Meta and TikTok. Ten years ago the skill in buying ads was targeting: choosing who sees them. The platforms automated much of that away. Today the algorithm decides a lot of who sees an ad, which makes the creative itself one of the strongest remaining levers. Different videos find different people: a cozy girl-talking-to-camera video finds one audience, a lonely-late-night confession finds another."
+        - paragraph [ref=f3e49]: Creative is the new targeting. The variety of videos we can test decides who we can reach, and you control the input to that machine.
+        - paragraph [ref=f3e50]: Studio ads look like ads and get scrolled past. Videos shot by real people on phones look like the feed itself, so they earn the first two seconds. That is a major reason UGC (user-generated content, in practice creator-made native video) exists as an industry.
+        - heading "What happens to a video you source" [level=3] [ref=f3e51]
+        - generic "the pipeline" [ref=f3e52]:
+          - generic [ref=f3e53]: you find a creator
+          - generic [ref=f3e54]: →
+          - generic [ref=f3e55]: brief + deal
+          - generic [ref=f3e56]: →
+          - generic [ref=f3e57]: they shoot raw video
+          - generic [ref=f3e58]: →
+          - generic [ref=f3e59]: editors cut 5–15 ad variants
+          - generic [ref=f3e60]: →
+          - generic [ref=f3e61]: variants tested with small budgets
+          - generic [ref=f3e62]: →
+          - generic [ref=f3e63]: winners get real spend
+        - paragraph [ref=f3e64]: "One good creator delivering raw footage becomes many ads. Winners can also run from the creator's own account with paid budget behind them: on TikTok this is called Spark Ads, on Meta partnership ads (people say \"whitelisting\"). An ad from @realgirl can outperform the same ad from @replika because it reads as a recommendation, not a promotion. It is not automatic: the hook and the creator still have to work. This is why the deal you negotiate should cover ad usage rights, not just a post."
+        - heading "What this means for you" [level=3] [ref=f3e65]
+        - list [ref=f3e66]:
+          - listitem [ref=f3e67]: Volume beats polish. Five okay creators shipping monthly beat one perfect influencer posting once. The goal is a stable of eight to ten reliable people.
+          - listitem [ref=f3e68]: Fit beats followers. A creator with 900 followers who talks to camera like a best friend can be worth more to us than 500k followers of silent aesthetic clips. Paid distribution carries the video, so judge the performance first.
+          - listitem [ref=f3e69]: Rights are part of the deal. If paid usage is unavailable, the creator can still be good at organic content but wrong for this brief. Ask early and agree the duration.
+          - listitem [ref=f3e70]: Speed compounds. Fast replies keep warm creators warm. Slow replies create more follow-up work and give another brand time to move first.
+        - figure [ref=f3e71]:
+          - generic [ref=f3e72]:
+            - heading "Fit beats followers." [level=3] [ref=f3e73]
+            - paragraph [ref=f3e74]: The brief buys a performance, not a follower count. Can this person stop the scroll, speak naturally and ship usable footage? That is the first screen. Audience size matters only when the deal also buys their organic reach.
+          - img "Editorial illustration of Taso laughing while holding a very large black-and-white cat" [ref=f3e75]
+        - heading "Check yourself" [level=3] [ref=f3e76]
+        - generic [ref=f3e77]:
+          - paragraph [ref=f3e78]: Nat's brief asks for "cozy, 22–35, talks to camera". Which creator do you shortlist?
+          - generic [ref=f3e79]:
+            - button "creator a 184k followers. Beautiful colour-graded room tours with music overlays. Never speaks on camera. Posts weekly. Verified badge, brand deals with two furniture companies." [ref=f3e80] [cursor=pointer]:
+              - generic [ref=f3e81]: creator a
+              - text: 184k followers. Beautiful colour-graded room tours with music overlays. Never speaks on camera. Posts weekly. Verified badge, brand deals with two furniture companies.
+            - button "creator b 2,300 followers. Films herself on a phone telling stories about her week, face to camera, warm and a bit chaotic. Comments are full of \"this is so me\". Posted a \"chatting with my AI\" video last month." [ref=f3e82] [cursor=pointer]:
+              - generic [ref=f3e83]: creator b
+              - text: 2,300 followers. Films herself on a phone telling stories about her week, face to camera, warm and a bit chaotic. Comments are full of "this is so me". Posted a "chatting with my AI" video last month.
+        - heading "And the footage itself" [level=3] [ref=f3e84]
+        - generic [ref=f3e85]:
+          - paragraph [ref=f3e86]: Two videos came back from creators. Which becomes the stronger ad?
+          - generic [ref=f3e87]:
+            - button "video a Beautifully edited 45s montage of the app interface. Trending audio, animated captions, perfect colour grade. No face, no voice." [ref=f3e88] [cursor=pointer]:
+              - generic [ref=f3e89]: video a
+              - text: Beautifully edited 45s montage of the app interface. Trending audio, animated captions, perfect colour grade. No face, no voice.
+            - 'button "video b Phone-shot 32s, creator sitting on her bed. First line, straight to camera: \"i''ve been telling my AI things i''ve never told my therapist.\" One rough jump cut. Audio slightly too loud." [ref=f3e90] [cursor=pointer]':
+              - generic [ref=f3e91]: video b
+              - text: "Phone-shot 32s, creator sitting on her bed. First line, straight to camera: \"i've been telling my AI things i've never told my therapist.\" One rough jump cut. Audio slightly too loud."
+    - generic [ref=f3e92]:
+      - generic [ref=f3e93]:
+        - generic [ref=f3e94]: Day 02
+        - heading "The market, and how to spy on it" [level=2] [ref=f3e95]
+        - generic [ref=f3e96] [cursor=pointer]:
+          - checkbox "mark day two complete" [ref=f3e97]
+          - text: done
+      - generic [ref=f3e98]:
+        - heading "The category" [level=3] [ref=f3e99]
+        - paragraph [ref=f3e100]: "Replika helped define the AI-companion category and has run since 2016: more than 40 million people have used it, and some relationships now span years. The category around it got crowded and loud."
+        - generic [ref=f3e101]:
+          - table [ref=f3e102]:
+            - rowgroup [ref=f3e103]:
+              - row [ref=f3e104]:
+                - columnheader "who" [ref=f3e105]
+                - columnheader "what they are" [ref=f3e106]
+                - columnheader "why you care" [ref=f3e107]
+            - rowgroup [ref=f3e108]:
+              - row [ref=f3e109]:
+                - cell "Character.ai" [ref=f3e110]
+                - cell "roleplay across a huge library of characters" [ref=f3e111]
+                - cell "their ads show what \"entertainment\" positioning looks like" [ref=f3e112]
+              - row [ref=f3e113]:
+                - cell "Talkie" [ref=f3e114]
+                - cell "character chat with an anime-leaning catalogue" [ref=f3e115]
+                - cell "its active advertiser cards make a useful hook study" [ref=f3e116]
+              - row [ref=f3e117]:
+                - cell "Nomi" [ref=f3e118]
+                - cell "companion app, memory-focused, smaller and earnest" [ref=f3e119]
+                - cell "closest positioning to ours; watch their creator picks" [ref=f3e120]
+              - row [ref=f3e121]:
+                - cell "Kindroid" [ref=f3e122]
+                - cell "companion app, power-user crowd, customization-heavy" [ref=f3e123]
+                - cell "competes for the same \"my AI actually knows me\" story" [ref=f3e124]
+              - row [ref=f3e125]:
+                - cell "Tolan" [ref=f3e126]
+                - cell "alien companion, $20m raised, character-led branding" [ref=f3e127]
+                - cell "proof a strong character does the work of ad creative; study their TikTok" [ref=f3e128]
+          - text: scroll →
+        - generic [ref=f3e129]:
+          - heading "Numbers rot. Verify before repeating." [level=4] [ref=f3e130]
+          - paragraph [ref=f3e131]: Any download or revenue figure on a page like this is stale the week it is written. Before you quote a number in a meeting, check it yourself in an intelligence tool (below) and say where it came from. "AppMagic estimates X this month" survives any meeting; nobody can check "I read somewhere".
+        - heading "The intel toolkit" [level=3] [ref=f3e132]
+        - generic [ref=f3e133]:
+          - table [ref=f3e134]:
+            - rowgroup [ref=f3e135]:
+              - row [ref=f3e136]:
+                - columnheader "tool" [ref=f3e137]
+                - columnheader "what it shows" [ref=f3e138]
+                - columnheader "cost" [ref=f3e139]
+            - rowgroup [ref=f3e140]:
+              - row [ref=f3e141]:
+                - cell "Meta Ad Library" [ref=f3e142]
+                - cell "active ads Meta returns for the selected country and advertiser on Facebook and Instagram. No performance numbers, but full creatives." [ref=f3e143]
+                - cell "free" [ref=f3e144]
+              - row [ref=f3e145]:
+                - cell "TikTok Creative Center" [ref=f3e146]
+                - cell "top-performing ads by region and industry, with engagement data. Plus the Commercial Content Library for EU-served ads." [ref=f3e147]
+                - cell "free" [ref=f3e148]
+              - row [ref=f3e149]:
+                - cell "Foreplay" [ref=f3e150]
+                - 'cell "saves, organizes and tracks ad libraries over time: build a swipe file of competitor ads and see what stays active long enough to deserve another look." [ref=f3e151]'
+                - cell "paid, ask dmytro" [ref=f3e152]
+              - row [ref=f3e153]:
+                - cell "Sensor Tower / AppMagic" [ref=f3e154]
+                - cell "download and revenue estimates per app per country per month (Sensor Tower bought AppMagic; AppMagic is the affordable one)." [ref=f3e155]
+                - cell "freemium" [ref=f3e156]
+              - row [ref=f3e157]:
+                - cell "App Store reviews" [ref=f3e158]
+                - cell "competitors' 1-star reviews are a list of their broken promises; their 5-star reviews are the words users actually use. Steal the vocabulary for briefs." [ref=f3e159]
+                - cell "free" [ref=f3e160]
+          - text: scroll →
+        - heading "The one trick worth this whole day" [level=3] [ref=f3e161]
+        - paragraph [ref=f3e162]: Competitors' UGC ads are a list of people already cast in AI-companion creative and cleared for that specific paid use.
+        - paragraph [ref=f3e163]: "Open Meta Ad Library, search Talkie or Character.ai, and look at the faces. Every talking-head ad is a performer someone already found, cast, and cleared for that ad. Find their handle (it's often visible in the video or the caption), and they go straight into your pipeline as warm: they have delivered this format and understand paid rights. Their permission does not transfer to us, and the library does not prove performance, so ask again and judge the work yourself. It is still one of the highest-yield free sourcing channels."
+        - heading "The weekly ritual" [level=3] [ref=f3e164]
+        - list [ref=f3e165]:
+          - listitem [ref=f3e166]: "Every Monday, 30 minutes: open the ad libraries for our five competitors."
+          - listitem [ref=f3e167]: Screenshot any new UGC ad (you'll recognize repeats fast).
+          - listitem [ref=f3e168]: "Log per ad: the hook (first line spoken), the setting, the claimed benefit, the creator's handle if findable."
+          - listitem [ref=f3e169]: Add new creators to the tracker with status found and source ad library.
+          - listitem [ref=f3e170]: Send Nat the three most interesting hooks. She turns hooks into briefs.
+        - figure [ref=f3e171]:
+          - generic [ref=f3e172]:
+            - img "Meta Ad Library search results for Talkie, captured on 20 August 2026" [ref=f3e173]
+            - generic [ref=f3e174]: start with country, active ads and the exact name
+            - generic [ref=f3e175]: read the start date before you watch
+            - generic [ref=f3e176]: open repeated variants as one creative family
+          - generic [ref=f3e177]:
+            - heading "The monday screen." [level=3] [ref=f3e178]
+            - paragraph [ref=f3e179]: This is a live keyword search, so it also catches unrelated ads with “talkie” in their copy. Find the advertiser card first. Then read the date, versions and format before you get hypnotized by the video.
+            - generic [ref=f3e180]: meta ad library · “talkie” · united states · active ads · captured 20 august 2026
+        - 'figure "12-second screen walk · the search is noisy on purpose: advertiser first, creative second" [ref=f3e181]':
+          - generic "Twelve-second scan down a live Meta Ad Library keyword search" [ref=f3e182]
+        - figure [ref=f3e184]:
+          - generic [ref=f3e185]:
+            - heading "Turn the library into a motion brief." [level=3] [ref=f3e186]
+            - paragraph [ref=f3e187]: "Finding the ad is half the job. Motion designers need the part they can use: where attention starts, what changes on screen, when the product appears and what deserves another version."
+            - list [ref=f3e188]:
+              - listitem [ref=f3e189]: "Hook: the first spoken line and first visible frame."
+              - listitem [ref=f3e190]: "Pacing: every cut in the opening six seconds."
+              - listitem [ref=f3e191]: "Build: captions, transitions, product moment and proof."
+              - listitem [ref=f3e192]: "Finish: ending, loop, call to action and reusable frames."
+          - img "Editorial illustration of Taso in her red jacket studying creator videos on her phone" [ref=f3e193]
+        - generic [ref=f3e194]:
+          - heading "one ad in, one useful handoff out" [level=4] [ref=f3e195]
+          - paragraph [ref=f3e196]: "Do not send a pile of links. Send the ad, a six-line teardown and one recommendation: copy the hook structure, test a faster first cut, isolate the product reveal, or ask the creator for a cleaner raw take. Name what is observed and what is your idea. The library shows that an ad exists; it does not show ROAS."
+        - heading "Read the library like a scout" [level=3] [ref=f3e197]
+        - generic [ref=f3e198]:
+          - paragraph [ref=f3e199]: Two Talkie ads in the library. Which one goes in your log?
+          - generic [ref=f3e200]:
+            - button "ad a Started five weeks ago, still running. Plain girl-on-couch, \"i was so lonely until i tried this.\" The same video shows up three more times with different thumbnails." [ref=f3e201] [cursor=pointer]:
+              - generic [ref=f3e202]: ad a
+              - text: Started five weeks ago, still running. Plain girl-on-couch, "i was so lonely until i tried this." The same video shows up three more times with different thumbnails.
+            - button "ad b Started yesterday. Cinematic 3D character trailer, epic music, studio-grade motion graphics." [ref=f3e203] [cursor=pointer]:
+              - generic [ref=f3e204]: ad b
+              - text: Started yesterday. Cinematic 3D character trailer, epic music, studio-grade motion graphics.
+        - generic [ref=f3e205]:
+          - paragraph [ref=f3e206]: You need Character.ai's US downloads for a meeting in an hour. Which do you bring?
+          - generic [ref=f3e207]:
+            - button "source a A 2024 TechCrunch article that says \"20 million monthly users\"." [ref=f3e208] [cursor=pointer]:
+              - generic [ref=f3e209]: source a
+              - text: A 2024 TechCrunch article that says "20 million monthly users".
+            - 'button "source b AppMagic, opened this morning: US downloads, last 30 days, both stores. Screenshot with today''s date on it." [ref=f3e210] [cursor=pointer]':
+              - generic [ref=f3e211]: source b
+              - text: "AppMagic, opened this morning: US downloads, last 30 days, both stores. Screenshot with today's date on it."
+    - generic [ref=f3e212]:
+      - generic [ref=f3e213]:
+        - generic [ref=f3e214]: Day 03
+        - heading "Where creators live" [level=2] [ref=f3e215]
+        - generic [ref=f3e216] [cursor=pointer]:
+          - checkbox "mark day three complete" [ref=f3e217]
+          - text: done
+      - generic [ref=f3e218]:
+        - heading "The channels, honestly ranked" [level=3] [ref=f3e219]
+        - generic [ref=f3e220]:
+          - table [ref=f3e221]:
+            - rowgroup [ref=f3e222]:
+              - row [ref=f3e223]:
+                - columnheader "channel" [ref=f3e224]
+                - columnheader "how it works" [ref=f3e225]
+                - columnheader "scale" [ref=f3e226]
+                - columnheader "risk" [ref=f3e227]
+            - rowgroup [ref=f3e228]:
+              - row [ref=f3e229]:
+                - cell "Ad library reverse-sourcing" [ref=f3e230]
+                - 'cell "day 2''s trick: harvest creators from competitors'' ads" [ref=f3e231]'
+                - cell "medium" [ref=f3e232]
+                - cell "none" [ref=f3e233]
+              - row [ref=f3e234]:
+                - cell "UGC platforms (Insense, Billo, Influee, JoinBrands, Collabstr)" [ref=f3e235]
+                - cell "post a brief, vetted creators apply with rates; platform handles contracts and rights" [ref=f3e236]
+                - cell "high" [ref=f3e237]
+                - cell "none, costs margin" [ref=f3e238]
+              - row [ref=f3e239]:
+                - cell "Fiverr / Upwork" [ref=f3e240]
+                - cell "the \"UGC video\" category is enormous; creators list rates and portfolios openly" [ref=f3e241]
+                - cell "high" [ref=f3e242]
+                - cell "low, quality varies wildly" [ref=f3e243]
+              - row [ref=f3e244]:
+                - cell "TikTok One / Creator Marketplace" [ref=f3e245]
+                - 'cell "TikTok''s official marketplace: filter by niche, age, country; message inside the platform, fully sanctioned" [ref=f3e246]'
+                - cell "high" [ref=f3e247]
+                - cell "none" [ref=f3e248]
+              - row [ref=f3e249]:
+                - cell "Facebook groups" [ref=f3e250]
+                - 'cell "\"UGC Creators\", \"UGC Community\" and dozens like them: post the brief, collect applicants in comments and DMs" [ref=f3e251]'
+                - cell "medium" [ref=f3e252]
+                - cell "low" [ref=f3e253]
+              - row [ref=f3e254]:
+                - cell "X and Reddit" [ref=f3e255]
+                - cell "#UGCcreator on X and r/UGCcreators run daily \"brands looking\" threads; creators pitch you" [ref=f3e256]
+                - cell "medium" [ref=f3e257]
+                - cell "low" [ref=f3e258]
+              - row [ref=f3e259]:
+                - cell "Manual IG / TikTok search + DM" [ref=f3e260]
+                - cell "search \"ugc creator\" in bio, niche hashtags, sounds; watch, then DM personally from your scout account" [ref=f3e261]
+                - cell "low" [ref=f3e262]
+                - cell "medium, read the box below" [ref=f3e263]
+              - row [ref=f3e264]:
+                - cell "Email outreach" [ref=f3e265]
+                - cell "most creators put an email in their bio for business. email is durable and searchable, but laws, provider rules and reputation still apply" [ref=f3e266]
+                - cell "high" [ref=f3e267]
+                - cell "medium, keep it relevant" [ref=f3e268]
+              - row [ref=f3e269]:
+                - cell "Mass-DM software" [ref=f3e270]
+                - cell "browser bots that blast hundreds of IG DMs from your logged-in account" [ref=f3e271]
+                - cell "none" [ref=f3e272]
+                - cell "we do not do this" [ref=f3e273]
+          - text: scroll →
+        - generic [ref=f3e274]:
+          - heading "The mass-DM box. Read this once, believe it forever." [level=4] [ref=f3e275]
+          - paragraph [ref=f3e276]: Instagram lets you send a first message. It does not give you a licence to contact the same person repeatedly for commercial purposes without consent. The official messaging API starts after the person messages the professional account; browser bots get around that boundary by pretending to be you. That is exactly why we do not use them.
+          - paragraph [ref=f3e277]: "The rules that keep us safe: never automate DMs from the Replika brand account. Your scout account sends hand-written, relevant DMs to people whose work you actually watched. If someone does not engage, stop. Anything that needs blasting belongs in a marketplace, an opt-in application surface or a properly run email campaign, not a fake-human bot."
+        - heading "Platform-by-platform, first week moves" [level=3] [ref=f3e278]
+        - list [ref=f3e279]:
+          - listitem [ref=f3e280]: "Fiverr: search \"UGC video app\", filter to your brief's country, sort by reviews. Message 10 with the brief. Sellers are there to be hired, so this is a clean place to learn the loop."
+          - listitem [ref=f3e281]: "Insense or Billo: ask Dmytro which we have a seat on. Post one brief, let applications come in overnight. These platforms front-load the boring parts (contracts, rights, payment)."
+          - listitem [ref=f3e282]: "TikTok One: filter creators by country + age + category, inspect recent engagement in context, then invite to the brief inside the platform. There is no magic percentage."
+          - listitem [ref=f3e283]: "Facebook groups: join five, read the pinned rules (some want a rate stated, some ban \"gifted only\"), post the brief with a real budget range. A real budget filters out pointless back-and-forth."
+          - listitem [ref=f3e284]: "Instagram, manually: search the niche, open a creator, watch two videos fully (you will reference one in the DM). Only then write. Ten of these a day, forever."
+          - listitem [ref=f3e285]: "Email: collect the bio emails of everyone you shortlisted this week. One personalized paragraph, the brief attached as one page. Email is where follow-ups live too."
+        - heading "Three profiles, annotated" [level=3] [ref=f3e286]
+        - paragraph [ref=f3e287]: "Take the cozy brief from graduation. Here is how it reads three real-shaped profiles:"
+        - generic [ref=f3e288]:
+          - heading "practice profile · the yes · @mira.days" [level=4] [ref=f3e289]
+          - paragraph [ref=f3e290]: Cozy day-in-my-life vlogs, talks to camera in most posts. Bio says "ugc creator" with an email. Portfolio link shows two previous app promos. Comments answered, roughly 4% engagement.
+          - paragraph [ref=f3e291]: "Why she's first: the bio email means business-ready, the app promos mean she already knows rights talk, and her format already reads native. Ask her rate and turnaround instead of inventing either."
+        - generic [ref=f3e292]:
+          - heading "practice profile · the tempting no · @sofialumiere" [level=4] [ref=f3e293]
+          - paragraph [ref=f3e294]: Gorgeous grid, silent aesthetic transitions, luxury tags. Engagement 0.4%. The bio email goes to an agency.
+          - paragraph [ref=f3e295]: "Why you skip: the format is wrong (no face-to-camera speech anywhere), and the agency adds weeks while anchoring price to an audience we are not buying. Beautiful is a different job than the brief's. Log her as closed · format mismatch so future-you remembers."
+        - generic [ref=f3e296]:
+          - heading "practice profile · the hidden gem · @debspiralling" [level=4] [ref=f3e297]
+          - paragraph [ref=f3e298]: Posts to camera daily, reviews "apps that keep me sane", warm and a little chaotic, zero UGC branding anywhere.
+          - paragraph [ref=f3e299]: "Why she's worth a message: fewer buyers will find her through a \"UGC creator\" search, and she already makes app content in exactly our register. Ask her rate instead of guessing it. Reliability is unknown, so the first deal stays small. The handles in these three cards are simulations; the judgment is the exercise."
+        - heading "What you'll see when you open them" [level=3] [ref=f3e300]
+        - list [ref=f3e301]:
+          - listitem [ref=f3e302]: "Meta Ad Library: one search box. Set the country, pick \"all ads\", type the competitor's page name. Every card shows its launch date. Treat age and repeated versions as reasons to investigate, never as a ROAS report. Click a card to see the creative family."
+          - listitem [ref=f3e303]: "TikTok One: creator marketplace tab, filters on the left (country, age, follower band, category), creator cards on the right. A card shows engagement rate and audience split; you invite creators to a campaign from inside it."
+          - listitem [ref=f3e304]: "Fiverr: search \"ugc video app\", then the sidebar filters: country, budget, delivery time. A listing is a portfolio; watch the videos before reading a single word of the description."
+        - generic [ref=f3e305]:
+          - heading "the filter rail is not the work" [level=4] [ref=f3e306]
+          - paragraph [ref=f3e307]: Filters make a pile smaller. They do not tell you whether someone can carry this brief. Open the card, watch two complete videos, check the business contact and write one sentence explaining the fit before the handle enters your tracker.
+        - figure "tiktok creative center · top ads discovery · captured 20 august 2026" [ref=f3e308]:
+          - img "TikTok Creative Center Top Ads discovery page with an AI companion search and region, industry, objective and date filters" [ref=f3e309]
+        - heading "Watch real formats" [level=3] [ref=f3e311]
+        - generic "Current TikTok Top Ads examples" [ref=f3e312]:
+          - link "Frame from a current Pantene haircare ad in TikTok Top Ads watch on tiktok top ads ↗ haircare · top 20% CTR band ignore the category. study how fast the person, product and hook arrive." [ref=f3e313] [cursor=pointer]:
+            - /url: https://ads.tiktok.com/business/creativecenter/topads/7662194953493954567
+            - img "Frame from a current Pantene haircare ad in TikTok Top Ads" [ref=f3e314]
+            - generic [ref=f3e315]:
+              - generic [ref=f3e316]: watch on tiktok top ads ↗
+              - generic [ref=f3e317]: haircare · top 20% CTR band
+              - generic [ref=f3e318]: ignore the category. study how fast the person, product and hook arrive.
+          - link "Frame from a current Dulcolax medicine ad in TikTok Top Ads watch on tiktok top ads ↗ medicine · video views · top 45% watch the first six seconds once with sound, once without." [ref=f3e319] [cursor=pointer]:
+            - /url: https://ads.tiktok.com/business/creativecenter/topads/7662993311967313928
+            - img "Frame from a current Dulcolax medicine ad in TikTok Top Ads" [ref=f3e320]
+            - generic [ref=f3e321]:
+              - generic [ref=f3e322]: watch on tiktok top ads ↗
+              - generic [ref=f3e323]: medicine · video views · top 45%
+              - generic [ref=f3e324]: watch the first six seconds once with sound, once without.
+          - link "Frame from a current DANA digital wallet ad in TikTok Top Ads watch on tiktok top ads ↗ digital wallet · top 32% CTR band notice how the app benefit becomes a human situation instead of a feature list." [ref=f3e325] [cursor=pointer]:
+            - /url: https://ads.tiktok.com/business/creativecenter/topads/7664450461240688660
+            - img "Frame from a current DANA digital wallet ad in TikTok Top Ads" [ref=f3e326]
+            - generic [ref=f3e327]:
+              - generic [ref=f3e328]: watch on tiktok top ads ↗
+              - generic [ref=f3e329]: digital wallet · top 32% CTR band
+              - generic [ref=f3e330]: notice how the app benefit becomes a human situation instead of a feature list.
+        - paragraph [ref=f3e331]: These cards are live examples from TikTok Creative Center, checked 20 August 2026. Top Ads only shows creatives advertisers authorised for the library, so use it for form, not a complete market census.
+        - heading "The safe-move drill" [level=3] [ref=f3e332]
+        - generic [ref=f3e333]:
+          - paragraph [ref=f3e335]: creator · monday 9am. nat's new brief needs 15 shortlisted creators by friday. what's your week? · the test
+          - generic [ref=f3e336]:
+            - button "scrape 400 handles, DM them all by friday" [ref=f3e337] [cursor=pointer]
+            - button "brief to 5 fb groups + a platform, 10 fiverr messages, 10 hand-picked DMs" [ref=f3e338] [cursor=pointer]
+            - button "ask a friend with a big account to send the DMs" [ref=f3e339] [cursor=pointer]
+        - heading "What a scout account looks like" [level=3] [ref=f3e340]
+        - paragraph [ref=f3e341]: "You DM from a real profile: your name, your face, bio says \"creator partnerships @ replika\". A blank account with zero posts asking for videos reads as a scam and gets reported, which trains Instagram to bury you. Post occasionally. Follow the creators you work with. Be a person; the platform's spam systems and the creators both check."
+        - figure [ref=f3e342]:
+          - img "Editorial illustration of Taso filming herself on a phone beside two reviewed video frames" [ref=f3e343]
+          - generic [ref=f3e344]:
+            - heading "The role probably gets wider." [level=3] [ref=f3e345]
+            - paragraph [ref=f3e346]: You will probably work closer with UGC beyond Facebook ads. That can mean helping with organic TikTok, setting up accounts, posting, watching the metrics, turning winners into new briefs and sometimes getting in front of the phone to shoot the UGC yourself.
+        - heading "One flagship or an account portfolio?" [level=3] [ref=f3e347]
+        - paragraph [ref=f3e348]: Both are real strategies. The decision is not “one or one hundred.” It is how many distinct accounts the team can feed with distinct ideas.
+        - generic [ref=f3e349]:
+          - article [ref=f3e350]:
+            - heading "one flagship" [level=4] [ref=f3e351]
+            - paragraph [ref=f3e352]:
+              - text: Put the voice, audience and learning in one place. This is easier to staff and every good post strengthens the same identity. Study
+              - link "Ryanair" [ref=f3e353] [cursor=pointer]:
+                - /url: https://www.tiktok.com/@ryanair
+              - text: and
+              - link "Duolingo" [ref=f3e354] [cursor=pointer]:
+                - /url: https://www.tiktok.com/@duolingo
+              - text: ": one recognizable page, a repeatable character and native platform humor."
+          - article [ref=f3e355]:
+            - heading "account portfolio" [level=4] [ref=f3e356]
+            - paragraph [ref=f3e357]:
+              - text: "Give each page one real reason to exist: a market, language, format or creator voice. Duolingo pairs its main page with localized accounts such as"
+              - link "Duolingo Deutschland" [ref=f3e358] [cursor=pointer]:
+                - /url: https://www.tiktok.com/@duolingodeutschland
+              - text: . Replika could test a market page such as “Replika Spain” or a disclosed creator-led “Replika fan” page. If Replika runs it, do not cosplay as an independent fan. Say it is affiliated.
+        - paragraph [ref=f3e359]:
+          - text: TikTok's own account guidance allows one organization to operate multiple accounts and recommends separate organization accounts when a brand, product or region needs its own presence. Start with the official page and a small test portfolio. Do not make one hundred dead copies before three distinct pages can publish consistently.
+          - link "Read TikTok's account guidance ↗" [ref=f3e360] [cursor=pointer]:
+            - /url: https://ads.tiktok.com/business/library/Custom_Identity_Transition_FAQ_2025.pdf
+        - heading "The organic loop" [level=3] [ref=f3e361]
+        - generic "organic publishing and learning loop" [ref=f3e362]:
+          - generic [ref=f3e363]: post
+          - generic [ref=f3e364]: →
+          - generic [ref=f3e365]: snapshot at 24 hours
+          - generic [ref=f3e366]: →
+          - generic [ref=f3e367]: snapshot at 7 days
+          - generic [ref=f3e368]: →
+          - generic [ref=f3e369]: name the winning hook
+          - generic [ref=f3e370]: →
+          - generic [ref=f3e371]: brief the next version
+        - paragraph [ref=f3e372]: "For every post, save the link, account, format, hook and publish time. At 24 hours and again at 7 days, record the metrics the account actually exposes: views, average watch time, completion rate, shares, saves, comments, follows and profile visits. Compare posts on the same account and similar time window. One large view count cannot explain why it happened. The job is to turn a pattern into the next test and hand it back to the creator or motion designers."
+        - heading "When you are the creator" [level=3] [ref=f3e373]
+        - list [ref=f3e374]:
+          - listitem [ref=f3e375]: Write three opening lines. Keep the body the same so the hook is the variable.
+          - listitem [ref=f3e376]: Shoot vertical on the phone. Face a window, clean the lens and check the audio before the full take.
+          - listitem [ref=f3e377]: Record each opening separately, then two complete takes. Pause before and after every line so motion designers have room to cut.
+          - listitem [ref=f3e378]: Keep the raw files. Name the hook, setting and date. Send the strongest take plus the alternatives, not a mystery camera roll.
+          - listitem [ref=f3e379]: Post only after the account owner approves the caption, link and disclosure. Then run the same 24-hour and 7-day loop.
+    - generic [ref=f3e380]:
+      - generic [ref=f3e381]:
+        - generic [ref=f3e382]: Day 04
+        - heading "The words, and the discipline" [level=2] [ref=f3e383]
+        - generic [ref=f3e384] [cursor=pointer]:
+          - checkbox "mark day four complete" [ref=f3e385]
+          - text: done
+      - generic [ref=f3e386]:
+        - heading "What a first message must do" [level=3] [ref=f3e387]
+        - list [ref=f3e388]:
+          - listitem [ref=f3e389]: Prove you watched. One specific detail from their actual content, named. This is the entire difference between outreach and spam.
+          - listitem [ref=f3e390]: Say the money words early. "We pay creators" in the first two sentences. Creators are pitched free "exposure" fifty times a week; paid work gets read.
+          - listitem [ref=f3e391]: One clear ask. "Want the brief?" A first message that asks for rates, availability, examples and a call is four messages pretending to be one.
+          - listitem [ref=f3e392]: Be short. Under 60 words. Past that, the money and the ask get buried.
+          - listitem [ref=f3e393]: Sound like a person. Lowercase is fine. One emoji max. No "Dear Creator".
+        - generic [ref=f3e394]:
+          - paragraph [ref=f3e395]: Which first DM gets a reply?
+          - generic [ref=f3e396]:
+            - button "draft a Dear Creator! We are Replika, the world's leading AI companion application with over 40 million users worldwide. We are seeking talented content creators for an exciting collaboration opportunity. Please send us your media kit, rates, availability and portfolio at your earliest convenience. We look forward to a mutually beneficial partnership!" [ref=f3e397] [cursor=pointer]:
+              - generic [ref=f3e398]: draft a
+              - text: Dear Creator! We are Replika, the world's leading AI companion application with over 40 million users worldwide. We are seeking talented content creators for an exciting collaboration opportunity. Please send us your media kit, rates, availability and portfolio at your earliest convenience. We look forward to a mutually beneficial partnership!
+            - 'button "draft b hey maya: your \"3am thoughts with my cat\" video stopped my scroll, the pacing is perfect. i find creators for replika (the AI friend app) and we pay for 30–60s talking-to-camera videos, $150–300 each plus usage. want the brief?" [ref=f3e399] [cursor=pointer]':
+              - generic [ref=f3e400]: draft b
+              - text: "hey maya: your \"3am thoughts with my cat\" video stopped my scroll, the pacing is perfect. i find creators for replika (the AI friend app) and we pay for 30–60s talking-to-camera videos, $150–300 each plus usage. want the brief?"
+        - heading "Writing it with AI, honestly" [level=3] [ref=f3e401]
+        - paragraph [ref=f3e402]: "AI writes the personalization after you feed it real observation: it cannot watch the videos for you. The workflow that works: you watch, you note one detail, Claude drafts three variants in your voice, you pick and fix one. Two prompts to keep:"
+        - generic [ref=f3e403]:
+          - generic [ref=f3e404]:
+            - generic [ref=f3e405]: prompt · first DM
+            - button "copy" [ref=f3e406] [cursor=pointer]
+          - generic [ref=f3e407]:
+            - text: "You write first-touch DMs to video creators for Replika (the AI friend app). Voice: warm, lowercase, direct, zero corporate words, under 60 words, exactly one question at the end. Must include: the one detail I observed, that we pay, the range $"
+            - emphasis [ref=f3e408]: 150–300
+            - text: "per video plus usage rights, and \"want the brief?\" Creator:"
+            - emphasis [ref=f3e409]: "@handle, niche, platform"
+            - text: "The video I watched:"
+            - emphasis [ref=f3e410]: what happens in it
+            - text: "The detail that stood out:"
+            - emphasis [ref=f3e411]: one specific thing
+            - text: Write 3 variants. No hashtags, no exclamation marks, max one emoji.
+        - generic [ref=f3e412]:
+          - generic [ref=f3e413]:
+            - generic [ref=f3e414]: prompt · the follow-up ladder
+            - button "copy" [ref=f3e415] [cursor=pointer]
+          - generic [ref=f3e416]:
+            - text: "Write my follow-up sequence for a creator who hasn't replied. Voice: same person as the first message, never guilt, never \"just checking in\", each message adds something new. Day 3: soft bump plus one new fact (we just booked"
+            - emphasis [ref=f3e417]: similar creator
+            - text: ", the brief pays on delivery, etc.) Day 7: value. Send the actual one-page brief link so they can decide without replying. Day 14: close the loop kindly: \"closing this for now, door's open.\" First message I sent:"
+            - emphasis [ref=f3e418]: paste it
+            - text: Write all three. Under 40 words each.
+        - generic [ref=f3e419]:
+          - generic [ref=f3e420]:
+            - generic [ref=f3e421]: prompt · negotiation
+            - button "copy" [ref=f3e422] [cursor=pointer]
+          - generic [ref=f3e423]:
+            - text: "A creator answered. Their message:"
+            - emphasis [ref=f3e424]: paste it
+            - text: They're asking $
+            - emphasis [ref=f3e425]: "500"
+            - text: ; my ceiling for this brief is $
+            - emphasis [ref=f3e426]: "300"
+            - text: ". Draft a warm reply that: keeps them excited, offers $"
+            - emphasis [ref=f3e427]: "300"
+            - text: for the first video framed as a paid test, adds a sweetener that costs us nothing hard (3-video package at their rate if the first performs, faster payment, creative freedom on the hook), and asks one question that moves it forward. Under 80 words. Never apologize for the budget.
+        - heading "Email subject lines" [level=3] [ref=f3e428]
+        - generic [ref=f3e429]:
+          - paragraph [ref=f3e430]: Same creator, found her bio email. Which subject line gets opened?
+          - generic [ref=f3e431]:
+            - button "subject a Exciting Collaboration Opportunity with Replika 🤝" [ref=f3e432] [cursor=pointer]:
+              - generic [ref=f3e433]: subject a
+              - text: Exciting Collaboration Opportunity with Replika 🤝
+            - 'button "subject b paid video for replika: $200, this week" [ref=f3e434] [cursor=pointer]':
+              - generic [ref=f3e435]: subject b
+              - text: "paid video for replika: $200, this week"
+        - generic [ref=f3e436]:
+          - heading "these prompts work in chatgpt too" [level=4] [ref=f3e437]
+          - paragraph [ref=f3e438]: "Nothing above is model-specific: paste them into ChatGPT, Claude, whatever you live in. If ChatGPT is your daily driver, put this into Settings → Personalization → Custom Instructions once, and every new chat starts already knowing the job:"
+        - generic [ref=f3e439]:
+          - generic [ref=f3e440]:
+            - generic [ref=f3e441]: chatgpt · custom instructions
+            - button "copy" [ref=f3e442] [cursor=pointer]
+          - generic [ref=f3e443]: "I source UGC creators for Replika (the AI friend app). When I ask for outreach help: keep first messages under 60 words, warm and lowercase, one question max, always state that we pay and the range. Never invent details about a creator. If I haven't given you a specific observed detail from their content, ask me for one before drafting. Follow-ups must add something new, never guilt. When I paste a creator's reply, tell me the thread state first (my turn / their turn / close), then draft. Rights language: we buy ad usage; organic-only is a different, cheaper deal."
+        - heading "Never leave a thread unanswered" [level=3] [ref=f3e444]
+        - paragraph [ref=f3e445]: "Every conversation is always in exactly one of three states: YOUR turn (answer today), THEIR turn (with a follow-up date on it), or CLOSED (with a reason). There is no fourth state. \"I'll deal with it later\" is not a state, it's a leak."
+        - paragraph [ref=f3e446]: "The daily sweep, 20 minutes, same time every day: open every channel (IG, email, platforms, TikTok), answer everything in YOUR-turn, then check the tracker for THEIR-turn rows whose follow-up date is today and send the ladder message. When both lists are empty you are done. This habit alone puts you above teams that let warm replies die in the inbox."
+        - heading "Triage drill" [level=3] [ref=f3e447]
+        - generic [ref=f3e448]:
+          - generic [ref=f3e449]:
+            - paragraph [ref=f3e450]: "you · hey lena: loved the rainy desk-setup video… want the brief? · 6 days ago"
+            - paragraph [ref=f3e451]: creator · omg thank you!! yes send it over 🥹 · 6 days ago
+            - paragraph [ref=f3e452]: you · [sent brief] · 6 days ago
+          - generic [ref=f3e453]:
+            - button "their turn, wait more" [ref=f3e454] [cursor=pointer]
+            - 'button "your turn today: day-7 value bump" [ref=f3e455] [cursor=pointer]'
+            - button "close it, she ghosted" [ref=f3e456] [cursor=pointer]
+        - generic [ref=f3e457]:
+          - paragraph [ref=f3e459]: creator · hi! my rate is $800 per video, non-negotiable. also i don't do app promos. · yesterday
+          - generic [ref=f3e460]:
+            - button "negotiate anyway" [ref=f3e461] [cursor=pointer]
+            - button "leave it unanswered" [ref=f3e462] [cursor=pointer]
+            - button "reply kindly + close with reason" [ref=f3e463] [cursor=pointer]
+        - generic [ref=f3e464]:
+          - paragraph [ref=f3e466]: creator · sent the video yesterday!! let me know if the format is ok before i film the second one · 22 hours ago
+          - generic [ref=f3e467]:
+            - button "your turn NOW, even without the verdict" [ref=f3e468] [cursor=pointer]
+            - button "their turn, you're waiting on the team" [ref=f3e469] [cursor=pointer]
+            - button "wait for nat to review, then reply" [ref=f3e470] [cursor=pointer]
+        - generic [ref=f3e471]:
+          - paragraph [ref=f3e473]: creator · rate's $300. also i'd want the video to stay on my page only. not comfortable with it running as an ad from my account · 2 hours ago
+          - generic [ref=f3e474]:
+            - 'button "agree: the rate fits the budget" [ref=f3e475] [cursor=pointer]'
+            - 'button "your turn: price the rights separately, offer both shapes" [ref=f3e476] [cursor=pointer]'
+            - 'button "close it: she said no ads" [ref=f3e477] [cursor=pointer]'
+    - generic [ref=f3e478]:
+      - generic [ref=f3e479]:
+        - generic [ref=f3e480]: Day 05
+        - heading "The pipeline, and the robot" [level=2] [ref=f3e481]
+        - generic [ref=f3e482] [cursor=pointer]:
+          - checkbox "mark day five complete" [ref=f3e483]
+          - text: done
+      - generic [ref=f3e484]:
+        - heading "The stages" [level=3] [ref=f3e485]
+        - generic [ref=f3e486]:
+          - generic [ref=f3e487]: found
+          - generic [ref=f3e488]: →
+          - generic [ref=f3e489]: contacted
+          - generic [ref=f3e490]: →
+          - generic [ref=f3e491]: replied
+          - generic [ref=f3e492]: →
+          - generic [ref=f3e493]: negotiating
+          - generic [ref=f3e494]: →
+          - generic [ref=f3e495]: brief sent
+          - generic [ref=f3e496]: →
+          - generic [ref=f3e497]: content in
+          - generic [ref=f3e498]: →
+          - generic [ref=f3e499]: live in ads
+        - paragraph [ref=f3e500]: "Plus one exit: closed, always with a reason. A creator is one row that moves right. The row also carries last touch and next action + date, which is what makes the day-4 sweep possible: the tracker answers \"who do I owe a message today\" in one glance."
+        - heading "Your first tracker" [level=3] [ref=f3e501]
+        - paragraph [ref=f3e502]: This desk saves on this device. That is useful, not permanent. Export a JSON backup after real work; export CSV when you want the rows in Google Sheets. If browser storage is blocked, the desk keeps working for this session and tells you instead of lying.
+        - generic [ref=f3e503]:
+          - generic [ref=f3e504]:
+            - button "+ add creator" [ref=f3e505] [cursor=pointer]
+            - button "export csv" [ref=f3e506] [cursor=pointer]
+            - button "backup json" [ref=f3e507] [cursor=pointer]
+            - button "restore json" [ref=f3e508] [cursor=pointer]
+            - button "load example row" [ref=f3e509] [cursor=pointer]
+          - status [ref=f3e510]: saved on this device
+          - generic [ref=f3e511]:
+            - table "Creator scouting pipeline" [ref=f3e512]:
+              - caption [ref=f3e513]: Creator scouting pipeline. Edit cells to save automatically.
+              - rowgroup [ref=f3e514]:
+                - row [ref=f3e515]:
+                  - columnheader "handle" [ref=f3e516]
+                  - columnheader "platform" [ref=f3e517]
+                  - columnheader "niche" [ref=f3e518]
+                  - columnheader "rate" [ref=f3e519]
+                  - columnheader "contact" [ref=f3e520]
+                  - columnheader "status" [ref=f3e521]
+                  - columnheader "last touch" [ref=f3e522]
+                  - columnheader "next action" [ref=f3e523]
+                  - columnheader "date" [ref=f3e524]
+                  - columnheader "actions" [ref=f3e525]
+              - rowgroup
+            - text: scroll →
+          - status [ref=f3e527]: empty. add your first creator, or load the example row to see the shape.
+        - status [ref=f3e528]:
+          - generic [ref=f3e529]: creator removed
+          - button "undo" [ref=f3e530]
+        - heading "The robot question" [level=3] [ref=f3e531]
+        - paragraph [ref=f3e532]: "Dmytro asked which agent should sit behind you keeping this updated. The honest 2026 answer, researched this week:"
+        - generic [ref=f3e533]:
+          - table [ref=f3e534]:
+            - rowgroup [ref=f3e535]:
+              - row [ref=f3e536]:
+                - columnheader [ref=f3e537]
+                - columnheader "Hermes Agent (Nous Research)" [ref=f3e538]
+                - columnheader "Grok Bot (xAI)" [ref=f3e539]
+            - rowgroup [ref=f3e540]:
+              - row [ref=f3e541]:
+                - cell "what" [ref=f3e542]
+                - cell "open-source, self-hostable agent with reusable skills and scheduled work" [ref=f3e543]
+                - cell "cloud agents with their own computer; launched aug 2026; works while you're offline" [ref=f3e544]
+              - row [ref=f3e545]:
+                - cell "channels" [ref=f3e546]
+                - 'cell "email, telegram, whatsapp, signal, slack, iMessage: the channels this job lives in" [ref=f3e547]'
+                - cell "gmail, slack, calendar connectors; browser automation" [ref=f3e548]
+              - row [ref=f3e549]:
+                - cell "cost" [ref=f3e550]
+                - cell "the code is free; the machine and model still cost money" [ref=f3e551]
+                - cell "beta requires SuperGrok Heavy ($300/month when checked) or an eligible Cursor plan" [ref=f3e552]
+              - row [ref=f3e553]:
+                - cell "fit" [ref=f3e554]
+                - cell "dmytro can host it and connect a dedicated scout inbox. sheet updates need a tested integration, not a promise" [ref=f3e555]
+                - cell "strong, but buying the heaviest tier before the manual loop exists is backwards" [ref=f3e556]
+          - text: scroll →
+        - paragraph [ref=f3e557]: "Recommendation: two weeks fully manual, then Hermes. You must know what a good follow-up feels like before you can supervise a robot writing them."
+        - heading "Setting Hermes up" [level=3] [ref=f3e558]
+        - paragraph [ref=f3e559]: The plan, in order. Steps one and two are Dmytro's; the rest is yours.
+        - list [ref=f3e560]:
+          - listitem [ref=f3e561]: "Dmytro installs Hermes on a machine we control and connects a dedicated scout email through its IMAP/SMTP gateway. Self-hosted does not automatically mean fully local: if we choose a cloud model, the text sent to that model leaves the machine. We decide that boundary before connecting a real inbox."
+          - listitem [ref=f3e562]: He pastes the system prompt below. Read it first. It is your job description for the robot, and you should argue with it out loud if it gets the job wrong.
+          - listitem [ref=f3e563]: "Week one it only reads. Every morning it sends the digest (prompt below): which threads are your turn, whose follow-up date is today, what changed. You still write everything yourself."
+          - listitem [ref=f3e564]: Week two it drafts. Ladder follow-ups appear in your drafts folder; you edit and send. Notice what you keep correcting. That goes back into the system prompt.
+          - listitem [ref=f3e565]: "Only after the connector is tested: it updates the sheet (last touch, next action, status) after every send. Friday ritual: audit ten random rows against the real threads. The day the sheet lies is the day the whole machine stops being trustworthy, so catch it early."
+        - generic [ref=f3e566]:
+          - generic [ref=f3e567]:
+            - generic [ref=f3e568]: hermes · system prompt
+            - button "copy" [ref=f3e569] [cursor=pointer]
+          - generic [ref=f3e570]:
+            - text: "You are the pipeline assistant for a UGC creator scout at Replika. You DRAFT. You never send. Drafts go to the drafts folder; the human sends. This rule has no exceptions and does not expire. The pipeline lives in the sheet with columns: handle, platform, niche, rate, contact, status, last touch, next action, date. Statuses: found, contacted, replied, negotiating, brief sent, content in, live in ads, closed (always with a reason in next action). Every thread is in one of three states: OUR turn, THEIR turn (with a follow-up date), or CLOSED (with a reason). After reading any thread, update its row: last touch, state, next action + date. Follow-up ladder for silence: day 3 soft bump with one new fact, day 7 send the brief link, day 14 close the loop kindly and mark closed. Escalate to the human instead of drafting when: money above $"
+            - emphasis [ref=f3e571]: "300"
+            - text: ", usage rights questioned, a creator is upset, anything legal, or a message would go to someone we have never contacted before. Voice: warm, lowercase, direct, under 60 words per message, never guilt, never \"just checking in\". Never invent details about a creator."
+        - generic [ref=f3e572]:
+          - generic [ref=f3e573]:
+            - generic [ref=f3e574]: hermes · the morning digest
+            - button "copy" [ref=f3e575] [cursor=pointer]
+          - generic [ref=f3e576]:
+            - text: Every morning at
+            - emphasis [ref=f3e577]: 9:00
+            - text: ", read the inbox and the sheet, then send me: 1. OUR TURN: threads waiting on us, oldest first, one line each: handle, what they said, suggested reply angle. 2. DUE TODAY: rows whose follow-up date is today, and which ladder step comes next. 3. STUCK: anything with no state or no next-action date. These are bugs in the pipeline, not tasks. 4. One number: threads answered yesterday vs threads that came in. Nothing else. No pep talk, no summary of the summary."
+        - generic [ref=f3e578]:
+          - generic [ref=f3e579]:
+            - generic [ref=f3e580]: any model · log this thread
+            - button "copy" [ref=f3e581] [cursor=pointer]
+          - generic [ref=f3e582]:
+            - text: "Here is a conversation with a creator:"
+            - emphasis [ref=f3e583]: paste thread
+            - text: "Give me the row update, exactly these fields: handle · platform · status · last touch (today) · next action · date Then one sentence: the thread state (our turn / their turn / close) and why. If anything belongs with a human (money, rights, someone upset), say ESCALATE and why, instead of a row."
+        - paragraph [ref=f3e584]: "And one rule that never expires: the agent drafts, you send. At least for the first months. An automated wrong message to a creator costs more than a hundred drafts save."
+    - generic [ref=f3e585]:
+      - generic [ref=f3e586]:
+        - generic [ref=f3e587]: Graduation
+        - heading "Seven tasks, then you're a creative scout" [level=2] [ref=f3e588]
+        - generic [ref=f3e589] [cursor=pointer]:
+          - checkbox "mark graduation complete" [ref=f3e590]
+          - text: done
+      - generic [ref=f3e591]:
+        - figure [ref=f3e592]:
+          - img "Editorial illustration of Taso at a red cafe table moving creator cards through her pipeline" [ref=f3e593]
+          - generic [ref=f3e594]:
+            - heading "The course ends. The desk stays." [level=3] [ref=f3e595]
+            - paragraph [ref=f3e596]: Graduation is not knowing the words. It is five real creators, five real ad reads, three good messages and an empty “our turn” queue.
+        - heading "The mock brief" [level=3] [ref=f3e597]
+        - generic [ref=f3e598]:
+          - heading "brief · practice only" [level=4] [ref=f3e599]
+          - paragraph [ref=f3e600]: "Replika, feed video. US or UK creators, 22–35. Vibe: cozy, honest, a bit funny; rainy-day-room, journaling, \"girl talk\" energy. Talks to camera, face visible. No gaming setups, no crypto history. Budget $150–300/video + usage rights. Formats: \"day in my life with my AI friend\", \"things I tell my Replika I don't tell anyone\"."
+        - heading "The tasks" [level=3] [ref=f3e601]
+        - list [ref=f3e602]:
+          - listitem [ref=f3e603]: Find five real creators matching the brief, across at least three different channels from day 3. Log all five in the tracker with source and (if visible) rate.
+          - listitem [ref=f3e604]: "Ad-library teardown. Pull five current UGC ads from two competitors. For each: hook, setting, benefit claimed. Identify at least one creator by handle and add them to the tracker as found · ad library."
+          - listitem [ref=f3e605]: Motion handoff. Pick the strongest ad from your teardown. Send the link, opening frame, spoken hook, first-six-second cut map, product moment, ending and one recommended next version to Nat and a motion designer.
+          - listitem [ref=f3e606]: "Write three first DMs for three of your five creators: AI-drafted with the day-4 prompt, then improved by hand. Keep both versions; the diff is what Nat will want to see."
+          - listitem [ref=f3e607]: The triage hour. Set a timer, open all channels, and get every thread you own into one of the three states. Screenshot the empty "your turn" list.
+          - listitem [ref=f3e608]: Shoot one UGC video yourself. Record three hooks and two full takes on the phone. Keep the raw files, choose one cut and write the caption you would publish. If an account is ready, post or schedule it and add the 24-hour and 7-day metric checks to your calendar.
+          - listitem [ref=f3e609]: "Email Dmytro at 1@replika.com as if he's a creator. He is \"Dmytro K, 29, posts dry-humor day-in-the-life videos, 4k followers, has an email in bio.\" Full first-touch: subject line, the message, the follow-up you'd send on day 3 below it. He replies in character; if he answers \"want the brief?\", you passed."
+        - paragraph [ref=f3e610]: "Send task results to Nat and Dmytro. Then this page stops being a course and becomes what it was always meant to be: your reference. The prompts, the ladder, the ritual, the tracker: they're all here for daily use."
+    - generic [ref=f3e611]:
+      - generic [ref=f3e612]:
+        - generic [ref=f3e613]: The shelf
+        - heading "Every link in one place" [level=2] [ref=f3e614]
+      - generic [ref=f3e615]:
+        - heading "Open daily" [level=3] [ref=f3e616]
+        - list [ref=f3e617]:
+          - listitem [ref=f3e618]:
+            - link "Meta Ad Library" [ref=f3e619] [cursor=pointer]:
+              - /url: https://www.facebook.com/ads/library/
+            - generic [ref=f3e620]: every competitor ad, live, free
+          - listitem [ref=f3e621]:
+            - link "TikTok Creative Center" [ref=f3e622] [cursor=pointer]:
+              - /url: https://ads.tiktok.com/business/creativecenter/
+            - generic [ref=f3e623]: top ads by region + industry
+        - heading "Sourcing" [level=3] [ref=f3e624]
+        - list [ref=f3e625]:
+          - listitem [ref=f3e626]:
+            - link "TikTok One / Creator Marketplace" [ref=f3e627] [cursor=pointer]:
+              - /url: https://www.tiktok.com/business/en/tiktok-one
+            - generic [ref=f3e628]: official, filterable, safe at scale
+          - listitem [ref=f3e629]:
+            - link "Insense" [ref=f3e630] [cursor=pointer]:
+              - /url: https://insense.pro
+            - generic [ref=f3e631]: brief-in, vetted applicants out; ads-ready
+          - listitem [ref=f3e632]:
+            - link "Billo" [ref=f3e633] [cursor=pointer]:
+              - /url: https://billo.app
+            - generic [ref=f3e634]: performance-first UGC platform
+          - listitem [ref=f3e635]:
+            - link "Influee" [ref=f3e636] [cursor=pointer]:
+              - /url: https://influee.co
+            - generic [ref=f3e637]: vetted, strong in EU + NA
+          - listitem [ref=f3e638]:
+            - link "Collabstr" [ref=f3e639] [cursor=pointer]:
+              - /url: https://collabstr.com
+            - generic [ref=f3e640]: browse creators with listed rates
+          - listitem [ref=f3e641]:
+            - link "Fiverr UGC" [ref=f3e642] [cursor=pointer]:
+              - /url: https://www.fiverr.com/categories/video-animation/ugc-videos
+            - generic [ref=f3e643]: direct hiring surface, quality varies
+          - listitem [ref=f3e644]:
+            - link "r/UGCcreators" [ref=f3e645] [cursor=pointer]:
+              - /url: https://www.reddit.com/r/UGCcreators/
+            - generic [ref=f3e646]: creators pitch you
+        - heading "Intelligence" [level=3] [ref=f3e647]
+        - list [ref=f3e648]:
+          - listitem [ref=f3e649]:
+            - link "AppMagic" [ref=f3e650] [cursor=pointer]:
+              - /url: https://appmagic.rocks
+            - generic [ref=f3e651]: download + revenue estimates
+          - listitem [ref=f3e652]:
+            - link "Sensor Tower" [ref=f3e653] [cursor=pointer]:
+              - /url: https://sensortower.com
+            - generic [ref=f3e654]: the heavyweight; owns AppMagic now
+          - listitem [ref=f3e655]:
+            - link "Foreplay" [ref=f3e656] [cursor=pointer]:
+              - /url: https://www.foreplay.co
+            - generic [ref=f3e657]: swipe files + competitor ad tracking over time
+          - listitem [ref=f3e658]:
+            - link "SimilarWeb" [ref=f3e659] [cursor=pointer]:
+              - /url: https://www.similarweb.com
+            - generic [ref=f3e660]: web traffic sanity checks
+        - heading "The robot" [level=3] [ref=f3e661]
+        - list [ref=f3e662]:
+          - listitem [ref=f3e663]:
+            - link "Hermes Agent" [ref=f3e664] [cursor=pointer]:
+              - /url: https://github.com/NousResearch/hermes-agent
+            - generic [ref=f3e665]: the one we'll test, after week two
+        - heading "Sources" [level=3] [ref=f3e666]
+        - group [ref=f3e667]:
+          - generic "checked 20 august 2026 · open the evidence" [ref=f3e668] [cursor=pointer]
+    - figure [ref=f3e671]:
+      - link [ref=f3e672] [cursor=pointer]:
+        - /url: https://www.youtube.com/watch?v=Hvwd36qw3Ks
+        - img "Tsuna and Tsrutsuna, the 1955 Georgian cartoon" [ref=f3e673]
+  - contentinfo [ref=f3e674]: scout school · written for taso · replika growth · questions → dmytro or nat

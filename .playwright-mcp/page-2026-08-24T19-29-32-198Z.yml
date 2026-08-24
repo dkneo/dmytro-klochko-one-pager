@@ -1,0 +1,8 @@
+- main [ref=e2]:
+  - heading "scout school" [level=1] [ref=e3]
+  - paragraph [ref=e4]: the ugc scouting program. taso, this is yours.
+  - generic [ref=e5]:
+    - textbox "password" [active] [ref=e6]
+    - button "come in" [ref=e7] [cursor=pointer]
+  - link "back to the main page" [ref=e8] [cursor=pointer]:
+    - /url: /
