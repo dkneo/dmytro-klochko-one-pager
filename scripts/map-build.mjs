@@ -93,7 +93,10 @@ for (const kind of ["paintings", "objects", "buildings", "poems", "songs", "quot
       type: fm.type || kind.replace(/s$/, ""),
       who: fm.who || fm.name || "",
       title: fm.title || "",
-      line: line.replace(/^["“]|["”]$/g, "").slice(0, 120),
+      // Not truncated. A mark on the map was a dot with a tooltip, so 120
+      // characters was harmless; the library reads these lines aloud, and a
+      // quote cut mid-sentence is a misquote. The tooltip clamps in css.
+      line: line.replace(/^["“]|["”]$/g, ""),
       year: fm.year || "",
       where: fm.where || "",
       weather,

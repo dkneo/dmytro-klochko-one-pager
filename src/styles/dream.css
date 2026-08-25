@@ -1007,11 +1007,29 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 }
 
 [data-mode="dream"] .lib-door {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.15rem 1rem;
-  align-items: baseline;
   margin-bottom: var(--sp-2);
+}
+
+/* A room is a catalogue spread: the plates on the left, the text beside
+   them. Full-width walls left a single painting stranded in a thousand
+   pixels of nothing, which is the oldest complaint in CHECKLIST.md. */
+[data-mode="dream"] .lib-body {
+  display: grid;
+  grid-template-columns: minmax(0, 21rem) minmax(0, 1fr);
+  gap: var(--sp-3) var(--sp-4);
+  align-items: start;
+}
+
+/* Density decides the layout. A lone plate belongs beside its text; a wall
+   of a dozen works deserves the room, with the words read underneath. As
+   sittings fill the rooms they cross the threshold and change shape. */
+[data-mode="dream"] .lib-body--wide { grid-template-columns: minmax(0, 1fr); }
+[data-mode="dream"] .lib-body--wide .lib-wall {
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+}
+
+@media (max-width: 860px) {
+  [data-mode="dream"] .lib-body { grid-template-columns: minmax(0, 1fr); }
 }
 
 [data-mode="dream"] .lib-chips {
@@ -1036,7 +1054,6 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 }
 
 [data-mode="dream"] .lib-door p {
-  grid-column: 1;
   margin: 0.2rem 0 0;
   max-width: 52ch;
   font-family: var(--serif);
@@ -1053,12 +1070,16 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   letter-spacing: 0.08em;
   color: var(--dim);
   white-space: nowrap;
+  opacity: 0.8;
 }
 
 [data-mode="dream"] .lib-wall {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
-  gap: 12px;
+  /* auto-fit, not auto-fill: a room holding one painting gives it the whole
+     rail rather than stranding it in the first of two empty tracks */
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 10px;
+  margin: 0;
 }
 
 [data-mode="dream"] .lib-card {
@@ -1116,11 +1137,12 @@ html[data-scene="study"] .scenes i[data-s="study"] {
    it, two columns of it on a wide screen. */
 [data-mode="dream"] .lib-words {
   list-style: none;
-  margin: var(--sp-3) 0 0;
+  margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
   gap: var(--sp-3) var(--sp-4);
+  align-content: start;
 }
 
 [data-mode="dream"] .lib-said {
@@ -1167,6 +1189,38 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 
 /* a poem keeps its own lines rather than running together */
 [data-mode="dream"] .lib-said--poem .lib-line { white-space: pre-line; }
+
+/* The panel lives at the end of the section, which on the map was inside a
+   fixed-height field and fine. In the library it opened five thousand pixels
+   below the card that summoned it, so pressing a painting looked like
+   pressing nothing. It comes to the reader instead. */
+/* Both classes on purpose: the library block sits near the top of this file
+   and .em-detail's position: relative lives four thousand lines below it, so
+   at equal specificity the later rule won and the panel stayed in the flow.
+   Every other property here applied, which is why it looked configured. */
+[data-mode="dream"] .em-detail.lib-detail {
+  position: fixed;
+  margin: 0;
+  right: clamp(1rem, 4vw, 3rem);
+  bottom: clamp(1rem, 4vh, 2.5rem);
+  z-index: 80;
+  width: min(26rem, calc(100vw - 2rem));
+  max-height: min(70svh, 40rem);
+  overflow: auto;
+  background: rgb(24 28 46 / 96%);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px var(--shadow-deep);
+}
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .em-detail.lib-detail {
+    right: 0.75rem;
+    left: 0.75rem;
+    width: auto;
+  }
+}
 
 [data-mode="dream"] .lib-elsewhere {
   margin: var(--sp-5) 0 0;
@@ -4945,6 +4999,11 @@ html[data-motion="paused"] .scenes .firelight {
   top: calc(100% + 0.4rem);
   transform: translateX(-50%);
   max-width: 20ch;
+  /* the line is stored whole now, so the tooltip is what keeps it short */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   padding: 0.25rem 0.5rem;
   background: rgb(14 17 30 / 92%);
   border: 1px solid rgb(236 230 217 / 20%);
