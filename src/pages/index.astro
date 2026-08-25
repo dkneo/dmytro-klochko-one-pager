@@ -151,7 +151,6 @@ const chapters = [
   { id: "alongside", label: "other roles" },
   { id: "me", label: "literally me" },
   { id: "contact", label: "say hi" },
-  { id: "poems", label: "poems" },
 ] as const;
 
 const jobs = [
@@ -336,7 +335,7 @@ const also = [
           <div>
             <dt>based between</dt>
             <dd>
-              <span class="pin" aria-hidden="true">🗽</span>nyc,{" "}
+              <span class="pin" aria-hidden="true">&#x1F5FD;</span>nyc,{" "}
               <span class="pin" aria-hidden="true">🗼</span>paris,{" "}
               <span class="pin" aria-hidden="true">🚀</span>sf
             </dd>
@@ -907,28 +906,12 @@ const also = [
     </div>
   </section>
 
-  {/* Off the shelf and back on the page: the register ends, and something
-      he made ends it. */}
-  <section class="shell session" id="poems" data-scene="estuary" data-weather="none" aria-labelledby="sp">
-    <div class="card">
-      <p class="card-no">08</p>
-      <h2 class="card-title" id="sp">and some poems of mine</h2>
-    </div>
-
-    <div class="poems">
-      <blockquote class="poem">
-        i am lost in sorrento<br />
-        for i am the taste of its lemons and its women&rsquo;s feet<br />
-        i&rsquo;m the salt of its breeze<br />
-        i&rsquo;m so glad i can&rsquo;t breathe<br />
-        i&rsquo;m so tall i am whole twelve feet
-      </blockquote>
-      <blockquote class="poem">
-        this girl is the warm sensation of young sun on my bare chest<br />
-        her chestnut irises, and the greens in them, glimmer with playful unrest<br />
-        when she whispers her spells, her tricks, and her promises, i couldn&rsquo;t get any slumber<br />
-        for she carries inside her an eternal summer, an eternal summer
-      </blockquote>
-    </div>
-  </section>
+  {/* last line of the foyer: untitled, no chapter, no 08. */}
+  <blockquote class="poem foyer-last">
+    i am lost in sorrento<br />
+    for i am the taste of its lemons and its women&rsquo;s feet<br />
+    i&rsquo;m the salt of its breeze<br />
+    i&rsquo;m so glad i can&rsquo;t breathe<br />
+    i&rsquo;m so tall i am whole twelve feet
+  </blockquote>
 </Layout>

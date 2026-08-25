@@ -6,6 +6,10 @@ For any agent picking this repo up. Read this first, then `CHECKLIST.md`
 The site belongs to **Dmytro Klochko**, CEO of Replika. Audience is VCs,
 scouts and tech-Twitter. Everything on it is either true or removed.
 
+The **foyer** is what public nav and the sitemap offer: `/`, `/learning`,
+`/press`, `/#contact`. Extra rooms stay in the repo, reachable by url,
+unlinked and noindex. Do not put writing or eidos in the header.
+
 ---
 
 ## 1. What it is
@@ -178,22 +182,22 @@ it that way.
 
 ### The eidos pages
 
-`/eidos` is **the library** — public, in the sitemap: eight weather-rooms,
-cold to warm, the unfiled closing as "the ring". Inside a room, **art hangs
-and words are read**: paintings/objects/buildings/people are plates on a
-wall, poems/quotes/songs/writing are set as type. **Density picks the
-layout** — four works or fewer sit beside their words as a catalogue
-spread, more than four hang wide with the words beneath, so rooms change
-shape as sittings fill them. Plates come from `/images/plates/` (440 wide,
-fit inside) because the 320 square thumbs are cover-cropped and cut a
-painting's composition; the sketch still uses the thumbs, which is what
-they are for. **Every count on the page is computed from what the page
-renders**, never from `depth.*`, which counts the whole vault.
+`/eidos` is **the library** — a hidden room, unlisted, not in the sitemap:
+eight weather-rooms, cold to warm, the unfiled closing as "the ring". Inside
+a room, **art hangs and words are read**: paintings/objects/buildings/people
+are plates on a wall, poems/quotes/songs/writing are set as type. **Density
+picks the layout** — four works or fewer sit beside their words as a
+catalogue spread, more than four hang wide with the words beneath, so rooms
+change shape as sittings fill them. Plates come from `/images/plates/` (440
+wide, fit inside) because the 320 square thumbs are cover-cropped and cut a
+painting's composition; the sketch still uses the thumbs, which is what they
+are for. **Every count on the page is computed from what the page renders**,
+never from `depth.*`, which counts the whole vault.
 
 Views:
 `/eidos/map` (the sketch, with place-the-ring and the pair), `/eidos/orbit`
 (the shape). `/eidos/sit` is his judging door. `/eidos/deck` is legacy,
-unlinked. Reading is public; every write is behind the /names door.
+unlinked. The library is a hidden room; every write is behind the /names door.
 
 Marks now come in nine kinds: paintings, **objects** (design), **buildings**
 (HABS/HAER survey photographs are the reliable PD vein), poems, songs,
@@ -330,18 +334,31 @@ programmatic CSS removal, scan for bodyless selectors and check brace balance.
 
 ## 9. Where things are
 
+The **foyer** is what public nav and the sitemap offer:
+
 | url | what |
 |---|---|
-| `/` | the main page: CV, work, photographs, poems |
-| `/press` | 29 verified press pieces, wordmarks, real quotes, contacts |
-| `/today` | a daily chord: painting, poem, quote, song, by "weather" |
-| `/eidos` | the taste map, 64 marks; `/eidos/deck` is the swipe deck |
-| `/hokku` | write a haiku, reviewed by rule |
+| `/` | the main page: CV, work, photographs. no homepage poems chapter. |
+| `/press` | verified press pieces, wordmarks, real quotes, contacts |
 | `/learning` | what he's studying, plus `/learning/ui-vernacular` |
+| `/#contact` | say hi |
+
+**Hidden rooms** stay on disk, reachable by url, unlinked and noindex:
+
+| url | what |
+|---|---|
+| `/today` | a daily chord: painting, poem, quote, song, by "weather" |
+| `/eidos` | the taste library; `/eidos/deck` is the swipe deck |
+| `/hokku` | write a haiku, reviewed by rule |
 | `/basho` | a hosted essay |
+| `/pond` | the stillness toy |
+| `/taste` | the playlist remnant |
+| `/writing` | two skyeng-year pieces |
+| `/dance` | the dance loop |
+| `/curate`, `/vault`, `/map` | curation tooling |
 | `/names` | **gated** — the naming folio + the app brief |
 | `/ask` | **gated, separate password** — the request desk |
-| `/curate`, `/vault`, `/map` | curation tooling, noindex |
+| `/scout` | **gated** — taso's ugc program |
 
 The **weathers** are his taxonomy and the spine of the vault: cold clarity,
 dissolution, invincible summer, nerve, the dark and the lamp, the plain thing,
@@ -357,6 +374,7 @@ vastness, weight and grace. Everything is filed by feeling, not by kind.
 - `/pond` shipped: pale paper as decided (Hoji's belly wash cut out hollow on
   dark), 60s of stillness makes night fall and the frog jump in. `?still=N`
   shortens the minute for demos. Linked from the bashō figure on `/hokku`.
+  Both are hidden rooms.
 
 ---
 

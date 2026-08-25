@@ -1,10 +1,24 @@
-# dmytro klochko — personal one-page site
+# dmytro klochko — personal site
 
-A responsive, accessible personal portfolio built with Astro and strict
-TypeScript. It is a purely static site — no database, authentication, forms
-service, adapter, or other backend/runtime dependency. `npm run build`
-produces a fully static `dist/` you can host anywhere (Cloudflare Pages,
-Netlify, GitHub Pages, S3, etc.) with zero client-side JavaScript.
+Astro static build for [dmklochko.com](https://dmklochko.com). The public
+site is a foyer: the homepage, learning, press, and say hi. Extra rooms
+still live in the repo and stay reachable by url. They are not linked from
+header, hamburger, footer, or the sitemap.
+
+## Public foyer
+
+- `/` — homepage: hero, experience, how i work, upbringing, other roles, literally me, say hi
+- `/learning` — what he is studying, plus the field guides
+- `/press` — verified press ledger
+- `/#contact` — say hi
+
+## Hidden rooms
+
+Kept on disk, unlinked, and marked unlisted / noindex:
+`/writing`, `/eidos`, `/today`, `/taste`, `/basho`, `/hokku`, `/pond`,
+`/dance`, `/curate`, `/vault`, `/map`. Studio doors already behind a
+password or Access stay that way (`/names`, `/ask`, `/scout`; `/curate`
+when Access is configured).
 
 ## Local development
 
@@ -22,20 +36,16 @@ npm run build
 npm run preview
 ```
 
+`npm run build` compiles the vault, checks image derivatives, builds Astro,
+then writes `dist/sitemap.xml` from what actually shipped and is not noindex.
+
 ## Customize the content
 
-- `src/pages/index.astro` contains the page structure and copy, and holds the
-  data arrays (upbringing timeline, vlog links, social links, books, records).
-- `src/components/` holds the repeated markup patterns (section tags,
-  outbound links, media cards, framed photos) used across the page.
-- `src/layouts/Layout.astro` contains `<head>` metadata and social sharing
-  configuration.
-- `src/styles/global.css` contains the visual system and responsive behavior.
-- `public/og.png` is the social preview card.
+- `src/pages/index.astro` is the homepage.
+- `src/layouts/Layout.astro` is the public header and footer.
+- `src/styles/` is the visual system.
+- `src/data/` is build-time json. Do not edit `map.json` or `today.json` by
+  hand; they come from `vault/`.
 
-The source copy and links are taken from `contents/dk_reference_doc_simple.pdf`.
-The bio language is intentionally preserved verbatim.
-
-See [PRODUCT.md](PRODUCT.md) and [DESIGN.md](DESIGN.md) for the durable
-product context and visual design system, captured with the `impeccable`
-skill.
+See [PRODUCT.md](PRODUCT.md), [DESIGN.md](DESIGN.md), [AGENTS.md](AGENTS.md)
+and [CHECKLIST.md](CHECKLIST.md).

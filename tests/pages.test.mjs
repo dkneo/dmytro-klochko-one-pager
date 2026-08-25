@@ -202,11 +202,13 @@ test("the library shelves every mark, signed and filtered", () => {
 
 test("the sitemap lists the public pages and only those", () => {
   const xml = read("dist/sitemap.xml");
-  for (const url of ["/pond/", "/learning/terminal", "/today/", "/hokku/", "/eidos/"]) {
+  for (const url of ["/learning/", "/learning/terminal", "/press/"]) {
     assert.ok(xml.includes(url), `sitemap missing ${url}`);
   }
   for (const gated of ["/names", "/ask", "/scout", "/curate",
-                       "/eidos/sit", "/eidos/map", "/eidos/orbit", "/eidos/deck"]) {
+                       "/eidos/sit", "/eidos/map", "/eidos/orbit", "/eidos/deck",
+                       "/today/", "/hokku/", "/pond/", "/eidos/", "/taste/",
+                       "/writing/", "/basho", "/dance/", "/vault/", "/map/"]) {
     assert.ok(!xml.includes(gated), `sitemap leaks ${gated}`);
   }
 });

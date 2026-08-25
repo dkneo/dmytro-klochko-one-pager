@@ -1,2 +1,38 @@
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+/basho
+  X-Robots-Tag: noindex, follow
+
+/pond
+  X-Robots-Tag: noindex, follow
+
+/today/*
+  X-Robots-Tag: noindex, follow
+
+/taste
+  X-Robots-Tag: noindex, follow
+
+/hokku
+  X-Robots-Tag: noindex, follow
+
+/eidos/*
+  X-Robots-Tag: noindex, follow
+
+/writing/*
+  X-Robots-Tag: noindex, follow
+
+/dance
+  X-Robots-Tag: noindex, follow
+
+/curate
+  X-Robots-Tag: noindex, follow
+
+/vault
+  X-Robots-Tag: noindex, follow
+
+/map
+  X-Robots-Tag: noindex, follow
+
+/lab/*
+  X-Robots-Tag: noindex, follow

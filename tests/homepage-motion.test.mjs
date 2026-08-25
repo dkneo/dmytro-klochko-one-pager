@@ -13,7 +13,7 @@ test("the homepage lights weather only while the hero owns the sky", () => {
   const calm = [...page.matchAll(/data-weather="none"/g)];
 
   assert.equal(fire.length, 1, "only the hero should carry live fire weather");
-  assert.equal(calm.length, 7, "every later homepage chapter should calm the weather");
+  assert.equal(calm.length, 6, "every later homepage chapter should calm the weather");
 });
 
 test("visible hero video plays on phones unless the user asks the browser to save data", async () => {
@@ -85,8 +85,8 @@ test("the homepage moves through three authored acts without changing sky mid-th
 
   assert.match(page, /scenes=\{\["fire", "ember", "estuary"\]\}/);
   assert.deepEqual(
-    ["top", "experience", "how", "journey", "alongside", "me", "contact", "poems"].map(sceneFor),
-    ["fire", "ember", "ember", "ember", "estuary", "estuary", "estuary", "estuary"],
+    ["top", "experience", "how", "journey", "alongside", "me", "contact"].map(sceneFor),
+    ["fire", "ember", "ember", "ember", "estuary", "estuary", "estuary"],
   );
 });
 
@@ -110,7 +110,7 @@ test("every journey preview works from the keyboard and announces its state", ()
 
 test("desktop readers get a real chapter index into the long homepage", () => {
   const page = read("src/pages/index.astro");
-  const chapters = ["top", "experience", "how", "journey", "alongside", "me", "contact", "poems"];
+  const chapters = ["top", "experience", "how", "journey", "alongside", "me", "contact"];
 
   assert.match(page, /aria-label="on this page"/);
   assert.match(page, /href=\{`#\$\{chapter\.id\}`\}/);

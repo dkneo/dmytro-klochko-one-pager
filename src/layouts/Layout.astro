@@ -131,7 +131,7 @@ const isHomepage = Astro.url.pathname === "/";
           is. Native details, so it opens without javascript and answers the
           keyboard on its own. */}
       <nav class="site-nav" aria-label="elsewhere">
-        {/* Wide screens have the room, and hiding four short words behind a
+        {/* Wide screens have the room, and hiding two short words behind a
             click costs discovery for nothing. Below 861 they fold. */}
         <span class="nav-wide">
           <a class="dance-link" href="/learning">learning</a>
@@ -143,9 +143,6 @@ const isHomepage = Astro.url.pathname === "/";
           <div class="menu-drop">
             <a href="/learning">learning</a>
             <a href="/press">press</a>
-            <a href="/basho">bashō</a>
-            <a href="/hokku">hokku</a>
-            <a href="/dance">dance</a>
           </div>
         </details>
       </nav>
@@ -174,20 +171,13 @@ const isHomepage = Astro.url.pathname === "/";
         <button class="bebop-close" type="button">close</button>
       </div>
       <nav class="foot-index" aria-label="pages">
-        <a href="/today">today</a>
         <a href="/learning">learning</a>
         <a href="/press">press</a>
-        <a href="/basho">bashō</a>
-        <a href="/hokku">hokku</a>
         <a href="/#contact">say hi</a>
       </nav>
 
       <div class="foot-row">
         <p>© 2026 dmytro klochko</p>
-        {/* The one thing down here that asks for nothing. */}
-        <a class="dance-cta" href="/dance">
-          <span aria-hidden="true">🕺</span>a dance<span class="arw" aria-hidden="true">→</span>
-        </a>
         <a class="to-top" href="#top">back to top<span class="arw" aria-hidden="true">↑</span></a>
       </div>
     </footer>

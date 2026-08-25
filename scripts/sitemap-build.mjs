@@ -2,13 +2,39 @@
 // does not exist or miss one that does.
 //
 // Left out on purpose: the four redirect stubs (they carry noindex and a
-// canonical pointing elsewhere), and /names, which is behind a password and
-// should not be advertised at all.
+// canonical pointing elsewhere); /names, which is behind a password; and the
+// hidden rooms. Those rooms stay on disk and stay reachable by url. They are
+// not the foyer, so they are not advertised.
 import { readdirSync, statSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
 const SITE = "https://dmklochko.com";
-const SKIP = new Set(["/archive/", "/at-work/", "/feed/", "/modus-operandi/", "/names/"]);
+const SKIP = new Set([
+  "/archive/",
+  "/at-work/",
+  "/feed/",
+  "/modus-operandi/",
+  "/names/",
+  "/writing/",
+  "/writing/staying-human",
+  "/writing/english-teacher",
+  "/eidos/",
+  "/eidos/deck/",
+  "/eidos/map/",
+  "/eidos/orbit/",
+  "/eidos/sit/",
+  "/today/",
+  "/taste/",
+  "/basho",
+  "/hokku/",
+  "/pond/",
+  "/dance/",
+  "/curate/",
+  "/vault/",
+  "/map/",
+  "/lab/shader",
+  "/ask/",
+]);
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
