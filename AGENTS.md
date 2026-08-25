@@ -239,6 +239,13 @@ Hard-won and non-obvious. Ignoring these produces confident wrong conclusions:
   red suite: the chain saw tail's exit 0, not the test runner's 1. This has now
   hidden a failure twice (a worker syntax error before, a stale test here).
   Ship steps run separately, capture output to a file, and check `$?` bare.
+- **A narrow headless screenshot can show clipping that is not there.** At
+  `--window-size=390`, `/eidos` captured with its text running past the right
+  edge; the same page measured at a real 390 viewport twice — pane and the
+  scaled-iframe method — reported `scrollWidth === clientWidth` and no
+  offending element. The png came back exactly 390 wide, so it is not a
+  clamp, and the cause is still unknown. **Measure before believing a narrow
+  capture**, and prefer the iframe.
 - **`scroll-behavior: smooth` stalls in the pane** for the same reason the
   transitions freeze: the animation clock is suspended. `scrollIntoView()`
   moves a few hundred pixels and stops, which looks exactly like a broken

@@ -31,14 +31,34 @@ const thumbFor = (src: string) => src
   .replace("/images/", "/images/thumbs/")
   .replace(/\.[^.]+$/, ".webp");
 
-// cold to warm: the weathers already carry their solved x
-const rooms = weathers.slice().sort((a, b) => a.x - b.x).map((w) => ({
-  ...w,
-  slug: w.name.replace(/\W+/g, "-"),
-  marks: items.filter((it) => it.weather === w.name),
-  stops: (palettes.palettes.find((p) => p.weather === w.name) || {}).stops || [],
-}));
-const ring = items.filter((it) => !it.weather || it.unplaced);
+// Art hangs; words are read. A quote squeezed into a square tile is mostly
+// empty space wearing a border, and next to a real painting the boxes read
+// as placeholders. So each room has a wall and a column, and each kind gets
+// the shape it wants.
+const HANGS = new Set(["painting", "object", "building", "person"]);
+
+// The links are all craft articles — Emil Kowalski on animation, ThreeUI.
+// That is study, not taste, and /learning already keeps them properly.
+const shelved = items.filter((it) => it.type !== "link");
+
+const rooms = weathers.slice().sort((a, b) => a.x - b.x).map((w) => {
+  const marks = shelved.filter((it) => it.weather === w.name);
+  return {
+    ...w,
+    slug: w.name.replace(/\W+/g, "-"),
+    art: marks.filter((it) => HANGS.has(it.type)),
+    words: marks.filter((it) => !HANGS.has(it.type)),
+    n: marks.length,
+    stops: (palettes.palettes.find((p) => p.weather === w.name) || {}).stops || [],
+  };
+});
+const ringMarks = shelved.filter((it) => !it.weather || it.unplaced);
+const ring = {
+  art: ringMarks.filter((it) => HANGS.has(it.type)),
+  words: ringMarks.filter((it) => !HANGS.has(it.type)),
+  n: ringMarks.length,
+};
+const links = items.filter((it) => it.type === "link").length;
 
 const title = "eidos · dmytro klochko";
 const description =
@@ -76,7 +96,7 @@ const description =
     {/* ── filters, shared across every room ───────────────────────── */}
     <div class="em-controls" role="group" aria-label="filter the library">
       <button class="em-chip is-on" data-filter="all" type="button">everything</button>
-      {forms.filter((f) => f.n).map((f) => (
+      {forms.filter((f) => f.n && f.form !== "link").map((f) => (
         <button class="em-chip" data-filter={f.form} type="button">
           <i aria-hidden="true">{FORM_MARK[f.form]}</i>{f.form}s<b>{f.n}</b>
         </button>
@@ -98,58 +118,87 @@ const description =
           </span>
           <h2>{r.name}</h2>
           <p>{r.why}</p>
-          <span class="lib-n">{r.marks.length} mark{r.marks.length === 1 ? "" : "s"}</span>
+          <span class="lib-n">{r.n} mark{r.n === 1 ? "" : "s"}</span>
         </header>
-        <div class="lib-wall">
-          {r.marks.map((it) => (
-            <button class={`lib-card lib-card--${it.type}`} type="button"
-                    data-id={it.id} data-form={it.type}
-                    aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-              {it.src ? (
+
+        {r.art.length > 0 && (
+          <div class="lib-wall">
+            {r.art.map((it) => (
+              <button class={`lib-card lib-card--${it.type}`} type="button"
+                      data-id={it.id} data-form={it.type}
+                      aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
                 <img src={thumbFor(it.src)} alt="" width="320" height="320" loading="lazy" decoding="async" />
-              ) : (
-                <span class="lib-word">
-                  <i aria-hidden="true">{FORM_MARK[it.type]}</i>
-                  <span class="lib-text">{it.line || it.title}</span>
-                </span>
-              )}
-              <span class="lib-cap">{it.who || it.title}</span>
-            </button>
-          ))}
-        </div>
+                <span class="lib-cap">{it.who || it.title}</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {r.words.length > 0 && (
+          <ul class="lib-words">
+            {r.words.map((it) => (
+              <li>
+                <button class={`lib-said lib-said--${it.type}`} type="button"
+                        data-id={it.id} data-form={it.type}
+                        aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
+                  <span class="lib-mark" aria-hidden="true">{FORM_MARK[it.type]}</span>
+                  <span class="lib-line">{it.line || it.title}</span>
+                  <span class="lib-by">{it.who}{it.year ? " · " + it.year : ""}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     ))}
 
     {/* ── the ring: filed nowhere yet ─────────────────────────────── */}
-    {ring.length > 0 && (
+    {ring.n > 0 && (
       <section class="lib-room lib-room--ring" id="the-ring" aria-label="the ring">
         <header class="lib-door">
           <h2>the ring</h2>
           <p>
-            {ring.length} marks that have never been told how they feel. they
-            join a room when a <a href="/eidos/sit">sitting</a> or{" "}
+            {ring.n} marks that have never been told how they feel. they join
+            a room when a <a href="/eidos/sit">sitting</a> or{" "}
             <a href="/eidos/map">the sketch</a> files them.
           </p>
         </header>
-        <div class="lib-wall">
-          {ring.map((it) => (
-            <button class={`lib-card lib-card--${it.type}`} type="button"
-                    data-id={it.id} data-form={it.type}
-                    aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-              {it.src ? (
+
+        {ring.art.length > 0 && (
+          <div class="lib-wall">
+            {ring.art.map((it) => (
+              <button class={`lib-card lib-card--${it.type}`} type="button"
+                      data-id={it.id} data-form={it.type}
+                      aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
                 <img src={thumbFor(it.src)} alt="" width="320" height="320" loading="lazy" decoding="async" />
-              ) : (
-                <span class="lib-word">
-                  <i aria-hidden="true">{FORM_MARK[it.type]}</i>
-                  <span class="lib-text">{it.line || it.title}</span>
-                </span>
-              )}
-              <span class="lib-cap">{it.who || it.title}</span>
-            </button>
-          ))}
-        </div>
+                <span class="lib-cap">{it.who || it.title}</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {ring.words.length > 0 && (
+          <ul class="lib-words">
+            {ring.words.map((it) => (
+              <li>
+                <button class={`lib-said lib-said--${it.type}`} type="button"
+                        data-id={it.id} data-form={it.type}
+                        aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
+                  <span class="lib-mark" aria-hidden="true">{FORM_MARK[it.type]}</span>
+                  <span class="lib-line">{it.line || it.title}</span>
+                  <span class="lib-by">{it.who}{it.year ? " · " + it.year : ""}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     )}
+
+    <p class="lib-elsewhere">
+      {links} craft links are kept on <a href="/learning">learning</a>, where
+      they are read. this is the taste library; study lives next door.
+    </p>
 
     {/* ── what a card says when it is pressed ─────────────────────── */}
     <aside class="em-detail" id="detail" hidden aria-live="polite">
@@ -177,18 +226,25 @@ const description =
       chips.forEach((c) => c.addEventListener("click", () => {
         chips.forEach((x) => x.classList.toggle("is-on", x === c));
         const f = c.dataset.filter;
-        for (const card of document.querySelectorAll(".lib-card")) {
-          card.hidden = f !== "all" && card.dataset.form !== f;
+        for (const el of document.querySelectorAll(".lib-card, .lib-said")) {
+          const item = el.closest("li") || el;
+          item.hidden = f !== "all" && el.dataset.form !== f;
+        }
+        // a wall or a column with nothing left in it folds, and so does a
+        // room that has neither
+        for (const group of document.querySelectorAll(".lib-wall, .lib-words")) {
+          group.hidden = ![...group.querySelectorAll(".lib-card, .lib-said")]
+            .some((x) => !(x.closest("li") || x).hidden);
         }
         for (const room of document.querySelectorAll(".lib-room")) {
-          room.hidden = ![...room.querySelectorAll(".lib-card")].some((x) => !x.hidden);
+          room.hidden = ![...room.querySelectorAll(".lib-wall, .lib-words")].some((g) => !g.hidden);
         }
       }));
 
       // ── a card, pressed ─────────────────────────────────────────────
       const detail = document.getElementById("detail");
       const body = detail.querySelector(".em-detail-body");
-      document.querySelectorAll(".lib-card").forEach((card) => card.addEventListener("click", () => {
+      document.querySelectorAll(".lib-card, .lib-said").forEach((card) => card.addEventListener("click", () => {
         const it = items.find((x) => x.id === card.dataset.id);
         if (!it) return;
         body.innerHTML =

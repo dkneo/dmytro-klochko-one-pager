@@ -1057,8 +1057,8 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 
 [data-mode="dream"] .lib-wall {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+  gap: 12px;
 }
 
 [data-mode="dream"] .lib-card {
@@ -1092,7 +1092,7 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   object-fit: cover;
 }
 
-/* the art speaks for itself; words and people keep their names */
+/* the art speaks for itself; people keep their names */
 [data-mode="dream"] .lib-cap {
   display: block;
   padding: 0.3rem 0.75rem 0.5rem;
@@ -1110,51 +1110,85 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 [data-mode="dream"] .lib-card--person { grid-template-rows: minmax(0, 1fr) auto; }
 [data-mode="dream"] .lib-card--person .lib-cap { padding-left: 0.55rem; }
 
-[data-mode="dream"] .lib-word {
+/* Words are read, not hung. A quote in a square tile is dead space wearing
+   a border, and beside a real painting the boxes read as placeholders. No
+   box: the line in the serif voice at reading size, the name in mono under
+   it, two columns of it on a wide screen. */
+[data-mode="dream"] .lib-words {
+  list-style: none;
+  margin: var(--sp-3) 0 0;
+  padding: 0;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 0.35rem;
-  padding: 0.65rem 0.75rem 0.2rem;
-  min-width: 0;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: var(--sp-3) var(--sp-4);
 }
 
-[data-mode="dream"] .lib-word i {
-  font-style: normal;
+[data-mode="dream"] .lib-said {
+  display: grid;
+  grid-template-columns: 1.1rem minmax(0, 1fr);
+  gap: 0.1rem 0.5rem;
+  width: 100%;
+  padding: 0.2rem 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+[data-mode="dream"] .lib-mark {
+  grid-row: 1 / span 2;
   color: var(--quiet);
   font-size: var(--t-md);
-  line-height: 1;
+  line-height: 1.3;
 }
 
-[data-mode="dream"] .lib-text {
+[data-mode="dream"] .lib-said--song .lib-mark { color: var(--cold); }
+
+[data-mode="dream"] .lib-line {
   font-family: var(--serif);
   font-style: italic;
-  font-size: var(--t-sm);
+  font-size: var(--t-lg);
   line-height: 1.45;
   color: var(--bone);
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  transition: color var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .lib-card--song i { color: var(--cold); }
-[data-mode="dream"] .lib-card--link .lib-text,
-[data-mode="dream"] .lib-card--writing .lib-text {
+[data-mode="dream"] .lib-said:hover .lib-line,
+[data-mode="dream"] .lib-said:focus-visible .lib-line { color: var(--hot); }
+
+[data-mode="dream"] .lib-by {
   font-family: var(--mono);
-  font-style: normal;
   font-size: var(--t-xs);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   color: var(--dim);
 }
+
+/* a poem keeps its own lines rather than running together */
+[data-mode="dream"] .lib-said--poem .lib-line { white-space: pre-line; }
+
+[data-mode="dream"] .lib-elsewhere {
+  margin: var(--sp-5) 0 0;
+  max-width: 52ch;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .lib-elsewhere a { color: var(--bone); }
 
 [data-mode="dream"] .lib-room--ring { opacity: 0.85; }
 [data-mode="dream"] .lib-room--ring .lib-door h2 { color: var(--dim); }
 
 @media (max-width: 700px) {
   [data-mode="dream"] .lib-wall {
-    grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
     gap: 8px;
   }
+  [data-mode="dream"] .lib-words { gap: var(--sp-3); }
 }
 
 /* ── entrances ──────────────────────────────────────────────────────────────

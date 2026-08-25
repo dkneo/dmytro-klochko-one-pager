@@ -153,10 +153,17 @@ test("the library shelves every mark, signed and filtered", () => {
   const html = read("dist/eidos/index.html");
   const map = JSON.parse(read("src/data/map.json"));
 
-  // every mark in the vault is a card; none is silently dropped
-  const cards = [...html.matchAll(/class="lib-card lib-card--(\w+)"/g)];
-  assert.equal(cards.length, map.items.length,
-    `library shows ${cards.length} of ${map.items.length} marks`);
+  // Art hangs, words are read, and nothing is silently dropped: every mark
+  // is either a card on a wall or a line in a column. Links are the one
+  // deliberate exception — they are craft articles, and /learning keeps them.
+  const cards = [...html.matchAll(/class="lib-card lib-card--(\w+)"/g)].length;
+  const said = [...html.matchAll(/class="lib-said lib-said--(\w+)"/g)].length;
+  const shelved = map.items.filter((it) => it.type !== "link").length;
+  assert.equal(cards + said, shelved,
+    `library shows ${cards} hung + ${said} read of ${shelved} shelved marks`);
+  assert.ok(cards > 0 && said > 0, "a room needs both a wall and a column");
+  assert.ok(!/lib-card--link|lib-said--link/.test(html), "craft links belong on /learning");
+  assert.match(html, /craft links are kept on/, "and the library says where they went");
 
   // eight rooms cold to warm, and the ring for the unfiled
   const rooms = [...html.matchAll(/class="lib-room[^"]*" id="([^"]+)"/g)].map((m) => m[1]);
