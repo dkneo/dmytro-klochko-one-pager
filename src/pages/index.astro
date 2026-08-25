@@ -109,23 +109,23 @@ const studyQuote = {
 const journey = [
   { text: "busking, improv, songwriting studio, volunteering.",
     pic: "/video/busking.mp4", video: true, poster: "/video/busking-poster.jpg",
-    // The clip pushes in over ten seconds; anchoring near the top keeps his
-    // face in the frame at every point of it, wide or close.
-    pos: "50% 20%" },
+    width: 440, height: 804 },
   { text: "19 yo: founded student theatre {director, screenwriter}. 50+ members. 700+ audience for the premiere.",
-    pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg" },
+    pic: "/video/theatre.mp4", video: true, poster: "/video/theatre-poster.jpg",
+    width: 760, height: 428 },
   { text: "14 yo: toured neighboring countries as band leader.",
-    pic: "/images/journey/touring.jpg" },
+    pic: "/images/journey/touring.jpg", width: 900, height: 654 },
   { text: "13 yo: first filmmaking gig.",
-    pic: "/images/journey/filmgig.jpg", pos: "50% 24%" },
+    pic: "/images/journey/filmgig.jpg", width: 760, height: 1014 },
   { text: "11 yo: wrote my first song. poetry contest winner.",
-    pic: "/images/journey/piano.jpg" },
+    pic: "/images/journey/piano.jpg", width: 900, height: 676 },
   { text: "9 yo: best kid actor award.",
-    pic: "/video/actor.mp4", video: true, poster: "/video/actor-poster.jpg" },
+    pic: "/video/actor.mp4", video: true, poster: "/video/actor-poster.jpg",
+    width: 640, height: 480 },
   { text: "6 yo+: olympiads winner: math, humanities {later: coding, economics}.",
-    pic: "/images/journey/olympiads.jpg" },
+    pic: "/images/journey/olympiads.jpg", width: 900, height: 676 },
   { text: "5 yo: ukraine's bronze chess champion. blindfold chess child prodigy.",
-    pic: "/images/childhood-chess.jpg" },
+    pic: "/images/childhood-chess.jpg", width: 700, height: 586 },
 ] as const;
 
 const wall = [
@@ -606,7 +606,8 @@ const also = [
               aria-expanded="false"
               aria-controls="journey-preview"
               data-easel={j.pic}
-              data-pos={"pos" in j ? j.pos : undefined}
+              data-width={j.width}
+              data-height={j.height}
               data-kind={"video" in j && j.video ? "video" : undefined}
               data-poster={"poster" in j ? j.poster : undefined}
             >
@@ -697,7 +698,9 @@ const also = [
     })();
   </script>
 
-  <script is:inline>
+  <script>
+    import { fitEaselFrame } from "../scripts/easel-frame.js";
+
     // The frame beside the road. Nothing is drawn between them — a rule
     // floating in open water read as a stray mark. The pairing is said in
     // one colour instead: the line you are on and the frame light together,
@@ -721,13 +724,19 @@ const also = [
         for (const bead of beads) bead.setAttribute("aria-expanded", String(bead === shown));
       };
 
+      const sizeFrame = (li) => {
+        const maxHeight = Math.min(336, Math.round(innerHeight * 0.68));
+        const frame = fitEaselFrame(
+          Number(li.dataset.width),
+          Number(li.dataset.height),
+          { maxHeight },
+        );
+        easel.style.setProperty("--easel-width", `${frame.width}px`);
+        easel.style.setProperty("--easel-ratio", String(frame.ratio));
+      };
+
       const setMedia = (li, imgEl, vidEl) => {
         const src = li.dataset.easel;
-        // Portrait sources lose their top to `cover`; a per-picture anchor
-        // keeps the face in the window.
-        const pos = li.dataset.pos || "";
-        imgEl.style.objectPosition = pos;
-        vidEl.style.objectPosition = pos;
         if (li.dataset.kind === "video" && !still) {
           if (vidEl.dataset.src !== src) {
             vidEl.src = src;
@@ -766,6 +775,7 @@ const also = [
         active = li;
         li.classList.add("is-shown");
         announce(li);
+        sizeFrame(li);
         easel.classList.add("is-lit");
         crossfadeMedia(li);
       };
@@ -806,7 +816,10 @@ const also = [
         if (best && best !== active) activate(best);
       };
       addEventListener("scroll", pick, { passive: true });
-      addEventListener("resize", pick);
+      addEventListener("resize", () => {
+        if (active) sizeFrame(active);
+        pick();
+      });
 
       const first = withMedia[0];
       const preset = () => { if (first && !active && easelOn()) activate(first); };

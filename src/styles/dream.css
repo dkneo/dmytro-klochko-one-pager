@@ -163,18 +163,20 @@
   top: 16vh;
   margin: 0;
   justify-self: end;
-  width: min(100%, 30rem);
+  width: min(100%, var(--easel-width, 30rem));
+  transition: width 220ms var(--ease);
 }
 
 /* Every picture here is a photograph now — the product screenshots were
-   pulled — so one material: a print in a cream mat. The whole source stays
-   visible; the mat absorbs differing aspect ratios instead of cropping it. */
+   pulled — so one material: a print in a cream mat. The print adopts the
+   source's own shape; the mat never hides it or invents pillarboxing. */
 [data-mode="dream"] .easel .cell {
   display: grid;
   grid-template-rows: minmax(0, 1fr);
   grid-template-columns: minmax(0, 1fr);
   place-items: center;
-  height: 21rem;
+  height: auto;
+  aspect-ratio: var(--easel-ratio, 900 / 612);
   overflow: hidden;
   background: var(--mat);
   padding: 0.55rem;
@@ -183,7 +185,10 @@
     0 2px 5px rgb(8 10 22 / 58%),
     0 18px 40px rgb(8 10 22 / 42%);
   transform: rotate(1.2deg);
-  transition: transform var(--dur-slow) var(--ease), box-shadow var(--dur-slow) var(--ease);
+  transition:
+    aspect-ratio 220ms var(--ease),
+    transform var(--dur-slow) var(--ease),
+    box-shadow var(--dur-slow) var(--ease);
 }
 
 /* Two prints occupy the same mat. The incoming memory resolves before it
