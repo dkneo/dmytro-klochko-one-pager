@@ -117,6 +117,46 @@ test("desktop readers get a real chapter index into the long homepage", () => {
   for (const chapter of chapters) assert.match(page, new RegExp(`id: "${chapter}"`));
 });
 
+test("the chapter rail follows the section crossing the reading line", async () => {
+  const file = "src/scripts/chapter-rail.js";
+  assert.ok(exists(file), "the chapter rail has no deferred scroll controller");
+  const { setupChapterRail } = await import(path.join(root, file));
+
+  const attrs = new Map();
+  const links = ["top", "experience"].map((id) => ({
+    dataset: { chapter: id },
+    setAttribute(name, value) { attrs.set(`${id}:${name}`, value); },
+    removeAttribute(name) { attrs.delete(`${id}:${name}`); },
+  }));
+  const rects = {
+    top: { top: 0, bottom: 620 },
+    experience: { top: 620, bottom: 1600 },
+  };
+  const sections = Object.fromEntries(Object.keys(rects).map((id) => [id, {
+    id,
+    getBoundingClientRect: () => rects[id],
+  }]));
+  const listeners = new Map();
+  const doc = {
+    querySelectorAll: () => links,
+    getElementById: (id) => sections[id],
+  };
+  const view = {
+    innerHeight: 1000,
+    addEventListener: (name, fn) => listeners.set(name, fn),
+    requestAnimationFrame: (fn) => { fn(); return 1; },
+  };
+
+  setupChapterRail(doc, view);
+  assert.equal(attrs.get("top:aria-current"), "location");
+
+  rects.top = { top: -700, bottom: -80 };
+  rects.experience = { top: -80, bottom: 900 };
+  listeners.get("scroll")();
+  assert.equal(attrs.has("top:aria-current"), false);
+  assert.equal(attrs.get("experience:aria-current"), "location");
+});
+
 test("the journey easel has two media buffers so a new memory cannot teleport in", () => {
   const page = read("src/pages/index.astro");
   const layers = [...page.matchAll(/class="easel-layer(?: is-active)?"/g)];

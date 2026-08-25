@@ -359,6 +359,12 @@ html.is-shook .scenes {
   padding-block-start: var(--sp-4);
 }
 
+/* The hero and its films are one complete thought. A full section gap after
+   them looked like a missing block before experience began. */
+[data-mode="dream"] #top {
+  padding-bottom: var(--sp-4);
+}
+
 /* ── the voice: quiet serif, small ──────────────────────────────────────── */
 
 [data-mode="dream"] .card-title {
@@ -707,7 +713,8 @@ html.is-shook .scenes {
   inset: -6%;
   opacity: 0;
   background: center / cover no-repeat;
-  transform: translateY(calc(var(--scroll, 0) * -7vh))
+  transform-origin: 50% 100%;
+  transform: translateY(calc(var(--scroll, 0) * -2.4vh))
     translate(calc(var(--px, 0) * -34px), calc(var(--py, 0) * -22px));
   transition: opacity 900ms var(--ease);
   animation: scene-breathe 70s ease-in-out infinite alternate;
@@ -725,7 +732,7 @@ html.is-shook .scenes {
   inset: -6%;
   background: radial-gradient(20% 27% at 42% 24%, rgb(255 186 110 / 55%), rgb(from var(--ember-deep) r g b / 18%) 55%, transparent 72%);
   mix-blend-mode: soft-light;
-  transform: translateY(calc(var(--scroll, 0) * -7vh))
+  transform: translateY(calc(var(--scroll, 0) * -2.4vh))
     translate(calc(var(--px, 0) * -46px), calc(var(--py, 0) * -30px));
   animation: sun-pulse 7s ease-in-out infinite alternate;
   opacity: 0;
@@ -752,7 +759,7 @@ html:not([data-scene="swim"]) .scenes .sunpulse {
     radial-gradient(9% 13% at 74% 80%, rgb(255 186 110 / 62%), rgb(from var(--ember-deep) r g b / 26%) 55%, transparent 72%),
     radial-gradient(26% 30% at 74% 78%, rgb(240 138 84 / 20%), transparent 70%);
   mix-blend-mode: soft-light;
-  transform: translateY(calc(var(--scroll, 0) * -7vh))
+  transform: translateY(calc(var(--scroll, 0) * -2.4vh))
     translate(calc(var(--px, 0) * -46px), calc(var(--py, 0) * -30px));
   opacity: 0;
 }
@@ -782,7 +789,7 @@ html[data-weather="fire"] .scenes .firelight {
   position: absolute;
   inset: -6%;
   transition: opacity 900ms var(--ease);
-  transform: translateY(calc(var(--scroll, 0) * -4vh))
+  transform: translateY(calc(var(--scroll, 0) * -1.5vh))
     translate(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -9px));
   opacity: 0;
 }
@@ -982,6 +989,14 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 
 [data-mode="dream"] .lib-views a { color: var(--bone); }
 
+[data-mode="dream"] .lib-hint {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  align-self: center;
+}
+
 [data-mode="dream"] .lib-toc {
   display: flex;
   flex-wrap: wrap;
@@ -1084,14 +1099,13 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 
 [data-mode="dream"] .lib-card {
   position: relative;
-  aspect-ratio: 1;
-  min-width: 0;   /* a nowrap caption must never widen its own grid track */
+  min-width: 0;   /* a nowrap label must never widen its own grid track */
   padding: 0;
   overflow: hidden;
   display: grid;
-  background: var(--deck);
-  border: 1px solid var(--rule);
-  border-radius: 8px;
+  background: none;
+  border: 0;
+  padding: 0;
   color: inherit;
   font: inherit;
   text-align: left;
@@ -1109,17 +1123,42 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 
 [data-mode="dream"] .lib-card img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1;
+  height: auto;
   /* contain, so a painting is never cropped to fit its cell; the space
      around it reads as the mat, which is how a plate is shown */
   object-fit: contain;
   padding: 6px;
+  background: var(--deck);
+  border-radius: 8px;
 }
 
-/* the art speaks for itself; people keep their names */
-[data-mode="dream"] .lib-cap {
-  display: block;
-  padding: 0.3rem 0.75rem 0.5rem;
+/* Every plate gets its label. "The art speaks for itself" left the painting
+   as the only anonymous object in a room where the poem, the song and the
+   quote all carry their author — on a page that promises every mark is
+   attributed. A museum labels the wall. */
+[data-mode="dream"] .lib-label {
+  display: grid;
+  gap: 0.05rem;
+  padding: 0.45rem 0.1rem 0.2rem;
+  text-align: left;
+  min-width: 0;
+}
+
+[data-mode="dream"] .lib-label b {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--t-sm);
+  line-height: 1.25;
+  color: var(--bone);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+[data-mode="dream"] .lib-label span {
   font-family: var(--mono);
   font-size: var(--t-xs);
   letter-spacing: 0.06em;
@@ -1128,11 +1167,6 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-[data-mode="dream"] .lib-card--painting .lib-cap { display: none; }
-
-[data-mode="dream"] .lib-card--person { grid-template-rows: minmax(0, 1fr) auto; }
-[data-mode="dream"] .lib-card--person .lib-cap { padding-left: 0.55rem; }
 
 /* Words are read, not hung. A quote in a square tile is dead space wearing
    a border, and beside a real painting the boxes read as placeholders. No
@@ -1454,6 +1488,10 @@ svg.pin {
   [data-mode="dream"] #top .hero-stack {
     margin-top: 0;
     margin-bottom: var(--sp-2);
+  }
+
+  [data-mode="dream"] #top {
+    padding-bottom: var(--sp-3);
   }
 
   [data-mode="dream"] #top .portrait {
@@ -1915,14 +1953,13 @@ html[data-motion="paused"] .scenes .firelight {
    remit, then the disclosure. This uses the space the page already owns and
    cuts the dead right column without turning the cv into cards. */
 @media (min-width: 861px) {
-  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) {
-    max-width: none;
-    padding: var(--sp-1) 0;
-    border-top: 1px solid rgb(236 230 217 / 13%);
+  [data-mode="dream"] .cv-jobs {
+    row-gap: 0.35rem;
   }
 
-  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead):last-child {
-    border-bottom: 1px solid rgb(236 230 217 / 13%);
+  [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) {
+    max-width: none;
+    padding: 0;
   }
 
   [data-mode="dream"] .cv-jobs > li:not(.cv-job--lead) .cv-job > summary {
@@ -2515,8 +2552,9 @@ html[data-motion="paused"] .scenes .firelight {
 /* The lead's own control: no company line above it to indent against, so it
    sits flush with the prose it follows. */
 [data-mode="dream"] .cv-job--lead-more > summary {
-  max-width: none;
-  padding: 0.4rem 0 0.5rem;
+  max-width: 30rem;
+  padding: 0;
+  margin-top: var(--sp-2);
   margin-left: 0;
 }
 
@@ -2525,7 +2563,53 @@ html[data-motion="paused"] .scenes .firelight {
 }
 
 [data-mode="dream"] .cv-job--lead-more .cv-more {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 3.25rem;
   margin: 0;
+  padding: 0.35rem 0;
+  border: 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+[data-mode="dream"] .cv-job--lead-more .cv-more-copy {
+  display: grid;
+  gap: 0.05rem;
+}
+
+[data-mode="dream"] .cv-job--lead-more .cv-more small {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-style: normal;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .cv-job--lead-more .cv-more-orb {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgb(255 155 192 / 58%);
+  border-radius: 50%;
+  color: var(--hot);
+  transition:
+    color var(--dur) var(--ease),
+    background var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .cv-job--lead-more > summary:hover .cv-more-orb,
+[data-mode="dream"] .cv-job--lead-more > summary:focus-visible .cv-more-orb {
+  background: var(--hot);
+  color: var(--void);
+  transform: translateX(0.2rem);
 }
 
 [data-mode="dream"] .cv-job--lead-more .cv-points {

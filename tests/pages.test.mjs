@@ -173,12 +173,12 @@ test("the library shelves every mark, signed and filtered", () => {
   // The page must not overstate itself. It quoted the whole vault's count
   // while shelving eleven fewer marks, so the library claimed sixty-five
   // things and showed fifty-four. Every number is counted from the page.
-  const claimed = Number(html.match(/<dt>marks<\/dt><dd>(\d+)<\/dd>/)[1]);
+  const claimed = Number(html.match(/<dt>things<\/dt><dd>(\d+)<\/dd>/)[1]);
   assert.equal(claimed, cards + said, "the header counts what is not there");
   const lede = Number(html.match(/love — (\d+) real things/)[1]);
   assert.equal(lede, cards + said, "the lede counts what is not there");
   const onRing = Number(html.match(/<dt>on the ring<\/dt><dd>(\d+)<\/dd>/)[1]);
-  const ringSays = Number(html.match(/(\d+) marks that have never been told/)[1]);
+  const ringSays = Number(html.match(/(\d+) things that have never been told/)[1]);
   assert.equal(onRing, ringSays, "the ring disagrees with itself");
   assert.ok(!/lib-card--link|lib-said--link/.test(html), "craft links belong on /learning");
   assert.match(html, /craft links are kept on/, "and the library says where they went");

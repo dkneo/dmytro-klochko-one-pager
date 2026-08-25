@@ -147,8 +147,8 @@ const chapters = [
   { id: "top", label: "hello" },
   { id: "experience", label: "experience" },
   { id: "how", label: "how i work" },
-  { id: "journey", label: "background" },
-  { id: "alongside", label: "alongside" },
+  { id: "journey", label: "upbringing" },
+  { id: "alongside", label: "other roles" },
   { id: "me", label: "literally me" },
   { id: "contact", label: "say hi" },
   { id: "poems", label: "poems" },
@@ -296,42 +296,9 @@ const also = [
     }
   </nav>
 
-  <script is:inline>
-    (() => {
-      const links = [...document.querySelectorAll(".chapter-rail [data-chapter]")];
-      const sections = links.map((link) => document.getElementById(link.dataset.chapter)).filter(Boolean);
-      if (!links.length || !sections.length) return;
-      let current = "top";
-      let queued = false;
-
-      const update = () => {
-        queued = false;
-        const readingLine = innerHeight * 0.42;
-        let best = sections[0];
-        let distance = Infinity;
-        for (const section of sections) {
-          const rect = section.getBoundingClientRect();
-          const within = rect.top <= readingLine && rect.bottom >= readingLine;
-          const nextDistance = within ? 0 : Math.min(Math.abs(rect.top - readingLine), Math.abs(rect.bottom - readingLine));
-          if (nextDistance < distance) { best = section; distance = nextDistance; }
-        }
-        if (best.id === current) return;
-        current = best.id;
-        for (const link of links) {
-          if (link.dataset.chapter === current) link.setAttribute("aria-current", "location");
-          else link.removeAttribute("aria-current");
-        }
-      };
-
-      const queue = () => {
-        if (queued) return;
-        queued = true;
-        requestAnimationFrame(update);
-      };
-      addEventListener("scroll", queue, { passive: true });
-      addEventListener("resize", queue);
-      update();
-    })();
+  <script>
+    import { setupChapterRail } from "../scripts/chapter-rail.js";
+    setupChapterRail();
   </script>
 
   <section class="shell session" id="top" data-scene="fire" data-weather="fire" aria-labelledby="s1">
@@ -502,9 +469,12 @@ const also = [
         <details class="cv-job cv-job--lead-more">
           <summary>
             <span class="cv-more">
-              <i class="cv-more-shut">read more</i>
-              <i class="cv-more-open">read less</i>
-              <b class="cv-chev" aria-hidden="true" />
+              <span class="cv-more-copy">
+                <i class="cv-more-shut">the full replika record</i>
+                <i class="cv-more-open">close the full record</i>
+                <small>{jobs[0].points.length} notes</small>
+              </span>
+              <span class="cv-more-orb" aria-hidden="true"><b class="cv-chev" /></span>
             </span>
           </summary>
           <div class="cv-open">
@@ -609,7 +579,7 @@ const also = [
   <section class="shell session" id="journey" data-scene="ember" data-weather="none" aria-labelledby="s8">
     <div class="card">
       <p class="card-no">04</p>
-      <h2 class="card-title" id="s8">background</h2>
+      <h2 class="card-title" id="s8">upbringing</h2>
     </div>
 
     <p class="lede">
@@ -687,7 +657,7 @@ const also = [
   <section class="shell session" id="alongside" data-scene="estuary" data-weather="none" aria-labelledby="sa">
     <div class="card">
       <p class="card-no">05</p>
-      <h2 class="card-title" id="sa">alongside</h2>
+      <h2 class="card-title" id="sa">other roles</h2>
     </div>
 
     <ul class="cv-list cv-also">

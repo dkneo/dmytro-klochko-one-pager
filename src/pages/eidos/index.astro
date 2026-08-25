@@ -27,6 +27,8 @@ const { items, weathers, depth, forms, unplaced } = map;
 const candidates = (inbox.candidates || []).length;
 
 const FORM_MARK = { painting: "▣", object: "◈", building: "⌂", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
+// "persons" is a police report; the vault's kind names are not all plurals
+const PLURAL = { person: "people", writing: "writing" };
 // Plates, not crops. The 320-square thumbs are cover-cropped, which is right
 // for a mark on the sketch and wrong for a wall: Hammershøi's composition
 // arrived with its edges cut off. These keep the work's own proportions and
@@ -87,11 +89,11 @@ const description =
       by. this is the library of what i love — {shelvedCount} real things,
       every one attributed — filed under eight weathers i made up, because
       feeling is the only filing system that has ever held. it runs cold to
-      warm.
+      warm, and each room wears the colours of its own painting.
     </p>
 
     <dl class="lib-counts" aria-label="what the library holds">
-      <div><dt>marks</dt><dd>{shelvedCount}</dd></div>
+      <div><dt>things</dt><dd>{shelvedCount}</dd></div>
       <div><dt>makers</dt><dd>{namesHere}</dd></div>
       <div><dt>weathers</dt><dd>{weathers.length}</dd></div>
       <div class="is-open"><dt>on the ring</dt><dd>{ring.n}</dd></div>
@@ -109,9 +111,10 @@ const description =
       <button class="em-chip is-on" data-filter="all" type="button">everything</button>
       {forms.filter((f) => f.n && f.form !== "link").map((f) => (
         <button class="em-chip" data-filter={f.form} type="button">
-          <i aria-hidden="true">{FORM_MARK[f.form]}</i>{f.form}s<b>{f.n}</b>
+          <i aria-hidden="true">{FORM_MARK[f.form]}</i>{PLURAL[f.form] || f.form + "s"}<b>{f.n}</b>
         </button>
       ))}
+      <span class="lib-hint">press anything to see it whole</span>
     </div>
 
     {/* ── room index ──────────────────────────────────────────────── */}
@@ -128,7 +131,7 @@ const description =
             {r.stops.map((c) => <i style={`background:${c}`} />)}
           </span>
           <h2>{r.name}</h2>
-          <p>{r.why} <span class="lib-n">· {r.n} mark{r.n === 1 ? "" : "s"}</span></p>
+          <p>{r.why} <span class="lib-n">· {r.n} thing{r.n === 1 ? "" : "s"}</span></p>
         </header>
 
         <div class={`lib-body${r.art.length > 4 ? " lib-body--wide" : ""}`}>
@@ -138,8 +141,13 @@ const description =
               <button class={`lib-card lib-card--${it.type}`} type="button"
                       data-id={it.id} data-form={it.type}
                       aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                <img src={plateFor(it.src)} alt="" width="320" height="320" loading="lazy" decoding="async" />
-                <span class="lib-cap">{it.who || it.title}</span>
+                <img src={plateFor(it.src)} alt="" loading="lazy" decoding="async" />
+                <span class="lib-label">
+                  <b>{it.line || it.title}</b>
+                  {it.type !== "person" && it.who && (
+                    <span>{it.who}{it.year ? " · " + it.year : ""}</span>
+                  )}
+                </span>
               </button>
             ))}
           </div>
@@ -170,8 +178,8 @@ const description =
         <header class="lib-door">
           <h2>the ring</h2>
           <p>
-            {ring.n} marks that have never been told how they feel. they join
-            a room when a <a href="/eidos/sit">sitting</a> or{" "}
+            {ring.n} things that have never been told how they feel. they
+            join a room when a <a href="/eidos/sit">sitting</a> or{" "}
             <a href="/eidos/map">the sketch</a> files them.
           </p>
         </header>
@@ -183,8 +191,13 @@ const description =
               <button class={`lib-card lib-card--${it.type}`} type="button"
                       data-id={it.id} data-form={it.type}
                       aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                <img src={plateFor(it.src)} alt="" width="320" height="320" loading="lazy" decoding="async" />
-                <span class="lib-cap">{it.who || it.title}</span>
+                <img src={plateFor(it.src)} alt="" loading="lazy" decoding="async" />
+                <span class="lib-label">
+                  <b>{it.line || it.title}</b>
+                  {it.type !== "person" && it.who && (
+                    <span>{it.who}{it.year ? " · " + it.year : ""}</span>
+                  )}
+                </span>
               </button>
             ))}
           </div>
