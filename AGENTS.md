@@ -179,7 +179,18 @@ it that way.
 ### The eidos pages
 
 `/eidos` is **the library** — public, in the sitemap: eight weather-rooms,
-cold to warm, every mark a card, the unfiled closing as "the ring". Views:
+cold to warm, the unfiled closing as "the ring". Inside a room, **art hangs
+and words are read**: paintings/objects/buildings/people are plates on a
+wall, poems/quotes/songs/writing are set as type. **Density picks the
+layout** — four works or fewer sit beside their words as a catalogue
+spread, more than four hang wide with the words beneath, so rooms change
+shape as sittings fill them. Plates come from `/images/plates/` (440 wide,
+fit inside) because the 320 square thumbs are cover-cropped and cut a
+painting's composition; the sketch still uses the thumbs, which is what
+they are for. **Every count on the page is computed from what the page
+renders**, never from `depth.*`, which counts the whole vault.
+
+Views:
 `/eidos/map` (the sketch, with place-the-ring and the pair), `/eidos/orbit`
 (the shape). `/eidos/sit` is his judging door. `/eidos/deck` is legacy,
 unlinked. Reading is public; every write is behind the /names door.
