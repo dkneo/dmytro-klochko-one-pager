@@ -103,6 +103,25 @@
   background: rgb(255 155 192 / 55%);
 }
 
+/* The row can unfold into a tall print on touch. A browser-default outline
+   boxes that whole print, so keyboard focus stays on the road marker and the
+   sentence that names the memory instead. */
+[data-mode="dream"] .log--journey li:focus-visible {
+  outline: none;
+}
+
+[data-mode="dream"] .log--journey li:focus-visible::before {
+  background: var(--hot);
+  box-shadow: 0 0 0 5px rgb(255 155 192 / 24%);
+  scale: 1.25;
+}
+
+[data-mode="dream"] .log--journey li:focus-visible p {
+  color: var(--bone);
+  text-decoration: underline 1px rgb(255 155 192 / 62%);
+  text-underline-offset: 0.22em;
+}
+
 /* The bead the frame is showing: lit, ringed, and roped to the picture. */
 [data-mode="dream"] .log--journey li.is-shown::before {
   background: var(--hot);
