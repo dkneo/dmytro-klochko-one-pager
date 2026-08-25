@@ -74,8 +74,8 @@
   justify-content: center;
 }
 
-/* Upbringing reads as a life, not a numbered list: one thread down the
-   margin, a bead at every year, the last one lit because it is still now. */
+/* Upbringing reads as a life, not a numbered list. The beads carry the
+   chronology on their own; stems between them looked like form dividers. */
 [data-mode="dream"] .log li {
   position: relative;
   grid-template-columns: 1.75rem 1fr;
@@ -93,20 +93,6 @@
   border-radius: 50%;
   background: rgb(236 230 217 / 45%);
   transition: background var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .log li::after {
-  content: "";
-  position: absolute;
-  left: calc(0.875rem - 0.5px);
-  top: calc(0.66em + 11px);
-  bottom: -2px;
-  width: 1px;
-  background: rgb(236 230 217 / 16%);
-}
-
-[data-mode="dream"] .log li:last-child::after {
-  display: none;
 }
 
 [data-mode="dream"] .log--journey li[data-easel] {
@@ -181,9 +167,8 @@
 }
 
 /* Every picture here is a photograph now — the product screenshots were
-   pulled — so one material: a print in a cream mat, filling its window.
-   Portrait sources carry their own object-position so `cover` crops from
-   the feet rather than the face. */
+   pulled — so one material: a print in a cream mat. The whole source stays
+   visible; the mat absorbs differing aspect ratios instead of cropping it. */
 [data-mode="dream"] .easel .cell {
   display: grid;
   grid-template-rows: minmax(0, 1fr);
@@ -223,14 +208,13 @@
   transform: scale(1);
 }
 
-/* object-fit rather than max-height percentages: the picture always lands
-   whole inside the mat, whatever its shape, with no clipping. */
+/* The picture always lands whole inside the mat, whatever its shape. */
 [data-mode="dream"] .easel img,
 [data-mode="dream"] .easel video {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 1px;
 }
 
