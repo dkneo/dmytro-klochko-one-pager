@@ -14,7 +14,12 @@ import map from "../../data/map.json";
 
 import { toMarks } from "../../scripts/eidos-marks.mjs";
 
-const { marks, threads } = toMarks(map);
+// Taste only, as in the library: the craft links are study and /learning
+// keeps them, so they do not float here either.
+const { marks, threads } = toMarks({
+  ...map,
+  items: map.items.filter((it) => it.type !== "link"),
+});
 
 const title = "eidos, in orbit · dmytro klochko";
 const description = "the map of what he likes, with the weathers as depth.";
@@ -27,10 +32,10 @@ const description = "the map of what he likes, with the weathers as depth.";
     </div>
 
     <p class="today-how">
-      the same {marks.length} marks as <a href="/eidos">the flat map</a>, and a
+      the same {marks.length} marks as <a href="/eidos">the library</a>, and a
       third axis it could not hold: each weather is a plane of air, the cold
       moods deepest, the warm ones near. drag to turn it. the marks are read
-      on the flat map; this page is for seeing the shape.
+      in the library; this page is for seeing the shape.
     </p>
 
     <div class="eo-space" id="space">
@@ -47,7 +52,7 @@ const description = "the map of what he likes, with the weathers as depth.";
     </p>
 
     <a class="onward onward--back" href="/eidos">
-      <span class="arw" aria-hidden="true">↖</span><span>back to the flat map</span>
+      <span class="arw" aria-hidden="true">↖</span><span>back to the library</span>
     </a>
   </section>
 

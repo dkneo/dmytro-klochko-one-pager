@@ -60,6 +60,13 @@ const ring = {
 };
 const links = items.filter((it) => it.type === "link").length;
 
+// Every number on this page is counted from what the page actually shows.
+// depth.notes counts the whole vault, and quoting it here while shelving
+// eleven fewer marks made the library overstate itself by exactly the
+// number of things it had just sent to /learning.
+const shelvedCount = shelved.length;
+const namesHere = new Set(shelved.map((it) => it.who).filter(Boolean)).size;
+
 const title = "eidos · dmytro klochko";
 const description =
   "the library of what dmytro klochko loves: paintings, poems, songs, people and lines, filed by feeling rather than by kind.";
@@ -73,17 +80,17 @@ const description =
 
     <p class="today-how">
       <em>eidos</em>, the greek for the form of a thing, the shape you know it
-      by. this is the library of what i love — {depth.notes} real things,
+      by. this is the library of what i love — {shelvedCount} real things,
       every one attributed — filed under eight weathers i made up, because
       feeling is the only filing system that has ever held. it runs cold to
       warm.
     </p>
 
     <dl class="lib-counts" aria-label="what the library holds">
-      <div><dt>marks</dt><dd>{depth.notes}</dd></div>
-      <div><dt>people</dt><dd>{depth.people}</dd></div>
+      <div><dt>marks</dt><dd>{shelvedCount}</dd></div>
+      <div><dt>makers</dt><dd>{namesHere}</dd></div>
       <div><dt>weathers</dt><dd>{weathers.length}</dd></div>
-      <div class="is-open"><dt>on the ring</dt><dd>{ring.length}</dd></div>
+      <div class="is-open"><dt>on the ring</dt><dd>{ring.n}</dd></div>
     </dl>
 
     {/* ── ways of looking, and the door ───────────────────────────── */}
