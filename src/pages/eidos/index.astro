@@ -27,8 +27,12 @@ const { items, weathers, depth, forms, unplaced } = map;
 const candidates = (inbox.candidates || []).length;
 
 const FORM_MARK = { painting: "▣", object: "◈", building: "⌂", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
-const thumbFor = (src: string) => src
-  .replace("/images/", "/images/thumbs/")
+// Plates, not crops. The 320-square thumbs are cover-cropped, which is right
+// for a mark on the sketch and wrong for a wall: Hammershøi's composition
+// arrived with its edges cut off. These keep the work's own proportions and
+// sit whole inside their cell.
+const plateFor = (src: string) => src
+  .replace("/images/", "/images/plates/")
   .replace(/\.[^.]+$/, ".webp");
 
 // Art hangs; words are read. A quote squeezed into a square tile is mostly
@@ -134,7 +138,7 @@ const description =
               <button class={`lib-card lib-card--${it.type}`} type="button"
                       data-id={it.id} data-form={it.type}
                       aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                <img src={thumbFor(it.src)} alt="" width="320" height="320" loading="lazy" decoding="async" />
+                <img src={plateFor(it.src)} alt="" width="320" height="320" loading="lazy" decoding="async" />
                 <span class="lib-cap">{it.who || it.title}</span>
               </button>
             ))}
@@ -179,7 +183,7 @@ const description =
               <button class={`lib-card lib-card--${it.type}`} type="button"
                       data-id={it.id} data-form={it.type}
                       aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                <img src={thumbFor(it.src)} alt="" width="320" height="320" loading="lazy" decoding="async" />
+                <img src={plateFor(it.src)} alt="" width="320" height="320" loading="lazy" decoding="async" />
                 <span class="lib-cap">{it.who || it.title}</span>
               </button>
             ))}

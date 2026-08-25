@@ -49,6 +49,14 @@ const mapSources = [...new Set(
 )];
 const todaySources = [...new Set(today.chords.map((chord) => chord.painting.src))];
 
+// The map wants square dots; the library wants plates. A cover crop cuts
+// the composition off a painting, which is fine for a 40px mark on a chart
+// and wrong for a wall you are meant to look at.
+const plateFor = (src) => {
+  const parsed = path.posix.parse(src.replace(/^\/images\//, ""));
+  return path.posix.join("/images/plates", parsed.dir, `${parsed.name}.webp`);
+};
+
 const jobs = [
   ...mapSources.map((src) => ({
     src,
@@ -57,6 +65,13 @@ const jobs = [
     height: 320,
     fit: "cover",
     quality: 76,
+  })),
+  ...mapSources.map((src) => ({
+    src,
+    out: plateFor(src),
+    width: 440,
+    fit: "inside",
+    quality: 80,
   })),
   ...todaySources.flatMap((src) => {
     const stem = path.basename(src, path.extname(src));

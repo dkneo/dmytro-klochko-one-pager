@@ -92,7 +92,7 @@ test("eidos map marks use small derivatives", async () => {
   }
 });
 
-test("the library's walls hang thumbnails, not full paintings", async () => {
+test("the library hangs uncropped plates, not full paintings", async () => {
   const html = read("dist/eidos/index.html");
   // per card, and only inside it: a word card has no img, and a lazy
   // cross-card regex once matched clean into the script's template string
@@ -103,9 +103,14 @@ test("the library's walls hang thumbnails, not full paintings", async () => {
   assert.ok(tags.length > 0);
   for (const tag of tags) {
     const src = attr(tag, "src");
-    assert.match(src, /^\/images\/thumbs\//, src);
-    const metadata = await sharp(localFile(src)).metadata();
-    assert.ok(metadata.width <= 320, `${src} is ${metadata.width}px wide`);
+    // plates, not the square thumbs: a cover crop cuts the composition
+    assert.match(src, /^\/images\/plates\//, src);
+    const plate = await sharp(localFile(src)).metadata();
+    assert.ok(plate.width <= 440, `${src} is ${plate.width}px wide`);
+    const source = await sharp(localFile(src.replace("/images/plates/", "/images/"))).metadata();
+    const ratio = (m) => m.width / m.height;
+    assert.ok(Math.abs(ratio(plate) - ratio(source)) < 0.02,
+      `${src} was reshaped: ${ratio(plate).toFixed(2)} vs source ${ratio(source).toFixed(2)}`);
   }
 });
 
