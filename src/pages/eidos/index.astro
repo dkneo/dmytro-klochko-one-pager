@@ -134,7 +134,7 @@ const description =
           <p>{r.why} <span class="lib-n">· {r.n} thing{r.n === 1 ? "" : "s"}</span></p>
         </header>
 
-        <div class={`lib-body${r.art.length > 4 ? " lib-body--wide" : ""}`}>
+        <div class="lib-body">
         {r.art.length > 0 && (
           <div class="lib-wall">
             {r.art.map((it) => (
@@ -184,7 +184,7 @@ const description =
           </p>
         </header>
 
-        <div class={`lib-body${ring.art.length > 4 ? " lib-body--wide" : ""}`}>
+        <div class="lib-body">
         {ring.art.length > 0 && (
           <div class="lib-wall">
             {ring.art.map((it) => (

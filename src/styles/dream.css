@@ -1025,26 +1025,13 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   margin-bottom: var(--sp-2);
 }
 
-/* A room is a catalogue spread: the plates on the left, the text beside
-   them. Full-width walls left a single painting stranded in a thousand
-   pixels of nothing, which is the oldest complaint in CHECKLIST.md. */
+/* Paintings and words are kept apart, not interleaved: the wall first, the
+   reading under it. Setting them side by side made every room a two-column
+   puzzle where a lone plate and three short lines had to balance, and they
+   never did. */
 [data-mode="dream"] .lib-body {
   display: grid;
-  grid-template-columns: minmax(0, 21rem) minmax(0, 1fr);
-  gap: var(--sp-3) var(--sp-4);
-  align-items: start;
-}
-
-/* Density decides the layout. A lone plate belongs beside its text; a wall
-   of a dozen works deserves the room, with the words read underneath. As
-   sittings fill the rooms they cross the threshold and change shape. */
-[data-mode="dream"] .lib-body--wide { grid-template-columns: minmax(0, 1fr); }
-[data-mode="dream"] .lib-body--wide .lib-wall {
-  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
-}
-
-@media (max-width: 860px) {
-  [data-mode="dream"] .lib-body { grid-template-columns: minmax(0, 1fr); }
+  gap: var(--sp-3);
 }
 
 [data-mode="dream"] .lib-chips {
@@ -1090,10 +1077,9 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 
 [data-mode="dream"] .lib-wall {
   display: grid;
-  /* auto-fit, not auto-fill: a room holding one painting gives it the whole
-     rail rather than stranding it in the first of two empty tracks */
-  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--sp-2) 14px;
+  align-items: start;   /* each work stands at its own height */
   margin: 0;
 }
 
@@ -1121,16 +1107,14 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   box-shadow: 0 14px 30px var(--shadow-deep);
 }
 
+/* Its own shape. A square cell either crops the work or floats it in
+   letterbox bars; a plate is simply the painting, at the proportions it was
+   painted in. */
 [data-mode="dream"] .lib-card img {
   width: 100%;
-  aspect-ratio: 1;
   height: auto;
-  /* contain, so a painting is never cropped to fit its cell; the space
-     around it reads as the mat, which is how a plate is shown */
-  object-fit: contain;
-  padding: 6px;
-  background: var(--deck);
-  border-radius: 8px;
+  display: block;
+  border-radius: 6px;
 }
 
 /* Every plate gets its label. "The art speaks for itself" left the painting
@@ -1158,14 +1142,15 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   overflow: hidden;
 }
 
+/* No ellipsis on a name. "Vilhelm Hammershøi · 19…" cut the maker and the
+   year off a plate on a page that promises attribution; the line wraps
+   instead, because a label is allowed to be two lines tall. */
 [data-mode="dream"] .lib-label span {
   font-family: var(--mono);
   font-size: var(--t-xs);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
   color: var(--dim);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* Words are read, not hung. A quote in a square tile is dead space wearing
@@ -1177,7 +1162,7 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
   gap: var(--sp-3) var(--sp-4);
   align-content: start;
 }
@@ -1276,8 +1261,8 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 
 @media (max-width: 700px) {
   [data-mode="dream"] .lib-wall {
-    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem 10px;
   }
   [data-mode="dream"] .lib-words { gap: var(--sp-3); }
 }
@@ -3959,8 +3944,7 @@ html[data-motion="paused"] .scenes .firelight {
   }
 
   [data-mode="dream"] .chapter-rail a:hover span,
-  [data-mode="dream"] .chapter-rail a:focus-visible span,
-  [data-mode="dream"] .chapter-rail a[aria-current="location"] span {
+  [data-mode="dream"] .chapter-rail a:focus-visible span {
     opacity: 1;
     transform: translateX(0);
   }
@@ -3969,7 +3953,7 @@ html[data-motion="paused"] .scenes .firelight {
     border-color: var(--hot);
     background: var(--hot);
     box-shadow: 0 0 0.8rem rgb(255 155 192 / 44%);
-    transform: scale(1);
+    transform: scale(1.12);
   }
 
   [data-mode="dream"] .chapter-rail a:focus-visible {

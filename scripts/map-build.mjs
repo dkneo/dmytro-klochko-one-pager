@@ -77,7 +77,17 @@ for (const kind of ["paintings", "objects", "buildings", "poems", "songs", "quot
 
     // The line that stands for the work when it has no picture.
     let line = "";
-    if (fm.type === "poem") line = (fm.english || body).split("\n")[0];
+    // Whole, not the first line. A haiku is three lines and this kept one of
+    // them, so the library printed "even the horse" and threw the snow and
+    // the morning road away. The vault only holds short poems by rule, and
+    // the tooltip on the sketch clamps what it shows.
+    if (fm.type === "poem") {
+      line = (fm.english || body)
+        .split("\n")
+        .filter((l) => !/^\s*(weather:|who:|!\[\[)/.test(l))
+        .join("\n")
+        .trim();
+    }
     else if (fm.type === "quote") line = body.split("\n").find((l) => l.trim() && !l.startsWith("weather:")) || "";
     else if (fm.type === "person") line = fm.name || "";
     else line = fm.title || "";
