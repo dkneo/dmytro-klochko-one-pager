@@ -21,9 +21,10 @@ const { title, description, current = "home", unlisted = false,
 
 const ogTitle = "dmytro klochko";
 const ogDescription = "ceo at replika. product and engineering, out of art, chess and theatre.";
+const isHomepage = Astro.url.pathname === "/";
 
-// No nav: one page, and the masthead is the way home. The crumb still names
-// where you are when you are not on it.
+// The homepage hero owns the introduction. Inner pages keep his name as the
+// way home, with a crumb naming where you are.
 ---
 
 <html lang="en" data-mode="dream">
@@ -122,7 +123,7 @@ const ogDescription = "ceo at replika. product and engineering, out of art, ches
 
 
     <header class="site-header">
-      <a class="masthead" href="/">dmytro klochko</a>
+      {!isHomepage && <a class="masthead" href="/">dmytro klochko</a>}
       {current !== "home" && <span class="crumb">/ {current.replace("-", " ")}</span>}
       {/* Say hi stays out in the open because it is the one thing a stranger
           might want before they have read anything. The rest goes behind the

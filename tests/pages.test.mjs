@@ -11,6 +11,16 @@ const root = path.resolve(import.meta.dirname, "..");
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
 const exists = (file) => fs.existsSync(path.join(root, file));
 
+test("the homepage introduces dmytro once while inner pages keep a way home", () => {
+  const home = read("dist/index.html");
+  const press = read("dist/press/index.html");
+
+  assert.doesNotMatch(home, /class="masthead"/,
+    "the homepage masthead repeats the name in the hero directly below it");
+  assert.match(press, /class="masthead"[^>]*href="\/"/,
+    "inner pages still need the masthead as their home link");
+});
+
 test("the pond is whole", () => {
   const html = read("dist/pond/index.html");
 
