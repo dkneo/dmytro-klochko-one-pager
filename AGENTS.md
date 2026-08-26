@@ -224,6 +224,23 @@ is what `/eidos/sit` exists to make cheap:
    if they are missing, which is the intended alarm, not a bug.
 5. Commit. The vault is git; the map rebuilds from it.
 
+**Step 4 must come after a build, not before it.** `image-build` reads its
+work list from `src/data/map.json`, which `map-build` writes in step 4's
+own pipeline. Run `--apply` straight after the pull and it will happily
+regenerate the derivatives it already had and none of the new ones. The order
+that works: pull → `npm run build` (fails at `--check`, on purpose, having
+written a fresh map) → `image-build --apply` → `npm run build` again. And
+if a derivative was already built from a smaller source, delete the file:
+`--apply` trusts `scripts/image-derivatives.json` and will not rebuild it.
+
+**An `/images/inbox/` src is the one local path that is not the picture.**
+The harvester saves a deck-sized copy so the sitting has something to show.
+`bringHome` used to return any local src untouched, so four kept paintings
+shipped too small to make a 960px plate. An inbox src is now re-fetched full
+size from the Commons page the candidate cites — and while fixing it, one of
+those four turned out to be a different painting than its note claimed, so
+check the picture against the title when a keep looks off.
+
 `scripts/lib/` holds the two pieces of that pipeline worth testing on their
 own: `attribution.mjs` (Commons names arrive wearing catalogue clothes) and
 `vault-note.mjs` (three builds read the shape of a note and none forgive a
