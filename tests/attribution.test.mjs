@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { attribution, cleanField } from "../scripts/lib/attribution.mjs";
+import { attribution, cleanField, year } from "../scripts/lib/attribution.mjs";
 
 // Every case here is a string Wikimedia Commons actually returned while the
 // harvester was running. They are the reason the module exists.
@@ -52,4 +52,20 @@ test("cleanField strips markup and structured-data noise", () => {
   assert.equal(cleanField('<a href="#">Georg Flegel</a>'), "Georg Flegel");
   assert.equal(cleanField("Still Life label QS:P1476,en"), "Still Life");
   assert.equal(cleanField("French: Nature morte"), "Nature morte");
+});
+
+test("a date is the year, not the machine-readable half beside it", () => {
+  // Commons writes the date twice in one field, once for people and once for
+  // Wikidata. Trimming the raw field to length left thirteen paintings on the
+  // library wall dated "1868date QS:P571,+18".
+  for (const [raw, want] of [
+    ["1868<br>date QS:P571,+1868-00-00T00:00:00Z/9", "1868"],
+    ["circa 1850\ndate QS:P571,+1850-00-00T00:00:00Z/9", "c. 1850"],
+    ["18th century date QS:P571,+1750", "18th century"],
+    ["Autumn 1915 date QS:P", "Autumn 1915"],
+    ["1868–69", "1868–69"],   // a real range survives whole
+    ["1920 ", "1920"],
+    ["ca. 1900", "c. 1900"],   // one abbreviation on the wall, not two
+    ["", ""],
+  ]) assert.equal(year(raw), want, `from ${JSON.stringify(raw)}`);
 });

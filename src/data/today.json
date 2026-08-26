@@ -57,6 +57,166 @@
         "moreLabel": "more on bashō"
       },
       "painting": {
+        "src": "/images/vault/annankatu-on-a-cold-winter-morning.webp",
+        "who": "Magnus von Wright",
+        "title": "Annankatu on a Cold Winter Morning",
+        "year": "1868",
+        "source": "https://commons.wikimedia.org/wiki/File:Magnus_von_Wright_-_Annankatu_on_a_Cold_Winter_Morning_-_Google_Art_Project.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1066
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
+      }
+    },
+    {
+      "id": "cold-clarity-1",
+      "weather": "cold clarity",
+      "quote": {
+        "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
+        "english": "Attention is the rarest and purest form of generosity.",
+        "who": "Simone Weil",
+        "where": "letter to Joë Bousquet, 1942"
+      },
+      "poem": {
+        "text": "馬をさへ\nながむる雪の\n朝哉",
+        "roman": "uma wo sae / nagamuru yuki no / ashita kana",
+        "english": "even the horse\nholds my eye — snow\non the morning road",
+        "who": "Bashō",
+        "where": "1684",
+        "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
+        "translator": "translated for this page, not a published version",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
+      },
+      "painting": {
+        "src": "/images/vault/hammershoi-courtyard.webp",
+        "who": "Vilhelm Hammershøi",
+        "title": "Interior of Courtyard, Strandgade 30",
+        "year": "1899",
+        "source": "https://commons.wikimedia.org/wiki/File%3AVilhelm_Hammersh%C3%B8i_-_Interior_of_Courtyard%2C_Strandgade_30_-_Google_Art_Project.jpg",
+        "licence": "Public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 2225
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
+      }
+    },
+    {
+      "id": "cold-clarity-2",
+      "weather": "cold clarity",
+      "quote": {
+        "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
+        "english": "Attention is the rarest and purest form of generosity.",
+        "who": "Simone Weil",
+        "where": "letter to Joë Bousquet, 1942"
+      },
+      "poem": {
+        "text": "馬をさへ\nながむる雪の\n朝哉",
+        "roman": "uma wo sae / nagamuru yuki no / ashita kana",
+        "english": "even the horse\nholds my eye — snow\non the morning road",
+        "who": "Bashō",
+        "where": "1684",
+        "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
+        "translator": "translated for this page, not a published version",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
+      },
+      "painting": {
+        "src": "/images/inbox/monet-magpie.webp",
+        "who": "Claude Monet",
+        "title": "The Magpie",
+        "year": "1868–69",
+        "source": "https://commons.wikimedia.org/wiki/File%3AClaude_Monet_-_The_Magpie_-_Google_Art_Project.jpg",
+        "licence": "Public domain",
+        "skyDim": 0,
+        "w": 1000,
+        "h": 678
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
+      }
+    },
+    {
+      "id": "cold-clarity-3",
+      "weather": "cold clarity",
+      "quote": {
+        "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
+        "english": "Attention is the rarest and purest form of generosity.",
+        "who": "Simone Weil",
+        "where": "letter to Joë Bousquet, 1942"
+      },
+      "poem": {
+        "text": "馬をさへ\nながむる雪の\n朝哉",
+        "roman": "uma wo sae / nagamuru yuki no / ashita kana",
+        "english": "even the horse\nholds my eye — snow\non the morning road",
+        "who": "Bashō",
+        "where": "1684",
+        "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
+        "translator": "translated for this page, not a published version",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
+      },
+      "painting": {
+        "src": "/images/vault/the-louvre-under-snow.webp",
+        "who": "Camille Pissarro",
+        "title": "The Louvre under Snow",
+        "year": "1902",
+        "source": "https://commons.wikimedia.org/wiki/File:Pissarro_-_The_Louvre_Under_Snow_1902.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1277
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
+      }
+    },
+    {
+      "id": "cold-clarity-4",
+      "weather": "cold clarity",
+      "quote": {
+        "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
+        "english": "Attention is the rarest and purest form of generosity.",
+        "who": "Simone Weil",
+        "where": "letter to Joë Bousquet, 1942"
+      },
+      "poem": {
+        "text": "馬をさへ\nながむる雪の\n朝哉",
+        "roman": "uma wo sae / nagamuru yuki no / ashita kana",
+        "english": "even the horse\nholds my eye — snow\non the morning road",
+        "who": "Bashō",
+        "where": "1684",
+        "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
+        "translator": "translated for this page, not a published version",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
+      },
+      "painting": {
         "src": "/images/today/hammershoi.webp",
         "who": "Vilhelm Hammershøi",
         "title": "Dust Motes Dancing in the Sunbeams",
@@ -118,7 +278,227 @@
       }
     },
     {
+      "id": "dissolution-1",
+      "weather": "dissolution",
+      "quote": {
+        "text": "Le vent se lève !… il faut tenter de vivre !",
+        "english": "The wind is rising… we must try to live.",
+        "who": "Paul Valéry",
+        "where": "Le Cimetière marin, 1920"
+      },
+      "poem": {
+        "text": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
+        "english": "The poet is a faker.\nHe fakes it so completely\nthat he fakes as pain\nthe pain he really feels.",
+        "who": "Fernando Pessoa",
+        "where": "Autopsicografia, 1932",
+        "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/moonlight-reflection-through-the-mist-1930.webp",
+        "who": "Stepmars",
+        "title": "Moonlight reflection through the mist 1930",
+        "year": "2013",
+        "source": "https://commons.wikimedia.org/wiki/File:Moonlight_reflection_through_the_mist_1930.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1416
+      },
+      "song": {
+        "who": "Brian Eno",
+        "title": "An Ending (Ascent)",
+        "year": "1983",
+        "youtube": "https://www.youtube.com/results?search_query=Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "spotify": "https://open.spotify.com/search/Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens."
+      }
+    },
+    {
+      "id": "dissolution-2",
+      "weather": "dissolution",
+      "quote": {
+        "text": "Le vent se lève !… il faut tenter de vivre !",
+        "english": "The wind is rising… we must try to live.",
+        "who": "Paul Valéry",
+        "where": "Le Cimetière marin, 1920"
+      },
+      "poem": {
+        "text": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
+        "english": "The poet is a faker.\nHe fakes it so completely\nthat he fakes as pain\nthe pain he really feels.",
+        "who": "Fernando Pessoa",
+        "where": "Autopsicografia, 1932",
+        "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/river-village-at-dusk.webp",
+        "who": "anonymous",
+        "title": "River Village at Dusk",
+        "year": "18th century",
+        "source": "https://commons.wikimedia.org/wiki/File:River_Village_at_Dusk_LACMA_M.2000.15.25.jpg",
+        "licence": "public domain",
+        "skyDim": 0.04,
+        "w": 1600,
+        "h": 888
+      },
+      "song": {
+        "who": "Brian Eno",
+        "title": "An Ending (Ascent)",
+        "year": "1983",
+        "youtube": "https://www.youtube.com/results?search_query=Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "spotify": "https://open.spotify.com/search/Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens."
+      }
+    },
+    {
+      "id": "dissolution-3",
+      "weather": "dissolution",
+      "quote": {
+        "text": "Le vent se lève !… il faut tenter de vivre !",
+        "english": "The wind is rising… we must try to live.",
+        "who": "Paul Valéry",
+        "where": "Le Cimetière marin, 1920"
+      },
+      "poem": {
+        "text": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
+        "english": "The poet is a faker.\nHe fakes it so completely\nthat he fakes as pain\nthe pain he really feels.",
+        "who": "Fernando Pessoa",
+        "where": "Autopsicografia, 1932",
+        "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/seascape-study-with-rain-cloud-rainstorm-over-th.webp",
+        "who": "John Constable",
+        "title": "Seascape Study with Rain Cloud (Rainstorm over the Sea)",
+        "year": "c. 1824–28",
+        "source": "https://commons.wikimedia.org/wiki/File:Constable_-_Seascape_Study_with_Rain_Cloud.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1164
+      },
+      "song": {
+        "who": "Brian Eno",
+        "title": "An Ending (Ascent)",
+        "year": "1983",
+        "youtube": "https://www.youtube.com/results?search_query=Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "spotify": "https://open.spotify.com/search/Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens."
+      }
+    },
+    {
+      "id": "dissolution-4",
+      "weather": "dissolution",
+      "quote": {
+        "text": "Le vent se lève !… il faut tenter de vivre !",
+        "english": "The wind is rising… we must try to live.",
+        "who": "Paul Valéry",
+        "where": "Le Cimetière marin, 1920"
+      },
+      "poem": {
+        "text": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
+        "english": "The poet is a faker.\nHe fakes it so completely\nthat he fakes as pain\nthe pain he really feels.",
+        "who": "Fernando Pessoa",
+        "where": "Autopsicografia, 1932",
+        "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/the-fog-warning.webp",
+        "who": "Winslow Homer",
+        "title": "The Fog Warning",
+        "year": "1885",
+        "source": "https://commons.wikimedia.org/wiki/File:Winslow_Homer_-_The_Fog_Warning_-_Google_Art_Project.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1001
+      },
+      "song": {
+        "who": "Brian Eno",
+        "title": "An Ending (Ascent)",
+        "year": "1983",
+        "youtube": "https://www.youtube.com/results?search_query=Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "spotify": "https://open.spotify.com/search/Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens."
+      }
+    },
+    {
+      "id": "dissolution-5",
+      "weather": "dissolution",
+      "quote": {
+        "text": "Le vent se lève !… il faut tenter de vivre !",
+        "english": "The wind is rising… we must try to live.",
+        "who": "Paul Valéry",
+        "where": "Le Cimetière marin, 1920"
+      },
+      "poem": {
+        "text": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
+        "english": "The poet is a faker.\nHe fakes it so completely\nthat he fakes as pain\nthe pain he really feels.",
+        "who": "Fernando Pessoa",
+        "where": "Autopsicografia, 1932",
+        "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/the-river-at-dusk-oxford.webp",
+        "who": "William Henry Barnard",
+        "title": "The River at Dusk, Oxford",
+        "year": "1792",
+        "source": "https://commons.wikimedia.org/wiki/File:William_Henry_Barnard_-_The_River_at_Dusk,_Oxford_-_B1977.14.5642_-_Yale_Center_for_British_Art.jpg",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 993
+      },
+      "song": {
+        "who": "Brian Eno",
+        "title": "An Ending (Ascent)",
+        "year": "1983",
+        "youtube": "https://www.youtube.com/results?search_query=Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "spotify": "https://open.spotify.com/search/Brian%20Eno%20An%20Ending%20%28Ascent%29",
+        "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens."
+      }
+    },
+    {
       "id": "invincible-summer-0",
+      "weather": "invincible summer",
+      "quote": {
+        "text": "Au milieu de l’hiver, j’apprenais enfin qu’il y avait en moi un été invincible.",
+        "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
+        "who": "Albert Camus",
+        "where": "Retour à Tipasa, 1952"
+      },
+      "poem": {
+        "text": "To make a prairie it takes a clover and one bee,\nOne clover, and a bee,\nAnd revery.\nThe revery alone will do,\nIf bees are few.",
+        "who": "Emily Dickinson",
+        "where": "c. 1879",
+        "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote."
+      },
+      "painting": {
+        "src": "/images/vault/a-village-road-in-the-summer-midday-sun.webp",
+        "who": "Olga Wisinger-Florian",
+        "title": "A village road in the summer midday sun",
+        "year": "1899",
+        "source": "https://commons.wikimedia.org/wiki/File:Olga_Wisinger-Florian_-_A_village_road_in_the_summer_midday_sun.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1078
+      },
+      "song": {
+        "who": "Nina Simone",
+        "title": "Feeling Good",
+        "year": "1965",
+        "youtube": "https://www.youtube.com/results?search_query=Nina%20Simone%20Feeling%20Good",
+        "spotify": "https://open.spotify.com/search/Nina%20Simone%20Feeling%20Good",
+        "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds."
+      }
+    },
+    {
+      "id": "invincible-summer-1",
       "weather": "invincible summer",
       "quote": {
         "text": "Au milieu de l’hiver, j’apprenais enfin qu’il y avait en moi un été invincible.",
@@ -172,17 +552,15 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/today/turner-staffa.webp",
-        "who": "J. M. W. Turner",
-        "title": "Staffa, Fingal's Cave",
-        "year": "1831–32",
-        "where": "Yale Center for British Art",
-        "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg",
+        "src": "/images/vault/der-seesturm-the-storm-at-sea.webp",
+        "who": "Joos de Momper the Younger",
+        "title": "Der Seesturm (The Storm at Sea)",
+        "year": "c. 1610–20",
+        "source": "https://commons.wikimedia.org/wiki/File:Momper,_Joos_de_(II)_Storm_ar_sea_038b.jpg",
         "licence": "public domain",
-        "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
         "skyDim": 0,
-        "w": 1000,
-        "h": 740
+        "w": 1585,
+        "h": 1150
       },
       "song": {
         "who": "Seatbelts",
@@ -250,17 +628,15 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/today/turner-staffa.webp",
-        "who": "J. M. W. Turner",
-        "title": "Staffa, Fingal's Cave",
-        "year": "1831–32",
-        "where": "Yale Center for British Art",
-        "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg",
+        "src": "/images/vault/scouts-climbing-a-mountain.webp",
+        "who": "Frederic Remington",
+        "title": "Scouts Climbing a Mountain",
+        "year": "1891",
+        "source": "https://commons.wikimedia.org/wiki/File:Frederic_Remington_-_Scouts_Climbing_a_Mountain_-_43.11_-_Museum_of_Fine_Arts.jpg",
         "licence": "public domain",
-        "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
         "skyDim": 0,
-        "w": 1000,
-        "h": 740
+        "w": 1498,
+        "h": 3200
       },
       "song": {
         "who": "Seatbelts",
@@ -289,17 +665,15 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/today/turner-staffa.webp",
-        "who": "J. M. W. Turner",
-        "title": "Staffa, Fingal's Cave",
-        "year": "1831–32",
-        "where": "Yale Center for British Art",
-        "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg",
+        "src": "/images/vault/shipwreck.webp",
+        "who": "Francis Danby",
+        "title": "Shipwreck",
+        "year": "c. 1850",
+        "source": "https://commons.wikimedia.org/wiki/File:Francis_Danby_-_Shipwreck_-_Google_Art_Project.jpg",
         "licence": "public domain",
-        "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
         "skyDim": 0,
-        "w": 1000,
-        "h": 740
+        "w": 1600,
+        "h": 1235
       },
       "song": {
         "who": "Seatbelts",
@@ -328,6 +702,80 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
+        "src": "/images/vault/boy-teasing-a-dog-nightscene-lit-by-pinewood-tor.webp",
+        "who": "Johann Conrad Seekatz",
+        "title": "Boy Teasing a Dog: Nightscene Lit by Pinewood Torch",
+        "year": "c. 1760",
+        "source": "https://commons.wikimedia.org/wiki/File:Boy_Teasing_a_Dog-_Nightscene_Lit_by_Pinewood_Torch_(SM_583).png",
+        "licence": "pdm-owner",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 2101
+      },
+      "song": {
+        "who": "Chet Baker",
+        "title": "Almost Blue",
+        "year": "1987",
+        "youtube": "https://www.youtube.com/results?search_query=Chet%20Baker%20Almost%20Blue",
+        "spotify": "https://open.spotify.com/search/Chet%20Baker%20Almost%20Blue",
+        "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his."
+      }
+    },
+    {
+      "id": "the-dark-and-the-lamp-1",
+      "weather": "the dark and the lamp",
+      "quote": {
+        "text": "Que otros se jacten de las páginas que han escrito; a mí me enorgullecen las que he leído.",
+        "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
+        "who": "Jorge Luis Borges",
+        "where": "Un lector, 1969"
+      },
+      "poem": {
+        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
+        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
+        "who": "attributed to Sappho",
+        "where": "fragment 168B",
+        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/inbox/hopper-summer-interior.webp",
+        "who": "Edward Hopper",
+        "title": "Summer Interior",
+        "year": "1909",
+        "source": "https://commons.wikimedia.org/wiki/File%3ASummer_Interior%2C_by_Edward_Hopper.jpg",
+        "licence": "Public domain",
+        "skyDim": 0,
+        "w": 1000,
+        "h": 834
+      },
+      "song": {
+        "who": "Chet Baker",
+        "title": "Almost Blue",
+        "year": "1987",
+        "youtube": "https://www.youtube.com/results?search_query=Chet%20Baker%20Almost%20Blue",
+        "spotify": "https://open.spotify.com/search/Chet%20Baker%20Almost%20Blue",
+        "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his."
+      }
+    },
+    {
+      "id": "the-dark-and-the-lamp-2",
+      "weather": "the dark and the lamp",
+      "quote": {
+        "text": "Que otros se jacten de las páginas que han escrito; a mí me enorgullecen las que he leído.",
+        "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
+        "who": "Jorge Luis Borges",
+        "where": "Un lector, 1969"
+      },
+      "poem": {
+        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
+        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
+        "who": "attributed to Sappho",
+        "where": "fragment 168B",
+        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
         "src": "/images/today/whistler.webp",
         "who": "James McNeill Whistler",
         "title": "Nocturne: Blue and Gold — Old Battersea Bridge",
@@ -339,6 +787,117 @@
         "skyDim": 0,
         "w": 1118,
         "h": 1500
+      },
+      "song": {
+        "who": "Chet Baker",
+        "title": "Almost Blue",
+        "year": "1987",
+        "youtube": "https://www.youtube.com/results?search_query=Chet%20Baker%20Almost%20Blue",
+        "spotify": "https://open.spotify.com/search/Chet%20Baker%20Almost%20Blue",
+        "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his."
+      }
+    },
+    {
+      "id": "the-dark-and-the-lamp-3",
+      "weather": "the dark and the lamp",
+      "quote": {
+        "text": "Que otros se jacten de las páginas que han escrito; a mí me enorgullecen las que he leído.",
+        "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
+        "who": "Jorge Luis Borges",
+        "where": "Un lector, 1969"
+      },
+      "poem": {
+        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
+        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
+        "who": "attributed to Sappho",
+        "where": "fragment 168B",
+        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/paris-nocturne-the-singer.webp",
+        "who": "Carlos Baca-Flor",
+        "title": "Paris Nocturne. The Singer",
+        "year": "c. 1900",
+        "source": "https://commons.wikimedia.org/wiki/File:Carlos_Baca-Flor_-_Paris_Nocturne._The_Singer_-_Google_Art_Project.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 2047
+      },
+      "song": {
+        "who": "Chet Baker",
+        "title": "Almost Blue",
+        "year": "1987",
+        "youtube": "https://www.youtube.com/results?search_query=Chet%20Baker%20Almost%20Blue",
+        "spotify": "https://open.spotify.com/search/Chet%20Baker%20Almost%20Blue",
+        "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his."
+      }
+    },
+    {
+      "id": "the-dark-and-the-lamp-4",
+      "weather": "the dark and the lamp",
+      "quote": {
+        "text": "Que otros se jacten de las páginas que han escrito; a mí me enorgullecen las que he leído.",
+        "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
+        "who": "Jorge Luis Borges",
+        "where": "Un lector, 1969"
+      },
+      "poem": {
+        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
+        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
+        "who": "attributed to Sappho",
+        "where": "fragment 168B",
+        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/inbox/vuillard-clarac.webp",
+        "who": "Édouard Vuillard",
+        "title": "La Salle Clarac",
+        "year": "1922",
+        "source": "https://commons.wikimedia.org/wiki/File%3AEdouard_Vuillard_-_La_Salle_Clarac_-_Google_Art_Project.jpg",
+        "licence": "Public domain",
+        "skyDim": 0,
+        "w": 1000,
+        "h": 836
+      },
+      "song": {
+        "who": "Chet Baker",
+        "title": "Almost Blue",
+        "year": "1987",
+        "youtube": "https://www.youtube.com/results?search_query=Chet%20Baker%20Almost%20Blue",
+        "spotify": "https://open.spotify.com/search/Chet%20Baker%20Almost%20Blue",
+        "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his."
+      }
+    },
+    {
+      "id": "the-dark-and-the-lamp-5",
+      "weather": "the dark and the lamp",
+      "quote": {
+        "text": "Que otros se jacten de las páginas que han escrito; a mí me enorgullecen las que he leído.",
+        "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
+        "who": "Jorge Luis Borges",
+        "where": "Un lector, 1969"
+      },
+      "poem": {
+        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
+        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
+        "who": "attributed to Sappho",
+        "where": "fragment 168B",
+        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/whistler-nocturne-grey.webp",
+        "who": "James McNeill Whistler",
+        "title": "Nocturne: Blue and Silver — Chelsea",
+        "year": "1871",
+        "source": "https://commons.wikimedia.org/wiki/File:James_Abbott_McNeill_Whistler_-_Nocturne-_Blue_and_Silver_-_Chelsea_-_Google_Art_Project.jpg",
+        "licence": "Public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1312
       },
       "song": {
         "who": "Chet Baker",
@@ -392,7 +951,84 @@
       }
     },
     {
+      "id": "the-plain-thing-1",
+      "weather": "the plain thing",
+      "quote": {
+        "text": "Gutta cavat lapidem, consumitur anulus usu.",
+        "english": "A drop hollows the stone; a ring is worn away by use.",
+        "who": "Ovid",
+        "where": "Epistulae ex Ponto, IV.10"
+      },
+      "poem": {
+        "text": "古池や\n蛙飛びこむ\n水の音",
+        "roman": "furu ike ya / kawazu tobikomu / mizu no oto",
+        "english": "the old pond —\na frog jumps in,\nthe sound of water",
+        "who": "Bashō",
+        "where": "1686",
+        "note": "The most famous poem in Japanese. His students argued for years about the first line; he kept the plainest one.",
+        "translator": "translated for this page, not a published version",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
+      },
+      "painting": {
+        "src": "/images/vault/redon-flowers.webp",
+        "who": "Odilon Redon",
+        "title": "Vase of Flowers",
+        "year": "c. 1914",
+        "source": "https://commons.wikimedia.org/wiki/File%3AOdilon_Redon_-_Vase_of_Flowers_-_Google_Art_Project.jpg",
+        "licence": "Public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 2078
+      },
+      "song": {
+        "who": "Bill Evans",
+        "title": "Peace Piece",
+        "year": "1958",
+        "youtube": "https://www.youtube.com/results?search_query=Bill%20Evans%20Peace%20Piece",
+        "spotify": "https://open.spotify.com/search/Bill%20Evans%20Peace%20Piece",
+        "note": "One left-hand figure, held for seven minutes, improvised in a single take at the end of a session."
+      }
+    },
+    {
       "id": "vastness-0",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp",
+        "who": "Hendrick Dubbels",
+        "title": "A Smalschip with two Dutch East Indiamen coming to Anchor",
+        "year": "c. 1670",
+        "source": "https://commons.wikimedia.org/wiki/File:A_Smalschip_with_two_Dutch_East_Indiamen_coming_to_Anchor_RMG_BHC0917.tiff",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1184
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-1",
       "weather": "vastness",
       "quote": {
         "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
@@ -431,7 +1067,377 @@
       }
     },
     {
+      "id": "vastness-2",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/friedrich-fog.webp",
+        "who": "Caspar David Friedrich",
+        "title": "Wanderer above the Sea of Fog",
+        "year": "c. 1818",
+        "source": "https://commons.wikimedia.org/wiki/File%3ACaspar_David_Friedrich_-_Der_Wanderer_%C3%BCber_dem_Nebelmeer.jpg",
+        "licence": "Public domain",
+        "skyDim": 0,
+        "w": 1100,
+        "h": 1399
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-3",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/inbox/hokusai-wave.webp",
+        "who": "Katsushika Hokusai",
+        "title": "Under the Wave off Kanagawa",
+        "year": "c. 1831",
+        "source": "https://commons.wikimedia.org/wiki/File%3ATsunami_by_hokusai_19th_century.jpg",
+        "licence": "Public domain",
+        "skyDim": 0.06,
+        "w": 1000,
+        "h": 672
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-4",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/mountains-mont-sainte-victoire-seen-from-the-bib.webp",
+        "who": "Paul Cézanne",
+        "title": "Mont Sainte-Victoire Seen from the Bibémus Quarry",
+        "year": "c. 1897",
+        "source": "https://commons.wikimedia.org/wiki/File:La_Montagne_Sainte-Victoire_vue_de_la_carri%C3%A8re_Bib%C3%A9mus,_par_Paul_C%C3%A9zanne.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1273
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-5",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/no-man-s-land.webp",
+        "who": "Maurice Galbraith Cullen",
+        "title": "No Man's Land",
+        "year": "1920",
+        "source": "https://commons.wikimedia.org/wiki/File:Maurice_Galbraith_Cullen_-_No_Man%27s_Land.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1208
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-6",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/the-starry-night.webp",
+        "who": "Vincent van Gogh",
+        "title": "The Starry Night",
+        "year": "1889",
+        "source": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1267
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-7",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/two-stage-rocket-painting-by-chesley-bonestell.webp",
+        "who": "Chesley Bonestell",
+        "title": "Two-Stage Rocket",
+        "year": "1952",
+        "source": "https://commons.wikimedia.org/wiki/File:Two_stage_rocket_painting_by_Chesley_Bonestell.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1864
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-8",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/view-of-sugarloaf-mountain-from-the-silvestre-ro.webp",
+        "who": "Charles Landseer",
+        "title": "View of Sugarloaf Mountain from the Silvestre Road",
+        "year": "c. 1827",
+        "source": "https://commons.wikimedia.org/wiki/File:Charles_Landseer_-_View_of_Sugarloaf_Mountain_from_the_Silvestre_Road_-_Google_Art_Project.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1017
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
       "id": "weight-and-grace-0",
+      "weather": "weight and grace",
+      "quote": {
+        "text": "Forsan et haec olim meminisse iuvabit.",
+        "english": "Perhaps one day it will be a pleasure to remember even this.",
+        "who": "Virgil",
+        "where": "Aeneid, I.203"
+      },
+      "poem": {
+        "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+        "english": "Whoever has no house now will not build one.\nWhoever is alone now will stay alone:\nwill sit up, read, write long letters,\nand wander the avenues, back and forth,\nrestless, as the leaves drift down.",
+        "who": "Rainer Maria Rilke",
+        "where": "Herbsttag, 1902",
+        "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/inbox/afklint-swan-10.webp",
+        "who": "Hilma af Klint",
+        "title": "The Swan, No. 10",
+        "year": "1915",
+        "source": "https://commons.wikimedia.org/wiki/File%3AHilma_af_Klint_-_Group_IX_SUW%2C_The_Swan_No._10_%2813932%29.jpg",
+        "licence": "Public domain",
+        "skyDim": 0,
+        "w": 982,
+        "h": 1000
+      },
+      "song": {
+        "who": "Arvo Pärt",
+        "title": "Spiegel im Spiegel",
+        "year": "1978",
+        "youtube": "https://www.youtube.com/results?search_query=Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "spotify": "https://open.spotify.com/search/Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia."
+      }
+    },
+    {
+      "id": "weight-and-grace-1",
+      "weather": "weight and grace",
+      "quote": {
+        "text": "Forsan et haec olim meminisse iuvabit.",
+        "english": "Perhaps one day it will be a pleasure to remember even this.",
+        "who": "Virgil",
+        "where": "Aeneid, I.203"
+      },
+      "poem": {
+        "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+        "english": "Whoever has no house now will not build one.\nWhoever is alone now will stay alone:\nwill sit up, read, write long letters,\nand wander the avenues, back and forth,\nrestless, as the leaves drift down.",
+        "who": "Rainer Maria Rilke",
+        "where": "Herbsttag, 1902",
+        "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/figure-of-a-lady-laura.webp",
+        "who": "Tom Thomson",
+        "title": "Figure of a Lady, Laura",
+        "year": "Autumn 1915",
+        "source": "https://commons.wikimedia.org/wiki/File:Thomson,_Figure_of_a_Lady,_Laura_-_fall_1915_-_MM_1983.18.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1312
+      },
+      "song": {
+        "who": "Arvo Pärt",
+        "title": "Spiegel im Spiegel",
+        "year": "1978",
+        "youtube": "https://www.youtube.com/results?search_query=Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "spotify": "https://open.spotify.com/search/Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia."
+      }
+    },
+    {
+      "id": "weight-and-grace-2",
+      "weather": "weight and grace",
+      "quote": {
+        "text": "Forsan et haec olim meminisse iuvabit.",
+        "english": "Perhaps one day it will be a pleasure to remember even this.",
+        "who": "Virgil",
+        "where": "Aeneid, I.203"
+      },
+      "poem": {
+        "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+        "english": "Whoever has no house now will not build one.\nWhoever is alone now will stay alone:\nwill sit up, read, write long letters,\nand wander the avenues, back and forth,\nrestless, as the leaves drift down.",
+        "who": "Rainer Maria Rilke",
+        "where": "Herbsttag, 1902",
+        "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/figure-portant-une-t-te-ail-e-la-chute-d-lcare-f.webp",
+        "who": "Odilon Redon",
+        "title": "Figure portant une tête ailée (La chute d'Icare)",
+        "year": "1876",
+        "source": "https://commons.wikimedia.org/wiki/File:Figure_portant_une_t%C3%AAte_ail%C3%A9e_(La_chute_d%27lcare)_-_Figure_bearing_a_winged_head_(The_fall_of_Icarus),_c._1876,_Odilon_Redon.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1715
+      },
+      "song": {
+        "who": "Arvo Pärt",
+        "title": "Spiegel im Spiegel",
+        "year": "1978",
+        "youtube": "https://www.youtube.com/results?search_query=Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "spotify": "https://open.spotify.com/search/Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia."
+      }
+    },
+    {
+      "id": "weight-and-grace-3",
       "weather": "weight and grace",
       "quote": {
         "text": "Forsan et haec olim meminisse iuvabit.",
@@ -459,6 +1465,43 @@
         "skyDim": 0.1,
         "w": 1131,
         "h": 1500
+      },
+      "song": {
+        "who": "Arvo Pärt",
+        "title": "Spiegel im Spiegel",
+        "year": "1978",
+        "youtube": "https://www.youtube.com/results?search_query=Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "spotify": "https://open.spotify.com/search/Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia."
+      }
+    },
+    {
+      "id": "weight-and-grace-4",
+      "weather": "weight and grace",
+      "quote": {
+        "text": "Forsan et haec olim meminisse iuvabit.",
+        "english": "Perhaps one day it will be a pleasure to remember even this.",
+        "who": "Virgil",
+        "where": "Aeneid, I.203"
+      },
+      "poem": {
+        "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+        "english": "Whoever has no house now will not build one.\nWhoever is alone now will stay alone:\nwill sit up, read, write long letters,\nand wander the avenues, back and forth,\nrestless, as the leaves drift down.",
+        "who": "Rainer Maria Rilke",
+        "where": "Herbsttag, 1902",
+        "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/lovers-and-beloveds-a-composite-of-scenes-from-p.webp",
+        "who": "Chitarman II",
+        "title": "Lovers and Beloveds",
+        "year": "c. 1735",
+        "source": "https://commons.wikimedia.org/wiki/File:%27Lovers_and_beloveds,_A_composite_of_scenes_from_Persian,_Urdu,_and_Sanskrit_literature%27,_painting_by_Chitarman_II,_ca_1735.png",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 2205
       },
       "song": {
         "who": "Arvo Pärt",

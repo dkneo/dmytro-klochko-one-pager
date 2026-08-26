@@ -14,7 +14,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
-import { attribution, cleanField } from "./lib/attribution.mjs";
+import { attribution, cleanField, year } from "./lib/attribution.mjs";
 
 const apply = process.argv.includes("--apply");
 const WANT = Number(process.env.WANT || 12);
@@ -183,7 +183,7 @@ for (const weather of order) {
                   .replace(/[^\w]+/g, "-").replace(/^-|-$/g, "").slice(0, 48)
              || "untitled-" + Math.abs([...(p.title || "x")].reduce((h, ch) => (h * 31 + ch.codePointAt(0)) | 0, 7)).toString(36)),
         type: kind, who, title,
-        year: (md.DateTimeOriginal?.value || "").replace(/<[^>]+>/g, "").slice(0, 20),
+        year: year(md.DateTimeOriginal?.value),
         remote: ii.thumburl || ii.url,
         source: ii.descriptionurl, licence: licence.toLowerCase(),
         weather, found: new Date().toISOString().slice(0, 10),

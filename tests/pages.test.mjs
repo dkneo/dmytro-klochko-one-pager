@@ -195,6 +195,13 @@ test("the library shelves every mark, signed and filtered", () => {
     if (p) assert.ok(html.includes(`background:${p.stops[0]}`), `${w.name} lost its paint chips`);
   }
 
+  // Nothing on the wall may wear its catalogue clothes. Thirteen paintings
+  // hung with dates like "1868date QS:P571,+18" — Commons' machine-readable
+  // half of the date field, trimmed to length and shipped as a year.
+  for (const noise of ["QS:P", "date QS", "&amp;lt;br", "wikidata"]) {
+    assert.ok(!html.includes(noise), `the library shows catalogue noise: ${noise}`);
+  }
+
   // reading is public, teaching stays behind doors
   assert.ok(html.includes("/eidos/sit"), "the door to the sitting is named");
   assert.ok(!html.includes("api/eidos/verdict"), "the library itself never writes");

@@ -1,5 +1,5 @@
 {
- "built": "2026-08-25",
+ "built": "2026-08-26",
  "axes": {
   "x": {
    "from": "cold",
@@ -14,6 +14,91 @@
  },
  "items": [
   {
+   "id": "a-smalschip-with-two-dutch-east-indiamen-coming-",
+   "type": "painting",
+   "who": "Hendrick Dubbels",
+   "title": "A Smalschip with two Dutch East Indiamen coming to Anchor",
+   "line": "A Smalschip with two Dutch East Indiamen coming to Anchor",
+   "year": "c. 1670",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.2468,
+   "y": 0.9619,
+   "unplaced": false
+  },
+  {
+   "id": "a-village-road-in-the-summer-midday-sun",
+   "type": "painting",
+   "who": "Olga Wisinger-Florian",
+   "title": "A village road in the summer midday sun",
+   "line": "A village road in the summer midday sun",
+   "year": "1899",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/a-village-road-in-the-summer-midday-sun.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.8346,
+   "y": 0.3455,
+   "unplaced": false
+  },
+  {
+   "id": "afklint-swan-10",
+   "type": "painting",
+   "who": "Hilma af Klint",
+   "title": "The Swan, No. 10",
+   "line": "The Swan, No. 10",
+   "year": "1915",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/inbox/afklint-swan-10.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.2723,
+   "y": 0.2146,
+   "unplaced": false
+  },
+  {
+   "id": "annankatu-on-a-cold-winter-morning",
+   "type": "painting",
+   "who": "Magnus von Wright",
+   "title": "Annankatu on a Cold Winter Morning",
+   "line": "Annankatu on a Cold Winter Morning",
+   "year": "1868",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/annankatu-on-a-cold-winter-morning.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.8531,
+   "y": -0.3753,
+   "unplaced": false
+  },
+  {
+   "id": "boy-teasing-a-dog-nightscene-lit-by-pinewood-tor",
+   "type": "painting",
+   "who": "Johann Conrad Seekatz",
+   "title": "Boy Teasing a Dog: Nightscene Lit by Pinewood Torch",
+   "line": "Boy Teasing a Dog: Nightscene Lit by Pinewood Torch",
+   "year": "c. 1760",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/boy-teasing-a-dog-nightscene-lit-by-pinewood-tor.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.1755,
+   "y": -0.5839,
+   "unplaced": false
+  },
+  {
    "id": "caspar-david-friedrich-the-monk-by-the-sea",
    "type": "painting",
    "who": "Caspar David Friedrich",
@@ -26,8 +111,8 @@
    "url": "",
    "note": "Kleist wrote that looking at it felt as though his eyelids had been cut away. Friedrich painted out the ships he had first put on the horizon, leaving nothing between the figure and the sky.",
    "added": "2026-08-15",
-   "x": -0.2503,
-   "y": 0.9702,
+   "x": -0.4118,
+   "y": 0.9798,
    "unplaced": false
   },
   {
@@ -43,8 +128,93 @@
    "url": "",
    "note": "From the pond he dug himself at Giverny and then spent thirty years painting. These late ones were made as his cataracts thickened, which is part of why the lilies stop having edges.",
    "added": "2026-08-15",
-   "x": 0.8326,
-   "y": 0.3538,
+   "x": 0.6744,
+   "y": 0.3834,
+   "unplaced": false
+  },
+  {
+   "id": "der-seesturm-the-storm-at-sea",
+   "type": "painting",
+   "who": "Joos de Momper the Younger",
+   "title": "Der Seesturm (The Storm at Sea)",
+   "line": "Der Seesturm (The Storm at Sea)",
+   "year": "c. 1610–20",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/der-seesturm-the-storm-at-sea.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.9488,
+   "y": -0.0982,
+   "unplaced": false
+  },
+  {
+   "id": "figure-of-a-lady-laura",
+   "type": "painting",
+   "who": "Tom Thomson",
+   "title": "Figure of a Lady, Laura",
+   "line": "Figure of a Lady, Laura",
+   "year": "Autumn 1915",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/figure-of-a-lady-laura.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.1039,
+   "y": 0.2127,
+   "unplaced": false
+  },
+  {
+   "id": "figure-portant-une-t-te-ail-e-la-chute-d-lcare-f",
+   "type": "painting",
+   "who": "Odilon Redon",
+   "title": "Figure portant une tête ailée (La chute d'Icare)",
+   "line": "Figure portant une tête ailée (La chute d'Icare)",
+   "year": "1876",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/figure-portant-une-t-te-ail-e-la-chute-d-lcare-f.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.2658,
+   "y": 0.0838,
+   "unplaced": false
+  },
+  {
+   "id": "friedrich-fog",
+   "type": "painting",
+   "who": "Caspar David Friedrich",
+   "title": "Wanderer above the Sea of Fog",
+   "line": "Wanderer above the Sea of Fog",
+   "year": "c. 1818",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/friedrich-fog.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.2646,
+   "y": 0.8311,
+   "unplaced": false
+  },
+  {
+   "id": "hammershoi-courtyard",
+   "type": "painting",
+   "who": "Vilhelm Hammershøi",
+   "title": "Interior of Courtyard, Strandgade 30",
+   "line": "Interior of Courtyard, Strandgade 30",
+   "year": "1899",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/hammershoi-courtyard.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -1.0112,
+   "y": -0.3687,
    "unplaced": false
   },
   {
@@ -60,8 +230,8 @@
    "url": "",
    "note": "Painted in 1907, years before abstraction was credited to anyone else. She left instructions that the work not be shown until twenty years after her death, and it was not shown properly for forty.",
    "added": "2026-08-15",
-   "x": 0.2742,
-   "y": 0.2079,
+   "x": 0.296,
+   "y": 0.3234,
    "unplaced": false
   },
   {
@@ -235,6 +405,40 @@
    "unplaced": true
   },
   {
+   "id": "hokusai-wave",
+   "type": "painting",
+   "who": "Katsushika Hokusai",
+   "title": "Under the Wave off Kanagawa",
+   "line": "Under the Wave off Kanagawa",
+   "year": "c. 1831",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/inbox/hokusai-wave.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.2129,
+   "y": 1.0679,
+   "unplaced": false
+  },
+  {
+   "id": "hopper-summer-interior",
+   "type": "painting",
+   "who": "Edward Hopper",
+   "title": "Summer Interior",
+   "line": "Summer Interior",
+   "year": "1909",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/inbox/hopper-summer-interior.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.0235,
+   "y": -0.611,
+   "unplaced": false
+  },
+  {
    "id": "j-m-w-turner-norham-castle-sunrise",
    "type": "painting",
    "who": "J. M. W. Turner",
@@ -264,8 +468,8 @@
    "url": "",
    "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
    "added": "2026-08-15",
-   "x": 0.9483,
-   "y": -0.0973,
+   "x": 0.7864,
+   "y": -0.096,
    "unplaced": false
   },
   {
@@ -281,8 +485,8 @@
    "url": "",
    "note": "Ruskin said Whistler was flinging a pot of paint in the public's face. Whistler sued him for libel, won, and was awarded one farthing in damages, which bankrupted him.",
    "added": "2026-08-15",
-   "x": 0.1899,
-   "y": -0.6,
+   "x": 0.2113,
+   "y": -0.7263,
    "unplaced": false
   },
   {
@@ -303,6 +507,295 @@
    "unplaced": false
   },
   {
+   "id": "lovers-and-beloveds-a-composite-of-scenes-from-p",
+   "type": "painting",
+   "who": "Chitarman II",
+   "title": "Lovers and Beloveds",
+   "line": "Lovers and Beloveds",
+   "year": "c. 1735",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/lovers-and-beloveds-a-composite-of-scenes-from-p.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.0941,
+   "y": 0.0906,
+   "unplaced": false
+  },
+  {
+   "id": "monet-magpie",
+   "type": "painting",
+   "who": "Claude Monet",
+   "title": "The Magpie",
+   "line": "The Magpie",
+   "year": "1868–69",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/inbox/monet-magpie.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.8006,
+   "y": -0.488,
+   "unplaced": false
+  },
+  {
+   "id": "moonlight-reflection-through-the-mist-1930",
+   "type": "painting",
+   "who": "Stepmars",
+   "title": "Moonlight reflection through the mist 1930",
+   "line": "Moonlight reflection through the mist 1930",
+   "year": "2013",
+   "where": "",
+   "weather": "dissolution",
+   "src": "/images/vault/moonlight-reflection-through-the-mist-1930.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.5909,
+   "y": 0.5521,
+   "unplaced": false
+  },
+  {
+   "id": "mountains-mont-sainte-victoire-seen-from-the-bib",
+   "type": "painting",
+   "who": "Paul Cézanne",
+   "title": "Mont Sainte-Victoire Seen from the Bibémus Quarry",
+   "line": "Mont Sainte-Victoire Seen from the Bibémus Quarry",
+   "year": "c. 1897",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/mountains-mont-sainte-victoire-seen-from-the-bib.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.3964,
+   "y": 0.8203,
+   "unplaced": false
+  },
+  {
+   "id": "no-man-s-land",
+   "type": "painting",
+   "who": "Maurice Galbraith Cullen",
+   "title": "No Man's Land",
+   "line": "No Man's Land",
+   "year": "1920",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/no-man-s-land.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.1266,
+   "y": 0.8946,
+   "unplaced": false
+  },
+  {
+   "id": "paris-nocturne-the-singer",
+   "type": "painting",
+   "who": "Carlos Baca-Flor",
+   "title": "Paris Nocturne. The Singer",
+   "line": "Paris Nocturne. The Singer",
+   "year": "c. 1900",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/paris-nocturne-the-singer.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.2088,
+   "y": -0.4935,
+   "unplaced": false
+  },
+  {
+   "id": "redon-flowers",
+   "type": "painting",
+   "who": "Odilon Redon",
+   "title": "Vase of Flowers",
+   "line": "Vase of Flowers",
+   "year": "c. 1914",
+   "where": "",
+   "weather": "the plain thing",
+   "src": "/images/vault/redon-flowers.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.2047,
+   "y": -0.8752,
+   "unplaced": false
+  },
+  {
+   "id": "river-village-at-dusk",
+   "type": "painting",
+   "who": "anonymous",
+   "title": "River Village at Dusk",
+   "line": "River Village at Dusk",
+   "year": "18th century",
+   "where": "",
+   "weather": "dissolution",
+   "src": "/images/vault/river-village-at-dusk.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.3988,
+   "y": 0.4191,
+   "unplaced": false
+  },
+  {
+   "id": "scouts-climbing-a-mountain",
+   "type": "painting",
+   "who": "Frederic Remington",
+   "title": "Scouts Climbing a Mountain",
+   "line": "Scouts Climbing a Mountain",
+   "year": "1891",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/scouts-climbing-a-mountain.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.9565,
+   "y": -0.2327,
+   "unplaced": false
+  },
+  {
+   "id": "seascape-study-with-rain-cloud-rainstorm-over-th",
+   "type": "painting",
+   "who": "John Constable",
+   "title": "Seascape Study with Rain Cloud (Rainstorm over the Sea)",
+   "line": "Seascape Study with Rain Cloud (Rainstorm over the Sea)",
+   "year": "c. 1824–28",
+   "where": "",
+   "weather": "dissolution",
+   "src": "/images/vault/seascape-study-with-rain-cloud-rainstorm-over-th.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.4946,
+   "y": 0.6591,
+   "unplaced": false
+  },
+  {
+   "id": "shipwreck",
+   "type": "painting",
+   "who": "Francis Danby",
+   "title": "Shipwreck",
+   "line": "Shipwreck",
+   "year": "c. 1850",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/shipwreck.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.8682,
+   "y": 0.0169,
+   "unplaced": false
+  },
+  {
+   "id": "the-fog-warning",
+   "type": "painting",
+   "who": "Winslow Homer",
+   "title": "The Fog Warning",
+   "line": "The Fog Warning",
+   "year": "1885",
+   "where": "",
+   "weather": "dissolution",
+   "src": "/images/vault/the-fog-warning.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.6046,
+   "y": 0.4095,
+   "unplaced": false
+  },
+  {
+   "id": "the-louvre-under-snow",
+   "type": "painting",
+   "who": "Camille Pissarro",
+   "title": "The Louvre under Snow",
+   "line": "The Louvre under Snow",
+   "year": "1902",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/the-louvre-under-snow.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.8827,
+   "y": -0.2611,
+   "unplaced": false
+  },
+  {
+   "id": "the-river-at-dusk-oxford",
+   "type": "painting",
+   "who": "William Henry Barnard",
+   "title": "The River at Dusk, Oxford",
+   "line": "The River at Dusk, Oxford",
+   "year": "1792",
+   "where": "",
+   "weather": "dissolution",
+   "src": "/images/vault/the-river-at-dusk-oxford.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.3001,
+   "y": 0.4828,
+   "unplaced": false
+  },
+  {
+   "id": "the-starry-night",
+   "type": "painting",
+   "who": "Vincent van Gogh",
+   "title": "The Starry Night",
+   "line": "The Starry Night",
+   "year": "1889",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/the-starry-night.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.4052,
+   "y": 1.0809,
+   "unplaced": false
+  },
+  {
+   "id": "two-stage-rocket-painting-by-chesley-bonestell",
+   "type": "painting",
+   "who": "Chesley Bonestell",
+   "title": "Two-Stage Rocket",
+   "line": "Two-Stage Rocket",
+   "year": "1952",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/two-stage-rocket-painting-by-chesley-bonestell.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.3652,
+   "y": 0.8011,
+   "unplaced": false
+  },
+  {
+   "id": "view-of-sugarloaf-mountain-from-the-silvestre-ro",
+   "type": "painting",
+   "who": "Charles Landseer",
+   "title": "View of Sugarloaf Mountain from the Silvestre Road",
+   "line": "View of Sugarloaf Mountain from the Silvestre Road",
+   "year": "c. 1827",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/view-of-sugarloaf-mountain-from-the-silvestre-ro.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.1744,
+   "y": 1.0668,
+   "unplaced": false
+  },
+  {
    "id": "vilhelm-hammersh-i-dust-motes-dancing-in-the-sunbeams",
    "type": "painting",
    "who": "Vilhelm Hammershøi",
@@ -315,8 +808,42 @@
    "url": "",
    "note": "Painted in his own flat at Strandgade 30, which he painted again and again for a decade. No furniture to speak of, no story, nobody home: an empty room and the light crossing it.",
    "added": "2026-08-15",
-   "x": -0.8501,
-   "y": -0.3801,
+   "x": -1.0467,
+   "y": -0.4882,
+   "unplaced": false
+  },
+  {
+   "id": "vuillard-clarac",
+   "type": "painting",
+   "who": "Édouard Vuillard",
+   "title": "La Salle Clarac",
+   "line": "La Salle Clarac",
+   "year": "1922",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/inbox/vuillard-clarac.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": -0.0185,
+   "y": -0.6915,
+   "unplaced": false
+  },
+  {
+   "id": "whistler-nocturne-grey",
+   "type": "painting",
+   "who": "James McNeill Whistler",
+   "title": "Nocturne: Blue and Silver — Chelsea",
+   "line": "Nocturne: Blue and Silver — Chelsea",
+   "year": "1871",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/whistler-nocturne-grey.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-08-26",
+   "x": 0.3229,
+   "y": -0.5961,
    "unplaced": false
   },
   {
@@ -332,8 +859,8 @@
    "url": "",
    "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
    "added": "2026-08-15",
-   "x": 0.0526,
-   "y": -0.5531,
+   "x": 0.0894,
+   "y": -0.467,
    "unplaced": false
   },
   {
@@ -349,8 +876,8 @@
    "url": "",
    "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
    "added": "2026-08-15",
-   "x": -1.0145,
-   "y": -0.3795,
+   "x": -0.7151,
+   "y": -0.4048,
    "unplaced": false
   },
   {
@@ -366,8 +893,8 @@
    "url": "",
    "note": "The most famous poem in Japanese. His students argued for years about the first line; he kept the plainest one.",
    "added": "2026-08-15",
-   "x": -0.197,
-   "y": -0.8638,
+   "x": -0.0666,
+   "y": -1.0393,
    "unplaced": false
   },
   {
@@ -383,8 +910,8 @@
    "url": "",
    "note": "Thermopylae is the pass the Spartans held knowing they would lose it, and Ephialtes is the man who showed the Persians the way around. Cavafy's point is that the traitor arriving does not cancel the holding.",
    "added": "2026-08-15",
-   "x": 0.7841,
-   "y": -0.1335,
+   "x": 0.8112,
+   "y": -0.2537,
    "unplaced": false
   },
   {
@@ -400,8 +927,8 @@
    "url": "",
    "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote.",
    "added": "2026-08-15",
-   "x": 0.6846,
-   "y": 0.3983,
+   "x": 0.81,
+   "y": 0.22,
    "unplaced": false
   },
   {
@@ -417,8 +944,8 @@
    "url": "",
    "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
    "added": "2026-08-15",
-   "x": -0.58,
-   "y": 0.5723,
+   "x": -0.5618,
+   "y": 0.6627,
    "unplaced": false
   },
   {
@@ -434,8 +961,8 @@
    "url": "",
    "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
    "added": "2026-08-15",
-   "x": 0.1287,
-   "y": 0.2629,
+   "x": 0.3824,
+   "y": 0.1237,
    "unplaced": false
   },
   {
@@ -451,8 +978,8 @@
    "url": "",
    "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
    "added": "2026-08-15",
-   "x": -0.4163,
-   "y": 0.9608,
+   "x": -0.4796,
+   "y": 0.9119,
    "unplaced": false
   },
   {
@@ -468,8 +995,8 @@
    "url": "",
    "note": "One left-hand figure, held for seven minutes, improvised in a single take at the end of a session.",
    "added": "2026-08-15",
-   "x": -0.0719,
-   "y": -1.0403,
+   "x": -0.016,
+   "y": -0.8005,
    "unplaced": false
   },
   {
@@ -485,8 +1012,8 @@
    "url": "",
    "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his.",
    "added": "2026-08-15",
-   "x": 0.1973,
-   "y": -0.7324,
+   "x": 0.1118,
+   "y": -0.7772,
    "unplaced": false
   },
   {
@@ -502,8 +1029,8 @@
    "url": "",
    "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens.",
    "added": "2026-08-15",
-   "x": -0.4303,
-   "y": 0.405,
+   "x": -0.5187,
+   "y": 0.3644,
    "unplaced": false
   },
   {
@@ -519,8 +1046,8 @@
    "url": "",
    "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds.",
    "added": "2026-08-15",
-   "x": 0.8672,
-   "y": 0.2429,
+   "x": 0.7937,
+   "y": 0.4792,
    "unplaced": false
   },
   {
@@ -536,8 +1063,8 @@
    "url": "",
    "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia.",
    "added": "2026-08-15",
-   "x": 0.2685,
-   "y": 0.0846,
+   "x": 0.1278,
+   "y": 0.3379,
    "unplaced": false
   },
   {
@@ -553,8 +1080,8 @@
    "url": "",
    "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician.",
    "added": "2026-08-15",
-   "x": -0.8103,
-   "y": -0.4954,
+   "x": -1.0396,
+   "y": -0.2956,
    "unplaced": false
   },
   {
@@ -570,8 +1097,8 @@
    "url": "",
    "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything.",
    "added": "2026-08-15",
-   "x": 0.9717,
-   "y": -0.2261,
+   "x": 1.0835,
+   "y": -0.1402,
    "unplaced": false
   },
   {
@@ -587,8 +1114,8 @@
    "url": "",
    "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it.",
    "added": "2026-08-15",
-   "x": -0.1837,
-   "y": 0.8789,
+   "x": -0.1216,
+   "y": 0.9078,
    "unplaced": false
   },
   {
@@ -604,8 +1131,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 0.8192,
-   "y": 0.4755,
+   "x": 0.6308,
+   "y": 0.2549,
    "unplaced": false
   },
   {
@@ -621,8 +1148,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": -0.2281,
-   "y": 1.0752,
+   "x": -0.2799,
+   "y": 1.1082,
    "unplaced": false
   },
   {
@@ -638,8 +1165,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 0.1441,
-   "y": -0.4804,
+   "x": 0.2432,
+   "y": -0.4879,
    "unplaced": false
   },
   {
@@ -655,8 +1182,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.9793,
-   "y": 0.0019,
+   "x": 0.8268,
+   "y": 0.0261,
    "unplaced": false
   },
   {
@@ -672,8 +1199,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": -0.1197,
-   "y": -0.7814,
+   "x": -0.204,
+   "y": -1.0453,
    "unplaced": false
   },
   {
@@ -689,8 +1216,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.7324,
-   "y": -0.174,
+   "x": 0.8461,
+   "y": -0.2722,
    "unplaced": false
   },
   {
@@ -706,8 +1233,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": -0.4888,
-   "y": 0.6594,
+   "x": -0.3893,
+   "y": 0.6587,
    "unplaced": false
   },
   {
@@ -723,8 +1250,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 1.0832,
-   "y": -0.1423,
+   "x": 1.0321,
+   "y": -0.0086,
    "unplaced": false
   },
   {
@@ -740,8 +1267,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": -0.9008,
-   "y": -0.2603,
+   "x": -0.8669,
+   "y": -0.5565,
    "unplaced": false
   },
   {
@@ -757,8 +1284,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.8438,
-   "y": 0.0316,
+   "x": 0.7259,
+   "y": -0.0661,
    "unplaced": false
   },
   {
@@ -774,8 +1301,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 0.266,
-   "y": 0.3339,
+   "x": 0.1994,
+   "y": 0.0419,
    "unplaced": false
   },
   {
@@ -1125,11 +1652,11 @@
    "x": -0.9,
    "y": -0.4,
    "why": "winter light and precision, aimed at something small",
-   "count": 4,
+   "count": 8,
    "forms": [
     {
      "form": "painting",
-     "n": 1
+     "n": 5
     },
     {
      "form": "poem",
@@ -1150,11 +1677,11 @@
    "x": -0.1,
    "y": -0.92,
    "why": "one object, looked at until it stops being ordinary",
-   "count": 4,
+   "count": 5,
    "forms": [
     {
      "form": "painting",
-     "n": 1
+     "n": 2
     },
     {
      "form": "poem",
@@ -1175,11 +1702,11 @@
    "x": 0.14,
    "y": -0.62,
    "why": "one light on, company at a distance",
-   "count": 4,
+   "count": 9,
    "forms": [
     {
      "form": "painting",
-     "n": 1
+     "n": 6
     },
     {
      "form": "poem",
@@ -1200,11 +1727,11 @@
    "x": 0.9,
    "y": -0.12,
    "why": "ambition with its nerve showing, and the cost of it",
-   "count": 7,
+   "count": 10,
    "forms": [
     {
      "form": "painting",
-     "n": 1
+     "n": 4
     },
     {
      "form": "poem",
@@ -1225,11 +1752,11 @@
    "x": 0.78,
    "y": 0.34,
    "why": "heat held against the dark",
-   "count": 4,
+   "count": 5,
    "forms": [
     {
      "form": "painting",
-     "n": 1
+     "n": 2
     },
     {
      "form": "poem",
@@ -1250,11 +1777,11 @@
    "x": 0.22,
    "y": 0.2,
    "why": "gravity, falling, and being held anyway",
-   "count": 4,
+   "count": 8,
    "forms": [
     {
      "form": "painting",
-     "n": 1
+     "n": 5
     },
     {
      "form": "poem",
@@ -1275,11 +1802,11 @@
    "x": -0.48,
    "y": 0.52,
    "why": "edges going, fog, the moment a shape stops being one",
-   "count": 4,
+   "count": 9,
    "forms": [
     {
      "form": "painting",
-     "n": 1
+     "n": 6
     },
     {
      "form": "poem",
@@ -1300,11 +1827,11 @@
    "x": -0.3,
    "y": 0.95,
    "why": "the scale that puts you in your place",
-   "count": 4,
+   "count": 12,
    "forms": [
     {
      "form": "painting",
-     "n": 1
+     "n": 9
     },
     {
      "form": "poem",
@@ -1323,10 +1850,52 @@
  ],
  "threads": [
   {
+   "who": "Hilma af Klint",
+   "ids": [
+    "afklint-swan-10",
+    "hilma-af-klint-the-ten-largest-no-7-adulthood"
+   ]
+  },
+  {
+   "who": "Caspar David Friedrich",
+   "ids": [
+    "caspar-david-friedrich-the-monk-by-the-sea",
+    "friedrich-fog"
+   ]
+  },
+  {
+   "who": "Claude Monet",
+   "ids": [
+    "claude-monet-water-lilies",
+    "monet-magpie"
+   ]
+  },
+  {
+   "who": "Odilon Redon",
+   "ids": [
+    "figure-portant-une-t-te-ail-e-la-chute-d-lcare-f",
+    "redon-flowers"
+   ]
+  },
+  {
+   "who": "Vilhelm Hammershøi",
+   "ids": [
+    "hammershoi-courtyard",
+    "vilhelm-hammersh-i-dust-motes-dancing-in-the-sunbeams"
+   ]
+  },
+  {
    "who": "J. M. W. Turner",
    "ids": [
     "j-m-w-turner-norham-castle-sunrise",
     "j-m-w-turner-staffa-fingals-cave"
+   ]
+  },
+  {
+   "who": "James McNeill Whistler",
+   "ids": [
+    "james-mcneill-whistler-nocturne-blue-and-gold-old-battersea-",
+    "whistler-nocturne-grey"
    ]
   },
   {
@@ -1356,7 +1925,7 @@
  "forms": [
   {
    "form": "painting",
-   "n": 18
+   "n": 49
   },
   {
    "form": "poem",
@@ -1397,7 +1966,31 @@
    "n": 2
   },
   {
+   "who": "Caspar David Friedrich",
+   "n": 2
+  },
+  {
+   "who": "Claude Monet",
+   "n": 2
+  },
+  {
+   "who": "Hilma af Klint",
+   "n": 2
+  },
+  {
    "who": "J. M. W. Turner",
+   "n": 2
+  },
+  {
+   "who": "James McNeill Whistler",
+   "n": 2
+  },
+  {
+   "who": "Odilon Redon",
+   "n": 2
+  },
+  {
+   "who": "Vilhelm Hammershøi",
    "n": 2
   },
   {
@@ -1406,6 +1999,10 @@
   },
   {
    "who": "Albert Camus",
+   "n": 1
+  },
+  {
+   "who": "anonymous",
    "n": 1
   },
   {
@@ -1429,7 +2026,19 @@
    "n": 1
   },
   {
-   "who": "Caspar David Friedrich",
+   "who": "Camille Pissarro",
+   "n": 1
+  },
+  {
+   "who": "Carlos Baca-Flor",
+   "n": 1
+  },
+  {
+   "who": "Charles Landseer",
+   "n": 1
+  },
+  {
+   "who": "Chesley Bonestell",
    "n": 1
   },
   {
@@ -1437,11 +2046,11 @@
    "n": 1
   },
   {
-   "who": "Cicero",
+   "who": "Chitarman II",
    "n": 1
   },
   {
-   "who": "Claude Monet",
+   "who": "Cicero",
    "n": 1
   },
   {
@@ -1457,6 +2066,14 @@
    "n": 1
   },
   {
+   "who": "Édouard Vuillard",
+   "n": 1
+  },
+  {
+   "who": "Edward Hopper",
+   "n": 1
+  },
+  {
    "who": "Emily Dickinson",
    "n": 1
   },
@@ -1469,15 +2086,19 @@
    "n": 1
   },
   {
+   "who": "Francis Danby",
+   "n": 1
+  },
+  {
+   "who": "Frederic Remington",
+   "n": 1
+  },
+  {
    "who": "hajime sorayama",
    "n": 1
   },
   {
-   "who": "Hilma af Klint",
-   "n": 1
-  },
-  {
-   "who": "James McNeill Whistler",
+   "who": "Hendrick Dubbels",
    "n": 1
   },
   {
@@ -1485,11 +2106,35 @@
    "n": 1
   },
   {
+   "who": "Johann Conrad Seekatz",
+   "n": 1
+  },
+  {
+   "who": "John Constable",
+   "n": 1
+  },
+  {
    "who": "John F. Kennedy",
    "n": 1
   },
   {
+   "who": "Joos de Momper the Younger",
+   "n": 1
+  },
+  {
    "who": "Jorge Luis Borges",
+   "n": 1
+  },
+  {
+   "who": "Katsushika Hokusai",
+   "n": 1
+  },
+  {
+   "who": "Magnus von Wright",
+   "n": 1
+  },
+  {
+   "who": "Maurice Galbraith Cullen",
    "n": 1
   },
   {
@@ -1501,7 +2146,15 @@
    "n": 1
   },
   {
+   "who": "Olga Wisinger-Florian",
+   "n": 1
+  },
+  {
    "who": "Ovid",
+   "n": 1
+  },
+  {
+   "who": "Paul Cézanne",
    "n": 1
   },
   {
@@ -1537,7 +2190,15 @@
    "n": 1
   },
   {
+   "who": "Stepmars",
+   "n": 1
+  },
+  {
    "who": "Steve Jobs",
+   "n": 1
+  },
+  {
+   "who": "Tom Thomson",
    "n": 1
   },
   {
@@ -1545,7 +2206,7 @@
    "n": 1
   },
   {
-   "who": "Vilhelm Hammershøi",
+   "who": "Vincent van Gogh",
    "n": 1
   },
   {
@@ -1555,12 +2216,20 @@
   {
    "who": "Wang Wei",
    "n": 1
+  },
+  {
+   "who": "William Henry Barnard",
+   "n": 1
+  },
+  {
+   "who": "Winslow Homer",
+   "n": 1
   }
  ],
  "depth": {
-  "notes": 65,
-  "people": 43,
-  "thinnest": "cold clarity",
-  "oneDeep": 7
+  "notes": 96,
+  "people": 68,
+  "thinnest": "the plain thing",
+  "oneDeep": 0
  }
 }

@@ -40,3 +40,31 @@ export function attribution(raw, max = 48) {
     .replace(/\s+/g, " ")
     .trim(), max);
 }
+
+/**
+ * The date a card can wear.
+ *
+ * Commons keeps the date twice: once for people and once for machines, in one
+ * string — "1868<br>date QS:P571,+1868-00-00T00:00:00Z/9". Only the first
+ * half is a year. Reading the raw field and trimming it to length left
+ * thirteen paintings dated "1868date QS:P571,+18" on the library wall.
+ */
+export function year(raw, max = 20) {
+  const v = cleanField(raw)
+    .replace(/^(?:circa|ca\.?)\s+/i, "c. ")
+    .replace(/\s*[-–—]\s*$/, "")
+    .trim();
+
+  // A camera's timestamp is not a date of making, and a catalogue's
+  // "between 1824 and 1828" does not survive being trimmed to length — it
+  // hung on the wall as "between 1824 and 182".
+  const iso = v.match(/^(\d{4})-\d{2}-\d{2}/);
+  if (iso) return iso[1];
+  const span = v.match(/^between (\d{4}) and (\d{2})(\d{2})$/i);
+  if (span) return span[1] === span[2] + span[3] ? span[1] : `${span[1]}–${span[3]}`;
+  // "March 22, 1952", "22 March 1952" — the year is the whole of the answer
+  if (/[A-Za-z]{3,}/.test(v) && /\b\d{4}\b/.test(v) && !/century|c\.|autumn|spring|summer|winter/i.test(v)) {
+    return v.match(/\b(\d{4})\b/)[1];
+  }
+  return cut(v, max);
+}

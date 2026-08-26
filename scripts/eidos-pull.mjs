@@ -25,12 +25,28 @@ const KEPT_DIR = "public/images/vault";
 // derives its thumbnails from local files, and vault-build refuses outright
 // to ship a chord whose painting is not on disk — so the moment he keeps
 // something, the picture comes home.
+//
+// An /images/inbox/ path is the one local src that is not the picture: the
+// harvester saves a deck-sized copy so the sitting has something to show, and
+// treating that as home shipped four paintings too small to make a 960px
+// derivative. On a keep, an inbox src is re-fetched at full size from the
+// Commons page the candidate cites.
+const INBOX = "/images/inbox/";
+function fullSize(c) {
+  if (!c.source) return null;
+  const page = decodeURIComponent(c.source);
+  const file = page.match(/File:(.+)$/)?.[1];
+  if (!file) return null;
+  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=1600`;
+}
+
 async function bringHome(c) {
-  if (c.src.startsWith("/")) return c.src;              // already ours
+  const thumb = c.src.startsWith(INBOX) ? fullSize(c) : null;
+  if (c.src.startsWith("/") && !thumb) return c.src;    // already ours
   const out = join(KEPT_DIR, `${c.id}.webp`);
   const local = `/images/vault/${c.id}.webp`;
   if (existsSync(out)) return local;
-  const url = c.src.split("?")[0];                      // drop their tracking
+  const url = (thumb || c.src).split("?")[0] + (thumb ? "?width=1600" : "");
   const r = await fetch(url, { headers: { "user-agent": UA } });
   if (!r.ok) throw new Error(`${r.status} fetching ${url}`);
   mkdirSync(KEPT_DIR, { recursive: true });
