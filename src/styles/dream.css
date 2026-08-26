@@ -179,7 +179,10 @@
    swapped by whichever bead the cursor rests on. Hover devices only. */
 [data-mode="dream"] .easel {
   position: sticky;
-  top: 16vh;
+  /* The print is taller than the road it sits beside, so pinning it low left
+     a band of empty ground under the last line. Riding higher, it ends near
+     where the list ends. */
+  top: 9vh;
   margin: 0;
   justify-self: end;
   width: min(100%, var(--easel-width, 30rem));
