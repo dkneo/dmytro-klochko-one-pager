@@ -220,6 +220,17 @@ test("the sitemap lists the public pages and only those", () => {
   }
 });
 
+test("every hidden room tells search engines to leave it unlisted", () => {
+  for (const room of ["eidos", "hokku", "pond", "today"]) {
+    const html = read(`dist/${room}/index.html`);
+    assert.match(
+      html,
+      /<meta name="robots" content="noindex, follow">/,
+      `/${room} is absent from the sitemap but still indexable`,
+    );
+  }
+});
+
 // Astro moves page CSS/JS into hashed bundle files; resolve them from the page.
 // Astro inlines a page's styles once they are small enough, so a helper that
 // only follows <link href> silently returns nothing and every assertion built
