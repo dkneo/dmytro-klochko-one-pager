@@ -103,6 +103,62 @@ const studyQuote = {
   meta: "guingrich & graziano, oxford intersections: ai in society, 2025",
 };
 
+// One video element carries the whole case file. The alternate films stay as
+// posters until someone chooses one, so twelve pieces of footage do not become
+// twelve simultaneous downloads.
+const replikaClips = [
+  { label: "brand film", src: "/video/replika/brand-film.mp4", poster: "/video/replika/brand-film-poster.webp" },
+  { label: "40m moment", src: "/video/replika/milestone.mp4", poster: "/video/replika/milestone-poster.webp" },
+  { label: "product film", src: "/video/replika/product-film.mp4", poster: "/video/replika/product-film-poster.webp" },
+  { label: "memory", src: "/video/replika/memory.mp4", poster: "/video/replika/memory-poster.webp" },
+  { label: "the app", src: "/video/replika/app.mp4", poster: "/video/replika/app-poster.webp" },
+  { label: "alex", src: "/video/replika/alex.mp4", poster: "/video/replika/alex-poster.webp" },
+  { label: "maryam", src: "/video/replika/maryam.mp4", poster: "/video/replika/maryam-poster.webp" },
+  { label: "pablo", src: "/video/replika/pablo.mp4", poster: "/video/replika/pablo-poster.webp" },
+  { label: "avatar film", src: "/video/replika/avatar.mp4", poster: "/video/replika/avatar-poster.webp" },
+  { label: "by the lake", src: "/video/replika/lake.mp4", poster: "/video/replika/lake-poster.webp" },
+  { label: "morning", src: "/video/replika/morning.mp4", poster: "/video/replika/morning-poster.webp" },
+  { label: "at the window", src: "/video/replika/window.mp4", poster: "/video/replika/window-poster.webp" },
+] as const;
+
+const replikaPrints = [
+  {
+    src: "/video/replika/stills/bedroom.webp",
+    alt: "a woman sitting in bed beside a sunlit window",
+    width: 1200,
+    height: 509,
+    shape: "wide",
+  },
+  {
+    src: "/video/replika/stills/meadow-phone.webp",
+    alt: "a blonde woman using her phone in a meadow",
+    width: 670,
+    height: 1200,
+    shape: "tall",
+  },
+  {
+    src: "/video/replika/stills/group-arch.webp",
+    alt: "a group taking a selfie beneath an arched window",
+    width: 670,
+    height: 1200,
+    shape: "tall",
+  },
+  {
+    src: "/video/replika/stills/group-close.webp",
+    alt: "a close group selfie",
+    width: 1200,
+    height: 670,
+    shape: "wide",
+  },
+  {
+    src: "/video/replika/stills/pink-meadow.webp",
+    alt: "a pink-haired woman lying in a sunlit meadow",
+    width: 1200,
+    height: 509,
+    shape: "wide",
+  },
+] as const;
+
 // The road, five years old to the student theatre. The six companies used to
 // head it; here they are the experience section above, so the road keeps only
 // what a register cannot hold. `pic` is what the easel shows.
@@ -297,7 +353,9 @@ const also = [
 
   <script>
     import { setupChapterRail } from "../scripts/chapter-rail.js";
+    import { setupReplikaShowcase } from "../scripts/replika-showcase.js";
     setupChapterRail();
+    setupReplikaShowcase();
   </script>
 
   <section class="shell session" id="top" data-scene="fire" data-weather="fire" aria-labelledby="s1">
@@ -352,13 +410,14 @@ const also = [
       </div>
 
 
-      {/* Three living clips in the pile — kbs, dok.fest, the london film —
-          quirkier than stills. Same loop discipline as the old reel. */}
+      {/* Four living clips in the pile: kbs, dok.fest, the london film and a
+          tiny Times Radio studio moment. Same loop discipline as the reel. */}
       <div class="hero-side">
         <div class="hero-stack" aria-hidden="true">
           <figure><span class="cell"><video data-ambient-video muted loop playsinline preload="none" poster="/video/vlog-kbs-poster.webp"><source src="/video/vlog-kbs.mp4" type="video/mp4" /><source src="/video/vlog-kbs.webm" type="video/webm" /></video></span></figure>
           <figure><span class="cell"><video data-ambient-video muted loop playsinline preload="none" poster="/video/dokfest-poster.webp"><source src="/video/dokfest.mp4" type="video/mp4" /><source src="/video/dokfest.webm" type="video/webm" /></video></span></figure>
           <figure><span class="cell"><video data-ambient-video muted loop playsinline preload="none" poster="/video/film-london-poster.webp"><source src="/video/film-london.mp4" type="video/mp4" /><source src="/video/film-london.webm" type="video/webm" /></video></span></figure>
+          <figure><span class="cell"><video data-ambient-video muted loop playsinline preload="none" poster="/video/neo-talk-side-poster.webp"><source src="/video/neo-talk-side.mp4" type="video/mp4" /></video></span></figure>
         </div>
       </div>
     </div>
@@ -422,6 +481,72 @@ const also = [
 
           <div class="joi-col">
           </div>
+        </div>
+
+        <div class="replika-showcase">
+          <figure class="replika-stage">
+            <span
+              class="replika-stage-backdrop"
+              style={`background-image:url(${replikaClips[0].poster})`}
+              aria-hidden="true"
+            />
+            <span class="replika-stage-screen">
+              <video
+                data-ambient-video
+                data-replika-stage
+                src={replikaClips[0].src}
+                poster={replikaClips[0].poster}
+                muted
+                loop
+                playsinline
+                preload="none"
+              />
+            </span>
+            <figcaption>
+              <span data-replika-label>{replikaClips[0].label}</span>
+              <small data-replika-count>01 / {String(replikaClips.length).padStart(2, "0")}</small>
+            </figcaption>
+          </figure>
+
+          <div class="replika-rushes" aria-label="replika footage">
+            {
+              replikaClips.map((clip, index) => (
+                <button
+                  type="button"
+                  data-replika-pick
+                  data-src={clip.src}
+                  data-poster={clip.poster}
+                  data-label={clip.label}
+                  data-index={index + 1}
+                  aria-label={`play ${clip.label}`}
+                  aria-pressed={index === 0 ? "true" : "false"}
+                >
+                  <img src={clip.poster} alt="" width="420" height="236" loading="lazy" decoding="async" />
+                  <span>{clip.label}</span>
+                </button>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="replika-prints" aria-label="frames from replika">
+          {
+            replikaPrints.map((print) => (
+              <figure class={`replika-print replika-print--${print.shape}`}>
+                <span class="cell">
+                  <img
+                    data-replika-print
+                    src={print.src}
+                    alt={print.alt}
+                    width={print.width}
+                    height={print.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+              </figure>
+            ))
+          }
         </div>
 
         <ul class="receipts">

@@ -56,8 +56,48 @@ test("homepage navigation contains destinations, not unexplained utility modes",
   assert.match(layout, /setupMotionControl/);
   assert.doesNotMatch(page, /<video autoplay[^>]*data-ambient-video/);
   const ambient = [...page.matchAll(/<video[^>]*data-ambient-video[^>]*>/g)].map((match) => match[0]);
-  assert.equal(ambient.length, 4);
+  assert.equal(ambient.length, 6);
   assert.ok(ambient.every((tag) => /preload="none"/.test(tag)));
+});
+
+test("replika keeps one playable stage while its alternate footage stays deferred", () => {
+  const html = read("dist/index.html");
+  const videoTags = [...html.matchAll(/<video\b[^>]*>/g)].map((match) => match[0]);
+  const stage = videoTags.filter((tag) => tag.includes("data-replika-stage"));
+  const pickTags = [...html.matchAll(/<button\b[^>]*>/g)]
+    .map((match) => match[0])
+    .filter((tag) => tag.includes("data-replika-pick"));
+
+  assert.equal(stage.length, 1, "the case file should load through one video element");
+  assert.match(stage[0], /preload="none"/);
+  assert.doesNotMatch(stage[0], /autoplay/);
+  assert.equal(pickTags.length, 12, "every distinct supplied clip should remain reachable");
+  assert.equal(pickTags.filter((tag) => /aria-pressed="true"/.test(tag)).length, 1);
+
+  const sources = pickTags.map((tag) => tag.match(/data-src="([^"]+)"/)?.[1]);
+  assert.ok(sources.every(Boolean));
+  assert.equal(new Set(sources).size, sources.length, "the strip should not repeat an encode");
+  for (const src of sources) assert.ok(exists(`public${src}`), `${src} is missing`);
+
+  const sizes = sources.map((src) => fs.statSync(path.join(root, "public", src)).size);
+  assert.ok(sizes.every((size) => size < 3_500_000), "each deferred clip must stay web-sized");
+  assert.ok(sizes.reduce((sum, size) => sum + size, 0) < 20_000_000, "the full case file is too heavy");
+});
+
+test("the replika print run preserves five supplied compositions", () => {
+  const html = read("dist/index.html");
+  const printTags = [...html.matchAll(/<img\b[^>]*>/g)]
+    .map((match) => match[0])
+    .filter((tag) => tag.includes("data-replika-print"));
+
+  assert.equal(printTags.length, 5);
+  for (const tag of printTags) {
+    assert.match(tag, /width="\d+"/);
+    assert.match(tag, /height="\d+"/);
+    assert.match(tag, /loading="lazy"/);
+    const src = tag.match(/src="([^"]+)"/)?.[1];
+    assert.ok(src && exists(`public${src}`), `${src ?? "print"} is missing`);
+  }
 });
 
 test("the phone stylesheet leaves the hero films as its only ambient motion", () => {
