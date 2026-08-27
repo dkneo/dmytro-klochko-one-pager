@@ -200,6 +200,15 @@ it lands outside the darkest glass, on open water. Childhood snapshots
 keep their alternating tilt in 5px mats; wall prints wear 4px. Video
 plays in colour — dream strips bebop's filter.
 
+The Replika entry is one living case file, not a video grid. One 16:10
+stage swaps among twelve deferred, muted films; poster thumbnails are the
+only alternates loaded before a choice. Every film uses `object-fit: contain`
+over a dimmed, blurred echo of its own poster, so portrait, square and wide
+sources keep their complete frames. Five campaign stills follow as an
+irregular print run on desktop and a wide-plus-two-column sequence on phones.
+Their source ratios remain intact. The hero carries a fourth, small Times
+Radio studio loop in the front corner of its existing print pile.
+
 ### Named Rules (dream)
 
 **The Sampled/Derived Sky Rule.** Every colour traces to his paintings;
