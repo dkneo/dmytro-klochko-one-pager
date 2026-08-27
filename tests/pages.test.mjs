@@ -231,6 +231,14 @@ test("every hidden room tells search engines to leave it unlisted", () => {
   }
 });
 
+test("the footer's return link always lands on a real target", () => {
+  for (const page of ["dist/index.html", "dist/learning/index.html", "dist/press/index.html"]) {
+    const html = read(page);
+    assert.match(html, /class="to-top" href="#main"/, `${page} returns to a missing fragment`);
+    assert.match(html, /<main id="main"/);
+  }
+});
+
 // Astro moves page CSS/JS into hashed bundle files; resolve them from the page.
 // Astro inlines a page's styles once they are small enough, so a helper that
 // only follows <link href> silently returns nothing and every assertion built
