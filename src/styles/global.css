@@ -638,6 +638,14 @@ svg.pin {
   color: var(--hot);
 }
 
+.site-nav a[aria-current="page"],
+.site-footer a[aria-current="page"] {
+  color: var(--hot);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.35em;
+}
+
 /* ── responsive ─────────────────────────────────────────────────────────── */
 
 @media (max-width: 720px) {

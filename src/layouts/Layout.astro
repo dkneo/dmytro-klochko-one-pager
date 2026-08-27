@@ -6,7 +6,7 @@ import AsciiShader from "../components/AsciiShader.astro";
 interface Props {
   title: string;
   description: string;
-  current?: "home" | "taste";
+  current?: "home" | "learning" | "press" | "taste";
   /** Reachable by url, kept out of search. Not a robots.txt block: a blocked
       page is never crawled, so the tag below is never read and the bare url
       can still surface. */
@@ -134,15 +134,15 @@ const isHomepage = Astro.url.pathname === "/";
         {/* Wide screens have the room, and hiding two short words behind a
             click costs discovery for nothing. Below 861 they fold. */}
         <span class="nav-wide">
-          <a class="dance-link" href="/learning">learning</a>
-          <a class="dance-link" href="/press">press</a>
+          <a class="dance-link" href="/learning" aria-current={current === "learning" ? "page" : undefined}>learning</a>
+          <a class="dance-link" href="/press" aria-current={current === "press" ? "page" : undefined}>press</a>
         </span>
         <a class="dance-link" href="/#contact">say hi</a>
         <details class="menu">
           <summary aria-label="more pages"><i></i><i></i><i></i></summary>
           <div class="menu-drop">
-            <a href="/learning">learning</a>
-            <a href="/press">press</a>
+            <a href="/learning" aria-current={current === "learning" ? "page" : undefined}>learning</a>
+            <a href="/press" aria-current={current === "press" ? "page" : undefined}>press</a>
           </div>
         </details>
       </nav>
@@ -171,8 +171,8 @@ const isHomepage = Astro.url.pathname === "/";
         <button class="bebop-close" type="button">close</button>
       </div>
       <nav class="foot-index" aria-label="pages">
-        <a href="/learning">learning</a>
-        <a href="/press">press</a>
+        <a href="/learning" aria-current={current === "learning" ? "page" : undefined}>learning</a>
+        <a href="/press" aria-current={current === "press" ? "page" : undefined}>press</a>
         <a href="/#contact">say hi</a>
       </nav>
 

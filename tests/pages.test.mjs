@@ -239,6 +239,16 @@ test("the footer's return link always lands on a real target", () => {
   }
 });
 
+test("the foyer tells readers which public room they are in", () => {
+  const learning = read("dist/learning/index.html");
+  const press = read("dist/press/index.html");
+
+  assert.match(learning, /class="crumb">\/ learning</);
+  assert.match(learning, /href="\/learning" aria-current="page"/);
+  assert.match(press, /class="crumb">\/ press</);
+  assert.match(press, /href="\/press" aria-current="page"/);
+});
+
 // Astro moves page CSS/JS into hashed bundle files; resolve them from the page.
 // Astro inlines a page's styles once they are small enough, so a helper that
 // only follows <link href> silently returns nothing and every assertion built
