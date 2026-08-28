@@ -163,3 +163,18 @@ test("main-page raster images declare their real dimensions", async () => {
     }
   }
 });
+
+test("the press portrait keeps its full studio frame", async () => {
+  const html = read("dist/press/index.html");
+  const tag = [...html.matchAll(/<img\b[^>]*>/g)]
+    .map((match) => match[0])
+    .find((candidate) => attr(candidate, "data-press-portrait") === "lead");
+
+  assert.ok(tag, "press lead portrait missing");
+  const src = attr(tag, "src");
+  const metadata = await sharp(localFile(src)).metadata();
+  assert.equal(metadata.width, 1600, `${src} width`);
+  assert.equal(metadata.height, 1200, `${src} height`);
+  assert.equal(Number(attr(tag, "width")), metadata.width, `${src} declared width`);
+  assert.equal(Number(attr(tag, "height")), metadata.height, `${src} declared height`);
+});

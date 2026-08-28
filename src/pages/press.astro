@@ -36,20 +36,39 @@ const description =
 
 <Layout title={title} description={description} current="press" scenes={["ember"]}>
   <section class="shell session press" data-scene="ember" aria-labelledby="pr">
-    <div class="card">
-      <h1 class="card-title" id="pr">press</h1>
+    <div class="pr-intro">
+      <div class="pr-intro-copy">
+        <div class="card">
+          <h1 class="card-title" id="pr">press</h1>
+        </div>
+
+        <p class="today-how">
+          what i have said in public, mostly to reporters asking whether companion
+          ai is good for people. every line links to the piece it came from.
+        </p>
+
+        <dl class="pr-facts">
+          <div><dt>pieces</dt><dd>{press.length}</dd></div>
+          <div><dt>interviews</dt><dd>{interviews}</dd></div>
+          <div><dt>languages</dt><dd>{langs.size}</dd></div>
+        </dl>
+      </div>
+
+      <figure class="pr-portrait">
+        <span class="pr-portrait-frame">
+          <img
+            data-press-portrait="lead"
+            src="/images/press/times-radio-studio.webp"
+            width="1600"
+            height="1200"
+            alt="Dmytro Klochko wearing headphones at a studio microphone"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </span>
+      </figure>
     </div>
-
-    <p class="today-how">
-      what i have said in public, mostly to reporters asking whether companion
-      ai is good for people. every line links to the piece it came from.
-    </p>
-
-    <dl class="pr-facts">
-      <div><dt>pieces</dt><dd>{press.length}</dd></div>
-      <div><dt>interviews</dt><dd>{interviews}</dd></div>
-      <div><dt>languages</dt><dd>{langs.size}</dd></div>
-    </dl>
 
     <ul class="pr-marks" aria-label="outlets">
       {WALL.filter((k) => logos[k]).map((k) => (

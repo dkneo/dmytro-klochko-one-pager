@@ -4751,6 +4751,54 @@ html[data-motion="paused"] .scenes .firelight {
    own register. Rows are separated by a rule rather than a card, since a
    card here would be thirty boxes down a page. */
 
+[data-mode="dream"] .pr-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.92fr);
+  gap: clamp(var(--sp-4), 5vw, 5.5rem);
+  align-items: center;
+}
+
+[data-mode="dream"] .pr-intro-copy { min-width: 0; }
+
+[data-mode="dream"] .pr-portrait {
+  margin: 0;
+  transform: rotate(1.15deg);
+  transform-origin: 52% 50%;
+  transition: transform 420ms var(--ease), filter 420ms var(--ease);
+  filter: drop-shadow(0 1.5rem 2.5rem var(--shadow-deep));
+}
+
+[data-mode="dream"] .pr-portrait-frame {
+  display: block;
+  padding: clamp(0.42rem, 0.8vw, 0.7rem);
+  background: var(--mat);
+}
+
+[data-mode="dream"] .pr-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .pr-portrait:hover {
+    transform: rotate(0.2deg) translateY(-0.3rem);
+    filter: drop-shadow(0 1.8rem 3rem var(--shadow-deep));
+  }
+}
+
+@media (max-width: 860px) {
+  [data-mode="dream"] .pr-intro {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+
+  [data-mode="dream"] .pr-portrait {
+    width: min(100%, 38rem);
+    transform: rotate(0.65deg);
+  }
+}
+
 [data-mode="dream"] .pr-facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

@@ -200,6 +200,9 @@ it lands outside the darkest glass, on open water. Childhood snapshots
 keep their alternating tilt in 5px mats; wall prints wear 4px. Video
 plays in colour — dream strips bebop's filter.
 
+The press page opens with one uncropped 4:3 studio print beside its ledger
+summary, stacking after the facts on phones.
+
 The Replika entry is one living case file, not a video grid. One 16:10
 stage swaps among twelve deferred, muted films; poster thumbnails are the
 only alternates loaded before a choice. Every film uses `object-fit: contain`
