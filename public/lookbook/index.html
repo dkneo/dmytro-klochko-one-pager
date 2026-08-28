@@ -4,198 +4,306 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>lookbook — for dmytro</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<title>lookbook – for dmytro</title>
+
+
 <style>
+  @font-face {
+    font-family: "Zodiak";
+    src: url("/fonts/zodiak-300.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Zodiak";
+    src: url("/fonts/zodiak-400i.woff2") format("woff2");
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Newsreader";
+    src: url("/fonts/newsreader-400.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Newsreader";
+    src: url("/fonts/newsreader-400i.woff2") format("woff2");
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+  }
 
   :root {
     --paper: #f2ebe1;
+    --paper-deep: #e8ded1;
     --ink: #1c1712;
-    --mute: #7a7167;
-    --rule: rgba(28,23,18,.14);
-    --serif: "Cormorant Garamond", "Iowan Old Style", Palatino, Georgia, serif;
-    --sans: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mute: #6a6159;
+    --rule: rgb(28 23 18 / 18%);
+    --display: "Zodiak", "Iowan Old Style", Baskerville, Georgia, serif;
+    --reader: "Newsreader", "Iowan Old Style", Baskerville, Georgia, serif;
+    --utility: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    --gutter: clamp(1.25rem, 3.5vw, 3.5rem);
+    --page: 90rem;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--sans);
-    font-weight: 300;
-    font-size: 15px;
-    line-height: 1.45;
+    font-family: var(--reader);
+    font-size: 17px;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
+  ::selection { background: var(--ink); color: var(--paper); }
   img { display: block; max-width: 100%; height: auto; }
-  a { color: inherit; text-decoration: none; }
-  a:hover { opacity: .55; }
+  a { color: inherit; text-decoration-color: rgb(28 23 18 / 35%); text-underline-offset: .18em; }
+  a:hover { text-decoration-color: currentColor; }
+  a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 
   .mast {
-    padding: 28px 28px 8px;
-    max-width: 920px;
+    display: grid;
+    grid-template-columns: minmax(15rem, .42fr) minmax(0, 1fr);
+    grid-template-areas: "title index" "dek index";
+    gap: 1.25rem clamp(3rem, 7vw, 7rem);
+    max-width: var(--page);
+    margin: 0 auto;
+    padding: clamp(2.75rem, 6vw, 6.5rem) var(--gutter) clamp(4.5rem, 8vw, 8rem);
+    align-items: start;
   }
   .mast h1 {
-    font-family: var(--serif);
+    grid-area: title;
+    font-family: var(--display);
     font-weight: 300;
-    font-size: clamp(36px, 6vw, 64px);
-    letter-spacing: -0.03em;
-    line-height: 1;
-    font-style: italic;
+    font-size: clamp(4rem, 8vw, 6rem);
+    letter-spacing: -.04em;
+    line-height: .86;
   }
   .mast .dek {
-    margin-top: 14px;
-    max-width: 36em;
+    grid-area: dek;
+    max-width: 30rem;
     color: var(--mute);
-    font-size: 13px;
-    letter-spacing: .01em;
+    font-size: 1rem;
+    line-height: 1.5;
   }
   .index {
-    margin: 28px 0 40px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2px 16px;
-    max-width: 52em;
+    grid-area: index;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .45rem 1.5rem;
+    padding-top: .35rem;
   }
   .index a {
-    font-size: 12px;
+    min-height: 1.75rem;
     color: var(--mute);
-    letter-spacing: .02em;
-    text-transform: lowercase;
+    font-family: var(--utility);
+    font-size: .75rem;
+    line-height: 1.35;
+    text-decoration: none;
   }
-  .index a:hover { color: var(--ink); opacity: 1; }
+  .index a:hover { color: var(--ink); }
 
   .person {
-    padding-bottom: 48px;
-    max-width: 1100px;
+    display: grid;
+    grid-template-columns: minmax(15rem, .34fr) minmax(0, 1fr);
+    grid-template-areas: "info hero" "info strip";
+    gap: 1.5rem clamp(3rem, 6vw, 6.5rem);
+    align-items: start;
+    max-width: var(--page);
     margin: 0 auto;
+    padding: clamp(4.5rem, 8vw, 8rem) var(--gutter);
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 2rem;
   }
+  .person:nth-child(even) { background: rgb(232 222 209 / 42%); }
+
   .hero {
-    width: 100%;
-    max-height: 420px;
-    overflow: hidden;
-    background: transparent;
+    grid-area: hero;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-width: 0;
   }
   .hero img {
-    width: 100%;
-    height: auto;
-    max-height: 420px;
+    width: auto;
+    max-width: 100%;
+    max-height: min(84vh, 54rem);
     object-fit: contain;
-    object-position: center;
+    object-position: left top;
   }
   .hero.empty { display: none; }
 
-  .plate {
-    padding: 20px 28px 0;
-  }
+  .plate { display: contents; }
   .who {
+    grid-area: info;
+    position: sticky;
+    top: 2rem;
     display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 16px;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: 1rem;
     align-items: start;
-    max-width: 720px;
-    margin-bottom: 18px;
+    min-width: 0;
   }
-  .who:not(:has(.face)) {
-    grid-template-columns: 1fr;
-  }
+  .who:not(:has(.face)) { grid-template-columns: 1fr; }
   .face {
-    width: 56px;
-    height: 56px;
+    width: 4rem;
+    height: 4rem;
     object-fit: cover;
     border-radius: 50%;
     filter: grayscale(1) contrast(1.05);
   }
   .num {
-    font-size: 10px;
-    letter-spacing: .18em;
+    margin-bottom: .5rem;
     color: var(--mute);
-    margin-bottom: 6px;
+    font-family: var(--utility);
+    font-size: .7rem;
+    letter-spacing: .16em;
+    line-height: 1;
   }
   h2 {
-    font-family: var(--serif);
+    font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(24px, 3.2vw, 36px);
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+    font-size: clamp(2.25rem, 4vw, 3.6rem);
+    letter-spacing: -.035em;
+    line-height: .98;
     font-style: italic;
     overflow-wrap: anywhere;
-    word-break: break-word;
   }
   .meta {
-    margin-top: 8px;
-    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem .4rem;
+    margin-top: 1rem;
     color: var(--mute);
-    letter-spacing: .02em;
+    font-family: var(--utility);
+    font-size: .74rem;
+    line-height: 1.5;
   }
-  .at { font-style: normal; color: var(--ink); }
-  a.at, a.site, a.turl { text-decoration: none; border-bottom: 1px solid transparent; }
-  a.at:hover, a.site:hover, a.turl:hover { opacity: 1; border-bottom-color: var(--rule); }
+  .at { color: var(--ink); font-style: normal; }
+  a.at, a.site, a.turl { text-decoration-line: underline; }
   .at.mute { color: var(--mute); font-style: italic; }
-  .dot { opacity: .4; padding: 0 4px; }
+  .dot { opacity: .45; padding: 0 .1rem; }
   .line {
-    margin-top: 12px;
-    font-family: var(--serif);
-    font-size: 17px;
-    font-weight: 300;
-    max-width: 34em;
-    line-height: 1.35;
+    margin-top: 1.25rem;
+    max-width: 31rem;
+    font-size: 1.08rem;
+    line-height: 1.5;
   }
   .tweet {
-    margin-top: 14px;
-    font-size: 13px;
-    font-style: italic;
+    margin-top: 1.35rem;
+    max-width: 31rem;
     color: var(--mute);
-    max-width: 36em;
-    line-height: 1.4;
+    font-size: .96rem;
+    font-style: italic;
+    line-height: 1.5;
   }
-  .turl { display: block; margin-top: 6px; font-style: normal; font-size: 11px; letter-spacing: .02em; opacity: .7; }
+  .turl {
+    display: block;
+    margin-top: .5rem;
+    font-family: var(--utility);
+    font-size: .69rem;
+    font-style: normal;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
 
   .strip {
+    grid-area: strip;
     display: grid;
-    gap: 10px;
-    margin-top: 10px;
-    padding: 0 28px;
+    gap: .75rem;
+    align-items: start;
+    min-width: 0;
   }
-  .strip.n1 { grid-template-columns: 1fr; max-width: 720px; }
-  .strip.n2 { grid-template-columns: 1fr 1fr; }
-  .strip.n3 { grid-template-columns: 1fr 1fr 1fr; }
-  .strip figure {
-    overflow: hidden;
-    background: transparent;
-    margin: 0;
-  }
+  .strip.n1 { grid-template-columns: minmax(0, 52rem); }
+  .strip.n2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip.n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .strip figure { min-width: 0; }
   .strip figure:not(:has(img)) { display: none; }
-  .strip img {
-    width: 100%;
-    height: auto;
-    max-height: 320px;
-    object-fit: contain;
-    background: #e4dbd0;
-  }
+  .strip img { width: 100%; height: auto; }
 
   footer {
-    padding: 64px 28px 48px;
-    color: var(--mute);
-    font-size: 12px;
-    letter-spacing: .03em;
+    max-width: var(--page);
+    margin: 0 auto;
+    padding: clamp(4rem, 7vw, 7rem) var(--gutter);
     border-top: 1px solid var(--rule);
-    margin-top: 24px;
-    max-width: 1100px;
+    color: var(--mute);
+    font-size: .9rem;
+    line-height: 1.55;
   }
-  footer em { font-family: var(--serif); font-size: 18px; color: var(--ink); display: block; margin-bottom: 10px; font-style: italic; }
+  footer em {
+    display: block;
+    margin-bottom: .65rem;
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-style: italic;
+  }
 
-  @media (max-width: 720px) {
-    .mast, .plate, footer, .strip { padding-left: 16px; padding-right: 16px; }
-    .hero img { max-height: 300px; }
-    .strip.n2, .strip.n3 { grid-template-columns: 1fr; }
-    .who { grid-template-columns: 48px 1fr; gap: 12px; }
-    .face { width: 48px; height: 48px; }
+  @media (max-width: 900px) {
+    .mast {
+      grid-template-columns: 1fr;
+      grid-template-areas: "title" "dek" "index";
+      gap: 1.25rem;
+    }
+    .index { margin-top: 1.5rem; }
+    .person {
+      grid-template-columns: minmax(11rem, .4fr) minmax(0, 1fr);
+      gap: 1.5rem 2rem;
+    }
+    .who { grid-template-columns: 3.25rem minmax(0, 1fr); }
+    .face { width: 3.25rem; height: 3.25rem; }
+  }
+
+  @media (max-width: 680px) {
+    html { scroll-padding-top: 1rem; }
+    .mast {
+      padding-top: 2.5rem;
+      padding-bottom: 4rem;
+    }
+    .mast h1 { font-size: clamp(3.7rem, 19vw, 5.2rem); }
+    .mast .dek { font-size: 1rem; }
+    .index {
+      grid-auto-flow: column;
+      grid-template-columns: none;
+      grid-template-rows: repeat(3, auto);
+      grid-auto-columns: minmax(10.5rem, max-content);
+      gap: .45rem 1rem;
+      margin-right: calc(var(--gutter) * -1);
+      margin-left: calc(var(--gutter) * -1);
+      padding: .5rem var(--gutter) .9rem;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scrollbar-color: var(--mute) transparent;
+    }
+    .index a { min-height: 2rem; font-size: .76rem; }
+    .person {
+      grid-template-columns: 1fr;
+      grid-template-areas: "info" "hero" "strip";
+      gap: 1.75rem;
+      padding-top: 3.75rem;
+      padding-bottom: 3.75rem;
+      scroll-margin-top: 1rem;
+    }
+    .hero img { width: 100%; max-height: none; }
+    .who {
+      position: static;
+      grid-template-columns: 3rem minmax(0, 1fr);
+      gap: .9rem;
+    }
+    .face { width: 3rem; height: 3rem; }
+    h2 { font-size: clamp(2.25rem, 12vw, 3.2rem); }
+    .line { font-size: 1.05rem; }
+    .strip.n2, .strip.n3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .strip.n3 figure:first-child { grid-column: 1 / -1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
   }
 
 </style>
@@ -204,31 +312,31 @@
 <header class="mast">
   <h1>lookbook</h1>
   <p class="dek">a hundred brand designers. work, a face, a line, sometimes a tweet. for dmytro, a private scroll, not a directory. august 2026.</p>
-  <nav class="index"><a href="#kim-andre-ottesen">kim andre ottesen</a><a href="#justine-soulie">justine soulié</a><a href="#actual-source">davis ngarupe / jp haynie</a><a href="#corbin-mahieu">corbin mahieu</a><a href="#daniel-siim">daniel siim</a><a href="#hadrien-herzog">hadrien herzog</a><a href="#jessica-strelioff">jessica strelioff</a><a href="#bastien-sozeau">bastien sozeau</a><a href="#braulio-amado">bráulio amado</a><a href="#james-edmondson">james edmondson</a><a href="#david-rudnick">david rudnick</a><a href="#hassan-rahim">hassan rahim</a><a href="#michelle-phillips">michelle phillips</a><a href="#debora-saveriano">debora saveriano</a><a href="#spiros-kokkonis">spiros kokkonis / nmr</a><a href="#charlotte-rohde">charlotte rohde</a><a href="#giulia-boggio">giulia boggio</a><a href="#polina-joffe">polina joffe</a><a href="#felix-pfaeffli">felix pfäffli</a><a href="#manon-prost">manon prost</a><a href="#aristide-benoist">aristide benoist</a><a href="#jana-papiernikova">jana papiernikova</a><a href="#gregory-page">gregory page</a><a href="#nora-valentini">nora valentini / stanislas wiart</a><a href="#callin-mackintosh">callin mackintosh</a><a href="#marco-grimaldi">marco grimaldi</a><a href="#francesco-corsini">francesco corsini</a><a href="#mathias-clottu">mathias clottu</a><a href="#nate-sullivan">nate sullivan</a><a href="#heyjack">heyjack</a><a href="#patrick-heng">patrick heng</a><a href="#antoine-elsensohn">antoine elsensohn</a><a href="#claire-huss">claire huss</a><a href="#alexis-taieb">alexis taïeb</a><a href="#matthieu-salvaggio">matthieu salvaggio</a><a href="#victor-verhelst">victor verhelst</a><a href="#mollie-edgar">mollie edgar</a><a href="#tobey-albright">tobey albright</a><a href="#zoltan-szalay">zoltán szalay</a><a href="#david-wise">david wise</a><a href="#paul-bille">paul bille</a><a href="#nick-massarelli">nick massarelli</a><a href="#raoul-audouin">raoul audouin</a><a href="#alexis-mark">marie grønkær / kristoffer li / martin bek</a><a href="#maria-milenko">maria mileńko</a><a href="#tomasz-pawluk">tomasz pawluk</a><a href="#tanja-vibe">tanja vibe</a><a href="#petra-olsson-gendt">petra olsson gendt</a><a href="#travis-kochel">travis kochel</a><a href="#tre-seals">tré seals</a><a href="#lucas-sharp">lucas sharp</a><a href="#vincent-chan">vincent chan</a><a href="#ryan-waller">ryan waller</a><a href="#alex-lin">alex lin</a><a href="#jon-key">jon key</a><a href="#wael-morcos">wael morcos</a><a href="#artem-matyushkin">artem matyushkin</a><a href="#alina-derya">alina derya yakaboylu</a><a href="#teddy-blanks">teddy blanks</a><a href="#amber-weaver">amber weaver</a><a href="#natalia-witwicka">natalia witwicka</a><a href="#elizabeth-goodspeed">elizabeth goodspeed</a><a href="#mathias-lempart">mathias lempart</a><a href="#sascia-reibel">sascia reibel</a><a href="#luke-prowse">luke prowse</a><a href="#kris-sowersby">kris sowersby</a><a href="#eike-konig">eike könig</a><a href="#kirsty-carter">kirsty carter</a><a href="#zak-kyes">zak kyes</a><a href="#frith-kerr">frith kerr</a><a href="#eveline-lupien">eveline lupien</a><a href="#marie-france-gaudet">marie-france gaudet</a><a href="#bram-broerse">bram broerse</a><a href="#david-keshavjee">david keshavjee</a><a href="#lukas-haider">lukas haider</a><a href="#jas-bell">jas bell</a><a href="#falco-van-burg">falco van burg</a><a href="#rue-yi">rue yi</a><a href="#danielle-laroy">danielle laroy</a><a href="#petr-knoll">petr knoll</a><a href="#mike-white">mike white</a><a href="#tom-finn">tom finn</a><a href="#kristoffer-solling">kristoffer sølling</a><a href="#henrik-olsson">henrik olssøn</a><a href="#erika-barbieri">erika barbieri</a><a href="#simon-calvet">simon calvet</a><a href="#pierrick-bregeon">pierrick brégeon</a><a href="#clement-rouzaud">clément rouzaud</a><a href="#john-clayton-lee">john clayton lee</a><a href="#antoine-menard">antoine menard</a><a href="#pierre-hagege">pierre hagège</a><a href="#edan-kwan">edan kwan</a><a href="#neil-panchal">neil panchal</a><a href="#joseph-hillenbrand">joseph hillenbrand</a><a href="#max-bittker">max bittker</a><a href="#svein-haakon-lia">svein haakon lia</a><a href="#kristian-berge">kristian hjorth berge</a><a href="#johannes-conrad">johannes conrad</a><a href="#pierre-patrault">pierre patrault</a></nav>
+  <nav class="index" aria-label="designer index"><a href="#kim-andre-ottesen">kim andre ottesen</a><a href="#justine-soulie">justine soulié</a><a href="#actual-source">davis ngarupe / jp haynie</a><a href="#corbin-mahieu">corbin mahieu</a><a href="#daniel-siim">daniel siim</a><a href="#hadrien-herzog">hadrien herzog</a><a href="#jessica-strelioff">jessica strelioff</a><a href="#bastien-sozeau">bastien sozeau</a><a href="#braulio-amado">bráulio amado</a><a href="#james-edmondson">james edmondson</a><a href="#david-rudnick">david rudnick</a><a href="#hassan-rahim">hassan rahim</a><a href="#michelle-phillips">michelle phillips</a><a href="#debora-saveriano">debora saveriano</a><a href="#spiros-kokkonis">spiros kokkonis / nmr</a><a href="#charlotte-rohde">charlotte rohde</a><a href="#giulia-boggio">giulia boggio</a><a href="#polina-joffe">polina joffe</a><a href="#felix-pfaeffli">felix pfäffli</a><a href="#manon-prost">manon prost</a><a href="#aristide-benoist">aristide benoist</a><a href="#jana-papiernikova">jana papiernikova</a><a href="#gregory-page">gregory page</a><a href="#nora-valentini">nora valentini / stanislas wiart</a><a href="#callin-mackintosh">callin mackintosh</a><a href="#marco-grimaldi">marco grimaldi</a><a href="#francesco-corsini">francesco corsini</a><a href="#mathias-clottu">mathias clottu</a><a href="#nate-sullivan">nate sullivan</a><a href="#heyjack">heyjack</a><a href="#patrick-heng">patrick heng</a><a href="#antoine-elsensohn">antoine elsensohn</a><a href="#claire-huss">claire huss</a><a href="#alexis-taieb">alexis taïeb</a><a href="#matthieu-salvaggio">matthieu salvaggio</a><a href="#victor-verhelst">victor verhelst</a><a href="#mollie-edgar">mollie edgar</a><a href="#tobey-albright">tobey albright</a><a href="#zoltan-szalay">zoltán szalay</a><a href="#david-wise">david wise</a><a href="#paul-bille">paul bille</a><a href="#nick-massarelli">nick massarelli</a><a href="#raoul-audouin">raoul audouin</a><a href="#alexis-mark">marie grønkær / kristoffer li / martin bek</a><a href="#maria-milenko">maria mileńko</a><a href="#tomasz-pawluk">tomasz pawluk</a><a href="#tanja-vibe">tanja vibe</a><a href="#petra-olsson-gendt">petra olsson gendt</a><a href="#travis-kochel">travis kochel</a><a href="#tre-seals">tré seals</a><a href="#lucas-sharp">lucas sharp</a><a href="#vincent-chan">vincent chan</a><a href="#ryan-waller">ryan waller</a><a href="#alex-lin">alex lin</a><a href="#jon-key">jon key</a><a href="#wael-morcos">wael morcos</a><a href="#artem-matyushkin">artem matyushkin</a><a href="#alina-derya">alina derya yakaboylu</a><a href="#teddy-blanks">teddy blanks</a><a href="#amber-weaver">amber weaver</a><a href="#natalia-witwicka">natalia witwicka</a><a href="#elizabeth-goodspeed">elizabeth goodspeed</a><a href="#mathias-lempart">mathias lempart</a><a href="#sascia-reibel">sascia reibel</a><a href="#luke-prowse">luke prowse</a><a href="#kris-sowersby">kris sowersby</a><a href="#eike-konig">eike könig</a><a href="#kirsty-carter">kirsty carter</a><a href="#zak-kyes">zak kyes</a><a href="#frith-kerr">frith kerr</a><a href="#eveline-lupien">eveline lupien</a><a href="#marie-france-gaudet">marie-france gaudet</a><a href="#bram-broerse">bram broerse</a><a href="#david-keshavjee">david keshavjee</a><a href="#lukas-haider">lukas haider</a><a href="#jas-bell">jas bell</a><a href="#falco-van-burg">falco van burg</a><a href="#rue-yi">rue yi</a><a href="#danielle-laroy">danielle laroy</a><a href="#petr-knoll">petr knoll</a><a href="#mike-white">mike white</a><a href="#tom-finn">tom finn</a><a href="#kristoffer-solling">kristoffer sølling</a><a href="#henrik-olsson">henrik olssøn</a><a href="#erika-barbieri">erika barbieri</a><a href="#simon-calvet">simon calvet</a><a href="#pierrick-bregeon">pierrick brégeon</a><a href="#clement-rouzaud">clément rouzaud</a><a href="#john-clayton-lee">john clayton lee</a><a href="#antoine-menard">antoine menard</a><a href="#pierre-hagege">pierre hagège</a><a href="#edan-kwan">edan kwan</a><a href="#neil-panchal">neil panchal</a><a href="#joseph-hillenbrand">joseph hillenbrand</a><a href="#max-bittker">max bittker</a><a href="#svein-haakon-lia">svein haakon lia</a><a href="#kristian-berge">kristian hjorth berge</a><a href="#johannes-conrad">johannes conrad</a><a href="#pierre-patrault">pierre patrault</a></nav>
 </header>
 <main>
 
 <section id="kim-andre-ottesen" class="person">
-  <figure class="hero"><img src="img/kim-andre-ottesen/02.jpg" alt="Kim Andre Ottesen"></figure>
+  <figure class="hero"><img src="img/kim-andre-ottesen/02.jpg" alt="Kim Andre Ottesen" width="960" height="1200" loading="eager" decoding="async" fetchpriority="high"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/kim-andre-ottesen/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/kim-andre-ottesen/photo.jpg" alt="" width="166" height="166" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">01</p>
         <h2>kim andre ottesen</h2>
         <p class="meta"><a class="at" href="https://x.com/kiman" target="_blank" rel="noopener noreferrer">@kiman</a> <span class="dot">·</span> <a class="site" href="https://openinghours.studio" target="_blank" rel="noopener noreferrer">openinghours.studio</a></p>
-        <p class="line">identities, custom type and unexpected digital systems — opening hours, oslo.</p>
+        <p class="line">identities, custom type and unexpected digital systems – opening hours, oslo.</p>
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/kim-andre-ottesen/01.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/kim-andre-ottesen/01.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="justine-soulie" class="person">
-  <figure class="hero"><img src="img/justine-soulie/01.jpg" alt="Justine Soulié"></figure>
+  <figure class="hero"><img src="img/justine-soulie/01.jpg" alt="Justine Soulié" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/justine-soulie/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/justine-soulie/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">02</p>
         <h2>justine soulié</h2>
@@ -237,30 +345,30 @@
         <p class="tweet">“Sketch dump summer 26” <a class="turl" href="https://x.com/JustineSoulie/status/2083187656456814704" target="_blank" rel="noopener noreferrer">x.com/JustineSoulie/status/2083187656456814704</a></p>
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/justine-soulie/03.jpg" alt=""></figure><figure><img src="img/justine-soulie/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/justine-soulie/03.jpg" alt="" width="1000" height="971" loading="lazy" decoding="async"></figure><figure><img src="img/justine-soulie/04.jpg" alt="" width="1125" height="1111" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="actual-source" class="person">
-  <figure class="hero"><img src="img/actual-source/01.jpg" alt="Davis Ngarupe / JP Haynie"></figure>
+  <figure class="hero"><img src="img/actual-source/01.jpg" alt="Davis Ngarupe / JP Haynie" width="800" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/actual-source/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/actual-source/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">03</p>
         <h2>davis ngarupe / jp haynie</h2>
         <p class="meta"><a class="at" href="https://x.com/actual_source" target="_blank" rel="noopener noreferrer">@actual_source</a> <span class="dot">·</span> <a class="site" href="https://actualsource.work" target="_blank" rel="noopener noreferrer">actualsource.work</a></p>
-        <p class="line">identities, publications and worlds for culture and product — SATISFY, A24, NikeLab.</p>
+        <p class="line">identities, publications and worlds for culture and product – SATISFY, A24, NikeLab.</p>
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/actual-source/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/actual-source/02.jpg" alt="" width="800" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="corbin-mahieu" class="person">
-  <figure class="hero"><img src="img/corbin-mahieu/02.jpg" alt="Corbin Mahieu"></figure>
+  <figure class="hero"><img src="img/corbin-mahieu/02.jpg" alt="Corbin Mahieu" width="1198" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/corbin-mahieu/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/corbin-mahieu/photo.jpg" alt="" width="1200" height="675" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">04</p>
         <h2>corbin mahieu</h2>
@@ -269,11 +377,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/corbin-mahieu/03.jpg" alt=""></figure><figure><img src="img/corbin-mahieu/15.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/corbin-mahieu/03.jpg" alt="" width="1198" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/corbin-mahieu/15.jpg" alt="" width="1198" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="daniel-siim" class="person">
-  <figure class="hero"><img src="img/daniel-siim/02.jpg" alt="Daniel Siim"></figure>
+  <figure class="hero"><img src="img/daniel-siim/02.jpg" alt="Daniel Siim" width="808" height="632" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -281,15 +389,15 @@
         <p class="num">05</p>
         <h2>daniel siim</h2>
         <p class="meta"><a class="at" href="https://x.com/danielsiim" target="_blank" rel="noopener noreferrer">@danielsiim</a> <span class="dot">·</span> <a class="site" href="https://danielsiim.dk" target="_blank" rel="noopener noreferrer">danielsiim.dk</a></p>
-        <p class="line">copenhagen identities, print and sites for fashion — AFFXWRKS, TEKLA, Carhartt WIP.</p>
+        <p class="line">copenhagen identities, print and sites for fashion – AFFXWRKS, TEKLA, Carhartt WIP.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/daniel-siim/01.jpg" alt=""></figure><figure><img src="img/daniel-siim/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/daniel-siim/01.jpg" alt="" width="808" height="632" loading="lazy" decoding="async"></figure><figure><img src="img/daniel-siim/03.jpg" alt="" width="808" height="632" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="hadrien-herzog" class="person">
-  <figure class="hero"><img src="img/hadrien-herzog/01.jpg" alt="Hadrien Herzog"></figure>
+  <figure class="hero"><img src="img/hadrien-herzog/01.jpg" alt="Hadrien Herzog" width="1200" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -297,31 +405,31 @@
         <p class="num">06</p>
         <h2>hadrien herzog</h2>
         <p class="meta"><a class="at" href="https://instagram.com/hadrienherzog" target="_blank" rel="noopener noreferrer">ig @hadrienherzog</a> <span class="dot">·</span> <a class="site" href="https://hadrienherzog.com" target="_blank" rel="noopener noreferrer">hadrienherzog.com</a></p>
-        <p class="line">graphic and type from paris — chloé, kenzo tali, nina ricci.</p>
+        <p class="line">graphic and type from paris – chloé, kenzo tali, nina ricci.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/hadrien-herzog/02.jpg" alt=""></figure><figure><img src="img/hadrien-herzog/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/hadrien-herzog/02.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure><figure><img src="img/hadrien-herzog/03.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="jessica-strelioff" class="person">
-  <figure class="hero"><img src="img/jessica-strelioff/01.jpg" alt="Jessica Strelioff"></figure>
+  <figure class="hero"><img src="img/jessica-strelioff/01.jpg" alt="Jessica Strelioff" width="800" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/jessica-strelioff/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/jessica-strelioff/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">07</p>
         <h2>jessica strelioff</h2>
         <p class="meta"><a class="at" href="https://x.com/jstrelioff" target="_blank" rel="noopener noreferrer">@jstrelioff</a> <span class="dot">·</span> <a class="site" href="https://goodside.studio" target="_blank" rel="noopener noreferrer">goodside.studio</a></p>
-        <p class="line">independent brand identities — goodside, austin. cambium, henri &amp; hélène.</p>
+        <p class="line">independent brand identities – goodside, austin. cambium, henri &amp; hélène.</p>
         <p class="tweet">“✨ New work ✨ Meet Henri &amp; Hélène, a neighborhood French bistro named after the chef’s two children, with a playful identity inspired by vintage French charm and cafés.” <a class="turl" href="https://x.com/jstrelioff/status/2090506164190445919" target="_blank" rel="noopener noreferrer">x.com/jstrelioff/status/2090506164190445919</a></p>
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/jessica-strelioff/02.jpg" alt=""></figure><figure><img src="img/jessica-strelioff/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/jessica-strelioff/02.jpg" alt="" width="1129" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/jessica-strelioff/03.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="bastien-sozeau" class="person">
-  <figure class="hero"><img src="img/bastien-sozeau/01.jpg" alt="Bastien Sozeau"></figure>
+  <figure class="hero"><img src="img/bastien-sozeau/01.jpg" alt="Bastien Sozeau" width="1200" height="663" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -329,18 +437,18 @@
         <p class="num">08</p>
         <h2>bastien sozeau</h2>
         <p class="meta"><a class="at" href="https://instagram.com/bsozeau" target="_blank" rel="noopener noreferrer">ig @bsozeau</a> <span class="dot">·</span> <a class="site" href="https://bureau.sozeau.com" target="_blank" rel="noopener noreferrer">bureau.sozeau.com</a></p>
-        <p class="line">art direction and type — bureau sozeau / NBR. courrèges, louboutin, le monde.</p>
+        <p class="line">art direction and type – bureau sozeau / NBR. courrèges, louboutin, le monde.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/bastien-sozeau/02.jpg" alt=""></figure><figure><img src="img/bastien-sozeau/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/bastien-sozeau/02.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></figure><figure><img src="img/bastien-sozeau/03.jpg" alt="" width="800" height="481" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="braulio-amado" class="person">
-  <figure class="hero"><img src="img/braulio-amado/02.jpg" alt="Bráulio Amado"></figure>
+  <figure class="hero"><img src="img/braulio-amado/02.jpg" alt="Bráulio Amado" width="960" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/braulio-amado/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/braulio-amado/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">09</p>
         <h2>bráulio amado</h2>
@@ -349,30 +457,30 @@
         <p class="tweet">“Hello Tokyo! 🌀 My new show 🌀 LOST IN THE SAUCE 🌀 opens tonight at Commune 🌀 all new paintings 🌀” <a class="turl" href="https://x.com/BraulioAmado/status/1880155735037997519" target="_blank" rel="noopener noreferrer">x.com/BraulioAmado/status/1880155735037997519</a></p>
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/braulio-amado/03.jpg" alt=""></figure><figure><img src="img/braulio-amado/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/braulio-amado/03.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/braulio-amado/04.jpg" alt="" width="1108" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="james-edmondson" class="person">
-  <figure class="hero"><img src="img/james-edmondson/03.jpg" alt="James Edmondson"></figure>
+  <figure class="hero"><img src="img/james-edmondson/03.jpg" alt="James Edmondson" width="1193" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/james-edmondson/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/james-edmondson/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">10</p>
         <h2>james edmondson</h2>
         <p class="meta"><a class="at" href="https://x.com/OHnoTypeCo" target="_blank" rel="noopener noreferrer">@OHnoTypeCo</a> <span class="dot">·</span> <a class="site" href="https://ohnotype.co" target="_blank" rel="noopener noreferrer">ohnotype.co</a></p>
-        <p class="line">irreverent retail and custom type — OH no Type Co., oakland.</p>
+        <p class="line">irreverent retail and custom type – OH no Type Co., oakland.</p>
         <p class="tweet">“Polymath is out today, and ready to shakeup the entire industry.” <a class="turl" href="https://x.com/OHnoTypeCo/status/1780244546645069921" target="_blank" rel="noopener noreferrer">x.com/OHnoTypeCo/status/1780244546645069921</a></p>
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/james-edmondson/04.jpg" alt=""></figure><figure><img src="img/james-edmondson/02.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/james-edmondson/04.jpg" alt="" width="1000" height="1000" loading="lazy" decoding="async"></figure><figure><img src="img/james-edmondson/02.jpg" alt="" width="1080" height="1080" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="david-rudnick" class="person">
-  <figure class="hero"><img src="img/david-rudnick/01.jpg" alt="David Rudnick"></figure>
+  <figure class="hero"><img src="img/david-rudnick/01.jpg" alt="David Rudnick" width="600" height="600" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/david-rudnick/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/david-rudnick/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">11</p>
         <h2>david rudnick</h2>
@@ -381,14 +489,14 @@
         <p class="tweet">“ecce homo” <a class="turl" href="https://x.com/David_Rudnick/status/2091838348499280281" target="_blank" rel="noopener noreferrer">x.com/David_Rudnick/status/2091838348499280281</a></p>
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/david-rudnick/02.jpg" alt=""></figure><figure><img src="img/david-rudnick/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/david-rudnick/02.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/david-rudnick/03.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="hassan-rahim" class="person">
-  <figure class="hero"><img src="img/hassan-rahim/01.jpg" alt="Hassan Rahim"></figure>
+  <figure class="hero"><img src="img/hassan-rahim/01.jpg" alt="Hassan Rahim" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/hassan-rahim/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/hassan-rahim/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">12</p>
         <h2>hassan rahim</h2>
@@ -401,7 +509,7 @@
   </div>
 </section>
 <section id="michelle-phillips" class="person">
-  <figure class="hero"><img src="img/michelle-phillips/02.jpg" alt="Michelle Phillips"></figure>
+  <figure class="hero"><img src="img/michelle-phillips/02.jpg" alt="Michelle Phillips" width="1200" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -409,15 +517,15 @@
         <p class="num">13</p>
         <h2>michelle phillips</h2>
         <p class="meta"><a class="at" href="https://instagram.com/yukiko_michelle" target="_blank" rel="noopener noreferrer">ig @yukiko_michelle</a> <span class="dot">·</span> <a class="site" href="https://y-u-k-i-k-o.com" target="_blank" rel="noopener noreferrer">y-u-k-i-k-o.com</a></p>
-        <p class="line">cultural identities and experimental editorial — studio yukiko. flaneur, nike ambush, 36th bienal.</p>
+        <p class="line">cultural identities and experimental editorial – studio yukiko. flaneur, nike ambush, 36th bienal.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/michelle-phillips/01.jpg" alt=""></figure><figure><img src="img/michelle-phillips/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/michelle-phillips/01.jpg" alt="" width="872" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/michelle-phillips/04.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="debora-saveriano" class="person">
-  <figure class="hero"><img src="img/debora-saveriano/03.jpg" alt="Debora Saveriano"></figure>
+  <figure class="hero"><img src="img/debora-saveriano/03.jpg" alt="Debora Saveriano" width="800" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -425,15 +533,15 @@
         <p class="num">14</p>
         <h2>debora saveriano</h2>
         <p class="meta"><a class="at" href="https://instagram.com/ouma.cc" target="_blank" rel="noopener noreferrer">ig @ouma.cc</a> <span class="dot">·</span> <a class="site" href="https://ouma.cc" target="_blank" rel="noopener noreferrer">ouma.cc</a></p>
-        <p class="line">music and fashion identity worlds — OUMA. sonic portrait process.</p>
+        <p class="line">music and fashion identity worlds – OUMA. sonic portrait process.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/debora-saveriano/02.jpg" alt=""></figure><figure><img src="img/debora-saveriano/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/debora-saveriano/02.jpg" alt="" width="800" height="800" loading="lazy" decoding="async"></figure><figure><img src="img/debora-saveriano/04.jpg" alt="" width="800" height="800" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="spiros-kokkonis" class="person">
-  <figure class="hero"><img src="img/spiros-kokkonis/06.jpg" alt="Spiros Kokkonis / NMR"></figure>
+  <figure class="hero"><img src="img/spiros-kokkonis/06.jpg" alt="Spiros Kokkonis / NMR" width="1172" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -441,31 +549,31 @@
         <p class="num">15</p>
         <h2>spiros kokkonis / nmr</h2>
         <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://nmr.cc" target="_blank" rel="noopener noreferrer">nmr.cc</a></p>
-        <p class="line">visceral art direction for music, fashion, culture — travis scott, eartheater, berlin atonal.</p>
+        <p class="line">visceral art direction for music, fashion, culture – travis scott, eartheater, berlin atonal.</p>
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/spiros-kokkonis/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/spiros-kokkonis/02.jpg" alt="" width="1080" height="1080" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="charlotte-rohde" class="person">
-  <figure class="hero"><img src="img/charlotte-rohde/01.jpg" alt="Charlotte Rohde"></figure>
+  <figure class="hero"><img src="img/charlotte-rohde/01.jpg" alt="Charlotte Rohde" width="1200" height="812" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/charlotte-rohde/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/charlotte-rohde/photo.jpg" alt="" width="1200" height="730" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">16</p>
         <h2>charlotte rohde</h2>
         <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://charlotterohde.de" target="_blank" rel="noopener noreferrer">charlotterohde.de</a></p>
-        <p class="line">custom type as identity — HKW, kanal–centre pompidou, feeld. you loved an image.</p>
+        <p class="line">custom type as identity – HKW, kanal–centre pompidou, feeld. you loved an image.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/charlotte-rohde/02.jpg" alt=""></figure><figure><img src="img/charlotte-rohde/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/charlotte-rohde/02.jpg" alt="" width="800" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/charlotte-rohde/04.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="giulia-boggio" class="person">
-  <figure class="hero"><img src="img/giulia-boggio/05.jpg" alt="Giulia Boggio"></figure>
+  <figure class="hero"><img src="img/giulia-boggio/05.jpg" alt="Giulia Boggio" width="512" height="512" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -477,19 +585,19 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/giulia-boggio/07.jpg" alt=""></figure><figure><img src="img/giulia-boggio/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/giulia-boggio/07.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/giulia-boggio/03.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="polina-joffe" class="person">
-  <figure class="hero"><img src="img/polina-joffe/01.jpg" alt="Polina Joffe"></figure>
+  <figure class="hero"><img src="img/polina-joffe/01.jpg" alt="Polina Joffe" width="1000" height="625" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/polina-joffe/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/polina-joffe/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">18</p>
         <h2>polina joffe</h2>
         <p class="meta"><a class="at" href="https://x.com/PolinaJoffe" target="_blank" rel="noopener noreferrer">@PolinaJoffe</a> <span class="dot">·</span> <a class="site" href="https://polinajoffe.com" target="_blank" rel="noopener noreferrer">polinajoffe.com</a></p>
-        <p class="line">culture, fashion and music identity — ableton, tate, SLEEK, berlin art prize.</p>
+        <p class="line">culture, fashion and music identity – ableton, tate, SLEEK, berlin art prize.</p>
         
       </div>
     </div>
@@ -497,26 +605,26 @@
   </div>
 </section>
 <section id="felix-pfaeffli" class="person">
-  <figure class="hero"><img src="img/felix-pfaeffli/01.jpg" alt="Felix Pfäffli"></figure>
+  <figure class="hero"><img src="img/felix-pfaeffli/01.jpg" alt="Felix Pfäffli" width="720" height="900" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/felix-pfaeffli/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/felix-pfaeffli/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">19</p>
         <h2>felix pfäffli</h2>
         <p class="meta"><a class="at" href="https://x.com/StudioFeixen" target="_blank" rel="noopener noreferrer">@StudioFeixen</a> <span class="dot">·</span> <a class="site" href="https://studiofeixen.ch" target="_blank" rel="noopener noreferrer">studiofeixen.ch</a></p>
-        <p class="line">identities, posters, type and unexpected digital systems — studio feixen, lucerne.</p>
+        <p class="line">identities, posters, type and unexpected digital systems – studio feixen, lucerne.</p>
         <p class="tweet">“We’re suuuper exited to introduce our newest family member: ✨🌀Mov Variable💨✨ It’s an experiment. A collection. A tool. Its a typeface designed to move!” <a class="turl" href="https://x.com/StudioFeixen/status/1927722602400776251" target="_blank" rel="noopener noreferrer">x.com/StudioFeixen/status/1927722602400776251</a></p>
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/felix-pfaeffli/02.jpg" alt=""></figure><figure><img src="img/felix-pfaeffli/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/felix-pfaeffli/02.jpg" alt="" width="720" height="720" loading="lazy" decoding="async"></figure><figure><img src="img/felix-pfaeffli/03.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="manon-prost" class="person">
-  <figure class="hero"><img src="img/manon-prost/05.jpg" alt="Manon Prost"></figure>
+  <figure class="hero"><img src="img/manon-prost/05.jpg" alt="Manon Prost" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/manon-prost/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/manon-prost/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">20</p>
         <h2>manon prost</h2>
@@ -525,27 +633,27 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/manon-prost/04.jpg" alt=""></figure><figure><img src="img/manon-prost/01.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/manon-prost/04.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></figure><figure><img src="img/manon-prost/01.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="aristide-benoist" class="person">
-  <figure class="hero"><img src="img/aristide-benoist/01.jpg" alt="Aristide Benoist"></figure>
+  <figure class="hero"><img src="img/aristide-benoist/01.jpg" alt="Aristide Benoist" width="1200" height="630" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/aristide-benoist/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/aristide-benoist/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">21</p>
         <h2>aristide benoist</h2>
         <p class="meta"><a class="at" href="https://x.com/AristideBenoist" target="_blank" rel="noopener noreferrer">@AristideBenoist</a> <span class="dot">·</span> <a class="site" href="https://aristidebenoist.com" target="_blank" rel="noopener noreferrer">aristidebenoist.com</a></p>
-        <p class="line">bespoke art-directed websites — A24, netflix, steve jobs archive.</p>
+        <p class="line">bespoke art-directed websites – A24, netflix, steve jobs archive.</p>
         <p class="tweet">“Still one of my favorite projects to date, the Jacques Marie Mage ecommerce website. Built from scratch, using vanilla WebGL.” <a class="turl" href="https://x.com/AristideBenoist/status/2036408153416323406" target="_blank" rel="noopener noreferrer">x.com/AristideBenoist/status/2036408153416323406</a></p>
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/aristide-benoist/02.jpg" alt=""></figure><figure><img src="img/aristide-benoist/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/aristide-benoist/02.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></figure><figure><img src="img/aristide-benoist/04.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="jana-papiernikova" class="person">
-  <figure class="hero"><img src="img/jana-papiernikova/01.jpg" alt="Jana Papiernikova"></figure>
+  <figure class="hero"><img src="img/jana-papiernikova/01.jpg" alt="Jana Papiernikova" width="1200" height="847" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -553,15 +661,15 @@
         <p class="num">22</p>
         <h2>jana papiernikova</h2>
         <p class="meta"><a class="at" href="https://x.com/j_papiernikova" target="_blank" rel="noopener noreferrer">@j_papiernikova</a> <span class="dot">·</span> <a class="site" href="https://papier.work" target="_blank" rel="noopener noreferrer">papier.work</a></p>
-        <p class="line">identities at bleed, oslo — sanity (visuelt best of show 2026), tom wood, fenul.</p>
+        <p class="line">identities at bleed, oslo – sanity (visuelt best of show 2026), tom wood, fenul.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/jana-papiernikova/02.jpg" alt=""></figure><figure><img src="img/jana-papiernikova/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/jana-papiernikova/02.jpg" alt="" width="1200" height="847" loading="lazy" decoding="async"></figure><figure><img src="img/jana-papiernikova/04.jpg" alt="" width="1200" height="775" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="gregory-page" class="person">
-  <figure class="hero"><img src="img/gregory-page/04.jpg" alt="Gregory Page"></figure>
+  <figure class="hero"><img src="img/gregory-page/04.jpg" alt="Gregory Page" width="1200" height="680" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -569,15 +677,15 @@
         <p class="num">23</p>
         <h2>gregory page</h2>
         <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://gregory-page.com" target="_blank" rel="noopener noreferrer">gregory-page.com</a></p>
-        <p class="line">custom type as identity — watch.swiss, sony music / tove styrke, CHIMI.</p>
+        <p class="line">custom type as identity – watch.swiss, sony music / tove styrke, CHIMI.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/gregory-page/09.jpg" alt=""></figure><figure><img src="img/gregory-page/02.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/gregory-page/09.jpg" alt="" width="1200" height="680" loading="lazy" decoding="async"></figure><figure><img src="img/gregory-page/02.jpg" alt="" width="1200" height="680" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="nora-valentini" class="person">
-  <figure class="hero"><img src="img/nora-valentini/01.jpg" alt="Nora Valentini / Stanislas Wiart"></figure>
+  <figure class="hero"><img src="img/nora-valentini/01.jpg" alt="Nora Valentini / Stanislas Wiart" width="800" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -585,18 +693,18 @@
         <p class="num">24</p>
         <h2>nora valentini / stanislas wiart</h2>
         <p class="meta"><a class="at" href="https://x.com/NoraValentini" target="_blank" rel="noopener noreferrer">@NoraValentini</a> <span class="dot">·</span> <a class="site" href="https://valentini-wiart.com" target="_blank" rel="noopener noreferrer">valentini-wiart.com</a></p>
-        <p class="line">identity, UI and coded sites — explore 314, nomasei, vacheron constantin.</p>
+        <p class="line">identity, UI and coded sites – explore 314, nomasei, vacheron constantin.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/nora-valentini/02.jpg" alt=""></figure><figure><img src="img/nora-valentini/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/nora-valentini/02.jpg" alt="" width="1080" height="1080" loading="lazy" decoding="async"></figure><figure><img src="img/nora-valentini/03.jpg" alt="" width="888" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="callin-mackintosh" class="person">
-  <figure class="hero"><img src="img/callin-mackintosh/03.jpg" alt="Callin Mackintosh"></figure>
+  <figure class="hero"><img src="img/callin-mackintosh/03.jpg" alt="Callin Mackintosh" width="1200" height="818" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/callin-mackintosh/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/callin-mackintosh/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">25</p>
         <h2>callin mackintosh</h2>
@@ -605,14 +713,14 @@
         <p class="tweet">“Artwork for Acidulant - Sonic Expansion [GTD.024] Coming soon on @GatedRecordings” <a class="turl" href="https://x.com/CallinMack/status/1793943600428188007" target="_blank" rel="noopener noreferrer">x.com/CallinMack/status/1793943600428188007</a></p>
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/callin-mackintosh/01.jpg" alt=""></figure><figure><img src="img/callin-mackintosh/02.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/callin-mackintosh/01.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/callin-mackintosh/02.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="marco-grimaldi" class="person">
-  <figure class="hero"><img src="img/marco-grimaldi/01.jpg" alt="Marco Grimaldi"></figure>
+  <figure class="hero"><img src="img/marco-grimaldi/01.jpg" alt="Marco Grimaldi" width="1009" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/marco-grimaldi/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/marco-grimaldi/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">26</p>
         <h2>marco grimaldi</h2>
@@ -621,11 +729,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/marco-grimaldi/03.jpg" alt=""></figure><figure><img src="img/marco-grimaldi/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/marco-grimaldi/03.jpg" alt="" width="733" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/marco-grimaldi/04.jpg" alt="" width="880" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="francesco-corsini" class="person">
-  <figure class="hero"><img src="img/francesco-corsini/02.jpg" alt="Francesco Corsini"></figure>
+  <figure class="hero"><img src="img/francesco-corsini/02.jpg" alt="Francesco Corsini" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -633,15 +741,15 @@
         <p class="num">27</p>
         <h2>francesco corsini</h2>
         <p class="meta"><a class="at" href="https://instagram.com/studiobergini" target="_blank" rel="noopener noreferrer">ig @studiobergini</a> <span class="dot">·</span> <a class="site" href="https://studiobergini.eu" target="_blank" rel="noopener noreferrer">studiobergini.eu</a></p>
-        <p class="line">identities, books, exhibitions — studio bergini. unto, tate, lisson, LCBA.</p>
+        <p class="line">identities, books, exhibitions – studio bergini. unto, tate, lisson, LCBA.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/francesco-corsini/05.jpg" alt=""></figure><figure><img src="img/francesco-corsini/07.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/francesco-corsini/05.jpg" alt="" width="1200" height="675" loading="lazy" decoding="async"></figure><figure><img src="img/francesco-corsini/07.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="mathias-clottu" class="person">
-  <figure class="hero"><img src="img/mathias-clottu/03.jpg" alt="Mathias Clottu"></figure>
+  <figure class="hero"><img src="img/mathias-clottu/03.jpg" alt="Mathias Clottu" width="724" height="512" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -649,18 +757,18 @@
         <p class="num">28</p>
         <h2>mathias clottu</h2>
         <p class="meta"><a class="at" href="https://x.com/mathiasclottu" target="_blank" rel="noopener noreferrer">@mathiasclottu</a> <span class="dot">·</span> <a class="site" href="https://mathiasclottu.com" target="_blank" rel="noopener noreferrer">mathiasclottu.com</a></p>
-        <p class="line">type-led identities and exhibitions — mies allzweck, venice architecture biennale.</p>
+        <p class="line">type-led identities and exhibitions – mies allzweck, venice architecture biennale.</p>
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/mathias-clottu/02.jpg" alt=""></figure><figure><img src="img/mathias-clottu/01.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/mathias-clottu/02.jpg" alt="" width="724" height="512" loading="lazy" decoding="async"></figure><figure><img src="img/mathias-clottu/01.jpg" alt="" width="742" height="424" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="nate-sullivan" class="person">
-  <figure class="hero"><img src="img/nate-sullivan/02.jpg" alt="Nate Sullivan"></figure>
+  <figure class="hero"><img src="img/nate-sullivan/02.jpg" alt="Nate Sullivan" width="900" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/nate-sullivan/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/nate-sullivan/photo.jpg" alt="" width="400" height="400" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">29</p>
         <h2>nate sullivan</h2>
@@ -669,11 +777,11 @@
         <p class="tweet">“Nate” <a class="turl" href="https://x.com/natesulIivan/status/2091596618982162895" target="_blank" rel="noopener noreferrer">x.com/natesulIivan/status/2091596618982162895</a></p>
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/nate-sullivan/03.jpg" alt=""></figure><figure><img src="img/nate-sullivan/01.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/nate-sullivan/03.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/nate-sullivan/01.jpg" alt="" width="1000" height="625" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="heyjack" class="person">
-  <figure class="hero"><img src="img/heyjack/02.jpg" alt="Heyjack"></figure>
+  <figure class="hero"><img src="img/heyjack/02.jpg" alt="Heyjack" width="1200" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       
@@ -681,15 +789,15 @@
         <p class="num">30</p>
         <h2>heyjack</h2>
         <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://heyjack.studio" target="_blank" rel="noopener noreferrer">heyjack.studio</a></p>
-        <p class="line">bold copenhagen identity for culture and music — koda, betty nansen, flying tiger. katrine hayden / signe jacobsen.</p>
+        <p class="line">bold copenhagen identity for culture and music – koda, betty nansen, flying tiger. katrine hayden / signe jacobsen.</p>
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/heyjack/01.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/heyjack/01.jpg" alt="" width="1200" height="675" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="patrick-heng" class="person">
-  <figure class="hero"><img src="img/patrick-heng/01.jpg" alt="Patrick Heng"></figure>
+  <figure class="hero"><img src="img/patrick-heng/01.jpg" alt="Patrick Heng" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -700,11 +808,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/patrick-heng/02.jpg" alt=""></figure><figure><img src="img/patrick-heng/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/patrick-heng/02.jpg" alt="" width="1200" height="600" loading="lazy" decoding="async"></figure><figure><img src="img/patrick-heng/03.jpg" alt="" width="1200" height="675" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="antoine-elsensohn" class="person">
-  <figure class="hero"><img src="img/antoine-elsensohn/01.jpg" alt="Antoine Elsensohn"></figure>
+  <figure class="hero"><img src="img/antoine-elsensohn/01.jpg" alt="Antoine Elsensohn" width="1200" height="845" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -715,11 +823,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/antoine-elsensohn/02.jpg" alt=""></figure><figure><img src="img/antoine-elsensohn/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/antoine-elsensohn/02.jpg" alt="" width="1200" height="845" loading="lazy" decoding="async"></figure><figure><img src="img/antoine-elsensohn/03.jpg" alt="" width="1200" height="735" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="claire-huss" class="person">
-  <figure class="hero"><img src="img/claire-huss/01.jpg" alt="Claire Huss"></figure>
+  <figure class="hero"><img src="img/claire-huss/01.jpg" alt="Claire Huss" width="848" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -730,11 +838,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/claire-huss/02.jpg" alt=""></figure><figure><img src="img/claire-huss/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/claire-huss/02.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure><figure><img src="img/claire-huss/03.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="alexis-taieb" class="person">
-  <figure class="hero"><img src="img/alexis-taieb/01.jpg" alt="Alexis Taïeb"></figure>
+  <figure class="hero"><img src="img/alexis-taieb/01.jpg" alt="Alexis Taïeb" width="675" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -745,14 +853,14 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/alexis-taieb/02.jpg" alt=""></figure><figure><img src="img/alexis-taieb/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/alexis-taieb/02.jpg" alt="" width="1200" height="747" loading="lazy" decoding="async"></figure><figure><img src="img/alexis-taieb/03.jpg" alt="" width="1200" height="746" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="matthieu-salvaggio" class="person">
-  <figure class="hero"><img src="img/matthieu-salvaggio/01.jpg" alt="Matthieu Salvaggio"></figure>
+  <figure class="hero"><img src="img/matthieu-salvaggio/01.jpg" alt="Matthieu Salvaggio" width="1200" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/matthieu-salvaggio/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/matthieu-salvaggio/photo.jpg" alt="" width="1081" height="1081" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">35</p>
         <h2>matthieu salvaggio</h2>
@@ -761,14 +869,14 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/matthieu-salvaggio/02.jpg" alt=""></figure><figure><img src="img/matthieu-salvaggio/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/matthieu-salvaggio/02.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure><figure><img src="img/matthieu-salvaggio/04.jpg" alt="" width="1200" height="675" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="victor-verhelst" class="person">
-  <figure class="hero"><img src="img/victor-verhelst/01.jpg" alt="Victor Verhelst"></figure>
+  <figure class="hero"><img src="img/victor-verhelst/01.jpg" alt="Victor Verhelst" width="900" height="1125" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/victor-verhelst/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/victor-verhelst/photo.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">36</p>
         <h2>victor verhelst</h2>
@@ -777,11 +885,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/victor-verhelst/02.jpg" alt=""></figure><figure><img src="img/victor-verhelst/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/victor-verhelst/02.jpg" alt="" width="900" height="600" loading="lazy" decoding="async"></figure><figure><img src="img/victor-verhelst/03.jpg" alt="" width="300" height="375" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="mollie-edgar" class="person">
-  <figure class="hero"><img src="img/mollie-edgar/01.jpg" alt="Mollie Edgar"></figure>
+  <figure class="hero"><img src="img/mollie-edgar/01.jpg" alt="Mollie Edgar" width="1080" height="1080" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -792,11 +900,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/mollie-edgar/02.jpg" alt=""></figure><figure><img src="img/mollie-edgar/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/mollie-edgar/02.jpg" alt="" width="1200" height="931" loading="lazy" decoding="async"></figure><figure><img src="img/mollie-edgar/03.jpg" alt="" width="1192" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="tobey-albright" class="person">
-  <figure class="hero"><img src="img/tobey-albright/01.jpg" alt="Tobey Albright"></figure>
+  <figure class="hero"><img src="img/tobey-albright/01.jpg" alt="Tobey Albright" width="1200" height="874" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -807,11 +915,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/tobey-albright/02.jpg" alt=""></figure><figure><img src="img/tobey-albright/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/tobey-albright/02.jpg" alt="" width="1200" height="885" loading="lazy" decoding="async"></figure><figure><img src="img/tobey-albright/03.jpg" alt="" width="974" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="zoltan-szalay" class="person">
-  <figure class="hero"><img src="img/zoltan-szalay/01.jpg" alt="Zoltán Szalay"></figure>
+  <figure class="hero"><img src="img/zoltan-szalay/01.jpg" alt="Zoltán Szalay" width="230" height="180" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -822,11 +930,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/zoltan-szalay/03.jpg" alt=""></figure><figure><img src="img/zoltan-szalay/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/zoltan-szalay/03.jpg" alt="" width="404" height="316" loading="lazy" decoding="async"></figure><figure><img src="img/zoltan-szalay/04.jpg" alt="" width="404" height="316" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="david-wise" class="person">
-  <figure class="hero"><img src="img/david-wise/01.jpg" alt="David Wise"></figure>
+  <figure class="hero"><img src="img/david-wise/01.jpg" alt="David Wise" width="1200" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -837,11 +945,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/david-wise/02.jpg" alt=""></figure><figure><img src="img/david-wise/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/david-wise/02.jpg" alt="" width="1200" height="789" loading="lazy" decoding="async"></figure><figure><img src="img/david-wise/03.jpg" alt="" width="582" height="900" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="paul-bille" class="person">
-  <figure class="hero"><img src="img/paul-bille/01.jpg" alt="Paul Bille"></figure>
+  <figure class="hero"><img src="img/paul-bille/01.jpg" alt="Paul Bille" width="960" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -852,11 +960,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/paul-bille/02.jpg" alt=""></figure><figure><img src="img/paul-bille/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/paul-bille/02.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/paul-bille/03.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="nick-massarelli" class="person">
-  <figure class="hero"><img src="img/nick-massarelli/01.jpg" alt="Nick Massarelli"></figure>
+  <figure class="hero"><img src="img/nick-massarelli/01.jpg" alt="Nick Massarelli" width="1200" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -867,11 +975,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/nick-massarelli/02.jpg" alt=""></figure><figure><img src="img/nick-massarelli/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/nick-massarelli/02.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/nick-massarelli/03.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="raoul-audouin" class="person">
-  <figure class="hero"><img src="img/raoul-audouin/01.jpg" alt="Raoul Audouin"></figure>
+  <figure class="hero"><img src="img/raoul-audouin/01.jpg" alt="Raoul Audouin" width="299" height="198" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -882,11 +990,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/raoul-audouin/02.jpg" alt=""></figure><figure><img src="img/raoul-audouin/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/raoul-audouin/02.jpg" alt="" width="283" height="283" loading="lazy" decoding="async"></figure><figure><img src="img/raoul-audouin/04.jpg" alt="" width="539" height="751" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="alexis-mark" class="person">
-  <figure class="hero"><img src="img/alexis-mark/01.jpg" alt="Marie Grønkær / Kristoffer Li / Martin Bek"></figure>
+  <figure class="hero"><img src="img/alexis-mark/01.jpg" alt="Marie Grønkær / Kristoffer Li / Martin Bek" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -897,11 +1005,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/alexis-mark/02.jpg" alt=""></figure><figure><img src="img/alexis-mark/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/alexis-mark/02.jpg" alt="" width="1200" height="801" loading="lazy" decoding="async"></figure><figure><img src="img/alexis-mark/03.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="maria-milenko" class="person">
-  <figure class="hero"><img src="img/maria-milenko/01.jpg" alt="Maria Mileńko"></figure>
+  <figure class="hero"><img src="img/maria-milenko/01.jpg" alt="Maria Mileńko" width="933" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -912,11 +1020,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/maria-milenko/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/maria-milenko/02.jpg" alt="" width="933" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="tomasz-pawluk" class="person">
-  <figure class="hero"><img src="img/tomasz-pawluk/01.jpg" alt="Tomasz Pawluk"></figure>
+  <figure class="hero"><img src="img/tomasz-pawluk/01.jpg" alt="Tomasz Pawluk" width="933" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -927,11 +1035,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/tomasz-pawluk/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/tomasz-pawluk/02.jpg" alt="" width="933" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="tanja-vibe" class="person">
-  <figure class="hero"><img src="img/tanja-vibe/01.jpg" alt="Tanja Vibe"></figure>
+  <figure class="hero"><img src="img/tanja-vibe/01.jpg" alt="Tanja Vibe" width="1200" height="715" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -942,11 +1050,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/tanja-vibe/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/tanja-vibe/02.jpg" alt="" width="1200" height="759" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="petra-olsson-gendt" class="person">
-  <figure class="hero"><img src="img/petra-olsson-gendt/01.jpg" alt="Petra Olsson Gendt"></figure>
+  <figure class="hero"><img src="img/petra-olsson-gendt/01.jpg" alt="Petra Olsson Gendt" width="689" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -957,11 +1065,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/petra-olsson-gendt/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/petra-olsson-gendt/02.jpg" alt="" width="1200" height="715" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="travis-kochel" class="person">
-  <figure class="hero"><img src="img/travis-kochel/01.jpg" alt="Travis Kochel"></figure>
+  <figure class="hero"><img src="img/travis-kochel/01.jpg" alt="Travis Kochel" width="1200" height="630" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -972,11 +1080,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/travis-kochel/02.jpg" alt=""></figure><figure><img src="img/travis-kochel/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/travis-kochel/02.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></figure><figure><img src="img/travis-kochel/03.jpg" alt="" width="900" height="900" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="tre-seals" class="person">
-  <figure class="hero"><img src="img/tre-seals/01.jpg" alt="Tré Seals"></figure>
+  <figure class="hero"><img src="img/tre-seals/01.jpg" alt="Tré Seals" width="1200" height="900" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -987,11 +1095,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/tre-seals/03.jpg" alt=""></figure><figure><img src="img/tre-seals/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/tre-seals/03.jpg" alt="" width="750" height="563" loading="lazy" decoding="async"></figure><figure><img src="img/tre-seals/04.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="lucas-sharp" class="person">
-  <figure class="hero"><img src="img/lucas-sharp/01.jpg" alt="Lucas Sharp"></figure>
+  <figure class="hero"><img src="img/lucas-sharp/01.jpg" alt="Lucas Sharp" width="1200" height="578" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1002,11 +1110,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/lucas-sharp/02.jpg" alt=""></figure><figure><img src="img/lucas-sharp/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/lucas-sharp/02.jpg" alt="" width="1200" height="539" loading="lazy" decoding="async"></figure><figure><img src="img/lucas-sharp/03.jpg" alt="" width="1200" height="520" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="vincent-chan" class="person">
-  <figure class="hero"><img src="img/vincent-chan/01.jpg" alt="Vincent Chan"></figure>
+  <figure class="hero"><img src="img/vincent-chan/01.jpg" alt="Vincent Chan" width="1200" height="639" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1017,11 +1125,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/vincent-chan/02.jpg" alt=""></figure><figure><img src="img/vincent-chan/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/vincent-chan/02.jpg" alt="" width="1200" height="577" loading="lazy" decoding="async"></figure><figure><img src="img/vincent-chan/03.jpg" alt="" width="1200" height="1113" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="ryan-waller" class="person">
-  <figure class="hero"><img src="img/ryan-waller/01.jpg" alt="Ryan Waller"></figure>
+  <figure class="hero"><img src="img/ryan-waller/01.jpg" alt="Ryan Waller" width="936" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1032,11 +1140,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/ryan-waller/02.jpg" alt=""></figure><figure><img src="img/ryan-waller/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/ryan-waller/02.jpg" alt="" width="1024" height="576" loading="lazy" decoding="async"></figure><figure><img src="img/ryan-waller/03.jpg" alt="" width="793" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="alex-lin" class="person">
-  <figure class="hero"><img src="img/alex-lin/01.jpg" alt="Alex Lin"></figure>
+  <figure class="hero"><img src="img/alex-lin/01.jpg" alt="Alex Lin" width="1200" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1047,11 +1155,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/alex-lin/02.jpg" alt=""></figure><figure><img src="img/alex-lin/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/alex-lin/02.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/alex-lin/03.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="jon-key" class="person">
-  <figure class="hero"><img src="img/jon-key/01.jpg" alt="Jon Key"></figure>
+  <figure class="hero"><img src="img/jon-key/01.jpg" alt="Jon Key" width="800" height="480" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1062,11 +1170,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/jon-key/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/jon-key/02.jpg" alt="" width="1080" height="648" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="wael-morcos" class="person">
-  <figure class="hero"><img src="img/wael-morcos/01.jpg" alt="Wael Morcos"></figure>
+  <figure class="hero"><img src="img/wael-morcos/01.jpg" alt="Wael Morcos" width="400" height="240" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1077,11 +1185,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/wael-morcos/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/wael-morcos/02.jpg" alt="" width="600" height="360" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="artem-matyushkin" class="person">
-  <figure class="hero"><img src="img/artem-matyushkin/01.jpg" alt="Artem Matyushkin"></figure>
+  <figure class="hero"><img src="img/artem-matyushkin/01.jpg" alt="Artem Matyushkin" width="1200" height="630" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1092,11 +1200,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/artem-matyushkin/02.jpg" alt=""></figure><figure><img src="img/artem-matyushkin/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/artem-matyushkin/02.jpg" alt="" width="1024" height="672" loading="lazy" decoding="async"></figure><figure><img src="img/artem-matyushkin/03.jpg" alt="" width="1024" height="672" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="alina-derya" class="person">
-  <figure class="hero"><img src="img/alina-derya/01.jpg" alt="Alina Derya Yakaboylu"></figure>
+  <figure class="hero"><img src="img/alina-derya/01.jpg" alt="Alina Derya Yakaboylu" width="1000" height="625" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1107,11 +1215,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/alina-derya/02.jpg" alt=""></figure><figure><img src="img/alina-derya/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/alina-derya/02.jpg" alt="" width="512" height="512" loading="lazy" decoding="async"></figure><figure><img src="img/alina-derya/03.jpg" alt="" width="1000" height="625" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="teddy-blanks" class="person">
-  <figure class="hero"><img src="img/teddy-blanks/01.jpg" alt="Teddy Blanks"></figure>
+  <figure class="hero"><img src="img/teddy-blanks/01.jpg" alt="Teddy Blanks" width="1200" height="791" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1122,11 +1230,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/teddy-blanks/02.jpg" alt=""></figure><figure><img src="img/teddy-blanks/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/teddy-blanks/02.jpg" alt="" width="1200" height="675" loading="lazy" decoding="async"></figure><figure><img src="img/teddy-blanks/03.jpg" alt="" width="1200" height="675" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="amber-weaver" class="person">
-  <figure class="hero"><img src="img/amber-weaver/01.jpg" alt="Amber Weaver"></figure>
+  <figure class="hero"><img src="img/amber-weaver/01.jpg" alt="Amber Weaver" width="1200" height="691" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1137,11 +1245,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/amber-weaver/02.jpg" alt=""></figure><figure><img src="img/amber-weaver/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/amber-weaver/02.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/amber-weaver/03.jpg" alt="" width="1200" height="690" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="natalia-witwicka" class="person">
-  <figure class="hero"><img src="img/natalia-witwicka/01.jpg" alt="Natalia Witwicka"></figure>
+  <figure class="hero"><img src="img/natalia-witwicka/01.jpg" alt="Natalia Witwicka" width="1000" height="625" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1152,11 +1260,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/natalia-witwicka/02.jpg" alt=""></figure><figure><img src="img/natalia-witwicka/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/natalia-witwicka/02.jpg" alt="" width="1000" height="625" loading="lazy" decoding="async"></figure><figure><img src="img/natalia-witwicka/03.jpg" alt="" width="512" height="512" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="elizabeth-goodspeed" class="person">
-  <figure class="hero"><img src="img/elizabeth-goodspeed/02.jpg" alt="Elizabeth Goodspeed"></figure>
+  <figure class="hero"><img src="img/elizabeth-goodspeed/02.jpg" alt="Elizabeth Goodspeed" width="1200" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1167,11 +1275,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/elizabeth-goodspeed/03.jpg" alt=""></figure><figure><img src="img/elizabeth-goodspeed/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/elizabeth-goodspeed/03.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure><figure><img src="img/elizabeth-goodspeed/04.jpg" alt="" width="1000" height="667" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="mathias-lempart" class="person">
-  <figure class="hero"><img src="img/mathias-lempart/01.jpg" alt="Mathias Lempart"></figure>
+  <figure class="hero"><img src="img/mathias-lempart/01.jpg" alt="Mathias Lempart" width="655" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1185,7 +1293,7 @@
   </div>
 </section>
 <section id="sascia-reibel" class="person">
-  <figure class="hero"><img src="img/sascia-reibel/01.jpg" alt="Sascia Reibel"></figure>
+  <figure class="hero"><img src="img/sascia-reibel/01.jpg" alt="Sascia Reibel" width="677" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1196,11 +1304,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/sascia-reibel/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/sascia-reibel/02.jpg" alt="" width="800" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="luke-prowse" class="person">
-  <figure class="hero"><img src="img/luke-prowse/01.jpg" alt="Luke Prowse"></figure>
+  <figure class="hero"><img src="img/luke-prowse/01.jpg" alt="Luke Prowse" width="664" height="824" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1211,14 +1319,14 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/luke-prowse/02.jpg" alt=""></figure><figure><img src="img/luke-prowse/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/luke-prowse/02.jpg" alt="" width="1200" height="749" loading="lazy" decoding="async"></figure><figure><img src="img/luke-prowse/03.jpg" alt="" width="664" height="824" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="kris-sowersby" class="person">
-  <figure class="hero"><img src="img/kris-sowersby/01.jpg" alt="Kris Sowersby"></figure>
+  <figure class="hero"><img src="img/kris-sowersby/01.jpg" alt="Kris Sowersby" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/kris-sowersby/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/kris-sowersby/photo.jpg" alt="" width="800" height="1200" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">66</p>
         <h2>kris sowersby</h2>
@@ -1227,14 +1335,14 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/kris-sowersby/02.jpg" alt=""></figure><figure><img src="img/kris-sowersby/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/kris-sowersby/02.jpg" alt="" width="1200" height="960" loading="lazy" decoding="async"></figure><figure><img src="img/kris-sowersby/03.jpg" alt="" width="1200" height="960" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="eike-konig" class="person">
-  <figure class="hero"><img src="img/eike-konig/01.jpg" alt="Eike König"></figure>
+  <figure class="hero"><img src="img/eike-konig/01.jpg" alt="Eike König" width="1200" height="818" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/eike-konig/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/eike-konig/photo.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">67</p>
         <h2>eike könig</h2>
@@ -1243,14 +1351,14 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/eike-konig/02.jpg" alt=""></figure><figure><img src="img/eike-konig/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/eike-konig/02.jpg" alt="" width="849" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/eike-konig/03.jpg" alt="" width="849" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="kirsty-carter" class="person">
-  <figure class="hero"><img src="img/kirsty-carter/01.jpg" alt="Kirsty Carter"></figure>
+  <figure class="hero"><img src="img/kirsty-carter/01.jpg" alt="Kirsty Carter" width="1200" height="900" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/kirsty-carter/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/kirsty-carter/photo.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">68</p>
         <h2>kirsty carter</h2>
@@ -1259,11 +1367,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/kirsty-carter/02.jpg" alt=""></figure><figure><img src="img/kirsty-carter/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/kirsty-carter/02.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></figure><figure><img src="img/kirsty-carter/03.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="zak-kyes" class="person">
-  <figure class="hero"><img src="img/zak-kyes/01.jpg" alt="Zak Kyes"></figure>
+  <figure class="hero"><img src="img/zak-kyes/01.jpg" alt="Zak Kyes" width="1200" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1274,11 +1382,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/zak-kyes/02.jpg" alt=""></figure><figure><img src="img/zak-kyes/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/zak-kyes/02.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure><figure><img src="img/zak-kyes/03.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="frith-kerr" class="person">
-  <figure class="hero"><img src="img/frith-kerr/01.jpg" alt="Frith Kerr"></figure>
+  <figure class="hero"><img src="img/frith-kerr/01.jpg" alt="Frith Kerr" width="500" height="597" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1292,7 +1400,7 @@
   </div>
 </section>
 <section id="eveline-lupien" class="person">
-  <figure class="hero"><img src="img/eveline-lupien/01.jpg" alt="Eveline Lupien"></figure>
+  <figure class="hero"><img src="img/eveline-lupien/01.jpg" alt="Eveline Lupien" width="1024" height="683" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1303,11 +1411,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/eveline-lupien/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/eveline-lupien/02.jpg" alt="" width="1024" height="683" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="marie-france-gaudet" class="person">
-  <figure class="hero"><img src="img/marie-france-gaudet/01.jpg" alt="Marie-France Gaudet"></figure>
+  <figure class="hero"><img src="img/marie-france-gaudet/01.jpg" alt="Marie-France Gaudet" width="683" height="1024" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1318,11 +1426,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/marie-france-gaudet/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/marie-france-gaudet/02.jpg" alt="" width="1200" height="801" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="bram-broerse" class="person">
-  <figure class="hero"><img src="img/bram-broerse/01.jpg" alt="Bram Broerse"></figure>
+  <figure class="hero"><img src="img/bram-broerse/01.jpg" alt="Bram Broerse" width="1200" height="811" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1333,14 +1441,14 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/bram-broerse/02.jpg" alt=""></figure><figure><img src="img/bram-broerse/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/bram-broerse/02.jpg" alt="" width="1200" height="828" loading="lazy" decoding="async"></figure><figure><img src="img/bram-broerse/03.jpg" alt="" width="1200" height="645" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="david-keshavjee" class="person">
-  <figure class="hero"><img src="img/david-keshavjee/01.jpg" alt="David Keshavjee"></figure>
+  <figure class="hero"><img src="img/david-keshavjee/01.jpg" alt="David Keshavjee" width="1200" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/david-keshavjee/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/david-keshavjee/photo.jpg" alt="" width="400" height="275" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">74</p>
         <h2>david keshavjee</h2>
@@ -1349,11 +1457,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/david-keshavjee/02.jpg" alt=""></figure><figure><img src="img/david-keshavjee/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/david-keshavjee/02.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure><figure><img src="img/david-keshavjee/03.jpg" alt="" width="1200" height="826" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="lukas-haider" class="person">
-  <figure class="hero"><img src="img/lukas-haider/02.jpg" alt="Lukas Haider"></figure>
+  <figure class="hero"><img src="img/lukas-haider/02.jpg" alt="Lukas Haider" width="1000" height="563" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1364,11 +1472,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/lukas-haider/03.jpg" alt=""></figure><figure><img src="img/lukas-haider/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/lukas-haider/03.jpg" alt="" width="1000" height="563" loading="lazy" decoding="async"></figure><figure><img src="img/lukas-haider/04.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="jas-bell" class="person">
-  <figure class="hero"><img src="img/jas-bell/01.jpg" alt="Jas Bell"></figure>
+  <figure class="hero"><img src="img/jas-bell/01.jpg" alt="Jas Bell" width="873" height="825" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1379,14 +1487,14 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/jas-bell/02.jpg" alt=""></figure><figure><img src="img/jas-bell/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/jas-bell/02.jpg" alt="" width="1020" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/jas-bell/04.jpg" alt="" width="1148" height="1116" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="falco-van-burg" class="person">
-  <figure class="hero"><img src="img/falco-van-burg/02.jpg" alt="Falco van Burg"></figure>
+  <figure class="hero"><img src="img/falco-van-burg/02.jpg" alt="Falco van Burg" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/falco-van-burg/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/falco-van-burg/photo.jpg" alt="" width="1200" height="739" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">77</p>
         <h2>falco van burg</h2>
@@ -1395,11 +1503,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/falco-van-burg/03.jpg" alt=""></figure><figure><img src="img/falco-van-burg/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/falco-van-burg/03.jpg" alt="" width="852" height="639" loading="lazy" decoding="async"></figure><figure><img src="img/falco-van-burg/04.jpg" alt="" width="852" height="639" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="rue-yi" class="person">
-  <figure class="hero"><img src="img/rue-yi/01.jpg" alt="Rue Yi"></figure>
+  <figure class="hero"><img src="img/rue-yi/01.jpg" alt="Rue Yi" width="1000" height="625" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1410,14 +1518,14 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/rue-yi/02.jpg" alt=""></figure><figure><img src="img/rue-yi/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/rue-yi/02.jpg" alt="" width="512" height="512" loading="lazy" decoding="async"></figure><figure><img src="img/rue-yi/03.jpg" alt="" width="480" height="360" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="danielle-laroy" class="person">
-  <figure class="hero"><img src="img/danielle-laroy/01.jpg" alt="Danielle LaRoy"></figure>
+  <figure class="hero"><img src="img/danielle-laroy/01.jpg" alt="Danielle LaRoy" width="800" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/danielle-laroy/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/danielle-laroy/photo.jpg" alt="" width="784" height="806" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">79</p>
         <h2>danielle laroy</h2>
@@ -1426,11 +1534,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/danielle-laroy/02.jpg" alt=""></figure><figure><img src="img/danielle-laroy/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/danielle-laroy/02.jpg" alt="" width="1129" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/danielle-laroy/03.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="petr-knoll" class="person">
-  <figure class="hero"><img src="img/petr-knoll/01.jpg" alt="Petr Knoll"></figure>
+  <figure class="hero"><img src="img/petr-knoll/01.jpg" alt="Petr Knoll" width="1200" height="751" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1441,11 +1549,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/petr-knoll/02.jpg" alt=""></figure><figure><img src="img/petr-knoll/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/petr-knoll/02.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></figure><figure><img src="img/petr-knoll/03.jpg" alt="" width="480" height="322" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="mike-white" class="person">
-  <figure class="hero"><img src="img/mike-white/01.jpg" alt="Mike White"></figure>
+  <figure class="hero"><img src="img/mike-white/01.jpg" alt="Mike White" width="847" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1456,11 +1564,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/mike-white/03.jpg" alt=""></figure><figure><img src="img/mike-white/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/mike-white/03.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/mike-white/04.jpg" alt="" width="1200" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="tom-finn" class="person">
-  <figure class="hero"><img src="img/tom-finn/01.jpg" alt="Tom Finn"></figure>
+  <figure class="hero"><img src="img/tom-finn/01.jpg" alt="Tom Finn" width="675" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1471,11 +1579,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/tom-finn/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/tom-finn/02.jpg" alt="" width="1200" height="819" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="kristoffer-solling" class="person">
-  <figure class="hero"><img src="img/kristoffer-solling/01.jpg" alt="Kristoffer Sølling"></figure>
+  <figure class="hero"><img src="img/kristoffer-solling/01.jpg" alt="Kristoffer Sølling" width="600" height="811" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1486,11 +1594,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/kristoffer-solling/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/kristoffer-solling/02.jpg" alt="" width="889" height="1200" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="henrik-olsson" class="person">
-  <figure class="hero"><img src="img/henrik-olsson/01.jpg" alt="Henrik Olssøn"></figure>
+  <figure class="hero"><img src="img/henrik-olsson/01.jpg" alt="Henrik Olssøn" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1501,11 +1609,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/henrik-olsson/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/henrik-olsson/02.jpg" alt="" width="600" height="857" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="erika-barbieri" class="person">
-  <figure class="hero"><img src="img/erika-barbieri/01.jpg" alt="Erika Barbieri"></figure>
+  <figure class="hero"><img src="img/erika-barbieri/01.jpg" alt="Erika Barbieri" width="600" height="400" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1516,11 +1624,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/erika-barbieri/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/erika-barbieri/02.jpg" alt="" width="600" height="857" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="simon-calvet" class="person">
-  <figure class="hero"><img src="img/simon-calvet/02.jpg" alt="Simon Calvet"></figure>
+  <figure class="hero"><img src="img/simon-calvet/02.jpg" alt="Simon Calvet" width="1200" height="806" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1531,11 +1639,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/simon-calvet/03.jpg" alt=""></figure><figure><img src="img/simon-calvet/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/simon-calvet/03.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure><figure><img src="img/simon-calvet/04.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="pierrick-bregeon" class="person">
-  <figure class="hero"><img src="img/pierrick-bregeon/01.jpg" alt="Pierrick Brégeon"></figure>
+  <figure class="hero"><img src="img/pierrick-bregeon/01.jpg" alt="Pierrick Brégeon" width="1200" height="750" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1546,11 +1654,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/pierrick-bregeon/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/pierrick-bregeon/02.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="clement-rouzaud" class="person">
-  <figure class="hero"><img src="img/clement-rouzaud/01.jpg" alt="Clément Rouzaud"></figure>
+  <figure class="hero"><img src="img/clement-rouzaud/01.jpg" alt="Clément Rouzaud" width="1024" height="683" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1561,11 +1669,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/clement-rouzaud/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/clement-rouzaud/02.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="john-clayton-lee" class="person">
-  <figure class="hero"><img src="img/john-clayton-lee/01.jpg" alt="John Clayton Lee"></figure>
+  <figure class="hero"><img src="img/john-clayton-lee/01.jpg" alt="John Clayton Lee" width="1200" height="800" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1576,11 +1684,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/john-clayton-lee/02.jpg" alt=""></figure><figure><img src="img/john-clayton-lee/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/john-clayton-lee/02.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure><figure><img src="img/john-clayton-lee/03.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="antoine-menard" class="person">
-  <figure class="hero"><img src="img/antoine-menard/01.jpg" alt="Antoine Menard"></figure>
+  <figure class="hero"><img src="img/antoine-menard/01.jpg" alt="Antoine Menard" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1591,11 +1699,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/antoine-menard/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/antoine-menard/02.jpg" alt="" width="1200" height="675" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="pierre-hagege" class="person">
-  <figure class="hero"><img src="img/pierre-hagege/01.jpg" alt="Pierre Hagège"></figure>
+  <figure class="hero"><img src="img/pierre-hagege/01.jpg" alt="Pierre Hagège" width="1200" height="675" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1606,11 +1714,11 @@
         
       </div>
     </div>
-    <div class="strip n1"><figure><img src="img/pierre-hagege/02.jpg" alt=""></figure></div>
+    <div class="strip n1"><figure><img src="img/pierre-hagege/02.jpg" alt="" width="1200" height="675" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="edan-kwan" class="person">
-  <figure class="hero"><img src="img/edan-kwan/01.jpg" alt="Edan Kwan"></figure>
+  <figure class="hero"><img src="img/edan-kwan/01.jpg" alt="Edan Kwan" width="1200" height="630" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1621,11 +1729,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/edan-kwan/02.jpg" alt=""></figure><figure><img src="img/edan-kwan/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/edan-kwan/02.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></figure><figure><img src="img/edan-kwan/03.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="neil-panchal" class="person">
-  <figure class="hero"><img src="img/neil-panchal/02.jpg" alt="Neil Panchal"></figure>
+  <figure class="hero"><img src="img/neil-panchal/02.jpg" alt="Neil Panchal" width="1200" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1636,11 +1744,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/neil-panchal/03.jpg" alt=""></figure><figure><img src="img/neil-panchal/04.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/neil-panchal/03.jpg" alt="" width="1197" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/neil-panchal/04.jpg" alt="" width="1200" height="628" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="joseph-hillenbrand" class="person">
-  <figure class="hero"><img src="img/joseph-hillenbrand/01.jpg" alt="Joseph Hillenbrand"></figure>
+  <figure class="hero"><img src="img/joseph-hillenbrand/01.jpg" alt="Joseph Hillenbrand" width="1024" height="732" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1651,11 +1759,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/joseph-hillenbrand/02.jpg" alt=""></figure><figure><img src="img/joseph-hillenbrand/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/joseph-hillenbrand/02.jpg" alt="" width="1200" height="858" loading="lazy" decoding="async"></figure><figure><img src="img/joseph-hillenbrand/03.jpg" alt="" width="1200" height="675" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="max-bittker" class="person">
-  <figure class="hero"><img src="img/max-bittker/01.jpg" alt="Max Bittker"></figure>
+  <figure class="hero"><img src="img/max-bittker/01.jpg" alt="Max Bittker" width="1200" height="851" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1666,11 +1774,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/max-bittker/02.jpg" alt=""></figure><figure><img src="img/max-bittker/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/max-bittker/02.jpg" alt="" width="700" height="932" loading="lazy" decoding="async"></figure><figure><img src="img/max-bittker/03.jpg" alt="" width="1200" height="401" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="svein-haakon-lia" class="person">
-  <figure class="hero"><img src="img/svein-haakon-lia/01.jpg" alt="Svein Haakon Lia"></figure>
+  <figure class="hero"><img src="img/svein-haakon-lia/01.jpg" alt="Svein Haakon Lia" width="960" height="1200" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1681,11 +1789,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/svein-haakon-lia/02.jpg" alt=""></figure><figure><img src="img/svein-haakon-lia/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/svein-haakon-lia/02.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async"></figure><figure><img src="img/svein-haakon-lia/03.jpg" alt="" width="1200" height="720" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="kristian-berge" class="person">
-  <figure class="hero"><img src="img/kristian-berge/01.jpg" alt="Kristian Hjorth Berge"></figure>
+  <figure class="hero"><img src="img/kristian-berge/01.jpg" alt="Kristian Hjorth Berge" width="1200" height="960" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1696,14 +1804,14 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/kristian-berge/02.jpg" alt=""></figure><figure><img src="img/kristian-berge/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/kristian-berge/02.jpg" alt="" width="960" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/kristian-berge/03.jpg" alt="" width="1200" height="900" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="johannes-conrad" class="person">
-  <figure class="hero"><img src="img/johannes-conrad/01.jpg" alt="Johannes Conrad"></figure>
+  <figure class="hero"><img src="img/johannes-conrad/01.jpg" alt="Johannes Conrad" width="1200" height="638" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
-      <img class="face" src="img/johannes-conrad/photo.jpg" alt="" width="72" height="72">
+      <img class="face" src="img/johannes-conrad/photo.jpg" alt="" width="872" height="1200" loading="lazy" decoding="async">
       <div class="id">
         <p class="num">98</p>
         <h2>johannes conrad</h2>
@@ -1712,11 +1820,11 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/johannes-conrad/02.jpg" alt=""></figure><figure><img src="img/johannes-conrad/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/johannes-conrad/02.jpg" alt="" width="872" height="1200" loading="lazy" decoding="async"></figure><figure><img src="img/johannes-conrad/03.jpg" alt="" width="750" height="469" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 <section id="pierre-patrault" class="person">
-  <figure class="hero"><img src="img/pierre-patrault/01.jpg" alt="Pierre Patrault"></figure>
+  <figure class="hero"><img src="img/pierre-patrault/01.jpg" alt="Pierre Patrault" width="808" height="632" loading="lazy" decoding="async"></figure>
   <div class="plate">
     <div class="who">
       <div class="id">
@@ -1727,7 +1835,7 @@
         
       </div>
     </div>
-    <div class="strip n2"><figure><img src="img/pierre-patrault/02.jpg" alt=""></figure><figure><img src="img/pierre-patrault/03.jpg" alt=""></figure></div>
+    <div class="strip n2"><figure><img src="img/pierre-patrault/02.jpg" alt="" width="1200" height="229" loading="lazy" decoding="async"></figure><figure><img src="img/pierre-patrault/03.jpg" alt="" width="276" height="276" loading="lazy" decoding="async"></figure></div>
   </div>
 </section>
 </main>

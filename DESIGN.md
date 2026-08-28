@@ -314,6 +314,22 @@ will be lost.
 Everything after it moves only to explain hover, navigation, feedback or
 recovery.
 
+## Private Lookbook Surface
+
+`/lookbook` is a private editorial contact sheet, not part of the foyer. Its
+ground is warm paper (`#f2ebe1`) with a slightly deeper alternating field
+(`#e8ded1`), near-black ink (`#1c1712`), muted brown (`#6a6159`) and ink rules
+at 18% or 35%. It uses the site's self-hosted Zodiak and Newsreader, with mono
+reserved for the index, numbering and links. Body copy is 17px; utility type
+is 0.69–0.75rem; the title runs from 4rem to 6rem; designer names run from
+2.25rem to 3.6rem, capped at 3.2rem on phones; the footer sign-off is 1.6rem.
+
+Desktop profiles use a sticky identity rail beside uncropped, naturally sized
+work. Supporting work stays in a one-, two- or three-column contact sheet.
+Phones introduce the person before the lead work, then use a wide-first
+two-column strip. Every image declares its real dimensions; only the first is
+eager, because a 117-image private scroll should not arrive as one request.
+
 ## Cross-Mode Rules
 
 **The Arrow Is Inline Rule.** `.arw` is plain inline with a relative-offset
