@@ -328,7 +328,7 @@ Desktop profiles use a sticky identity rail beside uncropped, naturally sized
 work. Supporting work stays in a one-, two- or three-column contact sheet.
 Phones introduce the person before the lead work, then use a wide-first
 two-column strip. Every image declares its real dimensions; only the first is
-eager, because a 117-image private scroll should not arrive as one request.
+eager, because a 294-image private scroll should not arrive as one request.
 
 ## Cross-Mode Rules
 
