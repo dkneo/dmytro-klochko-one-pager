@@ -882,6 +882,15 @@
     "note": "no matching x user found"
   },
   {
+    "name": "Eric Hu",
+    "slug": "eric-hu",
+    "x": "@_erichu",
+    "verified": true,
+    "instagram": null,
+    "site": "https://erichu.info",
+    "note": null
+  },
+  {
     "name": "Pierre Patrault",
     "slug": "pierre-patrault",
     "x": null,
