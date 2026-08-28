@@ -1,0 +1,893 @@
+[
+  {
+    "name": "Kim Andre Ottesen",
+    "slug": "kim-andre-ottesen",
+    "x": "@kiman",
+    "verified": true,
+    "instagram": null,
+    "site": "https://openinghours.studio",
+    "note": null
+  },
+  {
+    "name": "Justine Soulié",
+    "slug": "justine-soulie",
+    "x": "@JustineSoulie",
+    "verified": true,
+    "instagram": "@jus.paris",
+    "site": "https://justinesoulie.fr",
+    "note": null
+  },
+  {
+    "name": "Davis Ngarupe / JP Haynie",
+    "slug": "actual-source",
+    "x": "@actual_source",
+    "verified": true,
+    "instagram": "@actualsource.work",
+    "site": "https://actualsource.work",
+    "note": null
+  },
+  {
+    "name": "Corbin Mahieu",
+    "slug": "corbin-mahieu",
+    "x": "@corbinmahieu",
+    "verified": true,
+    "instagram": null,
+    "site": "https://corbinmahieu.be",
+    "note": null
+  },
+  {
+    "name": "Daniel Siim",
+    "slug": "daniel-siim",
+    "x": "@danielsiim",
+    "verified": true,
+    "instagram": "@studiodanielsiim",
+    "site": "https://danielsiim.dk",
+    "note": null
+  },
+  {
+    "name": "Hadrien Herzog",
+    "slug": "hadrien-herzog",
+    "x": null,
+    "verified": false,
+    "instagram": "@hadrienherzog",
+    "site": "https://hadrienherzog.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Jessica Strelioff",
+    "slug": "jessica-strelioff",
+    "x": "@jstrelioff",
+    "verified": true,
+    "instagram": null,
+    "site": "https://www.goodside.studio",
+    "note": null
+  },
+  {
+    "name": "Bastien Sozeau",
+    "slug": "bastien-sozeau",
+    "x": null,
+    "verified": false,
+    "instagram": "@bsozeau",
+    "site": "https://bureau.sozeau.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Bráulio Amado",
+    "slug": "braulio-amado",
+    "x": "@BraulioAmado",
+    "verified": true,
+    "instagram": null,
+    "site": "https://badbadbadbad.com",
+    "note": null
+  },
+  {
+    "name": "James Edmondson",
+    "slug": "james-edmondson",
+    "x": "@OHnoTypeCo",
+    "verified": true,
+    "instagram": "@ohnotypeco",
+    "site": "https://ohnotype.co",
+    "note": null
+  },
+  {
+    "name": "David Rudnick",
+    "slug": "david-rudnick",
+    "x": "@David_Rudnick",
+    "verified": true,
+    "instagram": null,
+    "site": "https://davidrudnick.org",
+    "note": null
+  },
+  {
+    "name": "Hassan Rahim",
+    "slug": "hassan-rahim",
+    "x": "@hassanrahim",
+    "verified": true,
+    "instagram": "@hassanrahim",
+    "site": "https://hassanrahim.com",
+    "note": null
+  },
+  {
+    "name": "Michelle Phillips",
+    "slug": "michelle-phillips",
+    "x": null,
+    "verified": false,
+    "instagram": "@yukiko_michelle",
+    "site": "https://y-u-k-i-k-o.com",
+    "note": "x handle @yukiko_michelle not found"
+  },
+  {
+    "name": "Debora Saveriano",
+    "slug": "debora-saveriano",
+    "x": null,
+    "verified": false,
+    "instagram": "@ouma.cc",
+    "site": "https://www.ouma.cc",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Spiros Kokkonis / NMR",
+    "slug": "spiros-kokkonis",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.nmr.cc",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Charlotte Rohde",
+    "slug": "charlotte-rohde",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.charlotterohde.de",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Giulia Boggio",
+    "slug": "giulia-boggio",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.giuliaboggio.xyz",
+    "note": "x handle @bojjoe not found"
+  },
+  {
+    "name": "Polina Joffe",
+    "slug": "polina-joffe",
+    "x": "@PolinaJoffe",
+    "verified": true,
+    "instagram": null,
+    "site": "https://polinajoffe.com",
+    "note": null
+  },
+  {
+    "name": "Felix Pfäffli",
+    "slug": "felix-pfaeffli",
+    "x": "@StudioFeixen",
+    "verified": true,
+    "instagram": null,
+    "site": "https://studiofeixen.ch",
+    "note": null
+  },
+  {
+    "name": "Manon Prost",
+    "slug": "manon-prost",
+    "x": "@manonanyway",
+    "verified": true,
+    "instagram": "@prost.work",
+    "site": "https://prost.work",
+    "note": "@prost.work is instagram; x is @manonanyway"
+  },
+  {
+    "name": "Aristide Benoist",
+    "slug": "aristide-benoist",
+    "x": "@AristideBenoist",
+    "verified": true,
+    "instagram": null,
+    "site": "https://aristidebenoist.com",
+    "note": null
+  },
+  {
+    "name": "Jana Papiernikova",
+    "slug": "jana-papiernikova",
+    "x": "@j_papiernikova",
+    "verified": true,
+    "instagram": "@jana_papier",
+    "site": "https://www.papier.work",
+    "note": null
+  },
+  {
+    "name": "Gregory Page",
+    "slug": "gregory-page",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://gregory-page.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Nora Valentini / Stanislas Wiart",
+    "slug": "nora-valentini",
+    "x": "@NoraValentini",
+    "verified": true,
+    "instagram": null,
+    "site": "https://valentini-wiart.com",
+    "note": null
+  },
+  {
+    "name": "Callin Mackintosh",
+    "slug": "callin-mackintosh",
+    "x": "@CallinMack",
+    "verified": true,
+    "instagram": null,
+    "site": "https://www.callinmackintosh.com",
+    "note": null
+  },
+  {
+    "name": "Marco Grimaldi",
+    "slug": "marco-grimaldi",
+    "x": "@thenerodesign",
+    "verified": true,
+    "instagram": null,
+    "site": "https://www.thenerodesign.com",
+    "note": null
+  },
+  {
+    "name": "Francesco Corsini",
+    "slug": "francesco-corsini",
+    "x": null,
+    "verified": false,
+    "instagram": "@studiobergini",
+    "site": "https://studiobergini.eu",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Mathias Clottu",
+    "slug": "mathias-clottu",
+    "x": "@mathiasclottu",
+    "verified": true,
+    "instagram": null,
+    "site": "https://www.mathiasclottu.com",
+    "note": null
+  },
+  {
+    "name": "Nate Sullivan",
+    "slug": "nate-sullivan",
+    "x": "@natesulIivan",
+    "verified": true,
+    "instagram": null,
+    "site": "https://natesullivan.xyz",
+    "note": null
+  },
+  {
+    "name": "Heyjack",
+    "slug": "heyjack",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://heyjack.studio",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Patrick Heng",
+    "slug": "patrick-heng",
+    "x": "@Pat_Hg",
+    "verified": true,
+    "instagram": null,
+    "site": "https://patrickheng.com",
+    "note": null
+  },
+  {
+    "name": "Antoine Elsensohn",
+    "slug": "antoine-elsensohn",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.antoineelsensohn.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Claire Huss",
+    "slug": "claire-huss",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.studioclairehuss.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Alexis Taïeb",
+    "slug": "alexis-taieb",
+    "x": null,
+    "verified": false,
+    "instagram": "@studiotyrsa",
+    "site": "https://www.studiotyrsa.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Matthieu Salvaggio",
+    "slug": "matthieu-salvaggio",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://blazetype.eu",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Victor Verhelst",
+    "slug": "victor-verhelst",
+    "x": null,
+    "verified": false,
+    "instagram": "@verhelstvictor",
+    "site": "https://trippyvegas.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Mollie Edgar",
+    "slug": "mollie-edgar",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://mollie-edgar.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Tobey Albright",
+    "slug": "tobey-albright",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://tobeyalbright.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Zoltán Szalay",
+    "slug": "zoltan-szalay",
+    "x": "@_zoltanszalay",
+    "verified": true,
+    "instagram": null,
+    "site": "https://www.behance.net/_zoltanszalay",
+    "note": null
+  },
+  {
+    "name": "David Wise",
+    "slug": "david-wise",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://forthcoming.studio",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Paul Bille",
+    "slug": "paul-bille",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://work.paulbille.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Nick Massarelli",
+    "slug": "nick-massarelli",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://nickmassarelli.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Raoul Audouin",
+    "slug": "raoul-audouin",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://raoulaudouin.fr",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Marie Grønkær / Kristoffer Li / Martin Bek",
+    "slug": "alexis-mark",
+    "x": null,
+    "verified": false,
+    "instagram": "@office.alexismark",
+    "site": "https://www.alexismark.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Maria Mileńko",
+    "slug": "maria-milenko",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://hugmun.studio",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Tomasz Pawluk",
+    "slug": "tomasz-pawluk",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://hugmun.studio",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Tanja Vibe",
+    "slug": "tanja-vibe",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://allthewaytoparis.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Petra Olsson Gendt",
+    "slug": "petra-olsson-gendt",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://allthewaytoparis.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Travis Kochel",
+    "slug": "travis-kochel",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.vectrotype.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Tré Seals",
+    "slug": "tre-seals",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.vocaltype.co",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Lucas Sharp",
+    "slug": "lucas-sharp",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.sharptype.co",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Vincent Chan",
+    "slug": "vincent-chan",
+    "x": null,
+    "verified": false,
+    "instagram": "@matterofsorts",
+    "site": "http://matterofsorts.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Ryan Waller",
+    "slug": "ryan-waller",
+    "x": null,
+    "verified": false,
+    "instagram": "@other_means",
+    "site": "https://www.othermeans.us",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Alex Lin",
+    "slug": "alex-lin",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://studiolin.org",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Jon Key",
+    "slug": "jon-key",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.morcoskey.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Wael Morcos",
+    "slug": "wael-morcos",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.morcoskey.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Artem Matyushkin",
+    "slug": "artem-matyushkin",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.a-r-t-e-m.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Alina Derya Yakaboylu",
+    "slug": "alina-derya",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://alinaderya.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Teddy Blanks",
+    "slug": "teddy-blanks",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://chips.nyc",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Amber Weaver",
+    "slug": "amber-weaver",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://type-01.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Natalia Witwicka",
+    "slug": "natalia-witwicka",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://nataliawitwicka.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Elizabeth Goodspeed",
+    "slug": "elizabeth-goodspeed",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "http://elizabethgoodspeed.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Mathias Lempart",
+    "slug": "mathias-lempart",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://shortnotice.studio",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Sascia Reibel",
+    "slug": "sascia-reibel",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://shortnotice.studio",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Luke Prowse",
+    "slug": "luke-prowse",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.nan.xyz",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Kris Sowersby",
+    "slug": "kris-sowersby",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://klim.co.nz",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Eike König",
+    "slug": "eike-konig",
+    "x": "@hortberlin",
+    "verified": true,
+    "instagram": null,
+    "site": "https://hort.org.uk",
+    "note": null
+  },
+  {
+    "name": "Kirsty Carter",
+    "slug": "kirsty-carter",
+    "x": "@apracticeforeverydaylife",
+    "verified": true,
+    "instagram": null,
+    "site": "https://apracticeforeverydaylife.com",
+    "note": null
+  },
+  {
+    "name": "Zak Kyes",
+    "slug": "zak-kyes",
+    "x": "@zakgroupoffice",
+    "verified": true,
+    "instagram": null,
+    "site": "https://www.zak.group",
+    "note": null
+  },
+  {
+    "name": "Frith Kerr",
+    "slug": "frith-kerr",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://studiofrith.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Eveline Lupien",
+    "slug": "eveline-lupien",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://supersysteme.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Marie-France Gaudet",
+    "slug": "marie-france-gaudet",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://supersysteme.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Bram Broerse",
+    "slug": "bram-broerse",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.studioairport.nl",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "David Keshavjee",
+    "slug": "david-keshavjee",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://maximage.biz",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Lukas Haider",
+    "slug": "lukas-haider",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://lukashaider.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Jas Bell",
+    "slug": "jas-bell",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://leonardochop.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Falco van Burg",
+    "slug": "falco-van-burg",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.thonik.nl",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Rue Yi",
+    "slug": "rue-yi",
+    "x": "@ruebytwo",
+    "verified": true,
+    "instagram": null,
+    "site": "https://rue-yi.com",
+    "note": null
+  },
+  {
+    "name": "Danielle LaRoy",
+    "slug": "danielle-laroy",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.daniellelaroy.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Petr Knoll",
+    "slug": "petr-knoll",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.offmenu.design",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Mike White",
+    "slug": "mike-white",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.studiolowrie.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Tom Finn",
+    "slug": "tom-finn",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://regularpractice.co.uk",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Kristoffer Sølling",
+    "slug": "kristoffer-solling",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://regularpractice.co.uk",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Henrik Olssøn",
+    "slug": "henrik-olsson",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://olssonbarbieri.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Erika Barbieri",
+    "slug": "erika-barbieri",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://olssonbarbieri.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Simon Calvet",
+    "slug": "simon-calvet",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.simoncalvetstudio.fr",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Pierrick Brégeon",
+    "slug": "pierrick-bregeon",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://eurostandard.ch",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Clément Rouzaud",
+    "slug": "clement-rouzaud",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://eurostandard.ch",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "John Clayton Lee",
+    "slug": "john-clayton-lee",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://immanence.studio",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Antoine Menard",
+    "slug": "antoine-menard",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.merci-michel.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Pierre Hagège",
+    "slug": "pierre-hagege",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.merci-michel.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Edan Kwan",
+    "slug": "edan-kwan",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://lusion.co",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Neil Panchal",
+    "slug": "neil-panchal",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://usgraphics.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Joseph Hillenbrand",
+    "slug": "joseph-hillenbrand",
+    "x": "@hillenbrandxyz",
+    "verified": true,
+    "instagram": null,
+    "site": "https://www.hillenbrand.xyz",
+    "note": null
+  },
+  {
+    "name": "Max Bittker",
+    "slug": "max-bittker",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://maxbittker.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Svein Haakon Lia",
+    "slug": "svein-haakon-lia",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://bleed.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Kristian Hjorth Berge",
+    "slug": "kristian-berge",
+    "x": null,
+    "verified": false,
+    "instagram": "@studiobergini",
+    "site": "https://studiobergini.eu",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Johannes Conrad",
+    "slug": "johannes-conrad",
+    "x": null,
+    "verified": false,
+    "instagram": "@johannesconraad",
+    "site": "https://y-u-k-i-k-o.com",
+    "note": "no matching x user found"
+  },
+  {
+    "name": "Pierre Patrault",
+    "slug": "pierre-patrault",
+    "x": null,
+    "verified": false,
+    "instagram": null,
+    "site": "https://www.behance.net/pierrepatrault",
+    "note": "no matching x user found"
+  }
+]
