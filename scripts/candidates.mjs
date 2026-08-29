@@ -70,6 +70,11 @@ const TERMS = {
     ["dawn vapour painting"], ["river in rain painting"],
     ["HABS collapsed barn", "building"], ["HABS weathered porch", "building"],
     ["HABS stone ruin wall", "building"],
+    ["misty forest painting"], ["smoke over water painting"],
+    ["fading light painting"], ["veiled landscape painting"],
+    ["soft rain street painting"], ["haze over lake painting"],
+    ["HABS fire ruin", "building"], ["HABS flood damage", "building"],
+    ["weathered bamboo basket", "object"], ["cracked ceramic jar", "object"],
   ],
   "invincible summer": [
     ["haystacks painting"], ["bathers river painting"],
@@ -168,6 +173,11 @@ const TERMS = {
     ["fuji distant ukiyo-e"], ["empty sea woodblock"],
     ["starry night landscape painting"], ["moon over water painting"],
     ["glacier painting"], ["steppe painting"],
+    ["endless sky painting"], ["open prairie painting"],
+    ["distant mesa painting"], ["antarctic ice painting"],
+    ["empty horizon seascape painting"], ["high altitude mountain painting"],
+    ["HABS lookout tower", "building"], ["HABS desert fort", "building"],
+    ["celestial globe", "object"], ["astrolabe", "object"],
   ],
   "weight and grace": [
     ["ballet rehearsal painting"], ["horse leaping painting"],
