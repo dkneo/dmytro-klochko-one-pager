@@ -38,6 +38,8 @@ const QUERIES = {
   "dissolution": [
     ["fog"], ["mist"], ["twilight"], ["rain"], ["dusk"],
     ["raku", "object"], ["shino", "object"], ["oribe", "object"],
+    ["haze"], ["vapor"], ["smoke"], ["steam"],
+    ["lacquer", "object"], ["weathered", "object"],
   ],
   "invincible summer": [
     ["summer"], ["harvest"], ["sunlight"], ["orchard"], ["wheat"],
@@ -63,6 +65,8 @@ const QUERIES = {
   "vastness": [
     ["mountain"], ["sea"], ["moon"], ["waterfall"], ["horizon"],
     ["desert"], ["canyon"], ["glacier"], ["fuji"],
+    ["prairie"], ["iceberg"], ["stars"], ["mesa"],
+    ["astrolabe", "object"], ["celestial", "object"],
   ],
   "weight and grace": [
     ["dancer"], ["swan"], ["acrobat"], ["crane"], ["horse"], ["ballet"],
