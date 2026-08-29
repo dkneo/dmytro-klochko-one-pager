@@ -2,13 +2,21 @@
 import Layout from "../../layouts/Layout.astro";
 import works from "../../data/eidos.json";
 
-// Thirty-one paintings from the Met's open-access collection, all public
-// domain, chosen for range rather than fame: renaissance to impressionism,
-// woodblock to natural history. Each carries four numbers — how still it is,
-// how much it is about people, how ordered, how lit — and the portrait at
-// the end is only ever the average of the ones you kept.
+// Paintings from the Met's open-access collection, all public domain,
+// chosen for range rather than fame: renaissance to impressionism,
+// woodblock to natural history. Each carries four numbers: how still it is,
+// how much it is about people, how ordered, how lit. The portrait at the
+// end is only ever the average of the ones you kept.
 const title = "the deck · eidos";
 const description = "swipe through paintings, find out what your eye is actually after.";
+const countWords = (n) => {
+  const ones = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
+  const tens = ["","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"];
+  if (n < 20) return ones[n];
+  if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 ? "-" + ones[n % 10] : "");
+  if (n < 200) return "a hundred" + (n % 100 ? " and " + countWords(n % 100) : "");
+  return String(n);
+};
 ---
 
 <Layout title={title} description={description} current="home" unlisted>
@@ -19,7 +27,7 @@ const description = "swipe through paintings, find out what your eye is actually
 
     <p class="lede eidos-lede">
       <em>eidos</em>, the greek for the form of a thing, the shape you
-      recognise it by. seventy-six paintings, one at a time: keep the ones
+      recognise it by. {countWords(works.length)} paintings, one at a time: keep the ones
       that stop you, pass the ones that don't. at the end you get a reading
       of what your eye was actually after.
     </p>

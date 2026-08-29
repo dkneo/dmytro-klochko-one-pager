@@ -758,5 +758,465 @@
   "human": 0,
   "order": 2,
   "light": -2
+ },
+ {
+  "src": "/images/eidos/p01.webp",
+  "artist": "Vincent van Gogh",
+  "title": "Oleanders",
+  "date": "1888",
+  "calm": 1,
+  "human": -2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p02.webp",
+  "artist": "Vincent van Gogh",
+  "title": "Self-Portrait with a Straw Hat",
+  "date": "1887",
+  "calm": 1,
+  "human": 2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p03.webp",
+  "artist": "Vincent van Gogh",
+  "title": "Sunflowers",
+  "date": "1887",
+  "calm": 0,
+  "human": -2,
+  "order": -1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p04.webp",
+  "artist": "Vincent van Gogh",
+  "title": "Shoes",
+  "date": "1888",
+  "calm": 1,
+  "human": -1,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p05.webp",
+  "artist": "Vincent van Gogh",
+  "title": "Irises",
+  "date": "1890",
+  "calm": 1,
+  "human": -2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p06.webp",
+  "artist": "Vincent van Gogh",
+  "title": "First Steps, after Millet",
+  "date": "1890",
+  "calm": 1,
+  "human": 2,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p07.webp",
+  "artist": "Vincent van Gogh",
+  "title": "Cypresses",
+  "date": "1889",
+  "calm": -1,
+  "human": -2,
+  "order": -1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p08.webp",
+  "artist": "Paul Cézanne",
+  "title": "The Gulf of Marseille Seen from L'Estaque",
+  "date": "ca. 1885",
+  "calm": 2,
+  "human": -2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p09.webp",
+  "artist": "Paul Cézanne",
+  "title": "Still Life with Apples and a Pot of Primroses",
+  "date": "ca. 1890",
+  "calm": 2,
+  "human": -2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p10.webp",
+  "artist": "Paul Cézanne",
+  "title": "Mont Sainte-Victoire and the Viaduct of the Arc River Valley",
+  "date": "1882-85",
+  "calm": 2,
+  "human": -2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p11.webp",
+  "artist": "Alfred Sisley",
+  "title": "The Bridge at Villeneuve-la-Garenne",
+  "date": "1872",
+  "calm": 1,
+  "human": 0,
+  "order": 1,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/p12.webp",
+  "artist": "Auguste Renoir",
+  "title": "A Road in Louveciennes",
+  "date": "ca. 1870",
+  "calm": 1,
+  "human": 1,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p13.webp",
+  "artist": "Auguste Renoir",
+  "title": "By the Seashore",
+  "date": "1883",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p14.webp",
+  "artist": "Auguste Renoir",
+  "title": "Two Young Girls at the Piano",
+  "date": "1892",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p15.webp",
+  "artist": "Auguste Renoir",
+  "title": "Madame Georges Charpentier and Her Children",
+  "date": "1878",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p16.webp",
+  "artist": "Camille Pissarro",
+  "title": "The Public Garden at Pontoise",
+  "date": "1874",
+  "calm": 1,
+  "human": 1,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p17.webp",
+  "artist": "Edgar Degas",
+  "title": "Dancers Practicing at the Barre",
+  "date": "1877",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p18.webp",
+  "artist": "Joseph Mallord William Turner",
+  "title": "Venice, from the Porch of Madonna della Salute",
+  "date": "ca. 1835",
+  "calm": 1,
+  "human": 0,
+  "order": 0,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/p19.webp",
+  "artist": "Johannes Vermeer",
+  "title": "Young Woman with a Water Pitcher",
+  "date": "ca. 1662",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p20.webp",
+  "artist": "El Greco",
+  "title": "View of Toledo",
+  "date": "ca. 1599-1600",
+  "calm": -1,
+  "human": -2,
+  "order": 0,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/p21.webp",
+  "artist": "Rembrandt",
+  "title": "Aristotle with a Bust of Homer",
+  "date": "1653",
+  "calm": 2,
+  "human": 2,
+  "order": 1,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/p22.webp",
+  "artist": "Frans Hals",
+  "title": "Merrymakers at Shrovetide",
+  "date": "ca. 1616-17",
+  "calm": -1,
+  "human": 2,
+  "order": 0,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/p23.webp",
+  "artist": "Jean Siméon Chardin",
+  "title": "Soap Bubbles",
+  "date": "ca. 1733-34",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/p24.webp",
+  "artist": "Utagawa Hiroshige",
+  "title": "Sudden Shower over Shin-Ohashi Bridge and Atake",
+  "date": "1857",
+  "calm": 0,
+  "human": 1,
+  "order": 2,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/p25.webp",
+  "artist": "Katsushika Hokusai",
+  "title": "Kajikazawa in Kai Province",
+  "date": "ca. 1830-32",
+  "calm": -1,
+  "human": 1,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p26.webp",
+  "artist": "Katsushika Hokusai",
+  "title": "South Wind, Clear Sky (Red Fuji)",
+  "date": "ca. 1830-32",
+  "calm": 2,
+  "human": -2,
+  "order": 2,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/p27.webp",
+  "artist": "Katsushika Hokusai",
+  "title": "Under the Mannen Bridge at Fukagawa",
+  "date": "ca. 1830-32",
+  "calm": 1,
+  "human": 0,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p28.webp",
+  "artist": "Katsushika Hokusai",
+  "title": "The Inume Pass in Kai Province",
+  "date": "ca. 1830-32",
+  "calm": 1,
+  "human": 0,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p29.webp",
+  "artist": "Honoré Daumier",
+  "title": "The Third-Class Carriage",
+  "date": "1864",
+  "calm": 0,
+  "human": 2,
+  "order": 0,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/p30.webp",
+  "artist": "Jean-François Millet",
+  "title": "Haystacks: Autumn",
+  "date": "ca. 1874",
+  "calm": 1,
+  "human": -1,
+  "order": 1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p31.webp",
+  "artist": "Georges de La Tour",
+  "title": "The Penitent Magdalen",
+  "date": "ca. 1640",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": -2
+ },
+ {
+  "src": "/images/eidos/p32.webp",
+  "artist": "Antoine Watteau",
+  "title": "Mezzetin",
+  "date": "ca. 1718-20",
+  "calm": 0,
+  "human": 2,
+  "order": 1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p33.webp",
+  "artist": "François Boucher",
+  "title": "The Toilette of Venus",
+  "date": "1751",
+  "calm": 0,
+  "human": 2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p34.webp",
+  "artist": "Jacques-Louis David",
+  "title": "The Death of Socrates",
+  "date": "1787",
+  "calm": 0,
+  "human": 2,
+  "order": 2,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/p35.webp",
+  "artist": "Jacob van Ruisdael",
+  "title": "Wheat Fields",
+  "date": "ca. 1670",
+  "calm": 1,
+  "human": -1,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p36.webp",
+  "artist": "Nicolas Poussin",
+  "title": "Blind Orion Searching for the Rising Sun",
+  "date": "1658",
+  "calm": 0,
+  "human": 1,
+  "order": 1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p37.webp",
+  "artist": "Canaletto",
+  "title": "Piazza San Marco",
+  "date": "late 1720s",
+  "calm": 1,
+  "human": 1,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p38.webp",
+  "artist": "Paul Gauguin",
+  "title": "The Siesta",
+  "date": "ca. 1892-94",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p39.webp",
+  "artist": "Thomas Cole",
+  "title": "View from Mount Holyoke (The Oxbow)",
+  "date": "1836",
+  "calm": 1,
+  "human": -2,
+  "order": 0,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p40.webp",
+  "artist": "Thomas Cole",
+  "title": "The Titan's Goblet",
+  "date": "1833",
+  "calm": 2,
+  "human": -2,
+  "order": 2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p41.webp",
+  "artist": "James Tissot",
+  "title": "Tea",
+  "date": "1872",
+  "calm": 1,
+  "human": 2,
+  "order": 2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p42.webp",
+  "artist": "Raimundo de Madrazo y Garreta",
+  "title": "Girls at a Window",
+  "date": "1875",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/p43.webp",
+  "artist": "Gustave Moreau",
+  "title": "Oedipus and the Sphinx",
+  "date": "1864",
+  "calm": 0,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/p44.webp",
+  "artist": "Gustave Courbet",
+  "title": "Woman with a Parrot",
+  "date": "1866",
+  "calm": 0,
+  "human": 2,
+  "order": 0,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/p45.webp",
+  "artist": "unknown",
+  "title": "Women on a Bridge Tossing Fans into a River",
+  "date": "early 17th century",
+  "calm": 1,
+  "human": 1,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p46.webp",
+  "artist": "An Gyeon",
+  "title": "Evening Bell from Mist-Shrouded Temple; Autumn Moon over Lake Dongting",
+  "date": "ca. 1450-1500",
+  "calm": 2,
+  "human": -2,
+  "order": 0,
+  "light": -1
  }
 ]
