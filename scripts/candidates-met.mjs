@@ -164,7 +164,11 @@ for (const weather of weatherOrder) {
       if (!o.isPublicDomain || !o.primaryImageSmall) continue;
       // Met titles sometimes wear catalogue italics (<i>Tsuba</i>). Those
       // tags break the sitting page's JSON payload and the tests that read it.
-      const title = (o.title || "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+      const title = (o.title || "")
+        .replace(/<[^>]+>/g, "")
+        .replace(/[–—]/g, "-")
+        .replace(/\s+/g, " ")
+        .trim();
       if (!title || title.length < 3) continue;
       if (known.has(title.toLowerCase()) || known.has((o.objectURL || "").toLowerCase())) continue;
 
@@ -201,7 +205,7 @@ for (const weather of weatherOrder) {
         type: want,
         who: (o.artistDisplayName || "").trim(),     // empty is honest for an object
         title: title.slice(0, 80),
-        year: (o.objectDate || "").slice(0, 24),
+        year: (o.objectDate || "").replace(/[–—]/g, "-").slice(0, 24),
         remote: o.primaryImageSmall,
         source: o.objectURL,
         licence: "cc0",
