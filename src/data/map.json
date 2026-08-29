@@ -264,8 +264,8 @@
    "url": "",
    "note": "one of the ten skies the site runs on.",
    "added": "2026-08-29",
-   "x": 0.1355,
-   "y": -1.0513,
+   "x": 0.1208,
+   "y": -1.0531,
    "unplaced": true
   },
   {
@@ -281,8 +281,8 @@
    "url": "",
    "note": "the estuary. stands behind taste.",
    "added": "2026-08-18",
-   "x": 0.2689,
-   "y": -1.0253,
+   "x": 0.2401,
+   "y": -1.0325,
    "unplaced": true
   },
   {
@@ -298,8 +298,8 @@
    "url": "",
    "note": "sunflowers. stands behind what came before.",
    "added": "2026-08-18",
-   "x": 0.3978,
-   "y": -0.9825,
+   "x": 0.3562,
+   "y": -0.9984,
    "unplaced": true
   },
   {
@@ -315,8 +315,8 @@
    "url": "",
    "note": "the campfire. stands behind how he works.",
    "added": "2026-08-18",
-   "x": 0.5202,
-   "y": -0.9236,
+   "x": 0.4677,
+   "y": -0.9512,
    "unplaced": true
   },
   {
@@ -332,8 +332,8 @@
    "url": "",
    "note": "the fuji rafts. stands behind replika.",
    "added": "2026-08-18",
-   "x": 0.634,
-   "y": -0.8495,
+   "x": 0.5731,
+   "y": -0.8917,
    "unplaced": true
   },
   {
@@ -349,8 +349,8 @@
    "url": "",
    "note": "the lavender walk. stands behind the camera.",
    "added": "2026-08-18",
-   "x": 0.7374,
-   "y": -0.7615,
+   "x": 0.671,
+   "y": -0.8206,
    "unplaced": true
   },
   {
@@ -366,8 +366,8 @@
    "url": "",
    "note": "a dark courtyard. carries the reading pages.",
    "added": "2026-08-18",
-   "x": 0.8287,
-   "y": -0.6609,
+   "x": 0.7602,
+   "y": -0.7388,
    "unplaced": true
   },
   {
@@ -383,8 +383,8 @@
    "url": "",
    "note": "the snowlit village. stands behind saying hi.",
    "added": "2026-08-18",
-   "x": 0.9065,
-   "y": -0.5495,
+   "x": 0.8394,
+   "y": -0.6473,
    "unplaced": true
   },
   {
@@ -400,8 +400,8 @@
    "url": "",
    "note": "one of his own, taken down to night, for learning.",
    "added": "2026-08-18",
-   "x": 0.9693,
-   "y": -0.4291,
+   "x": 0.9077,
+   "y": -0.5474,
    "unplaced": true
   },
   {
@@ -417,8 +417,8 @@
    "url": "",
    "note": "the swimmer under the orange sun. the opening screen.",
    "added": "2026-08-18",
-   "x": 1.0162,
-   "y": -0.3016,
+   "x": 0.9642,
+   "y": -0.4403,
    "unplaced": true
   },
   {
@@ -876,8 +876,8 @@
    "url": "",
    "note": "From the sequence he paid to have printed when no house would take it. No weather yet.",
    "added": "2026-08-29",
-   "x": 1.0464,
-   "y": -0.1692,
+   "x": 1.0081,
+   "y": -0.3276,
    "unplaced": true
   },
   {
@@ -893,8 +893,8 @@
    "url": "",
    "note": "Six lines, published on their own. No weather yet.",
    "added": "2026-08-29",
-   "x": 1.0595,
-   "y": -0.034,
+   "x": 1.0389,
+   "y": -0.2105,
    "unplaced": true
   },
   {
@@ -978,8 +978,8 @@
    "url": "",
    "note": "From the nursery-rhyme book she wrote for children. No weather yet.",
    "added": "2026-08-29",
-   "x": 1.0551,
-   "y": 0.1018,
+   "x": 1.0561,
+   "y": -0.0907,
    "unplaced": true
   },
   {
@@ -995,8 +995,8 @@
    "url": "",
    "note": "First published in 1891, after her death. No weather yet.",
    "added": "2026-08-29",
-   "x": 1.0334,
-   "y": 0.2359,
+   "x": 1.0596,
+   "y": 0.0303,
    "unplaced": true
   },
   {
@@ -1034,6 +1034,40 @@
    "unplaced": false
   },
   {
+   "id": "john-keats-to-autumn",
+   "type": "poem",
+   "who": "John Keats",
+   "title": "",
+   "line": "Season of mists and mellow fruitfulness,\nClose bosom-friend of the maturing sun;\nConspiring with him how to load and bless\nWith fruit the vines that round the thatch-eves run;\nTo bend with apples the moss'd cottage-trees,\nAnd fill all fruit with ripeness to the core;\nTo swell the gourd, and plump the hazel shells\nWith a sweet kernel; to set budding more,\nAnd still more, later flowers for the bees,\nUntil they think warm days will never cease,\nFor summer has o'er-brimm'd their clammy cells.",
+   "year": "",
+   "where": "1819",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "Opening stanza only. Written September 1819. No weather yet.",
+   "added": "2026-08-29",
+   "x": 1.0492,
+   "y": 0.1509,
+   "unplaced": true
+  },
+  {
+   "id": "percy-bysshe-shelley-ozymandias",
+   "type": "poem",
+   "who": "Percy Bysshe Shelley",
+   "title": "",
+   "line": "I met a traveller from an antique land,\nWho said - \"Two vast and trunkless legs of stone\nStand in the desert. . . . Near them, on the sand,\nHalf sunk a shattered visage lies, whose frown,\nAnd wrinkled lip, and sneer of cold command,\nTell that its sculptor well those passions read\nWhich yet survive, stamped on these lifeless things,\nThe hand that mocked them, and the heart that fed:\nAnd on the pedestal these words appear:\nMy name is Ozymandias, King of Kings;\nLook on my Works, ye Mighty, and despair!\nNothing beside remains. Round the decay\nOf that colossal Wreck, boundless and bare\nThe lone and level sands stretch far away.",
+   "year": "",
+   "where": "1818",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "First published in The Examiner, 1818. No weather yet.",
+   "added": "2026-08-29",
+   "x": 1.0252,
+   "y": 0.2695,
+   "unplaced": true
+  },
+  {
    "id": "rainer-maria-rilke-whoever-has-no-house-now-will-not-build",
    "type": "poem",
    "who": "Rainer Maria Rilke",
@@ -1063,8 +1097,8 @@
    "url": "",
    "note": "Written for his own grave. The lines are cut on his tomb on Mount Vaea. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.9948,
-   "y": 0.3661,
+   "x": 0.9878,
+   "y": 0.3846,
    "unplaced": true
   },
   {
@@ -1080,8 +1114,8 @@
    "url": "",
    "note": "Added in later editions of Leaves of Grass. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.9398,
-   "y": 0.4903,
+   "x": 0.9375,
+   "y": 0.4947,
    "unplaced": true
   },
   {
@@ -1114,8 +1148,8 @@
    "url": "",
    "note": "From the same illuminated book as The Sick Rose. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.8694,
-   "y": 0.6064,
+   "x": 0.875,
+   "y": 0.5983,
    "unplaced": true
   },
   {
@@ -1131,8 +1165,8 @@
    "url": "",
    "note": "Published in the illuminated book he printed at home. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.7847,
-   "y": 0.7126,
+   "x": 0.8011,
+   "y": 0.6942,
    "unplaced": true
   },
   {
@@ -1148,8 +1182,25 @@
    "url": "",
    "note": "The first prelude of The Well-Tempered Clavier, Book I. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.6871,
-   "y": 0.8071,
+   "x": 0.7167,
+   "y": 0.7809,
+   "unplaced": true
+  },
+  {
+   "id": "beethoven-moonlight-sonata",
+   "type": "song",
+   "who": "Ludwig van Beethoven",
+   "title": "Piano Sonata No. 14, Op. 27 No. 2",
+   "line": "Piano Sonata No. 14, Op. 27 No. 2",
+   "year": "1801",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "The Adagio sostenuto. Published 1801. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.6231,
+   "y": 0.8576,
    "unplaced": true
   },
   {
@@ -1199,8 +1250,25 @@
    "url": "",
    "note": "Written in his early twenties, before he left Warsaw for good. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.5783,
-   "y": 0.8884,
+   "x": 0.5212,
+   "y": 0.923,
+   "unplaced": true
+  },
+  {
+   "id": "chopin-prelude-op28-no4",
+   "type": "song",
+   "who": "Frédéric Chopin",
+   "title": "Prelude in E minor, Op. 28 No. 4",
+   "line": "Prelude in E minor, Op. 28 No. 4",
+   "year": "1839",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "From the twenty-four preludes. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.4126,
+   "y": 0.9764,
    "unplaced": true
   },
   {
@@ -1216,8 +1284,8 @@
    "url": "",
    "note": "The third movement of Suite bergamasque, published when he was forty-three. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.4599,
-   "y": 0.955,
+   "x": 0.2986,
+   "y": 1.0171,
    "unplaced": true
   },
   {
@@ -1301,8 +1369,8 @@
    "url": "",
    "note": "From Kinderszenen, written when he was twenty-eight. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.334,
-   "y": 1.006,
+   "x": 0.1808,
+   "y": 1.0445,
    "unplaced": true
   },
   {
@@ -1386,8 +1454,42 @@
    "url": "",
    "note": "",
    "added": "2026-08-29",
-   "x": 0.2026,
-   "y": 1.0405,
+   "x": 0.0605,
+   "y": 1.0583,
+   "unplaced": true
+  },
+  {
+   "id": "heraclitus-you-cannot-step-twice",
+   "type": "quote",
+   "who": "Heraclitus",
+   "title": "",
+   "line": "You cannot step twice into the same river.",
+   "year": "",
+   "where": "fragment, via Plato Cratylus",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "The river saying as it has long been put in English. No weather yet.",
+   "added": "2026-08-29",
+   "x": -0.0605,
+   "y": 1.0583,
+   "unplaced": true
+  },
+  {
+   "id": "horace-carpe-diem",
+   "type": "quote",
+   "who": "Horace",
+   "title": "",
+   "line": "carpe diem, quam minimum credula postero.",
+   "year": "",
+   "where": "Odes 1.11",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-08-29",
+   "x": -0.1808,
+   "y": 1.0445,
    "unplaced": true
   },
   {
@@ -1437,8 +1539,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-29",
-   "x": 0.0679,
-   "y": 1.0578,
+   "x": -0.2986,
+   "y": 1.0171,
    "unplaced": true
   },
   {
@@ -1454,8 +1556,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-29",
-   "x": -0.0679,
-   "y": 1.0578,
+   "x": -0.4126,
+   "y": 0.9764,
    "unplaced": true
   },
   {
@@ -1471,8 +1573,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-29",
-   "x": -0.2026,
-   "y": 1.0405,
+   "x": -0.5212,
+   "y": 0.923,
    "unplaced": true
   },
   {
@@ -1505,8 +1607,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-29",
-   "x": -0.334,
-   "y": 1.006,
+   "x": -0.6231,
+   "y": 0.8576,
    "unplaced": true
   },
   {
@@ -1607,8 +1709,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-29",
-   "x": -0.4599,
-   "y": 0.955,
+   "x": -0.7167,
+   "y": 0.7809,
    "unplaced": true
   },
   {
@@ -1641,8 +1743,8 @@
    "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.5783,
-   "y": 0.8884,
+   "x": -0.8011,
+   "y": 0.6942,
    "unplaced": true
   },
   {
@@ -1658,8 +1760,8 @@
    "url": "https://emilkowal.ski/ui/agents-with-taste",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.6871,
-   "y": 0.8071,
+   "x": -0.875,
+   "y": 0.5983,
    "unplaced": true
   },
   {
@@ -1675,8 +1777,8 @@
    "url": "https://emilkowal.ski/ui/building-a-drawer-component",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.7847,
-   "y": 0.7126,
+   "x": -0.9375,
+   "y": 0.4947,
    "unplaced": true
   },
   {
@@ -1692,8 +1794,8 @@
    "url": "https://emilkowal.ski/ui/building-a-toast-component",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.8694,
-   "y": 0.6064,
+   "x": -0.9878,
+   "y": 0.3846,
    "unplaced": true
   },
   {
@@ -1709,8 +1811,8 @@
    "url": "https://emilkowal.ski/ui/building-an-animation-course",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.9398,
-   "y": 0.4903,
+   "x": -1.0252,
+   "y": 0.2695,
    "unplaced": true
   },
   {
@@ -1726,8 +1828,8 @@
    "url": "https://emilkowal.ski/ui/developing-taste",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.9948,
-   "y": 0.3661,
+   "x": -1.0492,
+   "y": 0.1509,
    "unplaced": true
   },
   {
@@ -1743,8 +1845,8 @@
    "url": "https://emilkowal.ski/ui/friction-as-a-feature",
    "note": "",
    "added": "2026-08-17",
-   "x": -1.0334,
-   "y": 0.2359,
+   "x": -1.0596,
+   "y": 0.0303,
    "unplaced": true
   },
   {
@@ -1760,8 +1862,8 @@
    "url": "https://emilkowal.ski/ui/the-magic-of-clip-path",
    "note": "",
    "added": "2026-08-17",
-   "x": -1.0551,
-   "y": 0.1018,
+   "x": -1.0561,
+   "y": -0.0907,
    "unplaced": true
   },
   {
@@ -1777,8 +1879,8 @@
    "url": "https://emilkowal.ski/ui/train-your-judgement",
    "note": "",
    "added": "2026-08-17",
-   "x": -1.0595,
-   "y": -0.034,
+   "x": -1.0389,
+   "y": -0.2105,
    "unplaced": true
   },
   {
@@ -1794,8 +1896,8 @@
    "url": "https://emilkowal.ski/ui/you-dont-need-animations",
    "note": "",
    "added": "2026-08-17",
-   "x": -1.0464,
-   "y": -0.1692,
+   "x": -1.0081,
+   "y": -0.3276,
    "unplaced": true
   },
   {
@@ -1811,8 +1913,8 @@
    "url": "https://threeui.com",
    "note": "",
    "added": "2026-08-23",
-   "x": -1.0162,
-   "y": -0.3016,
+   "x": -0.9642,
+   "y": -0.4403,
    "unplaced": true
   },
   {
@@ -1828,8 +1930,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.9693,
-   "y": -0.4291,
+   "x": -0.9077,
+   "y": -0.5474,
    "unplaced": true
   },
   {
@@ -1845,8 +1947,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.9065,
-   "y": -0.5495,
+   "x": -0.8394,
+   "y": -0.6473,
    "unplaced": true
   },
   {
@@ -1862,8 +1964,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.8287,
-   "y": -0.6609,
+   "x": -0.7602,
+   "y": -0.7388,
    "unplaced": true
   },
   {
@@ -1879,8 +1981,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.7374,
-   "y": -0.7615,
+   "x": -0.671,
+   "y": -0.8206,
    "unplaced": true
   },
   {
@@ -1896,8 +1998,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.634,
-   "y": -0.8495,
+   "x": -0.5731,
+   "y": -0.8917,
    "unplaced": true
   },
   {
@@ -1913,8 +2015,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.5202,
-   "y": -0.9236,
+   "x": -0.4677,
+   "y": -0.9512,
    "unplaced": true
   },
   {
@@ -1930,8 +2032,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.3978,
-   "y": -0.9825,
+   "x": -0.3562,
+   "y": -0.9984,
    "unplaced": true
   },
   {
@@ -1947,8 +2049,8 @@
    "url": "/writing/english-teacher",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.2689,
-   "y": -1.0253,
+   "x": -0.2401,
+   "y": -1.0325,
    "unplaced": true
   },
   {
@@ -1964,8 +2066,8 @@
    "url": "/writing/staying-human",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.1355,
-   "y": -1.0513,
+   "x": -0.1208,
+   "y": -1.0531,
    "unplaced": true
   }
  ],
@@ -2243,6 +2345,13 @@
    ]
   },
   {
+   "who": "Frédéric Chopin",
+   "ids": [
+    "chopin-nocturne-op-9-no-2",
+    "chopin-prelude-op28-no4"
+   ]
+  },
+  {
    "who": "emil kowalski",
    "ids": [
     "emil-7-practical-animation-tips",
@@ -2258,7 +2367,7 @@
    ]
   }
  ],
- "unplaced": 49,
+ "unplaced": 55,
  "forms": [
   {
    "form": "painting",
@@ -2266,15 +2375,15 @@
   },
   {
    "form": "poem",
-   "n": 16
+   "n": 18
   },
   {
    "form": "song",
-   "n": 12
+   "n": 14
   },
   {
    "form": "quote",
-   "n": 17
+   "n": 19
   },
   {
    "form": "link",
@@ -2312,6 +2421,10 @@
   },
   {
    "who": "Emily Dickinson",
+   "n": 2
+  },
+  {
+   "who": "Frédéric Chopin",
    "n": 2
   },
   {
@@ -2451,10 +2564,6 @@
    "n": 1
   },
   {
-   "who": "Frédéric Chopin",
-   "n": 1
-  },
-  {
    "who": "Frederic Remington",
    "n": 1
   },
@@ -2468,6 +2577,14 @@
   },
   {
    "who": "Henry David Thoreau",
+   "n": 1
+  },
+  {
+   "who": "Heraclitus",
+   "n": 1
+  },
+  {
+   "who": "Horace",
    "n": 1
   },
   {
@@ -2491,6 +2608,10 @@
    "n": 1
   },
   {
+   "who": "John Keats",
+   "n": 1
+  },
+  {
    "who": "Joos de Momper the Younger",
    "n": 1
   },
@@ -2504,6 +2625,10 @@
   },
   {
    "who": "Lucretius",
+   "n": 1
+  },
+  {
+   "who": "Ludwig van Beethoven",
    "n": 1
   },
   {
@@ -2548,6 +2673,10 @@
   },
   {
    "who": "Paul Valéry",
+   "n": 1
+  },
+  {
+   "who": "Percy Bysshe Shelley",
    "n": 1
   },
   {
@@ -2628,8 +2757,8 @@
   }
  ],
  "depth": {
-  "notes": 115,
-  "people": 84,
+  "notes": 121,
+  "people": 89,
   "thinnest": "the plain thing",
   "oneDeep": 0
  }
