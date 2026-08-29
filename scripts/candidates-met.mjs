@@ -155,7 +155,9 @@ for (const weather of weatherOrder) {
       await sleep(OBJ_SLEEP);                           // their servers, respected
 
       if (!o.isPublicDomain || !o.primaryImageSmall) continue;
-      const title = (o.title || "").trim();
+      // Met titles sometimes wear catalogue italics (<i>Tsuba</i>). Those
+      // tags break the sitting page's JSON payload and the tests that read it.
+      const title = (o.title || "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
       if (!title || title.length < 3) continue;
       if (known.has(title.toLowerCase()) || known.has((o.objectURL || "").toLowerCase())) continue;
 
