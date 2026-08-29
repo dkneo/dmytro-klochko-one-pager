@@ -68,6 +68,8 @@ const TERMS = {
     ["mist mountain ukiyo-e"], ["rain bridge ukiyo-e"],
     ["fog woodblock print"], ["sea spray painting"],
     ["dawn vapour painting"], ["river in rain painting"],
+    ["HABS collapsed barn", "building"], ["HABS weathered porch", "building"],
+    ["HABS stone ruin wall", "building"],
   ],
   "invincible summer": [
     ["haystacks painting"], ["bathers river painting"],
