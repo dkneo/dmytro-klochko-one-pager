@@ -264,8 +264,8 @@
    "url": "",
    "note": "one of the ten skies the site runs on.",
    "added": "2026-08-29",
-   "x": 0.158,
-   "y": -1.0482,
+   "x": 0.1355,
+   "y": -1.0513,
    "unplaced": true
   },
   {
@@ -281,8 +281,8 @@
    "url": "",
    "note": "the estuary. stands behind taste.",
    "added": "2026-08-18",
-   "x": 0.3124,
-   "y": -1.0129,
+   "x": 0.2689,
+   "y": -1.0253,
    "unplaced": true
   },
   {
@@ -298,8 +298,8 @@
    "url": "",
    "note": "sunflowers. stands behind what came before.",
    "added": "2026-08-18",
-   "x": 0.4599,
-   "y": -0.955,
+   "x": 0.3978,
+   "y": -0.9825,
    "unplaced": true
   },
   {
@@ -315,8 +315,8 @@
    "url": "",
    "note": "the campfire. stands behind how he works.",
    "added": "2026-08-18",
-   "x": 0.5971,
-   "y": -0.8758,
+   "x": 0.5202,
+   "y": -0.9236,
    "unplaced": true
   },
   {
@@ -332,8 +332,8 @@
    "url": "",
    "note": "the fuji rafts. stands behind replika.",
    "added": "2026-08-18",
-   "x": 0.721,
-   "y": -0.777,
+   "x": 0.634,
+   "y": -0.8495,
    "unplaced": true
   },
   {
@@ -349,8 +349,8 @@
    "url": "",
    "note": "the lavender walk. stands behind the camera.",
    "added": "2026-08-18",
-   "x": 0.8287,
-   "y": -0.6609,
+   "x": 0.7374,
+   "y": -0.7615,
    "unplaced": true
   },
   {
@@ -366,8 +366,8 @@
    "url": "",
    "note": "a dark courtyard. carries the reading pages.",
    "added": "2026-08-18",
-   "x": 0.918,
-   "y": -0.53,
+   "x": 0.8287,
+   "y": -0.6609,
    "unplaced": true
   },
   {
@@ -383,8 +383,8 @@
    "url": "",
    "note": "the snowlit village. stands behind saying hi.",
    "added": "2026-08-18",
-   "x": 0.9867,
-   "y": -0.3873,
+   "x": 0.9065,
+   "y": -0.5495,
    "unplaced": true
   },
   {
@@ -400,8 +400,8 @@
    "url": "",
    "note": "one of his own, taken down to night, for learning.",
    "added": "2026-08-18",
-   "x": 1.0334,
-   "y": -0.2359,
+   "x": 0.9693,
+   "y": -0.4291,
    "unplaced": true
   },
   {
@@ -417,8 +417,8 @@
    "url": "",
    "note": "the swimmer under the orange sun. the opening screen.",
    "added": "2026-08-18",
-   "x": 1.057,
-   "y": -0.0792,
+   "x": 1.0162,
+   "y": -0.3016,
    "unplaced": true
   },
   {
@@ -876,8 +876,8 @@
    "url": "",
    "note": "From the sequence he paid to have printed when no house would take it. No weather yet.",
    "added": "2026-08-29",
-   "x": 1.057,
-   "y": 0.0792,
+   "x": 1.0464,
+   "y": -0.1692,
    "unplaced": true
   },
   {
@@ -893,8 +893,8 @@
    "url": "",
    "note": "Six lines, published on their own. No weather yet.",
    "added": "2026-08-29",
-   "x": 1.0334,
-   "y": 0.2359,
+   "x": 1.0595,
+   "y": -0.034,
    "unplaced": true
   },
   {
@@ -978,8 +978,25 @@
    "url": "",
    "note": "From the nursery-rhyme book she wrote for children. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.9867,
-   "y": 0.3873,
+   "x": 1.0551,
+   "y": 0.1018,
+   "unplaced": true
+  },
+  {
+   "id": "emily-dickinson-hope-is-the-thing-with-feathers",
+   "type": "poem",
+   "who": "Emily Dickinson",
+   "title": "",
+   "line": "Hope\" is the thing with feathers -\nThat perches in the soul -\nAnd sings the tune without the words -\nAnd never stops - at all -\n\nAnd sweetest - in the Gale - is heard -\nAnd sore must be the storm -\nThat could abash the little Bird\nThat kept so many warm -\n\nI've heard it in the chillest land -\nAnd on the strangest Sea -\nYet - never - in Extremity,\nIt asked a crumb - of me.",
+   "year": "",
+   "where": "c. 1861",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "First published in 1891, after her death. No weather yet.",
+   "added": "2026-08-29",
+   "x": 1.0334,
+   "y": 0.2359,
    "unplaced": true
   },
   {
@@ -1034,6 +1051,23 @@
    "unplaced": false
   },
   {
+   "id": "robert-louis-stevenson-requiem",
+   "type": "poem",
+   "who": "Robert Louis Stevenson",
+   "title": "",
+   "line": "Under the wide and starry sky,\nDig the grave and let me lie.\nGlad did I live and gladly die,\nAnd I laid me down with a will.\n\nThis be the verse you grave for me:\nHere he lies where he longed to be;\nHome is the sailor, home from sea,\nAnd the hunter home from the hill.",
+   "year": "",
+   "where": "Underwoods, 1887",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "Written for his own grave. The lines are cut on his tomb on Mount Vaea. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.9948,
+   "y": 0.3661,
+   "unplaced": true
+  },
+  {
    "id": "walt-whitman-a-noiseless-patient-spider",
    "type": "poem",
    "who": "Walt Whitman",
@@ -1046,8 +1080,8 @@
    "url": "",
    "note": "Added in later editions of Leaves of Grass. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.918,
-   "y": 0.53,
+   "x": 0.9398,
+   "y": 0.4903,
    "unplaced": true
   },
   {
@@ -1068,6 +1102,23 @@
    "unplaced": false
   },
   {
+   "id": "william-blake-ah-sun-flower",
+   "type": "poem",
+   "who": "William Blake",
+   "title": "",
+   "line": "Ah Sun-flower! weary of time,\nWho countest the steps of the Sun:\nSeeking after that sweet golden clime\nWhere the travellers journey is done.\n\nWhere the Youth pined away with desire,\nAnd the pale Virgin shrouded in snow:\nArise from their graves and aspire,\nWhere my Sun-flower wishes to go.",
+   "year": "",
+   "where": "Songs of Experience, 1794",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "From the same illuminated book as The Sick Rose. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.8694,
+   "y": 0.6064,
+   "unplaced": true
+  },
+  {
    "id": "william-blake-the-sick-rose",
    "type": "poem",
    "who": "William Blake",
@@ -1080,8 +1131,25 @@
    "url": "",
    "note": "Published in the illuminated book he printed at home. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.8287,
-   "y": 0.6609,
+   "x": 0.7847,
+   "y": 0.7126,
+   "unplaced": true
+  },
+  {
+   "id": "bach-prelude-c-major-wtc",
+   "type": "song",
+   "who": "Johann Sebastian Bach",
+   "title": "Prelude in C major, BWV 846",
+   "line": "Prelude in C major, BWV 846",
+   "year": "1722",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "The first prelude of The Well-Tempered Clavier, Book I. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.6871,
+   "y": 0.8071,
    "unplaced": true
   },
   {
@@ -1131,8 +1199,8 @@
    "url": "",
    "note": "Written in his early twenties, before he left Warsaw for good. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.721,
-   "y": 0.777,
+   "x": 0.5783,
+   "y": 0.8884,
    "unplaced": true
   },
   {
@@ -1148,8 +1216,8 @@
    "url": "",
    "note": "The third movement of Suite bergamasque, published when he was forty-three. No weather yet.",
    "added": "2026-08-29",
-   "x": 0.5971,
-   "y": 0.8758,
+   "x": 0.4599,
+   "y": 0.955,
    "unplaced": true
   },
   {
@@ -1219,6 +1287,23 @@
    "x": -1.0396,
    "y": -0.2956,
    "unplaced": false
+  },
+  {
+   "id": "schumann-traumerei",
+   "type": "song",
+   "who": "Robert Schumann",
+   "title": "Träumerei",
+   "line": "Träumerei",
+   "year": "1838",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "From Kinderszenen, written when he was twenty-eight. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.334,
+   "y": 1.006,
+   "unplaced": true
   },
   {
    "id": "seatbelts-tank",
@@ -1301,8 +1386,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-29",
-   "x": 0.4599,
-   "y": 0.955,
+   "x": 0.2026,
+   "y": 1.0405,
    "unplaced": true
   },
   {
@@ -1352,8 +1437,42 @@
    "url": "",
    "note": "",
    "added": "2026-08-29",
-   "x": 0.3124,
-   "y": 1.0129,
+   "x": 0.0679,
+   "y": 1.0578,
+   "unplaced": true
+  },
+  {
+   "id": "marcus-aurelius-the-universe-is-change",
+   "type": "quote",
+   "who": "Marcus Aurelius",
+   "title": "",
+   "line": "ὁ κόσμος ἀλλοίωσις, ὁ βίος ὑπόληψις.",
+   "year": "",
+   "where": "Meditations, IV.3",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-08-29",
+   "x": -0.0679,
+   "y": 1.0578,
+   "unplaced": true
+  },
+  {
+   "id": "montaigne-que-scay-je",
+   "type": "quote",
+   "who": "Michel de Montaigne",
+   "title": "",
+   "line": "Que sçay-je?",
+   "year": "",
+   "where": "Essais, II.12",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-08-29",
+   "x": -0.2026,
+   "y": 1.0405,
    "unplaced": true
   },
   {
@@ -1386,8 +1505,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-29",
-   "x": 0.158,
-   "y": 1.0482,
+   "x": -0.334,
+   "y": 1.006,
    "unplaced": true
   },
   {
@@ -1488,8 +1607,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-29",
-   "x": 0,
-   "y": 1.06,
+   "x": -0.4599,
+   "y": 0.955,
    "unplaced": true
   },
   {
@@ -1522,8 +1641,8 @@
    "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.158,
-   "y": 1.0482,
+   "x": -0.5783,
+   "y": 0.8884,
    "unplaced": true
   },
   {
@@ -1539,8 +1658,8 @@
    "url": "https://emilkowal.ski/ui/agents-with-taste",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.3124,
-   "y": 1.0129,
+   "x": -0.6871,
+   "y": 0.8071,
    "unplaced": true
   },
   {
@@ -1556,8 +1675,8 @@
    "url": "https://emilkowal.ski/ui/building-a-drawer-component",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.4599,
-   "y": 0.955,
+   "x": -0.7847,
+   "y": 0.7126,
    "unplaced": true
   },
   {
@@ -1573,8 +1692,8 @@
    "url": "https://emilkowal.ski/ui/building-a-toast-component",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.5971,
-   "y": 0.8758,
+   "x": -0.8694,
+   "y": 0.6064,
    "unplaced": true
   },
   {
@@ -1590,8 +1709,8 @@
    "url": "https://emilkowal.ski/ui/building-an-animation-course",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.721,
-   "y": 0.777,
+   "x": -0.9398,
+   "y": 0.4903,
    "unplaced": true
   },
   {
@@ -1607,8 +1726,8 @@
    "url": "https://emilkowal.ski/ui/developing-taste",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.8287,
-   "y": 0.6609,
+   "x": -0.9948,
+   "y": 0.3661,
    "unplaced": true
   },
   {
@@ -1624,8 +1743,8 @@
    "url": "https://emilkowal.ski/ui/friction-as-a-feature",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.918,
-   "y": 0.53,
+   "x": -1.0334,
+   "y": 0.2359,
    "unplaced": true
   },
   {
@@ -1641,8 +1760,8 @@
    "url": "https://emilkowal.ski/ui/the-magic-of-clip-path",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.9867,
-   "y": 0.3873,
+   "x": -1.0551,
+   "y": 0.1018,
    "unplaced": true
   },
   {
@@ -1658,8 +1777,8 @@
    "url": "https://emilkowal.ski/ui/train-your-judgement",
    "note": "",
    "added": "2026-08-17",
-   "x": -1.0334,
-   "y": 0.2359,
+   "x": -1.0595,
+   "y": -0.034,
    "unplaced": true
   },
   {
@@ -1675,8 +1794,8 @@
    "url": "https://emilkowal.ski/ui/you-dont-need-animations",
    "note": "",
    "added": "2026-08-17",
-   "x": -1.057,
-   "y": 0.0792,
+   "x": -1.0464,
+   "y": -0.1692,
    "unplaced": true
   },
   {
@@ -1692,8 +1811,8 @@
    "url": "https://threeui.com",
    "note": "",
    "added": "2026-08-23",
-   "x": -1.057,
-   "y": -0.0792,
+   "x": -1.0162,
+   "y": -0.3016,
    "unplaced": true
   },
   {
@@ -1709,8 +1828,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0334,
-   "y": -0.2359,
+   "x": -0.9693,
+   "y": -0.4291,
    "unplaced": true
   },
   {
@@ -1726,8 +1845,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.9867,
-   "y": -0.3873,
+   "x": -0.9065,
+   "y": -0.5495,
    "unplaced": true
   },
   {
@@ -1743,8 +1862,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.918,
-   "y": -0.53,
+   "x": -0.8287,
+   "y": -0.6609,
    "unplaced": true
   },
   {
@@ -1760,8 +1879,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.8287,
-   "y": -0.6609,
+   "x": -0.7374,
+   "y": -0.7615,
    "unplaced": true
   },
   {
@@ -1777,8 +1896,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.721,
-   "y": -0.777,
+   "x": -0.634,
+   "y": -0.8495,
    "unplaced": true
   },
   {
@@ -1794,8 +1913,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.5971,
-   "y": -0.8758,
+   "x": -0.5202,
+   "y": -0.9236,
    "unplaced": true
   },
   {
@@ -1811,8 +1930,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.4599,
-   "y": -0.955,
+   "x": -0.3978,
+   "y": -0.9825,
    "unplaced": true
   },
   {
@@ -1828,8 +1947,8 @@
    "url": "/writing/english-teacher",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.3124,
-   "y": -1.0129,
+   "x": -0.2689,
+   "y": -1.0253,
    "unplaced": true
   },
   {
@@ -1845,8 +1964,8 @@
    "url": "/writing/staying-human",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.158,
-   "y": -1.0482,
+   "x": -0.1355,
+   "y": -1.0513,
    "unplaced": true
   }
  ],
@@ -2110,6 +2229,20 @@
    ]
   },
   {
+   "who": "Emily Dickinson",
+   "ids": [
+    "emily-dickinson-hope-is-the-thing-with-feathers",
+    "emily-dickinson-to-make-a-prairie-it-takes-a-clover-and"
+   ]
+  },
+  {
+   "who": "William Blake",
+   "ids": [
+    "william-blake-ah-sun-flower",
+    "william-blake-the-sick-rose"
+   ]
+  },
+  {
    "who": "emil kowalski",
    "ids": [
     "emil-7-practical-animation-tips",
@@ -2125,7 +2258,7 @@
    ]
   }
  ],
- "unplaced": 42,
+ "unplaced": 49,
  "forms": [
   {
    "form": "painting",
@@ -2133,15 +2266,15 @@
   },
   {
    "form": "poem",
-   "n": 13
+   "n": 16
   },
   {
    "form": "song",
-   "n": 10
+   "n": 12
   },
   {
    "form": "quote",
-   "n": 15
+   "n": 17
   },
   {
    "form": "link",
@@ -2178,6 +2311,10 @@
    "n": 2
   },
   {
+   "who": "Emily Dickinson",
+   "n": 2
+  },
+  {
    "who": "Hilma af Klint",
    "n": 2
   },
@@ -2195,6 +2332,10 @@
   },
   {
    "who": "Vilhelm Hammershøi",
+   "n": 2
+  },
+  {
+   "who": "William Blake",
    "n": 2
   },
   {
@@ -2298,10 +2439,6 @@
    "n": 1
   },
   {
-   "who": "Emily Dickinson",
-   "n": 1
-  },
-  {
    "who": "Erik Satie",
    "n": 1
   },
@@ -2342,6 +2479,10 @@
    "n": 1
   },
   {
+   "who": "Johann Sebastian Bach",
+   "n": 1
+  },
+  {
    "who": "John Constable",
    "n": 1
   },
@@ -2370,11 +2511,19 @@
    "n": 1
   },
   {
+   "who": "Marcus Aurelius",
+   "n": 1
+  },
+  {
    "who": "Maurice Galbraith Cullen",
    "n": 1
   },
   {
    "who": "meng to",
+   "n": 1
+  },
+  {
+   "who": "Michel de Montaigne",
    "n": 1
   },
   {
@@ -2407,6 +2556,14 @@
   },
   {
    "who": "Ralph Waldo Emerson",
+   "n": 1
+  },
+  {
+   "who": "Robert Louis Stevenson",
+   "n": 1
+  },
+  {
+   "who": "Robert Schumann",
    "n": 1
   },
   {
@@ -2462,10 +2619,6 @@
    "n": 1
   },
   {
-   "who": "William Blake",
-   "n": 1
-  },
-  {
    "who": "William Henry Barnard",
    "n": 1
   },
@@ -2475,8 +2628,8 @@
   }
  ],
  "depth": {
-  "notes": 108,
-  "people": 79,
+  "notes": 115,
+  "people": 84,
   "thinnest": "the plain thing",
   "oneDeep": 0
  }
