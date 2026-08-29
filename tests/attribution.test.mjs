@@ -63,7 +63,7 @@ test("a date is the year, not the machine-readable half beside it", () => {
     ["circa 1850\ndate QS:P571,+1850-00-00T00:00:00Z/9", "c. 1850"],
     ["18th century date QS:P571,+1750", "18th century"],
     ["Autumn 1915 date QS:P", "Autumn 1915"],
-    ["1868–69", "1868–69"],   // a real range survives whole
+    ["1868–69", "1868-69"],   // a real range survives as ascii hyphens
     ["1920 ", "1920"],
     ["ca. 1900", "c. 1900"],   // one abbreviation on the wall, not two
     ["", ""],

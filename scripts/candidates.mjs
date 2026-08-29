@@ -312,6 +312,9 @@ for (const weather of order) {
       // whose title is a catalogue code ("INF3-328 Unity of Strength").
       if (/poster|propaganda|advertis|postcard/i.test(cats)) continue;
       if (/^[A-Z]{2,}[\d-]/.test(title)) continue;
+      // Met dump filenames and Foresman clip-art codes are not sit cards.
+      if (/^MET DP\b/i.test(title)) continue;
+      if (/\(PSF\)\s*$/i.test(title)) continue;
       if (title.length < 3) continue;
       if (kind === "painting" && !who) continue;   // an unattributed painting is not ours to offer
       if (known.has(title.toLowerCase()) || known.has((ii.descriptionurl || "").toLowerCase())) continue;
