@@ -50,8 +50,9 @@ const QUERIES = {
     ["kabuto", "object"],
   ],
   "the dark and the lamp": [
-    ["nocturne"], ["night"], ["candle"], ["moon"],
+    ["nocturne"], ["night"], ["candle"], ["moon"], ["ember"], ["shadow"],
     ["candlestick", "object"], ["lantern", "object"], ["lamp", "object"],
+    ["torch", "object"], ["censer", "object"],
   ],
   "the plain thing": [
     ["bowl", "object"], ["chair", "object"], ["teapot", "object"], ["vessel", "object"],
@@ -64,8 +65,10 @@ const QUERIES = {
     ["desert"], ["canyon"], ["glacier"], ["fuji"],
   ],
   "weight and grace": [
-    ["dancer"], ["swan"], ["acrobat"], ["crane"], ["horse"],
+    ["dancer"], ["swan"], ["acrobat"], ["crane"], ["horse"], ["ballet"],
+    ["leap"], ["flight"],
     ["netsuke", "object"], ["drapery"], ["kimono", "object"], ["inro", "object"],
+    ["obi", "object"], ["silk", "object"],
   ],
 };
 
