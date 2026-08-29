@@ -1,5 +1,5 @@
 {
- "built": "2026-08-26",
+ "built": "2026-08-29",
  "axes": {
   "x": {
    "from": "cold",
@@ -252,6 +252,23 @@
    "unplaced": true
   },
   {
+   "id": "his-ember",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "ember",
+   "line": "ember",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/ember.webp",
+   "url": "",
+   "note": "one of the ten skies the site runs on.",
+   "added": "2026-08-29",
+   "x": 0.158,
+   "y": -1.0482,
+   "unplaced": true
+  },
+  {
    "id": "his-estuary",
    "type": "painting",
    "who": "Dmytro Klochko",
@@ -264,8 +281,8 @@
    "url": "",
    "note": "the estuary. stands behind taste.",
    "added": "2026-08-18",
-   "x": 0.2204,
-   "y": -1.0368,
+   "x": 0.3124,
+   "y": -1.0129,
    "unplaced": true
   },
   {
@@ -281,8 +298,8 @@
    "url": "",
    "note": "sunflowers. stands behind what came before.",
    "added": "2026-08-18",
-   "x": 0.4311,
-   "y": -0.9684,
+   "x": 0.4599,
+   "y": -0.955,
    "unplaced": true
   },
   {
@@ -298,8 +315,8 @@
    "url": "",
    "note": "the campfire. stands behind how he works.",
    "added": "2026-08-18",
-   "x": 0.6231,
-   "y": -0.8576,
+   "x": 0.5971,
+   "y": -0.8758,
    "unplaced": true
   },
   {
@@ -315,8 +332,8 @@
    "url": "",
    "note": "the fuji rafts. stands behind replika.",
    "added": "2026-08-18",
-   "x": 0.7877,
-   "y": -0.7093,
+   "x": 0.721,
+   "y": -0.777,
    "unplaced": true
   },
   {
@@ -332,8 +349,8 @@
    "url": "",
    "note": "the lavender walk. stands behind the camera.",
    "added": "2026-08-18",
-   "x": 0.918,
-   "y": -0.53,
+   "x": 0.8287,
+   "y": -0.6609,
    "unplaced": true
   },
   {
@@ -349,8 +366,8 @@
    "url": "",
    "note": "a dark courtyard. carries the reading pages.",
    "added": "2026-08-18",
-   "x": 1.0081,
-   "y": -0.3276,
+   "x": 0.918,
+   "y": -0.53,
    "unplaced": true
   },
   {
@@ -366,8 +383,8 @@
    "url": "",
    "note": "the snowlit village. stands behind saying hi.",
    "added": "2026-08-18",
-   "x": 1.0542,
-   "y": -0.1108,
+   "x": 0.9867,
+   "y": -0.3873,
    "unplaced": true
   },
   {
@@ -383,8 +400,8 @@
    "url": "",
    "note": "one of his own, taken down to night, for learning.",
    "added": "2026-08-18",
-   "x": 1.0542,
-   "y": 0.1108,
+   "x": 1.0334,
+   "y": -0.2359,
    "unplaced": true
   },
   {
@@ -400,8 +417,8 @@
    "url": "",
    "note": "the swimmer under the orange sun. the opening screen.",
    "added": "2026-08-18",
-   "x": 1.0081,
-   "y": 0.3276,
+   "x": 1.057,
+   "y": -0.0792,
    "unplaced": true
   },
   {
@@ -847,6 +864,40 @@
    "unplaced": false
   },
   {
+   "id": "a-e-housman-into-my-heart-an-air-that-kills",
+   "type": "poem",
+   "who": "A. E. Housman",
+   "title": "",
+   "line": "Into my heart an air that kills\nFrom yon far country blows:\nWhat are those blue remembered hills,\nWhat spires, what farms are those?\n\nThat is the land of lost content,\nI see it shining plain,\nThe happy highways where I went\nAnd cannot come again.",
+   "year": "",
+   "where": "A Shropshire Lad, XL, 1896",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "From the sequence he paid to have printed when no house would take it. No weather yet.",
+   "added": "2026-08-29",
+   "x": 1.057,
+   "y": 0.0792,
+   "unplaced": true
+  },
+  {
+   "id": "alfred-tennyson-the-eagle",
+   "type": "poem",
+   "who": "Alfred Tennyson",
+   "title": "",
+   "line": "He clasps the crag with crooked hands;\nClose to the sun in lonely lands,\nRing'd with the azure world, he stands.\n\nThe wrinkled sea beneath him crawls;\nHe watches from his mountain walls,\nAnd like a thunderbolt he falls.",
+   "year": "",
+   "where": "1851",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "Six lines, published on their own. No weather yet.",
+   "added": "2026-08-29",
+   "x": 1.0334,
+   "y": 0.2359,
+   "unplaced": true
+  },
+  {
    "id": "attributed-to-sappho-the-moon-has-set-and-the-pleiades-it-i",
    "type": "poem",
    "who": "attributed to Sappho",
@@ -915,6 +966,23 @@
    "unplaced": false
   },
   {
+   "id": "christina-rossetti-who-has-seen-the-wind",
+   "type": "poem",
+   "who": "Christina Rossetti",
+   "title": "",
+   "line": "Who has seen the wind?\nNeither I nor you:\nBut when the leaves hang trembling,\nThe wind is passing through.\n\nWho has seen the wind?\nNeither you nor I:\nBut when the trees bow down their heads,\nThe wind is passing by.",
+   "year": "",
+   "where": "Sing-Song, 1872",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "From the nursery-rhyme book she wrote for children. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.9867,
+   "y": 0.3873,
+   "unplaced": true
+  },
+  {
    "id": "emily-dickinson-to-make-a-prairie-it-takes-a-clover-and",
    "type": "poem",
    "who": "Emily Dickinson",
@@ -966,6 +1034,23 @@
    "unplaced": false
   },
   {
+   "id": "walt-whitman-a-noiseless-patient-spider",
+   "type": "poem",
+   "who": "Walt Whitman",
+   "title": "",
+   "line": "A noiseless patient spider,\nI mark'd where on a little promontory it stood isolated,\nMark'd how to explore the vacant vast surrounding,\nIt launch'd forth filament, filament, filament, out of itself,\nEver unreeling them, ever tirelessly speeding them.\n\nAnd you O my soul where you stand,\nSurrounded, detached, in measureless oceans of space,\nCeaselessly musing, venturing, throwing, seeking the spheres to connect them,\nTill the bridge you will need be form'd, till the ductile anchor hold,\nTill the gossamer thread you fling catch somewhere, O my soul.",
+   "year": "",
+   "where": "Leaves of Grass, 1868-81",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "Added in later editions of Leaves of Grass. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.918,
+   "y": 0.53,
+   "unplaced": true
+  },
+  {
    "id": "wang-wei-empty-mountain-no-one-in-sight-only-t",
    "type": "poem",
    "who": "Wang Wei",
@@ -981,6 +1066,23 @@
    "x": -0.4796,
    "y": 0.9119,
    "unplaced": false
+  },
+  {
+   "id": "william-blake-the-sick-rose",
+   "type": "poem",
+   "who": "William Blake",
+   "title": "",
+   "line": "O Rose thou art sick.\nThe invisible worm,\nThat flies in the night\nIn the howling storm:\n\nHas found out thy bed\nOf crimson joy:\nAnd his dark secret love\nDoes thy life destroy.",
+   "year": "",
+   "where": "Songs of Experience, 1794",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "Published in the illuminated book he printed at home. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.8287,
+   "y": 0.6609,
+   "unplaced": true
   },
   {
    "id": "bill-evans-peace-piece",
@@ -1015,6 +1117,40 @@
    "x": 0.1118,
    "y": -0.7772,
    "unplaced": false
+  },
+  {
+   "id": "chopin-nocturne-op-9-no-2",
+   "type": "song",
+   "who": "Frédéric Chopin",
+   "title": "Nocturne in E-flat major, Op. 9 No. 2",
+   "line": "Nocturne in E-flat major, Op. 9 No. 2",
+   "year": "1830-32",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "Written in his early twenties, before he left Warsaw for good. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.721,
+   "y": 0.777,
+   "unplaced": true
+  },
+  {
+   "id": "debussy-clair-de-lune",
+   "type": "song",
+   "who": "Claude Debussy",
+   "title": "Clair de lune",
+   "line": "Clair de lune",
+   "year": "1905",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "The third movement of Suite bergamasque, published when he was forty-three. No weather yet.",
+   "added": "2026-08-29",
+   "x": 0.5971,
+   "y": 0.8758,
+   "unplaced": true
   },
   {
    "id": "eno-an-ending",
@@ -1153,6 +1289,23 @@
    "unplaced": false
   },
   {
+   "id": "emerson-beauty-is-its-own-excuse-for-being",
+   "type": "quote",
+   "who": "Ralph Waldo Emerson",
+   "title": "",
+   "line": "Beauty is its own excuse for being.",
+   "year": "",
+   "where": "The Rhodora, 1839",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-08-29",
+   "x": 0.4599,
+   "y": 0.955,
+   "unplaced": true
+  },
+  {
    "id": "jorge-luis-borges-let-others-boast-of-the-pages-they-have",
    "type": "quote",
    "who": "Jorge Luis Borges",
@@ -1187,6 +1340,23 @@
    "unplaced": false
   },
   {
+   "id": "lucretius-e-tenebris-tantis-tam-clarum",
+   "type": "quote",
+   "who": "Lucretius",
+   "title": "",
+   "line": "E tenebris tantis tam clarum extollere lumen",
+   "year": "",
+   "where": "De Rerum Natura, III.1",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-08-29",
+   "x": 0.3124,
+   "y": 1.0129,
+   "unplaced": true
+  },
+  {
    "id": "ovid-a-drop-hollows-the-stone-a-ring-is-worn",
    "type": "quote",
    "who": "Ovid",
@@ -1202,6 +1372,23 @@
    "x": -0.204,
    "y": -1.0453,
    "unplaced": false
+  },
+  {
+   "id": "pascal-le-silence-eternel-de-ces-espaces",
+   "type": "quote",
+   "who": "Blaise Pascal",
+   "title": "",
+   "line": "Le silence éternel de ces espaces infinis m'effraie.",
+   "year": "",
+   "where": "Pensées, fragment 206 (Brunschvicg)",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-08-29",
+   "x": 0.158,
+   "y": 1.0482,
+   "unplaced": true
   },
   {
    "id": "paul-graham-startups-take-off-because-founders",
@@ -1289,6 +1476,23 @@
    "unplaced": false
   },
   {
+   "id": "thoreau-the-mass-of-men-lead-lives-of-quiet",
+   "type": "quote",
+   "who": "Henry David Thoreau",
+   "title": "",
+   "line": "The mass of men lead lives of quiet desperation.",
+   "year": "",
+   "where": "Walden, 1854",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-08-29",
+   "x": 0,
+   "y": 1.06,
+   "unplaced": true
+  },
+  {
    "id": "virgil-perhaps-one-day-it-will-be-a-pleasure-to",
    "type": "quote",
    "who": "Virgil",
@@ -1318,8 +1522,8 @@
    "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.918,
-   "y": 0.53,
+   "x": -0.158,
+   "y": 1.0482,
    "unplaced": true
   },
   {
@@ -1335,8 +1539,8 @@
    "url": "https://emilkowal.ski/ui/agents-with-taste",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.7877,
-   "y": 0.7093,
+   "x": -0.3124,
+   "y": 1.0129,
    "unplaced": true
   },
   {
@@ -1352,8 +1556,8 @@
    "url": "https://emilkowal.ski/ui/building-a-drawer-component",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.6231,
-   "y": 0.8576,
+   "x": -0.4599,
+   "y": 0.955,
    "unplaced": true
   },
   {
@@ -1369,8 +1573,8 @@
    "url": "https://emilkowal.ski/ui/building-a-toast-component",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.4311,
-   "y": 0.9684,
+   "x": -0.5971,
+   "y": 0.8758,
    "unplaced": true
   },
   {
@@ -1386,8 +1590,8 @@
    "url": "https://emilkowal.ski/ui/building-an-animation-course",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.2204,
-   "y": 1.0368,
+   "x": -0.721,
+   "y": 0.777,
    "unplaced": true
   },
   {
@@ -1403,8 +1607,8 @@
    "url": "https://emilkowal.ski/ui/developing-taste",
    "note": "",
    "added": "2026-08-17",
-   "x": 0,
-   "y": 1.06,
+   "x": -0.8287,
+   "y": 0.6609,
    "unplaced": true
   },
   {
@@ -1420,8 +1624,8 @@
    "url": "https://emilkowal.ski/ui/friction-as-a-feature",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.2204,
-   "y": 1.0368,
+   "x": -0.918,
+   "y": 0.53,
    "unplaced": true
   },
   {
@@ -1437,8 +1641,8 @@
    "url": "https://emilkowal.ski/ui/the-magic-of-clip-path",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.4311,
-   "y": 0.9684,
+   "x": -0.9867,
+   "y": 0.3873,
    "unplaced": true
   },
   {
@@ -1454,8 +1658,8 @@
    "url": "https://emilkowal.ski/ui/train-your-judgement",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.6231,
-   "y": 0.8576,
+   "x": -1.0334,
+   "y": 0.2359,
    "unplaced": true
   },
   {
@@ -1471,8 +1675,8 @@
    "url": "https://emilkowal.ski/ui/you-dont-need-animations",
    "note": "",
    "added": "2026-08-17",
-   "x": -0.7877,
-   "y": 0.7093,
+   "x": -1.057,
+   "y": 0.0792,
    "unplaced": true
   },
   {
@@ -1488,8 +1692,8 @@
    "url": "https://threeui.com",
    "note": "",
    "added": "2026-08-23",
-   "x": -0.918,
-   "y": 0.53,
+   "x": -1.057,
+   "y": -0.0792,
    "unplaced": true
   },
   {
@@ -1505,8 +1709,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0081,
-   "y": 0.3276,
+   "x": -1.0334,
+   "y": -0.2359,
    "unplaced": true
   },
   {
@@ -1522,8 +1726,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0542,
-   "y": 0.1108,
+   "x": -0.9867,
+   "y": -0.3873,
    "unplaced": true
   },
   {
@@ -1539,8 +1743,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0542,
-   "y": -0.1108,
+   "x": -0.918,
+   "y": -0.53,
    "unplaced": true
   },
   {
@@ -1556,8 +1760,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0081,
-   "y": -0.3276,
+   "x": -0.8287,
+   "y": -0.6609,
    "unplaced": true
   },
   {
@@ -1573,8 +1777,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.918,
-   "y": -0.53,
+   "x": -0.721,
+   "y": -0.777,
    "unplaced": true
   },
   {
@@ -1590,8 +1794,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.7877,
-   "y": -0.7093,
+   "x": -0.5971,
+   "y": -0.8758,
    "unplaced": true
   },
   {
@@ -1607,8 +1811,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.6231,
-   "y": -0.8576,
+   "x": -0.4599,
+   "y": -0.955,
    "unplaced": true
   },
   {
@@ -1624,8 +1828,8 @@
    "url": "/writing/english-teacher",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.4311,
-   "y": -0.9684,
+   "x": -0.3124,
+   "y": -1.0129,
    "unplaced": true
   },
   {
@@ -1641,8 +1845,8 @@
    "url": "/writing/staying-human",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.2204,
-   "y": -1.0368,
+   "x": -0.158,
+   "y": -1.0482,
    "unplaced": true
   }
  ],
@@ -1921,23 +2125,23 @@
    ]
   }
  ],
- "unplaced": 30,
+ "unplaced": 42,
  "forms": [
   {
    "form": "painting",
-   "n": 49
+   "n": 50
   },
   {
    "form": "poem",
-   "n": 8
+   "n": 13
   },
   {
    "form": "song",
-   "n": 8
+   "n": 10
   },
   {
    "form": "quote",
-   "n": 11
+   "n": 15
   },
   {
    "form": "link",
@@ -1955,7 +2159,7 @@
  "people": [
   {
    "who": "Dmytro Klochko",
-   "n": 12
+   "n": 13
   },
   {
    "who": "emil kowalski",
@@ -1994,11 +2198,19 @@
    "n": 2
   },
   {
+   "who": "A. E. Housman",
+   "n": 1
+  },
+  {
    "who": "akira kurosawa",
    "n": 1
   },
   {
    "who": "Albert Camus",
+   "n": 1
+  },
+  {
+   "who": "Alfred Tennyson",
    "n": 1
   },
   {
@@ -2015,6 +2227,10 @@
   },
   {
    "who": "Bill Evans",
+   "n": 1
+  },
+  {
+   "who": "Blaise Pascal",
    "n": 1
   },
   {
@@ -2050,7 +2266,15 @@
    "n": 1
   },
   {
+   "who": "Christina Rossetti",
+   "n": 1
+  },
+  {
    "who": "Cicero",
+   "n": 1
+  },
+  {
+   "who": "Claude Debussy",
    "n": 1
   },
   {
@@ -2090,6 +2314,10 @@
    "n": 1
   },
   {
+   "who": "Frédéric Chopin",
+   "n": 1
+  },
+  {
    "who": "Frederic Remington",
    "n": 1
   },
@@ -2099,6 +2327,10 @@
   },
   {
    "who": "Hendrick Dubbels",
+   "n": 1
+  },
+  {
+   "who": "Henry David Thoreau",
    "n": 1
   },
   {
@@ -2127,6 +2359,10 @@
   },
   {
    "who": "Katsushika Hokusai",
+   "n": 1
+  },
+  {
+   "who": "Lucretius",
    "n": 1
   },
   {
@@ -2167,6 +2403,10 @@
   },
   {
    "who": "Rainer Maria Rilke",
+   "n": 1
+  },
+  {
+   "who": "Ralph Waldo Emerson",
    "n": 1
   },
   {
@@ -2214,7 +2454,15 @@
    "n": 1
   },
   {
+   "who": "Walt Whitman",
+   "n": 1
+  },
+  {
    "who": "Wang Wei",
+   "n": 1
+  },
+  {
+   "who": "William Blake",
    "n": 1
   },
   {
@@ -2227,8 +2475,8 @@
   }
  ],
  "depth": {
-  "notes": 96,
-  "people": 68,
+  "notes": 108,
+  "people": 79,
   "thinnest": "the plain thing",
   "oneDeep": 0
  }
