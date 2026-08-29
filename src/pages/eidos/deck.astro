@@ -132,7 +132,7 @@ const countWords = (n) => {
 
       const paint = () => {
         // Only three cards are ever mounted: the one you are looking at and
-        // the two behind it, so a deck of thirty-one costs three images.
+        // the two behind it, so a long deck still costs three images.
         cards.forEach((c) => { c.hidden = true; c.style.transform = ""; c.classList.remove("is-top"); });
         for (let k = 0; k < 3 && at + k < order.length; k++) {
           const c = cards[order[at + k]];
@@ -288,7 +288,7 @@ const countWords = (n) => {
         read.innerHTML = "";
         if (!kept.length) {
           const p = document.createElement("p");
-          p.textContent = "thirty-one paintings and not one of them stopped you. either the set is wrong or you were never really looking — both are worth knowing.";
+          p.textContent = `${order.length} paintings and not one of them stopped you. either the set is wrong or you were never really looking. both are worth knowing.`;
           read.appendChild(p);
         } else {
           for (const l of lines) {
@@ -299,7 +299,7 @@ const countWords = (n) => {
           const p = document.createElement("p");
           p.className = "eidos-tally";
           p.textContent = `you kept ${kept.length} of ${order.length}` +
-            (top3.length ? ` — most often ${top3.join(", ")}.` : ".");
+            (top3.length ? `, most often ${top3.join(", ")}.` : ".");
           read.appendChild(p);
         }
 
