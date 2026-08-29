@@ -1218,5 +1218,245 @@
   "human": -2,
   "order": 0,
   "light": -1
+ },
+ {
+  "src": "/images/eidos/p47.webp",
+  "artist": "Edgar Degas",
+  "title": "A Woman Seated beside a Vase of Flowers",
+  "date": "1865",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p48.webp",
+  "artist": "Camille Pissarro",
+  "title": "Steamboats in the Port of Rouen",
+  "date": "1896",
+  "calm": 1,
+  "human": 0,
+  "order": 0,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p49.webp",
+  "artist": "Johannes Vermeer",
+  "title": "Allegory of the Catholic Faith",
+  "date": "ca. 1670-72",
+  "calm": 1,
+  "human": 1,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p50.webp",
+  "artist": "John Singer Sargent",
+  "title": "Landscape with Palmettos",
+  "date": "1917",
+  "calm": 2,
+  "human": -1,
+  "order": 0,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/p51.webp",
+  "artist": "Utagawa Hiroshige",
+  "title": "Hiratsuka; Nawate Road",
+  "date": "ca. 1834",
+  "calm": 1,
+  "human": 1,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p52.webp",
+  "artist": "Mihály Munkácsy",
+  "title": "The Music Room",
+  "date": "1878",
+  "calm": 1,
+  "human": 2,
+  "order": 1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p53.webp",
+  "artist": "Paul Cézanne",
+  "title": "Antoine Dominique Sauveur Aubert, the Artist's Uncle",
+  "date": "1866",
+  "calm": 0,
+  "human": 2,
+  "order": 1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p54.webp",
+  "artist": "Winslow Homer",
+  "title": "Channel Bass",
+  "date": "1904",
+  "calm": 2,
+  "human": -2,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p55.webp",
+  "artist": "Jacques-Louis David",
+  "title": "Antoine Laurent Lavoisier and Marie Anne Lavoisier",
+  "date": "1788",
+  "calm": 1,
+  "human": 2,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p56.webp",
+  "artist": "Botticelli",
+  "title": "The Last Communion of Saint Jerome",
+  "date": "early 1490s",
+  "calm": 1,
+  "human": 2,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p57.webp",
+  "artist": "Francesco Guardi",
+  "title": "Venice: The Dogana and Santa Maria della Salute",
+  "date": "ca. 1770",
+  "calm": 1,
+  "human": 0,
+  "order": 1,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/p58.webp",
+  "artist": "Joshua Reynolds",
+  "title": "Captain George K. H. Coussmaker",
+  "date": "1782",
+  "calm": 0,
+  "human": 2,
+  "order": 1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p59.webp",
+  "artist": "John Singer Sargent",
+  "title": "Mountain Torrent",
+  "date": "ca. 1910",
+  "calm": 1,
+  "human": -1,
+  "order": 0,
+  "light": 2
+ },
+ {
+  "src": "/images/eidos/p60.webp",
+  "artist": "Edouard Manet",
+  "title": "The Spanish Singer",
+  "date": "1860",
+  "calm": 0,
+  "human": 2,
+  "order": 1,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p61.webp",
+  "artist": "Master of the Castello Nativity",
+  "title": "Portrait of a Woman",
+  "date": "probably 1450s",
+  "calm": 2,
+  "human": 2,
+  "order": 2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p62.webp",
+  "artist": "Katsushika Hokusai",
+  "title": "Roben Waterfall at Oyama in Sagami Province",
+  "date": "ca. 1827",
+  "calm": 0,
+  "human": 1,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p63.webp",
+  "artist": "Katsushika Hokusai",
+  "title": "Noboto Bay",
+  "date": "ca. 1830-32",
+  "calm": 1,
+  "human": 1,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p64.webp",
+  "artist": "Wen Zhengming",
+  "title": "Garden of the Inept Administrator",
+  "date": "1551",
+  "calm": 2,
+  "human": 1,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p65.webp",
+  "artist": "Bakhta",
+  "title": "Equestrian Portrait of a Noble",
+  "date": "ca. 1775",
+  "calm": 0,
+  "human": 1,
+  "order": 1,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p66.webp",
+  "artist": "Nicolas Poussin",
+  "title": "Saints Peter and John Healing the Lame Man",
+  "date": "1655",
+  "calm": 0,
+  "human": 2,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p67.webp",
+  "artist": "Jacometto",
+  "title": "Portrait of Alvise Contarini",
+  "date": "ca. 1485-95",
+  "calm": 1,
+  "human": 2,
+  "order": 2,
+  "light": 1
+ },
+ {
+  "src": "/images/eidos/p68.webp",
+  "artist": "Cima da Conegliano",
+  "title": "Three Saints: Roch, Anthony Abbot, and Lucy",
+  "date": "ca. 1513",
+  "calm": 1,
+  "human": 2,
+  "order": 2,
+  "light": 0
+ },
+ {
+  "src": "/images/eidos/p69.webp",
+  "artist": "Thomas Eakins",
+  "title": "The Gross Clinic",
+  "date": "1875-76",
+  "calm": -1,
+  "human": 2,
+  "order": 1,
+  "light": -1
+ },
+ {
+  "src": "/images/eidos/p70.webp",
+  "artist": "Jan Cornelisz Vermeyen",
+  "title": "Portrait of a Man with a Rosary",
+  "date": "1545",
+  "calm": 1,
+  "human": 2,
+  "order": 2,
+  "light": 0
  }
 ]
