@@ -95,8 +95,36 @@
   transition: background var(--dur) var(--ease);
 }
 
+/* The line that is holding the picture should look like it, and the line
+   under the pointer should look different from it. Until now the whole
+   signal was a 7px bead and a shift from --quiet to --bone: on a road of
+   nine entries you could not tell, at a glance, which one the easel was
+   answering. So the row itself lights.
+   Two weights, deliberately unequal — hover is a whisper at 5.5% bone,
+   shown is a statement at 14% hot. Equal weights and the pointer cannot be
+   told apart from the choice. The negative margin lets the light bleed past
+   the text without moving it. */
 [data-mode="dream"] .log--journey li[data-easel] {
   cursor: pointer;
+  margin-inline: -0.8rem;
+  padding: 0.42rem 0.8rem calc(var(--sp-2) - 0.1rem);
+  border-radius: 9px;
+  transition: background-color 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .log--journey li[data-easel]:hover {
+    background: color-mix(in srgb, var(--bone) 5.5%, transparent);
+  }
+}
+
+[data-mode="dream"] .log--journey li[data-easel].is-shown {
+  background: color-mix(in srgb, var(--hot) 14%, transparent);
+}
+
+/* gentler, not absent: the shown row must still look shown. */
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .log--journey li[data-easel] { transition: none; }
 }
 
 [data-mode="dream"] .log--journey li[data-easel]::before {
@@ -4866,12 +4894,47 @@ html[data-motion="paused"] .scenes .firelight {
    the date and the mark give the eye an edge to run down; everything that
    varies in length sits in the one flexible column. */
 [data-mode="dream"] .pr-row {
+  position: relative;
   display: grid;
   grid-template-columns: 6.5rem 8.5rem minmax(0, 1fr) 5.5rem;
   gap: 0 1.4rem;
   align-items: baseline;
-  padding: var(--sp-3) 0;
+  margin-inline: -0.9rem;
+  padding: var(--sp-3) 0.9rem;
   border-top: 1px solid rgb(236 230 217 / 16%);
+  border-radius: 4px;
+  transition: background-color 160ms ease;
+}
+
+/* The whole row is the target. The click used to be one line of title text
+   adrift in a very wide row, with three empty columns beside it that looked
+   pressable and were not. The title's link is stretched over the row, so the
+   highlight is telling the truth about what it will open. */
+[data-mode="dream"] .pr-title::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* everything else that is its own link has to stay above that sheet */
+[data-mode="dream"] .pr-meta a,
+[data-mode="dream"] .pr-row .pr-what a {
+  position: relative;
+  z-index: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .pr-row:hover {
+    background: color-mix(in srgb, var(--bone) 5.5%, transparent);
+  }
+}
+
+[data-mode="dream"] .pr-row:focus-within {
+  background: color-mix(in srgb, var(--hot) 10%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .pr-row { transition: none; }
 }
 
 [data-mode="dream"] .pr-when {
