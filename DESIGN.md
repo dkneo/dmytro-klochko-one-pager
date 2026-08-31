@@ -93,13 +93,31 @@ typography:
     art-cell-sm: "0.55rem"
     art-cell-lg: "1.05rem"
 spacing:
+  # Two rungs below and between the originals. The ladder used to start at
+  # 0.5rem, so every component needing less invented its own step and the
+  # homepage ran sixteen gap values against the five documented here.
+  sp-hair: "0.25rem"
   sp-1: "0.5rem"
+  sp-tight: "0.75rem"
   sp-2: "1rem"
   sp-3: "1.75rem"
   sp-4: "3rem"
   sp-5: "clamp(4rem, 7vw, 6.5rem)"
   gutter: "clamp(1.25rem, 5vw, 5rem)"
   measure: "min(100%, 62ch)"
+radius:
+  # Three kinds of object, three radii. Seven were in use before the audit,
+  # because no radius had ever been written down.
+  r-print: "2px"    # a photograph, in a mat or bare. paper is square
+  r-panel: "3px"    # a surface holding something: a film, a plate, a screen
+  r-row: "6px"      # something that lights under the pointer
+  # the print inside a mat sits one pixel inside the paper's own corner
+  r-in-mat: "1px"
+mat:
+  # the site's one framing material. only its width varies, with the size of
+  # the print, as a real mat does. nine widths were in use before the audit.
+  mat-snapshot: "0.45rem"
+  mat-print: "0.6rem"
 motion:
   ease: "cubic-bezier(0.2, 0, 0.2, 1)"
   ease-text: "cubic-bezier(0.3, 0, 0, 1)"  # hard ease-out for type entering; docs/kprkr-study.md

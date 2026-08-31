@@ -139,3 +139,31 @@ test("the outlet marks are sized to read, not to a number", () => {
     assert.ok(width <= 168, `${name} renders ${Math.round(width)}px wide — wider than the cap`);
   }
 });
+
+test("every documented token ships with the value the document claims", () => {
+  // DESIGN.md is the design system of record and the sidecar is generated
+  // from it, so a token described there and shipped differently is a lie
+  // that tooling will repeat. The mat prose in DESIGN.md described an "8px
+  // border, 3px radius" mat and 5px/4px snapshot mats for eighteen months
+  // while nine different widths shipped.
+  const doc = read("DESIGN.md");
+  const css = global();
+  const blocks = doc.match(/^(?:spacing|radius|mat):\n(?:[ \t]+.*\n)+/gm) || [];
+  assert.ok(blocks.length === 3, `expected spacing, radius and mat blocks, found ${blocks.length}`);
+
+  let checked = 0;
+  for (const block of blocks) {
+    for (const line of block.split("\n")) {
+      const m = line.match(/^\s+([a-z0-9-]+):\s*"([^"]+)"/);
+      if (!m) continue;
+      const [, name, value] = m;
+      // r-in-mat is a property of the mat rather than a token of its own
+      if (name === "r-in-mat") continue;
+      const declared = css.match(new RegExp(`--${name}:\\s*([^;]+);`))?.[1]?.trim();
+      assert.ok(declared, `--${name} is documented in DESIGN.md but never declared`);
+      assert.equal(declared, value, `--${name}: DESIGN.md says ${value}, global.css ships ${declared}`);
+      checked++;
+    }
+  }
+  assert.ok(checked >= 12, `only ${checked} tokens cross-checked`);
+});
