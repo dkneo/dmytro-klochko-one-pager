@@ -47,6 +47,85 @@ list before it ships. Evidence in parentheses.
     approved answer is smoked glass: dim the painting itself, never paint
     over it.
 
+## House rules — surfaces, spacing, shape
+
+Written after an audit of the homepage and press on 1 Sep 2026 found ten
+different treatments for what are really three kinds of object, nine widths
+of the one framing material, seven corner radii and sixteen gap values
+against a scale that documents five. None of it was decided; all of it was
+arrived at, one component at a time. These are the rules that stop it
+happening again. Each is a token, so it can be checked rather than argued.
+
+### 1. Three kinds of object, three radii
+
+  --r-print  2px   a photograph, in a mat or bare. Paper is square.
+  --r-panel  3px   a surface holding something: a film, a plate, a screen.
+  --r-row    6px   something that lights under the pointer.
+
+The print inside a mat is 1px — one pixel inside the paper's own corner,
+the way a cut window sits inside its board. That is the only fourth value,
+and it is a property of the mat, not a radius of its own.
+
+Never write a radius as a number. If a new thing does not fit these three,
+it is probably not a new thing.
+
+### 2. One mat, two widths
+
+The cream mat is the site's single framing material, and only its width
+varies — with the size of the print, the way a real mat does.
+
+  --mat-snapshot  0.45rem   a photograph in a stack or a rail
+  --mat-print     0.6rem    a single plate given its own room
+
+A screenshot is not a photograph: no mat, no tilt, panel radius. A brand
+campaign is not a photograph either — the mat says "out of a shoebox", and
+saying that about advertising makes it look like holiday prints.
+
+### 3. Pictures keep their own shape
+
+Never impose a shared aspect-ratio on a set of photographs to get them onto
+one baseline. Three stills were once cropped to a common 4:3; the portrait
+among them lost a face at the frame edge. Alignment is not worth that. Give
+a video the ratio of its own encode — a 16:9 film in a 16:10 box letterboxes,
+and then someone draws a border around the bands to tidy them up.
+
+### 4. The ladder, all of it
+
+  --sp-hair   0.25rem   inside one line: a mark and its word
+  --sp-1      0.5rem
+  --sp-tight  0.75rem   inside one component: the rows of a card
+  --sp-2      1rem
+  --sp-3      1.75rem
+  --sp-4      3rem
+  --sp-5      clamp(4rem, 7vw, 6.5rem)
+
+The old ladder started at 0.5rem, so everything that needed less invented
+its own: 0.1, 0.4, 0.55, 0.6, 0.8, 0.9, 1.1rem. Two rungs were missing, not
+eleven. A gap that is not on this ladder needs a sentence saying why.
+
+### 5. One gesture, one control
+
+Every job on the CV opens the same way, so every job's control says the same
+words in the same type in the same place. The lead's once said "what i did
+at replika" over a notes count beside a pink orb — five differences from the
+five below it for an identical action.
+
+A control belongs to what it opens. Right-aligning the lead's control lined
+it up with the others but parked it in open ground under three press quotes;
+it belongs under the last line of the paragraph it expands.
+
+### 6. Hover and chosen are different weights
+
+Hover is a whisper at 5.5% bone; chosen is a statement at 14% hot. Equal
+weights and the reader cannot tell what is under the pointer from what is
+actually selected. Hover is always inside `(hover: hover) and (pointer:
+fine)` — touch fires a false hover on tap and the row stays lit. Reduced
+motion drops the transition and keeps the colour: the chosen row must still
+look chosen.
+
+If a whole row lights, the whole row must be clickable. A highlight that
+covers three columns of dead space is a lie about where to click.
+
 ## Engineering non-negotiables
 
 - Verify against built `dist/` on a static server (vite dev has served

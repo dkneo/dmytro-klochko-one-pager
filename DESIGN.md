@@ -193,23 +193,37 @@ Data-saver and `prefers-reduced-motion` always win.
 
 ### Photographs
 
-The portrait sits in its bay in a deep cream mat (8px border, 3px
-radius), tilted 1.2°, straightening and lifting 3px on hover as its
-shadow deepens; its caption carries a breath of dusk text-shadow because
-it lands outside the darkest glass, on open water. Childhood snapshots
-keep their alternating tilt in 5px mats; wall prints wear 4px. Video
-plays in colour — dream strips bebop's filter.
+The portrait sits in its bay in the cream mat, tilted 1.2°, straightening
+and lifting 3px on hover as its shadow deepens; its caption carries a
+breath of dusk text-shadow because it lands outside the darkest glass, on
+open water. Video plays in colour — dream strips bebop's filter.
+
+Mat width is a token, not a number, and the only thing about the mat that
+varies: `--mat-snapshot` 0.45rem for a photograph in a stack or a rail,
+`--mat-print` 0.6rem for a single plate given its own room. It varies with
+the size of the print, as a real mat does. An audit on 1 Sep 2026 found
+nine different widths in use — 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 and a clamp
+— none of them chosen, all of them arrived at.
+
+Corners are three tokens, for the three kinds of object the site has:
+`--r-print` 2px (a photograph, in a mat or bare), `--r-panel` 3px (a
+surface holding something — a film, a plate, a screen), `--r-row` 6px
+(something that lights under the pointer). The print inside a mat sits at
+1px, one pixel inside the paper's own corner. Seven radii were in use
+before the same audit.
 
 The press page opens with one uncropped 4:3 studio print beside its ledger
 summary, stacking after the facts on phones.
 
-The Replika entry is one living case file, not a video grid. One 16:10
-stage swaps among twelve deferred, muted films; poster thumbnails are the
-only alternates loaded before a choice. Every film uses `object-fit: contain`
-over a dimmed, blurred echo of its own poster, so portrait, square and wide
-sources keep their complete frames. Five campaign stills follow as an
-irregular print run on desktop and a wide-plus-two-column sequence on phones.
-Their source ratios remain intact. The hero carries a fourth, small Times
+The Replika entry makes its case in one film. It was a twelve-tile picker
+over a 16:10 stage with five campaign stills below it — seventeen pieces of
+media, 8.7MB against 1.2MB for every other picture on the page, and more
+photographs of the company's models than of him in the section about what
+he did. The stage now carries the brand film alone, at the 16:9 of its own
+encode so nothing letterboxes, with no border, no caption and no picker.
+The stills are gone: cropping three of them to a shared ratio to get one
+baseline took a face off the portrait, and the cream mat that suits his own
+snapshots made advertising look like holiday prints. The hero carries a fourth, small Times
 Radio studio loop in the front corner of its existing print pile.
 
 ### Named Rules (dream)

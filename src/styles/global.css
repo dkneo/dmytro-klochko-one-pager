@@ -100,13 +100,37 @@
   --t-lg: clamp(1.15rem, 1.5vw, 1.45rem);
   --display: clamp(1.9rem, 4.6vw, 3.9rem);
 
-  /* One scale. Every vertical gap on the site is one of these five, so the
-     page has a rhythm instead of seven unrelated margins. */
-  --sp-1: 0.5rem;
-  --sp-2: 1rem;
-  --sp-3: 1.75rem;
-  --sp-4: 3rem;
+  /* One scale. Every gap on the site is one of these, so the page has a
+     rhythm instead of unrelated margins.
+     An audit found sixteen distinct gap values on the homepage against the
+     five documented here — 0.1, 0.375, 0.4, 0.55, 0.6, 0.7, 0.8, 0.9, 1.1,
+     1.4 and 1.5rem, every one of them invented at the point of use, because
+     the ladder began at 0.5rem and components needed rungs below and between
+     it. Two rungs were missing, not eleven. */
+  --sp-hair: 0.25rem;   /*  4px — inside one line: a mark and its word */
+  --sp-1: 0.5rem;       /*  8px */
+  --sp-tight: 0.75rem;  /* 12px — inside one component: the rows of a card */
+  --sp-2: 1rem;         /* 16px */
+  --sp-3: 1.75rem;      /* 28px */
+  --sp-4: 3rem;         /* 48px */
   --sp-5: clamp(4rem, 7vw, 6.5rem);
+
+  /* Corner radius. Seven values were in use across the homepage — 1, 2, 3,
+     4, 6, 8 and 9px — because no radius was ever written down, so every
+     component chose one. Three kinds of object need three radii and there
+     is no fourth kind.
+       print  a photograph, in a mat or bare. Almost square: paper is square.
+       panel  a surface that holds something — a film, a plate, a card.
+       row    something that lights under the pointer. */
+  --r-print: 2px;
+  --r-panel: 3px;
+  --r-row: 6px;
+
+  /* The mat is the site's one framing material. Its width is the only thing
+     that varies, and it varies with the size of the print, the way a real
+     mat does: a snapshot gets a narrow one, a full plate a wide one. */
+  --mat-snapshot: 0.45rem;
+  --mat-print: 0.6rem;
 
   /* Raster cells for ASCII art. Deliberately outside the type ramp: a drawing
      made of characters is an image sized to its drawing, not a reading size,
