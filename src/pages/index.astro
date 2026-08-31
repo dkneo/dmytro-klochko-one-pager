@@ -432,13 +432,27 @@ const also = [
           </div>
         </div>
 
+        {/* The bullets belong to the prose above them, so the control sits
+            under it — the same words, in the same type, as the five jobs
+            below. Stranded after the receipts it read as a button lying in
+            open ground. */}
+        <details class="cv-job cv-job--lead-more">
+          <summary>
+            <span class="cv-more">
+              <i class="cv-more-shut">read more</i>
+              <i class="cv-more-open">read less</i>
+              <b class="cv-chev" aria-hidden="true" />
+            </span>
+          </summary>
+          <div class="cv-open">
+            <ul class="cv-points">
+              {jobs[0].points.map((p) => <li set:html={p} />)}
+            </ul>
+          </div>
+        </details>
+
         <div class="replika-showcase">
           <figure class="replika-stage">
-            <span
-              class="replika-stage-backdrop"
-              style={`background-image:url(${replikaClips[0].poster})`}
-              aria-hidden="true"
-            />
             <span class="replika-stage-screen">
               <video
                 data-ambient-video
@@ -451,9 +465,6 @@ const also = [
                 preload="none"
               />
             </span>
-            <figcaption>
-              <span data-replika-label>{replikaClips[0].label}</span>
-            </figcaption>
           </figure>
 
         </div>
@@ -496,23 +507,6 @@ const also = [
           </li>
         </ul>
 
-        {/* The bullets sit behind the same control as every other job. There
-            is a page of prose and three receipts above them; asking for the
-            list is the same gesture here as it is further down. */}
-        <details class="cv-job cv-job--lead-more">
-          <summary>
-            <span class="cv-more">
-              <i class="cv-more-shut">read more</i>
-              <i class="cv-more-open">read less</i>
-              <b class="cv-chev" aria-hidden="true" />
-            </span>
-          </summary>
-          <div class="cv-open">
-            <ul class="cv-points">
-              {jobs[0].points.map((p) => <li set:html={p} />)}
-            </ul>
-          </div>
-        </details>
       </li>
 
       {
