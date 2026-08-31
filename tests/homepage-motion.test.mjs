@@ -72,8 +72,15 @@ test("replika keeps one playable stage while its alternate footage stays deferre
   assert.match(stage[0], /preload="none"/);
   assert.doesNotMatch(stage[0], /autoplay/);
   assert.ok(pickTags.length >= 3, "the stage needs alternates to be a strip at all");
-  assert.ok(pickTags.length <= 6,
-    "past six the strip becomes the contact sheet it replaced: an asset library, not a product");
+  assert.ok(pickTags.length <= 4,
+    "past four the strip stops being a reel and becomes a cast list of strangers");
+
+  // The section makes its case in motion. It twice grew a still gallery
+  // beside the film — five scattered prints, then three cropped to a shared
+  // ratio that beheaded the portrait — and both times the page ended up with
+  // more photographs of models than of him.
+  assert.doesNotMatch(html, /data-replika-print/,
+    "the replika case is the film, not a wall of campaign stills");
   assert.equal(pickTags.filter((tag) => /aria-pressed="true"/.test(tag)).length, 1);
 
   const sources = pickTags.map((tag) => tag.match(/data-src="([^"]+)"/)?.[1]);
@@ -84,34 +91,6 @@ test("replika keeps one playable stage while its alternate footage stays deferre
   const sizes = sources.map((src) => fs.statSync(path.join(root, "public", src)).size);
   assert.ok(sizes.every((size) => size < 3_500_000), "each deferred clip must stay web-sized");
   assert.ok(sizes.reduce((sum, size) => sum + size, 0) < 20_000_000, "the full case file is too heavy");
-});
-
-test("the replika print run stays a row of frames, each whole and attributed", () => {
-  const html = read("dist/index.html");
-  const printTags = [...html.matchAll(/<img\b[^>]*>/g)]
-    .map((match) => match[0])
-    .filter((tag) => tag.includes("data-replika-print"));
-
-  assert.ok(printTags.length >= 2 && printTags.length <= 3,
-    "three abreast is a campaign; five at five angles was a collage");
-  for (const tag of printTags) {
-    assert.match(tag, /alt="[^"]+"/, "a photograph of people is never decorative");
-    assert.match(tag, /width="\d+"/);
-    assert.match(tag, /height="\d+"/);
-    assert.match(tag, /loading="lazy"/);
-    const src = tag.match(/src="([^"]+)"/)?.[1];
-    assert.ok(src && exists(`public${src}`), `${src ?? "print"} is missing`);
-  }
-});
-
-test("the replika frames are not dressed as his own snapshots", () => {
-  // The cream mat and the scatter of rotations are the site's language for a
-  // picture out of a shoebox. Applied to a brand campaign they turned
-  // advertising photography into somebody's holiday prints.
-  const css = read("src/styles/dream.css");
-  const block = css.slice(css.indexOf(".replika-prints"), css.indexOf(".replika-prints") + 1400);
-  assert.doesNotMatch(block, /background:\s*var\(--mat\)/, "no cream mat on the campaign");
-  assert.doesNotMatch(block, /rotate\(/, "no tilt on the campaign");
 });
 
 test("the phone stylesheet leaves the hero films as its only ambient motion", () => {
