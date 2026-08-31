@@ -2281,83 +2281,6 @@ html[data-motion="paused"] .scenes .firelight {
   font: inherit;
 }
 
-/* The alternates, as a filmstrip. This was a four-by-three grid of bordered
-   tiles with a 36px thumbnail and a label beside it — a file browser, which
-   is the one thing the section about the product must not look like. One
-   row, the frame at full width, no chrome. The label is the caption a film
-   gets when you reach for it, not a permanent tag on a box. */
-[data-mode="dream"] .replika-rushes {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.5rem;
-  margin-top: 0.7rem;
-}
-
-[data-mode="dream"] .replika-rushes button {
-  position: relative;
-  display: block;
-  min-width: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 3px;
-  overflow: hidden;
-  background: color-mix(in srgb, var(--shadow-deep-base) 55%, transparent);
-  cursor: pointer;
-  /* opacity, not a border: an unchosen frame is dimmed film, not a
-     deactivated control. */
-  opacity: 0.52;
-  transition:
-    opacity var(--dur) var(--ease),
-    transform var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .replika-rushes img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-/* the label rides on the frame and only when it is wanted */
-[data-mode="dream"] .replika-rushes button > span {
-  position: absolute;
-  inset: auto 0 0;
-  padding: 1.1rem 0.45rem 0.34rem;
-  background: linear-gradient(to top, rgb(6 9 18 / 78%), transparent);
-  color: var(--bone);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: 0.035em;
-  text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity var(--dur) var(--ease);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  [data-mode="dream"] .replika-rushes button:hover {
-    opacity: 1;
-    transform: translateY(-2px);
-  }
-  [data-mode="dream"] .replika-rushes button:hover > span { opacity: 1; }
-}
-
-[data-mode="dream"] .replika-rushes button[aria-pressed="true"] {
-  opacity: 1;
-  box-shadow: inset 0 0 0 1px var(--hot);
-}
-
-[data-mode="dream"] .replika-rushes button:focus-visible {
-  opacity: 1;
-  outline: 2px solid var(--hot);
-  outline-offset: 2px;
-}
-
-[data-mode="dream"] .replika-rushes button:focus-visible > span { opacity: 1; }
-
 @media (max-width: 860px) {
   [data-mode="dream"] .replika-showcase {
     margin-top: var(--sp-3);
@@ -2368,20 +2291,6 @@ html[data-motion="paused"] .scenes .firelight {
 @media (max-width: 700px) {
   [data-mode="dream"] .replika-stage-screen {
     aspect-ratio: 4 / 3;
-  }
-
-  [data-mode="dream"] .replika-rushes {
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto;
-    padding: 0.15rem 0 0.55rem;
-    scroll-snap-type: x proximity;
-    scrollbar-width: thin;
-  }
-
-  [data-mode="dream"] .replika-rushes button {
-    flex: 0 0 9.25rem;
-    scroll-snap-align: start;
   }
 
 }
@@ -2773,11 +2682,23 @@ html[data-motion="paused"] .scenes .firelight {
   }
 }
 
-/* The lead's own control: no company line above it to indent against, so it
-   sits flush with the prose it follows. */
+/* The lead's control is the same control as every other job's. It had grown
+   its own serif type, a stacked copy block, a mono notes caption and a pink
+   orb — five differences from the five below it, for one identical gesture.
+   All that survives is the indent: there is no company line above this one
+   to line up against. */
 [data-mode="dream"] .cv-job--lead-more > summary {
-  max-width: 30rem;
-  padding: 0;
+  display: flex;
+  /* the five below run the full width of the register; this one was still
+     capped at the prose measure, which put its control mid-page */
+  max-width: none;
+  /* The five jobs below open from a control at the right edge of their row.
+     This one had no row to sit in and ended up alone on the left, under the
+     first receipt. Sent right — with their 0.7rem gutter, or it overhangs
+     them by eleven pixels — the five controls line up down one edge and the
+     page says plainly that every job opens the same way. */
+  justify-content: flex-end;
+  padding: 0 0.7rem 0 0;
   margin-top: var(--sp-2);
   margin-left: 0;
 }
@@ -2787,53 +2708,11 @@ html[data-motion="paused"] .scenes .firelight {
 }
 
 [data-mode="dream"] .cv-job--lead-more .cv-more {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  min-height: 3.25rem;
-  margin: 0;
-  padding: 0.35rem 0;
-  border: 0;
-  color: var(--bone);
-  font-family: var(--serif);
-  font-size: var(--t-prose);
-  letter-spacing: 0;
-  text-transform: none;
+  margin-left: 0;
 }
 
-[data-mode="dream"] .cv-job--lead-more .cv-more-copy {
-  display: grid;
-  gap: 0.05rem;
-}
-
-[data-mode="dream"] .cv-job--lead-more .cv-more small {
-  color: var(--dim);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  font-style: normal;
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-}
-
-[data-mode="dream"] .cv-job--lead-more .cv-more-orb {
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border: 1px solid rgb(255 155 192 / 58%);
-  border-radius: 50%;
-  color: var(--hot);
-  transition:
-    color var(--dur) var(--ease),
-    background var(--dur) var(--ease),
-    transform var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .cv-job--lead-more > summary:hover .cv-more-orb,
-[data-mode="dream"] .cv-job--lead-more > summary:focus-visible .cv-more-orb {
-  background: var(--hot);
-  color: var(--void);
-  transform: translateX(0.2rem);
+[data-mode="dream"] .cv-job--lead-more > summary:hover .cv-more {
+  border-color: var(--hot);
 }
 
 [data-mode="dream"] .cv-job--lead-more .cv-points {

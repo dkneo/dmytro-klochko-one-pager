@@ -60,37 +60,28 @@ test("homepage navigation contains destinations, not unexplained utility modes",
   assert.ok(ambient.every((tag) => /preload="none"/.test(tag)));
 });
 
-test("replika keeps one playable stage while its alternate footage stays deferred", () => {
+test("replika makes its case in one film and nothing beside it", () => {
   const html = read("dist/index.html");
   const videoTags = [...html.matchAll(/<video\b[^>]*>/g)].map((match) => match[0]);
   const stage = videoTags.filter((tag) => tag.includes("data-replika-stage"));
-  const pickTags = [...html.matchAll(/<button\b[^>]*>/g)]
-    .map((match) => match[0])
-    .filter((tag) => tag.includes("data-replika-pick"));
 
-  assert.equal(stage.length, 1, "the case file should load through one video element");
+  assert.equal(stage.length, 1, "the case should load through one video element");
   assert.match(stage[0], /preload="none"/);
   assert.doesNotMatch(stage[0], /autoplay/);
-  assert.ok(pickTags.length >= 3, "the stage needs alternates to be a strip at all");
-  assert.ok(pickTags.length <= 4,
-    "past four the strip stops being a reel and becomes a cast list of strangers");
 
-  // The section makes its case in motion. It twice grew a still gallery
-  // beside the film — five scattered prints, then three cropped to a shared
-  // ratio that beheaded the portrait — and both times the page ended up with
-  // more photographs of models than of him.
-  assert.doesNotMatch(html, /data-replika-print/,
-    "the replika case is the film, not a wall of campaign stills");
-  assert.equal(pickTags.filter((tag) => /aria-pressed="true"/.test(tag)).length, 1);
+  // This section grew a gallery twice and a picker twice. Five scattered
+  // prints, then three cropped to a shared ratio that beheaded the portrait;
+  // a twelve-tile contact sheet, then a six-frame strip of faces. Both times
+  // the page ended up carrying more pictures of Replika's models than of
+  // him, in the section about what he did. One film, and the brand film is
+  // the one that is about the product rather than about lifestyle.
+  assert.doesNotMatch(html, /data-replika-print/, "no wall of campaign stills");
+  assert.doesNotMatch(html, /data-replika-pick/, "no picker: there is one film to pick");
 
-  const sources = pickTags.map((tag) => tag.match(/data-src="([^"]+)"/)?.[1]);
-  assert.ok(sources.every(Boolean));
-  assert.equal(new Set(sources).size, sources.length, "the strip should not repeat an encode");
-  for (const src of sources) assert.ok(exists(`public${src}`), `${src} is missing`);
-
-  const sizes = sources.map((src) => fs.statSync(path.join(root, "public", src)).size);
-  assert.ok(sizes.every((size) => size < 3_500_000), "each deferred clip must stay web-sized");
-  assert.ok(sizes.reduce((sum, size) => sum + size, 0) < 20_000_000, "the full case file is too heavy");
+  const src = stage[0].match(/src="([^"]+)"/)?.[1];
+  assert.ok(src && exists(`public${src}`), `${src ?? "the film"} is missing`);
+  const size = fs.statSync(path.join(root, "public", src)).size;
+  assert.ok(size < 3_500_000, "the film must stay web-sized");
 });
 
 test("the phone stylesheet leaves the hero films as its only ambient motion", () => {

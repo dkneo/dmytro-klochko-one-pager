@@ -108,9 +108,6 @@ const studyQuote = {
 // twelve simultaneous downloads.
 const replikaClips = [
   { label: "brand film", src: "/video/replika/brand-film.mp4", poster: "/video/replika/brand-film-poster.webp" },
-  { label: "by the lake", src: "/video/replika/lake.mp4", poster: "/video/replika/lake-poster.webp" },
-  { label: "at the window", src: "/video/replika/window.mp4", poster: "/video/replika/window-poster.webp" },
-  { label: "morning", src: "/video/replika/morning.mp4", poster: "/video/replika/morning-poster.webp" },
 ] as const;
 
 // The road, five years old to the student theatre. The six companies used to
@@ -307,9 +304,7 @@ const also = [
 
   <script>
     import { setupChapterRail } from "../scripts/chapter-rail.js";
-    import { setupReplikaShowcase } from "../scripts/replika-showcase.js";
     setupChapterRail();
-    setupReplikaShowcase();
   </script>
 
   <section class="shell session" id="top" data-scene="fire" data-weather="fire" aria-labelledby="s1">
@@ -458,29 +453,9 @@ const also = [
             </span>
             <figcaption>
               <span data-replika-label>{replikaClips[0].label}</span>
-              <small data-replika-count>01 / {String(replikaClips.length).padStart(2, "0")}</small>
             </figcaption>
           </figure>
 
-          <div class="replika-rushes" aria-label="replika footage">
-            {
-              replikaClips.map((clip, index) => (
-                <button
-                  type="button"
-                  data-replika-pick
-                  data-src={clip.src}
-                  data-poster={clip.poster}
-                  data-label={clip.label}
-                  data-index={index + 1}
-                  aria-label={`play ${clip.label}`}
-                  aria-pressed={index === 0 ? "true" : "false"}
-                >
-                  <img src={clip.poster} alt="" width="420" height="236" loading="lazy" decoding="async" />
-                  <span>{clip.label}</span>
-                </button>
-              ))
-            }
-          </div>
         </div>
 
         <ul class="receipts">
@@ -527,12 +502,9 @@ const also = [
         <details class="cv-job cv-job--lead-more">
           <summary>
             <span class="cv-more">
-              <span class="cv-more-copy">
-                <i class="cv-more-shut">what i did at replika</i>
-                <i class="cv-more-open">close</i>
-                <small>{jobs[0].points.length} notes</small>
-              </span>
-              <span class="cv-more-orb" aria-hidden="true"><b class="cv-chev" /></span>
+              <i class="cv-more-shut">read more</i>
+              <i class="cv-more-open">read less</i>
+              <b class="cv-chev" aria-hidden="true" />
             </span>
           </summary>
           <div class="cv-open">
