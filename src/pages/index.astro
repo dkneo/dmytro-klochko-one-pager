@@ -108,54 +108,31 @@ const studyQuote = {
 // twelve simultaneous downloads.
 const replikaClips = [
   { label: "brand film", src: "/video/replika/brand-film.mp4", poster: "/video/replika/brand-film-poster.webp" },
-  { label: "40m moment", src: "/video/replika/milestone.mp4", poster: "/video/replika/milestone-poster.webp" },
-  { label: "product film", src: "/video/replika/product-film.mp4", poster: "/video/replika/product-film-poster.webp" },
-  { label: "memory", src: "/video/replika/memory.mp4", poster: "/video/replika/memory-poster.webp" },
-  { label: "the app", src: "/video/replika/app.mp4", poster: "/video/replika/app-poster.webp" },
-  { label: "alex", src: "/video/replika/alex.mp4", poster: "/video/replika/alex-poster.webp" },
-  { label: "maryam", src: "/video/replika/maryam.mp4", poster: "/video/replika/maryam-poster.webp" },
-  { label: "pablo", src: "/video/replika/pablo.mp4", poster: "/video/replika/pablo-poster.webp" },
-  { label: "avatar film", src: "/video/replika/avatar.mp4", poster: "/video/replika/avatar-poster.webp" },
   { label: "by the lake", src: "/video/replika/lake.mp4", poster: "/video/replika/lake-poster.webp" },
-  { label: "morning", src: "/video/replika/morning.mp4", poster: "/video/replika/morning-poster.webp" },
   { label: "at the window", src: "/video/replika/window.mp4", poster: "/video/replika/window-poster.webp" },
+  { label: "morning", src: "/video/replika/morning.mp4", poster: "/video/replika/morning-poster.webp" },
+  { label: "pablo", src: "/video/replika/pablo.mp4", poster: "/video/replika/pablo-poster.webp" },
+  { label: "alex", src: "/video/replika/alex.mp4", poster: "/video/replika/alex-poster.webp" },
 ] as const;
 
 const replikaPrints = [
-  {
-    src: "/video/replika/stills/bedroom.webp",
-    alt: "a woman sitting in bed beside a sunlit window",
-    width: 1200,
-    height: 509,
-    shape: "wide",
-  },
-  {
-    src: "/video/replika/stills/meadow-phone.webp",
-    alt: "a blonde woman using her phone in a meadow",
-    width: 670,
-    height: 1200,
-    shape: "tall",
-  },
   {
     src: "/video/replika/stills/group-arch.webp",
     alt: "a group taking a selfie beneath an arched window",
     width: 670,
     height: 1200,
-    shape: "tall",
-  },
-  {
-    src: "/video/replika/stills/group-close.webp",
-    alt: "a close group selfie",
-    width: 1200,
-    height: 670,
-    shape: "wide",
   },
   {
     src: "/video/replika/stills/pink-meadow.webp",
     alt: "a pink-haired woman lying in a sunlit meadow",
     width: 1200,
     height: 509,
-    shape: "wide",
+  },
+  {
+    src: "/video/replika/stills/bedroom.webp",
+    alt: "a woman sitting in bed beside a sunlit window",
+    width: 1200,
+    height: 509,
   },
 ] as const;
 
@@ -532,7 +509,7 @@ const also = [
         <div class="replika-prints" aria-label="frames from replika">
           {
             replikaPrints.map((print) => (
-              <figure class={`replika-print replika-print--${print.shape}`}>
+              <figure class="replika-print">
                 <span class="cell">
                   <img
                     data-replika-print
@@ -1030,13 +1007,4 @@ const also = [
 
     </div>
   </section>
-
-  {/* last line of the foyer: untitled, no chapter, no 08. */}
-  <blockquote class="poem foyer-last">
-    i am lost in sorrento<br />
-    for i am the taste of its lemons and its women&rsquo;s feet<br />
-    i&rsquo;m the salt of its breeze<br />
-    i&rsquo;m so glad i can&rsquo;t breathe<br />
-    i&rsquo;m so tall i am whole twelve feet
-  </blockquote>
 </Layout>

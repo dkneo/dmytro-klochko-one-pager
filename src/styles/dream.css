@@ -2255,111 +2255,119 @@ html[data-motion="paused"] .scenes .firelight {
   font: inherit;
 }
 
+/* The alternates, as a filmstrip. This was a four-by-three grid of bordered
+   tiles with a 36px thumbnail and a label beside it — a file browser, which
+   is the one thing the section about the product must not look like. One
+   row, the frame at full width, no chrome. The label is the caption a film
+   gets when you reach for it, not a permanent tag on a box. */
 [data-mode="dream"] .replika-rushes {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.45rem;
-  margin-top: var(--sp-2);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.7rem;
 }
 
 [data-mode="dream"] .replika-rushes button {
-  display: grid;
-  grid-template-columns: 2.25rem minmax(0, 1fr);
-  align-items: center;
-  gap: 0.5rem;
+  position: relative;
+  display: block;
   min-width: 0;
-  min-height: 2.75rem;
-  padding: 0.3rem;
-  border: 1px solid rgb(236 230 217 / 15%);
-  border-radius: 2px;
-  background: color-mix(in srgb, var(--shadow-deep-base) 22%, transparent);
-  color: var(--dim);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: 0.035em;
-  text-align: left;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--shadow-deep-base) 55%, transparent);
   cursor: pointer;
+  /* opacity, not a border: an unchosen frame is dimmed film, not a
+     deactivated control. */
+  opacity: 0.52;
   transition:
-    border-color var(--dur) var(--ease),
-    background var(--dur) var(--ease),
-    color var(--dur) var(--ease),
+    opacity var(--dur) var(--ease),
     transform var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .replika-rushes button:hover {
-  border-color: rgb(255 155 192 / 52%);
-  color: var(--bone);
-  transform: translateY(-2px);
-}
-
-[data-mode="dream"] .replika-rushes button[aria-pressed="true"] {
-  border-color: var(--hot);
-  background: rgb(255 155 192 / 10%);
-  color: var(--bone);
-}
-
-[data-mode="dream"] .replika-rushes button:focus-visible {
-  outline: 2px solid var(--hot);
-  outline-offset: 2px;
 }
 
 [data-mode="dream"] .replika-rushes img {
   display: block;
-  width: 2.25rem;
-  height: 2.1rem;
-  object-fit: contain;
-  background: color-mix(in srgb, var(--shadow-deep-base) 65%, transparent);
-  border-radius: 1px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
-[data-mode="dream"] .replika-rushes span {
+/* the label rides on the frame and only when it is wanted */
+[data-mode="dream"] .replika-rushes button > span {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 1.1rem 0.45rem 0.34rem;
+  background: linear-gradient(to top, rgb(6 9 18 / 78%), transparent);
+  color: var(--bone);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.035em;
+  text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
 }
 
-/* Five supplied frames, laid down as prints rather than flattened into a
-   carousel. Wide images stay wide and portraits stay whole. */
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .replika-rushes button:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+  [data-mode="dream"] .replika-rushes button:hover > span { opacity: 1; }
+}
+
+[data-mode="dream"] .replika-rushes button[aria-pressed="true"] {
+  opacity: 1;
+  box-shadow: inset 0 0 0 1px var(--hot);
+}
+
+[data-mode="dream"] .replika-rushes button:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--hot);
+  outline-offset: 2px;
+}
+
+[data-mode="dream"] .replika-rushes button:focus-visible > span { opacity: 1; }
+
+/* Three frames from the campaign, aligned.
+   This was five at five angles with overlapping z-indexes, each in the cream
+   mat the rest of the site uses for his own photographs. That mat is the
+   right frame for a picture out of a shoebox and the wrong one for a brand
+   campaign: it turned advertising photography into somebody's snapshots.
+   Here the pictures are the surface. No mat, no tilt, one baseline. */
 [data-mode="dream"] .replika-prints {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  align-items: center;
-  margin: var(--sp-5) 0 var(--sp-3);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  align-items: stretch;
+  margin: var(--sp-4) 0 var(--sp-3);
   min-width: 0;
 }
 
 [data-mode="dream"] .replika-print {
   margin: 0;
   min-width: 0;
-  transition: transform var(--dur-slow) var(--ease);
-}
-
-[data-mode="dream"] .replika-print:nth-child(1) { grid-column: 1 / 5; grid-row: 1; transform: rotate(-1.6deg); z-index: 1; }
-[data-mode="dream"] .replika-print:nth-child(2) { grid-column: 5 / 7; grid-row: 1; transform: rotate(1.8deg); z-index: 3; }
-[data-mode="dream"] .replika-print:nth-child(3) { grid-column: 7 / 9; grid-row: 1; transform: rotate(-1deg); z-index: 2; }
-[data-mode="dream"] .replika-print:nth-child(4) { grid-column: 9 / 13; grid-row: 1; transform: rotate(1.3deg); z-index: 1; }
-[data-mode="dream"] .replika-print:nth-child(5) { grid-column: 4 / 10; grid-row: 2; align-self: start; translate: 0 -18%; transform: rotate(-0.7deg); z-index: 4; }
-
-[data-mode="dream"] .replika-print:hover {
-  z-index: 5;
-  transform: rotate(0deg) translateY(-4px);
 }
 
 [data-mode="dream"] .replika-print .cell {
   display: block;
-  padding: 0.36rem;
-  background: var(--mat);
-  border-radius: 2px;
-  box-shadow:
-    0 2px 5px rgb(6 9 18 / 50%),
-    0 18px 42px rgb(6 9 18 / 34%);
+  overflow: hidden;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--shadow-deep-base) 55%, transparent);
 }
 
+/* One ratio across the three, so the row has a single baseline top and
+   bottom. The portrait crops; that is the price of the line. */
 [data-mode="dream"] .replika-print img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 1px;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 @media (max-width: 860px) {
@@ -2391,25 +2399,19 @@ html[data-motion="paused"] .scenes .firelight {
     scroll-snap-align: start;
   }
 
+  /* three abreast is too thin on a phone; the row becomes a strip you
+     push, which keeps the frames big enough to be photographs. */
   [data-mode="dream"] .replika-prints {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.6rem;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
     margin: var(--sp-4) 0 var(--sp-3);
   }
 
-  [data-mode="dream"] .replika-print:nth-child(1),
-  [data-mode="dream"] .replika-print:nth-child(4),
-  [data-mode="dream"] .replika-print:nth-child(5) {
-    grid-column: 1 / -1;
-  }
-
-  [data-mode="dream"] .replika-print:nth-child(2) { grid-column: 1; }
-  [data-mode="dream"] .replika-print:nth-child(3) { grid-column: 2; }
-
-  [data-mode="dream"] .replika-print:nth-child(n) {
-    grid-row: auto;
-    align-self: start;
-    translate: none;
+  [data-mode="dream"] .replika-print {
+    flex: 0 0 76%;
+    scroll-snap-align: start;
   }
 }
 
