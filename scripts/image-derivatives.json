@@ -748,8 +748,8 @@
         "quality": 76,
         "effort": 6
       },
-      "sourceSha256": "74d60461cdf969946d969882e88b66c22c5ee066db944d170b58108a66c386e1",
-      "outputSha256": "1ef3efd28a013821b823073c60a796c837f79d0ad2481c094eee3231bd60a108"
+      "sourceSha256": "90d043503ac4bfe325a7060bc57861a78e99a9630029179fa6184d25e2e9f423",
+      "outputSha256": "c79050cd3a6d91a31e0d770a35eeb3af7224a620dcf4779fc23065dc4b4f48c7"
     },
     "/images/thumbs/wall/w13.webp": {
       "src": "/images/wall/w13.webp",
@@ -1538,8 +1538,8 @@
         "quality": 80,
         "effort": 6
       },
-      "sourceSha256": "74d60461cdf969946d969882e88b66c22c5ee066db944d170b58108a66c386e1",
-      "outputSha256": "cf189918ad8688b44955ed2c423c005d4b1d691512ed812ed374b1ebb1bea3fa"
+      "sourceSha256": "90d043503ac4bfe325a7060bc57861a78e99a9630029179fa6184d25e2e9f423",
+      "outputSha256": "89e9e8b658c23a7e8328d34b99060ddd549476fb90263d1e8241db78d486373d"
     },
     "/images/plates/wall/w13.webp": {
       "src": "/images/wall/w13.webp",

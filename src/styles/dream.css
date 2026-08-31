@@ -5863,24 +5863,54 @@ html[data-motion="paused"] .scenes .firelight {
   align-items: start;
 }
 
-/* dm|ytro| klochko. The three dimmed letters are the whole joke: the
-   heading says his name and says what to do with it, and neither reading
-   needs explaining. Not hidden — a name that renders as a typo is worse
-   than no joke — just quiet enough that "dm klochko" arrives first. It
-   comes back up when you look at it. */
-[data-mode="dream"] .dm-ytro {
+/* dm📨 klochko → dmytro klochko.
+   The heading tells you to do something, and when you reach for it, it
+   turns out to have been his name all along. An envelope sits where "ytro"
+   goes; hovering trades one for the other.
+   Both live in the same grid cell so the line never reflows — the swap is
+   two opacities, and the word underneath is the wider of the two, so the
+   envelope has room and nothing shifts when it leaves. */
+[data-mode="dream"] .dm-swap {
+  display: inline-grid;
+  vertical-align: baseline;
+}
+
+[data-mode="dream"] .dm-swap > * {
+  grid-area: 1 / 1;
   font-style: inherit;
   color: inherit;
-  opacity: 0.24;
   transition: opacity var(--dur-slow) var(--ease);
 }
 
-[data-mode="dream"] .card-title:hover .dm-ytro {
-  opacity: 0.62;
+[data-mode="dream"] .dm-mail {
+  justify-self: center;
+  align-self: center;
+  /* Colour, like the flag and the polish and the jolly roger elsewhere on
+     the page. The site's Noto Emoji is subset to four codepoints — a cap, a
+     rocket and two towers — so an envelope was never going to be drawn in
+     it, and pretending otherwise in a font stack that cannot deliver is
+     worse than choosing colour on purpose. */
+  font-size: 0.68em;
+  opacity: 0.92;
 }
 
+[data-mode="dream"] .dm-ytro { opacity: 0; }
+
+[data-mode="dream"] .card-title:hover .dm-mail,
+[data-mode="dream"] .card-title:focus-within .dm-mail { opacity: 0; }
+
+[data-mode="dream"] .card-title:hover .dm-ytro,
+[data-mode="dream"] .card-title:focus-within .dm-ytro { opacity: 0.42; }
+
+/* Reduced motion keeps the joke and drops the crossfade. Touch has no
+   hover, so the name is what everyone else already reads. */
 @media (prefers-reduced-motion: reduce) {
-  [data-mode="dream"] .dm-ytro { transition: none; }
+  [data-mode="dream"] .dm-swap > * { transition: none; }
+}
+
+@media (hover: none) {
+  [data-mode="dream"] .dm-mail { opacity: 0; }
+  [data-mode="dream"] .dm-ytro { opacity: 0.42; }
 }
 
 [data-mode="dream"] .pr-quote {

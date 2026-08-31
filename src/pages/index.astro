@@ -142,7 +142,7 @@ const wall = [
   { src: "/images/wall/w04.webp", cap: "steve jobs" },
   { src: "/images/wall/w08.webp", cap: "robin williams" },
   { src: "/images/wall/w14.webp", cap: "serhii korolov" },
-  { src: "/images/wall/w15.webp", cap: "akira kurosawa" },
+  { src: "/images/wall/w15.webp", cap: "akira kurosawa", w: 474, h: 474 },
   { src: "/images/wall/w16.webp", cap: "david foster wallace" },
 ] as const;
 
@@ -157,7 +157,7 @@ const chapters = [
   { id: "journey", label: "upbringing" },
   { id: "alongside", label: "other roles" },
   { id: "me", label: "literally me" },
-  { id: "contact", label: "dm klochko" },
+  { id: "contact", label: "dm me" },
 ] as const;
 
 const jobs = [
@@ -589,7 +589,7 @@ const also = [
           src="/images/lynch.jpg"
           alt="David Lynch at a desk, subtitled: we never get any time to experiment, we never get any time to, you know, go dreamy"
           width="640"
-          height="389"
+          height="386"
           loading="lazy"
           decoding="async"
         />
@@ -889,7 +889,7 @@ const also = [
         wall.map((w) => (
           <figure>
             <span class="cell">
-              <img src={w.src} alt={w.cap} width="520" height="520" loading="lazy" decoding="async" />
+              <img src={w.src} alt={w.cap} width={"w" in w ? w.w : 520} height={"h" in w ? w.h : 520} loading="lazy" decoding="async" />
             </span>
             <figcaption>{w.cap}</figcaption>
           </figure>
@@ -906,7 +906,9 @@ const also = [
           klochko, and dm as in send one. Dimming the three letters that are
           not the instruction lets the heading be read twice — his name, and
           what to do about it — without spelling either out. */}
-      <h2 class="card-title" id="s5">dm<i class="dm-ytro">ytro</i> klochko</h2>
+      <h2 class="card-title" id="s5">dm<span class="dm-swap"
+        ><i class="dm-mail" aria-hidden="true">📨</i><i class="dm-ytro">ytro</i
+        ></span> klochko</h2>
     </div>
 
     <div class="bay">
