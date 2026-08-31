@@ -118,8 +118,13 @@
   }
 }
 
+/* 14% was the weight this came in at, measured against a near-black ground.
+   The road runs over a painting in blue-grey, where the same 14% reads as a
+   filled slab — a selected file, not a lit line. Nine holds the difference
+   from the 5.5% whisper without shouting, and the bead beside it is already
+   doing half the work. */
 [data-mode="dream"] .log--journey li[data-easel].is-shown {
-  background: color-mix(in srgb, var(--hot) 14%, transparent);
+  background: color-mix(in srgb, var(--hot) 9%, transparent);
 }
 
 /* gentler, not absent: the shown row must still look shown. */
@@ -2253,13 +2258,6 @@ html[data-motion="paused"] .scenes .firelight {
 @media (max-width: 860px) {
   [data-mode="dream"] .replika-showcase {
     margin-top: var(--sp-3);
-  }
-
-}
-
-@media (max-width: 700px) {
-  [data-mode="dream"] .replika-stage-screen {
-    aspect-ratio: 4 / 3;
   }
 
 }
@@ -5858,6 +5856,31 @@ html[data-motion="paused"] .scenes .firelight {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
   gap: var(--sp-3);
   margin-top: var(--sp-3);
+  /* One of these quotes is nine lines and two are three. Stretched to a
+     common height, the short ones carried a hundred and fifty pixels of
+     empty box under four words — a panel asking for attention and giving
+     nothing back. Each card is now the height of what it holds. */
+  align-items: start;
+}
+
+/* dm|ytro| klochko. The three dimmed letters are the whole joke: the
+   heading says his name and says what to do with it, and neither reading
+   needs explaining. Not hidden — a name that renders as a typo is worse
+   than no joke — just quiet enough that "dm klochko" arrives first. It
+   comes back up when you look at it. */
+[data-mode="dream"] .dm-ytro {
+  font-style: inherit;
+  color: inherit;
+  opacity: 0.24;
+  transition: opacity var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .card-title:hover .dm-ytro {
+  opacity: 0.62;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .dm-ytro { transition: none; }
 }
 
 [data-mode="dream"] .pr-quote {

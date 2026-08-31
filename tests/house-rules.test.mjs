@@ -62,7 +62,7 @@ test("hover and chosen are different weights, and hover waits for a real pointer
   const css = dream();
   for (const [sel, weight] of [
     [".log--journey li\\[data-easel\\]:hover", "--bone) 5.5%"],
-    [".log--journey li\\[data-easel\\].is-shown", "--hot) 14%"],
+    [".log--journey li\\[data-easel\\].is-shown", "--hot) 9%"],
     [".pr-row:hover", "--bone) 5.5%"],
   ]) {
     const rule = css.match(new RegExp(`${sel} \\{[^}]*\\}`))?.[0];
@@ -102,5 +102,40 @@ test("the ladder is documented and the rules are written down", () => {
   assert.match(c, /## House rules/, "the house rules left the checklist");
   for (const t of ["--r-print", "--mat-snapshot", "--sp-tight"]) {
     assert.ok(c.includes(t), `${t} is not explained in the checklist`);
+  }
+});
+
+test("no inline svg carries a stylesheet out into the page", () => {
+  // A <style> inside an SVG embedded in HTML is scoped to the DOCUMENT, not
+  // to the SVG. The harvested Financial Times masthead shipped with
+  // `* { fill:#33302E !important }` inside it, which repainted every mark on
+  // the press page to a dark brown: nine outlet logos at about 1.4:1 against
+  // their shelf, under a comment claiming they cleared 7:1.
+  const logos = JSON.parse(read("src/data/press-logos.json"));
+  for (const [name, mark] of Object.entries(logos)) {
+    assert.doesNotMatch(mark.svg, /<style/i,
+      `${name} carries a <style> element — it will style the whole document`);
+    assert.doesNotMatch(mark.svg, /!important/i,
+      `${name} carries an !important declaration`);
+  }
+  // and nothing reintroduces one through the build
+  for (const page of ["dist/press/index.html", "dist/index.html"]) {
+    const html = read(page);
+    const inSvg = [...html.matchAll(/<svg[\s\S]{0,60000}?<\/svg>/g)]
+      .filter((m) => /<style/i.test(m[0]));
+    assert.equal(inSvg.length, 0, `${page} ships an svg containing a stylesheet`);
+  }
+});
+
+test("the outlet marks are sized to read, not to a number", () => {
+  const logos = JSON.parse(read("src/data/press-logos.json"));
+  for (const [name, mark] of Object.entries(logos)) {
+    const box = mark.svg.match(/viewBox="([^"]+)"/)?.[1]?.trim().split(/\s+/).map(Number);
+    assert.ok(box && box.length === 4, `${name} has no usable viewBox`);
+    assert.ok(mark.h > 0, `${name} has no optical height`);
+    // a mark rendered narrower than 34px is a smudge next to a masthead
+    const width = (mark.h * box[2]) / box[3];
+    assert.ok(width >= 34, `${name} renders ${Math.round(width)}px wide — too small to read`);
+    assert.ok(width <= 168, `${name} renders ${Math.round(width)}px wide — wider than the cap`);
   }
 });
