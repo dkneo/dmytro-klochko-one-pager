@@ -539,7 +539,7 @@ html.is-shook .scenes {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 1px;
+  border-radius: inherit;
 }
 
 @media (max-width: 860px) {
@@ -555,14 +555,18 @@ html.is-shook .scenes {
   margin: 0;
 }
 
+/* A paper mat frames a print. These are films — the same medium as the
+   Replika stage further down, which carries none — and four cream mounts up
+   here against one bare screen down there was the page contradicting itself
+   about what a video is. They are screens now: panel corners, the same soft
+   drop, no paper. Every still photograph on the site keeps its mat. */
 [data-mode="dream"] .hero-stack .cell {
   display: block;
-  background: var(--mat);
-  padding: var(--mat-snapshot);
-  border-radius: var(--r-print);
+  overflow: hidden;
+  border-radius: var(--r-panel);
   box-shadow:
-    0 2px 5px rgb(8 10 22 / 58%),
-    0 18px 40px rgb(8 10 22 / 42%);
+    0 2px 6px rgb(8 10 22 / 55%),
+    0 20px 46px rgb(8 10 22 / 44%);
   transition: transform var(--dur-slow) var(--ease);
 }
 
@@ -570,22 +574,22 @@ html.is-shook .scenes {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 1px;
+  border-radius: inherit;
 }
 
 [data-mode="dream"] .hero-stack figure:nth-child(1) {
   top: 0;
   left: 0;
-  width: 45%;
+  width: 52%;
   z-index: 1;
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(1) .cell { transform: rotate(-3.6deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(1) .cell { transform: rotate(-1.4deg); }
 
 [data-mode="dream"] .hero-stack figure:nth-child(2) {
-  top: 15%;
+  top: 14%;
   right: 0;
-  width: 66%;
+  width: 62%;
   z-index: 3;
 }
 
@@ -597,27 +601,27 @@ html.is-shook .scenes {
   }
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(2) .cell { transform: rotate(2.8deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(2) .cell { transform: rotate(1.1deg); }
 
 [data-mode="dream"] .hero-stack figure:nth-child(3) {
   bottom: 4%;
-  left: 10%;
-  width: 74%;
+  left: 6%;
+  width: 64%;
   z-index: 2;
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(3) .cell { transform: rotate(-1.4deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(3) .cell { transform: rotate(-0.8deg); }
 
 /* A small studio square finishes the pile without competing with the three
    films. It sits in front like the stray print found last in the envelope. */
 [data-mode="dream"] .hero-stack figure:nth-child(4) {
-  right: 2%;
-  bottom: 1%;
-  width: 32%;
+  right: 1%;
+  bottom: 2%;
+  width: 42%;
   z-index: 4;
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(4) .cell { transform: rotate(4.2deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(4) .cell { transform: rotate(1.6deg); }
 
 [data-mode="dream"] .hero-stack figure:hover .cell {
   transform: rotate(0deg) scale(1.025);
@@ -5883,7 +5887,12 @@ html[data-motion="paused"] .scenes .firelight {
 }
 
 [data-mode="dream"] .dm-mail {
-  justify-self: center;
+  /* The cell is as wide as "ytro", because that is the wider of the two and
+     the line must not reflow when they swap. Centred in it, the envelope
+     floated in the middle of a gap and read as its own word. It sits hard
+     against the m instead, so it scans as "dm📨" and the slack falls where
+     the space before "klochko" already is. */
+  justify-self: start;
   align-self: center;
   /* Colour, like the flag and the polish and the jolly roger elsewhere on
      the page. The site's Noto Emoji is subset to four codepoints — a cap, a

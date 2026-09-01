@@ -27,7 +27,9 @@ test("no surface invents its own corner", () => {
   // 50% and 999px are circles and pills, which are shapes rather than radii.
   const literals = [...css.matchAll(/border-radius:\s*([^;]+);/g)]
     .map((m) => m[1].trim())
-    .filter((v) => !/var\(|50%|999px|100%|^0$/.test(v));
+    // 'inherit' is the opposite of inventing a radius: it takes the one the
+    // surface around it already chose.
+    .filter((v) => !/var\(|50%|999px|100%|inherit|^0$/.test(v));
 
   // Every remaining literal must be one the rules name: 1px is the print
   // inside a mat, and the three tokens cover the rest.
