@@ -2758,6 +2758,35 @@
       },
       "sourceSha256": "486779e075b07e658c7b74290447f315102376024e10d57a6364dc3680a18730",
       "outputSha256": "8ca0fb20b6ea9415972e655fb88deedd4c176b73742f734f8018cc5a70d88579"
+    },
+    "/images/thumbs/scenes/ember.webp": {
+      "src": "/images/scenes/ember.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "daacf20ac3eb14c2607c8ce0222c5fe26481dd9374433554dbfbfd39f64ce68a",
+      "outputSha256": "0224758a5553df563e681c9b90ea6a9d7eaf134efd8c556a89635685c71e9404"
+    },
+    "/images/plates/scenes/ember.webp": {
+      "src": "/images/scenes/ember.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "daacf20ac3eb14c2607c8ce0222c5fe26481dd9374433554dbfbfd39f64ce68a",
+      "outputSha256": "00547c53ee8a6bf1a866e2aa68efbff81671ae158e63536b9c5e25b79b6020d2"
     }
   }
 }

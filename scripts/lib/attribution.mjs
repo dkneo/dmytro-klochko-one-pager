@@ -61,10 +61,11 @@ export function year(raw, max = 20) {
   const iso = v.match(/^(\d{4})-\d{2}-\d{2}/);
   if (iso) return iso[1];
   const span = v.match(/^between (\d{4}) and (\d{2})(\d{2})$/i);
-  if (span) return span[1] === span[2] + span[3] ? span[1] : `${span[1]}–${span[3]}`;
+  if (span) return span[1] === span[2] + span[3] ? span[1] : `${span[1]}-${span[3]}`;
   // "March 22, 1952", "22 March 1952" — the year is the whole of the answer
   if (/[A-Za-z]{3,}/.test(v) && /\b\d{4}\b/.test(v) && !/century|c\.|autumn|spring|summer|winter/i.test(v)) {
     return v.match(/\b(\d{4})\b/)[1];
   }
-  return cut(v, max);
+  // Cards and commits use ascii hyphens for ranges, never en or em dashes.
+  return cut(v, max).replace(/[–—]/g, "-");
 }

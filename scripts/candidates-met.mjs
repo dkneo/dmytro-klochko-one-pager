@@ -15,7 +15,8 @@
 //
 //   node scripts/candidates-met.mjs            look, print, change nothing
 //   node scripts/candidates-met.mjs --apply    write them into inbox.json
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 
 const apply = process.argv.includes("--apply");
 const WANT = Number(process.env.WANT || 150);
@@ -29,15 +30,50 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // Aimed by his verdicts: he keeps weather, water, night light and one thing
 // looked at properly; he passes food on tables.
 const QUERIES = {
-  "cold clarity":          [["snow"], ["frost"], ["winter"], ["celadon", "object"], ["stoneware", "object"]],
-  "dissolution":           [["fog"], ["mist"], ["twilight"], ["raku", "object"], ["stoneware jar", "object"]],
-  "invincible summer":     [["summer"], ["harvest"], ["sunlight"], ["orchard"], ["fan", "object"]],
-  "nerve":                 [["storm"], ["shipwreck"], ["volcano"], ["armor", "object"], ["helmet", "object"]],
-  "the dark and the lamp": [["nocturne"], ["candlestick", "object"], ["lantern", "object"], ["lamp", "object"], ["night"]],
-  "the plain thing":       [["bowl", "object"], ["chair", "object"], ["teapot", "object"], ["vessel", "object"],
-                            ["basket", "object"], ["shaker", "object"], ["bench", "object"], ["jar", "object"]],
-  "vastness":              [["mountain"], ["sea"], ["moon"], ["waterfall"], ["horizon"]],
-  "weight and grace":      [["dancer"], ["swan"], ["acrobat"], ["netsuke", "object"], ["drapery"]],
+  "cold clarity": [
+    ["snow"], ["frost"], ["winter"], ["ice"], ["moonlight"],
+    ["celadon", "object"], ["stoneware", "object"], ["porcelain", "object"],
+    ["screen", "object"], ["lacquer", "object"],
+  ],
+  "dissolution": [
+    ["fog"], ["mist"], ["twilight"], ["rain"], ["dusk"],
+    ["raku", "object"], ["shino", "object"], ["oribe", "object"],
+    ["haze"], ["vapor"], ["smoke"], ["steam"],
+    ["lacquer", "object"], ["weathered", "object"],
+  ],
+  "invincible summer": [
+    ["summer"], ["harvest"], ["sunlight"], ["orchard"], ["wheat"],
+    ["poppy"], ["bathers"], ["lotus"], ["meadow"], ["vineyard"],
+    ["fan", "object"], ["kosode", "object"], ["screen", "object"],
+  ],
+  "nerve": [
+    ["storm"], ["shipwreck"], ["volcano"], ["wave"], ["reef"],
+    ["armor", "object"], ["helmet", "object"], ["tsuba", "object"],
+    ["kabuto", "object"],
+  ],
+  "the dark and the lamp": [
+    ["nocturne"], ["night"], ["candle"], ["moon"], ["ember"], ["shadow"],
+    ["candlestick", "object"], ["lantern", "object"], ["lamp", "object"],
+    ["torch", "object"], ["censer", "object"],
+  ],
+  "the plain thing": [
+    ["bowl", "object"], ["chair", "object"], ["teapot", "object"], ["vessel", "object"],
+    ["basket", "object"], ["shaker", "object"], ["bench", "object"], ["jar", "object"],
+    ["kettle", "object"], ["box", "object"], ["stool", "object"],
+    ["tenmoku", "object"], ["bizen", "object"],
+  ],
+  "vastness": [
+    ["mountain"], ["sea"], ["moon"], ["waterfall"], ["horizon"],
+    ["desert"], ["canyon"], ["glacier"], ["fuji"],
+    ["prairie"], ["iceberg"], ["stars"], ["mesa"],
+    ["astrolabe", "object"], ["celestial", "object"],
+  ],
+  "weight and grace": [
+    ["dancer"], ["swan"], ["acrobat"], ["crane"], ["horse"], ["ballet"],
+    ["leap"], ["flight"],
+    ["netsuke", "object"], ["drapery"], ["kimono", "object"], ["inro", "object"],
+    ["obi", "object"], ["silk", "object"],
+  ],
 };
 
 // The Met's API is free and unmetered by key, which means the only thing
@@ -66,13 +102,42 @@ for (const c of inbox.candidates) {
   known.add((c.source || "").toLowerCase());
   known.add((c.title || "").toLowerCase());
 }
+if (existsSync("vault")) {
+  for (const dir of readdirSync("vault")) {
+    const path = join("vault", dir);
+    try {
+      for (const f of readdirSync(path)) {
+        if (!f.endsWith(".md")) continue;
+        const t = readFileSync(join(path, f), "utf8");
+        for (const k of ["source", "title"]) {
+          const m = new RegExp(`^${k}:\\s*"?([^"\\n]+)"?`, "m").exec(t);
+          if (m) known.add(m[1].trim().toLowerCase());
+        }
+      }
+    } catch { /* not a directory */ }
+  }
+}
 
-const OBJECT_CLASS = /ceramic|furniture|glass|metalwork|silver|wood|lacquer|textile|basket|jade|arms|armor|netsuke|vessel|jewelry/i;
+const inboxPer = {};
+for (const c of inbox.candidates) {
+  if (c.weather) inboxPer[c.weather] = (inboxPer[c.weather] || 0) + 1;
+}
+const weatherOrder = Object.keys(QUERIES).sort((a, b) =>
+  (inboxPer[a] || 0) - (inboxPer[b] || 0),
+);
+console.log("aiming, thinnest inbox first:");
+for (const w of weatherOrder) {
+  console.log(`  ${w.padEnd(22)} inbox ${inboxPer[w] || 0}, ${QUERIES[w].length} queries`);
+}
+console.log("");
+
+const OBJECT_CLASS = /ceramic|furniture|glass|metalwork|silver|wood|lacquer|textile|basket|jade|arms|armor|netsuke|vessel|jewelry|screen|costume/i;
 const PAINT_CLASS = /painting|screen|scroll|print|drawing|watercolor/i;
 
 const found = [];
 outer:
-for (const [weather, queries] of Object.entries(QUERIES)) {
+for (const weather of weatherOrder) {
+  const queries = QUERIES[weather];
   for (const [q, want = "painting"] of queries) {
     if (found.length >= WANT) break outer;
     let ids = [];
@@ -97,7 +162,13 @@ for (const [weather, queries] of Object.entries(QUERIES)) {
       await sleep(OBJ_SLEEP);                           // their servers, respected
 
       if (!o.isPublicDomain || !o.primaryImageSmall) continue;
-      const title = (o.title || "").trim();
+      // Met titles sometimes wear catalogue italics (<i>Tsuba</i>). Those
+      // tags break the sitting page's JSON payload and the tests that read it.
+      const title = (o.title || "")
+        .replace(/<[^>]+>/g, "")
+        .replace(/[–—]/g, "-")
+        .replace(/\s+/g, " ")
+        .trim();
       if (!title || title.length < 3) continue;
       if (known.has(title.toLowerCase()) || known.has((o.objectURL || "").toLowerCase())) continue;
 
@@ -134,7 +205,7 @@ for (const [weather, queries] of Object.entries(QUERIES)) {
         type: want,
         who: (o.artistDisplayName || "").trim(),     // empty is honest for an object
         title: title.slice(0, 80),
-        year: (o.objectDate || "").slice(0, 24),
+        year: (o.objectDate || "").replace(/[–—]/g, "-").slice(0, 24),
         remote: o.primaryImageSmall,
         source: o.objectURL,
         licence: "cc0",

@@ -2,13 +2,21 @@
 import Layout from "../../layouts/Layout.astro";
 import works from "../../data/eidos.json";
 
-// Thirty-one paintings from the Met's open-access collection, all public
-// domain, chosen for range rather than fame: renaissance to impressionism,
-// woodblock to natural history. Each carries four numbers — how still it is,
-// how much it is about people, how ordered, how lit — and the portrait at
-// the end is only ever the average of the ones you kept.
+// Paintings from the Met's open-access collection, all public domain,
+// chosen for range rather than fame: renaissance to impressionism,
+// woodblock to natural history. Each carries four numbers: how still it is,
+// how much it is about people, how ordered, how lit. The portrait at the
+// end is only ever the average of the ones you kept.
 const title = "the deck · eidos";
 const description = "swipe through paintings, find out what your eye is actually after.";
+const countWords = (n) => {
+  const ones = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
+  const tens = ["","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"];
+  if (n < 20) return ones[n];
+  if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 ? "-" + ones[n % 10] : "");
+  if (n < 200) return "a hundred" + (n % 100 ? " and " + countWords(n % 100) : "");
+  return String(n);
+};
 ---
 
 <Layout title={title} description={description} current="home" unlisted>
@@ -19,7 +27,7 @@ const description = "swipe through paintings, find out what your eye is actually
 
     <p class="lede eidos-lede">
       <em>eidos</em>, the greek for the form of a thing, the shape you
-      recognise it by. seventy-six paintings, one at a time: keep the ones
+      recognise it by. {countWords(works.length)} paintings, one at a time: keep the ones
       that stop you, pass the ones that don't. at the end you get a reading
       of what your eye was actually after.
     </p>
@@ -124,7 +132,7 @@ const description = "swipe through paintings, find out what your eye is actually
 
       const paint = () => {
         // Only three cards are ever mounted: the one you are looking at and
-        // the two behind it, so a deck of thirty-one costs three images.
+        // the two behind it, so a long deck still costs three images.
         cards.forEach((c) => { c.hidden = true; c.style.transform = ""; c.classList.remove("is-top"); });
         for (let k = 0; k < 3 && at + k < order.length; k++) {
           const c = cards[order[at + k]];
@@ -280,7 +288,7 @@ const description = "swipe through paintings, find out what your eye is actually
         read.innerHTML = "";
         if (!kept.length) {
           const p = document.createElement("p");
-          p.textContent = "thirty-one paintings and not one of them stopped you. either the set is wrong or you were never really looking — both are worth knowing.";
+          p.textContent = `${order.length} paintings and not one of them stopped you. either the set is wrong or you were never really looking. both are worth knowing.`;
           read.appendChild(p);
         } else {
           for (const l of lines) {
@@ -291,7 +299,7 @@ const description = "swipe through paintings, find out what your eye is actually
           const p = document.createElement("p");
           p.className = "eidos-tally";
           p.textContent = `you kept ${kept.length} of ${order.length}` +
-            (top3.length ? ` — most often ${top3.join(", ")}.` : ".");
+            (top3.length ? `, most often ${top3.join(", ")}.` : ".");
           read.appendChild(p);
         }
 
