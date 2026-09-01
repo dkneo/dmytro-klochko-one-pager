@@ -539,7 +539,7 @@ html.is-shook .scenes {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: inherit;
+  border-radius: 1px;
 }
 
 @media (max-width: 860px) {
@@ -555,18 +555,21 @@ html.is-shook .scenes {
   margin: 0;
 }
 
-/* A paper mat frames a print. These are films — the same medium as the
-   Replika stage further down, which carries none — and four cream mounts up
-   here against one bare screen down there was the page contradicting itself
-   about what a video is. They are screens now: panel corners, the same soft
-   drop, no paper. Every still photograph on the site keeps its mat. */
+/* The mat is not decoration here, it is the only thing separating four
+   overlapping clips from a dark ground and from each other. Stripping it to
+   match the bare Replika stage — on the theory that a paper mat frames a
+   print and these are films — collapsed the pile into mush: the dark footage
+   bled into the navy and the top clip's edge vanished into the one beneath
+   it. The stage is one film at full width with nothing to be told apart
+   from; this is four, touching. Same medium, different job. */
 [data-mode="dream"] .hero-stack .cell {
   display: block;
-  overflow: hidden;
-  border-radius: var(--r-panel);
+  background: var(--mat);
+  padding: var(--mat-snapshot);
+  border-radius: var(--r-print);
   box-shadow:
-    0 2px 6px rgb(8 10 22 / 55%),
-    0 20px 46px rgb(8 10 22 / 44%);
+    0 2px 5px rgb(8 10 22 / 58%),
+    0 18px 40px rgb(8 10 22 / 42%);
   transition: transform var(--dur-slow) var(--ease);
 }
 
@@ -574,22 +577,22 @@ html.is-shook .scenes {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: inherit;
+  border-radius: 1px;
 }
 
 [data-mode="dream"] .hero-stack figure:nth-child(1) {
   top: 0;
   left: 0;
-  width: 52%;
+  width: 45%;
   z-index: 1;
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(1) .cell { transform: rotate(-1.4deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(1) .cell { transform: rotate(-3.6deg); }
 
 [data-mode="dream"] .hero-stack figure:nth-child(2) {
-  top: 14%;
+  top: 15%;
   right: 0;
-  width: 62%;
+  width: 66%;
   z-index: 3;
 }
 
@@ -601,27 +604,27 @@ html.is-shook .scenes {
   }
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(2) .cell { transform: rotate(1.1deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(2) .cell { transform: rotate(2.8deg); }
 
 [data-mode="dream"] .hero-stack figure:nth-child(3) {
   bottom: 4%;
-  left: 6%;
-  width: 64%;
+  left: 10%;
+  width: 74%;
   z-index: 2;
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(3) .cell { transform: rotate(-0.8deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(3) .cell { transform: rotate(-1.4deg); }
 
 /* A small studio square finishes the pile without competing with the three
    films. It sits in front like the stray print found last in the envelope. */
 [data-mode="dream"] .hero-stack figure:nth-child(4) {
-  right: 1%;
-  bottom: 2%;
-  width: 42%;
+  right: 2%;
+  bottom: 1%;
+  width: 32%;
   z-index: 4;
 }
 
-[data-mode="dream"] .hero-stack figure:nth-child(4) .cell { transform: rotate(1.6deg); }
+[data-mode="dream"] .hero-stack figure:nth-child(4) .cell { transform: rotate(4.2deg); }
 
 [data-mode="dream"] .hero-stack figure:hover .cell {
   transform: rotate(0deg) scale(1.025);
