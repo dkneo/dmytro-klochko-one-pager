@@ -255,7 +255,8 @@ const description = "throw a link in; judge what waits. the door to the library.
     .in-credit { display: flex; flex-wrap: wrap; gap: 0.25rem 0.7rem; align-items: baseline; margin: var(--sp-tight) 0.15rem 0; font-size: var(--t-sm); }
     .in-credit b { color: var(--bone); font-weight: 500; }
     .in-credit span { color: var(--dim); }
-    .in-credit a { color: var(--dim); font-size: var(--t-xs); margin-left: auto; }
+    /* the one link on the card measured 42x21: a thumb needs 24 */
+    .in-credit a { display: inline-flex; align-items: center; min-height: 24px; color: var(--dim); font-size: var(--t-xs); margin-left: auto; }
     .in-edge {
       position: absolute; top: 1.4rem;
       font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.14em; text-transform: uppercase;
