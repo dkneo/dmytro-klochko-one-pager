@@ -207,7 +207,7 @@ async function names(request, env, url) {
     // rather than to the folio. An allowlist, never the raw value: a door
     // that redirects anywhere it is told is an open redirect.
     const asked = String((form && form.get("next")) || "");
-    const BACK = ["/eidos/sit", "/eidos", "/names", "/names/old"];
+    const BACK = ["/eidos/inbox", "/eidos", "/names", "/names/old"];
     const back = BACK.includes(asked) ? asked : where;
     if (sameSecret(String(tried ?? ""), env.NAMES_PASSWORD)) {
       return new Response(null, {
@@ -334,6 +334,126 @@ async function eidosPortrait(env) {
   if (!env.VAULT) return json({ runs: 0 });
   const runs = (await env.VAULT.get("eidos:portrait", "json")) || [];
   return json({ runs: runs.length, latest: runs[runs.length - 1] || null });
+}
+
+// ── the inbox ────────────────────────────────────────────────────────────
+//
+// Where he throws links. The page posts a url; the worker reads that page
+// once — title, site, description, a picture if it offers one — and, when a
+// key is set, asks the model what is worth remembering about it. The record
+// waits in KV until he swipes on it like any other candidate; a keep is what
+// makes it a vault note, through eidos-pull. Nothing here writes markdown.
+
+const INBOX_UA = "dmklochko-inbox/1.0 (https://dmklochko.com; reading a link he saved)";
+
+/** No fetching our own network from a public endpoint. */
+function fetchableUrl(raw) {
+  let u;
+  try { u = new URL(String(raw || "").trim()); } catch { return null; }
+  if (!/^https?:$/.test(u.protocol)) return null;
+  const h = u.hostname.toLowerCase();
+  if (h === "localhost" || h.endsWith(".local") || h.endsWith(".internal")) return null;
+  if (/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/.test(h)) {
+    const [a, b] = h.split(".").map(Number);
+    if (a === 10 || a === 127 || a === 0 || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 169 && b === 254)) return null;
+  }
+  if (h.includes(":") || h === "[::1]") return null;
+  u.hash = "";
+  return u;
+}
+
+const meta = (html, re) => (html.match(re)?.[1] || "").trim();
+const untag = (t) => t.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+  .replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+const prop = (html, name) =>
+  meta(html, new RegExp(`<meta[^>]+(?:property|name)=["']${name}["'][^>]+content=["']([^"']*)["']`, "i")) ||
+  meta(html, new RegExp(`<meta[^>]+content=["']([^"']*)["'][^>]+(?:property|name)=["']${name}["']`, "i"));
+
+/** Read a page once, gently, and keep what a card needs. */
+async function readLink(u) {
+  const out = { url: u.toString(), site: u.hostname.replace(/^www\./, ""), title: "", description: "", image: "", who: "", text: "" };
+  let r;
+  try {
+    r = await fetch(u, { headers: { "user-agent": INBOX_UA, accept: "text/html,*/*;q=0.5" }, redirect: "follow", cf: { cacheTtl: 0 } });
+  } catch { return out; }
+  if (!r.ok || !/text\/html/i.test(r.headers.get("content-type") || "")) return out;
+  const html = (await r.text()).slice(0, 400_000);
+  out.title = untag(prop(html, "og:title") || meta(html, /<title[^>]*>([\s\S]*?)<\/title>/i));
+  out.description = untag(prop(html, "og:description") || prop(html, "description"));
+  out.image = prop(html, "og:image");
+  if (out.image && out.image.startsWith("/")) out.image = new URL(out.image, u).toString();
+  out.who = untag(prop(html, "author") || prop(html, "article:author") || prop(html, "og:site_name"));
+  // a first pass at the body, for the model and for nothing else
+  out.text = untag(html.replace(/<(script|style|nav|header|footer|svg)[\s\S]*?<\/\1>/gi, " ")).slice(0, 6000);
+  return out;
+}
+
+/** Ask the model what is worth remembering. Only when a key exists; silent otherwise. */
+async function summarise(env, link) {
+  if (!env.ANTHROPIC_API_KEY || !(link.title || link.text)) return { summary: "", tags: [] };
+  try {
+    const r = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01" },
+      body: JSON.stringify({
+        model: "claude-sonnet-5",
+        max_tokens: 300,
+        system: "You write one-line notes for a personal reading library. Given a page, answer in JSON only: {\"summary\": <two plain sentences, lowercase, no dashes, no flattery, what is actually interesting here and why it might matter to someone who loves quiet painting, poetry, product craft and clear thinking>, \"tags\": [three to five lowercase single words or two-word phrases]}.",
+        messages: [{ role: "user", content: `title: ${link.title}\nsite: ${link.site}\ndescription: ${link.description}\n\ntext:\n${link.text.slice(0, 5000)}` }],
+      }),
+    });
+    if (!r.ok) return { summary: "", tags: [] };
+    const d = await r.json();
+    const text = (d.content || []).filter((c) => c.type === "text").map((c) => c.text).join("");
+    const j = JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1));
+    return { summary: String(j.summary || "").slice(0, 400), tags: (j.tags || []).slice(0, 5).map((t) => String(t).toLowerCase().slice(0, 32)) };
+  } catch { return { summary: "", tags: [] }; }
+}
+
+async function doorIsOpen(request, env) {
+  if (!env.NAMES_PASSWORD) return false;
+  const good = await passToken(env.NAMES_PASSWORD);
+  return sameSecret(cookieValue(request, COOKIE) || "", good);
+}
+
+/** POST /api/eidos/bookmark  { url, note? } */
+async function inboxAdd(request, env) {
+  if (!env.VAULT) return json({ error: "no kv binding" }, 503);
+  if (!(await doorIsOpen(request, env))) return json({ error: "not signed in. open /names first." }, 401);
+  let body;
+  try { body = await request.json(); } catch { return json({ error: "bad json" }, 400); }
+  const u = fetchableUrl(body?.url);
+  if (!u) return json({ error: "that is not a link i can read" }, 400);
+  const note = String(body?.note || "").slice(0, 600);
+
+  const all = (await env.VAULT.get("eidos:bookmarks", "json")) || {};
+  const id = "bm-" + hex(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(u.toString()))).slice(0, 12);
+  if (all[id]) return json({ ok: true, id, bookmark: all[id], already: true });
+
+  const link = await readLink(u);
+  const { summary, tags } = await summarise(env, link);
+  const rec = {
+    id, url: link.url, site: link.site,
+    title: link.title || u.hostname, description: link.description, image: link.image, who: link.who,
+    excerpt: link.text.slice(0, 300),
+    note, summary, tags, at: new Date().toISOString(),
+  };
+  all[id] = rec;
+  await env.VAULT.put("eidos:bookmarks", JSON.stringify(all));
+  return json({ ok: true, id, bookmark: rec, summarised: Boolean(summary), waiting: Object.keys(all).length });
+}
+
+/** GET /api/eidos/bookmarks — his, so behind the door. */
+async function inboxList(request, env) {
+  if (!env.VAULT) return json({ bookmarks: [] });
+  if (!(await doorIsOpen(request, env))) return json({ error: "not signed in. open /names first." }, 401);
+  const all = (await env.VAULT.get("eidos:bookmarks", "json")) || {};
+  const seen = (await env.VAULT.get("eidos:verdicts", "json")) || {};
+  const list = Object.values(all).sort((a, b) => (b.at || "").localeCompare(a.at || ""));
+  return json({
+    bookmarks: list.map((b) => ({ ...b, verdict: seen[b.id]?.verdict || "" })),
+    canSummarise: Boolean(env.ANTHROPIC_API_KEY),
+  });
 }
 
 /** Teaching writes: same shared password as the folio. */
@@ -655,6 +775,15 @@ export default {
     // The request desk, behind its own password.
     if (url.pathname.startsWith("/api/ask/")) return askApi(request, env, url);
     if (/^\/ask(?:\/|$)/i.test(url.pathname)) return ask(request, env, url);
+
+    // The sitting became the inbox. Old links keep working.
+    if (/^\/eidos\/sit\/?$/i.test(url.pathname)) {
+      return Response.redirect(new URL("/eidos/inbox", url).toString(), 301);
+    }
+
+    // The inbox: adding a link is a write, listing is his to see.
+    if (url.pathname === "/api/eidos/bookmark" && request.method === "POST") return inboxAdd(request, env);
+    if (url.pathname === "/api/eidos/bookmarks" && request.method === "GET") return inboxList(request, env);
 
     // The map: asking is a read, placing and pairing are writes.
     if (url.pathname === "/api/eidos/ask" && request.method === "POST") return eidosAsk(request, env);

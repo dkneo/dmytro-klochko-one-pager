@@ -13,7 +13,8 @@ test("the homepage lights weather only while the hero owns the sky", () => {
   const calm = [...page.matchAll(/data-weather="none"/g)];
 
   assert.equal(fire.length, 1, "only the hero should carry live fire weather");
-  assert.equal(calm.length, 6, "every later homepage chapter should calm the weather");
+  // seven now: eidos joined the estuary act, and it calms the sky like the rest
+  assert.equal(calm.length, 7, "every later homepage chapter should calm the weather");
 });
 
 test("visible hero video plays on phones unless the user asks the browser to save data", async () => {
@@ -109,8 +110,8 @@ test("the homepage moves through three authored acts without changing sky mid-th
 
   assert.match(page, /scenes=\{\["fire", "ember", "estuary"\]\}/);
   assert.deepEqual(
-    ["top", "experience", "how", "journey", "alongside", "me", "contact"].map(sceneFor),
-    ["fire", "ember", "ember", "ember", "estuary", "estuary", "estuary"],
+    ["top", "experience", "how", "journey", "alongside", "me", "eidos", "contact"].map(sceneFor),
+    ["fire", "ember", "ember", "ember", "estuary", "estuary", "estuary", "estuary"],
   );
 });
 

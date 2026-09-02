@@ -390,3 +390,42 @@ prose links exempt.
 - Don't reach for a hairline to separate things.
 - Don't let art blur or pixelate: contained sizes or high-res sources only.
 - Don't fix readability with cream/white panels — dim the painting itself.
+
+## eidos
+
+The library is the one page built to be shared on its own, and the one
+place the homepage lets another page speak: `src/components/EidosPortrait.astro`
+renders whole at the top of `/eidos` and compact as the homepage's `#eidos`
+chapter, from the same data, so the two cannot disagree.
+
+**The portrait.** One paragraph in the serif italic at `--t-lede` (`--t-lg`
+when compact), lowercase, no dashes, every clause computed from the vault:
+the total, the fullest and thinnest weather (in `--hot`), how many of the
+pictures are his, who recurs, how many languages the words come in. Under it
+the eight weathers as a strip of bars, each `flex`-grown by its count and
+painted with the five stops of its own palette (`--r-print` corners, 14px
+tall, 10px compact), a wrapped legend row in mono beneath (hidden when
+compact — the bars carry titles), a row of plates at their own proportions
+(84px tall, 64px compact, wrapping rather than clipping), and the counts in
+the display face at `--dream-fact`.
+
+**The hall and the reading room.** Pictures hang weather by weather, cold to
+warm, as one continuous hall; words are set weather by weather in one
+reading room. The weather is a label inside a room (display face at
+`--dream-display-card`, paint chips before it, the weather's `why` in serif
+after it), never a wall between rooms. A poem sets its original above the
+english (`.lib-orig` / `.lib-eng`, the english at `--t-md` in `--quiet`) and
+names its translator in the byline; a quote in another tongue does the
+reverse. **Read** is a shelf of typographic cards (`--r-panel`, `--deck` at
+60%) for links kept from the inbox: site in mono caps, title in serif,
+summary in `--quiet`, tags in mono.
+
+**The inbox.** A composer that looks like the thing you type into: one long
+url field in the serif at `--t-prose`, one short note field, one verb in a
+`--hot` pill. It answers `:focus-within` with a 4px `--hot` halo at 10% —
+focus, never hover; the glow says the field is live. Below it the deck: a
+`--deck` card with `--r-panel` corners that carries either a picture
+(contained, `--r-print`) or a link set in type (site, title at `--t-lede`,
+summary, tags), judged right or left. The rest state lists what was kept.
+No radius on the page is a number; the page's own stylesheet is checked for
+it.

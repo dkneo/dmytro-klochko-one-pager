@@ -182,40 +182,65 @@ it that way.
 
 ### The eidos pages
 
-`/eidos` is **the library** — a hidden room, unlisted, not in the sitemap:
-eight weather-rooms, cold to warm, the unfiled closing as "the ring". Inside
-a room, **art hangs and words are read**: paintings/objects/buildings/people
-are plates on a wall, poems/quotes/songs/writing are set as type. **Density
-picks the layout** — four works or fewer sit beside their words as a
-catalogue spread, more than four hang wide with the words beneath, so rooms
-change shape as sittings fill them. Plates come from `/images/plates/` (440
-wide, fit inside) because the 320 square thumbs are cover-cropped and cut a
-painting's composition; the sketch still uses the thumbs, which is what they
-are for. **Every count on the page is computed from what the page renders**,
-never from `depth.*`, which counts the whole vault.
+`/eidos` is **the library** — unlisted, not in the sitemap, and the one page
+on the site that is meant to be shared on its own (it carries its own OG
+card, `public/og-eidos.png`, composed by `scripts/og-eidos.mjs` from the
+same data as the page). It opens with **the portrait** — one paragraph and a
+strip of eight weathers, every word and bar computed from the vault at build
+by `src/components/EidosPortrait.astro` — then hangs the pictures and sets
+the words in **two rooms of their own**: the hall (`#pictures`: paintings,
+posters, objects, buildings, people; weather by weather, cold to warm, each
+plate at its own proportions) and the reading room (`#words`: poems whole
+with the original above the english and the translator named; quotes in
+their own tongue with the english under; songs by name). Then **read**
+(`#read`: bookmarks he kept from the inbox, typographic cards) and
+**unfiled** (the ring). Every count on the page is computed from what it
+renders. The weathers are labels inside a room, not walls between rooms:
+eight short walls interrupted by eight short columns never read as a place.
 
-Views:
-`/eidos/map` (the sketch, with place-the-ring and the pair), `/eidos/orbit`
-(the shape). `/eidos/sit` is his judging door. `/eidos/deck` is legacy,
-unlinked. The library is a hidden room; every write is behind the /names door.
+**The same portrait component renders compact on the homepage** as the
+`#eidos` chapter (the door to the library), so home and library can never
+disagree about what he loves. `tests/eidos-portrait.test.mjs` holds them to
+the same numbers.
 
-Marks now come in nine kinds: paintings, **objects** (design), **buildings**
-(HABS/HAER survey photographs are the reliable PD vein), poems, songs,
-quotes, links, people, writing. Kept objects/buildings file into
-`vault/objects` and `vault/buildings`.
+Views: `/eidos/map` (the sketch), `/eidos/orbit` (the shape). `/eidos/deck`
+is legacy, unlinked.
+
+`/eidos/inbox` **replaced `/eidos/sit`** (the worker 301s the old address).
+One surface, two kinds of card: what the harvester brought (pictures) and
+what he threw in himself (links). The composer at the top posts a url to
+`POST /api/eidos/bookmark`; the worker reads the page once (title, site,
+description, og:image, author, a 300-char excerpt — never our own network:
+private hosts are refused), asks the model for a two-sentence summary and
+tags **only if `ANTHROPIC_API_KEY` is set**, and stores the record in KV
+`eidos:bookmarks`. `GET /api/eidos/bookmarks` lists them (behind the door).
+Both are judged with the same right/left motion into `eidos:verdicts`. A
+kept link becomes `vault/bookmarks/<id>.md` through `eidos-pull`
+(obsidian-shaped: frontmatter, the summary as body, wikilinks to weather,
+author and tags) and appears under `#read`. Posters and suggested
+newsletters arrive as **candidates**, never directly on the page.
+
+Marks come in eleven kinds: paintings, objects, buildings, **posters**, poems,
+songs, quotes, links, people, writing, **bookmarks**. `map-build` carries
+`lang` for poems and quotes (script/stopword detection on the original),
+`english` for quotes and `original` + `translator` for poems, so the
+reading room can set both.
 
 ### The taste loop, end to end
 
 The one workflow that spans all of them. It only moves when he judges, which
-is what `/eidos/sit` exists to make cheap:
+is what `/eidos/inbox` exists to make cheap:
 
 1. `node scripts/candidates.mjs --apply` — Wikimedia, public domain only,
    aimed at the weathers thinnest **on the map**. Four search terms per
    weather; one search yields at most one candidate, so fewer terms leaves
    whole weathers empty.
-2. He sits at `/eidos/sit`: right is his, left is not, seven is a sitting.
-   Verdicts land in KV under `eidos:verdicts`, behind the `/names` door.
-3. `node scripts/eidos-pull.mjs --apply` — turns keeps into vault notes. A
+2. He judges at `/eidos/inbox`: right if it stays, left if it goes — and
+   throws his own links in at the top of the same page. Verdicts land in KV
+   under `eidos:verdicts`, bookmarks under `eidos:bookmarks`, both behind
+   the `/names` door.
+3. `node scripts/eidos-pull.mjs --apply` — turns keeps into vault notes
+   (pictures into their kind's folder, links into `vault/bookmarks`). A
    remote candidate has its picture **brought home** here (fetched, tracking
    params dropped, webp at 1600 wide, into `public/images/vault/`), because
    `vault-build` throws on a painting that is not on disk.

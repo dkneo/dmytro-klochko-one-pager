@@ -1,5 +1,5 @@
 {
- "built": "2026-08-26",
+ "built": "2026-09-02",
  "axes": {
   "x": {
    "from": "cold",
@@ -847,6 +847,40 @@
    "unplaced": false
   },
   {
+   "id": "winter",
+   "type": "painting",
+   "who": "Frits Thaulow",
+   "title": "Winter",
+   "line": "Winter",
+   "year": "1886",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/winter.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-02",
+   "x": -0.7171,
+   "y": -0.3758,
+   "unplaced": false
+  },
+  {
+   "id": "botanical-dish-with-white-sunflower",
+   "type": "object",
+   "who": "Chelsea porcelain factory",
+   "title": "Botanical dish with white sunflower",
+   "line": "Botanical dish with white sunflower",
+   "year": "c. 1755",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/botanical-dish-with-white-sunflower.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-02",
+   "x": -1.0154,
+   "y": -0.2757,
+   "unplaced": false
+  },
+  {
    "id": "attributed-to-sappho-the-moon-has-set-and-the-pleiades-it-i",
    "type": "poem",
    "who": "attributed to Sappho",
@@ -859,6 +893,9 @@
    "url": "",
    "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
    "added": "2026-08-15",
+   "original": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
+   "translator": "translated for this page, not a published version",
+   "lang": "greek",
    "x": 0.0894,
    "y": -0.467,
    "unplaced": false
@@ -876,8 +913,11 @@
    "url": "",
    "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
    "added": "2026-08-15",
-   "x": -0.7151,
-   "y": -0.4048,
+   "original": "馬をさへ\nながむる雪の\n朝哉",
+   "translator": "translated for this page, not a published version",
+   "lang": "japanese",
+   "x": -0.8894,
+   "y": -0.5588,
    "unplaced": false
   },
   {
@@ -893,8 +933,31 @@
    "url": "",
    "note": "The most famous poem in Japanese. His students argued for years about the first line; he kept the plainest one.",
    "added": "2026-08-15",
+   "original": "古池や\n蛙飛びこむ\n水の音",
+   "translator": "translated for this page, not a published version",
+   "lang": "japanese",
    "x": -0.0666,
    "y": -1.0393,
+   "unplaced": false
+  },
+  {
+   "id": "buson-the-comb",
+   "type": "poem",
+   "who": "Yosa Buson",
+   "title": "身にしむや",
+   "line": "a chill through me —\nin the bedroom, underfoot,\nmy dead wife's comb",
+   "year": "",
+   "where": "18th century",
+   "weather": "weight and grace",
+   "src": "",
+   "url": "",
+   "note": "His wife outlived him by many years; the grief is imagined, which is the point of the comb. He was a painter too, and it is a painter's poem: one object, the whole house around it.",
+   "added": "2026-09-02",
+   "original": "身にしむや\n亡妻の櫛を\n閨に踏む",
+   "translator": "translated for this page, not a published version",
+   "lang": "japanese",
+   "x": 0.403,
+   "y": 0.2236,
    "unplaced": false
   },
   {
@@ -910,8 +973,29 @@
    "url": "",
    "note": "Thermopylae is the pass the Spartans held knowing they would lose it, and Ephialtes is the man who showed the Persians the way around. Cavafy's point is that the traitor arriving does not cancel the holding.",
    "added": "2026-08-15",
+   "original": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
+   "translator": "translated for this page, not a published version",
+   "lang": "greek",
    "x": 0.8112,
    "y": -0.2537,
+   "unplaced": false
+  },
+  {
+   "id": "dickinson-a-certain-slant-of-light",
+   "type": "poem",
+   "who": "Emily Dickinson",
+   "title": "There's a certain slant of light",
+   "line": "There's a certain slant of light,\nOn winter afternoons,\nThat oppresses, like the weight\nOf cathedral tunes.\n\nHeavenly hurt it gives us;\nWe can find no scar,\nBut internal difference\nWhere the meanings are.\n\nNone may teach it anything,\n'T is the seal, despair,—\nAn imperial affliction\nSent us of the air.\n\nWhen it comes, the landscape listens,\nShadows hold their breath;\nWhen it goes, 't is like the distance\nOn the look of death.",
+   "year": "",
+   "where": "Poems, 1890",
+   "weather": "cold clarity",
+   "src": "",
+   "url": "",
+   "note": "Published four years after her death, from the fascicles she sewed and kept in a drawer. The 1890 text, as her first editors printed it.",
+   "added": "2026-09-02",
+   "lang": "english",
+   "x": -0.7596,
+   "y": -0.2964,
    "unplaced": false
   },
   {
@@ -927,6 +1011,7 @@
    "url": "",
    "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote.",
    "added": "2026-08-15",
+   "lang": "english",
    "x": 0.81,
    "y": 0.22,
    "unplaced": false
@@ -944,8 +1029,49 @@
    "url": "",
    "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
    "added": "2026-08-15",
+   "original": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
+   "translator": "translated for this page, not a published version",
+   "lang": "french",
    "x": -0.5618,
    "y": 0.6627,
+   "unplaced": false
+  },
+  {
+   "id": "hopkins-pied-beauty",
+   "type": "poem",
+   "who": "Gerard Manley Hopkins",
+   "title": "Pied Beauty",
+   "line": "Glory be to God for dappled things –\nFor skies of couple-colour as a brinded cow;\nFor rose-moles all in stipple upon trout that swim;\nFresh-firecoal chestnut-falls; finches' wings;\nLandscape plotted and pieced – fold, fallow, and plough;\nAnd áll trádes, their gear and tackle and trim.\n\nAll things counter, original, spare, strange;\nWhatever is fickle, freckled (who knows how?)\nWith swift, slow; sweet, sour; adazzle, dim;\nHe fathers-forth whose beauty is past change:\nPraise him.",
+   "year": "",
+   "where": "written 1877, published in Poems, 1918",
+   "weather": "the plain thing",
+   "src": "",
+   "url": "",
+   "note": "Written the summer he was ordained. Not published until 1918, twenty-nine years after he died; he had shown it to almost no one.",
+   "added": "2026-09-02",
+   "lang": "english",
+   "x": -0.129,
+   "y": -0.7826,
+   "unplaced": false
+  },
+  {
+   "id": "li-bai-quiet-night-thought",
+   "type": "poem",
+   "who": "Li Bai",
+   "title": "静夜思",
+   "line": "Before my bed, the bright moon's light —\nI take it for frost on the ground.\nI lift my head to look at the moon,\nlower it, and think of home.",
+   "year": "",
+   "where": "Tang dynasty, 8th century",
+   "weather": "the dark and the lamp",
+   "src": "",
+   "url": "",
+   "note": "Twenty characters. The first poem most children in China learn by heart, and still the one they can say at eighty.",
+   "added": "2026-09-02",
+   "original": "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。",
+   "translator": "translated for this page, not a published version",
+   "lang": "chinese",
+   "x": 0.1406,
+   "y": -0.7791,
    "unplaced": false
   },
   {
@@ -961,8 +1087,31 @@
    "url": "",
    "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
    "added": "2026-08-15",
-   "x": 0.3824,
-   "y": 0.1237,
+   "original": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+   "translator": "translated for this page, not a published version",
+   "lang": "german",
+   "x": 0.1602,
+   "y": 0.3506,
+   "unplaced": false
+  },
+  {
+   "id": "rilke-herbsttag",
+   "type": "poem",
+   "who": "Rainer Maria Rilke",
+   "title": "Herbsttag",
+   "line": "Lord: it is time. The summer was immense.\nLay your shadow on the sundials\nand let the winds loose over the fields.",
+   "year": "",
+   "where": "Das Buch der Bilder, 1902",
+   "weather": "dissolution",
+   "src": "",
+   "url": "",
+   "note": "Dated Paris, 21 September 1902, the day before the equinox. He was twenty-six and had been in the city three weeks.",
+   "added": "2026-09-02",
+   "original": "Herr: es ist Zeit. Der Sommer war sehr groß.\nLeg deinen Schatten auf die Sonnenuhren,\nund auf den Fluren laß die Winde los.\n\nBefiehl den letzten Früchten voll zu sein;\ngieb ihnen noch zwei südlichere Tage,\ndränge sie zur Vollendung hin und jage\ndie letzte Süße in den schweren Wein.\n\nWer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+   "translator": "translated for this page, not a published version",
+   "lang": "german",
+   "x": -0.4269,
+   "y": 0.3676,
    "unplaced": false
   },
   {
@@ -978,8 +1127,29 @@
    "url": "",
    "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
    "added": "2026-08-15",
+   "original": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+   "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929",
+   "lang": "chinese",
    "x": -0.4796,
    "y": 0.9119,
+   "unplaced": false
+  },
+  {
+   "id": "yeats-cloths-of-heaven",
+   "type": "poem",
+   "who": "W. B. Yeats",
+   "title": "He Wishes for the Cloths of Heaven",
+   "line": "Had I the heavens' embroidered cloths,\nEnwrought with golden and silver light,\nThe blue and the dim and the dark cloths\nOf night and light and the half-light,\nI would spread the cloths under your feet:\nBut I am poor, and have only my dreams;\nI have spread my dreams under your feet;\nTread softly because you tread on my dreams.",
+   "year": "",
+   "where": "The Wind Among the Reeds, 1899",
+   "weather": "weight and grace",
+   "src": "",
+   "url": "",
+   "note": "First printed as \"Aedh Wishes for the Cloths of Heaven\", one of three named voices Yeats later folded into a single \"he\".",
+   "added": "2026-09-02",
+   "lang": "english",
+   "x": 0.2419,
+   "y": 0.042,
    "unplaced": false
   },
   {
@@ -995,8 +1165,8 @@
    "url": "",
    "note": "One left-hand figure, held for seven minutes, improvised in a single take at the end of a session.",
    "added": "2026-08-15",
-   "x": -0.016,
-   "y": -0.8005,
+   "x": -0.2717,
+   "y": -0.9634,
    "unplaced": false
   },
   {
@@ -1012,8 +1182,8 @@
    "url": "",
    "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his.",
    "added": "2026-08-15",
-   "x": 0.1118,
-   "y": -0.7772,
+   "x": 0.2843,
+   "y": -0.5205,
    "unplaced": false
   },
   {
@@ -1029,8 +1199,8 @@
    "url": "",
    "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens.",
    "added": "2026-08-15",
-   "x": -0.5187,
-   "y": 0.3644,
+   "x": -0.3293,
+   "y": 0.6122,
    "unplaced": false
   },
   {
@@ -1063,8 +1233,8 @@
    "url": "",
    "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia.",
    "added": "2026-08-15",
-   "x": 0.1278,
-   "y": 0.3379,
+   "x": 0.3717,
+   "y": 0.2911,
    "unplaced": false
   },
   {
@@ -1080,8 +1250,8 @@
    "url": "",
    "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician.",
    "added": "2026-08-15",
-   "x": -1.0396,
-   "y": -0.2956,
+   "x": -1.0813,
+   "y": -0.4317,
    "unplaced": false
   },
   {
@@ -1119,6 +1289,24 @@
    "unplaced": false
   },
   {
+   "id": "agnes-martin-beauty-is-the-mystery",
+   "type": "quote",
+   "who": "Agnes Martin",
+   "title": "",
+   "line": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+   "year": "",
+   "where": "Beauty Is the Mystery of Life, 1989",
+   "weather": "weight and grace",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-09-02",
+   "lang": "english",
+   "x": 0.0363,
+   "y": 0.219,
+   "unplaced": false
+  },
+  {
    "id": "albert-camus-in-the-midst-of-winter-i-finally-learne",
    "type": "quote",
    "who": "Albert Camus",
@@ -1131,6 +1319,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
+   "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
+   "lang": "french",
    "x": 0.6308,
    "y": 0.2549,
    "unplaced": false
@@ -1148,6 +1338,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
+   "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+   "lang": "latin",
    "x": -0.2799,
    "y": 1.1082,
    "unplaced": false
@@ -1165,8 +1357,10 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 0.2432,
-   "y": -0.4879,
+   "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
+   "lang": "spanish",
+   "x": -0.0398,
+   "y": -0.6574,
    "unplaced": false
   },
   {
@@ -1182,8 +1376,27 @@
    "url": "",
    "note": "",
    "added": "2026-08-17",
+   "lang": "english",
    "x": 0.8268,
    "y": 0.0261,
+   "unplaced": false
+  },
+  {
+   "id": "morandi-nothing-more-abstract",
+   "type": "quote",
+   "who": "Giorgio Morandi",
+   "title": "",
+   "line": "Nothing is more abstract than reality.",
+   "year": "",
+   "where": "in conversation with Edouard Roditi, 1958",
+   "weather": "the plain thing",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-09-02",
+   "lang": "english",
+   "x": 0.0807,
+   "y": -0.9542,
    "unplaced": false
   },
   {
@@ -1199,8 +1412,10 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": -0.204,
-   "y": -1.0453,
+   "english": "A drop hollows the stone; a ring is worn away by use.",
+   "lang": "latin",
+   "x": -0.2594,
+   "y": -0.8392,
    "unplaced": false
   },
   {
@@ -1216,6 +1431,7 @@
    "url": "",
    "note": "",
    "added": "2026-08-17",
+   "lang": "english",
    "x": 0.8461,
    "y": -0.2722,
    "unplaced": false
@@ -1233,8 +1449,29 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": -0.3893,
-   "y": 0.6587,
+   "english": "The wind is rising… we must try to live.",
+   "lang": "french",
+   "x": -0.6558,
+   "y": 0.4704,
+   "unplaced": false
+  },
+  {
+   "id": "rilke-love-the-questions",
+   "type": "quote",
+   "who": "Rainer Maria Rilke",
+   "title": "",
+   "line": "Geduld zu haben gegen alles Ungelöste in Ihrem Herzen und zu versuchen, die Fragen selbst liebzuhaben.",
+   "year": "",
+   "where": "Briefe an einen jungen Dichter, 16 July 1903",
+   "weather": "dissolution",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-09-02",
+   "english": "have patience with everything unresolved in your heart, and try to love the questions themselves.",
+   "lang": "german",
+   "x": -0.3281,
+   "y": 0.4292,
    "unplaced": false
   },
   {
@@ -1250,8 +1487,29 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
+   "english": "It is not because things are difficult that we do not dare; it is because we do not dare that they are difficult.",
+   "lang": "latin",
    "x": 1.0321,
    "y": -0.0086,
+   "unplaced": false
+  },
+  {
+   "id": "seneca-not-little-time",
+   "type": "quote",
+   "who": "Seneca",
+   "title": "",
+   "line": "Non exiguum temporis habemus, sed multum perdidimus.",
+   "year": "",
+   "where": "De Brevitate Vitae, I.3",
+   "weather": "nerve",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-09-02",
+   "english": "It is not that we have little time, but that we lose much of it.",
+   "lang": "latin",
+   "x": 0.7215,
+   "y": -0.1617,
    "unplaced": false
   },
   {
@@ -1267,8 +1525,10 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": -0.8669,
-   "y": -0.5565,
+   "english": "Attention is the rarest and purest form of generosity.",
+   "lang": "french",
+   "x": -0.7354,
+   "y": -0.4727,
    "unplaced": false
   },
   {
@@ -1284,8 +1544,9 @@
    "url": "",
    "note": "",
    "added": "2026-08-17",
-   "x": 0.7259,
-   "y": -0.0661,
+   "lang": "english",
+   "x": 0.986,
+   "y": -0.2609,
    "unplaced": false
   },
   {
@@ -1301,8 +1562,29 @@
    "url": "",
    "note": "",
    "added": "2026-08-15",
-   "x": 0.1994,
-   "y": 0.0419,
+   "english": "Perhaps one day it will be a pleasure to remember even this.",
+   "lang": "english",
+   "x": 0.3533,
+   "y": 0.0897,
+   "unplaced": false
+  },
+  {
+   "id": "weil-unmixed-attention",
+   "type": "quote",
+   "who": "Simone Weil",
+   "title": "",
+   "line": "L'attention absolument sans mélange est prière.",
+   "year": "",
+   "where": "La Pesanteur et la Grâce, 1947",
+   "weather": "cold clarity",
+   "src": "",
+   "url": "",
+   "note": "",
+   "added": "2026-09-02",
+   "english": "Absolutely unmixed attention is prayer.",
+   "lang": "french",
+   "x": -0.9122,
+   "y": -0.2412,
    "unplaced": false
   },
   {
@@ -1318,6 +1600,10 @@
    "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
    "note": "",
    "added": "2026-08-17",
+   "summary": "The specifics: scale 0.97 on :active so a press answers; never grow from scale(0), start near 0.93; drop the delay on a second tooltip; ease-out for anything entering or leaving; scale from the trigger's corner rather than the centre; under 300ms, and 180 beats 400; and a 2px blur to hide an animation you cannot otherwise fix.",
+   "tags": [
+    "motion"
+   ],
    "x": 0.918,
    "y": 0.53,
    "unplaced": true
@@ -1335,6 +1621,9 @@
    "url": "https://emilkowal.ski/ui/agents-with-taste",
    "note": "",
    "added": "2026-08-17",
+   "tags": [
+    "taste"
+   ],
    "x": 0.7877,
    "y": 0.7093,
    "unplaced": true
@@ -1352,6 +1641,9 @@
    "url": "https://emilkowal.ski/ui/building-a-drawer-component",
    "note": "",
    "added": "2026-08-17",
+   "tags": [
+    "components"
+   ],
    "x": 0.6231,
    "y": 0.8576,
    "unplaced": true
@@ -1369,6 +1661,9 @@
    "url": "https://emilkowal.ski/ui/building-a-toast-component",
    "note": "",
    "added": "2026-08-17",
+   "tags": [
+    "components"
+   ],
    "x": 0.4311,
    "y": 0.9684,
    "unplaced": true
@@ -1386,6 +1681,9 @@
    "url": "https://emilkowal.ski/ui/building-an-animation-course",
    "note": "",
    "added": "2026-08-17",
+   "tags": [
+    "craft"
+   ],
    "x": 0.2204,
    "y": 1.0368,
    "unplaced": true
@@ -1403,6 +1701,10 @@
    "url": "https://emilkowal.ski/ui/developing-taste",
    "note": "",
    "added": "2026-08-17",
+   "summary": "Taste as a trained instinct rather than a preference. Three moves: put yourself in front of the best work there is, then rationalise why it works instead of just reacting to it, then make things and get told the truth about them. The gap between what you can see and what you can make is normal and it closes.",
+   "tags": [
+    "taste"
+   ],
    "x": 0,
    "y": 1.06,
    "unplaced": true
@@ -1420,6 +1722,10 @@
    "url": "https://emilkowal.ski/ui/friction-as-a-feature",
    "note": "",
    "added": "2026-08-17",
+   "summary": "Building used to be expensive, and the expense quietly filtered which ideas deserved to exist. That filter is gone, so more gets made and less of it was thought about. His line for what comes out the other side: it does not feel designed, it just exists.",
+   "tags": [
+    "taste"
+   ],
    "x": -0.2204,
    "y": 1.0368,
    "unplaced": true
@@ -1437,6 +1743,9 @@
    "url": "https://emilkowal.ski/ui/the-magic-of-clip-path",
    "note": "",
    "added": "2026-08-17",
+   "tags": [
+    "motion"
+   ],
    "x": -0.4311,
    "y": 0.9684,
    "unplaced": true
@@ -1454,6 +1763,9 @@
    "url": "https://emilkowal.ski/ui/train-your-judgement",
    "note": "",
    "added": "2026-08-17",
+   "tags": [
+    "taste"
+   ],
    "x": -0.6231,
    "y": 0.8576,
    "unplaced": true
@@ -1471,6 +1783,10 @@
    "url": "https://emilkowal.ski/ui/you-dont-need-animations",
    "note": "",
    "added": "2026-08-17",
+   "summary": "Three tests before anything moves: what is it for, how often will someone see it, and is it fast. Something hit two hundred times a day should barely move at all, and keyboard-initiated actions should never animate, because the delay reads as the software being slow rather than the animation being pretty. Under 300ms or it is not responsive.",
+   "tags": [
+    "motion"
+   ],
    "x": -0.7877,
    "y": 0.7093,
    "unplaced": true
@@ -1488,6 +1804,11 @@
    "url": "https://threeui.com",
    "note": "",
    "added": "2026-08-23",
+   "tags": [
+    "three.js",
+    "motion",
+    "agents"
+   ],
    "x": -0.918,
    "y": 0.53,
    "unplaced": true
@@ -1652,15 +1973,15 @@
    "x": -0.9,
    "y": -0.4,
    "why": "winter light and precision, aimed at something small",
-   "count": 8,
+   "count": 12,
    "forms": [
     {
      "form": "painting",
-     "n": 5
+     "n": 6
     },
     {
      "form": "poem",
-     "n": 1
+     "n": 2
     },
     {
      "form": "song",
@@ -1668,7 +1989,7 @@
     },
     {
      "form": "quote",
-     "n": 1
+     "n": 2
     }
    ]
   },
@@ -1677,7 +1998,7 @@
    "x": -0.1,
    "y": -0.92,
    "why": "one object, looked at until it stops being ordinary",
-   "count": 5,
+   "count": 7,
    "forms": [
     {
      "form": "painting",
@@ -1685,7 +2006,7 @@
     },
     {
      "form": "poem",
-     "n": 1
+     "n": 2
     },
     {
      "form": "song",
@@ -1693,7 +2014,7 @@
     },
     {
      "form": "quote",
-     "n": 1
+     "n": 2
     }
    ]
   },
@@ -1702,7 +2023,7 @@
    "x": 0.14,
    "y": -0.62,
    "why": "one light on, company at a distance",
-   "count": 9,
+   "count": 10,
    "forms": [
     {
      "form": "painting",
@@ -1710,7 +2031,7 @@
     },
     {
      "form": "poem",
-     "n": 1
+     "n": 2
     },
     {
      "form": "song",
@@ -1727,7 +2048,7 @@
    "x": 0.9,
    "y": -0.12,
    "why": "ambition with its nerve showing, and the cost of it",
-   "count": 10,
+   "count": 11,
    "forms": [
     {
      "form": "painting",
@@ -1743,7 +2064,7 @@
     },
     {
      "form": "quote",
-     "n": 4
+     "n": 5
     }
    ]
   },
@@ -1777,7 +2098,7 @@
    "x": 0.22,
    "y": 0.2,
    "why": "gravity, falling, and being held anyway",
-   "count": 8,
+   "count": 11,
    "forms": [
     {
      "form": "painting",
@@ -1785,7 +2106,7 @@
     },
     {
      "form": "poem",
-     "n": 1
+     "n": 3
     },
     {
      "form": "song",
@@ -1793,7 +2114,7 @@
     },
     {
      "form": "quote",
-     "n": 1
+     "n": 2
     }
    ]
   },
@@ -1802,7 +2123,7 @@
    "x": -0.48,
    "y": 0.52,
    "why": "edges going, fog, the moment a shape stops being one",
-   "count": 9,
+   "count": 11,
    "forms": [
     {
      "form": "painting",
@@ -1810,7 +2131,7 @@
     },
     {
      "form": "poem",
-     "n": 1
+     "n": 2
     },
     {
      "form": "song",
@@ -1818,7 +2139,7 @@
     },
     {
      "form": "quote",
-     "n": 1
+     "n": 2
     }
    ]
   },
@@ -1906,6 +2227,35 @@
    ]
   },
   {
+   "who": "Emily Dickinson",
+   "ids": [
+    "dickinson-a-certain-slant-of-light",
+    "emily-dickinson-to-make-a-prairie-it-takes-a-clover-and"
+   ]
+  },
+  {
+   "who": "Rainer Maria Rilke",
+   "ids": [
+    "rainer-maria-rilke-whoever-has-no-house-now-will-not-build",
+    "rilke-herbsttag",
+    "rilke-love-the-questions"
+   ]
+  },
+  {
+   "who": "Seneca",
+   "ids": [
+    "seneca-it-is-not-because-things-are-difficult",
+    "seneca-not-little-time"
+   ]
+  },
+  {
+   "who": "Simone Weil",
+   "ids": [
+    "simone-weil-attention-is-the-rarest-and-purest-form",
+    "weil-unmixed-attention"
+   ]
+  },
+  {
    "who": "emil kowalski",
    "ids": [
     "emil-7-practical-animation-tips",
@@ -1925,11 +2275,23 @@
  "forms": [
   {
    "form": "painting",
-   "n": 49
+   "n": 50
+  },
+  {
+   "form": "object",
+   "n": 1
+  },
+  {
+   "form": "building",
+   "n": 0
+  },
+  {
+   "form": "poster",
+   "n": 0
   },
   {
    "form": "poem",
-   "n": 8
+   "n": 14
   },
   {
    "form": "song",
@@ -1937,7 +2299,7 @@
   },
   {
    "form": "quote",
-   "n": 11
+   "n": 16
   },
   {
    "form": "link",
@@ -1950,6 +2312,10 @@
   {
    "form": "writing",
    "n": 2
+  },
+  {
+   "form": "bookmark",
+   "n": 0
   }
  ],
  "people": [
@@ -1962,6 +2328,10 @@
    "n": 10
   },
   {
+   "who": "Rainer Maria Rilke",
+   "n": 3
+  },
+  {
    "who": "Bashō",
    "n": 2
   },
@@ -1971,6 +2341,10 @@
   },
   {
    "who": "Claude Monet",
+   "n": 2
+  },
+  {
+   "who": "Emily Dickinson",
    "n": 2
   },
   {
@@ -1990,8 +2364,20 @@
    "n": 2
   },
   {
+   "who": "Seneca",
+   "n": 2
+  },
+  {
+   "who": "Simone Weil",
+   "n": 2
+  },
+  {
    "who": "Vilhelm Hammershøi",
    "n": 2
+  },
+  {
+   "who": "Agnes Martin",
+   "n": 1
   },
   {
    "who": "akira kurosawa",
@@ -2038,6 +2424,10 @@
    "n": 1
   },
   {
+   "who": "Chelsea porcelain factory",
+   "n": 1
+  },
+  {
    "who": "Chesley Bonestell",
    "n": 1
   },
@@ -2074,10 +2464,6 @@
    "n": 1
   },
   {
-   "who": "Emily Dickinson",
-   "n": 1
-  },
-  {
    "who": "Erik Satie",
    "n": 1
   },
@@ -2091,6 +2477,18 @@
   },
   {
    "who": "Frederic Remington",
+   "n": 1
+  },
+  {
+   "who": "Frits Thaulow",
+   "n": 1
+  },
+  {
+   "who": "Gerard Manley Hopkins",
+   "n": 1
+  },
+  {
+   "who": "Giorgio Morandi",
    "n": 1
   },
   {
@@ -2130,6 +2528,10 @@
    "n": 1
   },
   {
+   "who": "Li Bai",
+   "n": 1
+  },
+  {
    "who": "Magnus von Wright",
    "n": 1
   },
@@ -2166,10 +2568,6 @@
    "n": 1
   },
   {
-   "who": "Rainer Maria Rilke",
-   "n": 1
-  },
-  {
    "who": "robin williams",
    "n": 1
   },
@@ -2178,15 +2576,7 @@
    "n": 1
   },
   {
-   "who": "Seneca",
-   "n": 1
-  },
-  {
    "who": "serhii korolov",
-   "n": 1
-  },
-  {
-   "who": "Simone Weil",
    "n": 1
   },
   {
@@ -2214,6 +2604,10 @@
    "n": 1
   },
   {
+   "who": "W. B. Yeats",
+   "n": 1
+  },
+  {
    "who": "Wang Wei",
    "n": 1
   },
@@ -2224,12 +2618,16 @@
   {
    "who": "Winslow Homer",
    "n": 1
+  },
+  {
+   "who": "Yosa Buson",
+   "n": 1
   }
  ],
  "depth": {
-  "notes": 96,
-  "people": 68,
-  "thinnest": "the plain thing",
+  "notes": 109,
+  "people": 76,
+  "thinnest": "invincible summer",
   "oneDeep": 0
  }
 }

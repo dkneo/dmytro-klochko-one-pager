@@ -13,7 +13,7 @@ import { join } from "node:path";
 
 import sharp from "sharp";
 
-import { paintingNote } from "./lib/vault-note.mjs";
+import { paintingNote, bookmarkNote } from "./lib/vault-note.mjs";
 
 const NS = "d5e466fe143e4b8aadce72dd01da4507";
 const UA = "dmklochko-site/1.0 (https://dmklochko.com; keeping a painting)";
@@ -127,6 +127,25 @@ if (apply && born.some((b) => b.startsWith("  +"))) {
   console.log("\n  run `node scripts/image-build.mjs --apply` next: the new");
   console.log("  paintings need their thumbnails before the map can show them.");
 }
+// ── the inbox: links he threw in and then kept ────────────────────────
+// A bookmark lives in KV from the moment he pastes it; a keep is what turns
+// it into a note. The verdict store is shared with the candidates, keyed by
+// the bookmark's id, so one swipe surface judges both.
+const bookmarks = kv("eidos:bookmarks") || {};
+for (const [id, b] of Object.entries(bookmarks)) {
+  const v = verdicts[id];
+  if (!v || v.verdict !== "keep") continue;
+  const file = `vault/bookmarks/${id}.md`;
+  if (existsSync(file)) { born.push(`  = ${id}: already a note`); continue; }
+  born.push(`  + ${id} → ${b.site || "link"}, ${b.title || b.url}${b.summary ? "" : " (no summary yet)"}`);
+  if (!apply) continue;
+  mkdirSync("vault/bookmarks", { recursive: true });
+  writeFileSync(file, bookmarkNote(b, {
+    weather: v.weather || b.weather || "",
+    added: new Date().toISOString().slice(0, 10),
+  }));
+}
+
 const passed = Object.values(verdicts).filter((v) => v.verdict === "pass").length;
 console.log(`\ncandidates judged: ${Object.keys(verdicts).length} (${kept.length} kept, ${passed} passed)`);
 console.log(born.join("\n") || "  nothing new");

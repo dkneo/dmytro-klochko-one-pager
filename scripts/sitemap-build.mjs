@@ -22,7 +22,7 @@ const SKIP = new Set([
   "/eidos/deck/",
   "/eidos/map/",
   "/eidos/orbit/",
-  "/eidos/sit/",
+  "/eidos/inbox/",
   "/today/",
   "/taste/",
   "/basho",

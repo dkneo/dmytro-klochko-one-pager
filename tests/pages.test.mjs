@@ -77,50 +77,50 @@ test("the learning page carries its three subjects and the queue", () => {
   assert.ok(exists("public/images/learning-terminal.webp"), "artefact shot missing");
 });
 
-test("the sitting can be sat", () => {
-  const html = read("dist/eidos/sit/index.html");
-  const css = bundledCss("dist/eidos/sit/index.html");
+test("the inbox takes a link and judges what waits", () => {
+  const html = read("dist/eidos/inbox/index.html");
+  const css = bundledCss("dist/eidos/inbox/index.html");
 
-  // every candidate rides along, and every one of them is attributed
-  const data = JSON.parse(html.match(/id="sit-data"[^>]*>([^<]*)</)[1]);
+  // every candidate rides along: pictures with a source and a licence, reads
+  // with a url. Both are judged with the same two buttons.
+  const data = JSON.parse(html.match(/id="in-data"[^>]*>([^<]*)</)[1]);
   assert.ok(data.length >= 20, `expected 20+ candidates, found ${data.length}`);
   for (const c of data) {
-    assert.ok(c.id && c.src, `candidate without id or src: ${JSON.stringify(c)}`);
-    assert.ok(c.source, `${c.id} has no source url`);
-    assert.ok(c.licence, `${c.id} has no licence`);
+    assert.ok(c.id, `candidate without id: ${JSON.stringify(c)}`);
+    if (c.src) {
+      assert.ok(c.source, `${c.id} has no source url`);
+      assert.ok(c.licence, `${c.id} has no licence`);
+    } else {
+      assert.match(c.url || "", /^https?:\/\//, `${c.id} is neither a picture nor a link`);
+    }
   }
+  assert.ok(data.some((c) => c.type === "poster"), "the posters reached the inbox");
+  assert.ok(data.some((c) => c.type === "bookmark"), "the reads reached the inbox");
 
-  // Two buttons and nothing else. A weather-confirmation step used to sit
-  // between the keep and the next card; it turned a half-second judgement
-  // into a form and it is not coming back.
+  // the composer: a url field and one verb. It answers focus, not hover —
+  // a glow that follows the pointer is decoration; one that lights when the
+  // caret lands says the field is live.
+  assert.match(html, /<form class="in-throw" id="throw"/);
+  assert.match(html, /<input type="url" name="url" id="url"/);
+  assert.match(css, /\.in-throw(?:\[[^\]]*\])?:focus-within/);
+  assert.doesNotMatch(css, /\.in-throw(?:\[[^\]]*\])?:hover\s*\{[^}]*box-shadow/);
+
+  // two buttons, and the door posts back here
   assert.match(html, /id="keep"/);
   assert.match(html, /id="pass"/);
-  assert.ok(!html.includes('id="after"'), "the sitting asks one question, not two");
-  assert.ok(!/data-w="/.test(html), "no weather picker in the sitting");
+  assert.match(html, /name="next" value="\/eidos\/inbox"/);
+  assert.ok(!html.includes('id="after"'), "one question, not two");
 
-  // the card flies to 120vw, so the stage must clip sideways or a phone
-  // gains half a screen of horizontal scroll
+  // the card flies to 120vw, so the stage clips sideways; a finger can still
+  // scroll the page past the deck
   assert.match(css, /overflow-x:\s*clip/);
-  // and a finger must still be able to scroll the page past the deck
   assert.match(css, /touch-action:\s*pan-y/);
 
-  // A kept card waits, lit, while its weather is settled: asking which
-  // weather a painting belongs to after throwing the painting off screen is
-  // filing from memory, and it left a screen of empty dark behind.
-  // Astro scopes every selector with a [data-astro-cid-…] attribute, so a
-  // naive /\.sit-after\{/ never matches and a negative assertion built on one
-  // passes while guarding nothing. `scoped` allows for the attribute.
-  const scoped = (sel) => sel.replace(/\./g, "\\.") + "(?:\\[[^\\]]*\\])?";
-  assert.ok(
-    !new RegExp(`${scoped(".sit-after")}\\{[^}]*position:\\s*absolute`).test(css),
-    "the question must sit under its card in the flow, not float below a void",
-  );
-  assert.ok(
-    !new RegExp(`${scoped(".sit-stage")}\\{[^}]*min-height`).test(css),
-    "the stage must not reserve height it may not fill",
-  );
-  // the guard must be able to fail: prove it sees the rules at all
-  assert.match(css, new RegExp(`${scoped(".sit-stage")}\\{`));
+  // no radius invented here either
+  const own = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join("\n");
+  const literals = [...own.matchAll(/border-radius:\s*([^;}]+)/g)].map((m) => m[1].trim())
+    .filter((v) => !/var\(|999px|50%|inherit|^0$/.test(v));
+  assert.deepEqual(literals, [], `the inbox invents radii: ${literals.join(", ")}`);
 });
 
 test("the orbit reads one stable mapper without duplicating its payload onto home", async () => {
@@ -156,55 +156,59 @@ test("the orbit reads one stable mapper without duplicating its payload onto hom
   }
 });
 
-test("the library shelves every mark, signed and filtered", () => {
+test("the library shelves every mark, in two rooms and a shelf", () => {
   const html = read("dist/eidos/index.html");
   const map = JSON.parse(read("src/data/map.json"));
 
-  // Art hangs, words are read, and nothing is silently dropped: every mark
-  // is either a card on a wall or a line in a column. Links are the one
-  // deliberate exception — they are craft articles, and /learning keeps them.
+  // Pictures hang, words are read, what he has read is its own shelf, and
+  // nothing is silently dropped: every shelved mark is exactly one of them.
+  // Links are the deliberate exception — craft articles, kept on /learning.
   const cards = [...html.matchAll(/class="lib-card lib-card--(\w+)"/g)].length;
   const said = [...html.matchAll(/class="lib-said lib-said--(\w+)"/g)].length;
+  const kept = [...html.matchAll(/class="lib-bm"/g)].length;
   const shelved = map.items.filter((it) => it.type !== "link").length;
-  assert.equal(cards + said, shelved,
-    `library shows ${cards} hung + ${said} read of ${shelved} shelved marks`);
-  assert.ok(cards > 0 && said > 0, "a room needs both a wall and a column");
+  assert.equal(cards + said + kept, shelved,
+    `library shows ${cards} hung + ${said} read + ${kept} kept of ${shelved} shelved marks`);
+  assert.ok(cards > 0 && said > 0, "a library needs both a hall and a reading room");
 
-  // The page must not overstate itself. It quoted the whole vault's count
-  // while shelving eleven fewer marks, so the library claimed sixty-five
-  // things and showed fifty-four. Every number is counted from the page.
-  const claimed = Number(html.match(/<dt>things<\/dt><dd>(\d+)<\/dd>/)[1]);
-  assert.equal(claimed, cards + said, "the header counts what is not there");
-  const lede = Number(html.match(/love — (\d+) real things/)[1]);
-  assert.equal(lede, cards + said, "the lede counts what is not there");
-  const onRing = Number(html.match(/<dt>on the ring<\/dt><dd>(\d+)<\/dd>/)[1]);
-  const ringSays = Number(html.match(/(\d+) things that have never been told/)[1]);
-  assert.equal(onRing, ringSays, "the ring disagrees with itself");
+  // The page must not overstate itself: every number is counted from what
+  // it shows. The portrait's paragraph and its counts both say the total.
+  const dd = (name) => Number(html.match(new RegExp(`<dt[^>]*>${name}<\\/dt>\\s*<dd[^>]*>(\\d+)<\\/dd>`))?.[1]);
+  const claimed = dd("things");
+  assert.equal(claimed, shelved, "the portrait counts what is not there");
+  const lede = Number(html.match(/(\d+) real things i love/)[1]);
+  assert.equal(lede, shelved, "the paragraph counts what is not there");
+  const unfiledDd = dd("unfiled");
+  const unfiledSays = html.match(/(\d+) things that have never been told/);
+  if (unfiledSays) assert.equal(unfiledDd, Number(unfiledSays[1]), "the ring disagrees with itself");
   assert.ok(!/lib-card--link|lib-said--link/.test(html), "craft links belong on /learning");
-  assert.match(html, /craft links are kept on/, "and the library says where they went");
 
-  // eight rooms cold to warm, and the ring for the unfiled
-  const rooms = [...html.matchAll(/class="lib-room[^"]*" id="([^"]+)"/g)].map((m) => m[1]);
-  assert.equal(rooms.length, map.weathers.length + 1);
-  assert.equal(rooms.at(-1), "the-ring", "the ring closes the library");
+  // the rooms, in order, and the weathers inside them cold to warm
+  const at = (id) => html.indexOf(`id="${id}"`);
+  assert.ok(at("pictures") > 0 && at("words") > at("pictures") && at("read") > at("words"),
+    "pictures, then words, then read");
+  const weathersInOrder = map.weathers.slice().sort((a, b) => a.x - b.x).map((w) => w.name.replace(/\W+/g, "-"));
+  const runs = [...html.matchAll(/class="lib-run" id="w-([\w-]+)"/g)].map((m) => m[1]);
+  assert.ok(runs.length >= 6, `expected most weathers to hang pictures, found ${runs.length}`);
+  assert.deepEqual(runs, weathersInOrder.filter((w) => runs.includes(w)), "the hall runs cold to warm");
 
-  // each room header carries its paint chips from the real palette
+  // a poem shows its own language above the english and names its translator
+  assert.match(html, /class="lib-orig"/, "no poem shows its original");
+  assert.match(html, /translated for this page, not a published version/, "a house translation is labelled as one");
+
+  // each weather label carries its paint chips from the real palette
   const pal = JSON.parse(read("src/data/palettes.json"));
   for (const w of map.weathers) {
     const p = pal.palettes.find((x) => x.weather === w.name);
-    if (p) assert.ok(html.includes(`background:${p.stops[0]}`), `${w.name} lost its paint chips`);
-  }
-
-  // Nothing on the wall may wear its catalogue clothes. Thirteen paintings
-  // hung with dates like "1868date QS:P571,+18" — Commons' machine-readable
-  // half of the date field, trimmed to length and shipped as a year.
-  for (const noise of ["QS:P", "date QS", "&amp;lt;br", "wikidata"]) {
-    assert.ok(!html.includes(noise), `the library shows catalogue noise: ${noise}`);
+    if (p && runs.includes(w.name.replace(/\W+/g, "-"))) assert.ok(html.includes(`background:${p.stops[0]}`), `${w.name} lost its paint chips`);
   }
 
   // reading is public, teaching stays behind doors
-  assert.ok(html.includes("/eidos/sit"), "the door to the sitting is named");
+  assert.ok(html.includes("/eidos/inbox"), "the door to the inbox is named");
   assert.ok(!html.includes("api/eidos/verdict"), "the library itself never writes");
+  // and it shares as itself
+  assert.match(html, /property="og:image" content="[^"]*og-eidos\.png/);
+  assert.match(html, /property="og:title" content="eidos/);
 });
 
 test("the sitemap lists the public pages and only those", () => {

@@ -61,10 +61,28 @@ function jitter(seed, i) {
   return { dx: Math.cos(ang) * r, dy: Math.sin(ang) * r * 0.86 };
 }
 
+
+// Which language the original is in, judged from its script or its
+// commonest small words. Coarse on purpose: this labels a shelf, it does
+// not translate anything.
+function tongue(text) {
+  const t = text || "";
+  if (/[\u4e00-\u9fff]/.test(t)) return /[\u3040-\u30ff]/.test(t) ? "japanese" : "chinese";
+  if (/[\u3040-\u30ff]/.test(t)) return "japanese";
+  if (/[\u0370-\u03ff]/.test(t)) return "greek";
+  if (/[\u0400-\u04ff]/.test(t)) return "cyrillic";
+  if (/[äöüß]/i.test(t) || /\b(und|der|die|das|ist|nicht|wer|jetzt)\b/i.test(t)) return "german";
+  if (/[àâçéèêëîïôûùüÿœ]/i.test(t) && /\b(le|la|les|de|des|est|que|dans|qui|il|une|un)\b/i.test(t)) return "french";
+  if (/\b(non|sed|est|quia|habemus|cavat|lapidem|quid|ante|quam|natus|sis)\b/.test(t) && !/\b(the|and|of)\b/i.test(t)) return "latin";
+  if (/[ñáíóú¿¡]/.test(t) && /\b(que|de|la|el|en|se|no|las|los)\b/i.test(t)) return "spanish";
+  if (/[àèéìòù]/.test(t) && /\b(che|di|non|è|il|la|un|una)\b/i.test(t)) return "italian";
+  return "english";
+}
+
 const items = [];
 const perWeather = {};
 
-for (const kind of ["paintings", "objects", "buildings", "poems", "songs", "quotes", "links", "people", "writing"]) {
+for (const kind of ["paintings", "objects", "buildings", "posters", "poems", "songs", "quotes", "links", "people", "writing", "bookmarks"]) {
   const dir = join("vault", kind);
   if (!existsSync(dir)) continue;
   const files = readdirSync(dir).filter((f) => f.endsWith(".md") && !f.startsWith("_"));
@@ -90,6 +108,7 @@ for (const kind of ["paintings", "objects", "buildings", "poems", "songs", "quot
     }
     else if (fm.type === "quote") line = body.split("\n").find((l) => l.trim() && !l.startsWith("weather:")) || "";
     else if (fm.type === "person") line = fm.name || "";
+    else if (fm.type === "bookmark") line = fm.title || fm.url || "";
     else line = fm.title || "";
 
     // Notes with no weather are not hidden and not guessed at. They ride an
@@ -114,6 +133,19 @@ for (const kind of ["paintings", "objects", "buildings", "poems", "songs", "quot
       url: fm.url || "",
       note: fm.note || "",
       added: fm.added || "",
+      ...(fm.type === "quote" && fm.english ? { english: String(fm.english).trim() } : {}),
+      ...(fm.type === "poem" && fm.english
+        ? { original: body.split("\n").filter((l) => !/^\s*(weather:|who:|!\[\[)/.test(l)).join("\n").trim(),
+            translator: fm.translator || "" }
+        : {}),
+      ...(fm.type === "poem" || fm.type === "quote"
+        ? { lang: tongue(body.split("\n").filter((l) => !/^\s*(weather:|who:|!\[\[)/.test(l)).join("\n")) }
+        : {}),
+      // a bookmark carries what the inbox learned about it
+      ...(fm.summary ? { summary: fm.summary } : {}),
+      ...(fm.tags ? { tags: Array.isArray(fm.tags) ? fm.tags : String(fm.tags).split(/,\s*/) } : {}),
+      ...(fm.site ? { site: fm.site } : {}),
+      ...(fm.image ? { image: fm.image } : {}),
       // where it sits, and how sure that is
       x: seat ? +(seat.x + j.dx).toFixed(4) : ringAngle,   // index for now
       y: seat ? +(seat.y + j.dy).toFixed(4) : ringAngle,   // resolved below
@@ -166,7 +198,7 @@ const out = {
   weathers,
   threads,
   unplaced: items.filter((i) => i.unplaced).length,
-  forms: ["painting", "poem", "song", "quote", "link", "person", "writing"].map((f) => ({
+  forms: ["painting", "object", "building", "poster", "poem", "song", "quote", "link", "person", "writing", "bookmark"].map((f) => ({
     form: f, n: items.filter((i) => i.type === f).length,
   })),
   people: Object.entries(byWho)

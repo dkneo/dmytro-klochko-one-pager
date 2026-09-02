@@ -1,0 +1,548 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import inbox from "../../../public/inbox.json";
+
+// The inbox. Where he throws links, and where he judges.
+//
+// One surface for two kinds of thing: what the harvester brought (paintings,
+// posters, objects, buildings — candidates with a picture) and what he threw
+// in himself (links — bookmarks with a title, a site, a line). Both are
+// cards; both are judged with the same motion, right if it stays, left if
+// it goes. A kept candidate becomes a note through eidos-pull; a kept link
+// becomes a bookmark note the same way, and lands on /eidos under "read".
+//
+// Three things carried over from the sitting it replaces:
+//
+//   The door is asked up front, not discovered on the first keep. An empty
+//   post to the verdict route is a 400 when the cookie is good and a 401
+//   when it is not, so the check costs nothing and writes nothing.
+//
+//   Verdicts are server truth, in KV, so two devices never show the same
+//   card twice and nothing is lost to a refresh.
+//
+//   No ceremony. He judges until he stops; the line says where he is.
+
+const candidates = (inbox.candidates || []).map((c) => ({
+  id: c.id,
+  type: c.type || "painting",
+  who: c.who || "",
+  title: c.title || "",
+  year: c.year || "",
+  weather: c.weather || "",
+  src: c.src || "",
+  url: c.url || "",
+  site: c.site || "",
+  line: c.line || "",
+  source: c.source || "",
+  licence: c.licence || "",
+}));
+const pictures = candidates.filter((c) => c.src).length;
+const reads = candidates.length - pictures;
+
+const title = "inbox · eidos";
+const description = "throw a link in; judge what waits. the door to the library.";
+---
+
+<Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted>
+  <section class="shell session eidos-inbox" data-scene="nightcourt" aria-labelledby="ib">
+    <div class="card">
+      <h1 class="card-title" id="ib">inbox</h1>
+    </div>
+
+    <p class="today-how" id="in-lede">
+      throw me a link. i read it once, keep what a card needs, and it waits
+      here with what the harvester brought. right if it stays, left if it
+      goes; what stays becomes part of <a href="/eidos">the library</a>.
+    </p>
+
+    {/* ── the composer ──────────────────────────────────────────────── */}
+    <form class="in-throw" id="throw" autocomplete="off">
+      <label class="in-url">
+        <span class="in-sr">a link</span>
+        <input type="url" name="url" id="url" placeholder="paste a link…" inputmode="url"
+               autocapitalize="none" autocorrect="off" spellcheck="false" required />
+      </label>
+      <label class="in-note-field">
+        <span class="in-sr">a note, optional</span>
+        <input type="text" name="note" id="note" placeholder="why, in a few words (optional)" maxlength="600" />
+      </label>
+      <button type="submit" id="throw-go">throw <kbd>↵</kbd></button>
+      <p class="in-throw-note" id="throw-note" aria-live="polite"></p>
+    </form>
+
+    {/* ── the door ──────────────────────────────────────────────────── */}
+    <form class="in-gate" id="gate" method="POST" action="/names" hidden>
+      <input type="hidden" name="next" value="/eidos/inbox" />
+      <p>the inbox writes to the vault, so it needs the door first.</p>
+      <label>
+        <span>password</span>
+        <input type="password" name="password" autocomplete="current-password"
+               autocapitalize="none" autocorrect="off" spellcheck="false" required />
+      </label>
+      <button type="submit">come in</button>
+      <span class="in-gate-note" id="gate-note"></span>
+      <span class="in-gate-note">
+        or <a href="/names" target="_blank" rel="noreferrer">open the door in a tab</a> and reload this page.
+      </span>
+    </form>
+
+    {/* ── the deck ──────────────────────────────────────────────────── */}
+    <p class="in-shelf" id="shelf">
+      <span id="shelf-links"></span>
+      <span>{pictures} pictures and {reads} reads from the harvester</span>
+    </p>
+
+    <div class="in-stage" id="stage">
+      <article class="in-card" id="card" hidden>
+        <div class="in-art" id="art-wrap"><img id="art" alt="" decoding="async" /></div>
+        <div class="in-read" id="read" hidden>
+          <p class="in-site" id="r-site"></p>
+          <h2 class="in-title" id="r-title"></h2>
+          <p class="in-desc" id="r-desc"></p>
+          <p class="in-tags" id="r-tags"></p>
+        </div>
+        <p class="in-credit">
+          <b id="c-title"></b>
+          <span id="c-who"></span>
+          <a id="c-source" href="#" target="_blank" rel="noreferrer">open ↗</a>
+        </p>
+        <span class="in-edge in-edge--in" aria-hidden="true">keep</span>
+        <span class="in-edge in-edge--out" aria-hidden="true">pass</span>
+      </article>
+      <p class="in-note" id="note-line" hidden></p>
+    </div>
+
+    <div class="in-do" id="do">
+      <button type="button" id="pass" class="in-btn in-btn--pass">pass <kbd>←</kbd></button>
+      <button type="button" id="undo" class="in-btn in-btn--undo" disabled>undo</button>
+      <button type="button" id="keep" class="in-btn in-btn--keep"><kbd>→</kbd> keep</button>
+    </div>
+
+    <p class="in-count" id="count"></p>
+
+    <a class="onward onward--back" href="/eidos">
+      <span class="arw" aria-hidden="true">↖</span><span>back to the library</span>
+    </a>
+  </section>
+
+  <style>
+    /* An author display rule beats the user agent's [hidden]; the sitting
+       learned this the hard way when its door would not close. */
+    [hidden] { display: none !important; }
+    .in-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+    /* the composer: one long field, one short one, one verb. It looks like
+       the thing you type into, because it is. */
+    .in-throw {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--sp-1) var(--sp-tight);
+      align-items: center;
+      max-width: 44rem;
+      margin: var(--sp-3) 0 0;
+      padding: var(--sp-tight) var(--sp-tight) var(--sp-tight) var(--sp-2);
+      background: color-mix(in srgb, var(--deck) 82%, transparent);
+      border: 1px solid var(--rule);
+      border-radius: var(--r-row);
+      transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
+    /* answers focus, never hover: the light says the field is live */
+    .in-throw:focus-within {
+      border-color: rgb(255 155 192 / 55%);
+      box-shadow: 0 0 0 4px rgb(255 155 192 / 10%);
+    }
+    .in-url, .in-note-field { display: block; min-width: 0; }
+    .in-url { grid-column: 1; }
+    .in-note-field { grid-column: 1 / -1; }
+    .in-throw input {
+      width: 100%;
+      font: inherit;
+      color: var(--bone);
+      background: transparent;
+      border: 0;
+      padding: 0.35rem 0;
+      font-family: var(--serif);
+      font-size: var(--t-prose);
+    }
+    .in-note-field input { font-size: var(--t-prose-sm); color: var(--quiet); padding-top: 0; }
+    .in-throw input::placeholder { color: var(--dim); opacity: 1; }
+    .in-throw input:focus { outline: none; }
+    .in-throw button {
+      grid-column: 2; grid-row: 1;
+      font: inherit; font-size: var(--t-sm); cursor: pointer;
+      color: var(--bone); background: transparent;
+      border: 1px solid var(--hot); border-radius: 999px; padding: 0.5rem 1rem;
+      transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+    }
+    .in-throw button:hover { background: var(--hot); color: var(--void); }
+    .in-throw button:disabled { opacity: 0.5; cursor: default; }
+    .in-throw kbd { font-family: var(--mono); font-size: var(--t-xs); color: var(--dim); margin-left: 0.3em; }
+    .in-throw button:hover kbd { color: inherit; }
+    .in-throw-note {
+      grid-column: 1 / -1;
+      margin: 0;
+      min-height: 1.2em;
+      font-family: var(--mono);
+      font-size: var(--t-xs);
+      letter-spacing: 0.06em;
+      color: var(--dim);
+    }
+    .in-throw-note a { color: var(--bone); }
+
+    .in-shelf {
+      display: flex; flex-wrap: wrap; gap: 0.3rem var(--sp-2);
+      margin: var(--sp-2) 0 0;
+      font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.08em; color: var(--dim);
+    }
+    .in-shelf a { color: var(--bone); }
+
+    .in-gate {
+      max-width: 34rem;
+      margin: var(--sp-3) auto;
+      padding: var(--sp-2) var(--sp-2) var(--sp-2);
+      background: var(--deck);
+      border: 1px solid var(--hot);
+      border-radius: var(--r-row);
+      display: grid;
+      gap: var(--sp-1);
+    }
+    .in-gate p { margin: 0; font-size: var(--t-md); color: var(--bone); }
+    .in-gate label { display: grid; gap: 0.25rem; }
+    .in-gate span { font-size: var(--t-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+    .in-gate input { font: inherit; color: var(--bone); background: transparent; border: 1px solid var(--rule); border-radius: var(--r-row); padding: 0.5rem 0.7rem; }
+    .in-gate button { justify-self: start; font: inherit; font-size: var(--t-sm); cursor: pointer; color: var(--bone); background: transparent; border: 1px solid var(--hot); border-radius: 999px; padding: 0.5rem 1.1rem; }
+    .in-gate-note { color: var(--dim); font-size: var(--t-sm); text-transform: none; letter-spacing: 0; }
+    .in-gate-note a { color: var(--bone); }
+
+    .in-stage {
+      position: relative;
+      max-width: 34rem;
+      margin: var(--sp-3) auto 0;
+      touch-action: pan-y;
+      overflow-x: clip;
+    }
+    .in-card {
+      position: relative;
+      background: var(--deck);
+      border: 1px solid var(--rule);
+      border-radius: var(--r-panel);
+      padding: var(--sp-tight) var(--sp-tight) var(--sp-tight);
+      box-shadow: 0 22px 60px var(--shadow-deep);
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+      will-change: transform;
+    }
+    .in-card.is-flying { transition: transform 0.42s var(--ease-slick), opacity 0.42s var(--ease-slick); }
+    .in-card.is-home { transition: transform 0.45s var(--ease); }
+    .in-card:active { cursor: grabbing; }
+    .in-art { display: flex; align-items: center; justify-content: center; min-height: min(38svh, 340px); }
+    .in-art img {
+      display: block; width: 100%;
+      max-height: min(46svh, 460px);
+      object-fit: contain;
+      border-radius: var(--r-print);
+      pointer-events: none;
+    }
+    /* a link is words, so its card is set in type, not framed as a picture */
+    .in-read { display: grid; gap: var(--sp-1); padding: var(--sp-2) var(--sp-1) var(--sp-1); min-height: min(30svh, 260px); align-content: center; }
+    .in-site { margin: 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+    .in-title { margin: 0; font-family: var(--serif); font-weight: 400; font-size: var(--t-lede); line-height: 1.25; color: var(--bone); }
+    .in-desc { margin: 0; font-family: var(--serif); font-size: var(--t-prose-sm); line-height: 1.55; color: var(--quiet); }
+    .in-tags { margin: 0.2rem 0 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--dim); }
+    .in-tags i { font-style: normal; color: var(--hot); margin-right: 0.6em; }
+    .in-credit { display: flex; flex-wrap: wrap; gap: 0.25rem 0.7rem; align-items: baseline; margin: var(--sp-tight) 0.15rem 0; font-size: var(--t-sm); }
+    .in-credit b { color: var(--bone); font-weight: 500; }
+    .in-credit span { color: var(--dim); }
+    .in-credit a { color: var(--dim); font-size: var(--t-xs); margin-left: auto; }
+    .in-edge {
+      position: absolute; top: 1.4rem;
+      font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.35rem 0.6rem; border-radius: var(--r-row); border: 1px solid; opacity: 0; pointer-events: none;
+    }
+    .in-edge--in { right: 1.4rem; color: var(--hot); border-color: var(--hot); transform: rotate(6deg); }
+    .in-edge--out { left: 1.4rem; color: var(--dim); border-color: var(--dim); transform: rotate(-6deg); }
+    .in-note { margin: var(--sp-2) 0 0; font-size: var(--t-md); line-height: 1.6; color: var(--dim); }
+    .in-note a { color: var(--bone); }
+    .in-note .in-kept { display: flex; gap: var(--sp-1); flex-wrap: wrap; margin-top: var(--sp-tight); }
+    .in-note .in-kept img { width: 56px; height: 56px; object-fit: cover; border-radius: var(--r-print); }
+    .in-note .in-kept i { display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: var(--r-print); border: 1px solid var(--rule); font-style: normal; font-family: var(--mono); font-size: var(--t-xs); color: var(--quiet); }
+    .in-do { display: flex; justify-content: center; gap: var(--sp-1); margin-top: var(--sp-2); }
+    .in-btn {
+      border: 1px solid var(--rule); background: transparent; color: var(--bone);
+      border-radius: 999px; padding: 0.6rem 1.1rem; font-size: var(--t-sm); cursor: pointer;
+      transition: border-color var(--dur) var(--ease), opacity var(--dur) var(--ease);
+    }
+    .in-btn kbd { font-family: var(--mono); font-size: var(--t-xs); color: var(--dim); }
+    .in-btn--keep:hover { border-color: var(--hot); }
+    .in-btn--pass:hover { border-color: var(--dim); }
+    .in-btn--undo { color: var(--dim); }
+    .in-btn:disabled { opacity: 0.35; cursor: default; }
+    .in-count { margin-top: var(--sp-tight); text-align: center; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.08em; color: var(--dim); }
+    @media (prefers-reduced-motion: reduce) {
+      .in-card.is-flying, .in-card.is-home { transition: opacity 0.3s ease; }
+      .in-throw, .in-throw button { transition: none; }
+    }
+    @media (max-width: 600px) {
+      .in-throw { grid-template-columns: minmax(0, 1fr); }
+      .in-throw button { grid-column: 1; grid-row: auto; justify-self: start; }
+    }
+  </style>
+
+  <script is:inline type="application/json" id="in-data" set:html={JSON.stringify(candidates)} />
+  <script>
+    (() => {
+      const harvested = JSON.parse(document.getElementById("in-data").textContent);
+      const $ = (id) => document.getElementById(id);
+      const card = $("card"), art = $("art"), artWrap = $("art-wrap"), read = $("read"), noteLine = $("note-line");
+      const edgeIn = document.querySelector(".in-edge--in");
+      const edgeOut = document.querySelector(".in-edge--out");
+      const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      let deck = [], cur = null, sat = 0, keptThis = [], last = null, busy = false;
+      let canSummarise = false;
+
+      const count = () => {
+        const left = deck.length + (cur ? 1 : 0);
+        $("count").textContent = left ? `${sat} judged${sat ? " today" : ""} · ${left} left` : "";
+      };
+
+      // ── the deck: his links first, then what the harvester brought ────
+      async function build() {
+        let judged = new Set();
+        try {
+          const r = await fetch("/api/eidos/judged");
+          if (r.ok) judged = new Set((await r.json()).judged || []);
+        } catch {}
+        let mine = [];
+        try {
+          const r = await fetch("/api/eidos/bookmarks");
+          if (r.ok) {
+            const d = await r.json();
+            canSummarise = Boolean(d.canSummarise);
+            mine = (d.bookmarks || []).filter((b) => !b.verdict).map((b) => ({ ...b, type: "bookmark", kind: "mine" }));
+          }
+        } catch {}
+        const rest = harvested.filter((c) => !judged.has(c.id));
+        rest.sort((a, b) => ((a.src || "").startsWith("/") ? 0 : 1) - ((b.src || "").startsWith("/") ? 0 : 1));
+        deck = [...mine, ...rest];
+        $("shelf-links").textContent = mine.length
+          ? `${mine.length} link${mine.length === 1 ? "" : "s"} you threw in, unjudged · `
+          : "";
+        if (!deck.length) return rest_("nothing waits. throw a link in, or let the harvester bring more.");
+        if (!(await doorOpen())) return shutOut(null);
+        next();
+      }
+      function prefetch() { const n = deck[0]; if (n && n.src) { const i = new Image(); i.src = n.src; } }
+      function show(c) {
+        const isRead = !c.src;
+        artWrap.hidden = isRead;
+        read.hidden = !isRead;
+        if (isRead) {
+          $("r-site").textContent = c.site || (c.url ? new URL(c.url).hostname.replace(/^www\./, "") : "");
+          $("r-title").textContent = c.title || c.url || "";
+          const desc = c.summary || c.description || c.line || c.excerpt || "";
+          $("r-desc").textContent = desc;
+          $("r-desc").hidden = !desc;
+          const tags = (c.tags || []).filter(Boolean);
+          $("r-tags").innerHTML = tags.map((t) => `<i>#</i>${esc(t)}`).join(" ");
+          $("r-tags").hidden = !tags.length;
+          $("c-title").textContent = c.who || "";
+          $("c-who").textContent = c.summary ? "summarised" : (c.kind === "mine" ? (canSummarise ? "" : "no summary: no key set") : "suggested");
+          $("c-source").href = c.url || c.source || "#";
+        } else {
+          art.src = c.src;
+          art.alt = `${c.title}, ${c.who}`;
+          $("c-title").textContent = c.title;
+          $("c-who").textContent = `${c.who}${c.year ? " · " + c.year : ""}${c.type && c.type !== "painting" ? " · " + c.type : ""}`;
+          $("c-source").href = c.source || "#";
+        }
+      }
+      function next() {
+        cur = deck.shift() || null;
+        if (!cur) return rest_("that is all of them. throw a link in, or let the harvester bring more.");
+        art.onerror = () => {
+          if (!cur || cur.src !== art.src && !art.src.endsWith(cur.src || "∅")) return;
+          if (art.dataset.failed === cur.id) return;
+          art.dataset.failed = cur.id;
+          noteLine.hidden = false;
+          noteLine.textContent = `${cur.title} would not load, so it is skipped.`;
+          next();
+        };
+        show(cur);
+        card.hidden = false;
+        card.classList.remove("is-flying", "is-home");
+        card.style.transform = "";
+        card.style.opacity = "";
+        edgeIn.style.opacity = 0; edgeOut.style.opacity = 0;
+        noteLine.hidden = true;
+        busy = false;
+        count();
+        prefetch();
+      }
+      function rest_(text) {
+        cur = null;
+        card.hidden = true;
+        $("do").hidden = true;
+        noteLine.hidden = false;
+        noteLine.textContent = "";
+        const p = document.createElement("span");
+        p.textContent = text || `that is all of them. ${keptThis.length} kept; they appear in the library once they are taken in.`;
+        noteLine.append(p);
+        if (keptThis.length) {
+          const row = document.createElement("span");
+          row.className = "in-kept";
+          for (const k of keptThis) {
+            if (k.src) { const im = document.createElement("img"); im.src = k.src; im.alt = k.title; row.append(im); }
+            else { const i = document.createElement("i"); i.textContent = (k.site || "link").slice(0, 10); i.title = k.title || k.url; row.append(i); }
+          }
+          noteLine.append(row);
+        }
+        count();
+      }
+
+      // ── the verdicts, spoken to the server ───────────────────────────
+      let gated = false;
+      const pending = [];
+      async function send(cand, verdict, weather) {
+        try {
+          const r = await fetch("/api/eidos/verdict", {
+            method: "POST", headers: { "content-type": "application/json" },
+            body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather || "" }),
+          });
+          if (r.status === 401) { shutOut({ cand, verdict, weather }); return false; }
+          return r.ok;
+        } catch {
+          noteLine.hidden = false;
+          noteLine.textContent = "that one did not reach the vault. the connection, not you.";
+          return false;
+        }
+      }
+      function shutOut(unsaved) {
+        if (unsaved) pending.push(unsaved);
+        if (gated) return;
+        gated = true;
+        $("gate").hidden = false;
+        $("do").hidden = true;
+        $("stage").hidden = true;
+        $("gate-note").textContent = pending.length
+          ? `${pending.length} judgement${pending.length > 1 ? "s" : ""} waiting to be saved.` : "";
+        $("gate").scrollIntoView({ block: "center", behavior: "instant" });
+      }
+      async function doorOpen() {
+        try {
+          const r = await fetch("/api/eidos/verdict", { method: "POST", headers: { "content-type": "application/json" }, body: "{}" });
+          return r.status !== 401;
+        } catch { return true; }
+      }
+      $("gate").addEventListener("submit", async (e) => {
+        const field = e.target.querySelector('input[type="password"]');
+        if (!field || !field.value.trim()) return;
+        e.preventDefault();
+        $("gate-note").textContent = "trying…";
+        const body = new URLSearchParams({ password: field.value.trim() });
+        let reached = true;
+        try { const r = await fetch("/names", { method: "POST", body, redirect: "follow" }); reached = r.status < 500; } catch { reached = false; }
+        if (!(await doorOpen())) {
+          $("gate-note").textContent = reached ? "that is not it. the same password as /names." : "could not reach the door. check the connection and try again.";
+          field.select(); return;
+        }
+        gated = false; field.value = "";
+        $("gate").hidden = true; $("do").hidden = false; $("stage").hidden = false; $("gate-note").textContent = "";
+        for (const u of pending.splice(0)) await send(u.cand, u.verdict, u.weather);
+        if (!cur) build();
+      });
+
+      // ── the composer ─────────────────────────────────────────────────
+      const form = $("throw"), urlField = $("url"), noteField = $("note"), go = $("throw-go"), tnote = $("throw-note");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const url = urlField.value.trim();
+        if (!url) return;
+        go.disabled = true;
+        tnote.textContent = "reading it…";
+        try {
+          const r = await fetch("/api/eidos/bookmark", {
+            method: "POST", headers: { "content-type": "application/json" },
+            body: JSON.stringify({ url, note: noteField.value.trim() }),
+          });
+          if (r.status === 401) { tnote.textContent = "the door first."; shutOut(null); return; }
+          const d = await r.json();
+          if (!r.ok) { tnote.textContent = d.error || "could not read that one."; return; }
+          const b = { ...d.bookmark, type: "bookmark", kind: "mine" };
+          tnote.textContent = d.already
+            ? "already in the inbox."
+            : `kept: ${b.title}${d.summarised ? " · summarised" : canSummarise ? "" : " · no summary until a key is set"}`;
+          urlField.value = ""; noteField.value = "";
+          if (!d.already) {
+            // the new card goes to the front, so what he just threw is what he sees
+            if (cur) deck.unshift(cur);
+            deck.unshift(b);
+            $("do").hidden = false;
+            next();
+          }
+        } catch {
+          tnote.textContent = "could not reach the inbox. the connection, not you.";
+        } finally {
+          go.disabled = false;
+        }
+      });
+
+      // ── the two motions ──────────────────────────────────────────────
+      function fly(dir) {
+        card.classList.add("is-flying");
+        card.style.transform = `translateX(${dir * 120}vw) rotate(${dir * 16}deg)`;
+        card.style.opacity = "0";
+      }
+      function pass() {
+        if (!cur || busy) return;
+        busy = true; const cand = cur; last = { cand, verdict: "pass" }; $("undo").disabled = false;
+        fly(-1); send(cand, "pass"); sat++; setTimeout(next, 300);
+      }
+      function keep() {
+        if (!cur || busy) return;
+        busy = true; const cand = cur; last = { cand, verdict: "keep" }; $("undo").disabled = false;
+        keptThis.push(cand); send(cand, "keep", cand.weather); sat++; fly(1); setTimeout(next, 300);
+      }
+      $("undo").addEventListener("click", () => {
+        if (!last) return;
+        if (last.verdict === "keep") keptThis = keptThis.filter((k) => k.id !== last.cand.id);
+        if (cur) deck.unshift(cur);
+        deck.unshift(last.cand);
+        sat = Math.max(0, sat - 1); last = null; $("undo").disabled = true; $("do").hidden = false; next();
+      });
+      $("pass").addEventListener("click", pass);
+      $("keep").addEventListener("click", keep);
+      document.addEventListener("keydown", (e) => {
+        if (e.target && e.target.closest && e.target.closest("input,textarea,select")) return;
+        if (e.key === "ArrowLeft") pass();
+        if (e.key === "ArrowRight") keep();
+      });
+
+      // ── the hand on the card ─────────────────────────────────────────
+      let x0 = 0, dx = 0, dragging = false;
+      const onDown = (e) => { if (!cur || busy) return; dragging = true; x0 = e.clientX; card.classList.remove("is-flying", "is-home"); card.setPointerCapture?.(e.pointerId); };
+      const onMove = (e) => {
+        if (!dragging) return;
+        dx = e.clientX - x0;
+        card.style.transform = `translateX(${dx}px) rotate(${dx / 22}deg)`;
+        edgeIn.style.opacity = Math.min(1, Math.max(0, dx / 90));
+        edgeOut.style.opacity = Math.min(1, Math.max(0, -dx / 90));
+      };
+      const onUp = () => {
+        if (!dragging) return;
+        dragging = false;
+        if (dx > 110) keep();
+        else if (dx < -110) pass();
+        else { card.classList.add("is-home"); card.style.transform = ""; edgeIn.style.opacity = 0; edgeOut.style.opacity = 0; }
+        dx = 0;
+      };
+      card.addEventListener("pointerdown", onDown);
+      card.addEventListener("pointermove", onMove);
+      card.addEventListener("pointerup", onUp);
+      card.addEventListener("pointercancel", onUp);
+
+      build();
+    })();
+  </script>
+</Layout>

@@ -80,21 +80,16 @@
       "id": "cold-clarity-1",
       "weather": "cold clarity",
       "quote": {
-        "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
-        "english": "Attention is the rarest and purest form of generosity.",
+        "text": "L'attention absolument sans mélange est prière.",
+        "english": "Absolutely unmixed attention is prayer.",
         "who": "Simone Weil",
-        "where": "letter to Joë Bousquet, 1942"
+        "where": "La Pesanteur et la Grâce, 1947"
       },
       "poem": {
-        "text": "馬をさへ\nながむる雪の\n朝哉",
-        "roman": "uma wo sae / nagamuru yuki no / ashita kana",
-        "english": "even the horse\nholds my eye — snow\non the morning road",
-        "who": "Bashō",
-        "where": "1684",
-        "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
-        "translator": "translated for this page, not a published version",
-        "more": "/basho",
-        "moreLabel": "more on bashō"
+        "text": "There's a certain slant of light,\nOn winter afternoons,\nThat oppresses, like the weight\nOf cathedral tunes.\n\nHeavenly hurt it gives us;\nWe can find no scar,\nBut internal difference\nWhere the meanings are.\n\nNone may teach it anything,\n'T is the seal, despair,—\nAn imperial affliction\nSent us of the air.\n\nWhen it comes, the landscape listens,\nShadows hold their breath;\nWhen it goes, 't is like the distance\nOn the look of death.",
+        "who": "Emily Dickinson",
+        "where": "Poems, 1890",
+        "note": "Published four years after her death, from the fascicles she sewed and kept in a drawer. The 1890 text, as her first editors printed it."
       },
       "painting": {
         "src": "/images/vault/hammershoi-courtyard.webp",
@@ -160,21 +155,16 @@
       "id": "cold-clarity-3",
       "weather": "cold clarity",
       "quote": {
-        "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
-        "english": "Attention is the rarest and purest form of generosity.",
+        "text": "L'attention absolument sans mélange est prière.",
+        "english": "Absolutely unmixed attention is prayer.",
         "who": "Simone Weil",
-        "where": "letter to Joë Bousquet, 1942"
+        "where": "La Pesanteur et la Grâce, 1947"
       },
       "poem": {
-        "text": "馬をさへ\nながむる雪の\n朝哉",
-        "roman": "uma wo sae / nagamuru yuki no / ashita kana",
-        "english": "even the horse\nholds my eye — snow\non the morning road",
-        "who": "Bashō",
-        "where": "1684",
-        "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
-        "translator": "translated for this page, not a published version",
-        "more": "/basho",
-        "moreLabel": "more on bashō"
+        "text": "There's a certain slant of light,\nOn winter afternoons,\nThat oppresses, like the weight\nOf cathedral tunes.\n\nHeavenly hurt it gives us;\nWe can find no scar,\nBut internal difference\nWhere the meanings are.\n\nNone may teach it anything,\n'T is the seal, despair,—\nAn imperial affliction\nSent us of the air.\n\nWhen it comes, the landscape listens,\nShadows hold their breath;\nWhen it goes, 't is like the distance\nOn the look of death.",
+        "who": "Emily Dickinson",
+        "where": "Poems, 1890",
+        "note": "Published four years after her death, from the fascicles she sewed and kept in a drawer. The 1890 text, as her first editors printed it."
       },
       "painting": {
         "src": "/images/vault/the-louvre-under-snow.webp",
@@ -239,6 +229,41 @@
       }
     },
     {
+      "id": "cold-clarity-5",
+      "weather": "cold clarity",
+      "quote": {
+        "text": "L'attention absolument sans mélange est prière.",
+        "english": "Absolutely unmixed attention is prayer.",
+        "who": "Simone Weil",
+        "where": "La Pesanteur et la Grâce, 1947"
+      },
+      "poem": {
+        "text": "There's a certain slant of light,\nOn winter afternoons,\nThat oppresses, like the weight\nOf cathedral tunes.\n\nHeavenly hurt it gives us;\nWe can find no scar,\nBut internal difference\nWhere the meanings are.\n\nNone may teach it anything,\n'T is the seal, despair,—\nAn imperial affliction\nSent us of the air.\n\nWhen it comes, the landscape listens,\nShadows hold their breath;\nWhen it goes, 't is like the distance\nOn the look of death.",
+        "who": "Emily Dickinson",
+        "where": "Poems, 1890",
+        "note": "Published four years after her death, from the fascicles she sewed and kept in a drawer. The 1890 text, as her first editors printed it."
+      },
+      "painting": {
+        "src": "/images/vault/winter.webp",
+        "who": "Frits Thaulow",
+        "title": "Winter",
+        "year": "1886",
+        "source": "https://commons.wikimedia.org/wiki/File:Frits_Thaulow_-_Winter_-_Google_Art_Project.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1003
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
+      }
+    },
+    {
       "id": "dissolution-0",
       "weather": "dissolution",
       "quote": {
@@ -281,17 +306,17 @@
       "id": "dissolution-1",
       "weather": "dissolution",
       "quote": {
-        "text": "Le vent se lève !… il faut tenter de vivre !",
-        "english": "The wind is rising… we must try to live.",
-        "who": "Paul Valéry",
-        "where": "Le Cimetière marin, 1920"
+        "text": "Geduld zu haben gegen alles Ungelöste in Ihrem Herzen und zu versuchen, die Fragen selbst liebzuhaben.",
+        "english": "have patience with everything unresolved in your heart, and try to love the questions themselves.",
+        "who": "Rainer Maria Rilke",
+        "where": "Briefe an einen jungen Dichter, 16 July 1903"
       },
       "poem": {
-        "text": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
-        "english": "The poet is a faker.\nHe fakes it so completely\nthat he fakes as pain\nthe pain he really feels.",
-        "who": "Fernando Pessoa",
-        "where": "Autopsicografia, 1932",
-        "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
+        "text": "Herr: es ist Zeit. Der Sommer war sehr groß.\nLeg deinen Schatten auf die Sonnenuhren,\nund auf den Fluren laß die Winde los.\n\nBefiehl den letzten Früchten voll zu sein;\ngieb ihnen noch zwei südlichere Tage,\ndränge sie zur Vollendung hin und jage\ndie letzte Süße in den schweren Wein.\n\nWer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+        "english": "Lord: it is time. The summer was immense.\nLay your shadow on the sundials\nand let the winds loose over the fields.",
+        "who": "Rainer Maria Rilke",
+        "where": "Das Buch der Bilder, 1902",
+        "note": "Dated Paris, 21 September 1902, the day before the equinox. He was twenty-six and had been in the city three weeks.",
         "translator": "translated for this page, not a published version"
       },
       "painting": {
@@ -355,17 +380,17 @@
       "id": "dissolution-3",
       "weather": "dissolution",
       "quote": {
-        "text": "Le vent se lève !… il faut tenter de vivre !",
-        "english": "The wind is rising… we must try to live.",
-        "who": "Paul Valéry",
-        "where": "Le Cimetière marin, 1920"
+        "text": "Geduld zu haben gegen alles Ungelöste in Ihrem Herzen und zu versuchen, die Fragen selbst liebzuhaben.",
+        "english": "have patience with everything unresolved in your heart, and try to love the questions themselves.",
+        "who": "Rainer Maria Rilke",
+        "where": "Briefe an einen jungen Dichter, 16 July 1903"
       },
       "poem": {
-        "text": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
-        "english": "The poet is a faker.\nHe fakes it so completely\nthat he fakes as pain\nthe pain he really feels.",
-        "who": "Fernando Pessoa",
-        "where": "Autopsicografia, 1932",
-        "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
+        "text": "Herr: es ist Zeit. Der Sommer war sehr groß.\nLeg deinen Schatten auf die Sonnenuhren,\nund auf den Fluren laß die Winde los.\n\nBefiehl den letzten Früchten voll zu sein;\ngieb ihnen noch zwei südlichere Tage,\ndränge sie zur Vollendung hin und jage\ndie letzte Süße in den schweren Wein.\n\nWer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+        "english": "Lord: it is time. The summer was immense.\nLay your shadow on the sundials\nand let the winds loose over the fields.",
+        "who": "Rainer Maria Rilke",
+        "where": "Das Buch der Bilder, 1902",
+        "note": "Dated Paris, 21 September 1902, the day before the equinox. He was twenty-six and had been in the city three weeks.",
         "translator": "translated for this page, not a published version"
       },
       "painting": {
@@ -429,17 +454,17 @@
       "id": "dissolution-5",
       "weather": "dissolution",
       "quote": {
-        "text": "Le vent se lève !… il faut tenter de vivre !",
-        "english": "The wind is rising… we must try to live.",
-        "who": "Paul Valéry",
-        "where": "Le Cimetière marin, 1920"
+        "text": "Geduld zu haben gegen alles Ungelöste in Ihrem Herzen und zu versuchen, die Fragen selbst liebzuhaben.",
+        "english": "have patience with everything unresolved in your heart, and try to love the questions themselves.",
+        "who": "Rainer Maria Rilke",
+        "where": "Briefe an einen jungen Dichter, 16 July 1903"
       },
       "poem": {
-        "text": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
-        "english": "The poet is a faker.\nHe fakes it so completely\nthat he fakes as pain\nthe pain he really feels.",
-        "who": "Fernando Pessoa",
-        "where": "Autopsicografia, 1932",
-        "note": "Pessoa published under seventy-two invented names, each with a biography and a handwriting. This one he signed himself.",
+        "text": "Herr: es ist Zeit. Der Sommer war sehr groß.\nLeg deinen Schatten auf die Sonnenuhren,\nund auf den Fluren laß die Winde los.\n\nBefiehl den letzten Früchten voll zu sein;\ngieb ihnen noch zwei südlichere Tage,\ndränge sie zur Vollendung hin und jage\ndie letzte Süße in den schweren Wein.\n\nWer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+        "english": "Lord: it is time. The summer was immense.\nLay your shadow on the sundials\nand let the winds loose over the fields.",
+        "who": "Rainer Maria Rilke",
+        "where": "Das Buch der Bilder, 1902",
+        "note": "Dated Paris, 21 September 1902, the day before the equinox. He was twenty-six and had been in the city three weeks.",
         "translator": "translated for this page, not a published version"
       },
       "painting": {
@@ -651,10 +676,10 @@
       "id": "nerve-3",
       "weather": "nerve",
       "quote": {
-        "text": "We're always thinking about new markets we could enter, but it's only by saying no that you can concentrate on the things that are really important.",
-        "english": "We're always thinking about new markets we could enter, but it's only by saying no that you can concentrate on the things that are really important.",
-        "who": "Steve Jobs",
-        "where": "BusinessWeek, 12 October 2004"
+        "text": "Non exiguum temporis habemus, sed multum perdidimus.",
+        "english": "It is not that we have little time, but that we lose much of it.",
+        "who": "Seneca",
+        "where": "De Brevitate Vitae, I.3"
       },
       "poem": {
         "text": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
@@ -674,6 +699,43 @@
         "skyDim": 0,
         "w": 1600,
         "h": 1235
+      },
+      "song": {
+        "who": "Seatbelts",
+        "title": "Tank!",
+        "year": "1998",
+        "youtube": "https://www.youtube.com/results?search_query=Seatbelts%20Tank%21",
+        "spotify": "https://open.spotify.com/search/Seatbelts%20Tank%21",
+        "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything."
+      }
+    },
+    {
+      "id": "nerve-4",
+      "weather": "nerve",
+      "quote": {
+        "text": "We're always thinking about new markets we could enter, but it's only by saying no that you can concentrate on the things that are really important.",
+        "english": "We're always thinking about new markets we could enter, but it's only by saying no that you can concentrate on the things that are really important.",
+        "who": "Steve Jobs",
+        "where": "BusinessWeek, 12 October 2004"
+      },
+      "poem": {
+        "text": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
+        "english": "Honour to those who in their lives\nset out to guard some Thermopylae.\nNever stirring from their duty;\njust and straight in all their dealings,\nbut with pity too, and mercy;\ngenerous when they are rich, and when\nthey are poor, generous again in small ways,\nhelping still as much as they can;\nalways speaking the truth,\nbut without hatred for those who lie.\n\nAnd more honour is due to them\nwhen they foresee (and many do foresee)\nthat Ephialtes will appear in the end,\nand the Medes will get through after all.",
+        "who": "C. P. Cavafy",
+        "where": "Thermopylae, printed in Alexandrian Art, 1927",
+        "note": "Thermopylae is the pass the Spartans held knowing they would lose it, and Ephialtes is the man who showed the Persians the way around. Cavafy's point is that the traitor arriving does not cancel the holding.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/der-seesturm-the-storm-at-sea.webp",
+        "who": "Joos de Momper the Younger",
+        "title": "Der Seesturm (The Storm at Sea)",
+        "year": "c. 1610–20",
+        "source": "https://commons.wikimedia.org/wiki/File:Momper,_Joos_de_(II)_Storm_ar_sea_038b.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1585,
+        "h": 1150
       },
       "song": {
         "who": "Seatbelts",
@@ -731,11 +793,11 @@
         "where": "Un lector, 1969"
       },
       "poem": {
-        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
-        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
-        "who": "attributed to Sappho",
-        "where": "fragment 168B",
-        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "text": "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。",
+        "english": "Before my bed, the bright moon's light —\nI take it for frost on the ground.\nI lift my head to look at the moon,\nlower it, and think of home.",
+        "who": "Li Bai",
+        "where": "Tang dynasty, 8th century",
+        "note": "Twenty characters. The first poem most children in China learn by heart, and still the one they can say at eighty.",
         "translator": "translated for this page, not a published version"
       },
       "painting": {
@@ -807,11 +869,11 @@
         "where": "Un lector, 1969"
       },
       "poem": {
-        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
-        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
-        "who": "attributed to Sappho",
-        "where": "fragment 168B",
-        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "text": "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。",
+        "english": "Before my bed, the bright moon's light —\nI take it for frost on the ground.\nI lift my head to look at the moon,\nlower it, and think of home.",
+        "who": "Li Bai",
+        "where": "Tang dynasty, 8th century",
+        "note": "Twenty characters. The first poem most children in China learn by heart, and still the one they can say at eighty.",
         "translator": "translated for this page, not a published version"
       },
       "painting": {
@@ -881,11 +943,11 @@
         "where": "Un lector, 1969"
       },
       "poem": {
-        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
-        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
-        "who": "attributed to Sappho",
-        "where": "fragment 168B",
-        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "text": "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。",
+        "english": "Before my bed, the bright moon's light —\nI take it for frost on the ground.\nI lift my head to look at the moon,\nlower it, and think of home.",
+        "who": "Li Bai",
+        "where": "Tang dynasty, 8th century",
+        "note": "Twenty characters. The first poem most children in China learn by heart, and still the one they can say at eighty.",
         "translator": "translated for this page, not a published version"
       },
       "painting": {
@@ -912,10 +974,10 @@
       "id": "the-plain-thing-0",
       "weather": "the plain thing",
       "quote": {
-        "text": "Gutta cavat lapidem, consumitur anulus usu.",
-        "english": "A drop hollows the stone; a ring is worn away by use.",
-        "who": "Ovid",
-        "where": "Epistulae ex Ponto, IV.10"
+        "text": "Nothing is more abstract than reality.",
+        "english": "Nothing is more abstract than reality.",
+        "who": "Giorgio Morandi",
+        "where": "in conversation with Edouard Roditi, 1958"
       },
       "poem": {
         "text": "古池や\n蛙飛びこむ\n水の音",
@@ -960,15 +1022,10 @@
         "where": "Epistulae ex Ponto, IV.10"
       },
       "poem": {
-        "text": "古池や\n蛙飛びこむ\n水の音",
-        "roman": "furu ike ya / kawazu tobikomu / mizu no oto",
-        "english": "the old pond —\na frog jumps in,\nthe sound of water",
-        "who": "Bashō",
-        "where": "1686",
-        "note": "The most famous poem in Japanese. His students argued for years about the first line; he kept the plainest one.",
-        "translator": "translated for this page, not a published version",
-        "more": "/basho",
-        "moreLabel": "more on bashō"
+        "text": "Glory be to God for dappled things –\nFor skies of couple-colour as a brinded cow;\nFor rose-moles all in stipple upon trout that swim;\nFresh-firecoal chestnut-falls; finches' wings;\nLandscape plotted and pieced – fold, fallow, and plough;\nAnd áll trádes, their gear and tackle and trim.\n\nAll things counter, original, spare, strange;\nWhatever is fickle, freckled (who knows how?)\nWith swift, slow; sweet, sour; adazzle, dim;\nHe fathers-forth whose beauty is past change:\nPraise him.",
+        "who": "Gerard Manley Hopkins",
+        "where": "written 1877, published in Poems, 1918",
+        "note": "Written the summer he was ordained. Not published until 1918, twenty-nine years after he died; he had shown it to almost no one."
       },
       "painting": {
         "src": "/images/vault/redon-flowers.webp",
@@ -1329,17 +1386,17 @@
       "id": "weight-and-grace-0",
       "weather": "weight and grace",
       "quote": {
-        "text": "Forsan et haec olim meminisse iuvabit.",
-        "english": "Perhaps one day it will be a pleasure to remember even this.",
-        "who": "Virgil",
-        "where": "Aeneid, I.203"
+        "text": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+        "english": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+        "who": "Agnes Martin",
+        "where": "Beauty Is the Mystery of Life, 1989"
       },
       "poem": {
-        "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
-        "english": "Whoever has no house now will not build one.\nWhoever is alone now will stay alone:\nwill sit up, read, write long letters,\nand wander the avenues, back and forth,\nrestless, as the leaves drift down.",
-        "who": "Rainer Maria Rilke",
-        "where": "Herbsttag, 1902",
-        "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
+        "text": "身にしむや\n亡妻の櫛を\n閨に踏む",
+        "english": "a chill through me —\nin the bedroom, underfoot,\nmy dead wife's comb",
+        "who": "Yosa Buson",
+        "where": "18th century",
+        "note": "His wife outlived him by many years; the grief is imagined, which is the point of the comb. He was a painter too, and it is a painter's poem: one object, the whole house around it.",
         "translator": "translated for this page, not a published version"
       },
       "painting": {
@@ -1403,18 +1460,16 @@
       "id": "weight-and-grace-2",
       "weather": "weight and grace",
       "quote": {
-        "text": "Forsan et haec olim meminisse iuvabit.",
-        "english": "Perhaps one day it will be a pleasure to remember even this.",
-        "who": "Virgil",
-        "where": "Aeneid, I.203"
+        "text": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+        "english": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+        "who": "Agnes Martin",
+        "where": "Beauty Is the Mystery of Life, 1989"
       },
       "poem": {
-        "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
-        "english": "Whoever has no house now will not build one.\nWhoever is alone now will stay alone:\nwill sit up, read, write long letters,\nand wander the avenues, back and forth,\nrestless, as the leaves drift down.",
-        "who": "Rainer Maria Rilke",
-        "where": "Herbsttag, 1902",
-        "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
-        "translator": "translated for this page, not a published version"
+        "text": "Had I the heavens' embroidered cloths,\nEnwrought with golden and silver light,\nThe blue and the dim and the dark cloths\nOf night and light and the half-light,\nI would spread the cloths under your feet:\nBut I am poor, and have only my dreams;\nI have spread my dreams under your feet;\nTread softly because you tread on my dreams.",
+        "who": "W. B. Yeats",
+        "where": "The Wind Among the Reeds, 1899",
+        "note": "First printed as \"Aedh Wishes for the Cloths of Heaven\", one of three named voices Yeats later folded into a single \"he\"."
       },
       "painting": {
         "src": "/images/vault/figure-portant-une-t-te-ail-e-la-chute-d-lcare-f.webp",
@@ -1446,11 +1501,11 @@
         "where": "Aeneid, I.203"
       },
       "poem": {
-        "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
-        "english": "Whoever has no house now will not build one.\nWhoever is alone now will stay alone:\nwill sit up, read, write long letters,\nand wander the avenues, back and forth,\nrestless, as the leaves drift down.",
-        "who": "Rainer Maria Rilke",
-        "where": "Herbsttag, 1902",
-        "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
+        "text": "身にしむや\n亡妻の櫛を\n閨に踏む",
+        "english": "a chill through me —\nin the bedroom, underfoot,\nmy dead wife's comb",
+        "who": "Yosa Buson",
+        "where": "18th century",
+        "note": "His wife outlived him by many years; the grief is imagined, which is the point of the comb. He was a painter too, and it is a painter's poem: one object, the whole house around it.",
         "translator": "translated for this page, not a published version"
       },
       "painting": {
@@ -1479,10 +1534,10 @@
       "id": "weight-and-grace-4",
       "weather": "weight and grace",
       "quote": {
-        "text": "Forsan et haec olim meminisse iuvabit.",
-        "english": "Perhaps one day it will be a pleasure to remember even this.",
-        "who": "Virgil",
-        "where": "Aeneid, I.203"
+        "text": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+        "english": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+        "who": "Agnes Martin",
+        "where": "Beauty Is the Mystery of Life, 1989"
       },
       "poem": {
         "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",

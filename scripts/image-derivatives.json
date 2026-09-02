@@ -736,6 +736,36 @@
       "sourceSha256": "7a0b04388a831ad350d35d25c1f3ecdf13c1cb14f4502823f80f21e88091af0f",
       "outputSha256": "02e5fe1d94c3de2e11a491f9ac3a4998418e8383df2accca9818220186296caf"
     },
+    "/images/thumbs/vault/winter.webp": {
+      "src": "/images/vault/winter.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4e0940e05bb5788ef65060fd1c2f8f3c83421ed228cb2bfdba5e1d62605401ef",
+      "outputSha256": "82150ea5c8b637b0ae4b41ccc9ccb66f1c64dc3bade0dab55d25ca85377ec224"
+    },
+    "/images/thumbs/vault/botanical-dish-with-white-sunflower.webp": {
+      "src": "/images/vault/botanical-dish-with-white-sunflower.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "813deb629157bf44ea5eadc7f449035a9d58c6525f36c7fe47816986e360f4a2",
+      "outputSha256": "bb846ced3f3654a2232e0aaf8fe6e0eef63df21785e3c7182c52fd9057d925e4"
+    },
     "/images/thumbs/wall/w15.webp": {
       "src": "/images/wall/w15.webp",
       "recipe": {
@@ -1527,6 +1557,34 @@
       "sourceSha256": "7a0b04388a831ad350d35d25c1f3ecdf13c1cb14f4502823f80f21e88091af0f",
       "outputSha256": "b3c2180d30b7f4840b966a5c5c32fe27db76b5176bb87ec71b799923a0be87bd"
     },
+    "/images/plates/vault/winter.webp": {
+      "src": "/images/vault/winter.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4e0940e05bb5788ef65060fd1c2f8f3c83421ed228cb2bfdba5e1d62605401ef",
+      "outputSha256": "3fec2a174dacef47104a7668d90a32ba3f6b4edd05275a6410ca636da9c9d659"
+    },
+    "/images/plates/vault/botanical-dish-with-white-sunflower.webp": {
+      "src": "/images/vault/botanical-dish-with-white-sunflower.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "813deb629157bf44ea5eadc7f449035a9d58c6525f36c7fe47816986e360f4a2",
+      "outputSha256": "35c60d649f542fd3b874559aa831742d344812d5be557582f09d33e7776fb5ae"
+    },
     "/images/plates/wall/w15.webp": {
       "src": "/images/wall/w15.webp",
       "recipe": {
@@ -1764,6 +1822,34 @@
       },
       "sourceSha256": "40e55880213f333c240906c2f2e747eda6658310a8b61a6d50f4250026b2361b",
       "outputSha256": "944a2480e48713d743e716f4a62239f7bae115936bb053e9ae17c5e228633e4c"
+    },
+    "/images/responsive/today/winter-480.webp": {
+      "src": "/images/vault/winter.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4e0940e05bb5788ef65060fd1c2f8f3c83421ed228cb2bfdba5e1d62605401ef",
+      "outputSha256": "441e56113a0ba90f12e0507ddbe584522bb069d9d529ffb4867561d3340c7412"
+    },
+    "/images/responsive/today/winter-960.webp": {
+      "src": "/images/vault/winter.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4e0940e05bb5788ef65060fd1c2f8f3c83421ed228cb2bfdba5e1d62605401ef",
+      "outputSha256": "b9e07d16648984089e09257fb538b03029f0b3d6538c906f25c5b1da7a9f37d6"
     },
     "/images/responsive/today/turner-480.webp": {
       "src": "/images/today/turner.webp",

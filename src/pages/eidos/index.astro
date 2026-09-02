@@ -1,112 +1,80 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import EidosPortrait from "../../components/EidosPortrait.astro";
 import map from "../../data/map.json";
 import palettes from "../../data/palettes.json";
 import inbox from "../../../public/inbox.json";
 
-// The library. Everything he loves, filed by feeling.
+// The library. Everything he loves, and what it says about him.
 //
-// The weathers are the architecture: eight rooms, running cold to warm,
-// because "invincible summer" and "the dark and the lamp" are the only
-// taxonomy this collection has ever held. Inside a room nothing is grouped
-// by kind — a painting hangs beside the song that feels the same, which is
-// the point of the whole exercise.
+// It opens with the portrait — one paragraph and a strip of eight weathers,
+// every word and bar computed from the vault — and then hangs the pictures
+// and sets the words in two rooms of their own. They used to share a room
+// per weather, a wall stacked over a column, and the page read as eight
+// short walls interrupted by eight short columns: neither the pictures nor
+// the poems had a run long enough to become a place. Now the pictures are
+// one hall, the words one reading room, and the weathers are the labels
+// inside each rather than the walls between them.
 //
-// Three rules, inherited from the map and kept:
-//
-//   Every mark is a real thing: the paintings are their own images, the
-//   poems their own words, every one attributed.
-//
-//   The library shows what it does not know. Marks with no weather close
-//   the page as "the ring", dimmer, waiting.
-//
-//   Reading is public; teaching is his. The sitting, the sketch's placing
-//   tools — those are doors. This page only asks you to look.
+// The rules the map set still hold: every mark is a real thing, attributed;
+// what has no weather is shown, not hidden; reading is public and every
+// write is behind the /names door.
 
-const { items, weathers, depth, forms, unplaced } = map;
+const { items, weathers, forms } = map;
 const candidates = (inbox.candidates || []).length;
 
-const FORM_MARK = { painting: "▣", object: "◈", building: "⌂", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
-// "persons" is a police report; the vault's kind names are not all plurals
-const PLURAL = { person: "people", writing: "writing" };
-// Plates, not crops. The 320-square thumbs are cover-cropped, which is right
-// for a mark on the sketch and wrong for a wall: Hammershøi's composition
-// arrived with its edges cut off. These keep the work's own proportions and
-// sit whole inside their cell.
-const plateFor = (src: string) => src
-  .replace("/images/", "/images/plates/")
-  .replace(/\.[^.]+$/, ".webp");
+const FORM_MARK: Record<string, string> = { painting: "▣", object: "◈", building: "⌂", poster: "▤", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶", bookmark: "⌁" };
+const PLURAL: Record<string, string> = { person: "people", writing: "writing" };
+const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
 
-// Art hangs; words are read. A quote squeezed into a square tile is mostly
-// empty space wearing a border, and next to a real painting the boxes read
-// as placeholders. So each room has a wall and a column, and each kind gets
-// the shape it wants.
-const HANGS = new Set(["painting", "object", "building", "person"]);
-
-// The links are all craft articles — Emil Kowalski on animation, ThreeUI.
-// That is study, not taste, and /learning already keeps them properly.
+// Pictures hang; words are read; what he has read is its own shelf.
+const HANGS = new Set(["painting", "object", "building", "poster", "person"]);
+const READS = new Set(["bookmark"]);
 const shelved = items.filter((it) => it.type !== "link");
+const isHung = (it: any) => HANGS.has(it.type);
+const isRead = (it: any) => READS.has(it.type);
+const isWord = (it: any) => !isHung(it) && !isRead(it);
 
-const rooms = weathers.slice().sort((a, b) => a.x - b.x).map((w) => {
-  const marks = shelved.filter((it) => it.weather === w.name);
-  return {
-    ...w,
-    slug: w.name.replace(/\W+/g, "-"),
-    art: marks.filter((it) => HANGS.has(it.type)),
-    words: marks.filter((it) => !HANGS.has(it.type)),
-    n: marks.length,
-    stops: (palettes.palettes.find((p) => p.weather === w.name) || {}).stops || [],
-  };
-});
-const ringMarks = shelved.filter((it) => !it.weather || it.unplaced);
-const ring = {
-  art: ringMarks.filter((it) => HANGS.has(it.type)),
-  words: ringMarks.filter((it) => !HANGS.has(it.type)),
-  n: ringMarks.length,
-};
-const links = items.filter((it) => it.type === "link").length;
+const order = weathers.slice().sort((a, b) => a.x - b.x);
+const stopsFor = (name: string) => (palettes.palettes.find((p) => p.weather === name) || { stops: [] }).stops;
+const slug = (name: string) => name.replace(/\W+/g, "-");
+const inWeather = (w: any, pred: (it: any) => boolean) => shelved.filter((it) => it.weather === w.name && !it.unplaced && pred(it));
+const unfiled = (pred: (it: any) => boolean) => shelved.filter((it) => (!it.weather || it.unplaced) && pred(it));
 
-// Every number on this page is counted from what the page actually shows.
-// depth.notes counts the whole vault, and quoting it here while shelving
-// eleven fewer marks made the library overstate itself by exactly the
-// number of things it had just sent to /learning.
-const shelvedCount = shelved.length;
-const namesHere = new Set(shelved.map((it) => it.who).filter(Boolean)).size;
+const hall = order.map((w) => ({ ...w, slug: slug(w.name), stops: stopsFor(w.name), marks: inWeather(w, isHung) })).filter((r) => r.marks.length);
+const room = order.map((w) => ({ ...w, slug: slug(w.name), stops: stopsFor(w.name), marks: inWeather(w, isWord) })).filter((r) => r.marks.length);
+const readShelf = shelved.filter(isRead);
+const ringArt = unfiled(isHung), ringWords = unfiled(isWord);
+const hung = shelved.filter(isHung).length, said = shelved.filter(isWord).length;
 
-const title = "eidos · dmytro klochko";
+const title = "eidos · what dmytro klochko loves";
 const description =
-  "the library of what dmytro klochko loves: paintings, poems, songs, people and lines, filed by feeling rather than by kind.";
+  "the library of what dmytro klochko loves: paintings, posters, poems, songs, lines and people, filed under eight weathers of his own. every mark a real thing, attributed.";
 ---
 
-<Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted>
+<Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted
+        ogTitle="eidos · what dmytro klochko loves"
+        ogDescription={`${shelved.length} real things, filed under eight weathers he made up. paintings, poems, songs, lines, people. every one attributed.`}
+        ogImage="/og-eidos.png?v=1">
   <section class="shell session eidos-lib" data-scene="nightcourt" aria-labelledby="el">
     <div class="card">
       <h1 class="card-title" id="el">eidos</h1>
     </div>
 
     <p class="today-how">
-      <em>eidos</em>, the greek for the form of a thing, the shape you know it
-      by. this is the library of what i love — {shelvedCount} real things,
-      every one attributed — filed under eight weathers i made up, because
-      feeling is the only filing system that has ever held. it runs cold to
-      warm, and each room wears the colours of its own painting.
+      <em>eidos</em>, the greek for the form of a thing, the shape you know it by.
     </p>
 
-    <dl class="lib-counts" aria-label="what the library holds">
-      <div><dt>things</dt><dd>{shelvedCount}</dd></div>
-      <div><dt>makers</dt><dd>{namesHere}</dd></div>
-      <div><dt>weathers</dt><dd>{weathers.length}</dd></div>
-      <div class="is-open"><dt>on the ring</dt><dd>{ring.n}</dd></div>
-    </dl>
+    <EidosPortrait />
 
-    {/* ── ways of looking, and the door ───────────────────────────── */}
+    {/* ── ways of looking, and the doors ─────────────────────────────── */}
     <p class="lib-views">
       other ways to look: <a href="/eidos/map">the sketch</a> ·{" "}
-      <a href="/eidos/orbit">the orbit</a> · and the library grows by{" "}
-      <a href="/eidos/sit">sittings</a>, {candidates} waiting.
+      <a href="/eidos/orbit">the orbit</a> · it grows through{" "}
+      <a href="/eidos/inbox">the inbox</a>, {candidates} waiting.
     </p>
 
-    {/* ── filters, shared across every room ───────────────────────── */}
+    {/* ── filters and the way through ────────────────────────────────── */}
     <div class="em-controls" role="group" aria-label="filter the library">
       <button class="em-chip is-on" data-filter="all" type="button">everything</button>
       {forms.filter((f) => f.n && f.form !== "link").map((f) => (
@@ -117,117 +85,153 @@ const description =
       <span class="lib-hint">press anything to see it whole</span>
     </div>
 
-    {/* ── room index ──────────────────────────────────────────────── */}
     <nav class="lib-toc" aria-label="the rooms">
-      {rooms.map((r) => <a href={`#w-${r.slug}`}>{r.name}</a>)}
-      <a href="#the-ring" class="lib-toc-ring">the ring</a>
+      <a href="#pictures">pictures <b>{hung}</b></a>
+      <a href="#words">words <b>{said}</b></a>
+      <a href="#read">read <b>{readShelf.length}</b></a>
+      {(ringArt.length + ringWords.length) > 0 && <a href="#the-ring" class="lib-toc-ring">unfiled <b>{ringArt.length + ringWords.length}</b></a>}
     </nav>
 
-    {/* ── the rooms ───────────────────────────────────────────────── */}
-    {rooms.map((r) => (
-      <section class="lib-room" id={`w-${r.slug}`} aria-label={r.name}>
-        <header class="lib-door">
-          <span class="lib-chips" aria-hidden="true">
-            {r.stops.map((c) => <i style={`background:${c}`} />)}
-          </span>
-          <h2>{r.name}</h2>
-          <p>{r.why} <span class="lib-n">· {r.n} thing{r.n === 1 ? "" : "s"}</span></p>
-        </header>
+    {/* ── the hall: pictures, weather by weather ─────────────────────── */}
+    <section class="lib-hall" id="pictures" aria-labelledby="h-pictures">
+      <header class="lib-door">
+        <h2 id="h-pictures">pictures</h2>
+        <p>paintings, posters, objects and the people on the wall. each at its own proportions; nothing cropped to fit a tile.</p>
+      </header>
 
-        <div class="lib-body">
-        {r.art.length > 0 && (
+      {hall.map((r) => (
+        <div class="lib-run" id={`w-${r.slug}`} aria-label={r.name}>
+          <h3 class="lib-weather">
+            <span class="lib-chips" aria-hidden="true">{r.stops.map((c) => <i style={`background:${c}`} />)}</span>
+            {r.name}<small>{r.why}</small>
+          </h3>
           <div class="lib-wall">
-            {r.art.map((it) => (
-              <button class={`lib-card lib-card--${it.type}`} type="button"
+            {r.marks.map((it) => (
+              <button class={`lib-card lib-card--${it.type}`} type="button" id={it.id}
                       data-id={it.id} data-form={it.type}
                       aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
                 <img src={plateFor(it.src)} alt="" loading="lazy" decoding="async" />
                 <span class="lib-label">
                   <b>{it.line || it.title}</b>
-                  {it.type !== "person" && it.who && (
-                    <span>{it.who}{it.year ? " · " + it.year : ""}</span>
-                  )}
+                  {it.type !== "person" && it.who && (<span>{it.who}{it.year ? " · " + it.year : ""}</span>)}
                 </span>
               </button>
             ))}
           </div>
-        )}
-
-        {r.words.length > 0 && (
-          <ul class="lib-words">
-            {r.words.map((it) => (
-              <li>
-                <button class={`lib-said lib-said--${it.type}`} type="button"
-                        data-id={it.id} data-form={it.type}
-                        aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                  <span class="lib-mark" aria-hidden="true">{FORM_MARK[it.type]}</span>
-                  <span class="lib-line">{it.line || it.title}</span>
-                  <span class="lib-by">{it.who}{it.year ? " · " + it.year : ""}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
         </div>
-      </section>
-    ))}
+      ))}
+    </section>
 
-    {/* ── the ring: filed nowhere yet ─────────────────────────────── */}
-    {ring.n > 0 && (
-      <section class="lib-room lib-room--ring" id="the-ring" aria-label="the ring">
-        <header class="lib-door">
-          <h2>the ring</h2>
-          <p>
-            {ring.n} things that have never been told how they feel. they
-            join a room when a <a href="/eidos/sit">sitting</a> or{" "}
-            <a href="/eidos/map">the sketch</a> files them.
-          </p>
-        </header>
+    {/* ── the reading room: words, weather by weather ────────────────── */}
+    <section class="lib-reading" id="words" aria-labelledby="h-words">
+      <header class="lib-door">
+        <h2 id="h-words">words</h2>
+        <p>poems whole, never excerpted; lines with their source; songs by name. a poem keeps its own language above the english, and says who translated it.</p>
+      </header>
 
-        <div class="lib-body">
-        {ring.art.length > 0 && (
-          <div class="lib-wall">
-            {ring.art.map((it) => (
-              <button class={`lib-card lib-card--${it.type}`} type="button"
-                      data-id={it.id} data-form={it.type}
-                      aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                <img src={plateFor(it.src)} alt="" loading="lazy" decoding="async" />
-                <span class="lib-label">
-                  <b>{it.line || it.title}</b>
-                  {it.type !== "person" && it.who && (
-                    <span>{it.who}{it.year ? " · " + it.year : ""}</span>
-                  )}
-                </span>
-              </button>
-            ))}
-          </div>
-        )}
-
-        {ring.words.length > 0 && (
+      {room.map((r) => (
+        <div class="lib-run lib-run--words" id={`w-${r.slug}-words`} aria-label={r.name}>
+          <h3 class="lib-weather">
+            <span class="lib-chips" aria-hidden="true">{r.stops.map((c) => <i style={`background:${c}`} />)}</span>
+            {r.name}<small>{r.why}</small>
+          </h3>
           <ul class="lib-words">
-            {ring.words.map((it) => (
+            {r.marks.map((it: any) => (
               <li>
-                <button class={`lib-said lib-said--${it.type}`} type="button"
+                <button class={`lib-said lib-said--${it.type}`} type="button" id={it.id}
                         data-id={it.id} data-form={it.type}
                         aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
                   <span class="lib-mark" aria-hidden="true">{FORM_MARK[it.type]}</span>
-                  <span class="lib-line">{it.line || it.title}</span>
-                  <span class="lib-by">{it.who}{it.year ? " · " + it.year : ""}</span>
+                  {it.type === "poem" && it.original ? (
+                    <span class="lib-line lib-line--poem">
+                      <span class="lib-orig">{it.original}</span>
+                      <span class="lib-eng">{it.line}</span>
+                    </span>
+                  ) : it.type === "quote" && it.english ? (
+                    <span class="lib-line">
+                      <span class="lib-orig lib-orig--inline">{it.line}</span>
+                      <span class="lib-eng">{it.english}</span>
+                    </span>
+                  ) : (
+                    <span class="lib-line">{it.line || it.title}</span>
+                  )}
+                  <span class="lib-by">
+                    {it.who}{it.year ? " · " + it.year : ""}{it.where ? " · " + it.where : ""}
+                    {it.type === "poem" && it.translator ? <em> · {it.translator}</em> : null}
+                  </span>
                 </button>
               </li>
             ))}
           </ul>
-        )}
+        </div>
+      ))}
+    </section>
+
+    {/* ── read: what he threw into the inbox and kept ────────────────── */}
+    <section class="lib-read" id="read" aria-labelledby="h-read">
+      <header class="lib-door">
+        <h2 id="h-read">read</h2>
+        <p>
+          links thrown into <a href="/eidos/inbox">the inbox</a> and kept, with what was worth remembering about each.
+          study — the craft articles — lives next door on <a href="/learning">learning</a>.
+        </p>
+      </header>
+      {readShelf.length ? (
+        <ul class="lib-shelf">
+          {readShelf.map((it: any) => (
+            <li>
+              <a class="lib-bm" href={it.url} target="_blank" rel="noreferrer" data-id={it.id} data-form="bookmark">
+                <span class="lib-bm-site">{it.site || (it.url ? new URL(it.url).hostname.replace(/^www\./, "") : "")}</span>
+                <b class="lib-bm-title">{it.line || it.title}</b>
+                {it.summary && <span class="lib-bm-sum">{it.summary}</span>}
+                {it.tags && it.tags.length ? <span class="lib-bm-tags">{it.tags.map((t: string) => <i>#{t}</i>)}</span> : null}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="lib-empty">nothing kept yet. the first link you keep in the inbox lands here, with its note.</p>
+      )}
+    </section>
+
+    {/* ── the ring: filed nowhere yet ────────────────────────────────── */}
+    {(ringArt.length + ringWords.length) > 0 && (
+      <section class="lib-room lib-room--ring" id="the-ring" aria-labelledby="h-ring">
+        <header class="lib-door">
+          <h2 id="h-ring">unfiled</h2>
+          <p>{ringArt.length + ringWords.length} things that have never been told how they feel. they join a weather when <a href="/eidos/map">the sketch</a> places them.</p>
+        </header>
+        <div class="lib-body">
+          {ringArt.length > 0 && (
+            <div class="lib-wall lib-wall--ring">
+              {ringArt.map((it) => (
+                <button class={`lib-card lib-card--${it.type}`} type="button" id={it.id} data-id={it.id} data-form={it.type}
+                        aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
+                  <img src={plateFor(it.src)} alt="" loading="lazy" decoding="async" />
+                  <span class="lib-label"><b>{it.line || it.title}</b>{it.type !== "person" && it.who && (<span>{it.who}{it.year ? " · " + it.year : ""}</span>)}</span>
+                </button>
+              ))}
+            </div>
+          )}
+          {ringWords.length > 0 && (
+            <ul class="lib-words">
+              {ringWords.map((it: any) => (
+                <li>
+                  <button class={`lib-said lib-said--${it.type}`} type="button" id={it.id} data-id={it.id} data-form={it.type}
+                          aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
+                    <span class="lib-mark" aria-hidden="true">{FORM_MARK[it.type]}</span>
+                    <span class="lib-line">{it.line || it.title}</span>
+                    <span class="lib-by">{it.who}{it.year ? " · " + it.year : ""}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
     )}
 
-    <p class="lib-elsewhere">
-      {links} craft links are kept on <a href="/learning">learning</a>, where
-      they are read. this is the taste library; study lives next door.
-    </p>
-
-    {/* ── what a card says when it is pressed ─────────────────────── */}
+    {/* ── what a card says when it is pressed ────────────────────────── */}
     <aside class="em-detail lib-detail" id="detail" hidden aria-live="polite">
       <button class="em-close" type="button" aria-label="close">close</button>
       <div class="em-detail-body"></div>
@@ -238,53 +242,120 @@ const description =
     </a>
   </section>
 
+  <style>
+    /* The hall and the reading room are the two long runs; the weather is a
+       label inside each, not a wall between them. Scoped here because they
+       are this page's shape; the card and word styles are the library's,
+       shared in dream.css. */
+    .lib-hall, .lib-reading, .lib-read { margin-top: var(--sp-5); scroll-margin-top: 4.5rem; }
+    .lib-run { margin-top: var(--sp-4); scroll-margin-top: 4.5rem; }
+    .lib-run:first-of-type { margin-top: var(--sp-3); }
+    .lib-weather {
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.75rem;
+      margin: 0 0 var(--sp-2);
+      font-family: var(--display); font-weight: 300; font-size: var(--dream-display-card);
+      line-height: 1.1; color: var(--bone);
+    }
+    .lib-weather .lib-chips { align-self: center; }
+    .lib-weather small {
+      flex-basis: 100%;
+      font-family: var(--serif); font-size: var(--t-md); line-height: 1.5; color: var(--dim);
+      max-width: 52ch;
+    }
+    .lib-toc b { font-weight: 400; margin-left: 0.35em; opacity: 0.7; }
+    /* a poem shows its own language first, the english under it; a quote in
+       another tongue shows the line, then the english, quieter */
+    .lib-line--poem { display: grid; gap: 0.55rem; }
+    .lib-orig { white-space: pre-line; }
+    .lib-orig--inline { display: block; }
+    .lib-eng { display: block; font-size: var(--t-md); font-style: normal; color: var(--quiet); white-space: pre-line; line-height: 1.5; }
+    .lib-by em { font-style: normal; opacity: 0.8; }
+    /* Poems are whole, so their heights vary by a factor of five. In a grid a
+       sixteen-line Dickinson beside a three-line Bashō left a column of air
+       under the haiku; in columns the words pack and the room fills. */
+    .lib-run--words .lib-words {
+      display: block;
+      columns: 3 20rem;
+      column-gap: var(--sp-4);
+    }
+    .lib-run--words .lib-words li {
+      break-inside: avoid;
+      margin: 0 0 var(--sp-3);
+    }
+
+    /* the read shelf: typographic cards for links */
+    .lib-shelf { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: var(--sp-2); }
+    .lib-bm {
+      display: grid; gap: 0.3rem; padding: var(--sp-2);
+      border: 1px solid var(--rule); border-radius: var(--r-panel);
+      background: color-mix(in srgb, var(--deck) 60%, transparent);
+      color: inherit; text-decoration: none;
+      transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+    }
+    .lib-bm:hover, .lib-bm:focus-visible { border-color: rgb(255 155 192 / 45%); transform: translateY(-2px); }
+    .lib-bm-site { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+    .lib-bm-title { font-family: var(--serif); font-weight: 400; font-size: var(--t-lg); line-height: 1.3; color: var(--bone); }
+    .lib-bm-sum { font-family: var(--serif); font-size: var(--t-md); line-height: 1.5; color: var(--quiet); }
+    .lib-bm-tags { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--dim); display: flex; flex-wrap: wrap; gap: 0.2rem 0.7rem; }
+    .lib-bm-tags i { font-style: normal; }
+    .lib-empty { margin: 0; max-width: 52ch; font-family: var(--serif); font-size: var(--t-md); line-height: 1.6; color: var(--dim); }
+    @media (prefers-reduced-motion: reduce) { .lib-bm { transition: none; } }
+  </style>
+
   <script is:inline type="application/json" id="lib-data"
-          set:html={JSON.stringify(items.map(({ id, type, weather, line, title, who, year, where, note, src, url, source }) =>
-            ({ id, type, weather, line, title, who, year, where, note, src, url, source })))} />
+          set:html={JSON.stringify(items.map(({ id, type, weather, line, title, who, year, where, note, src, url, source, ...rest }: any) =>
+            ({ id, type, weather, line, title, who, year, where, note, src, url, source,
+               english: rest.english, original: rest.original, translator: rest.translator, summary: rest.summary, tags: rest.tags, site: rest.site })))} />
 
   <script>
     (() => {
       const items = JSON.parse(document.getElementById("lib-data").textContent);
-      const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
-        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-      // ── filtering: a room with nothing to show folds away ──────────
+      // ── filtering by kind, across every room ────────────────────────
       const chips = [...document.querySelectorAll(".em-chip")];
       chips.forEach((c) => c.addEventListener("click", () => {
         chips.forEach((x) => x.classList.toggle("is-on", x === c));
         const f = c.dataset.filter;
-        for (const el of document.querySelectorAll(".lib-card, .lib-said")) {
+        for (const el of document.querySelectorAll(".lib-card, .lib-said, .lib-bm")) {
           const item = el.closest("li") || el;
           item.hidden = f !== "all" && el.dataset.form !== f;
         }
-        // a wall or a column with nothing left in it folds, and so does a
-        // room that has neither
-        for (const group of document.querySelectorAll(".lib-wall, .lib-words")) {
-          group.hidden = ![...group.querySelectorAll(".lib-card, .lib-said")]
-            .some((x) => !(x.closest("li") || x).hidden);
+        for (const group of document.querySelectorAll(".lib-wall, .lib-words, .lib-shelf")) {
+          group.hidden = ![...group.querySelectorAll(".lib-card, .lib-said, .lib-bm")].some((x) => !(x.closest("li") || x).hidden);
         }
-        for (const room of document.querySelectorAll(".lib-room")) {
-          room.hidden = ![...room.querySelectorAll(".lib-wall, .lib-words")].some((g) => !g.hidden);
+        for (const run of document.querySelectorAll(".lib-run")) {
+          run.hidden = ![...run.querySelectorAll(".lib-wall, .lib-words")].some((g) => !g.hidden);
+        }
+        for (const sec of document.querySelectorAll(".lib-hall, .lib-reading, .lib-room--ring")) {
+          sec.hidden = ![...sec.querySelectorAll(".lib-run, .lib-wall, .lib-words")].some((g) => !g.hidden);
         }
       }));
 
-      // ── a card, pressed ─────────────────────────────────────────────
+      // ── a card, pressed ──────────────────────────────────────────────
       const detail = document.getElementById("detail");
       const body = detail.querySelector(".em-detail-body");
       document.querySelectorAll(".lib-card, .lib-said").forEach((card) => card.addEventListener("click", () => {
         const it = items.find((x) => x.id === card.dataset.id);
         if (!it) return;
+        const line = it.type === "poem" && it.original ? it.original : (it.line || it.title);
+        const second = it.type === "poem" && it.original ? it.line : (it.type === "quote" ? it.english : "");
         body.innerHTML =
           (it.src ? `<img src="${esc(it.src)}" alt="">` : "") +
-          `<p class="em-d-kind">${esc(it.type)}${it.weather ? " · " + esc(it.weather) : " · on the ring"}</p>` +
-          `<p class="em-d-line">${esc(it.line || it.title)}</p>` +
-          (it.who ? `<p class="em-d-who">${esc(it.who)}${it.year ? ", " + esc(it.year) : ""}${it.where ? " · " + esc(it.where) : ""}</p>` : "") +
+          `<p class="em-d-kind">${esc(it.type)}${it.weather ? " · " + esc(it.weather) : " · unfiled"}</p>` +
+          `<p class="em-d-line">${esc(line)}</p>` +
+          (second ? `<p class="em-d-note">${esc(second)}</p>` : "") +
+          (it.who ? `<p class="em-d-who">${esc(it.who)}${it.year ? ", " + esc(it.year) : ""}${it.where ? " · " + esc(it.where) : ""}${it.translator ? " · " + esc(it.translator) : ""}</p>` : "") +
           (it.note ? `<p class="em-d-note">${esc(it.note)}</p>` : "") +
           ((it.url || it.source) ? `<p class="em-d-go"><a href="${esc(it.url || it.source)}" target="_blank" rel="noreferrer">${it.url ? "open it" : "source"}<span class="arw">↗</span></a></p>` : "");
         detail.hidden = false;
       }));
       detail.querySelector(".em-close").onclick = () => { detail.hidden = true; };
       document.addEventListener("keydown", (e) => { if (e.key === "Escape") detail.hidden = true; });
+
+      // a link straight to a mark opens it
+      const target = location.hash.slice(1);
+      if (target) document.getElementById(target)?.click?.();
     })();
   </script>
 </Layout>

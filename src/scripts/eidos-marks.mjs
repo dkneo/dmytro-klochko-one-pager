@@ -3,7 +3,7 @@
 // them: x and y are the solved axes, z is the weathers ordered by their own
 // temperature — cold moods deepest, warm ones near.
 
-const GLYPH = { painting: "▣", object: "◈", building: "⌂", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶" };
+const GLYPH = { painting: "▣", object: "◈", building: "⌂", poster: "▤", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶", bookmark: "⌁" };
 
 export function toMarks(map) {
   const weathersByWarmth = map.weathers.slice().sort((a, b) => a.x - b.x);

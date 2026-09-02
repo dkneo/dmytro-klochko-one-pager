@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import EidosPortrait from "../components/EidosPortrait.astro";
 
 const roles = [
   {
@@ -157,6 +158,7 @@ const chapters = [
   { id: "journey", label: "upbringing" },
   { id: "alongside", label: "other roles" },
   { id: "me", label: "literally me" },
+  { id: "eidos", label: "eidos" },
   { id: "contact", label: "dm me" },
 ] as const;
 
@@ -899,9 +901,22 @@ const also = [
 
   </section>
 
-  <section class="shell session" id="contact" data-scene="estuary" data-weather="none" aria-labelledby="s5">
+  {/* The library, as a door. The portrait is the same component that opens
+      /eidos — one paragraph and a strip of eight weathers, every number
+      computed from the vault — so the homepage and the library can never
+      disagree about what he loves. */}
+  <section class="shell session" id="eidos" data-scene="estuary" data-weather="none" aria-labelledby="s7">
     <div class="card">
       <p class="card-no">07</p>
+      <h2 class="card-title" id="s7">eidos</h2>
+    </div>
+    <p class="lede">what i love, filed by feeling.</p>
+    <EidosPortrait compact />
+  </section>
+
+  <section class="shell session" id="contact" data-scene="estuary" data-weather="none" aria-labelledby="s5">
+    <div class="card">
+      <p class="card-no">08</p>
       {/* The joke is in the name and the domain both: dmklochko.com, dm-ytro
           klochko, and dm as in send one. Dimming the three letters that are
           not the instruction lets the heading be read twice — his name, and

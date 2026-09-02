@@ -38,3 +38,51 @@ export function paintingNote(c, { weather, src, added }) {
     "", "kept from the queue on /eidos.", "",
   ].join("\n");
 }
+
+/**
+ * A bookmark, as the inbox learned it.
+ *
+ * The inbox is where he throws links. The worker reads each page once — title,
+ * site, description, a picture if the page offers one — and, when a key is
+ * set, asks the model what is worth remembering about it. A keep turns that
+ * record into this note: obsidian-shaped, with the summary as the body and the
+ * wikilink trail at the foot, so the vault's graph joins it to the weather it
+ * was filed under and to whoever wrote it.
+ */
+export function bookmarkNote(b, { weather, added }) {
+  if (!b.url || !/^https?:\/\//.test(b.url)) {
+    throw new Error(`a bookmark needs a url, got ${JSON.stringify(b.url)}`);
+  }
+  const q = (v) => JSON.stringify(String(v ?? ""));
+  const tags = Array.isArray(b.tags) ? b.tags.filter(Boolean) : [];
+  const front = [
+    `type: bookmark`,
+    `title: ${q(b.title || b.url)}`,
+    `url: ${q(b.url)}`,
+    b.site ? `site: ${q(b.site)}` : "",
+    b.who ? `who: ${q(b.who)}` : "",
+    b.image ? `image: ${q(b.image)}` : "",
+    b.summary ? `summary: ${q(b.summary)}` : "",
+    tags.length ? `tags: [${tags.map(q).join(", ")}]` : "",
+    weather ? `weather: ${weather}` : "",
+    `added: ${added}`,
+  ].filter(Boolean);
+
+  const links = [
+    weather ? `weather: [[${weather}]]` : "",
+    b.who ? `who: [[${b.who}]]` : "",
+    ...tags.map((t) => `[[${t}]]`),
+  ].filter(Boolean).join(" · ");
+
+  const body = [
+    b.note ? b.note.trim() : "",
+    b.summary ? b.summary.trim() : "",
+    b.description && !b.summary ? b.description.trim() : "",
+  ].filter(Boolean).join("\n\n");
+
+  return [
+    "---", ...front, "---", "",
+    body || "kept from the inbox.", "",
+    links, "",
+  ].join("\n");
+}

@@ -14,13 +14,18 @@ interface Props {
   /** Which skies this page can show. The fire extras (embers, firelight) are
       gated on the fire scene, so a page without it simply has none. */
   scenes?: string[];
+  /** A page meant to be shared on its own — the library — carries its own
+      card. Everything else shares as the site. */
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
 }
 
 const { title, description, current = "home", unlisted = false,
-        scenes = ["fire", "estuary"] } = Astro.props;
-
-const ogTitle = "dmytro klochko";
-const ogDescription = "ceo at replika. product and engineering, out of art, chess and theatre.";
+        scenes = ["fire", "estuary"],
+        ogTitle = "dmytro klochko",
+        ogDescription = "ceo at replika. product and engineering, out of art, chess and theatre.",
+        ogImage = "/og.png?v=3" } = Astro.props;
 const isHomepage = Astro.url.pathname === "/";
 
 // The homepage hero owns the introduction. Inner pages keep his name as the
@@ -57,15 +62,15 @@ const isHomepage = Astro.url.pathname === "/";
     <meta property="og:description" content={ogDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
-    <meta property="og:image" content={new URL("/og.png?v=3", Astro.site)} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
-    <meta property="og:image:alt" content="dmytro klochko" />
+    <meta property="og:image:alt" content={ogTitle} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
-    <meta name="twitter:image" content={new URL("/og.png?v=3", Astro.site)} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
   </head>
   <body>
     <!--
