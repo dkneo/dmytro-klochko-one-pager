@@ -10,7 +10,7 @@ const captions = new TextEncoder().encode("WEBVTT\n\n00:00.000 --> 00:01.000\nve
 
 function env() {
   return {
-    SCOUT_PASSWORD: "tasotaso",
+    SCOUT_PASSWORD: "test-scout-password",
     VAULT: {
       async get(key) {
         if (key === "scout:page") return scoutPage;
@@ -36,7 +36,7 @@ function env() {
 
 async function login(bindings = env()) {
   const body = new FormData();
-  body.set("password", "tasotaso");
+  body.set("password", "test-scout-password");
   const response = await worker.fetch(new Request("https://dmklochko.com/scout", {
     method: "POST",
     body,
@@ -86,7 +86,7 @@ test("the compact Scout update uses the same private door", async () => {
 
 test("logging in from the compact Scout update returns to that update", async () => {
   const body = new FormData();
-  body.set("password", "tasotaso");
+  body.set("password", "test-scout-password");
   const response = await worker.fetch(request("/scout/new", null, { method: "POST", body }), env());
 
   assert.equal(response.status, 303);
