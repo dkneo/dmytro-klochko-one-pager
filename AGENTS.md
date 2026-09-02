@@ -279,6 +279,20 @@ Hard-won and non-obvious. Ignoring these produces confident wrong conclusions:
 
 - **Verify against built `dist/`** on `python3 -m http.server 4399 -d dist`.
   The vite dev server has served 500s mid-recompile and poisoned screenshots.
+- **A headless capture at `--window-size=390` lays the page out wider than
+  390 and crops the image**, so mobile screenshots show text and grids cut
+  off at the right edge when the real page fits. Twice in one day this looked
+  like a horizontal-overflow bug on pages that had none. Diagnose width in
+  the pane: set the viewport to 390 and read `scrollWidth - clientWidth`
+  plus every element whose right edge passes the viewport (the sky canvas is
+  3000px wide by design; skip it). Use headless 390 captures for structure
+  only.
+- **Astro moves a page's styles into their own hashed bundle,
+  `/_astro/<page>.<hash>.css`, once they are large enough.** A test that
+  scans a page's inline `<style>` blocks for something then finds nothing
+  and passes on an empty list — the inbox's radius guard did exactly this.
+  Resolve the page's own sheet from its `<link href>`, assert it exists and
+  is the right one, and read that.
 - **The embedded browser pane freezes CSS transitions and rAF.** An element
   mid-transition reads as its *start* value. To test a state, inject
   `*{transition:none!important}` first. I twice "found" bugs that were only
