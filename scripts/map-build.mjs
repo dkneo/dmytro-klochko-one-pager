@@ -41,7 +41,15 @@ function frontmatter(text) {
     if (!m) continue;
     if (m[2] === "|-" || m[2] === "|") {
       const ls = [];
-      while (i + 1 < head.length && /^\s{2,}/.test(head[i + 1])) ls.push(head[++i].slice(2));
+while (i + 1 < head.length) {
+        if (/^\s{2,}/.test(head[i + 1])) { ls.push(head[++i].slice(2)); continue; }
+        if (head[i + 1].trim() === "") {
+          let j = i + 2;
+          while (j < head.length && head[j].trim() === "") j++;
+          if (j < head.length && /^\s{2,}/.test(head[j])) { ls.push(""); i++; continue; }
+        }
+        break;
+      }
       o[m[1]] = ls.join("\n").trim();
     } else {
       o[m[1]] = m[2].replace(/^"|"$/g, "").trim();

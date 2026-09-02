@@ -30,7 +30,15 @@ function frontmatter(text, file) {
     const [, key, raw] = m;
     if (raw === "|-" || raw === "|") {
       const lines = [];
-      while (i + 1 < head.length && /^\s{2,}/.test(head[i + 1])) lines.push(head[++i].slice(2));
+while (i + 1 < head.length) {
+        if (/^\s{2,}/.test(head[i + 1])) { lines.push(head[++i].slice(2)); continue; }
+        if (head[i + 1].trim() === "") {
+          let j = i + 2;
+          while (j < head.length && head[j].trim() === "") j++;
+          if (j < head.length && /^\s{2,}/.test(head[j])) { lines.push(""); i++; continue; }
+        }
+        break;
+      }
       out[key] = lines.join("\n").trimEnd();
     } else if (raw.startsWith('"') && raw.endsWith('"')) {
       out[key] = raw.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, "\\");
