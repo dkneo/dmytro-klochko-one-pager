@@ -90,6 +90,9 @@ const description =
       <a href="#words">words <b>{said}</b></a>
       <a href="#read">read <b>{readShelf.length}</b></a>
       {(ringArt.length + ringWords.length) > 0 && <a href="#the-ring" class="lib-toc-ring">unfiled <b>{ringArt.length + ringWords.length}</b></a>}
+      {/* The door, where the eye already is. It was named twice in running
+          text and found by nobody. */}
+      <a href="/eidos/inbox" class="lib-toc-door">the inbox <b>{candidates} waiting</b><span class="arw" aria-hidden="true">↗</span></a>
     </nav>
 
     {/* ── the hall: pictures, weather by weather ─────────────────────── */}
@@ -268,6 +271,18 @@ const description =
       max-width: 52ch;
     }
     .lib-toc b { font-weight: 400; margin-left: 0.35em; opacity: 0.7; }
+    .lib-toc-door {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 0.35em;
+      min-height: 24px;
+      padding: 0.2rem 0.75rem;
+      border: 1px solid rgb(255 155 192 / 45%);
+      border-radius: 999px;
+      color: var(--hot) !important;
+      transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+    }
+    .lib-toc-door:hover { background: var(--hot); color: var(--void) !important; border-color: var(--hot); }
+    .lib-toc-door b { opacity: 0.85; }
     /* a poem shows its own language first, the english under it; a quote in
        another tongue shows the line, then the english, quieter */
     /* A poem is read, not declaimed. Sixteen lines of Dickinson in the italic

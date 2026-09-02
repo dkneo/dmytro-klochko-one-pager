@@ -212,6 +212,7 @@ test("the library shelves every mark, in two rooms and a shelf", () => {
 
   // reading is public, teaching stays behind doors
   assert.ok(html.includes("/eidos/inbox"), "the door to the inbox is named");
+  assert.match(html, /class="lib-toc-door"[^>]*>/, "the inbox is a visible door in the room index, not a mention in running text");
   assert.ok(!html.includes("api/eidos/verdict"), "the library itself never writes");
   // and it shares as itself
   assert.match(html, /property="og:image" content="[^"]*og-eidos\.png/);
