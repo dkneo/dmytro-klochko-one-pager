@@ -117,7 +117,14 @@ test("the inbox takes a link and judges what waits", () => {
   assert.match(css, /touch-action:\s*pan-y/);
 
   // no radius invented here either
-  const own = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join("\n");
+  // Astro moved this page's styles out to their own bundle — <link
+  // href="/_astro/inbox.*.css"> — so a scan of inline <style> found nothing
+  // and passed on an empty list. The page's own sheet is the one to read,
+  // and the test insists it exists so it can never pass on air again.
+  const ownSheet = html.match(/href="(\/_astro\/inbox\.[^"]+\.css)"/)?.[1];
+  assert.ok(ownSheet, "the inbox has no stylesheet of its own to check");
+  const own = read(path.join("dist", ownSheet));
+  assert.match(own, /in-throw/, "the sheet found is not the inbox's");
   const literals = [...own.matchAll(/border-radius:\s*([^;}]+)/g)].map((m) => m[1].trim())
     .filter((v) => !/var\(|999px|50%|inherit|^0$/.test(v));
   assert.deepEqual(literals, [], `the inbox invents radii: ${literals.join(", ")}`);
