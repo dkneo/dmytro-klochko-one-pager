@@ -144,7 +144,7 @@ const description =
                   <span class="lib-mark" aria-hidden="true">{FORM_MARK[it.type]}</span>
                   {it.type === "poem" && (it.line || "").split("\n").filter((l: string) => l.trim()).length > 8 ? (
                     <span class="lib-line lib-line--poem is-excerpt">
-                      <span class="lib-eng lib-eng--lead">{(it.line || "").split("\n").slice(0, 4).join("\n")}</span>
+                      <span class="lib-eng lib-eng--lead">{(it.line || "").split("\n").filter((l: string) => l.trim()).slice(0, 4).join("\n")}</span>
                     </span>
                   ) : it.type === "poem" && it.original ? (
                     <span class="lib-line lib-line--poem">
