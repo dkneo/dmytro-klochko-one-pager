@@ -36,6 +36,12 @@ const isHomepage = Astro.url.pathname === "/";
   <head>
     <meta charset="utf-8" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    {/* The heading face and the prose face are on every page above the fold.
+        Without a preload the browser finds them only after the stylesheet has
+        parsed; with one they arrive alongside it. Only the two faces every
+        visitor needs — the italics and the medium load on demand. */}
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/zodiak-300.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/newsreader-400.woff2" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#131a2b" />

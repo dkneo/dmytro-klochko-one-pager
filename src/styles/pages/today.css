@@ -1,0 +1,496 @@
+/* today: styles used by this page family only. Split out of dream.css on
+   3 Sep 2026 so the homepage stops parsing rules that match nothing on it.
+   Same tokens, same cascade position: the page imports this after dream.css. */
+
+/* One chord: a painting, a line, a poem. The three sit in one column at
+   reading width so they are met in order rather than compared side by side. */
+
+[data-mode="dream"] .today .chord {
+  max-width: 42rem;
+  margin-top: var(--sp-4);
+}
+
+/* The name belongs to the picture, so it sits right under it. The old
+   three-rem gap made them read as two separate things. */
+
+[data-mode="dream"] .chord-art {
+  margin: 0;
+}
+
+[data-mode="dream"] .chord-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-print);
+  box-shadow:
+    0 2px 6px rgb(8 10 22 / 55%),
+    0 22px 60px rgb(8 10 22 / 45%);
+}
+
+[data-mode="dream"] .chord-art figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+  margin-top: 0.7rem;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .chord-art figcaption b {
+  color: var(--dim);
+  font-weight: 400;
+}
+
+[data-mode="dream"] .chord-art figcaption i {
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .chord-art figcaption a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .chord-art figcaption a:hover {
+  color: var(--hot);
+  border-color: rgb(255 155 192 / 45%);
+}
+
+/* The line is the loudest thing on the page, which is the point of the page. */
+
+[data-mode="dream"] .chord-quote {
+  margin: 0 0 var(--sp-4);
+  padding: 0;
+  border: 0;
+}
+
+[data-mode="dream"] .chord-line {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--display-scroll);
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+}
+
+/* English first and large; the original underneath, smaller, for the people
+   who want to see what it actually said. */
+
+[data-mode="dream"] .chord-original {
+  margin: 0.8rem 0 0;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .chord-verse--orig {
+  margin-top: var(--sp-2);
+  color: var(--dim);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+}
+
+[data-mode="dream"] .chord-quote cite {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: var(--sp-2);
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-style: normal;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .chord-quote cite span {
+  color: var(--dim);
+}
+
+/* Occasion, not analysis: who, when, what was happening. */
+
+[data-mode="dream"] .chord-note {
+  margin: 0.8rem 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+  line-height: 1.65;
+}
+
+[data-mode="dream"] .chord-when {
+  margin-top: var(--sp-5);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .story-canvas {
+  display: none;
+}
+
+[data-mode="dream"] .bit {
+  padding-top: var(--sp-5);
+}
+
+[data-mode="dream"] .bit--art {
+  padding-top: var(--sp-4);
+}
+
+[data-mode="dream"] .bit-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+  margin: 0.7rem 0 0;
+}
+
+[data-mode="dream"] .bit-title b {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-fact);
+  font-weight: 400;
+}
+
+[data-mode="dream"] .bit-title i {
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+}
+
+[data-mode="dream"] .bit-where {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.7rem;
+  margin: 0.35rem 0 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .bit-where b {
+  color: var(--hot);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+}
+
+[data-mode="dream"] .bit-where em { font-style: normal; }
+
+[data-mode="dream"] .bit-where a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .bit-where a:hover {
+  color: var(--hot);
+  border-color: rgb(255 155 192 / 45%);
+}
+
+[data-mode="dream"] .bit-share {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: var(--sp-2) 0 0;
+}
+
+[data-mode="dream"] .bit-share button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.4rem 0.95rem;
+  background: none;
+  border: 1px solid rgb(255 155 192 / 32%);
+  border-radius: 999px;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .bit-share button:hover {
+  background: rgb(255 155 192 / 12%);
+  border-color: var(--hot);
+  color: var(--bone);
+}
+
+[data-mode="dream"] .chord-song b {
+  display: block;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: calc(var(--display-scroll) * 0.7);
+  line-height: 1.2;
+}
+
+[data-mode="dream"] .chord-song span {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+}
+
+[data-mode="dream"] .song-links {
+  display: flex;
+  gap: 1.1rem;
+  margin: var(--sp-2) 0 0;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .song-links a {
+  color: var(--hot);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(255 155 192 / 32%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .song-links a:hover {
+  color: var(--bone);
+  border-color: var(--bone);
+}
+
+[data-mode="dream"] .chord-when a {
+  color: var(--hot);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(255 155 192 / 32%);
+}
+
+/* The mark says where it goes; the words say what goes there. */
+
+[data-mode="dream"] .btn-ico {
+  width: 1.05em;
+  height: 1.05em;
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+[data-mode="dream"] .bit-more {
+  margin: var(--sp-2) 0 0;
+}
+
+[data-mode="dream"] .bit-more a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(255 155 192 / 32%);
+  padding-bottom: 1px;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .bit-more a:hover {
+  color: var(--bone);
+  border-color: var(--bone);
+}
+
+[data-mode="dream"] .bit-more .arw {
+  transition: transform var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .bit-more a:hover .arw {
+  transform: translateX(0.25em);
+}
+
+/* The translation credit sits with the poet and the date, quieter than both. */
+
+[data-mode="dream"] .bit-tr {
+  color: var(--dim);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Walking the collection: quiet, because the day is still the point. */
+
+[data-mode="dream"] .chord-when {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+}
+
+[data-mode="dream"] .chord-next,
+[data-mode="dream"] .chord-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.3rem 0.85rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 20%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .chord-next:hover,
+[data-mode="dream"] .chord-back:hover {
+  color: var(--hot);
+  border-color: rgb(255 155 192 / 45%);
+}
+
+[data-mode="dream"] .chord-next .arw {
+  transition: transform var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .chord-next:hover .arw {
+  transform: translateX(0.25em);
+}
+
+/* ── today: the day's painting is the sky ───────────────────────────────────
+   Two fixed layers at the scenes' depth, crossfaded on day change. The inner
+   <s> is the per-painting extra dim measured by the build's sky gate, so a
+   bright Turner and a dark Whistler land on the same reading floor. The
+   site-wide glass above does the rest. */
+
+[data-mode="dream"] .today-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* the scrim, over the filtered image but under the text: outside the
+   filtered element so the filter cannot double-apply to it */
+
+[data-mode="dream"] .today-sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(24 28 46 / 24%);
+}
+
+/* The layer lives inside main, which stacks level with the site glass and
+   paints after it, so body::before never dims it. It dims itself instead,
+   with the exact pipeline the build's gate measures: brightness and
+   saturation on the image, the scrim over that, then the per-painting extra. */
+
+[data-mode="dream"] .today-sky i {
+  position: absolute;
+  inset: -6%;
+  opacity: 0;
+  background: center / cover no-repeat;
+  filter: brightness(0.32) saturate(0.88);
+  transition: opacity 900ms var(--ease);
+}
+
+[data-mode="dream"] .today-sky i.is-on { opacity: 1; }
+
+[data-mode="dream"] .today-sky s {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--shadow-deep-base);
+  opacity: 0;
+  transition: opacity 900ms var(--ease);
+}
+
+/* the almanac fragment rides the existing when-line */
+
+[data-mode="dream"] .today-rhythm {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.05em;
+}
+
+/* ── the archive of days ────────────────────────────────────────────────── */
+
+[data-mode="dream"] .today-days {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-3);
+  border-top: 1px solid rgb(236 230 217 / 16%);
+}
+
+[data-mode="dream"] .today-days .bit-label a { color: var(--dim); }
+
+[data-mode="dream"] .today-days .bit-label a:hover { color: var(--hot); }
+
+[data-mode="dream"] .today-days-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  gap: var(--sp-1);
+  margin-top: var(--sp-2);
+  max-width: var(--measure-wide);
+}
+
+[data-mode="dream"] .day-tile {
+  position: relative;
+  padding: 0;
+  border: 1px solid rgb(236 230 217 / 18%);
+  background: rgb(20 24 40 / 55%);
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color var(--dur) var(--ease), scale 120ms var(--ease);
+}
+
+[data-mode="dream"] .day-tile img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  height: auto;
+  object-fit: cover;
+}
+
+[data-mode="dream"] .day-tile span {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 0.9rem 0.5rem 0.35rem;
+  background: linear-gradient(transparent, rgb(10 13 24 / 85%));
+  color: var(--bone);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-mode="dream"] .day-tile:hover { border-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .day-tile:active { scale: 0.97; }
+
+[data-mode="dream"] .day-tile:focus-visible { outline: 2px solid var(--hot); outline-offset: 3px; }
+
+[data-mode="dream"] .day-tile.is-showing { border-color: var(--hot); }
+
+[data-mode="dream"] .day-tile.is-showing span::after { content: " · showing"; color: var(--hot); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .today-sky i,
+    [data-mode="dream"] .today-sky s { transition: none; }
+}

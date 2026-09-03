@@ -5,6 +5,14 @@ import test from "node:test";
 
 const root = path.resolve(import.meta.dirname, "..");
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
+
+// the site's css is dream.css plus one file per page family (split 3 Sep 2026);
+// a guard that reads only dream.css passes while a rule it cares about sits
+// in pages/eidos.css
+const allCss = () => [
+  read("src/styles/dream.css"),
+  ...fs.readdirSync(path.join(root, "src/styles/pages")).filter((f) => f.endsWith(".css")).map((f) => read(`src/styles/pages/${f}`)),
+].join("\n");
 const exists = (file) => fs.existsSync(path.join(root, file));
 
 test("the homepage lights weather only while the hero owns the sky", () => {
@@ -87,7 +95,7 @@ test("replika makes its case in one film and nothing beside it", () => {
 });
 
 test("the phone stylesheet leaves the hero films as its only ambient motion", () => {
-  const css = read("src/styles/dream.css");
+  const css = allCss();
 
   assert.match(css, /@media \(max-width: 900px\)[\s\S]*?\.weather--fire[\s\S]*?display:\s*none/);
   assert.match(css, /@media \(max-width: 700px\)\s*\{\s*\.dream-sky b\s*\{[^}]*display:\s*none[^}]*\}/);

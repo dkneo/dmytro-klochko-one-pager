@@ -1,0 +1,14 @@
+/* taste: styles used by this page family only. Split out of dream.css on
+   3 Sep 2026 so the homepage stops parsing rules that match nothing on it.
+   Same tokens, same cascade position: the page imports this after dream.css. */
+
+/* The record stands alone on taste now. */
+
+.solo {
+  display: flex;
+  justify-content: center;
+}
+
+[data-mode="dream"] .record {
+  width: min(100%, 19rem);
+}

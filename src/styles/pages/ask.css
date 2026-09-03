@@ -1,0 +1,198 @@
+/* ask: styles used by this page family only. Split out of dream.css on
+   3 Sep 2026 so the homepage stops parsing rules that match nothing on it.
+   Same tokens, same cascade position: the page imports this after dream.css. */
+
+/* ── the request desk ───────────────────────────────────────────────────────
+   A working form, so it is built to be filled in quickly and read later:
+   fields wide enough for real sentences, and a history under each request
+   that never gets tidied away. */
+
+[data-mode="dream"] .ask-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin: var(--sp-4) 0 0;
+  padding: var(--sp-3);
+  max-width: var(--measure-wide);
+  border: 1px solid rgb(236 230 217 / 22%);
+  background: rgb(20 24 40 / 55%);
+}
+
+[data-mode="dream"] .ask-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--sp-2);
+}
+
+[data-mode="dream"] .ask-field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+[data-mode="dream"] .ask-field > span {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .ask-field input,
+[data-mode="dream"] .ask-field select,
+[data-mode="dream"] .ask-field textarea {
+  width: 100%;
+  min-height: 40px;
+  padding: 0.55rem 0.7rem;
+  background: rgb(14 17 30 / 60%);
+  border: 1px solid rgb(236 230 217 / 26%);
+  border-radius: 2px;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.5;
+}
+
+[data-mode="dream"] .ask-field textarea { resize: vertical; min-height: 92px; }
+
+[data-mode="dream"] .ask-field input::placeholder,
+[data-mode="dream"] .ask-field textarea::placeholder { color: var(--dim); font-style: italic; }
+
+[data-mode="dream"] .ask-field input:focus,
+[data-mode="dream"] .ask-field select:focus,
+[data-mode="dream"] .ask-field textarea:focus {
+  outline: none;
+  border-color: var(--hot);
+}
+
+[data-mode="dream"] .ask-do { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
+
+[data-mode="dream"] .ask-do button {
+  min-height: 34px;
+  padding: 0.45rem 1.3rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 40%);
+  border-radius: 999px;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .ask-do button:hover { border-color: rgb(255 155 192 / 55%); }
+
+[data-mode="dream"] .ask-do button:active { scale: 0.97; }
+
+[data-mode="dream"] .ask-note { color: var(--dim); font-family: var(--serif); font-size: var(--t-prose-sm); font-style: italic; }
+
+[data-mode="dream"] .ask-head {
+  margin: var(--sp-5) 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1.1;
+}
+
+[data-mode="dream"] .ask-list { margin: var(--sp-3) 0 0; padding: 0; list-style: none; max-width: var(--measure-wide); }
+
+[data-mode="dream"] .ask-item {
+  padding: var(--sp-3) 0;
+  border-top: 1px solid rgb(236 230 217 / 16%);
+}
+
+[data-mode="dream"] .ask-item-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  margin: 0;
+}
+
+[data-mode="dream"] .ask-item-head b {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  font-weight: 400;
+}
+
+[data-mode="dream"] .ask-item-head i {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-style: normal;
+}
+
+[data-mode="dream"] .ask-status {
+  margin-left: auto;
+  padding: 0.12rem 0.6rem;
+  border: 1px solid rgb(236 230 217 / 26%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .ask-item[data-status="new"] .ask-status { color: var(--hot); border-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .ask-item[data-status="done"] .ask-status { color: var(--cold); border-color: rgb(127 212 217 / 40%); }
+
+[data-mode="dream"] .ask-item[data-status="done"] { opacity: 0.62; }
+
+[data-mode="dream"] .ask-item[data-status="question"] .ask-status { color: var(--bone); }
+
+[data-mode="dream"] .ask-where {
+  margin: 0.5rem 0 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+}
+
+[data-mode="dream"] .ask-what {
+  margin: 0.5rem 0 0;
+  max-width: var(--measure);
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+[data-mode="dream"] .ask-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.9rem;
+  margin: 0.55rem 0 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.05em;
+}
+
+[data-mode="dream"] .ask-meta b { font-weight: 400; color: var(--quiet); }
+
+[data-mode="dream"] .ask-meta em { font-style: normal; color: var(--hot); }
+
+/* the trail: every status this request has been through */
+
+[data-mode="dream"] .ask-history {
+  margin: 0.6rem 0 0;
+  padding: 0.5rem 0 0 0.9rem;
+  border-left: 1px solid rgb(236 230 217 / 18%);
+  list-style: none;
+}
+
+[data-mode="dream"] .ask-history li {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+
+[data-mode="dream"] .ask-history span { display: inline-block; min-width: 8.5rem; opacity: 0.7; }
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .ask-status { margin-left: 0; }
+}

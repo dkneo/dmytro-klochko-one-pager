@@ -1,0 +1,195 @@
+/* learning: styles used by this page family only. Split out of dream.css on
+   3 Sep 2026 so the homepage stops parsing rules that match nothing on it.
+   Same tokens, same cascade position: the page imports this after dream.css. */
+
+/* ── learning ───────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .learn-subject {
+  margin: var(--sp-5) 0 var(--sp-2);
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: calc(var(--display-scroll) * 0.82);
+  line-height: 1.2;
+}
+
+[data-mode="dream"] .learn-prose {
+  max-width: var(--measure);
+}
+
+/* The artefact is the point of the section, so it is the biggest thing in it
+   and the whole card is the way in. */
+
+[data-mode="dream"] .learn-artefact {
+  display: block;
+  max-width: 42rem;
+  margin-top: var(--sp-4);
+  text-decoration: none;
+}
+
+[data-mode="dream"] .learn-artefact .cell {
+  display: block;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow:
+    0 2px 6px rgb(8 10 22 / 55%),
+    0 22px 60px rgb(8 10 22 / 45%);
+  transition: transform var(--dur-slow) var(--ease), box-shadow var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .learn-artefact img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+[data-mode="dream"] .learn-artefact:hover .cell {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 10px rgb(8 10 22 / 55%),
+    0 28px 70px rgb(8 10 22 / 50%);
+}
+
+[data-mode="dream"] .learn-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 0.8rem;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(255 155 192 / 35%);
+  padding-bottom: 1px;
+}
+
+[data-mode="dream"] .learn-artefact:hover .learn-open {
+  color: var(--bone);
+  border-color: var(--bone);
+}
+
+[data-mode="dream"] .learn-artefact .arw {
+  transition: transform var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .learn-artefact:hover .arw {
+  transform: translateX(0.25em);
+}
+
+[data-mode="dream"] .learn-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--sp-4);
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .learn-link {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-fact);
+  line-height: 1.35;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .learn-link:hover {
+  color: var(--hot);
+  border-color: rgb(255 155 192 / 45%);
+}
+
+[data-mode="dream"] .learn-sum {
+  margin: 0.6rem 0 0;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.65;
+}
+
+[data-mode="dream"] .learn-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 0.5rem 0 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .learn-meta b {
+  color: var(--hot);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+}
+
+[data-mode="dream"] .learn-meta em { font-style: normal; }
+
+/* The reading queue. Laid out with a gap rather than source whitespace: astro
+   collapses the newlines between inline elements, so anything relying on them
+   renders as "emil kowalskitaste". */
+
+[data-mode="dream"] .learn-queue {
+  margin: var(--sp-2) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--sp-2);
+  max-width: var(--measure-wide);
+}
+
+[data-mode="dream"] .learn-queue li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.8rem;
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid rgb(236 230 217 / 12%);
+}
+
+[data-mode="dream"] .learn-queue a {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.35;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .learn-queue a:hover { color: var(--hot); border-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .learn-queue b,
+[data-mode="dream"] .learn-queue span {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+[data-mode="dream"] .learn-queue span { text-transform: uppercase; opacity: 0.75; }
+
+/* The section between the lede and the first subject had no rule, so the
+   only thing setting the gap was the heading's own top margin. */
+
+[data-mode="dream"] .learn-now { margin-top: var(--sp-4); }
+
+[data-mode="dream"] .learn-now:first-of-type { margin-top: var(--sp-3); }
+
+[data-mode="dream"] .learn-now .learn-subject { margin-top: 0; }
+
+[data-mode="dream"] .learn-now + .learn-now .learn-subject { margin-top: var(--sp-4); }
+
+[data-mode="dream"] .learn-empty {
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--t-prose-sm);
+  line-height: 1.65;
+}

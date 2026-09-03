@@ -1,0 +1,502 @@
+/* press: styles used by this page family only. Split out of dream.css on
+   3 Sep 2026 so the homepage stops parsing rules that match nothing on it.
+   Same tokens, same cascade position: the page imports this after dream.css. */
+
+/* ── press ──────────────────────────────────────────────────────────────────
+   A ledger, so it reads like one: the outlet first because that is what a
+   stranger scans for, the date beside it, and the claim underneath in his
+   own register. Rows are separated by a rule rather than a card, since a
+   card here would be thirty boxes down a page. */
+
+[data-mode="dream"] .pr-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.92fr);
+  gap: clamp(var(--sp-4), 5vw, 5.5rem);
+  align-items: center;
+}
+
+[data-mode="dream"] .pr-intro-copy { min-width: 0; }
+
+[data-mode="dream"] .pr-portrait {
+  margin: 0;
+  transform: rotate(1.15deg);
+  transform-origin: 52% 50%;
+  transition: transform 420ms var(--ease), filter 420ms var(--ease);
+  filter: drop-shadow(0 1.5rem 2.5rem var(--shadow-deep));
+}
+
+[data-mode="dream"] .pr-portrait-frame {
+  border-radius: var(--r-print);
+  display: block;
+  padding: clamp(var(--mat-snapshot), 0.8vw, var(--mat-print));
+  background: var(--mat);
+}
+
+[data-mode="dream"] .pr-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .pr-portrait:hover {
+      transform: rotate(0.2deg) translateY(-0.3rem);
+      filter: drop-shadow(0 1.8rem 3rem var(--shadow-deep));
+    }
+}
+
+@media (max-width: 860px) {
+  [data-mode="dream"] .pr-intro {
+      grid-template-columns: 1fr;
+      gap: var(--sp-4);
+    }
+
+  [data-mode="dream"] .pr-portrait {
+      width: min(100%, 38rem);
+      transform: rotate(0.65deg);
+    }
+}
+
+[data-mode="dream"] .pr-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-2);
+  margin: var(--sp-4) 0 0;
+  padding: var(--sp-3) 0;
+  border-top: 1px solid rgb(236 230 217 / 22%);
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+}
+
+[data-mode="dream"] .pr-facts dt {
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .pr-facts dd {
+  margin: 0.35rem 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1;
+}
+
+[data-mode="dream"] .pr-year { margin-top: var(--sp-5); }
+
+[data-mode="dream"] .pr-year-mark {
+  margin: 0;
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .pr-list {
+  margin: var(--sp-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* A row is a line in a ledger, not four stacked paragraphs. Fixed columns for
+   the date and the mark give the eye an edge to run down; everything that
+   varies in length sits in the one flexible column. */
+
+[data-mode="dream"] .pr-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 6.5rem 8.5rem minmax(0, 1fr) 5.5rem;
+  gap: 0 var(--sp-3);
+  align-items: baseline;
+  margin-inline: -0.9rem;
+  padding: var(--sp-3) 0.9rem;
+  border-top: 1px solid rgb(236 230 217 / 16%);
+  border-radius: var(--r-row);
+  transition: background-color 160ms ease;
+}
+
+/* The whole row is the target. The click used to be one line of title text
+   adrift in a very wide row, with three empty columns beside it that looked
+   pressable and were not. The title's link is stretched over the row, so the
+   highlight is telling the truth about what it will open. */
+
+[data-mode="dream"] .pr-title::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* everything else that is its own link has to stay above that sheet */
+
+[data-mode="dream"] .pr-meta a,
+[data-mode="dream"] .pr-row .pr-what a {
+  position: relative;
+  z-index: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .pr-row:hover {
+      background: color-mix(in srgb, var(--bone) 5.5%, transparent);
+    }
+}
+
+[data-mode="dream"] .pr-row:focus-within {
+  background: color-mix(in srgb, var(--hot) 10%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .pr-row { transition: none; }
+}
+
+[data-mode="dream"] .pr-when {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-style: normal;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+[data-mode="dream"] .pr-mark { display: flex; align-items: baseline; min-width: 0; }
+
+[data-mode="dream"] .pr-outlet {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+[data-mode="dream"] .pr-piece { display: block; min-width: 0; }
+
+[data-mode="dream"] .pr-title {
+  display: inline;
+  /* vertical padding on an inline box extends the hit area without moving
+     the line: the 29 titles measured 20px tall, under the 24px floor. */
+  padding: 3px 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.4;
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 26%);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .pr-title:hover { color: var(--hot); border-bottom-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .pr-title .arw { margin-left: 0.3rem; opacity: 0.65; }
+
+[data-mode="dream"] .pr-what {
+  display: block;
+  margin: 0.45rem 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.55;
+}
+
+[data-mode="dream"] .pr-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.9rem;
+  margin: 0.4rem 0 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+[data-mode="dream"] .pr-meta b { font-weight: 400; }
+
+[data-mode="dream"] .pr-meta span { text-transform: uppercase; }
+
+[data-mode="dream"] .pr-meta a {
+  display: inline-flex; align-items: center; min-height: 24px;
+  color: var(--hot); text-decoration: none;
+}
+
+[data-mode="dream"] .pr-meta a:hover { text-decoration: underline; }
+
+[data-mode="dream"] .pr-kind {
+  justify-self: end;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* Only the two that mean somebody sat down with him carry the accent. */
+
+[data-mode="dream"] .pr-row[data-kind="interview"] .pr-kind { color: var(--hot); }
+
+[data-mode="dream"] .pr-row[data-kind="rewrite"] .pr-kind { opacity: 0.6; }
+
+[data-mode="dream"] .pr-row[data-kind="rewrite"] .pr-title { color: var(--quiet); }
+
+@media (max-width: 800px) {
+  [data-mode="dream"] .pr-row {
+      grid-template-columns: 1fr auto;
+      gap: 0.35rem 1rem;
+    }
+
+  [data-mode="dream"] .pr-when { grid-column: 1; }
+
+  [data-mode="dream"] .pr-kind { grid-column: 2; grid-row: 1; }
+
+  [data-mode="dream"] .pr-mark { grid-column: 1 / -1; }
+
+  [data-mode="dream"] .pr-piece { grid-column: 1 / -1; margin-top: 0.2rem; }
+}
+
+/* ── contacts ───────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .pr-contact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--sp-2) var(--sp-4);
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: var(--measure-wide);
+}
+
+[data-mode="dream"] .pr-contact li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: var(--sp-2) 0;
+  border-top: 1px solid rgb(236 230 217 / 16%);
+}
+
+[data-mode="dream"] .pr-contact span {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .pr-contact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 26%);
+  align-self: flex-start;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .pr-contact a:hover { color: var(--hot); border-bottom-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .pr-head-2 {
+  margin: var(--sp-5) 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1.1;
+}
+
+[data-mode="dream"] .pr-positions {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pos;
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .pr-positions li {
+  counter-increment: pos;
+  position: relative;
+  padding: 0 0 0 2.2rem;
+  margin-top: var(--sp-2);
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .pr-positions li::before {
+  content: counter(pos);
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+}
+
+[data-mode="dream"] .pr-beside {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-mode="dream"] .pr-beside li {
+  padding: var(--sp-2) 0;
+  border-top: 1px solid rgb(236 230 217 / 16%);
+  max-width: var(--measure-wide);
+}
+
+[data-mode="dream"] .pr-beside > li > a {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(236 230 217 / 26%);
+}
+
+[data-mode="dream"] .pr-beside > li > a:hover {
+  color: var(--hot);
+  border-bottom-color: rgb(255 155 192 / 45%);
+}
+
+[data-mode="dream"] .pr-note {
+  margin: var(--sp-4) 0 0;
+  max-width: var(--measure);
+  color: var(--quiet);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+  line-height: 1.62;
+}
+
+[data-mode="dream"] .pr-note b { font-style: normal; font-weight: 400; color: var(--bone); }
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .pr-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2) var(--sp-1); }
+}
+
+/* ── press: the wall and the quotes ─────────────────────────────────────────
+   The wordmarks are the publishers' own, recoloured to one cream so the strip
+   reads as a set rather than nine competing brand palettes. They sit at one
+   optical weight, not one pixel height: a tall serif mark and a wide sans one
+   need different boxes to look the same size. */
+
+[data-mode="dream"] .pr-marks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3) var(--sp-4);
+  margin: var(--sp-4) 0 0;
+  /* The strip sits on its own shelf. The marks clear 7:1 on their own, but a
+     painting of a lit building behind nine small wordmarks is visual noise
+     rather than a contrast problem, and the shelf quiets it. */
+  padding: var(--sp-3) var(--sp-3);
+  background: rgb(18 22 38 / 52%);
+  border-top: 1px solid rgb(236 230 217 / 18%);
+  border-bottom: 1px solid rgb(236 230 217 / 18%);
+  list-style: none;
+}
+
+[data-mode="dream"] .pr-marks li {
+  display: flex;
+  align-items: center;
+  color: var(--bone);
+  opacity: 0.9;
+  transition: opacity var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .pr-marks li:hover { opacity: 1; }
+
+[data-mode="dream"] .pr-marks svg { max-width: 168px; }
+
+/* Height comes from the build, which sizes each mark by area rather than by
+   height, so a square roundel and a long masthead carry the same weight. */
+
+[data-mode="dream"] .pr-marks svg {
+  display: block;
+  width: auto;
+  height: var(--mh, 18px);
+  max-width: 150px;
+  fill: currentColor;
+}
+
+[data-mode="dream"] .pr-pinned { margin-top: var(--sp-5); }
+
+[data-mode="dream"] .pr-quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+  /* One of these quotes is nine lines and two are three. Stretched to a
+     common height, the short ones carried a hundred and fifty pixels of
+     empty box under four words — a panel asking for attention and giving
+     nothing back. Each card is now the height of what it holds. */
+  align-items: start;
+}
+
+[data-mode="dream"] .pr-quote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: var(--sp-3);
+  border: 1px solid rgb(236 230 217 / 18%);
+  border-top: 2px solid rgb(255 155 192 / 45%);
+  background: rgb(20 24 40 / 55%);
+}
+
+[data-mode="dream"] .pr-quote blockquote {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-lg);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+[data-mode="dream"] .pr-quote blockquote::before { content: "“"; }
+
+[data-mode="dream"] .pr-quote blockquote::after { content: "”"; }
+
+[data-mode="dream"] .pr-quote-en {
+  margin: 0;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+[data-mode="dream"] .pr-quote figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  align-items: baseline;
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  border-top: 1px solid rgb(236 230 217 / 12%);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.05em;
+}
+
+[data-mode="dream"] .pr-quote figcaption a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  color: var(--hot);
+  text-decoration: none;
+}
+
+[data-mode="dream"] .pr-quote figcaption a:hover { text-decoration: underline; }
+
+[data-mode="dream"] .pr-quote figcaption em { font-style: italic; opacity: 0.72; }
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .pr-marks { gap: var(--sp-2) var(--sp-3); }
+
+  [data-mode="dream"] .pr-marks svg { height: calc(var(--mh, 18px) * 0.85); max-width: 108px; }
+}

@@ -8,6 +8,14 @@ import test from "node:test";
 
 const root = path.resolve(import.meta.dirname, "..");
 const read = (f) => fs.readFileSync(path.join(root, f), "utf8");
+
+// the site's css is dream.css plus one file per page family (split 3 Sep 2026);
+// a guard that reads only dream.css passes while a rule it cares about sits
+// in pages/eidos.css
+const allCss = () => [
+  read("src/styles/dream.css"),
+  ...fs.readdirSync(path.join(root, "src/styles/pages")).filter((f) => f.endsWith(".css")).map((f) => read(`src/styles/pages/${f}`)),
+].join("\n");
 // Astro inlines a page's css and js when small and bundles them into /_astro
 // when not, so a guard that reads only one place passes while guarding air.
 const styles = (page) => {
@@ -24,11 +32,11 @@ const scripts = (page) => {
 };
 
 test("the reading room speaks in one voice: upright, prose size, english first", () => {
-  const css = read("src/styles/dream.css");
-  const base = css.match(/\.lib-line \{[^}]*\}/)[0];
+  const css = allCss();
+  const base = css.match(/^\[data-mode="dream"\] \.lib-line \{[^}]*\}/m)[0];
   assert.match(base, /font-style:\s*normal/, "set text is italic at the base");
   assert.match(base, /font-size:\s*var\(--t-prose\)/, "set text is not at the prose size");
-  const orig = css.match(/\.lib-orig \{[^}]*\}/)[0];
+  const orig = css.match(/^\[data-mode="dream"\] \.lib-orig \{[^}]*\}/m)[0];
   assert.match(orig, /font-style:\s*italic/, "the original tongue is the one italic, and it is missing");
 
   const html = read("dist/eidos/index.html");

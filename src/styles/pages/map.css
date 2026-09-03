@@ -1,0 +1,134 @@
+/* map: styles used by this page family only. Split out of dream.css on
+   3 Sep 2026 so the homepage stops parsing rules that match nothing on it.
+   Same tokens, same cascade position: the page imports this after dream.css. */
+
+/* ── the map ────────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .map-wrap {
+  position: relative;
+  margin-top: var(--sp-4);
+}
+
+[data-mode="dream"] .map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+[data-mode="dream"] .map-thread {
+  stroke: rgb(236 230 217 / 14%);
+  stroke-width: 1;
+}
+
+[data-mode="dream"] .map-anchor circle {
+  fill: none;
+  stroke: var(--hot);
+  stroke-width: 1.5;
+}
+
+/* These two sizes are viewBox units, not page pixels: the svg scales as a
+   whole, so a rem from the type ramp would be the wrong unit here and would
+   stop scaling with the drawing. Documented in DESIGN.md under map. */
+
+[data-mode="dream"] .map-anchor text {
+  fill: var(--dim);
+  font-family: var(--mono);
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .map-hit {
+  fill: transparent;
+}
+
+[data-mode="dream"] .map-node--quote > circle + circle { fill: var(--hot); }
+
+[data-mode="dream"] .map-node--poem > circle + circle { fill: rgb(236 230 217 / 78%); }
+
+[data-mode="dream"] .map-node--painting > circle + circle {
+  fill: var(--tint, rgb(236 230 217 / 60%));
+  stroke: rgb(236 230 217 / 35%);
+  stroke-width: 1;
+}
+
+/* The reader sits under the map rather than floating over it: a card that
+   follows the cursor would cover the thing it is describing. */
+
+[data-mode="dream"] .map-read {
+  margin: var(--sp-3) 0 0;
+  padding: var(--sp-2) 0 0;
+  border-top: 1px solid rgb(236 230 217 / 14%);
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .map-read figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .map-read figcaption span {
+  color: var(--dim);
+}
+
+[data-mode="dream"] .map-text {
+  margin: 0.5rem 0 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .map-kind {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .map-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  margin: var(--sp-4) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .map-key li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-mode="dream"] .map-key i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+[data-mode="dream"] .k-quote { background: var(--hot); }
+
+[data-mode="dream"] .k-poem { background: rgb(236 230 217 / 78%); }
+
+[data-mode="dream"] .k-painting {
+  background: var(--tint, var(--dim));
+  border: 1px solid rgb(236 230 217 / 35%);
+}
+
+@media (max-width: 720px) {
+  [data-mode="dream"] .map-anchor text { font-size: 20px; }
+}

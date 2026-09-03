@@ -12,7 +12,15 @@ import test from "node:test";
 const root = path.resolve(import.meta.dirname, "..");
 const read = (f) => fs.readFileSync(path.join(root, f), "utf8");
 
-const dream = () => read("src/styles/dream.css");
+// the site's css is dream.css plus one file per page family (split 3 Sep 2026);
+// a guard that reads only dream.css passes while a rule it cares about sits
+// in pages/eidos.css
+const allCss = () => [
+  read("src/styles/dream.css"),
+  ...fs.readdirSync(path.join(root, "src/styles/pages")).filter((f) => f.endsWith(".css")).map((f) => read(`src/styles/pages/${f}`)),
+].join("\n");
+
+const dream = () => allCss();
 const global = () => read("src/styles/global.css");
 
 test("the surface tokens exist and say what they are for", () => {

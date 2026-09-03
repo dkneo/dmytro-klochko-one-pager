@@ -1,0 +1,1293 @@
+/* eidos: styles used by this page family only. Split out of dream.css on
+   3 Sep 2026 so the homepage stops parsing rules that match nothing on it.
+   Same tokens, same cascade position: the page imports this after dream.css. */
+
+[data-mode="dream"] .lib-views {
+  margin: var(--sp-2) 0 0;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .lib-views a { color: var(--bone); }
+
+[data-mode="dream"] .lib-hint {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  color: var(--dim);
+  align-self: center;
+}
+
+[data-mode="dream"] .lib-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin-top: var(--sp-2);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+}
+
+[data-mode="dream"] .lib-toc a {
+  color: var(--dim);
+  padding: 0.3rem 0;   /* tap floor */
+  transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .lib-toc a:hover { color: var(--hot); }
+
+[data-mode="dream"] .lib-toc-ring { opacity: 0.75; }
+
+[data-mode="dream"] .lib-door {
+  margin-bottom: var(--sp-2);
+}
+
+/* Paintings and words are kept apart, not interleaved: the wall first, the
+   reading under it. Setting them side by side made every room a two-column
+   puzzle where a lone plate and three short lines had to balance, and they
+   never did. */
+
+[data-mode="dream"] .lib-body {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+[data-mode="dream"] .lib-chips {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 3px;
+}
+
+[data-mode="dream"] .lib-chips i {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+[data-mode="dream"] .lib-door h2 {
+  margin: 0.35rem 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1.1;
+}
+
+[data-mode="dream"] .lib-door p {
+  margin: 0.2rem 0 0;
+  max-width: 52ch;
+  font-family: var(--serif);
+  font-size: var(--t-md);
+  line-height: 1.55;
+  color: var(--dim);
+}
+
+[data-mode="dream"] .lib-door p a { color: var(--bone); }
+
+[data-mode="dream"] .lib-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--sp-2) 14px;
+  align-items: start;   /* each work stands at its own height */
+  margin: 0;
+}
+
+/* Every plate gets its label. "The art speaks for itself" left the painting
+   as the only anonymous object in a room where the poem, the song and the
+   quote all carry their author — on a page that promises every mark is
+   attributed. A museum labels the wall. */
+
+[data-mode="dream"] .lib-label {
+  display: grid;
+  gap: 0.05rem;
+  padding: 0.45rem 0.1rem 0.2rem;
+  text-align: left;
+  min-width: 0;
+}
+
+[data-mode="dream"] .lib-label b {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--t-sm);
+  line-height: 1.25;
+  color: var(--bone);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* No ellipsis on a name. "Vilhelm Hammershøi · 19…" cut the maker and the
+   year off a plate on a page that promises attribution; the line wraps
+   instead, because a label is allowed to be two lines tall. */
+
+[data-mode="dream"] .lib-label span {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  color: var(--dim);
+}
+
+/* Words are read, not hung. A quote in a square tile is dead space wearing
+   a border, and beside a real painting the boxes read as placeholders. No
+   box: the line in the serif voice at reading size, the name in mono under
+   it, two columns of it on a wide screen. */
+
+[data-mode="dream"] .lib-words {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  gap: var(--sp-3) var(--sp-4);
+  align-content: start;
+}
+
+[data-mode="dream"] .lib-mark {
+  grid-row: 1 / span 2;
+  color: var(--quiet);
+  font-size: var(--t-md);
+  line-height: 1.3;
+}
+
+[data-mode="dream"] .lib-said--song .lib-mark { color: var(--cold); }
+
+/* One voice. The room had five: the original in upright serif, its english
+   smaller and upright, quotes large and italic, song titles italic, bylines
+   in mono — a circus. Everything that is read is now upright at the prose
+   size. The only italic left marks the original tongue, set second and
+   quieter, because the english is what the reader reads and the original is
+   the artefact. Bylines keep the mono; that is the machinery voice. */
+
+[data-mode="dream"] .lib-line {
+  font-family: var(--serif);
+  font-style: normal;
+  font-size: var(--t-prose);
+  line-height: 1.5;
+  color: var(--bone);
+  white-space: pre-line;
+  transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .lib-orig {
+  display: block;
+  margin-top: 0.45rem;
+  font-style: italic;
+  font-size: var(--t-md);
+  line-height: 1.5;
+  color: var(--quiet);
+  white-space: pre-line;
+}
+
+[data-mode="dream"] .lib-by {
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  color: var(--dim);
+}
+
+/* Both classes on purpose: the library block sits near the top of this file
+   and .em-detail's position: relative lives four thousand lines below it, so
+   at equal specificity the later rule won and the panel stayed in the flow.
+   Every other property here applied, which is why it looked configured. */
+
+[data-mode="dream"] .em-detail.lib-detail {
+  position: fixed;
+  margin: 0;
+  right: clamp(1rem, 4vw, 3rem);
+  bottom: clamp(1rem, 4vh, 2.5rem);
+  z-index: 80;
+  width: min(26rem, calc(100vw - 2rem));
+  max-height: min(70svh, 40rem);
+  overflow: auto;
+  background: rgb(24 28 46 / 96%);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-panel);
+  box-shadow: 0 24px 60px var(--shadow-deep);
+}
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .em-detail.lib-detail {
+      right: 0.75rem;
+      left: 0.75rem;
+      width: auto;
+    }
+}
+
+[data-mode="dream"] .lib-room--ring { opacity: 0.85; }
+
+[data-mode="dream"] .lib-room--ring .lib-door h2 { color: var(--dim); }
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .lib-wall {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem 10px;
+    }
+
+  [data-mode="dream"] .lib-words { gap: var(--sp-3); }
+}
+
+/* ── eidos ──────────────────────────────────────────────────────────────────
+   A deck of paintings you throw left or right. The card is the only bright
+   thing on the page; everything around it stays out of the way, because the
+   whole point is looking at one picture at a time. */
+
+[data-mode="dream"] .eidos-lede {
+  max-width: 46ch;
+}
+
+[data-mode="dream"] .eidos {
+  margin-top: var(--sp-4);
+}
+
+[data-mode="dream"] .eidos-start,
+[data-mode="dream"] .eidos-restart {
+  border: 1px solid rgb(236 230 217 / 30%);
+  border-radius: 999px;
+  background: none;
+  padding: 0.7rem 1.5rem;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .eidos-start:hover,
+[data-mode="dream"] .eidos-restart:hover {
+  border-color: var(--hot);
+  color: var(--hot);
+}
+
+/* The stack: three cards mounted, the two behind peeking out by a few
+   pixels so the deck reads as a deck and not a single image. */
+
+[data-mode="dream"] .eidos-cards {
+  position: relative;
+  height: min(62vh, 30rem);
+  margin-inline: auto;
+  max-width: 34rem;
+  touch-action: pan-y;
+}
+
+[data-mode="dream"] .eidos-card {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform-origin: 50% 120%;
+  translate: 0 calc(var(--behind, 0) * 10px);
+  scale: calc(1 - var(--behind, 0) * 0.04);
+  will-change: transform;
+}
+
+[data-mode="dream"] .eidos-card.is-top {
+  cursor: grab;
+}
+
+[data-mode="dream"] .eidos-card.is-top:active {
+  cursor: grabbing;
+}
+
+[data-mode="dream"] .eidos-card figure {
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+  justify-items: center;
+}
+
+[data-mode="dream"] .eidos-card .cell {
+  display: grid;
+  place-items: center;
+  height: min(48vh, 23rem);
+  width: min(88vw, 32rem);
+  overflow: hidden;
+  background: var(--mat);
+  padding: var(--mat-print);
+  border-radius: var(--r-print);
+  box-shadow:
+    0 2px 6px rgb(8 10 22 / 60%),
+    0 22px 48px rgb(8 10 22 / 48%);
+}
+
+[data-mode="dream"] .eidos-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1px;
+}
+
+/* Only the card you are looking at names itself; the two behind it would
+   otherwise stack three captions in the same place. */
+
+[data-mode="dream"] .eidos-card figcaption {
+  display: grid;
+  gap: 0.15rem;
+  justify-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .eidos-card.is-top figcaption {
+  opacity: 1;
+}
+
+[data-mode="dream"] .eidos-card:not(.is-top) .cell {
+  filter: brightness(0.7);
+}
+
+[data-mode="dream"] .eidos-card figcaption b {
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-weight: 400;
+}
+
+/* Museum titles run to three lines of parentheses; two is plenty. */
+
+[data-mode="dream"] .eidos-card figcaption em {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 34rem;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-style: normal;
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .eidos-stamp--keep {
+  left: 10%;
+  color: var(--hot);
+  rotate: -12deg;
+  opacity: var(--keep, 0);
+}
+
+[data-mode="dream"] .eidos-stamp--pass {
+  right: 10%;
+  color: var(--dim);
+  rotate: 12deg;
+  opacity: var(--pass, 0);
+}
+
+[data-mode="dream"] .eidos-progress {
+  width: min(100%, 34rem);
+  height: 2px;
+  margin: var(--sp-3) auto 0;
+  background: rgb(236 230 217 / 14%);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* Scaled, not widened: animating width lays the page out on every frame,
+   and this site's rule is that only opacity and compositor transforms move. */
+
+[data-mode="dream"] .eidos-progress i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--hot);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left center;
+  transition: transform 320ms var(--ease);
+}
+
+[data-mode="dream"] .eidos-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+
+[data-mode="dream"] .eidos-btn--keep:hover { color: var(--hot); border-color: var(--hot); scale: 1.08; }
+
+[data-mode="dream"] .eidos-btn--pass:hover { color: var(--bone); border-color: var(--bone); scale: 1.08; }
+
+[data-mode="dream"] .eidos-count {
+  min-width: 5rem;
+  text-align: center;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+}
+
+[data-mode="dream"] .eidos-count b { color: var(--bone); font-weight: 400; }
+
+[data-mode="dream"] .eidos-hint {
+  margin-top: var(--sp-2);
+  text-align: center;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+}
+
+/* ── the reading ── */
+
+[data-mode="dream"] .eidos-kicker {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .eidos-name {
+  margin: 0.4rem 0 var(--sp-2);
+  color: var(--bone);
+  font-family: var(--display);
+  font-size: var(--display-scroll);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+[data-mode="dream"] .eidos-tally {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .eidos-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+}
+
+[data-mode="dream"] .eidos-picks figure {
+  margin: 0;
+  width: calc((100% - 5 * var(--sp-2)) / 6);
+  display: grid;
+  place-items: center;
+  min-width: 6.5rem;
+  background: var(--mat);
+  padding: var(--mat-snapshot);
+  border-radius: var(--r-print);
+  box-shadow: 0 2px 5px rgb(8 10 22 / 55%), 0 12px 26px rgb(8 10 22 / 38%);
+}
+
+[data-mode="dream"] .eidos-picks img {
+  display: block;
+  width: 100%;
+  height: 8.5rem;
+  object-fit: contain;
+  border-radius: 1px;
+}
+
+[data-mode="dream"] .eidos-again { margin-top: var(--sp-3); }
+
+[data-mode="dream"] .eidos-credit {
+  margin-top: var(--sp-4);
+  color: var(--dim);
+  font-size: var(--t-prose-sm);
+}
+
+@media (max-width: 720px) {
+  [data-mode="dream"] .eidos-cards { height: min(58vh, 26rem); }
+
+  [data-mode="dream"] .eidos-card .cell { height: min(42vh, 19rem); }
+
+  [data-mode="dream"] .eidos-picks figure { width: calc((100% - 2 * var(--sp-2)) / 3); }
+}
+
+/* ── eidos, the map ─────────────────────────────────────────────────────────
+   A chart of real things. The marks are his paintings at thumbnail size and
+   his words set in type; there is no drawn shape on this page that does not
+   stand for a note in the vault.
+
+   The field gets its own darker ground rather than sitting on a scene: a
+   painting behind a map of paintings is two pictures fighting. The sky stays
+   above and below it. */
+
+[data-mode="dream"] .em-state {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-2);
+  margin: var(--sp-4) 0 0;
+  padding: var(--sp-3) 0;
+  border-top: 1px solid rgb(236 230 217 / 22%);
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+}
+
+[data-mode="dream"] .em-state dt {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .em-state dd {
+  margin: 0.3rem 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The open count is the one number meant to bother him. */
+
+[data-mode="dream"] .em-state .is-open dd { color: var(--hot); }
+
+[data-mode="dream"] .em-honest {
+  margin: var(--sp-3) 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.62;
+}
+
+[data-mode="dream"] .em-honest b { color: var(--bone); font-weight: 400; }
+
+/* ── controls ───────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .em-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: var(--sp-4) 0 var(--sp-2);
+}
+
+[data-mode="dream"] .em-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 24px;
+  padding: 0.28rem 0.8rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 26%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              background var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-chip i { font-style: normal; opacity: 0.8; }
+
+[data-mode="dream"] .em-chip b { font-weight: 400; opacity: 0.6; }
+
+[data-mode="dream"] .em-chip:hover { color: var(--bone); border-color: rgb(236 230 217 / 45%); }
+
+[data-mode="dream"] .em-chip:active { scale: 0.97; }
+
+[data-mode="dream"] .em-chip.is-on {
+  color: var(--void);
+  background: var(--bone);
+  border-color: var(--bone);
+}
+
+[data-mode="dream"] .em-chip--open { border-color: rgb(255 155 192 / 40%); color: var(--hot); }
+
+[data-mode="dream"] .em-chip--open.is-on { background: var(--hot); border-color: var(--hot); color: var(--void); }
+
+[data-mode="dream"] .em-hint {
+  margin-left: auto;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+
+/* ── the field ──────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .em-field {
+  position: relative;
+  height: min(78vh, 720px);
+  margin-top: var(--sp-2);
+  border: 1px solid rgb(236 230 217 / 18%);
+  background:
+    radial-gradient(120% 90% at 50% 45%, rgb(18 21 36 / 55%), rgb(12 14 26 / 78%));
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+  contain: layout paint;
+}
+
+[data-mode="dream"] .em-field.is-dragging { cursor: grabbing; }
+
+[data-mode="dream"] .em-stage {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+  transition: transform 220ms var(--ease);
+  will-change: transform;
+}
+
+[data-mode="dream"] .em-field.is-dragging .em-stage { transition: none; }
+
+[data-mode="dream"] .em-threads {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Each thread is drawn twice: a hairline that is always there, and a heavier
+   lit copy sitting on top at zero opacity. Lighting one fades the copy in
+   rather than growing the first, so nothing animates a geometry property. */
+
+[data-mode="dream"] .em-threads line {
+  stroke: rgb(236 230 217 / 14%);
+  stroke-width: 0.6;
+  transition: opacity var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-threads line.em-lit {
+  stroke: rgb(255 155 192 / 70%);
+  stroke-width: 1.2;
+  opacity: 0;
+}
+
+[data-mode="dream"] .em-threads line.em-lit.is-lit { opacity: 1; }
+
+/* Territory names, quiet until you are close enough to read them. */
+
+[data-mode="dream"] .em-weather {
+  position: absolute;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+[data-mode="dream"] .em-weather b {
+  display: block;
+  color: rgb(236 230 217 / 40%);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--t-map-name);
+  letter-spacing: 0.02em;
+}
+
+[data-mode="dream"] .em-weather i {
+  display: block;
+  max-width: 22ch;
+  margin: 0.25rem auto 0;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-xs);
+  font-style: italic;
+  line-height: 1.4;
+  white-space: normal;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease);
+}
+
+[data-mode="dream"] .em-field[data-zoom="close"] .em-weather i { opacity: 1; }
+
+[data-mode="dream"] .em-glyph {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgb(236 230 217 / 26%);
+  background: rgb(24 28 46 / 70%);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-xs);
+  line-height: 1;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-mark--poem .em-glyph,
+[data-mode="dream"] .em-mark--quote .em-glyph { color: var(--quiet); }
+
+[data-mode="dream"] .em-mark--song .em-glyph { color: var(--cold); }
+
+[data-mode="dream"] .em-tip {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.4rem);
+  transform: translateX(-50%);
+  max-width: 20ch;
+  /* the line is stored whole now, so the tooltip is what keeps it short */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 0.25rem 0.5rem;
+  background: rgb(14 17 30 / 92%);
+  border: 1px solid rgb(236 230 217 / 20%);
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-xs);
+  line-height: 1.35;
+  white-space: normal;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-axis--x { left: 1rem; right: 1rem; bottom: 0.7rem; }
+
+[data-mode="dream"] .em-axis--y {
+  left: 0.7rem; top: 1rem; bottom: 1rem;
+  flex-direction: column;
+  writing-mode: vertical-rl;
+}
+
+[data-mode="dream"] .em-axis--y i { width: 1px; height: auto; }
+
+[data-mode="dream"] .em-zoom {
+  position: absolute;
+  right: 0.7rem;
+  top: 0.7rem;
+  display: flex;
+  gap: 0.3rem;
+}
+
+[data-mode="dream"] .em-zoom button {
+  min-width: 26px;
+  min-height: 26px;
+  background: rgb(14 17 30 / 70%);
+  border: 1px solid rgb(236 230 217 / 22%);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-zoom button:hover { color: var(--bone); border-color: rgb(236 230 217 / 45%); }
+
+[data-mode="dream"] .em-zoom button:active { scale: 0.97; }
+
+/* ── the detail ─────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .em-detail {
+  position: relative;
+  margin-top: var(--sp-3);
+  padding: var(--sp-3);
+  border: 1px solid rgb(236 230 217 / 22%);
+  background: rgb(20 24 40 / 72%);
+  max-width: var(--measure-wide);
+  animation: em-rise var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-detail img {
+  width: 100%;
+  max-width: 18rem;
+  height: auto;
+  display: block;
+  margin-bottom: var(--sp-2);
+  border: 1px solid rgb(236 230 217 / 18%);
+}
+
+[data-mode="dream"] .em-close {
+  position: absolute;
+  right: 0.7rem;
+  top: 0.7rem;
+  min-height: 24px;
+  padding: 0.2rem 0.6rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 22%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  cursor: pointer;
+}
+
+[data-mode="dream"] .em-close:hover { color: var(--hot); border-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .em-d-kind {
+  margin: 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .em-d-kind b { color: var(--hot); font-weight: 400; }
+
+[data-mode="dream"] .em-d-line {
+  margin: 0.5rem 0 0;
+  max-width: var(--measure);
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1.2;
+}
+
+[data-mode="dream"] .em-d-who,
+[data-mode="dream"] .em-d-note,
+[data-mode="dream"] .em-d-go {
+  margin: 0.5rem 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .em-d-go a { color: var(--hot); text-decoration: none; }
+
+[data-mode="dream"] .em-d-go a:hover { text-decoration: underline; }
+
+/* placing something from the ring, and the pair test */
+
+[data-mode="dream"] .em-place {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: var(--sp-2);
+  padding-top: var(--sp-2);
+  border-top: 1px solid rgb(236 230 217 / 18%);
+}
+
+[data-mode="dream"] .em-place p { width: 100%; margin: 0 0 0.3rem; color: var(--dim); font-family: var(--serif); font-size: var(--t-prose-sm); }
+
+[data-mode="dream"] .em-place b { color: var(--hot); font-weight: 400; }
+
+[data-mode="dream"] .em-place button {
+  min-height: 24px;
+  padding: 0.25rem 0.7rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 26%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-place button:hover { color: var(--hot); border-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .em-place button:active { scale: 0.97; }
+
+[data-mode="dream"] .em-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+}
+
+[data-mode="dream"] .em-pair button {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--sp-2);
+  background: none;
+  border: 1px solid rgb(236 230 217 / 22%);
+  color: var(--bone);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-pair button:hover { border-color: var(--hot); }
+
+[data-mode="dream"] .em-pair button:active { scale: 0.97; }
+
+[data-mode="dream"] .em-pair img { max-width: 100%; margin: 0; }
+
+[data-mode="dream"] .em-pair i { font-style: normal; font-family: var(--serif); font-size: var(--t-prose-sm); line-height: 1.4; }
+
+[data-mode="dream"] .em-pair em { color: var(--dim); font-family: var(--mono); font-size: var(--t-xs); font-style: normal; }
+
+/* ── ask it ─────────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .em-head {
+  margin: var(--sp-5) 0 0;
+  color: var(--bone);
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--dream-display-card);
+  line-height: 1.1;
+}
+
+[data-mode="dream"] .em-ask {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: var(--sp-3);
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .em-ask input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid rgb(236 230 217 / 46%);
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+}
+
+[data-mode="dream"] .em-ask input::placeholder { color: var(--dim); font-style: italic; }
+
+[data-mode="dream"] .em-ask input:focus { outline: none; border-bottom-color: var(--hot); }
+
+[data-mode="dream"] .em-ask button,
+[data-mode="dream"] .em-do {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 24px;
+  padding: 0.3rem 0.9rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 34%);
+  border-radius: 999px;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-ask button:hover,
+[data-mode="dream"] .em-do:hover { border-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .em-ask button:active,
+[data-mode="dream"] .em-do:active { scale: 0.97; }
+
+[data-mode="dream"] .em-answer {
+  margin-top: var(--sp-3);
+  padding: var(--sp-3);
+  max-width: var(--measure-wide);
+  border-left: 2px solid rgb(255 155 192 / 45%);
+  background: rgb(20 24 40 / 55%);
+}
+
+[data-mode="dream"] .em-q {
+  margin: 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .em-a {
+  margin: 0.6rem 0 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  line-height: 1.62;
+  white-space: pre-wrap;
+}
+
+[data-mode="dream"] .em-a--off { color: var(--dim); font-style: italic; }
+
+[data-mode="dream"] .em-thinking { margin: 0.6rem 0 0; color: var(--dim); font-family: var(--serif); font-style: italic; }
+
+[data-mode="dream"] .em-suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: var(--sp-2) 0 0;
+}
+
+[data-mode="dream"] .em-suggest button {
+  min-height: 24px;
+  padding: 0.24rem 0.7rem;
+  background: none;
+  border: 1px dashed rgb(236 230 217 / 26%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-sm);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-suggest button:hover { color: var(--bone); border-color: rgb(236 230 217 / 45%); }
+
+/* ── teach it ───────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .em-teach {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: teach;
+  display: grid;
+  gap: var(--sp-3);
+}
+
+[data-mode="dream"] .em-teach li {
+  counter-increment: teach;
+  position: relative;
+  padding-left: 2.2rem;
+  max-width: var(--measure);
+}
+
+[data-mode="dream"] .em-teach li::before {
+  content: counter(teach);
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+}
+
+[data-mode="dream"] .em-teach h3 {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose);
+  font-weight: 400;
+}
+
+[data-mode="dream"] .em-teach p {
+  margin: 0.4rem 0 0.7rem;
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+}
+
+/* ── the company ────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .em-people {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-mode="dream"] .em-people li {
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  cursor: default;
+  transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-people li:hover { color: var(--bone); }
+
+[data-mode="dream"] .em-people li.is-thread { color: var(--bone); }
+
+[data-mode="dream"] .em-people li b { color: var(--hot); font-weight: 400; font-size: var(--t-xs); vertical-align: super; margin-left: 0.15rem; }
+
+/* ── the list, for anything that cannot read a map ──────────────────────── */
+
+[data-mode="dream"] .em-list { margin-top: var(--sp-4); }
+
+[data-mode="dream"] .em-list summary {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  min-height: 24px;
+}
+
+[data-mode="dream"] .em-list summary:hover { color: var(--bone); }
+
+[data-mode="dream"] .em-list table {
+  width: 100%;
+  margin-top: var(--sp-2);
+  border-collapse: collapse;
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+}
+
+[data-mode="dream"] .em-list th {
+  text-align: left;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  font-weight: 400;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem 0.4rem 0;
+  border-bottom: 1px solid rgb(236 230 217 / 22%);
+}
+
+[data-mode="dream"] .em-list td {
+  padding: 0.45rem 0.8rem 0.45rem 0;
+  border-bottom: 1px solid rgb(236 230 217 / 10%);
+  color: var(--bone);
+  vertical-align: top;
+}
+
+[data-mode="dream"] .em-list td:first-child,
+[data-mode="dream"] .em-list td:last-child { color: var(--dim); font-family: var(--mono); font-size: var(--t-xs); }
+
+@media (max-width: 700px) {
+  [data-mode="dream"] .em-state { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  [data-mode="dream"] .em-field { height: 68vh; }
+
+  [data-mode="dream"] .em-hint { margin-left: 0; width: 100%; }
+
+  [data-mode="dream"] .em-glyph { width: 24px; height: 24px; font-size: var(--t-xs); }
+
+  [data-mode="dream"] .em-pair { grid-template-columns: 1fr; }
+
+  [data-mode="dream"] .em-list { overflow-x: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .em-stage,
+    [data-mode="dream"] .em-mark,
+    [data-mode="dream"] .em-detail { transition: none; animation: none; }
+}
+
+/* ── today's three ──────────────────────────────────────────────────────────
+   The one part of the page that asks him for something every time he opens
+   it. Three cards, two answers, no way to be halfway through. */
+
+[data-mode="dream"] .em-three {
+  margin-top: var(--sp-4);
+  padding: var(--sp-3);
+  border: 1px solid rgb(255 155 192 / 30%);
+  background: rgb(20 24 40 / 55%);
+}
+
+[data-mode="dream"] .em-three h3 {
+  margin: 0;
+  color: var(--hot);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+[data-mode="dream"] .em-three > p {
+  margin: 0.5rem 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .em-three-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+}
+
+[data-mode="dream"] .em-cand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: var(--sp-2);
+  border: 1px solid rgb(236 230 217 / 18%);
+  transition: border-color var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .em-cand img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid rgb(236 230 217 / 14%);
+}
+
+[data-mode="dream"] .em-cand-t {
+  margin: 0.3rem 0 0;
+  color: var(--bone);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.35;
+}
+
+[data-mode="dream"] .em-cand-w,
+[data-mode="dream"] .em-cand-f {
+  margin: 0;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.04em;
+}
+
+[data-mode="dream"] .em-cand-f b { color: var(--hot); font-weight: 400; }
+
+[data-mode="dream"] .em-cand-do {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+[data-mode="dream"] .em-cand-do button {
+  flex: 1;
+  min-height: 24px;
+  padding: 0.28rem 0.6rem;
+  background: none;
+  border: 1px solid rgb(236 230 217 / 28%);
+  border-radius: 999px;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), scale 90ms var(--ease);
+}
+
+[data-mode="dream"] .em-cand-do button:hover { color: var(--hot); border-color: rgb(255 155 192 / 45%); }
+
+[data-mode="dream"] .em-cand-do button:active { scale: 0.97; }
+
+[data-mode="dream"] .em-cand-do span {
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .em-cand.is-kept { border-color: rgb(255 155 192 / 55%); }
+
+[data-mode="dream"] .em-cand.is-passed { opacity: 0.45; }
+
+[data-mode="dream"] .em-three-done {
+  margin: var(--sp-2) 0 0;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  font-style: italic;
+}
+
+/* The deck's reading, once there is one. Hidden until it exists rather than
+   showing an empty shape asking to be filled. */
+
+[data-mode="dream"] .em-reading {
+  margin: 0 0 0.7rem;
+  max-width: var(--measure);
+  color: var(--dim);
+  font-family: var(--serif);
+  font-size: var(--t-prose-sm);
+  line-height: 1.6;
+}
+
+[data-mode="dream"] .em-reading b { color: var(--hot); font-weight: 400; }

@@ -1,0 +1,100 @@
+/* curate: styles used by this page family only. Split out of dream.css on
+   3 Sep 2026 so the homepage stops parsing rules that match nothing on it.
+   Same tokens, same cascade position: the page imports this after dream.css. */
+
+/* ── curate ─────────────────────────────────────────────────────────────── */
+
+[data-mode="dream"] .curate-status code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  color: var(--hot);
+}
+
+[data-mode="dream"] .cur-cards {
+  position: relative;
+  height: 26rem;
+  margin-top: var(--sp-4);
+}
+
+[data-mode="dream"] .cur-card {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.7rem;
+  transform: translateY(calc(var(--d) * 10px)) scale(calc(1 - var(--d) * 0.04));
+  opacity: calc(1 - var(--d) * 0.28);
+  transition: transform 0.22s var(--ease), opacity 0.22s var(--ease);
+}
+
+[data-mode="dream"] .cur-card .cell {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--mat);
+  padding: var(--mat-snapshot);
+  border-radius: var(--r-print);
+  box-shadow:
+    0 2px 6px rgb(8 10 22 / 55%),
+    0 20px 50px rgb(8 10 22 / 42%);
+}
+
+[data-mode="dream"] .cur-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+[data-mode="dream"] .cur-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
+
+[data-mode="dream"] .cur-meta b { color: var(--bone); font-weight: 400; }
+
+[data-mode="dream"] .cur-meta i {
+  color: var(--dim); font-family: var(--serif); font-size: var(--t-prose-sm);
+}
+
+[data-mode="dream"] .cur-meta span {
+  color: var(--hot); text-transform: uppercase; letter-spacing: var(--ls-wide);
+}
+
+[data-mode="dream"] .cur-card.is-kept {
+  transform: translateX(30%) rotate(7deg);
+  opacity: 0;
+}
+
+[data-mode="dream"] .cur-card.is-passed {
+  transform: translateX(-30%) rotate(-7deg);
+  opacity: 0;
+}
+
+[data-mode="dream"] .cur-bar {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: var(--sp-4);
+}
+
+[data-mode="dream"] .cur-btn--keep {
+  border-color: rgb(255 155 192 / 45%);
+  color: var(--hot);
+}
+
+[data-mode="dream"] .cur-btn--keep:hover {
+  background: rgb(255 155 192 / 12%);
+  border-color: var(--hot);
+}
+
+[data-mode="dream"] .cur-count {
+  margin-top: var(--sp-2);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.06em;
+}
