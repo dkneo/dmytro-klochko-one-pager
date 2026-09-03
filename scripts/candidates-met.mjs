@@ -100,8 +100,13 @@ for (const [weather, queries] of Object.entries(QUERIES)) {
       await sleep(OBJ_SLEEP);                           // their servers, respected
 
       if (!o.isPublicDomain || !o.primaryImageSmall) continue;
-      const title = (o.title || "").trim();
+      // Met titles sometimes wear catalogue italics (<i>Tsuba</i>); markup in a
+      // title breaks the deck's JSON payload. Ported from the cursor branch.
+      const title = (o.title || "").replace(/<[^>]+>/g, "").trim();
       if (!title || title.length < 3) continue;
+      // Met dump filenames ("MET DP244300") are not titles. No word boundary
+      // after DP: the next character is a digit. Ported from the cursor branch.
+      if (/^MET DP\d/i.test(title)) continue;
       if (known.has(title.toLowerCase()) || known.has((o.objectURL || "").toLowerCase())) continue;
 
       // the kind has to match what the query went looking for

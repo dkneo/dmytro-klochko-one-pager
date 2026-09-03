@@ -252,6 +252,23 @@
    "unplaced": true
   },
   {
+   "id": "his-ember",
+   "type": "painting",
+   "who": "Dmytro Klochko",
+   "title": "ember",
+   "line": "ember",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/scenes/ember.webp",
+   "url": "",
+   "note": "one of the ten skies the site runs on.",
+   "added": "2026-08-29",
+   "x": 0.2134,
+   "y": -1.0383,
+   "unplaced": true
+  },
+  {
    "id": "his-estuary",
    "type": "painting",
    "who": "Dmytro Klochko",
@@ -264,8 +281,8 @@
    "url": "",
    "note": "the estuary. stands behind taste.",
    "added": "2026-08-18",
-   "x": 0.2204,
-   "y": -1.0368,
+   "x": 0.418,
+   "y": -0.9741,
    "unplaced": true
   },
   {
@@ -281,8 +298,8 @@
    "url": "",
    "note": "sunflowers. stands behind what came before.",
    "added": "2026-08-18",
-   "x": 0.4311,
-   "y": -0.9684,
+   "x": 0.6055,
+   "y": -0.87,
    "unplaced": true
   },
   {
@@ -298,8 +315,8 @@
    "url": "",
    "note": "the campfire. stands behind how he works.",
    "added": "2026-08-18",
-   "x": 0.6231,
-   "y": -0.8576,
+   "x": 0.7683,
+   "y": -0.7303,
    "unplaced": true
   },
   {
@@ -315,8 +332,8 @@
    "url": "",
    "note": "the fuji rafts. stands behind replika.",
    "added": "2026-08-18",
-   "x": 0.7877,
-   "y": -0.7093,
+   "x": 0.8996,
+   "y": -0.5607,
    "unplaced": true
   },
   {
@@ -332,8 +349,8 @@
    "url": "",
    "note": "the lavender walk. stands behind the camera.",
    "added": "2026-08-18",
-   "x": 0.918,
-   "y": -0.53,
+   "x": 0.994,
+   "y": -0.3681,
    "unplaced": true
   },
   {
@@ -349,8 +366,8 @@
    "url": "",
    "note": "a dark courtyard. carries the reading pages.",
    "added": "2026-08-18",
-   "x": 1.0081,
-   "y": -0.3276,
+   "x": 1.0478,
+   "y": -0.1605,
    "unplaced": true
   },
   {
@@ -366,8 +383,8 @@
    "url": "",
    "note": "the snowlit village. stands behind saying hi.",
    "added": "2026-08-18",
-   "x": 1.0542,
-   "y": -0.1108,
+   "x": 1.0586,
+   "y": 0.0537,
    "unplaced": true
   },
   {
@@ -383,8 +400,8 @@
    "url": "",
    "note": "one of his own, taken down to night, for learning.",
    "added": "2026-08-18",
-   "x": 1.0542,
-   "y": 0.1108,
+   "x": 1.0262,
+   "y": 0.2657,
    "unplaced": true
   },
   {
@@ -400,8 +417,8 @@
    "url": "",
    "note": "the swimmer under the orange sun. the opening screen.",
    "added": "2026-08-18",
-   "x": 1.0081,
-   "y": 0.3276,
+   "x": 0.9517,
+   "y": 0.4668,
    "unplaced": true
   },
   {
@@ -1604,8 +1621,8 @@
    "tags": [
     "motion"
    ],
-   "x": 0.918,
-   "y": 0.53,
+   "x": 0.8382,
+   "y": 0.6488,
    "unplaced": true
   },
   {
@@ -1624,8 +1641,8 @@
    "tags": [
     "taste"
    ],
-   "x": 0.7877,
-   "y": 0.7093,
+   "x": 0.6905,
+   "y": 0.8043,
    "unplaced": true
   },
   {
@@ -1644,8 +1661,8 @@
    "tags": [
     "components"
    ],
-   "x": 0.6231,
-   "y": 0.8576,
+   "x": 0.5144,
+   "y": 0.9268,
    "unplaced": true
   },
   {
@@ -1664,8 +1681,8 @@
    "tags": [
     "components"
    ],
-   "x": 0.4311,
-   "y": 0.9684,
+   "x": 0.3173,
+   "y": 1.0114,
    "unplaced": true
   },
   {
@@ -1684,8 +1701,8 @@
    "tags": [
     "craft"
    ],
-   "x": 0.2204,
-   "y": 1.0368,
+   "x": 0.1072,
+   "y": 1.0546,
    "unplaced": true
   },
   {
@@ -1705,8 +1722,8 @@
    "tags": [
     "taste"
    ],
-   "x": 0,
-   "y": 1.06,
+   "x": -0.1072,
+   "y": 1.0546,
    "unplaced": true
   },
   {
@@ -1726,8 +1743,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.2204,
-   "y": 1.0368,
+   "x": -0.3173,
+   "y": 1.0114,
    "unplaced": true
   },
   {
@@ -1746,8 +1763,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.4311,
-   "y": 0.9684,
+   "x": -0.5144,
+   "y": 0.9268,
    "unplaced": true
   },
   {
@@ -1766,8 +1783,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.6231,
-   "y": 0.8576,
+   "x": -0.6905,
+   "y": 0.8043,
    "unplaced": true
   },
   {
@@ -1787,8 +1804,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.7877,
-   "y": 0.7093,
+   "x": -0.8382,
+   "y": 0.6488,
    "unplaced": true
   },
   {
@@ -1809,8 +1826,8 @@
     "motion",
     "agents"
    ],
-   "x": -0.918,
-   "y": 0.53,
+   "x": -0.9517,
+   "y": 0.4668,
    "unplaced": true
   },
   {
@@ -1826,8 +1843,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0081,
-   "y": 0.3276,
+   "x": -1.0262,
+   "y": 0.2657,
    "unplaced": true
   },
   {
@@ -1843,8 +1860,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0542,
-   "y": 0.1108,
+   "x": -1.0586,
+   "y": 0.0537,
    "unplaced": true
   },
   {
@@ -1860,8 +1877,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0542,
-   "y": -0.1108,
+   "x": -1.0478,
+   "y": -0.1605,
    "unplaced": true
   },
   {
@@ -1877,8 +1894,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0081,
-   "y": -0.3276,
+   "x": -0.994,
+   "y": -0.3681,
    "unplaced": true
   },
   {
@@ -1894,8 +1911,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.918,
-   "y": -0.53,
+   "x": -0.8996,
+   "y": -0.5607,
    "unplaced": true
   },
   {
@@ -1911,8 +1928,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.7877,
-   "y": -0.7093,
+   "x": -0.7683,
+   "y": -0.7303,
    "unplaced": true
   },
   {
@@ -1928,8 +1945,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.6231,
-   "y": -0.8576,
+   "x": -0.6055,
+   "y": -0.87,
    "unplaced": true
   },
   {
@@ -1945,8 +1962,8 @@
    "url": "/writing/english-teacher",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.4311,
-   "y": -0.9684,
+   "x": -0.418,
+   "y": -0.9741,
    "unplaced": true
   },
   {
@@ -1962,8 +1979,8 @@
    "url": "/writing/staying-human",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.2204,
-   "y": -1.0368,
+   "x": -0.2134,
+   "y": -1.0383,
    "unplaced": true
   }
  ],
@@ -2271,11 +2288,11 @@
    ]
   }
  ],
- "unplaced": 30,
+ "unplaced": 31,
  "forms": [
   {
    "form": "painting",
-   "n": 50
+   "n": 51
   },
   {
    "form": "object",
@@ -2329,7 +2346,7 @@
  "people": [
   {
    "who": "Dmytro Klochko",
-   "n": 12
+   "n": 13
   },
   {
    "who": "emil kowalski",
@@ -2633,7 +2650,7 @@
   }
  ],
  "depth": {
-  "notes": 109,
+  "notes": 110,
   "people": 76,
   "thinnest": "invincible summer",
   "oneDeep": 0

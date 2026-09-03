@@ -211,6 +211,21 @@
       "sourceSha256": "a9e4f003af315d915bd342625e4c4275350c8aa2d2cf09e61d546288130532ff",
       "outputSha256": "3f58926663cbcde25f7e89753d45daf52b0a484f6921420929d5249c765f66a7"
     },
+    "/images/thumbs/scenes/ember.webp": {
+      "src": "/images/scenes/ember.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "daacf20ac3eb14c2607c8ce0222c5fe26481dd9374433554dbfbfd39f64ce68a",
+      "outputSha256": "ec5c5e2756faec0ee1f85e0c9fc37e54fc1ea03c1d2818fcefc7407b4c50f39b"
+    },
     "/images/thumbs/scenes/estuary.webp": {
       "src": "/images/scenes/estuary.webp",
       "recipe": {
@@ -1066,6 +1081,20 @@
       },
       "sourceSha256": "a9e4f003af315d915bd342625e4c4275350c8aa2d2cf09e61d546288130532ff",
       "outputSha256": "10a4c212db82a9a24ffbc55cce82a8b98d5b165b52658ff27f015ada846c7cd3"
+    },
+    "/images/plates/scenes/ember.webp": {
+      "src": "/images/scenes/ember.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "daacf20ac3eb14c2607c8ce0222c5fe26481dd9374433554dbfbfd39f64ce68a",
+      "outputSha256": "69221442aa25099ea0b6cf418d5b43d46a2b5a84d824177acb0bfc1331f73f83"
     },
     "/images/plates/scenes/estuary.webp": {
       "src": "/images/scenes/estuary.webp",
