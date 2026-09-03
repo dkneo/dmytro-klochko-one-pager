@@ -503,3 +503,21 @@ Read `drop/README.md`.
   films) and made the page worse — the mat was structural, separating four
   overlapping clips from a dark ground. One screenshot before the push
   would have caught it; he did instead.
+
+### Words in the deck (3 Sep 2026)
+
+A poem, a quote or a song is a card like any other now. The candidate in
+`public/inbox.json` carries the note as it would be written (`note_md`, with
+`added: {{added}}` and no weather); the page shows `who`, `where`, `line`
+and `english` and never ships the note; a keep runs `wordNote()` in
+`scripts/lib/vault-note.mjs`, which dates the note, inserts the weather he
+saw (if any) after `who:` and extends the wikilink trail. Nothing is
+re-authored. The twenty-four canon words from the cursor branch came in
+this way — as cards to judge, because the curation doctrine is one line:
+nothing appears on the page that he has not chosen.
+
+**A push guard is `&&` all the way or it is not a guard.** One chain read
+`grep -q 'fail 0' … && git checkout …; git add -A && git commit … && git push`
+— the semicolon let the commit and push run after the grep failed, and a
+red suite shipped. Every step that must not run on red is joined with `&&`
+to the test, with no `;` anywhere in the chain.
