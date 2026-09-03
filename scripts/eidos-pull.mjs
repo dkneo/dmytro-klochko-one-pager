@@ -13,7 +13,7 @@ import { join } from "node:path";
 
 import sharp from "sharp";
 
-import { paintingNote, bookmarkNote } from "./lib/vault-note.mjs";
+import { paintingNote, bookmarkNote, wordNote } from "./lib/vault-note.mjs";
 
 const NS = "d5e466fe143e4b8aadce72dd01da4507";
 const UA = "dmklochko-site/1.0 (https://dmklochko.com; keeping a painting)";
@@ -101,10 +101,21 @@ const born = [];
 for (const [id, v] of kept) {
   const c = inbox.find((x) => x.id === id);
   if (!c) { born.push(`  ? ${id}: kept, but no longer in the inbox`); continue; }
-  const dirFor = { object: "vault/objects", building: "vault/buildings", poster: "vault/posters", print: "vault/prints", photograph: "vault/photographs" };
+  const dirFor = { object: "vault/objects", building: "vault/buildings", poster: "vault/posters", print: "vault/prints", photograph: "vault/photographs", poem: "vault/poems", quote: "vault/quotes", song: "vault/songs" };
   const file = `${dirFor[c.type] || "vault/paintings"}/${id}.md`;
   if (existsSync(file)) { born.push(`  = ${id}: already a note`); continue; }
-  const remote = !c.src.startsWith("/");
+
+  // A kept poem, quote or song has no picture to bring home: the candidate
+  // carries its note as written, and the keep files it with today's date and
+  // the weather he saw on the card.
+  if (c.type === "poem" || c.type === "quote" || c.type === "song") {
+    born.push(`  + ${id} → ${c.who}, ${c.type}`);
+    if (!apply) continue;
+    mkdirSync(file.slice(0, file.lastIndexOf("/")), { recursive: true });
+    writeFileSync(file, wordNote(c, { weather: v.weather || c.weather || "", added: new Date().toISOString().slice(0, 10) }));
+    continue;
+  }
+  const remote = !(c.src || "").startsWith("/");
   born.push(`  + ${id} → ${c.who}, ${c.title}${remote ? " (bringing the picture home)" : ""}`);
   if (!apply) continue;
 

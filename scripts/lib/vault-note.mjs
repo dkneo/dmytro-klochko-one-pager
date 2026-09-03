@@ -86,3 +86,37 @@ export function bookmarkNote(b, { weather, added }) {
     links, "",
   ].join("\n");
 }
+
+/**
+ * A poem, a quote or a song, kept from the deck.
+ *
+ * A word candidate carries its note as it was written — the same shape every
+ * hand-made note in vault/poems, vault/quotes and vault/songs has — with the
+ * date left as a placeholder and no weather. A keep fills in today's date, and
+ * the weather he saw on the card if there was one, and extends the wikilink
+ * trail so the graph joins it to its room. Nothing is re-authored.
+ */
+export function wordNote(c, { weather, added }) {
+  if (!["poem", "quote", "song"].includes(c.type)) {
+    throw new Error(`a word note is a poem, a quote or a song, got ${JSON.stringify(c.type)}`);
+  }
+  let md = c.note_md;
+  if (!md) {
+    // no note travelled with the card: compose the vault's shape from the fields
+    const q = (v) => JSON.stringify(String(v ?? ""));
+    const front = [
+      `type: ${c.type}`, `who: ${c.who}`,
+      c.title ? `title: ${q(c.title)}` : "", c.where ? `where: ${c.where}` : "", c.year ? `year: ${q(c.year)}` : "",
+      "added: {{added}}",
+      c.english ? `english: |-\n  ${String(c.english).split("\n").join("\n  ")}` : "",
+    ].filter(Boolean);
+    md = ["---", ...front, "---", "", c.type === "song" ? "" : (c.line || ""), "", `who: [[${c.who}]]`, ""].join("\n");
+  }
+  md = md.replace(/^added: .*$/m, `added: ${added}`);
+  if (weather) {
+    if (/^weather:/m.test(md)) md = md.replace(/^weather: .*$/m, `weather: ${weather}`);
+    else md = md.replace(/^(who: .*)$/m, `$1\nweather: ${weather}`);
+    if (!/^weather: \[\[/m.test(md)) md = md.replace(/^who: \[\[/m, `weather: [[${weather}]] · who: [[`);
+  }
+  return md.trimEnd() + "\n";
+}

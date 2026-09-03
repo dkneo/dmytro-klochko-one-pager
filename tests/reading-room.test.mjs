@@ -104,3 +104,22 @@ test("every read candidate in the inbox says who, where and why", () => {
   const kept = fs.readdirSync(path.join(root, "vault/bookmarks")).filter((f) => f.endsWith(".md"));
   for (const r of reads) assert.ok(!kept.includes(`${r.id}.md`), `${r.id} was kept without a swipe`);
 });
+
+test("a poem, a quote or a song in the deck carries what a card and a note need", () => {
+  // words arrive as cards to judge, never as notes — the twenty-four canon
+  // words from the cursor branch came in this way, so a keep files them and a
+  // pass drops them, and nothing enters the vault without a swipe
+  const inbox = JSON.parse(read("public/inbox.json"));
+  const words = inbox.candidates.filter((c) => ["poem", "quote", "song"].includes(c.type));
+  assert.ok(words.length >= 20, `expected the canon words to be on offer, found ${words.length}`);
+  for (const w of words) {
+    assert.ok(!w.src, `${w.id} is a word with a picture`);
+    assert.ok(w.who, `${w.id} has no maker`);
+    assert.ok(w.line || w.title, `${w.id} has neither words nor a title`);
+    assert.match(w.note_md || "", /^---\ntype: (poem|quote|song)\n/, `${w.id} did not bring its note`);
+    assert.match(w.note_md, /added: \{\{added\}\}/, `${w.id}'s note has a fixed date`);
+    assert.doesNotMatch(w.note_md, /^weather: /m, `${w.id} arrived with a weather nobody chose`);
+  }
+  const shelved = [...fs.readdirSync(path.join(root, "vault/poems")), ...fs.readdirSync(path.join(root, "vault/quotes")), ...fs.readdirSync(path.join(root, "vault/songs"))];
+  for (const w of words) assert.ok(!shelved.includes(`${w.id}.md`), `${w.id} is in the vault without a swipe`);
+});

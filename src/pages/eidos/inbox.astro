@@ -37,7 +37,8 @@ const candidates = (inbox.candidates || []).map((c) => ({
   licence: c.licence || "",
 }));
 const pictures = candidates.filter((c) => c.src).length;
-const reads = candidates.length - pictures;
+const words = candidates.filter((c) => ["poem", "quote", "song"].includes(c.type)).length;
+const reads = candidates.length - pictures - words;
 
 const title = "inbox · eidos";
 const description = "throw a link in; judge what waits. the door to the library.";
@@ -51,8 +52,9 @@ const description = "throw a link in; judge what waits. the door to the library.
 
     <p class="today-how" id="in-lede">
       throw me a link. i read it once, keep what a card needs, and it waits
-      here with what the harvester brought. right if it stays, left if it
-      goes; what stays becomes part of <a href="/eidos">the library</a>.
+      here with what the harvester brought — pictures, and now poems, quotes
+      and songs. right if it stays, left if it goes; what stays becomes part
+      of <a href="/eidos">the library</a>.
     </p>
 
     {/* ── the door ──────────────────────────────────────────────────── */}
@@ -74,7 +76,7 @@ const description = "throw a link in; judge what waits. the door to the library.
     {/* ── the deck ──────────────────────────────────────────────────── */}
     <p class="in-shelf" id="shelf">
       <span id="shelf-links"></span>
-      <span>{pictures} pictures and {reads} reads from the harvester</span>
+      <span>{pictures} pictures, {words} words and {reads} reads waiting</span>
     </p>
 
     <div class="in-stage" id="stage">
@@ -207,6 +209,9 @@ const description = "throw a link in; judge what waits. the door to the library.
       font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--dim);
     }
     .in-throw-note a { color: var(--bone); }
+
+    /* the words of a poem or a quote on a card: set, not summarised */
+    .in-desc.is-verse { white-space: pre-line; font-family: var(--serif); font-size: var(--t-prose); line-height: 1.5; color: var(--bone); }
 
     .in-shelf {
       display: flex; flex-wrap: wrap; gap: 0.3rem var(--sp-2);
@@ -370,11 +375,25 @@ const description = "throw a link in; judge what waits. the door to the library.
         next();
       }
       function prefetch() { const n = deck[0]; if (n && n.src) { const i = new Image(); i.src = n.src; } }
+      const WORDS = new Set(["poem", "quote", "song"]);
       function show(c) {
         const isRead = !c.src;
         artWrap.hidden = isRead;
         read.hidden = !isRead;
-        if (isRead) {
+        $("r-desc").classList.toggle("is-verse", WORDS.has(c.type));
+        if (WORDS.has(c.type)) {
+          $("r-site").textContent = c.type + (c.where ? " · " + c.where : "") + (c.year ? " · " + c.year : "");
+          $("r-title").textContent = c.type === "song" ? `${c.who} — ${c.title}` : c.who;
+          const text = c.type === "song" ? "" : (c.line || "") + (c.english ? "\n\n" + c.english : "");
+          $("r-desc").textContent = text;
+          $("r-desc").hidden = !text;
+          $("r-tags").hidden = true;
+          $("c-title").textContent = "";
+          $("c-who").textContent = "to judge";
+          $("c-source").href = c.source || "#";
+          $("c-source").hidden = !c.source;
+        } else if (isRead) {
+          $("c-source").hidden = false;
           $("r-site").textContent = c.site || (c.url ? new URL(c.url).hostname.replace(/^www\./, "") : "");
           $("r-title").textContent = c.title || c.url || "";
           const desc = c.summary || c.description || c.line || c.excerpt || "";
@@ -387,6 +406,7 @@ const description = "throw a link in; judge what waits. the door to the library.
           $("c-who").textContent = c.summary ? "summarised" : (c.kind === "mine" ? (canSummarise ? "" : "no summary: no key set") : "suggested");
           $("c-source").href = c.url || c.source || "#";
         } else {
+          $("c-source").hidden = false;
           art.src = c.src;
           art.alt = `${c.title}, ${c.who}`;
           $("c-title").textContent = c.title;

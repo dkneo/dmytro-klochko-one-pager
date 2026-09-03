@@ -42,8 +42,16 @@ export function compose(map, palettes) {
   const line4 = writers.length
     ? `the words keep coming back to ${list(writers.map(lower))}, in ${tongues} languages.`
     : `the words come in ${tongues} languages.`;
+  const built = new Date(map.built || Date.now());
+  const fresh = shelved.filter((i) => i.added && (built - new Date(i.added)) / 86400000 <= 14);
+  const grew = {};
+  for (const i of fresh) if (i.weather) grew[i.weather] = (grew[i.weather] || 0) + 1;
+  const most = Object.entries(grew).sort((a, b) => b[1] - a[1])[0];
+  const line5 = fresh.length
+    ? `${fresh.length} kept in the last two weeks${most ? `; ${most[0]} grew the most` : ""}.`
+    : "";
   const wrap = (t, n = 66) => { const out = []; let cur = ""; for (const w of t.split(" ")) { if ((cur + " " + w).trim().length > n) { out.push(cur.trim()); cur = w; } else cur += " " + w; } if (cur.trim()) out.push(cur.trim()); return out; };
-  const lines = [line1, line2, line3, line4].flatMap((l) => wrap(l)).slice(0, 7);
+  const lines = [line1, line2, line3, line4, line5].filter(Boolean).flatMap((l) => wrap(l)).slice(0, 7);
 
   // the strip: eight bars, each as wide as it is full, wearing its own paint
   const filed = weathers.reduce((s, w) => s + w.n, 0) || 1;
@@ -61,6 +69,7 @@ export function compose(map, palettes) {
   const shown = [];
   const half = Math.ceil(weathers.length / 2);
   const row = (ws) => esc(ws.map((w) => `${w.name} ${w.n}`).join("   ·   "));
+  const why = `<text x="72" y="${stripY - 18}" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="17" fill="#b9b3a6">${esc(byFull[0].name)} — ${esc((map.weathers.find((w) => w.name === byFull[0].name) || {}).why || "")}</text>`;
   const legend = `<text x="72" y="${stripY + stripH + 24}" font-family="Menlo, Consolas, monospace" font-size="12" letter-spacing="1" fill="#9aa0b4">${row(weathers.slice(0, half))}</text>
   <text x="72" y="${stripY + stripH + 46}" font-family="Menlo, Consolas, monospace" font-size="12" letter-spacing="1" fill="#9aa0b4">${row(weathers.slice(half))}</text>`;
 
@@ -78,10 +87,11 @@ export function compose(map, palettes) {
   <text x="72" y="118" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="84" fill="#ece6d9">eidos</text>
   <text x="290" y="118" font-family="Menlo, Consolas, monospace" font-size="14" letter-spacing="3" fill="#ff9bc0">WHAT DMYTRO KLOCHKO LOVES</text>
   <g font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#d9d4c8">
-    ${lines.map((l, i) => `<text x="72" y="${178 + i * 36}">${esc(l)}</text>`).join("\n    ")}
+    ${lines.map((l, i) => `<text x="72" y="${172 + i * 33}">${esc(l)}</text>`).join("\n    ")}
   </g>
   ${bars.join("")}
   ${shown.join("")}
+  ${why}
   ${legend}
   ${countsSvg}
   <text x="${W - 72}" y="598" text-anchor="end" font-family="Menlo, Consolas, monospace" font-size="13" letter-spacing="2" fill="#7f8699">DMKLOCHKO.COM/EIDOS</text>

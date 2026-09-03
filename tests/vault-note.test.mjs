@@ -89,3 +89,20 @@ test("a kept print, poster or photograph keeps its own kind", async () => {
     assert.match(note, new RegExp(`^type: ${type}$`, "m"), `a ${type} was filed as something else`);
   }
 });
+
+test("a kept word is filed as the note it arrived as, dated, and joined to its room", async () => {
+  const { wordNote } = await import("../scripts/lib/vault-note.mjs");
+  const raw = "---\ntype: quote\nwho: Horace\nwhere: Odes 1.11\nadded: {{added}}\nenglish: |-\n  Seize the day.\n---\n\ncarpe diem.\n\nwho: [[Horace]]\n";
+  const note = wordNote({ type: "quote", who: "Horace", note_md: raw }, { weather: "nerve", added: "2026-09-03" });
+  assert.match(note, /^added: 2026-09-03$/m, "the date is not today's");
+  assert.match(note, /^who: Horace\nweather: nerve$/m, "the weather did not land after who");
+  assert.match(note, /^weather: \[\[nerve\]\] · who: \[\[Horace\]\]$/m, "the trail does not join the room");
+  assert.match(note, /^carpe diem\.$/m, "the words changed");
+  // without a weather nothing is invented
+  const ring = wordNote({ type: "quote", who: "Horace", note_md: raw }, { weather: "", added: "2026-09-03" });
+  assert.doesNotMatch(ring, /weather/, "an unfiled keep must not be given a weather");
+  // and a card with no note still becomes the vault's shape
+  const made = wordNote({ type: "poem", who: "x", line: "one\ntwo", where: "y" }, { weather: "", added: "2026-09-03" });
+  assert.match(made, /^type: poem$/m); assert.match(made, /^one\ntwo$/m); assert.match(made, /^who: \[\[x\]\]$/m);
+  assert.throws(() => wordNote({ type: "painting", who: "x" }, { weather: "", added: "2026-09-03" }));
+});
