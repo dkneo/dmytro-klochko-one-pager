@@ -6491,6 +6491,90 @@
    "weather": "the dark and the lamp",
    "found": "2026-09-03",
    "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Vincent_van_Gogh_-_The_yellow_house_%28%27The_street%27%29.jpg/1920px-Vincent_van_Gogh_-_The_yellow_house_%28%27The_street%27%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "bm-escapingflatland",
+   "type": "bookmark",
+   "who": "Henrik Karlsson",
+   "title": "Escaping Flatland",
+   "url": "https://escapingflatland.substack.com",
+   "site": "escapingflatland.substack.com",
+   "weather": "the plain thing",
+   "line": "essays on attention, agency and how a good life is actually arranged. slow, exact, unhurried.",
+   "source": "https://escapingflatland.substack.com",
+   "licence": "a link"
+  },
+  {
+   "id": "bm-map-simonsarris",
+   "type": "bookmark",
+   "who": "Simon Sarris",
+   "title": "The Map Is Mostly Water",
+   "url": "https://map.simonsarris.com",
+   "site": "map.simonsarris.com",
+   "weather": "invincible summer",
+   "line": "on building a home, raising children and making things by hand, written like someone who means it.",
+   "source": "https://map.simonsarris.com",
+   "licence": "a link"
+  },
+  {
+   "id": "bm-austinkleon",
+   "type": "bookmark",
+   "who": "Austin Kleon",
+   "title": "austin kleon's newsletter",
+   "url": "https://austinkleon.com/newsletter/",
+   "site": "austinkleon.com",
+   "weather": "the plain thing",
+   "line": "ten things worth sharing, every friday, from the man who wrote steal like an artist.",
+   "source": "https://austinkleon.com/newsletter/",
+   "licence": "a link"
+  },
+  {
+   "id": "bm-theconvivialsociety",
+   "type": "bookmark",
+   "who": "L. M. Sacasas",
+   "title": "The Convivial Society",
+   "url": "https://theconvivialsociety.substack.com",
+   "site": "theconvivialsociety.substack.com",
+   "weather": "the dark and the lamp",
+   "line": "technology and the moral life, read through illich and ellul. the calmest voice on the subject.",
+   "source": "https://theconvivialsociety.substack.com",
+   "licence": "a link"
+  },
+  {
+   "id": "bm-sashachapin",
+   "type": "bookmark",
+   "who": "Sasha Chapin",
+   "title": "sasha's newsletter",
+   "url": "https://sashachapin.substack.com",
+   "site": "sashachapin.substack.com",
+   "weather": "nerve",
+   "line": "on ambition, taste and getting out of your own way. funny, then suddenly not.",
+   "source": "https://sashachapin.substack.com",
+   "licence": "a link"
+  },
+  {
+   "id": "bm-ava",
+   "type": "bookmark",
+   "who": "Ava",
+   "title": "Bookbear Express",
+   "url": "https://ava.substack.com",
+   "site": "ava.substack.com",
+   "weather": "weight and grace",
+   "line": "short essays on love, work and being a person. the one people forward to each other.",
+   "source": "https://ava.substack.com",
+   "licence": "a link"
+  },
+  {
+   "id": "bm-erikhoel",
+   "type": "bookmark",
+   "who": "Erik Hoel",
+   "title": "The Intrinsic Perspective",
+   "url": "https://erikhoel.substack.com",
+   "site": "erikhoel.substack.com",
+   "weather": "vastness",
+   "line": "consciousness, science and culture from a neuroscientist who writes like a novelist.",
+   "source": "https://erikhoel.substack.com",
+   "licence": "a link"
   }
  ]
 }

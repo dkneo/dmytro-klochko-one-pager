@@ -88,3 +88,19 @@ test("the deck is dealt so no two neighbours are alike", () => {
   // and the built page still ships a deck script at all
   assert.ok(scripts("dist/eidos/inbox/index.html").length > 500, "the inbox ships no script");
 });
+
+test("every read candidate in the inbox says who, where and why", () => {
+  // the substacks and newsletters he was asked to be offered arrive as cards
+  // to swipe, never as keeps: only he keeps
+  const inbox = JSON.parse(read("public/inbox.json"));
+  const reads = inbox.candidates.filter((c) => c.type === "bookmark");
+  assert.ok(reads.length >= 10, `expected a shelf of reads to judge, found ${reads.length}`);
+  for (const r of reads) {
+    assert.match(r.url, /^https:\/\//, `${r.id} has no url`);
+    assert.ok(r.who && r.site && r.line, `${r.id} is missing who, site or a line saying why`);
+    assert.ok(r.weather, `${r.id} has no weather to be filed under`);
+  }
+  // a read is a candidate until judged; nothing here is in the vault yet
+  const kept = fs.readdirSync(path.join(root, "vault/bookmarks")).filter((f) => f.endsWith(".md"));
+  for (const r of reads) assert.ok(!kept.includes(`${r.id}.md`), `${r.id} was kept without a swipe`);
+});
