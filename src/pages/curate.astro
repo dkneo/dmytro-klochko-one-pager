@@ -57,10 +57,13 @@ const description = "the queue.";
           el.className = "cur-card";
           el.style.setProperty("--d", String(i - at));
           el.innerHTML =
-            '<span class="cell"><img alt="" loading="lazy"></span>' +
+            '<span class="cell"></span>' +
             '<div class="cur-meta"><b></b><i></i><span></span></div>';
-          el.querySelector("img").src = c.src;
-          el.querySelector("img").alt = `${c.title}, ${c.who}`;
+          const img = document.createElement("img");
+          img.loading = "lazy";
+          img.src = c.src;
+          img.alt = `${c.title}, ${c.who}`;
+          el.querySelector(".cell").append(img);
           el.querySelector("b").textContent = c.who;
           el.querySelector("i").textContent = `${c.title}, ${c.year}`;
           el.querySelector("span").textContent = c.weather;

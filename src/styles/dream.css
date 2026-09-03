@@ -207,7 +207,10 @@
   margin: 0;
   justify-self: end;
   width: min(100%, var(--easel-width, 30rem));
-  transition: width 220ms var(--ease);
+  /* The width used to transition as the print changed. Animating a layout
+     property re-lays out the whole bay on every frame; the crossfade between
+     the two layers inside the cell is what the eye follows anyway, so the
+     frame now takes its new width at once and only the picture fades. */
 }
 
 /* Every picture here is a photograph now — the product screenshots were
