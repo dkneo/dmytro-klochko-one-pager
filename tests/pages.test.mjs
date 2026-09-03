@@ -91,7 +91,10 @@ test("the inbox takes a link and judges what waits", () => {
       assert.ok(c.source, `${c.id} has no source url`);
       assert.ok(c.licence, `${c.id} has no licence`);
     } else {
-      assert.match(c.url || "", /^https?:\/\//, `${c.id} is neither a picture nor a link`);
+      // a card with no picture is a link — or a word: a poem, quote or song
+      // carrying its text or its title, which the deck learned to show
+      const isWord = ["poem", "quote", "song"].includes(c.type) && !!(c.line || c.title);
+      if (!isWord) assert.match(c.url || "", /^https?:\/\//, `${c.id} is neither a picture, a link nor a word`);
     }
   }
   assert.ok(data.some((c) => c.type === "poster"), "the posters reached the inbox");
