@@ -33,6 +33,10 @@ const candidates = (inbox.candidates || []).map((c) => ({
   url: c.url || "",
   site: c.site || "",
   line: c.line || "",
+  // a word card shows where it is from and its english; the note itself
+  // stays in inbox.json for the pull and never ships to the browser
+  where: c.where || "",
+  english: c.english || "",
   source: c.source || "",
   licence: c.licence || "",
 }));
