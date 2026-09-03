@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/vault-build.mjs && node scripts/map-build.mjs && node scripts/image-build.mjs --check && astro build && node scripts/sitemap-build.mjs",
+    "build": "node scripts/vault-build.mjs && node scripts/map-build.mjs && node scripts/og-eidos-build.mjs && node scripts/image-build.mjs --check && astro build && node scripts/sitemap-build.mjs",
     "test": "npm run build && node --test tests/*.test.mjs",
     "preview": "astro preview",
     "vault": "node scripts/vault-build.mjs"

@@ -42,7 +42,11 @@ const inWeather = (w: any, pred: (it: any) => boolean) => shelved.filter((it) =>
 const unfiled = (pred: (it: any) => boolean) => shelved.filter((it) => (!it.weather || it.unplaced) && pred(it));
 
 const hall = order.map((w) => ({ ...w, slug: slug(w.name), stops: stopsFor(w.name), marks: inWeather(w, isHung) })).filter((r) => r.marks.length);
-const room = order.map((w) => ({ ...w, slug: slug(w.name), stops: stopsFor(w.name), marks: inWeather(w, isWord) })).filter((r) => r.marks.length);
+// within a room the words come in kind order — poems, then quotes, then
+// songs — so the column reads as three short runs rather than a shuffle
+const KIND_ORDER: Record<string, number> = { poem: 0, quote: 1, song: 2, writing: 3, bookmark: 4 };
+const byKind = (a: any, b: any) => (KIND_ORDER[a.type] ?? 9) - (KIND_ORDER[b.type] ?? 9);
+const room = order.map((w) => ({ ...w, slug: slug(w.name), stops: stopsFor(w.name), marks: inWeather(w, isWord).slice().sort(byKind) })).filter((r) => r.marks.length);
 const readShelf = shelved.filter(isRead);
 const ringArt = unfiled(isHung), ringWords = unfiled(isWord);
 const hung = shelved.filter(isHung).length, said = shelved.filter(isWord).length;
@@ -60,7 +64,7 @@ const glue = (t: string) => String(t ?? "").replace(/\s+([!?;:»])/g, "\u202F$1"
 <Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted
         ogTitle="eidos · what dmytro klochko loves"
         ogDescription={`${shelved.length} real things, filed under eight weathers he made up. paintings, poems, songs, lines, people. every one attributed.`}
-        ogImage="/og-eidos.png?v=1">
+        ogImage={`/og-eidos.png?v=${map.built}`}>
   <section class="shell session eidos-lib" data-scene="nightcourt" aria-labelledby="el">
     <div class="lib-intro">
       <div class="lib-intro-copy">

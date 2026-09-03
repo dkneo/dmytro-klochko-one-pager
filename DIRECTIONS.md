@@ -96,8 +96,9 @@ day answers "what is he looking at".
 
 ## What to do next
 
-1. Make the portrait shareable as an image that rebuilds from the vault, so
-   the og card never lies about the counts (direction 1's open item).
+1. ~~Make the portrait shareable as an image that rebuilds from the vault~~ —
+   done: scripts/og-eidos-build.mjs draws og-eidos.png from map.json at every
+   build, versioned by the map's date.
 2. Give each weather its own page in the mood-board shape (direction 2 at
    the scale where it works), linked from the room's door.
 3. Leave the graph and the day where they are.
