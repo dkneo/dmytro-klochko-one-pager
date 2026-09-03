@@ -47,6 +47,11 @@ test("a placeholder and a catalogue role are not makers", () => {
   assert.equal(attribution("Thallheimer, Arnold Related"), "Thallheimer, Arnold");
 });
 
+test("a name is never cut so that it ends on a particle", () => {
+  // "comte de Caylus" lost its name and kept its title
+  assert.equal(attribution("Anne Claude Philippe de Tubières, comte de Caylus"), "Anne Claude Philippe de Tubières, comte de Caylus");
+});
+
 test("a long attribution is cut at a word, never mid-name", () => {
   const long = "Bartolomeo Suardi called Bramantino and his very long workshop attribution";
   const got = attribution(long);

@@ -16,7 +16,7 @@ import sharp from "sharp";
 interface Props { compact?: boolean }
 const { compact = false } = Astro.props;
 
-const HANGS = new Set(["painting", "object", "building", "poster"]);
+const HANGS = new Set(["painting", "object", "building", "poster", "print", "photograph"]);
 const shelved = map.items.filter((i) => i.type !== "link");
 const isHim = (who: string) => /^dmytro klochko$/i.test((who || "").trim());
 

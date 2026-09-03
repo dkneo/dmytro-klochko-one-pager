@@ -13,7 +13,7 @@ export function paintingNote(c, { weather, src, added }) {
   }
   // paintings were first; objects and buildings arrived when the library
   // opened its doors to design. the note shape is one shape.
-  const kind = ["painting", "object", "building"].includes(c.type) ? c.type : "painting";
+  const kind = ["painting", "object", "building", "poster", "print", "photograph"].includes(c.type) ? c.type : "painting";
   const front = [
     `type: ${kind}`,
     `who: ${c.who}`,

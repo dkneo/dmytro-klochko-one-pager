@@ -90,7 +90,7 @@ function tongue(text) {
 const items = [];
 const perWeather = {};
 
-for (const kind of ["paintings", "objects", "buildings", "posters", "poems", "songs", "quotes", "links", "people", "writing", "bookmarks"]) {
+for (const kind of ["paintings", "objects", "buildings", "posters", "prints", "photographs", "poems", "songs", "quotes", "links", "people", "writing", "bookmarks"]) {
   const dir = join("vault", kind);
   if (!existsSync(dir)) continue;
   const files = readdirSync(dir).filter((f) => f.endsWith(".md") && !f.startsWith("_"));
@@ -206,7 +206,7 @@ const out = {
   weathers,
   threads,
   unplaced: items.filter((i) => i.unplaced).length,
-  forms: ["painting", "object", "building", "poster", "poem", "song", "quote", "link", "person", "writing", "bookmark"].map((f) => ({
+  forms: ["painting", "object", "building", "poster", "print", "photograph", "poem", "song", "quote", "link", "person", "writing", "bookmark"].map((f) => ({
     form: f, n: items.filter((i) => i.type === f).length,
   })),
   people: Object.entries(byWho)

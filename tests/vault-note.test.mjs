@@ -81,3 +81,11 @@ test("a candidate missing its optional fields still writes a valid note", () => 
   assert.match(body, /!\[\[x\.webp\]\]/);
   assert.match(body, /who: \[\[anonymous\]\]/);
 });
+
+test("a kept print, poster or photograph keeps its own kind", async () => {
+  const { paintingNote } = await import("../scripts/lib/vault-note.mjs");
+  for (const type of ["poster", "print", "photograph"]) {
+    const note = paintingNote({ type, who: "x", title: "y", year: "1900" }, { weather: "nerve", src: "/images/vault/z.webp", added: "2026-09-01" });
+    assert.match(note, new RegExp(`^type: ${type}$`, "m"), `a ${type} was filed as something else`);
+  }
+});

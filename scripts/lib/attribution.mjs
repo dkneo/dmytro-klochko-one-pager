@@ -6,8 +6,16 @@
 // else. Its own module because it is the one part of the harvester worth
 // testing: everything else there is a network call.
 
-const cut = (v, n) =>
-  v.length <= n ? v : v.slice(0, v.lastIndexOf(" ", n) > 12 ? v.lastIndexOf(" ", n) : n).trim();
+// A name is cut at a word, and never on a particle: "comte de Caylus" cut at
+// forty-eight came out "comte de", which is a title with the name missing. A
+// name that would end on a particle is kept whole; long names are rare.
+const PARTICLE = /\b(de|du|des|da|di|von|van|der|den|la|le|of|the|comte|duc|sir|dom|y|e)$/i;
+const cut = (v, n) => {
+  if (v.length <= n) return v;
+  const at = v.lastIndexOf(" ", n);
+  const short = (at > 12 ? v.slice(0, at) : v.slice(0, n)).trim();
+  return PARTICLE.test(short) ? v.trim() : short;
+};
 
 /** Strip Commons' markup and structured-data noise from any field. */
 export function cleanField(v) {

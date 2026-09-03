@@ -23,12 +23,12 @@ import inbox from "../../../public/inbox.json";
 const { items, weathers, forms } = map;
 const candidates = (inbox.candidates || []).length;
 
-const FORM_MARK: Record<string, string> = { painting: "▣", object: "◈", building: "⌂", poster: "▤", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶", bookmark: "⌁" };
+const FORM_MARK: Record<string, string> = { painting: "▣", object: "◈", building: "⌂", poster: "▤", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶", bookmark: "⌁", print: "▥", photograph: "◫" };
 const PLURAL: Record<string, string> = { person: "people", writing: "writing" };
 const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
 
 // Pictures hang; words are read; what he has read is its own shelf.
-const HANGS = new Set(["painting", "object", "building", "poster", "person"]);
+const HANGS = new Set(["painting", "object", "building", "poster", "print", "photograph", "person"]);
 const READS = new Set(["bookmark"]);
 const shelved = items.filter((it) => it.type !== "link");
 const isHung = (it: any) => HANGS.has(it.type);
