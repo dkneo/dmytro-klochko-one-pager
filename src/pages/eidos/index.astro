@@ -50,6 +50,11 @@ const hung = shelved.filter(isHung).length, said = shelved.filter(isWord).length
 const title = "eidos · what dmytro klochko loves";
 const description =
   "the library of what dmytro klochko loves: paintings, posters, poems, songs, lines and people, filed under eight weathers of his own. every mark a real thing, attributed.";
+// French sets a space before ! ? ; : and around guillemets; on a measure that
+// space becomes a line break and the mark drops alone to the next line. A
+// narrow no-break space keeps the mark with its word.
+const glue = (t: string) => String(t ?? "").replace(/\s+([!?;:»])/g, "\u202F$1").replace(/(«)\s+/g, "$1\u202F");
+
 ---
 
 <Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted
@@ -57,15 +62,28 @@ const description =
         ogDescription={`${shelved.length} real things, filed under eight weathers he made up. paintings, poems, songs, lines, people. every one attributed.`}
         ogImage="/og-eidos.png?v=1">
   <section class="shell session eidos-lib" data-scene="nightcourt" aria-labelledby="el">
-    <div class="card">
-      <h1 class="card-title" id="el">eidos</h1>
+    <div class="lib-intro">
+      <div class="lib-intro-copy">
+        <div class="card">
+          <h1 class="card-title" id="el">eidos</h1>
+        </div>
+
+        <p class="today-how">
+          <em>eidos</em>, the greek for the form of a thing, the shape you know it by.
+        </p>
+
+        <EidosPortrait />
+      </div>
+
+      {/* Small, and his hands rather than his face: a page about what he
+          loves opens on rings, painted nails and a white vest — taste,
+          worn. 560px wide, so it stays small enough to be sharp. */}
+      <figure class="lib-portrait">
+        <span class="lib-portrait-frame">
+          <img src="/images/hi-2.webp" width="560" height="499" alt="his hands, rings and painted nails, over a white vest" loading="eager" fetchpriority="high" decoding="async" />
+        </span>
+      </figure>
     </div>
-
-    <p class="today-how">
-      <em>eidos</em>, the greek for the form of a thing, the shape you know it by.
-    </p>
-
-    <EidosPortrait />
 
     {/* ── ways of looking, and the doors ─────────────────────────────── */}
     <p class="lib-views">
@@ -92,7 +110,7 @@ const description =
       {(ringArt.length + ringWords.length) > 0 && <a href="#the-ring" class="lib-toc-ring">unfiled <b>{ringArt.length + ringWords.length}</b></a>}
       {/* The door, where the eye already is. It was named twice in running
           text and found by nobody. */}
-      <a href="/eidos/inbox" class="lib-toc-door">the inbox <b>{candidates} waiting</b><span class="arw" aria-hidden="true">↗</span></a>
+      <a href="/eidos/inbox" class="lib-toc-door">inbox <b>{candidates}</b><span class="arw" aria-hidden="true">↗</span></a>
     </nav>
 
     {/* ── the hall: pictures, weather by weather ─────────────────────── */}
@@ -129,7 +147,7 @@ const description =
     <section class="lib-reading" id="words" aria-labelledby="h-words">
       <header class="lib-door">
         <h2 id="h-words">words</h2>
-        <p>poems whole, never excerpted; lines with their source; songs by name. a poem keeps its own language above the english, and says who translated it.</p>
+        <p>english first, the original tongue beneath it; a long poem shows its opening here and opens whole when pressed. lines with their source; songs by name; every translation says who made it.</p>
       </header>
 
       {room.map((r) => (
@@ -143,24 +161,17 @@ const description =
               <li>
                 <button class={`lib-said lib-said--${it.type}`} type="button" id={it.id}
                         data-id={it.id} data-form={it.type}
-                        aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
+                        aria-label={`${it.type}: ${glue(it.line || it.title)}${it.who ? " by " + it.who : ""}`}>
                   <span class="lib-mark" aria-hidden="true">{FORM_MARK[it.type]}</span>
+                  {/* english first, always; the original second, italic and quieter */}
                   {it.type === "poem" && (it.line || "").split("\n").filter((l: string) => l.trim()).length > 8 ? (
-                    <span class="lib-line lib-line--poem is-excerpt">
-                      <span class="lib-eng lib-eng--lead">{(it.line || "").split("\n").filter((l: string) => l.trim()).slice(0, 4).join("\n")}</span>
-                    </span>
+                    <span class="lib-line is-excerpt">{glue((it.line || "").split("\n").filter((l: string) => l.trim()).slice(0, 4).join("\n"))}<i class="lib-more" aria-hidden="true"> …</i></span>
                   ) : it.type === "poem" && it.original ? (
-                    <span class="lib-line lib-line--poem">
-                      <span class="lib-orig">{it.original}</span>
-                      <span class="lib-eng">{it.line}</span>
-                    </span>
+                    <span class="lib-line">{glue(it.line)}<span class="lib-orig">{glue(it.original)}</span></span>
                   ) : it.type === "quote" && it.english ? (
-                    <span class="lib-line">
-                      <span class="lib-orig lib-orig--inline">{it.line}</span>
-                      <span class="lib-eng">{it.english}</span>
-                    </span>
+                    <span class="lib-line">{glue(it.english)}<span class="lib-orig">{glue(it.line)}</span></span>
                   ) : (
-                    <span class="lib-line">{it.line || it.title}</span>
+                    <span class="lib-line">{glue(it.line || it.title)}</span>
                   )}
                   <span class="lib-by">
                     {it.who}{it.year ? " · " + it.year : ""}{it.where ? " · " + it.where : ""}
@@ -274,6 +285,7 @@ const description =
     .lib-toc-door {
       margin-left: auto;
       display: inline-flex; align-items: center; gap: 0.35em;
+      white-space: nowrap; flex-shrink: 0;
       min-height: 24px;
       padding: 0.2rem 0.75rem;
       border: 1px solid rgb(255 155 192 / 45%);
@@ -283,20 +295,17 @@ const description =
     }
     .lib-toc-door:hover { background: var(--hot); color: var(--void) !important; border-color: var(--hot); }
     .lib-toc-door b { opacity: 0.85; }
-    /* a poem shows its own language first, the english under it; a quote in
-       another tongue shows the line, then the english, quieter */
-    /* A poem is read, not declaimed. Sixteen lines of Dickinson in the italic
-       at the quote's size, doubled by the Greek or German above it, was a
-       wall. Poems sit upright a size down; a quote keeps the italic, it is
-       one line. Over eight lines the list shows the first four and says how
-       many there are — pressing opens it whole, original and all. */
-    .lib-said--poem .lib-line { font-style: normal; font-size: var(--t-prose); line-height: 1.5; }
-    .lib-line--poem { display: grid; gap: 0.55rem; }
-    .lib-eng--lead { font-size: inherit; color: var(--bone); }
-    .is-excerpt .lib-eng--lead::after { content: " …"; color: var(--dim); }
-    .lib-orig { white-space: pre-line; }
-    .lib-orig--inline { display: block; }
-    .lib-eng { display: block; font-size: var(--t-md); font-style: normal; color: var(--quiet); white-space: pre-line; line-height: 1.5; }
+    .lib-more { font-style: normal; color: var(--dim); }
+
+    /* the small hero, in the press page's frame language */
+    .lib-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, 17.5rem); gap: clamp(var(--sp-4), 5vw, 5.5rem); align-items: start; }
+    .lib-intro-copy { min-width: 0; }
+    .lib-portrait { margin: 0.4rem 0 0; transform: rotate(1.15deg); transform-origin: 52% 50%; filter: drop-shadow(0 1.5rem 2.5rem var(--shadow-deep)); transition: transform 420ms var(--ease), filter 420ms var(--ease); }
+    .lib-portrait-frame { display: block; padding: var(--mat-snapshot); background: var(--mat); border-radius: var(--r-print); }
+    .lib-portrait img { display: block; width: 100%; height: auto; border-radius: 1px; }
+    @media (hover: hover) and (pointer: fine) { .lib-portrait:hover { transform: rotate(0.2deg) translateY(-0.3rem); filter: drop-shadow(0 1.8rem 3rem var(--shadow-deep)); } }
+    @media (max-width: 860px) { .lib-intro { grid-template-columns: 1fr; gap: var(--sp-3); } .lib-portrait { width: min(100%, 17.5rem); } }
+    @media (prefers-reduced-motion: reduce) { .lib-portrait { transition: none; } }
     .lib-by em { font-style: normal; opacity: 0.8; }
     /* Poems are whole, so their heights vary by a factor of five. In a grid a
        sixteen-line Dickinson beside a three-line Bashō left a column of air
@@ -366,8 +375,9 @@ const description =
       document.querySelectorAll(".lib-card, .lib-said").forEach((card) => card.addEventListener("click", () => {
         const it = items.find((x) => x.id === card.dataset.id);
         if (!it) return;
-        const line = it.type === "poem" && it.original ? it.original : (it.line || it.title);
-        const second = it.type === "poem" && it.original ? it.line : (it.type === "quote" ? it.english : "");
+        // the panel reads like the room: english first, the original beneath
+        const line = it.line || it.title;
+        const second = it.type === "poem" ? (it.original || "") : (it.type === "quote" ? (it.english || "") : "");
         body.innerHTML =
           (it.src ? `<img src="${esc(it.src)}" alt="">` : "") +
           `<p class="em-d-kind">${esc(it.type)}${it.weather ? " · " + esc(it.weather) : " · unfiled"}</p>` +

@@ -29,15 +29,15 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // Aimed by his verdicts: he keeps weather, water, night light and one thing
 // looked at properly; he passes food on tables.
 const QUERIES = {
-  "cold clarity":          [["snow"], ["frost"], ["winter"], ["celadon", "object"], ["stoneware", "object"]],
-  "dissolution":           [["fog"], ["mist"], ["twilight"], ["raku", "object"], ["stoneware jar", "object"]],
-  "invincible summer":     [["summer"], ["harvest"], ["sunlight"], ["orchard"], ["fan", "object"]],
-  "nerve":                 [["storm"], ["shipwreck"], ["volcano"], ["armor", "object"], ["helmet", "object"]],
-  "the dark and the lamp": [["nocturne"], ["candlestick", "object"], ["lantern", "object"], ["lamp", "object"], ["night"]],
+  "cold clarity":          [["snow"], ["frost"], ["winter"], ["celadon", "object"], ["stoneware", "object"], ["stained glass", "print"], ["snow print", "print"]],
+  "dissolution":           [["fog"], ["mist"], ["twilight"], ["raku", "object"], ["stoneware jar", "object"], ["rain print", "print"], ["photograph fog", "print"]],
+  "invincible summer":     [["summer"], ["harvest"], ["sunlight"], ["orchard"], ["fan", "object"], ["poster", "print"], ["tapestry summer", "print"]],
+  "nerve":                 [["storm"], ["shipwreck"], ["volcano"], ["armor", "object"], ["helmet", "object"], ["war poster", "print"], ["wave print", "print"]],
+  "the dark and the lamp": [["nocturne"], ["candlestick", "object"], ["lantern", "object"], ["lamp", "object"], ["night"], ["stained glass lamp", "object"], ["night print", "print"]],
   "the plain thing":       [["bowl", "object"], ["chair", "object"], ["teapot", "object"], ["vessel", "object"],
                             ["basket", "object"], ["shaker", "object"], ["bench", "object"], ["jar", "object"]],
-  "vastness":              [["mountain"], ["sea"], ["moon"], ["waterfall"], ["horizon"]],
-  "weight and grace":      [["dancer"], ["swan"], ["acrobat"], ["netsuke", "object"], ["drapery"]],
+  "vastness":              [["mountain"], ["sea"], ["moon"], ["waterfall"], ["horizon"], ["landscape print", "print"], ["travel poster", "print"]],
+  "weight and grace":      [["dancer"], ["swan"], ["acrobat"], ["netsuke", "object"], ["drapery"], ["dancer print", "print"], ["poster dancer", "print"]],
 };
 
 // The Met's API is free and unmetered by key, which means the only thing
@@ -68,7 +68,10 @@ for (const c of inbox.candidates) {
 }
 
 const OBJECT_CLASS = /ceramic|furniture|glass|metalwork|silver|wood|lacquer|textile|basket|jade|arms|armor|netsuke|vessel|jewelry/i;
-const PAINT_CLASS = /painting|screen|scroll|print|drawing|watercolor/i;
+const PAINT_CLASS = /painting|screen|scroll|drawing|watercolor/i;
+// Posters, prints, stained glass and textiles: the kinds the deck was missing.
+// A print is not a painting, so it stops being folded into one.
+const PRINT_CLASS = /print|poster|woodcut|woodblock|lithograph|etching|stained glass|glass|textile|tapestry|photograph/i;
 
 const found = [];
 outer:
@@ -104,6 +107,7 @@ for (const [weather, queries] of Object.entries(QUERIES)) {
       // the kind has to match what the query went looking for
       const cls = `${o.classification || ""} ${o.medium || ""} ${o.department || ""}`;
       if (want === "object" && !OBJECT_CLASS.test(cls)) continue;
+      if (want === "print" && !PRINT_CLASS.test(cls)) continue;
       if (want === "painting") {
         if (!PAINT_CLASS.test(cls)) continue;
         // a photograph of winter is not a painting of winter, and the search

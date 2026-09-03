@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import EidosPortrait from "../components/EidosPortrait.astro";
 
 const roles = [
   {
@@ -158,7 +157,6 @@ const chapters = [
   { id: "journey", label: "upbringing" },
   { id: "alongside", label: "other roles" },
   { id: "me", label: "literally me" },
-  { id: "eidos", label: "eidos" },
   { id: "contact", label: "dm me" },
 ] as const;
 
@@ -899,24 +897,20 @@ const also = [
       }
     </div>
 
-  </section>
+    {/* The library, as one line and one door. It used to be its own chapter
+        with a compact copy of the portrait — a second place on the site
+        saying what he loves, under a wall of eight people already saying it.
+        One sentence and a button, and the whole thing lives at /eidos. */}
+    <p class="me-door-line">
+      eight of the people; the paintings, poems, songs and lines are next door.
+      <a class="me-door" href="/eidos">what i love, filed by feeling<span class="arw" aria-hidden="true">↗</span></a>
+    </p>
 
-  {/* The library, as a door. The portrait is the same component that opens
-      /eidos — one paragraph and a strip of eight weathers, every number
-      computed from the vault — so the homepage and the library can never
-      disagree about what he loves. */}
-  <section class="shell session" id="eidos" data-scene="estuary" data-weather="none" aria-labelledby="s7">
-    <div class="card">
-      <p class="card-no">07</p>
-      <h2 class="card-title" id="s7">eidos</h2>
-    </div>
-    <p class="lede">what i love, filed by feeling.</p>
-    <EidosPortrait compact />
   </section>
 
   <section class="shell session" id="contact" data-scene="estuary" data-weather="none" aria-labelledby="s5">
     <div class="card">
-      <p class="card-no">08</p>
+      <p class="card-no">07</p>
       {/* The joke is in the name and the domain both: dmklochko.com, dm-ytro
           klochko, and dm as in send one. Dimming the three letters that are
           not the instruction lets the heading be read twice — his name, and

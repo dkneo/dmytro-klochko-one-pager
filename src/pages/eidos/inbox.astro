@@ -55,21 +55,6 @@ const description = "throw a link in; judge what waits. the door to the library.
       goes; what stays becomes part of <a href="/eidos">the library</a>.
     </p>
 
-    {/* ── the composer ──────────────────────────────────────────────── */}
-    <form class="in-throw" id="throw" autocomplete="off">
-      <label class="in-url">
-        <span class="in-sr">a link</span>
-        <input type="url" name="url" id="url" placeholder="paste a link…" inputmode="url"
-               autocapitalize="none" autocorrect="off" spellcheck="false" required />
-      </label>
-      <label class="in-note-field">
-        <span class="in-sr">a note, optional</span>
-        <input type="text" name="note" id="note" placeholder="why, in a few words (optional)" maxlength="600" />
-      </label>
-      <button type="submit" id="throw-go">throw <kbd>↵</kbd></button>
-      <p class="in-throw-note" id="throw-note" aria-live="polite"></p>
-    </form>
-
     {/* ── the door ──────────────────────────────────────────────────── */}
     <form class="in-gate" id="gate" method="POST" action="/names" hidden>
       <input type="hidden" name="next" value="/eidos/inbox" />
@@ -120,6 +105,35 @@ const description = "throw a link in; judge what waits. the door to the library.
 
     <p class="in-count" id="count"></p>
 
+    {/* ── the composer, under the game ──────────────────────────────── */}
+    {/* One field with a light behind it. The glow is a blurred conic
+        gradient on a ::before, not a shadow — a shadow holds one colour and
+        this holds four — and it answers focus, never hover: a glow that
+        follows the pointer is decoration; one that wakes when the caret
+        lands says the field is listening. */}
+    <form class="in-throw" id="throw" autocomplete="off">
+      <div class="in-throw-surface">
+        <label class="in-url">
+          <span class="in-sr">a link</span>
+          <input type="url" name="url" id="url" placeholder="throw me a link" inputmode="url"
+                 autocapitalize="none" autocorrect="off" spellcheck="false" required />
+          <kbd class="in-tab" aria-hidden="true">↵</kbd>
+        </label>
+        <label class="in-note-field">
+          <span class="in-sr">a note, optional</span>
+          <input type="text" name="note" id="note" placeholder="why, in a few words — optional" maxlength="600" />
+        </label>
+        <div class="in-tools">
+          <span class="in-tool in-tool--plus" aria-hidden="true">+</span>
+          <span class="in-tool-hint">i read it once and keep what a card needs</span>
+          <button type="submit" id="throw-go" class="in-send" aria-label="throw it in">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <p class="in-throw-note" id="throw-note" aria-live="polite">what you throw in waits here with the rest, and is judged the same way.</p>
+    </form>
+
     <a class="onward onward--back" href="/eidos">
       <span class="arw" aria-hidden="true">↖</span><span>back to the library</span>
     </a>
@@ -131,62 +145,66 @@ const description = "throw a link in; judge what waits. the door to the library.
     [hidden] { display: none !important; }
     .in-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
-    /* the composer: one long field, one short one, one verb. It looks like
-       the thing you type into, because it is. */
-    .in-throw {
+    /* the composer: one surface, lit from behind */
+    .in-throw { position: relative; max-width: 34rem; margin: var(--sp-4) auto 0; }
+    .in-throw::before {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      /* the light's corner follows the surface's, plus the spill */
+      border-radius: calc(var(--r-row) + 18px);
+      background: conic-gradient(from 210deg,
+        rgb(255 155 192 / 0.42), rgb(120 160 255 / 0.30), rgb(255 200 140 / 0.34),
+        rgb(255 155 192 / 0.18), rgb(255 155 192 / 0.42));
+      filter: blur(26px);
+      /* visible at rest — the reference halo is ambient, not a focus-only
+         effect — and fully lit when the caret lands */
+      opacity: 0.58;
+      pointer-events: none;
+      transition: opacity 380ms ease;
+    }
+    .in-throw:focus-within::before { opacity: 0.9; }
+    .in-throw-surface {
       position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: var(--sp-1) var(--sp-tight);
-      align-items: center;
-      max-width: 44rem;
-      margin: var(--sp-3) 0 0;
-      padding: var(--sp-tight) var(--sp-tight) var(--sp-tight) var(--sp-2);
-      background: color-mix(in srgb, var(--deck) 82%, transparent);
-      border: 1px solid var(--rule);
+      display: grid; gap: 0.15rem;
+      padding: 0.9rem 1rem 0.65rem;
+      background: color-mix(in srgb, var(--deck) 78%, black);
+      border: 1px solid rgb(236 230 217 / 14%);
       border-radius: var(--r-row);
-      transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
     }
-    /* answers focus, never hover: the light says the field is live */
-    .in-throw:focus-within {
-      border-color: rgb(255 155 192 / 55%);
-      box-shadow: 0 0 0 4px rgb(255 155 192 / 10%);
-    }
-    .in-url, .in-note-field { display: block; min-width: 0; }
-    .in-url { grid-column: 1; }
-    .in-note-field { grid-column: 1 / -1; }
+    .in-url { position: relative; display: block; min-width: 0; }
     .in-throw input {
-      width: 100%;
-      font: inherit;
-      color: var(--bone);
-      background: transparent;
-      border: 0;
-      padding: 0.35rem 0;
-      font-family: var(--serif);
-      font-size: var(--t-prose);
+      width: 100%; font: inherit; color: var(--bone); background: transparent; border: 0; padding: 0.3rem 0;
+      font-family: var(--serif); font-size: var(--t-prose);
     }
+    .in-url input { padding-right: 2.6rem; }
+    .in-tab {
+      position: absolute; right: 0; top: 50%; translate: 0 -50%;
+      font-family: var(--mono); font-size: var(--t-xs); color: var(--dim);
+      padding: 0.15rem 0.45rem; border: 1px solid rgb(236 230 217 / 16%); border-radius: var(--r-row);
+      opacity: 0; transition: opacity var(--dur) var(--ease);
+    }
+    .in-url:focus-within .in-tab { opacity: 1; }
     .in-note-field input { font-size: var(--t-prose-sm); color: var(--quiet); padding-top: 0; }
     .in-throw input::placeholder { color: var(--dim); opacity: 1; }
     .in-throw input:focus { outline: none; }
-    .in-throw button {
-      grid-column: 2; grid-row: 1;
-      font: inherit; font-size: var(--t-sm); cursor: pointer;
-      color: var(--bone); background: transparent;
-      border: 1px solid var(--hot); border-radius: 999px; padding: 0.5rem 1rem;
+    .in-tools { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.35rem; }
+    .in-tool {
+      display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%;
+      background: rgb(236 230 217 / 8%); color: var(--dim); font-size: 1.1rem; line-height: 1;
+    }
+    .in-tool-hint { margin-right: auto; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--dim); }
+    .in-send {
+      display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%;
+      background: transparent; border: 0; color: var(--dim); cursor: pointer;
       transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
     }
-    .in-throw button:hover { background: var(--hot); color: var(--void); }
-    .in-throw button:disabled { opacity: 0.5; cursor: default; }
-    .in-throw kbd { font-family: var(--mono); font-size: var(--t-xs); color: var(--dim); margin-left: 0.3em; }
-    .in-throw button:hover kbd { color: inherit; }
+    .in-throw:focus-within .in-send { color: var(--bone); }
+    .in-send:hover { background: var(--hot); color: var(--void); }
+    .in-send:disabled { opacity: 0.4; cursor: default; }
     .in-throw-note {
-      grid-column: 1 / -1;
-      margin: 0;
-      min-height: 1.2em;
-      font-family: var(--mono);
-      font-size: var(--t-xs);
-      letter-spacing: 0.06em;
-      color: var(--dim);
+      margin: 0.55rem 0 0 0.25rem; min-height: 1.2em;
+      font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--dim);
     }
     .in-throw-note a { color: var(--bone); }
 
@@ -283,11 +301,10 @@ const description = "throw a link in; judge what waits. the door to the library.
     .in-count { margin-top: var(--sp-tight); text-align: center; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.08em; color: var(--dim); }
     @media (prefers-reduced-motion: reduce) {
       .in-card.is-flying, .in-card.is-home { transition: opacity 0.3s ease; }
-      .in-throw, .in-throw button { transition: none; }
+      .in-throw::before, .in-send, .in-tab { transition: none; }
     }
     @media (max-width: 600px) {
-      .in-throw { grid-template-columns: minmax(0, 1fr); }
-      .in-throw button { grid-column: 1; grid-row: auto; justify-self: start; }
+      .in-tool-hint { display: none; }
     }
   </style>
 
@@ -325,8 +342,26 @@ const description = "throw a link in; judge what waits. the door to the library.
           }
         } catch {}
         const rest = harvested.filter((c) => !judged.has(c.id));
-        rest.sort((a, b) => ((a.src || "").startsWith("/") ? 0 : 1) - ((b.src || "").startsWith("/") ? 0 : 1));
-        deck = [...mine, ...rest];
+        // Harvest order is a run of look-alikes: two hundred Met objects,
+        // then the Met's paintings, then the Commons ones. The deck is dealt
+        // so no card shares its kind, its museum or its maker with the card
+        // before it, and eras alternate. Seeded by the day, so a refresh does
+        // not reshuffle what he was in the middle of.
+        const era = (y) => { const n = Number((String(y || "").match(/\d{4}/) || [])[0]); return !n ? "?" : n < 1800 ? "old" : n < 1900 ? "19c" : n < 1946 ? "early20" : "modern"; };
+        const host = (c) => { try { return new URL(c.source || c.url || "").host; } catch { return ""; } };
+        let seed = Number(new Date().toISOString().slice(0, 10).replace(/-/g, "")) % 2147483647;
+        const rnd = () => (seed = (seed * 48271) % 2147483647) / 2147483647;
+        const pool = rest.slice().sort(() => rnd() - 0.5);
+        const dealt = [];
+        let prev = null;
+        while (pool.length) {
+          let pick = pool.findIndex((c) => !prev || (c.type !== prev.type && host(c) !== host(prev) && (c.who || "") !== (prev.who || "") && era(c.year) !== era(prev.year)));
+          if (pick < 0) pick = pool.findIndex((c) => !prev || (c.type !== prev.type && (c.who || "") !== (prev.who || "")));
+          if (pick < 0) pick = 0;
+          prev = pool.splice(pick, 1)[0];
+          dealt.push(prev);
+        }
+        deck = [...mine, ...dealt];
         $("shelf-links").textContent = mine.length
           ? `${mine.length} link${mine.length === 1 ? "" : "s"} you threw in, unjudged · `
           : "";

@@ -630,6 +630,26 @@ html.is-shook .scenes {
   transform: rotate(0deg) scale(1.025);
 }
 
+/* the door to the library, under the wall: one sentence, one pill */
+[data-mode="dream"] .me-door-line {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2);
+  margin: var(--sp-3) 0 0;
+  font-family: var(--serif); font-size: var(--t-prose); color: var(--quiet);
+}
+[data-mode="dream"] .me-door {
+  display: inline-flex; align-items: center; gap: 0.35em;
+  min-height: 24px; padding: 0.35rem 0.95rem;
+  border: 1px solid rgb(255 155 192 / 45%); border-radius: 999px;
+  color: var(--hot); font-family: var(--mono); font-size: var(--t-xs); letter-spacing: var(--ls-wide); text-transform: uppercase;
+  white-space: nowrap;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .me-door:hover { background: var(--hot); color: var(--void); border-color: var(--hot); }
+}
+[data-mode="dream"] .me-door:focus-visible { outline: 2px solid var(--hot); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { [data-mode="dream"] .me-door { transition: none; } }
+
 /* Seal and title share the line: a stamp beside a word, not a poster. */
 [data-mode="dream"] .card {
   display: flex;
@@ -1258,13 +1278,30 @@ html[data-scene="study"] .scenes i[data-s="study"] {
 
 [data-mode="dream"] .lib-said--song .lib-mark { color: var(--cold); }
 
+/* One voice. The room had five: the original in upright serif, its english
+   smaller and upright, quotes large and italic, song titles italic, bylines
+   in mono — a circus. Everything that is read is now upright at the prose
+   size. The only italic left marks the original tongue, set second and
+   quieter, because the english is what the reader reads and the original is
+   the artefact. Bylines keep the mono; that is the machinery voice. */
 [data-mode="dream"] .lib-line {
   font-family: var(--serif);
-  font-style: italic;
-  font-size: var(--t-lg);
-  line-height: 1.45;
+  font-style: normal;
+  font-size: var(--t-prose);
+  line-height: 1.5;
   color: var(--bone);
+  white-space: pre-line;
   transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .lib-orig {
+  display: block;
+  margin-top: 0.45rem;
+  font-style: italic;
+  font-size: var(--t-md);
+  line-height: 1.5;
+  color: var(--quiet);
+  white-space: pre-line;
 }
 
 [data-mode="dream"] .lib-said:hover .lib-line,
@@ -1277,8 +1314,6 @@ html[data-scene="study"] .scenes i[data-s="study"] {
   color: var(--dim);
 }
 
-/* a poem keeps its own lines rather than running together */
-[data-mode="dream"] .lib-said--poem .lib-line { white-space: pre-line; }
 
 /* The panel lives at the end of the section, which on the map was inside a
    fixed-height field and fine. In the library it opened five thousand pixels

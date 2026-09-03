@@ -10,22 +10,23 @@ import sharp from "sharp";
 const root = path.resolve(import.meta.dirname, "..");
 const read = (f) => fs.readFileSync(path.join(root, f), "utf8");
 
-test("the portrait is one component in two places, saying the same numbers", () => {
+test("the portrait lives on the library; the homepage carries one door to it", () => {
   const home = read("dist/index.html");
   const lib = read("dist/eidos/index.html");
   const map = JSON.parse(read("src/data/map.json"));
   const shelved = map.items.filter((it) => it.type !== "link").length;
 
-  for (const [name, html] of [["home", home], ["library", lib]]) {
-    assert.match(html, /class="eidos-portrait/, `${name} has no portrait`);
-    assert.equal(Number(html.match(/(\d+) real things i love/)[1]), shelved, `${name} miscounts`);
-    const bars = html.match(/<ol class="ep-strip"[\s\S]*?<\/ol>/)[0].match(/<li[ >]/g).length;
-    assert.equal(bars, map.weathers.length, `${name} strip has ${bars} bars`);
-  }
-  // the homepage one is the compact door; the library's is whole
-  assert.match(home, /class="eidos-portrait is-compact"/);
-  assert.match(home, /class="ep-go" href="\/eidos"/);
-  assert.doesNotMatch(lib, /class="eidos-portrait is-compact"/);
+  assert.match(lib, /class="eidos-portrait/, "the library has no portrait");
+  assert.equal(Number(lib.match(/(\d+) real things i love/)[1]), shelved, "the library miscounts");
+  const bars = lib.match(/<ol class="ep-strip"[\s\S]*?<\/ol>/)[0].match(/<li[ >]/g).length;
+  assert.equal(bars, map.weathers.length, `strip has ${bars} bars`);
+
+  // The homepage used to carry a compact copy under its own chapter: a second
+  // place saying what he loves, right under a wall of eight people already
+  // saying it. One sentence and one door now, under that wall.
+  assert.doesNotMatch(home, /class="eidos-portrait/, "the homepage carries a copy of the portrait");
+  assert.doesNotMatch(home, /id="eidos"/, "the homepage still has an eidos chapter");
+  assert.match(home, /id="me"[\s\S]*?class="me-door" href="\/eidos"/, "no door to the library under the wall");
   // the house rule from the last time a copy of the library sat on the homepage
   assert.doesNotMatch(read("src/pages/index.astro"), /me-orbit|orbitData|eidos-mini/);
 });
