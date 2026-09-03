@@ -40,6 +40,13 @@ test("nothing in, nothing out", () => {
   }
 });
 
+test("a placeholder and a catalogue role are not makers", () => {
+  // both hung on the deck tonight, credited as if they had painted something
+  assert.equal(attribution("No machine-readable author provided. Foo~commonswiki assumed (based on copyright claims)."), "anonymous");
+  assert.equal(attribution("Thallheimer, Arnold Related Names"), "Thallheimer, Arnold");
+  assert.equal(attribution("Thallheimer, Arnold Related"), "Thallheimer, Arnold");
+});
+
 test("a long attribution is cut at a word, never mid-name", () => {
   const long = "Bartolomeo Suardi called Bramantino and his very long workshop attribution";
   const got = attribution(long);

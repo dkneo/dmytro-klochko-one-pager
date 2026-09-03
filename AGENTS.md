@@ -476,3 +476,30 @@ note-anything.md       → just read it
 Anything else: drop it and say what it is in `drop/notes.md`. `drop/` is
 gitignored apart from its README, so raw material stays off the public repo.
 Read `drop/README.md`.
+
+### Three traps from the reading-room night (1 Sep 2026)
+
+- **`String.replace` with a needle that is not there is a silent no-op.** Two
+  edit scripts in one evening "succeeded" and changed nothing — `glue` was
+  used in markup but never defined (the anchor line had changed), and the
+  pill's `white-space: nowrap` never landed. Every scripted edit asserts
+  `includes(needle)` before it replaces, and fails loudly when it does not.
+- **Astro inlines a page's CSS and JS only while they are small.** The
+  library's `<style>` crossed the threshold tonight and moved to
+  `/_astro/index.*.css`; a guard that read only inline `<style>` kept
+  passing while guarding air, then failed on a rule that plainly existed.
+  Guards read both places (`bundledCss` in tests/pages.test.mjs; `styles()`
+  and `scripts()` in tests/reading-room.test.mjs). The bundled JS is
+  minified and renames locals — read algorithms in the source, not the
+  bundle.
+- **A YAML block scalar can contain blank lines.** Both build readers ended
+  a `|-` block at the first blank line, so a translation with a stanza
+  break shipped as its first stanza (Rilke, three lines under a
+  translator's label, in two places). A blank line is part of the block
+  when an indented line follows it; tests/block-scalar.test.mjs walks every
+  translated poem from note to map to payload.
+- **Look before shipping, even when the reasoning is tidy.** Stripping the
+  hero's mats followed a clean rule (a paper mat frames a print; these are
+  films) and made the page worse — the mat was structural, separating four
+  overlapping clips from a dark ground. One screenshot before the push
+  would have caught it; he did instead.

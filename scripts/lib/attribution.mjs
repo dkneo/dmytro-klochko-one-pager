@@ -36,6 +36,11 @@ export function attribution(raw, max = 48) {
     .replace(/\s*\([^)]*\)?\s*$/, "")
     .replace(/^(attributed to|manner of|circle of|after|painting by|work by|art by)\s+/i, "")
     .replace(/\bAnonymous ?Unknown author\b/i, "anonymous")
+    // Commons' placeholder when the uploader gave no author is a sentence,
+    // not a name; a HABS credit carries its "Related Names" role into the
+    // field. Neither is a maker.
+    .replace(/^no machine-readable author provided.*$/i, "anonymous")
+    .replace(/\s+Related(\s+Names?)?\s*$/i, "")
     .replace(/\s*[-–—,]\s*(painter|artist|peintre|maler|sculptor)\s*$/i, "")
     .replace(/\s+/g, " ")
     .trim(), max);

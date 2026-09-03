@@ -152,7 +152,7 @@ for (const weather of order) {
       // and X is credited as author. A chair by Daderot is a false claim,
       // and every claim here must be traceable — so when the credited name
       // is the photographer, the card carries the maker or nobody.
-      if (kind !== "painting" && who) {
+      if (kind !== "painting" && kind !== "photograph" && who) {
         const wl = who.toLowerCase();
         if (cats.includes(`by ${wl}`) || /^related names|^unknown|^anonymous unknown/i.test(who)) who = "";
       }
@@ -165,13 +165,16 @@ for (const weather of order) {
         const painted = /painting|oil on|watercolou?r|tempera|panel|canvas/.test(cats + " " + cleanField(md.ObjectName?.value));
         if (!painted) continue;
       }
-      if (/nasa|photograph|satellite/i.test(who + " " + cats)) continue;
-      // A wartime poster is a fine object and a bad candidate; so is anything
-      // whose title is a catalogue code ("INF3-328 Unity of Strength").
-      if (/poster|propaganda|advertis|postcard/i.test(cats)) continue;
+      if (/nasa|satellite/i.test(who + " " + cats)) continue;
+      if (kind !== "photograph" && /photograph/i.test(who + " " + cats)) continue;
+      // A poster is a fine candidate when a poster was asked for, and noise
+      // when a painting was. Catalogue-code titles ("INF3-328 Unity of
+      // Strength") are noise either way.
+      if (kind !== "poster" && /poster|propaganda|advertis|postcard/i.test(cats)) continue;
+      if (kind === "poster" && !/poster|propaganda|advertis|lithograph|affiche/i.test(cats + " " + cleanField(md.ObjectName?.value))) continue;
       if (/^[A-Z]{2,}[\d-]/.test(title)) continue;
       if (title.length < 3) continue;
-      if (kind === "painting" && !who) continue;   // an unattributed painting is not ours to offer
+      if ((kind === "painting" || kind === "photograph") && !who) continue;   // unattributed art is not ours to offer
       if (known.has(title.toLowerCase()) || known.has((ii.descriptionurl || "").toLowerCase())) continue;
       if ((ii.width || 0) < 1200) continue;  // sharpness is not negotiable here
       known.add(title.toLowerCase());
