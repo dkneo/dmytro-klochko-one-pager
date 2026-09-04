@@ -443,6 +443,27 @@ async function inboxAdd(request, env) {
   return json({ ok: true, id, bookmark: rec, summarised: Boolean(summary), waiting: Object.keys(all).length });
 }
 
+/** POST /api/eidos/summary  { url }
+ *  The summary a harvested read never had. Behind the door, because each new
+ *  one costs a model call; cached forever after, because a page's gist does
+ *  not change between two sittings. */
+async function inboxSummary(request, env) {
+  if (!env.VAULT) return json({ error: "no kv binding" }, 503);
+  if (!(await doorIsOpen(request, env))) return json({ error: "not signed in. open /names first." }, 401);
+  let body;
+  try { body = await request.json(); } catch { return json({ error: "bad json" }, 400); }
+  const u = fetchableUrl(body?.url);
+  if (!u) return json({ error: "that is not a link i can read" }, 400);
+  const key = "sum-" + hex(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(u.toString()))).slice(0, 12);
+  const cache = (await env.VAULT.get("eidos:summaries", "json")) || {};
+  if (cache[key]) return json({ ...cache[key], cached: true });
+  const link = await readLink(u);
+  const { summary, tags } = await summarise(env, link);
+  const rec = { summary, tags, title: link.title || u.hostname, at: new Date().toISOString() };
+  if (summary) { cache[key] = rec; await env.VAULT.put("eidos:summaries", JSON.stringify(cache)); }
+  return json({ ...rec, cached: false });
+}
+
 /** GET /api/eidos/bookmarks — his, so behind the door. */
 async function inboxList(request, env) {
   if (!env.VAULT) return json({ bookmarks: [] });
@@ -783,6 +804,7 @@ export default {
 
     // The inbox: adding a link is a write, listing is his to see.
     if (url.pathname === "/api/eidos/bookmark" && request.method === "POST") return inboxAdd(request, env);
+    if (url.pathname === "/api/eidos/summary" && request.method === "POST") return inboxSummary(request, env);
     if (url.pathname === "/api/eidos/bookmarks" && request.method === "GET") return inboxList(request, env);
 
     // The map: asking is a read, placing and pairing are writes.

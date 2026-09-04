@@ -126,10 +126,6 @@ const description = "throw a link in; judge what waits. the door to the library.
                  autocapitalize="none" autocorrect="off" spellcheck="false" required />
           <kbd class="in-tab" aria-hidden="true">↵</kbd>
         </label>
-        <label class="in-note-field">
-          <span class="in-sr">a note, optional</span>
-          <input type="text" name="note" id="note" placeholder="why, in a few words — optional" maxlength="600" />
-        </label>
         <div class="in-tools">
           <span class="in-tool in-tool--plus" aria-hidden="true">+</span>
           <span class="in-tool-hint">i read it once and keep what a card needs</span>
@@ -192,7 +188,6 @@ const description = "throw a link in; judge what waits. the door to the library.
       opacity: 0; transition: opacity var(--dur) var(--ease);
     }
     .in-url:focus-within .in-tab { opacity: 1; }
-    .in-note-field input { font-size: var(--t-prose-sm); color: var(--quiet); padding-top: 0; }
     .in-throw input::placeholder { color: var(--dim); opacity: 1; }
     .in-throw input:focus { outline: none; }
     .in-tools { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.35rem; }
@@ -410,6 +405,7 @@ const description = "throw a link in; judge what waits. the door to the library.
           $("c-title").textContent = c.who || "";
           $("c-who").textContent = c.summary ? "summarised" : (c.kind === "mine" ? (canSummarise ? "" : "no summary: no key set") : "suggested");
           $("c-source").href = c.url || c.source || "#";
+          if (!c.summary && c.url && !gated) summariseCard(c);
         } else {
           $("c-source").hidden = false;
           art.src = c.src;
@@ -418,6 +414,22 @@ const description = "throw a link in; judge what waits. the door to the library.
           $("c-who").textContent = `${c.who}${c.year ? " · " + c.year : ""}${c.type && c.type !== "painting" ? " · " + c.type : ""}`;
           $("c-source").href = c.source || "#";
         }
+      }
+      // the summary a harvested link never had: asked for once, cached by the
+      // worker, written into the card if it is still the one showing
+      async function summariseCard(c) {
+        try {
+          const r = await fetch("/api/eidos/summary", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ url: c.url }) });
+          if (!r.ok) return;
+          const { summary, tags } = await r.json();
+          if (!summary) return;
+          c.summary = summary; c.tags = tags || [];
+          if (cur && cur.id === c.id) {
+            $("r-desc").textContent = summary; $("r-desc").hidden = false;
+            $("r-tags").innerHTML = (c.tags || []).map((t) => `<i>#</i>${esc(t)}`).join(" "); $("r-tags").hidden = !c.tags.length;
+            $("c-who").textContent = "summarised";
+          }
+        } catch {}
       }
       function next() {
         cur = deck.shift() || null;
@@ -515,7 +527,7 @@ const description = "throw a link in; judge what waits. the door to the library.
       });
 
       // ── the composer ─────────────────────────────────────────────────
-      const form = $("throw"), urlField = $("url"), noteField = $("note"), go = $("throw-go"), tnote = $("throw-note");
+      const form = $("throw"), urlField = $("url"), go = $("throw-go"), tnote = $("throw-note");
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         const url = urlField.value.trim();
@@ -525,7 +537,7 @@ const description = "throw a link in; judge what waits. the door to the library.
         try {
           const r = await fetch("/api/eidos/bookmark", {
             method: "POST", headers: { "content-type": "application/json" },
-            body: JSON.stringify({ url, note: noteField.value.trim() }),
+            body: JSON.stringify({ url }),
           });
           if (r.status === 401) { tnote.textContent = "the door first."; shutOut(null); return; }
           const d = await r.json();
@@ -582,7 +594,7 @@ const description = "throw a link in; judge what waits. the door to the library.
 
       // ── the hand on the card ─────────────────────────────────────────
       let x0 = 0, dx = 0, dragging = false;
-      const onDown = (e) => { if (!cur || busy) return; dragging = true; x0 = e.clientX; card.classList.remove("is-flying", "is-home"); card.setPointerCapture?.(e.pointerId); };
+      const onDown = (e) => { if (!cur || busy || e.target.closest("a, button")) return; dragging = true; x0 = e.clientX; card.classList.remove("is-flying", "is-home"); card.setPointerCapture?.(e.pointerId); };
       const onMove = (e) => {
         if (!dragging) return;
         dx = e.clientX - x0;

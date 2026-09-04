@@ -122,3 +122,35 @@ test("a thrown link is read once and kept with what a card needs", async () => {
     globalThis.fetch = realFetch;
   }
 });
+
+test("a harvested read's summary is behind the door, and cached once it exists", async () => {
+  const bindings = env();
+  // shut door: nothing is read, nothing is written
+  const shut = await worker.fetch(new Request("https://dmklochko.com/api/eidos/summary", {
+    method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ url: "https://example.com/essay" }),
+  }), bindings);
+  assert.equal(shut.status, 401);
+  assert.equal(bindings._store["eidos:summaries"], undefined);
+
+  const cookie = await login(bindings);
+  // not a link it can read
+  const bad = await worker.fetch(new Request("https://dmklochko.com/api/eidos/summary", {
+    method: "POST", headers: { "content-type": "application/json", cookie }, body: JSON.stringify({ url: "not a url" }),
+  }), bindings);
+  assert.equal(bad.status, 400);
+
+  // a summary already made is served from the cache without touching the network
+  const key = "sum-" + Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode("https://example.com/essay"))))
+    .map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 12);
+  bindings._store["eidos:summaries"] = JSON.stringify({ [key]: { summary: "two plain sentences.", tags: ["craft"], title: "An essay", at: "2026-09-04T00:00:00Z" } });
+  globalThis.fetch = () => { throw new Error("the cache should have answered; the network was asked"); };
+  try {
+    const hit = await worker.fetch(new Request("https://dmklochko.com/api/eidos/summary", {
+      method: "POST", headers: { "content-type": "application/json", cookie }, body: JSON.stringify({ url: "https://example.com/essay" }),
+    }), bindings);
+    assert.equal(hit.status, 200);
+    const j = await hit.json();
+    assert.equal(j.summary, "two plain sentences.");
+    assert.equal(j.cached, true);
+  } finally { delete globalThis.fetch; }
+});
