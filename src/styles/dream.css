@@ -3069,11 +3069,9 @@ html[data-motion="paused"] .scenes .firelight {
   [data-mode="dream"] .dm-swap > * { transition: none; }
 }
 
-@media (hover: none) {
-  [data-mode="dream"] .dm-mail { opacity: 0; }
-
-  [data-mode="dream"] .dm-ytro { opacity: 0.42; }
-}
+/* Touch has no hover, so the heading simply rests as dm📨 klochko there,
+   the same joke as everywhere else. Hiding the envelope and showing three
+   dimmed letters instead read as broken type on a phone. */
 
 [data-mode="dream"] .pr-quote-mark {
   display: block;
