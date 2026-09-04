@@ -521,3 +521,14 @@ nothing appears on the page that he has not chosen.
 — the semicolon let the commit and push run after the grep failed, and a
 red suite shipped. Every step that must not run on red is joined with `&&`
 to the test, with no `;` anywhere in the chain.
+
+### Shipping is `scripts/ship.sh`, not a hand-written chain (4 Sep 2026)
+
+Twice in one day a chain pushed a red suite, both times from one `;` where
+`&&` was meant — the second time an hour after the first was written up
+here. A note is not a guard. `scripts/ship.sh "message" [paths…]` is the
+only way to push now: it restores the build stamp, builds, runs the suite,
+and only then adds, commits and pushes; `set -e` stops at the first failure.
+It then waits up to three minutes for a Cloudflare deployment newer than the
+push, because the Git-connected build skipped a push that arrived a minute
+after another one today and had to be published with `npx wrangler deploy`.
