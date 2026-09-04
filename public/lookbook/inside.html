@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>lookbook - inside</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --paper: #f2ebe1;
+    --ink: #1c1712;
+    --mute: #7a7167;
+    --rule: rgba(28,23,18,.14);
+    --serif: "Cormorant Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+    --sans: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: .55; }
+
+  .mast {
+    padding: 28px 28px 8px;
+    max-width: 100%;
+  }
+  .mast h1 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(42px, 8vw, 92px);
+    letter-spacing: -0.03em;
+    line-height: .9;
+    font-style: italic;
+  }
+  .mast .dek {
+    margin-top: 18px;
+    max-width: 36em;
+    color: var(--mute);
+    font-size: 13px;
+    letter-spacing: .01em;
+  }
+  .quiet-link {
+    display: inline-block;
+    margin-top: 22px;
+    font-size: 12px;
+    color: var(--mute);
+    letter-spacing: .04em;
+  }
+  .quiet-link:hover { color: var(--ink); opacity: 1; }
+
+  .index {
+    margin: 36px 0 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 18px;
+    max-width: 56em;
+  }
+  .index a {
+    font-size: 12px;
+    color: var(--mute);
+    letter-spacing: .02em;
+    text-transform: lowercase;
+  }
+  .index a:hover { color: var(--ink); opacity: 1; }
+
+  .sec-label {
+    padding: 56px 28px 12px;
+    font-size: 11px;
+    letter-spacing: .16em;
+    color: var(--mute);
+    text-transform: lowercase;
+    border-top: 1px solid var(--rule);
+    margin-top: 24px;
+  }
+  .sec-label:first-of-type { border-top: 0; margin-top: 0; padding-top: 24px; }
+
+  .person {
+    padding-bottom: 64px;
+  }
+  .hero {
+    width: 100%;
+    min-height: 220px;
+    max-height: 420px;
+    overflow: hidden;
+    background: #e4dbd0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero img {
+    width: 100%;
+    height: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    object-position: center;
+  }
+  .hero.empty {
+    min-height: 0;
+    max-height: none;
+    height: 12px;
+    background: transparent;
+  }
+  .hero.plate-hero {
+    min-height: 180px;
+    max-height: none;
+    height: auto;
+    padding: 48px 28px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .plate-card {
+    max-width: 34em;
+  }
+  .plate-card .pname {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(28px, 4vw, 42px);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .plate-card .psite {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--mute);
+    letter-spacing: .02em;
+  }
+  .plate-card .psite a { border-bottom: 1px solid var(--rule); }
+  .plate-card .psite a:hover { opacity: 1; border-color: var(--ink); color: var(--ink); }
+
+  .plate {
+    padding: 28px 28px 0;
+  }
+  .who {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 22px;
+    align-items: start;
+    max-width: 720px;
+    margin-bottom: 28px;
+  }
+  .who.noface { grid-template-columns: 1fr; }
+  .face {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: grayscale(1) contrast(1.05);
+  }
+  .num {
+    font-size: 10px;
+    letter-spacing: .18em;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .tag {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 10px;
+    letter-spacing: .12em;
+    color: var(--mute);
+    font-family: var(--sans);
+    font-style: normal;
+    vertical-align: middle;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(28px, 4.2vw, 48px);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-style: italic;
+  }
+  .meta {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--mute);
+    letter-spacing: .02em;
+  }
+  .meta a.at, .meta a.site {
+    color: var(--ink);
+  }
+  .meta a.at:hover, .meta a.site:hover { opacity: 1; border-bottom: 1px solid var(--ink); }
+  .at.mute { color: var(--mute); font-style: italic; }
+  .dot { opacity: .4; padding: 0 4px; }
+  .line {
+    margin-top: 14px;
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 300;
+    max-width: 34em;
+    line-height: 1.35;
+  }
+  .tweet {
+    margin-top: 16px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--mute);
+    max-width: 36em;
+    line-height: 1.4;
+  }
+  .turl { display: block; margin-top: 6px; font-style: normal; font-size: 11px; letter-spacing: .02em; opacity: .7; }
+
+  .strip {
+    display: grid;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .strip.n1 { grid-template-columns: 1fr; }
+  .strip.n2 { grid-template-columns: 1.2fr .8fr; }
+  .strip.n3 { grid-template-columns: 1fr 1fr 1fr; }
+  .strip figure {
+    overflow: hidden;
+    background: #e4dbd0;
+    min-height: 160px;
+    max-height: 320px;
+  }
+  .strip img {
+    width: 100%;
+    height: 100%;
+    min-height: 160px;
+    max-height: 320px;
+    object-fit: contain;
+  }
+
+  footer {
+    padding: 80px 28px 48px;
+    color: var(--mute);
+    font-size: 12px;
+    letter-spacing: .03em;
+    border-top: 1px solid var(--rule);
+    margin-top: 40px;
+  }
+  footer em { font-family: var(--serif); font-size: 20px; color: var(--ink); display: block; margin-bottom: 10px; font-style: italic; }
+
+  @media (max-width: 720px) {
+    .mast, .plate, footer, .sec-label { padding-left: 16px; padding-right: 16px; }
+    .hero { max-height: 320px; }
+    .strip.n2, .strip.n3 { grid-template-columns: 1fr; }
+    .who { grid-template-columns: 52px 1fr; gap: 14px; }
+    .face { width: 52px; height: 52px; }
+  }
+
+</style>
+</head>
+<body>
+<header class="mast">
+  <h1>lookbook</h1>
+  <p class="dek">fashion, foundries, culture agencies, food, studio worlds outside the digital lane. 74 people. for dmytro. private.</p>
+  <nav class="index"><a href="#actual-source">davis ngarupe / jp haynie</a><a href="#corbin-mahieu">corbin mahieu</a><a href="#daniel-siim">daniel siim</a><a href="#hadrien-herzog">hadrien herzog</a><a href="#jessica-strelioff">jessica strelioff</a><a href="#bastien-sozeau">bastien sozeau</a><a href="#braulio-amado">bráulio amado</a><a href="#james-edmondson">james edmondson</a><a href="#david-rudnick">david rudnick</a><a href="#hassan-rahim">hassan rahim</a><a href="#michelle-phillips">michelle phillips</a><a href="#debora-saveriano">debora saveriano</a><a href="#charlotte-rohde">charlotte rohde</a><a href="#giulia-boggio">giulia boggio</a><a href="#jana-papiernikova">jana papiernikova</a><a href="#gregory-page">gregory page</a><a href="#callin-mackintosh">callin mackintosh</a><a href="#francesco-corsini">francesco corsini</a><a href="#mathias-clottu">mathias clottu</a><a href="#heyjack">heyjack</a><a href="#antoine-elsensohn">antoine elsensohn</a><a href="#claire-huss">claire huss</a><a href="#alexis-taieb">alexis taïeb</a><a href="#matthieu-salvaggio">matthieu salvaggio</a><a href="#mollie-edgar">mollie edgar</a><a href="#tobey-albright">tobey albright</a><a href="#david-wise">david wise</a><a href="#nick-massarelli">nick massarelli</a><a href="#raoul-audouin">raoul audouin</a><a href="#alexis-mark">marie grønkær / kristoffer li / martin bek</a><a href="#maria-milenko">maria mileńko</a><a href="#tomasz-pawluk">tomasz pawluk</a><a href="#tanja-vibe">tanja vibe</a><a href="#petra-olsson-gendt">petra olsson gendt</a><a href="#tre-seals">tré seals</a><a href="#lucas-sharp">lucas sharp</a><a href="#vincent-chan">vincent chan</a><a href="#ryan-waller">ryan waller</a><a href="#alex-lin">alex lin</a><a href="#jon-key">jon key</a><a href="#artem-matyushkin">artem matyushkin</a><a href="#alina-derya">alina derya yakaboylu</a><a href="#teddy-blanks">teddy blanks</a><a href="#amber-weaver">amber weaver</a><a href="#elizabeth-goodspeed">elizabeth goodspeed</a><a href="#mathias-lempart">mathias lempart</a><a href="#sascia-reibel">sascia reibel</a><a href="#luke-prowse">luke prowse</a><a href="#kris-sowersby">kris sowersby</a><a href="#eike-konig">eike könig</a><a href="#kirsty-carter">kirsty carter</a><a href="#zak-kyes">zak kyes</a><a href="#frith-kerr">frith kerr</a><a href="#eveline-lupien">eveline lupien</a><a href="#marie-france-gaudet">marie-france gaudet</a><a href="#bram-broerse">bram broerse</a><a href="#david-keshavjee">david keshavjee</a><a href="#lukas-haider">lukas haider</a><a href="#jas-bell">jas bell</a><a href="#falco-van-burg">falco van burg</a><a href="#rue-yi">rue yi</a><a href="#danielle-laroy">danielle laroy</a><a href="#mike-white">mike white</a><a href="#tom-finn">tom finn</a><a href="#kristoffer-solling">kristoffer sølling</a><a href="#henrik-olsson">henrik olssøn</a><a href="#erika-barbieri">erika barbieri</a><a href="#simon-calvet">simon calvet</a><a href="#john-clayton-lee">john clayton lee</a><a href="#neil-panchal">neil panchal</a><a href="#svein-haakon-lia">svein haakon lia</a><a href="#kristian-berge">kristian hjorth berge</a><a href="#johannes-conrad">johannes conrad</a><a href="#eric-hu">eric hu</a></nav>
+  <a class="quiet-link" href="index.html">← back to front</a>
+</header>
+<main>
+<p class="sec-label">everything else</p>
+<section id="actual-source" class="person">
+  <figure class="hero"><img src="img/actual-source/01.jpg" alt="Davis Ngarupe / JP Haynie"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/actual-source/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">01</p>
+        <h2>davis ngarupe / jp haynie</h2>
+        <p class="meta"><a class="at" href="https://x.com/actual_source" target="_blank" rel="noopener">@actual_source</a> <span class="dot">·</span> <a class="site" href="https://actualsource.work" target="_blank" rel="noopener">actualsource.work</a></p>
+        <p class="line">identities, publications and worlds for culture and product .  SATISFY, A24, NikeLab.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/actual-source/02.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="corbin-mahieu" class="person">
+  <figure class="hero"><img src="img/corbin-mahieu/01.jpg" alt="Corbin Mahieu"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/corbin-mahieu/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">02</p>
+        <h2>corbin mahieu</h2>
+        <p class="meta"><a class="at" href="https://x.com/corbinmahieu" target="_blank" rel="noopener">@corbinmahieu</a> <span class="dot">·</span> <a class="site" href="https://corbinmahieu.be" target="_blank" rel="noopener">corbinmahieu.be</a></p>
+        <p class="line">identities, books and art direction from ghent.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/corbin-mahieu/02.jpg" alt=""></figure>
+<figure><img src="img/corbin-mahieu/03.jpg" alt=""></figure>
+<figure><img src="img/corbin-mahieu/12.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="daniel-siim" class="person">
+  <figure class="hero"><img src="img/daniel-siim/01.jpg" alt="Daniel Siim"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">03</p>
+        <h2>daniel siim</h2>
+        <p class="meta"><a class="at" href="https://x.com/danielsiim" target="_blank" rel="noopener">@danielsiim</a> <span class="dot">·</span> <a class="site" href="https://danielsiim.dk" target="_blank" rel="noopener">danielsiim.dk</a></p>
+        <p class="line">copenhagen identities, print and sites for fashion .  AFFXWRKS, TEKLA, Carhartt WIP.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/daniel-siim/02.jpg" alt=""></figure>
+<figure><img src="img/daniel-siim/03.jpg" alt=""></figure>
+<figure><img src="img/daniel-siim/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="hadrien-herzog" class="person">
+  <figure class="hero"><img src="img/hadrien-herzog/01.jpg" alt="Hadrien Herzog"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">04</p>
+        <h2>hadrien herzog</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/hadrienherzog" target="_blank" rel="noopener">ig @hadrienherzog</a> <span class="dot">·</span> <a class="site" href="https://hadrienherzog.com" target="_blank" rel="noopener">hadrienherzog.com</a></p>
+        <p class="line">graphic and type from paris .  chloé, kenzo tali, nina ricci.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/hadrien-herzog/02.jpg" alt=""></figure>
+<figure><img src="img/hadrien-herzog/03.jpg" alt=""></figure>
+<figure><img src="img/hadrien-herzog/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="jessica-strelioff" class="person">
+  <figure class="hero"><img src="img/jessica-strelioff/01.webp" alt="Jessica Strelioff"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/jessica-strelioff/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">05</p>
+        <h2>jessica strelioff</h2>
+        <p class="meta"><a class="at" href="https://x.com/jstrelioff" target="_blank" rel="noopener">@jstrelioff</a> <span class="dot">·</span> <a class="site" href="https://www.goodside.studio" target="_blank" rel="noopener">goodside.studio</a></p>
+        <p class="line">independent brand identities .  goodside, austin. cambium, henri &amp;amp; hélène.</p>
+        <p class="tweet">“✨ New work ✨ Meet Henri &amp;amp; Hélène, a neighborhood French bistro named after the chef’s two children, with a playful identity inspired by vintage French charm and cafés.” x.com/jstrelioff/status/2090506164190445919</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/jessica-strelioff/02.webp" alt=""></figure>
+<figure><img src="img/jessica-strelioff/03.webp" alt=""></figure>
+<figure><img src="img/jessica-strelioff/04.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="bastien-sozeau" class="person">
+  <figure class="hero"><img src="img/bastien-sozeau/01.png" alt="Bastien Sozeau"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">06</p>
+        <h2>bastien sozeau</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/bsozeau" target="_blank" rel="noopener">ig @bsozeau</a> <span class="dot">·</span> <a class="site" href="https://bureau.sozeau.com" target="_blank" rel="noopener">bureau.sozeau.com</a></p>
+        <p class="line">art direction and type .  bureau sozeau / NBR. courrèges, louboutin, le monde.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/bastien-sozeau/02.jpg" alt=""></figure>
+<figure><img src="img/bastien-sozeau/03.webp" alt=""></figure>
+<figure><img src="img/bastien-sozeau/04.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="braulio-amado" class="person">
+  <figure class="hero"><img src="img/braulio-amado/01.jpg" alt="Bráulio Amado"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/braulio-amado/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">07</p>
+        <h2>bráulio amado</h2>
+        <p class="meta"><a class="at" href="https://x.com/BraulioAmado" target="_blank" rel="noopener">@BraulioAmado</a> <span class="dot">·</span> <a class="site" href="https://badbadbadbad.com" target="_blank" rel="noopener">badbadbadbad.com</a></p>
+        <p class="line">posters, record sleeves, feral identity. B.A.D., nyc / lisbon.</p>
+        <p class="tweet">“Hello Tokyo! 🌀 My new show 🌀 LOST IN THE SAUCE 🌀 opens tonight at Commune 🌀 all new paintings 🌀” x.com/BraulioAmado/status/1880155735037997519</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/braulio-amado/02.jpg" alt=""></figure>
+<figure><img src="img/braulio-amado/03.jpg" alt=""></figure>
+<figure><img src="img/braulio-amado/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="james-edmondson" class="person">
+  <figure class="hero"><img src="img/james-edmondson/01.jpg" alt="James Edmondson"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/james-edmondson/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">08</p>
+        <h2>james edmondson</h2>
+        <p class="meta"><a class="at" href="https://x.com/OHnoTypeCo" target="_blank" rel="noopener">@OHnoTypeCo</a> <span class="dot">·</span> <a class="site" href="https://ohnotype.co" target="_blank" rel="noopener">ohnotype.co</a></p>
+        <p class="line">irreverent retail and custom type .  OH no Type Co., oakland.</p>
+        <p class="tweet">“Polymath is out today, and ready to shakeup the entire industry.” x.com/OHnoTypeCo/status/1780244546645069921</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/james-edmondson/02.jpg" alt=""></figure>
+<figure><img src="img/james-edmondson/03.png" alt=""></figure>
+<figure><img src="img/james-edmondson/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="david-rudnick" class="person">
+  <figure class="hero"><img src="img/david-rudnick/01.jpg" alt="David Rudnick"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/david-rudnick/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">09</p>
+        <h2>david rudnick</h2>
+        <p class="meta"><a class="at" href="https://x.com/David_Rudnick" target="_blank" rel="noopener">@David_Rudnick</a> <span class="dot">·</span> <a class="site" href="https://davidrudnick.org" target="_blank" rel="noopener">davidrudnick.org</a></p>
+        <p class="line">cinematic type systems for music, fashion, galleries.</p>
+        <p class="tweet">“ecce homo” x.com/David_Rudnick/status/2091838348499280281</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/david-rudnick/02.jpg" alt=""></figure>
+<figure><img src="img/david-rudnick/03.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="hassan-rahim" class="person">
+  <figure class="hero"><img src="img/hassan-rahim/01.jpg" alt="Hassan Rahim"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/hassan-rahim/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">10</p>
+        <h2>hassan rahim</h2>
+        <p class="meta"><a class="at" href="https://x.com/hassanrahim" target="_blank" rel="noopener">@hassanrahim</a> <span class="dot">·</span> <a class="site" href="https://hassanrahim.com" target="_blank" rel="noopener">hassanrahim.com</a></p>
+        <p class="line">slow cinematic identity and album/film campaigns. studio 12:01.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="michelle-phillips" class="person">
+  <figure class="hero"><img src="img/michelle-phillips/01.jpg" alt="Michelle Phillips"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">11</p>
+        <h2>michelle phillips</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/yukiko_michelle" target="_blank" rel="noopener">ig @yukiko_michelle</a> <span class="dot">·</span> <a class="site" href="https://y-u-k-i-k-o.com" target="_blank" rel="noopener">y-u-k-i-k-o.com</a></p>
+        <p class="line">cultural identities and experimental editorial .  studio yukiko. flaneur, nike ambush, 36th bienal.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/michelle-phillips/02.jpg" alt=""></figure>
+<figure><img src="img/michelle-phillips/03.jpg" alt=""></figure>
+<figure><img src="img/michelle-phillips/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="debora-saveriano" class="person">
+  <figure class="hero"><img src="img/debora-saveriano/01.jpg" alt="Debora Saveriano"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">12</p>
+        <h2>debora saveriano</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/ouma.cc" target="_blank" rel="noopener">ig @ouma.cc</a> <span class="dot">·</span> <a class="site" href="https://www.ouma.cc" target="_blank" rel="noopener">ouma.cc</a></p>
+        <p class="line">music and fashion identity worlds .  OUMA. sonic portrait process.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/debora-saveriano/02.jpg" alt=""></figure>
+<figure><img src="img/debora-saveriano/03.jpg" alt=""></figure>
+<figure><img src="img/debora-saveriano/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="charlotte-rohde" class="person">
+  <figure class="hero"><img src="img/charlotte-rohde/01.jpg" alt="Charlotte Rohde"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/charlotte-rohde/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">13</p>
+        <h2>charlotte rohde</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.charlotterohde.de" target="_blank" rel="noopener">charlotterohde.de</a></p>
+        <p class="line">custom type as identity .  HKW, kanal, centre pompidou, feeld. you loved an image.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/charlotte-rohde/02.jpg" alt=""></figure>
+<figure><img src="img/charlotte-rohde/03.png" alt=""></figure>
+<figure><img src="img/charlotte-rohde/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="giulia-boggio" class="person">
+  <figure class="hero"><img src="img/giulia-boggio/01.jpg" alt="Giulia Boggio"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">14</p>
+        <h2>giulia boggio</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.giuliaboggio.xyz" target="_blank" rel="noopener">giuliaboggio.xyz</a></p>
+        <p class="line">typefaces plus graphic identity. ufficio sans, TYPE01, soho house.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/giulia-boggio/02.jpg" alt=""></figure>
+<figure><img src="img/giulia-boggio/03.jpg" alt=""></figure>
+<figure><img src="img/giulia-boggio/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="jana-papiernikova" class="person">
+  <figure class="hero"><img src="img/jana-papiernikova/01.png" alt="Jana Papiernikova"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">15</p>
+        <h2>jana papiernikova</h2>
+        <p class="meta"><a class="at" href="https://x.com/j_papiernikova" target="_blank" rel="noopener">@j_papiernikova</a> <span class="dot">·</span> <a class="site" href="https://www.papier.work" target="_blank" rel="noopener">papier.work</a></p>
+        <p class="line">identities at bleed, oslo .  sanity (visuelt best of show 2026), tom wood, fenul.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/jana-papiernikova/02.png" alt=""></figure>
+<figure><img src="img/jana-papiernikova/03.png" alt=""></figure>
+<figure><img src="img/jana-papiernikova/04.png" alt=""></figure></div>
+  </div>
+</section>
+<section id="gregory-page" class="person">
+  <figure class="hero"><img src="img/gregory-page/01.jpg" alt="Gregory Page"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">16</p>
+        <h2>gregory page</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://gregory-page.com" target="_blank" rel="noopener">gregory-page.com</a></p>
+        <p class="line">custom type as identity .  watch.swiss, sony music / tove styrke, CHIMI.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/gregory-page/02.jpg" alt=""></figure>
+<figure><img src="img/gregory-page/03.jpg" alt=""></figure>
+<figure><img src="img/gregory-page/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="callin-mackintosh" class="person">
+  <figure class="hero"><img src="img/callin-mackintosh/01.jpg" alt="Callin Mackintosh"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/callin-mackintosh/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">17</p>
+        <h2>callin mackintosh</h2>
+        <p class="meta"><a class="at" href="https://x.com/CallinMack" target="_blank" rel="noopener">@CallinMack</a> <span class="dot">·</span> <a class="site" href="https://www.callinmackintosh.com" target="_blank" rel="noopener">callinmackintosh.com</a></p>
+        <p class="line">typographically driven editorial and identity. edinburgh. sundance 2020, gated recordings.</p>
+        <p class="tweet">“Artwork for Acidulant - Sonic Expansion [GTD.024] Coming soon on @GatedRecordings” x.com/CallinMack/status/1793943600428188007</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/callin-mackintosh/02.jpg" alt=""></figure>
+<figure><img src="img/callin-mackintosh/03.jpg" alt=""></figure>
+<figure><img src="img/callin-mackintosh/10.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="francesco-corsini" class="person">
+  <figure class="hero"><img src="img/francesco-corsini/01.jpg" alt="Francesco Corsini"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">18</p>
+        <h2>francesco corsini</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/studiobergini" target="_blank" rel="noopener">ig @studiobergini</a> <span class="dot">·</span> <a class="site" href="https://studiobergini.eu" target="_blank" rel="noopener">studiobergini.eu</a></p>
+        <p class="line">identities, books, exhibitions .  studio bergini. unto, tate, lisson, LCBA.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/francesco-corsini/02.jpg" alt=""></figure>
+<figure><img src="img/francesco-corsini/03.jpg" alt=""></figure>
+<figure><img src="img/francesco-corsini/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="mathias-clottu" class="person">
+  <figure class="hero"><img src="img/mathias-clottu/01.jpg" alt="Mathias Clottu"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">19</p>
+        <h2>mathias clottu</h2>
+        <p class="meta"><a class="at" href="https://x.com/mathiasclottu" target="_blank" rel="noopener">@mathiasclottu</a> <span class="dot">·</span> <a class="site" href="https://www.mathiasclottu.com" target="_blank" rel="noopener">mathiasclottu.com</a></p>
+        <p class="line">type-led identities and exhibitions .  mies allzweck, venice architecture biennale.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/mathias-clottu/02.jpg" alt=""></figure>
+<figure><img src="img/mathias-clottu/03.jpg" alt=""></figure>
+<figure><img src="img/mathias-clottu/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="heyjack" class="person">
+  <figure class="hero"><img src="img/heyjack/01.png" alt="Heyjack"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">20</p>
+        <h2>heyjack</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://heyjack.studio" target="_blank" rel="noopener">heyjack.studio</a></p>
+        <p class="line">bold copenhagen identity for culture and music .  koda, betty nansen, flying tiger. katrine hayden / signe jacobsen.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/heyjack/02.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="antoine-elsensohn" class="person">
+  <figure class="hero"><img src="img/antoine-elsensohn/01.jpg" alt="Antoine Elsensohn"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">21</p>
+        <h2>antoine elsensohn</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.antoineelsensohn.com" target="_blank" rel="noopener">antoineelsensohn.com</a></p>
+        <p class="line">identities and custom type from paris. ballet de marseille, palais de tokyo, nike tuned.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/antoine-elsensohn/02.jpg" alt=""></figure>
+<figure><img src="img/antoine-elsensohn/03.jpg" alt=""></figure>
+<figure><img src="img/antoine-elsensohn/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="claire-huss" class="person">
+  <figure class="hero"><img src="img/claire-huss/01.jpg" alt="Claire Huss"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">22</p>
+        <h2>claire huss</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.studioclairehuss.com" target="_blank" rel="noopener">studioclairehuss.com</a></p>
+        <p class="line">books and fashion identities. ex-cos lead graphic. women under the influence.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/claire-huss/02.jpg" alt=""></figure>
+<figure><img src="img/claire-huss/03.jpg" alt=""></figure>
+<figure><img src="img/claire-huss/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="alexis-taieb" class="person">
+  <figure class="hero"><img src="img/alexis-taieb/01.avif" alt="Alexis Taïeb"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">23</p>
+        <h2>alexis taïeb</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/studiotyrsa" target="_blank" rel="noopener">ig @studiotyrsa</a> <span class="dot">·</span> <a class="site" href="https://www.studiotyrsa.com" target="_blank" rel="noopener">studiotyrsa.com</a></p>
+        <p class="line">lettering, identity and art direction. studio tyrsa. aimé leon dore, dior, fka twigs.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/alexis-taieb/02.avif" alt=""></figure>
+<figure><img src="img/alexis-taieb/03.avif" alt=""></figure>
+<figure><img src="img/alexis-taieb/04.avif" alt=""></figure></div>
+  </div>
+</section>
+<section id="matthieu-salvaggio" class="person">
+  <figure class="hero"><img src="img/matthieu-salvaggio/01.webp" alt="Matthieu Salvaggio"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/matthieu-salvaggio/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">24</p>
+        <h2>matthieu salvaggio</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://blazetype.eu" target="_blank" rel="noopener">blazetype.eu</a></p>
+        <p class="line">retail and custom type as identity. blaze type, lyon. bvb, fff, brooklyn museum.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/matthieu-salvaggio/02.webp" alt=""></figure>
+<figure><img src="img/matthieu-salvaggio/04.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="mollie-edgar" class="person">
+  <figure class="hero"><img src="img/mollie-edgar/01.webp" alt="Mollie Edgar"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">25</p>
+        <h2>mollie edgar</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://mollie-edgar.com" target="_blank" rel="noopener">mollie-edgar.com</a></p>
+        <p class="line">cultural books and identities. hour studio, chicago. headlands, aic.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/mollie-edgar/02.webp" alt=""></figure>
+<figure><img src="img/mollie-edgar/03.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="tobey-albright" class="person">
+  <figure class="hero"><img src="img/tobey-albright/01.jpg" alt="Tobey Albright"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">26</p>
+        <h2>tobey albright</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://tobeyalbright.com" target="_blank" rel="noopener">tobeyalbright.com</a></p>
+        <p class="line">exhibition graphics and cultural identity. citing black geographies, hull-house.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/tobey-albright/02.jpg" alt=""></figure>
+<figure><img src="img/tobey-albright/03.jpg" alt=""></figure>
+<figure><img src="img/tobey-albright/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="david-wise" class="person">
+  <figure class="hero"><img src="img/david-wise/01.jpg" alt="David Wise"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">27</p>
+        <h2>david wise</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://forthcoming.studio" target="_blank" rel="noopener">forthcoming.studio</a></p>
+        <p class="line">identities, print and digital for art. forthcoming studio. ccs bard, rashid johnson.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/david-wise/02.jpg" alt=""></figure>
+<figure><img src="img/david-wise/03.jpg" alt=""></figure>
+<figure><img src="img/david-wise/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="nick-massarelli" class="person">
+  <figure class="hero"><img src="img/nick-massarelli/01.jpg" alt="Nick Massarelli"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">28</p>
+        <h2>nick massarelli</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://nickmassarelli.com" target="_blank" rel="noopener">nickmassarelli.com</a></p>
+        <p class="line">books and cultural identity. actual source ny, pharmacy books, ccs bard.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/nick-massarelli/02.jpg" alt=""></figure>
+<figure><img src="img/nick-massarelli/03.jpg" alt=""></figure>
+<figure><img src="img/nick-massarelli/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="raoul-audouin" class="person">
+  <figure class="hero"><img src="img/raoul-audouin/01.jpg" alt="Raoul Audouin"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">29</p>
+        <h2>raoul audouin</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://raoulaudouin.fr" target="_blank" rel="noopener">raoulaudouin.fr</a></p>
+        <p class="line">printed and online matter as research. werkplaats typografie, copenhagen.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/raoul-audouin/02.jpg" alt=""></figure>
+<figure><img src="img/raoul-audouin/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="alexis-mark" class="person">
+  <figure class="hero"><img src="img/alexis-mark/01.jpg" alt="Marie Grønkær / Kristoffer Li / Martin Bek"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">30</p>
+        <h2>marie grønkær / kristoffer li / martin bek</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/office.alexismark" target="_blank" rel="noopener">ig @office.alexismark</a> <span class="dot">·</span> <a class="site" href="https://www.alexismark.com" target="_blank" rel="noopener">alexismark.com</a></p>
+        <p class="line">identity and art direction from copenhagen. ganni, danish pavilion, smk, chart.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/alexis-mark/02.jpg" alt=""></figure>
+<figure><img src="img/alexis-mark/03.jpg" alt=""></figure>
+<figure><img src="img/alexis-mark/04.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="maria-milenko" class="person">
+  <figure class="hero"><img src="img/maria-milenko/01.webp" alt="Maria Mileńko"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">31</p>
+        <h2>maria mileńko</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://hugmun.studio" target="_blank" rel="noopener">hugmun.studio</a></p>
+        <p class="line">illustration-led identities. hugmun, copenhagen. murrē, radio 357, fritz kola.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/maria-milenko/02.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="tomasz-pawluk" class="person">
+  <figure class="hero"><img src="img/tomasz-pawluk/01.webp" alt="Tomasz Pawluk"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">32</p>
+        <h2>tomasz pawluk</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://hugmun.studio" target="_blank" rel="noopener">hugmun.studio</a></p>
+        <p class="line">type-leaning identities. hugmun. glas optician, marceli, mortar and brick.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/tomasz-pawluk/02.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="tanja-vibe" class="person">
+  <figure class="hero"><img src="img/tanja-vibe/01.png" alt="Tanja Vibe"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">33</p>
+        <h2>tanja vibe</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://allthewaytoparis.com" target="_blank" rel="noopener">allthewaytoparis.com</a></p>
+        <p class="line">graphic identities, catalogues and objects. all the way to paris. hay, muuto.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/tanja-vibe/02.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="petra-olsson-gendt" class="person">
+  <figure class="hero"><img src="img/petra-olsson-gendt/01.png" alt="Petra Olsson Gendt"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">34</p>
+        <h2>petra olsson gendt</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://allthewaytoparis.com" target="_blank" rel="noopener">allthewaytoparis.com</a></p>
+        <p class="line">catalogues, textiles, identity. all the way to paris, copenhagen.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/petra-olsson-gendt/02.png" alt=""></figure></div>
+  </div>
+</section>
+<section id="tre-seals" class="person">
+  <figure class="hero"><img src="img/tre-seals/01.webp" alt="Tré Seals"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">35</p>
+        <h2>tré seals</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.vocaltype.co" target="_blank" rel="noopener">vocaltype.co</a></p>
+        <p class="line">protest-history typefaces as identity. vocal type. martin, bayard, amazon labor union.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/tre-seals/03.webp" alt=""></figure>
+<figure><img src="img/tre-seals/04.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="lucas-sharp" class="person">
+  <figure class="hero"><img src="img/lucas-sharp/01.jpg" alt="Lucas Sharp"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">36</p>
+        <h2>lucas sharp</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.sharptype.co" target="_blank" rel="noopener">sharptype.co</a></p>
+        <p class="line">custom type as identity. sharp type, nyc. nordstrom, ghost.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/lucas-sharp/02.png" alt=""></figure>
+<figure><img src="img/lucas-sharp/03.jpg" alt=""></figure>
+<figure><img src="img/lucas-sharp/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="vincent-chan" class="person">
+  <figure class="hero"><img src="img/vincent-chan/01.jpg" alt="Vincent Chan"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">37</p>
+        <h2>vincent chan</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/matterofsorts" target="_blank" rel="noopener">ig @matterofsorts</a> <span class="dot">·</span> <a class="site" href="http://matterofsorts.com" target="_blank" rel="noopener">matterofsorts.com</a></p>
+        <p class="line">custom type and foundry work. matter of sorts, melbourne. quadrant text mono.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/vincent-chan/02.jpg" alt=""></figure>
+<figure><img src="img/vincent-chan/03.jpg" alt=""></figure>
+<figure><img src="img/vincent-chan/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="ryan-waller" class="person">
+  <figure class="hero"><img src="img/ryan-waller/01.jpg" alt="Ryan Waller"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">38</p>
+        <h2>ryan waller</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/other_means" target="_blank" rel="noopener">ig @other_means</a> <span class="dot">·</span> <a class="site" href="https://www.othermeans.us" target="_blank" rel="noopener">othermeans.us</a></p>
+        <p class="line">cultural identities. other means, brooklyn. brooklyn museum, ica philadelphia, the shed.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/ryan-waller/02.jpg" alt=""></figure>
+<figure><img src="img/ryan-waller/03.png" alt=""></figure>
+<figure><img src="img/ryan-waller/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="alex-lin" class="person">
+  <figure class="hero"><img src="img/alex-lin/01.webp" alt="Alex Lin"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">39</p>
+        <h2>alex lin</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://studiolin.org" target="_blank" rel="noopener">studiolin.org</a></p>
+        <p class="line">editorial and identity structures. aperture, guggenheim, whitney, oma.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/alex-lin/02.webp" alt=""></figure>
+<figure><img src="img/alex-lin/03.webp" alt=""></figure>
+<figure><img src="img/alex-lin/04.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="jon-key" class="person">
+  <figure class="hero"><img src="img/jon-key/01.jpg" alt="Jon Key"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">40</p>
+        <h2>jon key</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.morcoskey.com" target="_blank" rel="noopener">morcoskey.com</a></p>
+        <p class="line">cultural-institution identity, exhibition graphics, black queer editorial. morcos key.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/jon-key/02.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="artem-matyushkin" class="person">
+  <figure class="hero"><img src="img/artem-matyushkin/01.jpg" alt="Artem Matyushkin"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">41</p>
+        <h2>artem matyushkin</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.a-r-t-e-m.com" target="_blank" rel="noopener">a-r-t-e-m.com</a></p>
+        <p class="line">conceptual visual languages for culture. non-objective. moma, ssense, dsm.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/artem-matyushkin/02.jpg" alt=""></figure>
+<figure><img src="img/artem-matyushkin/03.jpg" alt=""></figure>
+<figure><img src="img/artem-matyushkin/04.png" alt=""></figure></div>
+  </div>
+</section>
+<section id="alina-derya" class="person">
+  <figure class="hero"><img src="img/alina-derya/01.jpg" alt="Alina Derya Yakaboylu"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">42</p>
+        <h2>alina derya yakaboylu</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://alinaderya.com" target="_blank" rel="noopener">alinaderya.com</a></p>
+        <p class="line">exhibition identities and publications. museum brandhorst, sammlung goetz.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/alina-derya/02.png" alt=""></figure>
+<figure><img src="img/alina-derya/03.jpg" alt=""></figure>
+<figure><img src="img/alina-derya/04.png" alt=""></figure></div>
+  </div>
+</section>
+<section id="teddy-blanks" class="person">
+  <figure class="hero"><img src="img/teddy-blanks/01.jpg" alt="Teddy Blanks"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">43</p>
+        <h2>teddy blanks</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://chips.nyc" target="_blank" rel="noopener">chips.nyc</a></p>
+        <p class="line">film-title identities as graphic systems. barbie, weapons, chips.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/teddy-blanks/02.jpg" alt=""></figure>
+<figure><img src="img/teddy-blanks/03.jpg" alt=""></figure>
+<figure><img src="img/teddy-blanks/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="amber-weaver" class="person">
+  <figure class="hero"><img src="img/amber-weaver/01.png" alt="Amber Weaver"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">44</p>
+        <h2>amber weaver</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://type-01.com" target="_blank" rel="noopener">type-01.com</a></p>
+        <p class="line">type-led identity and publishing. type01, alt.tf. type as narrative.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/amber-weaver/02.jpg" alt=""></figure>
+<figure><img src="img/amber-weaver/03.png" alt=""></figure>
+<figure><img src="img/amber-weaver/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="elizabeth-goodspeed" class="person">
+  <figure class="hero"><img src="img/elizabeth-goodspeed/02.webp" alt="Elizabeth Goodspeed"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">45</p>
+        <h2>elizabeth goodspeed</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="http://elizabethgoodspeed.com" target="_blank" rel="noopener">elizabethgoodspeed.com</a></p>
+        <p class="line">idea-driven identity, editorial, art direction. a24, whitney, phaidon.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/elizabeth-goodspeed/03.webp" alt=""></figure>
+<figure><img src="img/elizabeth-goodspeed/04.webp" alt=""></figure>
+<figure><img src="img/elizabeth-goodspeed/05.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="mathias-lempart" class="person">
+  <figure class="hero"><img src="img/mathias-lempart/01.png" alt="Mathias Lempart"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">46</p>
+        <h2>mathias lempart</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://shortnotice.studio" target="_blank" rel="noopener">shortnotice.studio</a></p>
+        <p class="line">type-campaign worlds and cultural graphic systems. shortnotice, dinamo campaigns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="sascia-reibel" class="person">
+  <figure class="hero"><img src="img/sascia-reibel/01.jpg" alt="Sascia Reibel"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">47</p>
+        <h2>sascia reibel</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://shortnotice.studio" target="_blank" rel="noopener">shortnotice.studio</a></p>
+        <p class="line">type-based books and institutional graphics. shortnotice, dinamo art direction.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/sascia-reibel/02.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="luke-prowse" class="person">
+  <figure class="hero"><img src="img/luke-prowse/01.png" alt="Luke Prowse"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">48</p>
+        <h2>luke prowse</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.nan.xyz" target="_blank" rel="noopener">nan.xyz</a></p>
+        <p class="line">expressive type systems as identity. nan rage, superx, eurostar.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/luke-prowse/02.png" alt=""></figure>
+<figure><img src="img/luke-prowse/03.png" alt=""></figure>
+<figure><img src="img/luke-prowse/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="kris-sowersby" class="person">
+  <figure class="hero"><img src="img/kris-sowersby/01.jpg" alt="Kris Sowersby"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/kris-sowersby/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">49</p>
+        <h2>kris sowersby</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://klim.co.nz" target="_blank" rel="noopener">klim.co.nz</a></p>
+        <p class="line">typefaces that become identity systems. klim. ft, national geographic, tourism nz.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/kris-sowersby/02.jpg" alt=""></figure>
+<figure><img src="img/kris-sowersby/03.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="eike-konig" class="person">
+  <figure class="hero"><img src="img/eike-konig/01.jpg" alt="Eike König"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/eike-konig/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">50</p>
+        <h2>eike könig</h2>
+        <p class="meta"><a class="at" href="https://x.com/hortberlin" target="_blank" rel="noopener">@hortberlin</a> <span class="dot">·</span> <a class="site" href="https://hort.org.uk" target="_blank" rel="noopener">hort.org.uk</a></p>
+        <p class="line">cultural and music identity. hort, berlin. bauhaus dessau, bergen assembly.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/eike-konig/02.jpg" alt=""></figure>
+<figure><img src="img/eike-konig/03.jpg" alt=""></figure>
+<figure><img src="img/eike-konig/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="kirsty-carter" class="person">
+  <figure class="hero"><img src="img/kirsty-carter/01.jpg" alt="Kirsty Carter"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/kirsty-carter/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">51</p>
+        <h2>kirsty carter</h2>
+        <p class="meta"><a class="at" href="https://x.com/apracticeforeverydaylife" target="_blank" rel="noopener">@apracticeforeverydaylife</a> <span class="dot">·</span> <a class="site" href="https://apracticeforeverydaylife.com" target="_blank" rel="noopener">apracticeforeverydaylife.com</a></p>
+        <p class="line">cultural and fashion identity. aesop, erdem, jw anderson, whitney.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/kirsty-carter/02.jpg" alt=""></figure>
+<figure><img src="img/kirsty-carter/03.jpg" alt=""></figure>
+<figure><img src="img/kirsty-carter/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="zak-kyes" class="person">
+  <figure class="hero"><img src="img/zak-kyes/01.png" alt="Zak Kyes"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">52</p>
+        <h2>zak kyes</h2>
+        <p class="meta"><a class="at" href="https://x.com/zakgroupoffice" target="_blank" rel="noopener">@zakgroupoffice</a> <span class="dot">·</span> <a class="site" href="https://www.zak.group" target="_blank" rel="noopener">zak.group</a></p>
+        <p class="line">identity and creative direction for contemporary culture. anne imhof, nike, prada.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/zak-kyes/02.jpg" alt=""></figure>
+<figure><img src="img/zak-kyes/03.jpg" alt=""></figure>
+<figure><img src="img/zak-kyes/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="frith-kerr" class="person">
+  <figure class="hero"><img src="img/frith-kerr/01.jpg" alt="Frith Kerr"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">53</p>
+        <h2>frith kerr</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://studiofrith.com" target="_blank" rel="noopener">studiofrith.com</a></p>
+        <p class="line">fashion and cultural identity with a body. frieze, roksanda, erdem, guggenheim.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="eveline-lupien" class="person">
+  <figure class="hero"><img src="img/eveline-lupien/01.jpg" alt="Eveline Lupien"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">54</p>
+        <h2>eveline lupien</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://supersysteme.com" target="_blank" rel="noopener">supersysteme.com</a></p>
+        <p class="line">cultural identities where type is image. supersystème. festival des faubourgs, offta.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/eveline-lupien/02.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="marie-france-gaudet" class="person">
+  <figure class="hero"><img src="img/marie-france-gaudet/01.jpg" alt="Marie-France Gaudet"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">55</p>
+        <h2>marie-france gaudet</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://supersysteme.com" target="_blank" rel="noopener">supersysteme.com</a></p>
+        <p class="line">editorial, identity and websites for arts institutions. supersystème.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/marie-france-gaudet/02.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="bram-broerse" class="person">
+  <figure class="hero"><img src="img/bram-broerse/01.webp" alt="Bram Broerse"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">56</p>
+        <h2>bram broerse</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.studioairport.nl" target="_blank" rel="noopener">studioairport.nl</a></p>
+        <p class="line">cinematic cultural identity. emergence magazine, design museum, slowness.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/bram-broerse/02.webp" alt=""></figure>
+<figure><img src="img/bram-broerse/03.webp" alt=""></figure>
+<figure><img src="img/bram-broerse/04.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="david-keshavjee" class="person">
+  <figure class="hero"><img src="img/david-keshavjee/01.jpg" alt="David Keshavjee"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/david-keshavjee/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">57</p>
+        <h2>david keshavjee</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://maximage.biz" target="_blank" rel="noopener">maximage.biz</a></p>
+        <p class="line">swiss identities, books, type. palace skateboards, kunsthalle basel. maxitype.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/david-keshavjee/02.jpg" alt=""></figure>
+<figure><img src="img/david-keshavjee/03.jpg" alt=""></figure>
+<figure><img src="img/david-keshavjee/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="lukas-haider" class="person">
+  <figure class="hero"><img src="img/lukas-haider/02.jpg" alt="Lukas Haider"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">58</p>
+        <h2>lukas haider</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://lukashaider.com" target="_blank" rel="noopener">lukashaider.com</a></p>
+        <p class="line">music-industry identity and custom type. adana twins, tau, spotify editorial.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/lukas-haider/03.jpg" alt=""></figure>
+<figure><img src="img/lukas-haider/04.webp" alt=""></figure>
+<figure><img src="img/lukas-haider/05.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="jas-bell" class="person">
+  <figure class="hero"><img src="img/jas-bell/01.webp" alt="Jas Bell"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">59</p>
+        <h2>jas bell</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://leonardochop.com" target="_blank" rel="noopener">leonardochop.com</a></p>
+        <p class="line">artist identity and campaign systems. sza sos cycle, metro boomin.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/jas-bell/02.webp" alt=""></figure>
+<figure><img src="img/jas-bell/04.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="falco-van-burg" class="person">
+  <figure class="hero"><img src="img/falco-van-burg/02.webp" alt="Falco van Burg"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/falco-van-burg/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">60</p>
+        <h2>falco van burg</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.thonik.nl" target="_blank" rel="noopener">thonik.nl</a></p>
+        <p class="line">typographic cultural identity. phion symphony orchestra, thonik.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/falco-van-burg/03.webp" alt=""></figure>
+<figure><img src="img/falco-van-burg/04.webp" alt=""></figure></div>
+  </div>
+</section>
+<section id="rue-yi" class="person">
+  <figure class="hero"><img src="img/rue-yi/01.jpg" alt="Rue Yi"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">61</p>
+        <h2>rue yi</h2>
+        <p class="meta"><a class="at" href="https://x.com/ruebytwo" target="_blank" rel="noopener">@ruebytwo</a> <span class="dot">·</span> <a class="site" href="https://rue-yi.com" target="_blank" rel="noopener">rue-yi.com</a></p>
+        <p class="line">accessories as identity objects. schmidt wallets, patinapatina.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/rue-yi/02.png" alt=""></figure>
+<figure><img src="img/rue-yi/03.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="danielle-laroy" class="person">
+  <figure class="hero"><img src="img/danielle-laroy/01.jpg" alt="Danielle LaRoy"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/danielle-laroy/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">62</p>
+        <h2>danielle laroy</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.daniellelaroy.com" target="_blank" rel="noopener">daniellelaroy.com</a></p>
+        <p class="line">strategy and verbal identity. goodside. cambium, semple brown, the mind company.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/danielle-laroy/02.jpg" alt=""></figure>
+<figure><img src="img/danielle-laroy/03.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="mike-white" class="person">
+  <figure class="hero"><img src="img/mike-white/01.avif" alt="Mike White"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">63</p>
+        <h2>mike white</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.studiolowrie.com" target="_blank" rel="noopener">studiolowrie.com</a></p>
+        <p class="line">cultural identities from a two-person studio. sundance 2020, studio lowrie.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/mike-white/03.avif" alt=""></figure>
+<figure><img src="img/mike-white/04.avif" alt=""></figure></div>
+  </div>
+</section>
+<section id="tom-finn" class="person">
+  <figure class="hero"><img src="img/tom-finn/01.png" alt="Tom Finn"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">64</p>
+        <h2>tom finn</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://regularpractice.co.uk" target="_blank" rel="noopener">regularpractice.co.uk</a></p>
+        <p class="line">playful visual identities. regular practice, london. art and graft, tom dixon.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/tom-finn/02.avif" alt=""></figure></div>
+  </div>
+</section>
+<section id="kristoffer-solling" class="person">
+  <figure class="hero"><img src="img/kristoffer-solling/01.jpg" alt="Kristoffer Sølling"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">65</p>
+        <h2>kristoffer sølling</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://regularpractice.co.uk" target="_blank" rel="noopener">regularpractice.co.uk</a></p>
+        <p class="line">visual identities. regular practice, london. rca with tom finn.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/kristoffer-solling/02.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="henrik-olsson" class="person">
+  <figure class="hero"><img src="img/henrik-olsson/01.jpg" alt="Henrik Olssøn"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">66</p>
+        <h2>henrik olssøn</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://olssonbarbieri.com" target="_blank" rel="noopener">olssonbarbieri.com</a></p>
+        <p class="line">food, drink and culture identities as worlds. olssønbarbieri. himkok, stereoscope.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/henrik-olsson/02.png" alt=""></figure></div>
+  </div>
+</section>
+<section id="erika-barbieri" class="person">
+  <figure class="hero"><img src="img/erika-barbieri/01.jpg" alt="Erika Barbieri"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">67</p>
+        <h2>erika barbieri</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://olssonbarbieri.com" target="_blank" rel="noopener">olssonbarbieri.com</a></p>
+        <p class="line">food and culture identities. olssønbarbieri, oslo.</p>
+      </div>
+    </div>
+    <div class="strip n1"><figure><img src="img/erika-barbieri/02.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="simon-calvet" class="person">
+  <figure class="hero"><img src="img/simon-calvet/02.jpg" alt="Simon Calvet"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">68</p>
+        <h2>simon calvet</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://www.simoncalvetstudio.fr" target="_blank" rel="noopener">simoncalvetstudio.fr</a></p>
+        <p class="line">graphic design and art direction from paris. small independent studio.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/simon-calvet/03.jpg" alt=""></figure>
+<figure><img src="img/simon-calvet/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="john-clayton-lee" class="person">
+  <figure class="hero"><img src="img/john-clayton-lee/01.jpg" alt="John Clayton Lee"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">69</p>
+        <h2>john clayton lee</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://immanence.studio" target="_blank" rel="noopener">immanence.studio</a></p>
+        <p class="line">identities and campaigns at fashion and culture. uniqlo, rachel comey.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/john-clayton-lee/02.jpg" alt=""></figure>
+<figure><img src="img/john-clayton-lee/03.jpg" alt=""></figure>
+<figure><img src="img/john-clayton-lee/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+<section id="neil-panchal" class="person">
+  <figure class="hero"><img src="img/neil-panchal/02.png" alt="Neil Panchal"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">70</p>
+        <h2>neil panchal</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://usgraphics.com" target="_blank" rel="noopener">usgraphics.com</a></p>
+        <p class="line">engineering graphics as identity. berkeley mono, u.s. graphics company.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/neil-panchal/03.png" alt=""></figure>
+<figure><img src="img/neil-panchal/04.png" alt=""></figure>
+<figure><img src="img/neil-panchal/05.png" alt=""></figure></div>
+  </div>
+</section>
+<section id="svein-haakon-lia" class="person">
+  <figure class="hero"><img src="img/svein-haakon-lia/01.avif" alt="Svein Haakon Lia"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">71</p>
+        <h2>svein haakon lia</h2>
+        <p class="meta"><span class="at mute">no x handle found</span> <span class="dot">·</span> <a class="site" href="https://bleed.com" target="_blank" rel="noopener">bleed.com</a></p>
+        <p class="line">identity at bleed, oslo. sanity, nrk, wien museum, national museum of norway.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/svein-haakon-lia/02.avif" alt=""></figure>
+<figure><img src="img/svein-haakon-lia/03.avif" alt=""></figure>
+<figure><img src="img/svein-haakon-lia/04.avif" alt=""></figure></div>
+  </div>
+</section>
+<section id="kristian-berge" class="person">
+  <figure class="hero"><img src="img/kristian-berge/01.avif" alt="Kristian Hjorth Berge"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">72</p>
+        <h2>kristian hjorth berge</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/studiobergini" target="_blank" rel="noopener">ig @studiobergini</a> <span class="dot">·</span> <a class="site" href="https://studiobergini.eu" target="_blank" rel="noopener">studiobergini.eu</a></p>
+        <p class="line">identities, books, exhibitions. studio bergini. most beautiful norwegian books.</p>
+      </div>
+    </div>
+    <div class="strip n3"><figure><img src="img/kristian-berge/02.avif" alt=""></figure>
+<figure><img src="img/kristian-berge/03.avif" alt=""></figure>
+<figure><img src="img/kristian-berge/04.avif" alt=""></figure></div>
+  </div>
+</section>
+<section id="johannes-conrad" class="person">
+  <figure class="hero"><img src="img/johannes-conrad/01.avif" alt="Johannes Conrad"></figure>
+  <div class="plate">
+    <div class="who">
+      <img class="face" src="img/johannes-conrad/photo.jpg" alt="" width="72" height="72">
+      <div class="id">
+        <p class="num">73</p>
+        <h2>johannes conrad</h2>
+        <p class="meta"><a class="at mute" href="https://instagram.com/johannesconraad" target="_blank" rel="noopener">ig @johannesconraad</a> <span class="dot">·</span> <a class="site" href="https://y-u-k-i-k-o.com" target="_blank" rel="noopener">y-u-k-i-k-o.com</a></p>
+        <p class="line">cultural identity and campaign worlds. studio yukiko. biennials, magazines.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/johannes-conrad/02.avif" alt=""></figure>
+<figure><img src="img/johannes-conrad/03.avif" alt=""></figure></div>
+  </div>
+</section>
+<section id="eric-hu" class="person">
+  <figure class="hero"><img src="img/eric-hu/01.webp" alt="Eric Hu"></figure>
+  <div class="plate">
+    <div class="who noface">
+      <div class="id">
+        <p class="num">74</p>
+        <h2>eric hu</h2>
+        <p class="meta"><a class="at" href="https://x.com/_erichu" target="_blank" rel="noopener">@_erichu</a> <span class="dot">·</span> <a class="site" href="https://erichu.info" target="_blank" rel="noopener">erichu.info</a></p>
+        <p class="line">type-led identities and art direction. ssense, nike, ambush.</p>
+      </div>
+    </div>
+    <div class="strip n2"><figure><img src="img/eric-hu/02.webp" alt=""></figure>
+<figure><img src="img/eric-hu/04.jpg" alt=""></figure></div>
+  </div>
+</section>
+
+</main>
+<footer>
+  <em>for eyes only.</em>
+  private lookbook for dmytro. not for sharing.
+</footer>
+</body>
+</html>
