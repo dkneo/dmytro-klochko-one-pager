@@ -102,3 +102,44 @@ day answers "what is he looking at".
 2. Give each weather its own page in the mood-board shape (direction 2 at
    the scale where it works), linked from the room's door.
 3. Leave the graph and the day where they are.
+
+## Refs, looked at (5 Sep 2026)
+
+Opened side by side, not remembered. What each actually does, and what of it
+belongs here.
+
+**Cosmos (cosmos.so).** A light page framed by a scatter of small image
+tiles at their own ratios, with one sentence in the middle: "your space for
+inspiration." The device is the scatter as a frame for a line. *Take:* tiles
+at their own proportions, never a forced square — the library already does
+this with its plates. *Leave:* the product beneath is an algorithmic feed;
+nothing on it was chosen by one person, which is the opposite of the doctrine.
+Feeds direction 2, the mood board.
+
+**Are.na (are.na).** Dark, text first. It says what it is in three plain
+lines — "online software for saving and organizing the content that is
+important to you," "for people who defy categorization" — and then, lower,
+"no ads, no personalized recommendations." A channel is a page with a path
+(Are.na / Pierre Marteau / Commonplace) and blocks connect across channels.
+*Take:* the channel-as-page — a weather is a channel; the honesty of the
+manifesto voice; connections as the thing that makes a library a graph.
+*Leave:* the utilitarian grey; it is a tool's face, not a person's. Feeds
+directions 1 and 3.
+
+**mymind (mymind.com).** "Remember everything. Organize nothing." A private
+masonry of notes, bookmarks, quotes and images, auto-tagged, with one search
+box; quotes sit as cards among the pictures. *Take:* the stance — organize
+nothing, let the model tag and let search find — which is exactly the inbox's
+summarise-and-tag job; quotes as cards among images. *Leave:* the SaaS
+gloss, the coloured pills. Feeds direction 4, the private brain.
+
+**rauno.me.** One sentence in large type and a yellow circle. Nothing else
+above the fold. *Take:* the nerve of one line and one shape; the letter-scale
+restraint the checklist already asks for. *Leave:* it is a doorway, not a
+library — there is nothing to browse. Feeds the portrait's opening line, and
+the embed, which is one card and stops.
+
+What they agree on, and the library now does: pictures at their own ratio;
+words as cards beside pictures, not in a separate app; a plain sentence about
+what the thing is before anything else; and no feed — every item placed by a
+hand.
