@@ -52,6 +52,11 @@ test("a name is never cut so that it ends on a particle", () => {
   assert.equal(attribution("Anne Claude Philippe de Tubières, comte de Caylus"), "Anne Claude Philippe de Tubières, comte de Caylus");
 });
 
+test("a Google Art Project folder name is not a maker", () => {
+  assert.equal(attribution("Wiener Werkstätte Details on Google Art Project"), "Wiener Werkstätte");
+  assert.equal(attribution("Vilhelm Hammershøi on Google Art Project"), "Vilhelm Hammershøi");
+});
+
 test("a long attribution is cut at a word, never mid-name", () => {
   const long = "Bartolomeo Suardi called Bramantino and his very long workshop attribution";
   const got = attribution(long);

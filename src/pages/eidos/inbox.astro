@@ -86,7 +86,13 @@ const description = "throw a link in; judge what waits. the door to the library.
 
     <div class="in-stage" id="stage">
       <article class="in-card" id="card" hidden>
-        <div class="in-art" id="art-wrap"><img id="art" alt="" decoding="async" /></div>
+        <div class="in-art" id="art-wrap">
+          <img id="art" alt="" decoding="async" />
+          <div class="in-art-miss" id="art-miss" hidden>
+            <p>the picture did not arrive</p>
+            <button type="button" id="art-retry" class="in-btn">reload picture <span aria-hidden="true">↻</span></button>
+          </div>
+        </div>
         <div class="in-read" id="read" hidden>
           <p class="in-site" id="r-site"></p>
           <h2 class="in-title" id="r-title"></h2>
@@ -260,7 +266,14 @@ const description = "throw a link in; judge what waits. the door to the library.
     .in-card.is-flying { transition: transform 0.42s var(--ease-slick), opacity 0.42s var(--ease-slick); }
     .in-card.is-home { transition: transform 0.45s var(--ease); }
     .in-card:active { cursor: grabbing; }
-    .in-art { display: flex; align-items: center; justify-content: center; min-height: min(38svh, 340px); }
+    .in-art { position: relative; display: flex; align-items: center; justify-content: center; min-height: min(38svh, 340px); }
+    .in-art img.is-loading { opacity: 0.18; transition: opacity var(--dur) var(--ease); }
+    .in-art-miss {
+      position: absolute; inset: 0; display: grid; place-content: center; gap: var(--sp-2); text-align: center;
+      padding: var(--sp-3); color: var(--dim); font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em;
+    }
+    .in-art-miss p { margin: 0; max-width: 28ch; line-height: 1.5; }
+    .in-art-miss .in-btn { justify-self: center; }
     .in-art img {
       display: block; width: 100%;
       max-height: min(46svh, 460px);
@@ -374,6 +387,13 @@ const description = "throw a link in; judge what waits. the door to the library.
         if (!(await doorOpen())) return shutOut(null);
         next();
       }
+      $("art-retry").addEventListener("click", () => {
+        if (!cur || !cur.src) return;
+        $("art-miss").hidden = true;
+        art.classList.add("is-loading");
+        art.removeAttribute("src");
+        art.src = cur.src + (cur.src.includes("?") ? "&" : "?") + "r=" + Date.now();
+      });
       function prefetch() { const n = deck[0]; if (n && n.src) { const i = new Image(); i.src = n.src; } }
       const WORDS = new Set(["poem", "quote", "song"]);
       function show(c) {
@@ -408,6 +428,13 @@ const description = "throw a link in; judge what waits. the door to the library.
           if (!c.summary && c.url && !gated) summariseCard(c);
         } else {
           $("c-source").hidden = false;
+          // The caption and the picture used to change at different moments:
+          // the caption at once, the picture only when it had decoded. Slow or
+          // failed, the previous card's painting sat under the new card's name.
+          art.removeAttribute("src");
+          art.classList.add("is-loading");
+          $("art-miss").hidden = true;
+          delete art.dataset.failed;
           art.src = c.src;
           art.alt = `${c.title}, ${c.who}`;
           $("c-title").textContent = c.title;
@@ -434,13 +461,12 @@ const description = "throw a link in; judge what waits. the door to the library.
       function next() {
         cur = deck.shift() || null;
         if (!cur) return rest_("that is all of them. throw a link in, or let the harvester bring more.");
+        art.onload = () => { art.classList.remove("is-loading"); $("art-miss").hidden = true; };
         art.onerror = () => {
-          if (!cur || cur.src !== art.src && !art.src.endsWith(cur.src || "∅")) return;
-          if (art.dataset.failed === cur.id) return;
-          art.dataset.failed = cur.id;
-          noteLine.hidden = false;
-          noteLine.textContent = `${cur.title} would not load, so it is skipped.`;
-          next();
+          if (!cur || !art.getAttribute("src")) return;
+          art.classList.remove("is-loading");
+          $("art-miss").hidden = false;
+          $("art-miss").querySelector("p").textContent = `${cur.title} did not arrive from ${(() => { try { return new URL(cur.src, location.href).host.replace(/^www\./, ""); } catch { return "its source"; } })()}`;
         };
         show(cur);
         card.hidden = false;

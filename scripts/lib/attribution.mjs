@@ -49,6 +49,9 @@ export function attribution(raw, max = 48) {
     // field. Neither is a maker.
     .replace(/^no machine-readable author provided.*$/i, "anonymous")
     .replace(/\s+Related(\s+Names?)?\s*$/i, "")
+    // a Commons category rode in behind a real name: "Wiener Werkstätte Details
+    // on Google Art Project" is a folder, not a maker
+    .replace(/\s+(Details\s+)?on Google Art Project\s*$/i, "")
     .replace(/\s*[-–—,]\s*(painter|artist|peintre|maler|sculptor)\s*$/i, "")
     .replace(/\s+/g, " ")
     .trim(), max);

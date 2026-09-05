@@ -131,3 +131,17 @@ test("a poem, a quote or a song in the deck carries what a card and a note need"
   const shelved = [...fs.readdirSync(path.join(root, "vault/poems")), ...fs.readdirSync(path.join(root, "vault/quotes")), ...fs.readdirSync(path.join(root, "vault/songs"))];
   for (const w of words) assert.ok(!shelved.includes(`${w.id}.md`), `${w.id} is in the vault without a swipe`);
 });
+
+test("a card never wears the last card's picture, and a missing one can be asked for again", () => {
+  // Felsenhuhn, a 1910 Wiener Werkstätte object, showed under a Chinese
+  // landscape scroll: the caption changed at once and the picture only when it
+  // had decoded, so a slow or failed image left the previous painting on the
+  // new card. And a failure used to skip the card silently.
+  const src = read("src/pages/eidos/inbox.astro");
+  const clear = src.indexOf('art.removeAttribute("src")'), set = src.indexOf("art.src = c.src");
+  assert.ok(clear > 0 && clear < set, "the old picture must be cleared before the new src is set");
+  assert.doesNotMatch(src, /so it is skipped/, "a picture that did not arrive must be said, not skipped");
+  const html = read("dist/eidos/inbox/index.html");
+  assert.match(html, /id="art-retry"/, "no way to ask for the picture again");
+  assert.match(html, /id="art-miss"[^>]*hidden/, "the miss panel must start hidden");
+});
