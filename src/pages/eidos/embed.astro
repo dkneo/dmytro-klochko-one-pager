@@ -1,0 +1,36 @@
+---
+import Bare from "../../layouts/Bare.astro";
+import EidosPortrait from "../../components/EidosPortrait.astro";
+
+// The portrait, alone, for a frame. Anyone who wants to show what he loves on
+// their own page drops in one iframe; the numbers, the strip and the plates
+// are the same component the library opens with, computed from the vault at
+// build time, so an embed can never disagree with the room it points to.
+// Links open in the top window: a frame is a window onto the library, not a
+// place to be trapped in.
+const title = "eidos · what dmytro klochko loves";
+const description = "the portrait of a taste library: paintings, poems, songs and lines, filed under eight weathers.";
+---
+
+<Bare title={title} description={description}>
+  <base target="_top" />
+  <main class="embed">
+    <EidosPortrait />
+    <p class="embed-foot">
+      <a href="https://dmklochko.com/eidos" target="_top" rel="noreferrer">the whole library<span class="arw" aria-hidden="true">↗</span></a>
+      <span>dmklochko.com/eidos</span>
+    </p>
+  </main>
+
+  <style>
+    body.bare { margin: 0; background: var(--void); color: var(--bone); }
+    .embed { max-width: 42rem; margin: 0 auto; padding: var(--sp-3) var(--sp-3) var(--sp-2); }
+    .embed-foot {
+      display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-2);
+      margin: var(--sp-3) 0 0; padding-top: var(--sp-2);
+      border-top: 1px solid rgb(236 230 217 / 14%);
+      font-family: var(--mono); font-size: var(--t-xs); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--dim);
+    }
+    .embed-foot a { color: var(--hot); }
+  </style>
+</Bare>

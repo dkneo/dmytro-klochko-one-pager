@@ -1,0 +1,27 @@
+---
+import "../styles/global.css";
+import "../styles/dream.css";
+
+// A layout with no chrome: no sky, no header, no footer, no scenes. For the
+// one page that is meant to sit inside someone else's page — the portrait as
+// an embed — where a nav bar and a footer would be another site's furniture
+// showing through the frame.
+interface Props { title: string; description?: string }
+const { title, description = "" } = Astro.props;
+---
+<!doctype html>
+<html lang="en" data-mode="dream">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="noindex, follow" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/zodiak-300.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/newsreader-400.woff2" />
+  </head>
+  <body class="bare">
+    <slot />
+  </body>
+</html>

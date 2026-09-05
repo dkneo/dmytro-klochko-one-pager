@@ -78,6 +78,15 @@ const glue = (t: string) => String(t ?? "").replace(/\s+([!?;:»])/g, "\u202F$1"
         </p>
 
         <EidosPortrait />
+
+        {/* The portrait travels. One iframe puts the same component — same
+            numbers, same strip, same plates — on anyone else's page. */}
+        <details class="lib-embed">
+          <summary>embed this portrait <span class="arw" aria-hidden="true">↘</span></summary>
+          <p>one frame, kept current by the vault. paste it where you like.</p>
+          <pre><code id="embed-code">&lt;iframe src="https://dmklochko.com/eidos/embed" width="100%" height="720" style="max-width:42rem;border:0;border-radius:6px" title="eidos · what dmytro klochko loves" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+          <button type="button" id="embed-copy">copy</button>
+        </details>
       </div>
 
       {/* Small, and his hands rather than his face: a page about what he
@@ -302,6 +311,16 @@ const glue = (t: string) => String(t ?? "").replace(/\s+([!?;:»])/g, "\u202F$1"
     .lib-toc-door b { opacity: 0.85; }
     .lib-more { font-style: normal; color: var(--dim); }
 
+    /* the embed snippet: a quiet disclosure under the portrait */
+    .lib-embed { margin: var(--sp-2) 0 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--dim); }
+    .lib-embed summary { cursor: pointer; color: var(--quiet); list-style: none; display: inline-flex; gap: 0.35em; align-items: center; min-height: 24px; }
+    .lib-embed summary::-webkit-details-marker { display: none; }
+    .lib-embed summary:hover { color: var(--hot); }
+    .lib-embed p { margin: var(--sp-1) 0; font-family: var(--serif); font-size: var(--t-prose-sm); letter-spacing: 0; color: var(--quiet); }
+    .lib-embed pre { margin: 0; padding: var(--sp-tight) var(--sp-2); background: rgb(6 9 18 / 55%); border: 1px solid rgb(236 230 217 / 12%); border-radius: var(--r-panel); white-space: pre-wrap; word-break: break-all; color: var(--bone); }
+    .lib-embed button { margin-top: var(--sp-1); min-height: 24px; padding: 0.3rem 0.85rem; font: inherit; color: var(--hot); background: none; border: 1px solid rgb(255 155 192 / 45%); border-radius: 999px; cursor: pointer; }
+    .lib-embed button:hover { background: var(--hot); color: var(--void); border-color: var(--hot); }
+
     /* the small hero, in the press page's frame language */
     .lib-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, 17.5rem); gap: clamp(var(--sp-4), 5vw, 5.5rem); align-items: start; }
     .lib-intro-copy { min-width: 0; }
@@ -353,6 +372,14 @@ const glue = (t: string) => String(t ?? "").replace(/\s+([!?;:»])/g, "\u202F$1"
     (() => {
       const items = JSON.parse(document.getElementById("lib-data").textContent);
       const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+      // ── the embed snippet, copied ───────────────────────────────────
+      const copyBtn = document.getElementById("embed-copy");
+      if (copyBtn) copyBtn.addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText(document.getElementById("embed-code").textContent); copyBtn.textContent = "copied ✓"; }
+        catch { copyBtn.textContent = "select and copy"; }
+        setTimeout(() => { copyBtn.textContent = "copy"; }, 1800);
+      });
 
       // ── filtering by kind, across every room ────────────────────────
       const chips = [...document.querySelectorAll(".em-chip")];
