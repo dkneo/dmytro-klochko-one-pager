@@ -744,6 +744,22 @@ html.is-shook .scenes {
   background: none;
 }
 
+/* A name in the prose that goes somewhere, Robbs' way: the bio is the
+   navigation. Same thin pink rule the journey uses, so the page has one
+   underline; the word itself stays in the voice of the sentence and only
+   turns hot when asked. */
+[data-mode="dream"] .prose a {
+  color: inherit;
+  text-decoration: underline 1px rgb(255 155 192 / 62%);
+  text-underline-offset: 0.22em;
+  transition: color var(--dur) var(--ease);
+}
+
+[data-mode="dream"] .prose a:hover,
+[data-mode="dream"] .prose a:focus-visible {
+  color: var(--hot);
+}
+
 [data-mode="dream"] .research a.is-quoted::before,
 [data-mode="dream"] .research a.is-quoted::after {
   color: rgb(255 155 192 / 55%);
