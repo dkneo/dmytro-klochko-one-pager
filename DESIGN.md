@@ -429,3 +429,12 @@ focus, never hover; the glow says the field is live. Below it the deck: a
 summary, tags), judged right or left. The rest state lists what was kept.
 No radius on the page is a number; the page's own stylesheet is checked for
 it.
+
+## Footer
+
+Two lines. The signoff (the line the site is named after, italic, pink) and
+one colophon in mono caps: the type it is set in, the day it last shipped
+(from the last commit, at build), the name, and the way back up. Nothing
+the header already says: a reader who reaches the footer has the contact
+list in view and the header a scroll away. Paco's footer is a motto and a
+year; Robbs has none at all. Ours says one true thing and stops.

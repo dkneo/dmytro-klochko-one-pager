@@ -584,15 +584,17 @@ svg.pin {
   letter-spacing: var(--ls-wide);
 }
 
-.foot-row {
+/* One line, wrapping when it must. The way up sits at the far end because
+   it is an action and the rest is record. */
+.colophon {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
-  justify-content: space-between;
+  margin: 0;
 }
 
-.foot-row p {
-  margin: 0;
+.colophon .to-top {
+  margin-left: auto;
 }
 
 .to-top {

@@ -1,4 +1,5 @@
 ---
+import { execSync } from "node:child_process";
 import "../styles/global.css";
 import "../styles/dream.css";
 import AsciiShader from "../components/AsciiShader.astro";
@@ -26,6 +27,18 @@ const { title, description, current = "home", unlisted = false,
         ogTitle = "dmytro klochko",
         ogDescription = "ceo at replika. product and engineering, out of art, chess and theatre.",
         ogImage = "/og.png?v=3" } = Astro.props;
+// The footer dates itself from the last commit, so "shipped" is the day the
+// words changed, not the day a robot rebuilt them. Build clock as fallback.
+const shippedAt = (() => {
+  try {
+    const iso = execSync("git log -1 --format=%cI", { stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
+    if (iso) return new Date(iso);
+  } catch {}
+  return new Date();
+})();
+const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+const shipped = `${shippedAt.getDate()} ${MONTHS[shippedAt.getMonth()]} ${shippedAt.getFullYear()}`;
+const year = shippedAt.getFullYear();
 const isHomepage = Astro.url.pathname === "/";
 
 // The homepage hero owns the introduction. Inner pages keep his name as the
@@ -181,16 +194,17 @@ const isHomepage = Astro.url.pathname === "/";
         />
         <button class="bebop-close" type="button">close</button>
       </div>
-      <nav class="foot-index" aria-label="pages">
-        <a href="/learning" aria-current={current === "learning" ? "page" : undefined}>learning</a>
-        <a href="/press" aria-current={current === "press" ? "page" : undefined}>press</a>
-        <a href="/#contact">dm me</a>
-      </nav>
-
-      <div class="foot-row">
-        <p>© 2026 dmytro klochko</p>
+      {/* The greats' footers say one true thing and stop: Paco's motto and a
+          year, Rauno's colophon. Ours repeated the header's three links and then
+          the copyright; a reader arriving here has the contact list in view
+          already. What is left is what only the footer can know: the type it is
+          set in, the day it last shipped, and the way back up. */}
+      <p class="colophon">
+        <span>set in zodiak &amp; newsreader</span>
+        <span>shipped {shipped}</span>
+        <span>© {year} dmytro klochko</span>
         <a class="to-top" href="#main">back to top<span class="arw" aria-hidden="true">↑</span></a>
-      </div>
+      </p>
     </footer>
 
     <script>

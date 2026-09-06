@@ -2702,27 +2702,6 @@ html[data-motion="paused"] .scenes .firelight {
   [data-mode="dream"] .menu { display: none; }
 }
 
-/* The footer is the index of the place: everything the header folds away,
-   said once at the bottom where a reader arrives having already read. */
-
-[data-mode="dream"] .foot-index {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 1.4rem;
-  margin-bottom: var(--sp-3);
-}
-
-[data-mode="dream"] .foot-index a {
-  color: var(--dim);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .foot-index a:hover { color: var(--hot); }
 
 /* ── press feedback ─────────────────────────────────────────────────────────
    Emil Kowalski's first practical tip, and the site had none of it: every
@@ -2918,7 +2897,6 @@ html[data-motion="paused"] .scenes .firelight {
 
 [data-mode="dream"] .nav-wide a,
 [data-mode="dream"] .menu-drop a,
-[data-mode="dream"] .foot-index a,
 [data-mode="dream"] .song-links a,
 [data-mode="dream"] .bit-where a,
 [data-mode="dream"] .pr-meta a,

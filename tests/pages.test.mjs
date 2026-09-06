@@ -250,6 +250,12 @@ test("the footer's return link always lands on a real target", () => {
   for (const page of ["dist/index.html", "dist/learning/index.html", "dist/press/index.html"]) {
     const html = read(page);
     assert.match(html, /class="to-top" href="#main"/, `${page} returns to a missing fragment`);
+    // The footer says what only it can know and stops: type, ship date, name,
+    // the way up. It does not repeat the header's links.
+    const foot = html.match(/<footer class="site-footer">([\s\S]*?)<\/footer>/)?.[1] ?? "";
+    assert.match(foot, /class="colophon"/, `${page} footer has no colophon`);
+    assert.match(foot, /shipped \d{1,2} (jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec) 20\d\d/, `${page} footer is undated`);
+    assert.doesNotMatch(foot, /href="\/(learning|press)"/, `${page} footer repeats the header`);
     assert.match(html, /<main id="main"/);
   }
 });
