@@ -1,5 +1,11 @@
 # eidos — five directions, one chosen
 
+![the five directions as they stand live, 6 Sep 2026](docs/eidos-directions.jpg)
+
+*Above: the five, captured from the live site on 6 Sep 2026, so the choice
+can be made with eyes. Four of the five exist as pages; the wall is the
+library's own pictures hall.*
+
 He asked for the library to be beautiful to share and legible at a glance,
 and for three to five directions explored "dreamy, but all with perfect
 clarity". These are the five, each with real references, what it would
@@ -47,7 +53,11 @@ wall of 213 paintings without rooms loses the one thing this collection has
 that a mood board does not — the weathers.
 
 **Verdict.** Beautiful at 40 images, mush at 400. Not for the whole
-library; possibly the right shape for a single weather's page.
+library as one field. At room scale it is exactly what the pictures hall
+already is: each weather a short wall, every plate at its own ratio, the
+words kept out of the grid and read below. Direction 2 lives inside
+direction 1; a page per weather would only repeat a wall that is already
+five to twelve pictures long.
 
 ## 3. The graph — a mindmap you can walk
 
@@ -99,8 +109,9 @@ day answers "what is he looking at".
 1. ~~Make the portrait shareable as an image that rebuilds from the vault~~ —
    done: scripts/og-eidos-build.mjs draws og-eidos.png from map.json at every
    build, versioned by the map's date.
-2. Give each weather its own page in the mood-board shape (direction 2 at
-   the scale where it works), linked from the room's door.
+2. ~~Give each weather its own page in the mood-board shape~~ — not needed:
+   the pictures hall is that shape, room by room (see the sheet). A page
+   per weather waits until a room passes forty pictures.
 3. Leave the graph and the day where they are.
 
 ## Refs, looked at (5 Sep 2026)
