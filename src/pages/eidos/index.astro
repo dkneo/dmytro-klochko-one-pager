@@ -2,6 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/pages/eidos.css";
 import EidosPortrait from "../../components/EidosPortrait.astro";
+import path from "node:path";
+import sharp from "sharp";
 import map from "../../data/map.json";
 import palettes from "../../data/palettes.json";
 import inbox from "../../../public/inbox.json";
@@ -27,6 +29,19 @@ const candidates = (inbox.candidates || []).length;
 const FORM_MARK: Record<string, string> = { painting: "▣", object: "◈", building: "⌂", poster: "▤", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶", bookmark: "⌁", print: "▥", photograph: "◫" };
 const PLURAL: Record<string, string> = { person: "people", writing: "writing" };
 const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+// Every plate says its size in the markup, so the wall is laid out before a
+// single picture arrives and nothing jumps as they land. Read once, at build.
+const plateDims = new Map<string, { w: number; h: number }>();
+for (const it of items) {
+  if (!it.src) continue;
+  const plate = plateFor(it.src);
+  const file = path.join(process.cwd(), "public", plate);
+  try {
+    const m = await sharp(file).metadata();
+    if (m.width && m.height) plateDims.set(plate, { w: m.width, h: m.height });
+  } catch {}
+}
+const dim = (src: string) => plateDims.get(plateFor(src));
 
 // Pictures hang; words are read; what he has read is its own shelf.
 const HANGS = new Set(["painting", "object", "building", "poster", "print", "photograph", "person"]);
@@ -145,7 +160,7 @@ const glue = (t: string) => String(t ?? "").replace(/\s+([!?;:»])/g, "\u202F$1"
               <button class={`lib-card lib-card--${it.type}`} type="button" id={it.id}
                       data-id={it.id} data-form={it.type}
                       aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                <img src={plateFor(it.src)} alt="" loading="lazy" decoding="async" />
+                <img src={plateFor(it.src)} alt="" width={dim(it.src)?.w} height={dim(it.src)?.h} loading="lazy" decoding="async" />
                 <span class="lib-label">
                   <b>{it.line || it.title}</b>
                   {it.type !== "person" && it.who && (<span>{it.who}{it.year ? " · " + it.year : ""}</span>)}
@@ -240,7 +255,7 @@ const glue = (t: string) => String(t ?? "").replace(/\s+([!?;:»])/g, "\u202F$1"
               {ringArt.map((it) => (
                 <button class={`lib-card lib-card--${it.type}`} type="button" id={it.id} data-id={it.id} data-form={it.type}
                         aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                  <img src={plateFor(it.src)} alt="" loading="lazy" decoding="async" />
+                  <img src={plateFor(it.src)} alt="" width={dim(it.src)?.w} height={dim(it.src)?.h} loading="lazy" decoding="async" />
                   <span class="lib-label"><b>{it.line || it.title}</b>{it.type !== "person" && it.who && (<span>{it.who}{it.year ? " · " + it.year : ""}</span>)}</span>
                 </button>
               ))}

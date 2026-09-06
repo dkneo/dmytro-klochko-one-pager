@@ -426,7 +426,10 @@
 
 [data-mode="dream"] .pr-quotes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  /* Four quotes. At 20rem the shell took three across and left the fourth
+     alone on a second row, under the first: a grid announcing a gap. At
+     27rem it is two by two on any desktop and a single column below. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr));
   gap: var(--sp-3);
   margin-top: var(--sp-3);
   /* One of these quotes is nine lines and two are three. Stretched to a

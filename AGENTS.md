@@ -532,3 +532,12 @@ and only then adds, commits and pushes; `set -e` stops at the first failure.
 It then waits up to three minutes for a Cloudflare deployment newer than the
 push, because the Git-connected build skipped a push that arrived a minute
 after another one today and had to be published with `npx wrangler deploy`.
+
+## Lookbook pictures
+
+The lookbook is hand-built by other agents from originals, and originals
+arrive at 4–5 MB each. Before shipping a lookbook change, run
+`node scripts/lookbook-images.mjs --apply`: it brings every picture the
+two pages reference down to 1400 px webp and rewrites width/height in the
+HTML so tests/lookbook.test.mjs stays true. Orphans are left alone because
+other branches may still want them. Dry run without --apply.
