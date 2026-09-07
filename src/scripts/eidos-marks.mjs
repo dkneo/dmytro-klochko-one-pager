@@ -3,7 +3,7 @@
 // them: x and y are the solved axes, z is the weathers ordered by their own
 // temperature — cold moods deepest, warm ones near.
 
-const GLYPH = { painting: "▣", object: "◈", building: "⌂", poster: "▤", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶", bookmark: "⌁" };
+const GLYPH = { painting: "▣", object: "◈", building: "⌂", poster: "▤", print: "▥", photograph: "◫", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶", bookmark: "⌁" };
 
 export function toMarks(map) {
   const weathersByWarmth = map.weathers.slice().sort((a, b) => a.x - b.x);
@@ -20,8 +20,8 @@ export function toMarks(map) {
     who: it.who || "",
     line: it.line || it.title || "",
     year: it.year || "",
-    x: it.x * 4.4,
-    y: -it.y * 3.4,
+    x: it.x * 4.4 + 0,
+    y: -it.y * 3.4 + 0,
     z: ((stratum.get(it.weather) ?? (W - 1) / 2) - (W - 1) / 2) * 1.05
        + (((i * 2654435761) % 100) / 100 - 0.5) * 0.55, // deterministic jitter
     thumb: it.src ? thumbFor(it.src) : null,
