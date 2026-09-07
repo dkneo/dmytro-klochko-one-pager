@@ -160,7 +160,9 @@ const glue = (t: string) => String(t ?? "").replace(/\s+([!?;:»])/g, "\u202F$1"
               <button class={`lib-card lib-card--${it.type}`} type="button" id={it.id}
                       data-id={it.id} data-form={it.type}
                       aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                <img src={plateFor(it.src)} alt="" width={dim(it.src)?.w} height={dim(it.src)?.h} loading="lazy" decoding="async" />
+                {it.src
+                  ? <img src={plateFor(it.src)} alt="" width={dim(it.src)?.w} height={dim(it.src)?.h} loading="lazy" decoding="async" />
+                  : <span class="lib-bare" aria-hidden="true"><b>{it.line || it.title}</b></span>}
                 <span class="lib-label">
                   <b>{it.line || it.title}</b>
                   {it.type !== "person" && it.who && (<span>{it.who}{it.year ? " · " + it.year : ""}</span>)}
@@ -255,7 +257,9 @@ const glue = (t: string) => String(t ?? "").replace(/\s+([!?;:»])/g, "\u202F$1"
               {ringArt.map((it) => (
                 <button class={`lib-card lib-card--${it.type}`} type="button" id={it.id} data-id={it.id} data-form={it.type}
                         aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                  <img src={plateFor(it.src)} alt="" width={dim(it.src)?.w} height={dim(it.src)?.h} loading="lazy" decoding="async" />
+                  {it.src
+                    ? <img src={plateFor(it.src)} alt="" width={dim(it.src)?.w} height={dim(it.src)?.h} loading="lazy" decoding="async" />
+                    : <span class="lib-bare" aria-hidden="true"><b>{it.line || it.title}</b></span>}
                   <span class="lib-label"><b>{it.line || it.title}</b>{it.type !== "person" && it.who && (<span>{it.who}{it.year ? " · " + it.year : ""}</span>)}</span>
                 </button>
               ))}

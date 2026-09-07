@@ -9,4 +9,6 @@ note: |-
   trained in paris, then painted ink horses that move as if the paper were weather. taught in beijing and helped set the academic line for the new republic. the horses are what people remember; the portraits are quieter.
 ---
 
-photograph by lang jingshan, published 1927: xu beihong and his wife. public domain. the eight horses on commons is only 978 px, so that canvas waits in the inbox rather than hanging small.
+no weather yet: that is his to say.
+
+photograph by lang jingshan, published 1927: xu beihong and his wife. public domain. the 1943 horse hangs on the ring. the eight horses on commons is only 978 px, so that canvas stays in the inbox.
