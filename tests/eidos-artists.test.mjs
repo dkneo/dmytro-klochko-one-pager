@@ -88,8 +88,8 @@ test("a person without a picture does not ship a broken img", () => {
   const src = read("src/pages/eidos/index.astro");
   assert.match(src, /it\.src\s*\n?\s*\? <img/, "the hall still always paints an img");
   const html = read("dist/eidos/index.html");
-  const demuth = html.match(/id="charles-demuth"[\s\S]*?<\/button>/);
-  assert.ok(demuth, "demuth's card is missing from the library");
-  assert.doesNotMatch(demuth[0], /<img /, "demuth shipped an empty face");
-  assert.match(demuth[0], /class="lib-bare"/, "demuth has no text plate");
+  const card = html.match(/id="oleksandr-bohomazov"[\s\S]*?<\/button>/);
+  assert.ok(card, "bohomazov's card is missing from the library");
+  assert.doesNotMatch(card[0], /<img /, "bohomazov shipped an empty face");
+  assert.match(card[0], /class="lib-bare"/, "bohomazov has no text plate");
 });
