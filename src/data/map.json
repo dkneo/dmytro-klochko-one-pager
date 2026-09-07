@@ -1,5 +1,5 @@
 {
- "built": "2026-09-06",
+ "built": "2026-09-07",
  "axes": {
   "x": {
    "from": "cold",
@@ -82,6 +82,40 @@
    "unplaced": false
   },
   {
+   "id": "blanchard-fillette",
+   "type": "painting",
+   "who": "María Blanchard",
+   "title": "Fillette assise",
+   "line": "Fillette assise",
+   "year": "1925",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/blanchard-fillette.webp",
+   "url": "",
+   "note": "santander, madrid, paris; cubism first, then children sitting in rooms that have no extra furniture. born with a spinal condition; she painted seated figures as if she knew the weight of sitting. died in paris at fifty.",
+   "added": "2026-09-07",
+   "x": 0.1316,
+   "y": 0.2659,
+   "unplaced": false
+  },
+  {
+   "id": "bohomazov-window",
+   "type": "painting",
+   "who": "Oleksandr Bohomazov",
+   "title": "Blick aus dem Fenster",
+   "line": "Blick aus dem Fenster",
+   "year": "1913",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/bohomazov-window.webp",
+   "url": "",
+   "note": "kyiv cubo-futurist; he wrote that colour and line have their own tempo, then painted the city as if it were vibrating. taught at the kyiv art institute after the war. died of tuberculosis at fifty.",
+   "added": "2026-09-07",
+   "x": 0.9408,
+   "y": -0.0882,
+   "unplaced": false
+  },
+  {
    "id": "boy-teasing-a-dog-nightscene-lit-by-pinewood-tor",
    "type": "painting",
    "who": "Johann Conrad Seekatz",
@@ -133,6 +167,23 @@
    "unplaced": false
   },
   {
+   "id": "demuth-bermuda-masts",
+   "type": "painting",
+   "who": "Charles Demuth",
+   "title": "Bermuda, Masts and Foliage",
+   "line": "Bermuda, Masts and Foliage",
+   "year": "1917",
+   "where": "",
+   "weather": "dissolution",
+   "src": "/images/vault/demuth-bermuda-masts.webp",
+   "url": "",
+   "note": "a precisionist who treated factories and hulls as if they were still lifes. summers in provincetown and bermuda, winters in lancaster, and a long friendship with william carlos williams. he died at fifty-one; the pictures stayed sharp.",
+   "added": "2026-09-07",
+   "x": -0.437,
+   "y": 0.5495,
+   "unplaced": false
+  },
+  {
    "id": "der-seesturm-the-storm-at-sea",
    "type": "painting",
    "who": "Joos de Momper the Younger",
@@ -145,8 +196,25 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.9488,
-   "y": -0.0982,
+   "x": 0.787,
+   "y": -0.0939,
+   "unplaced": false
+  },
+  {
+   "id": "ekster-planes",
+   "type": "painting",
+   "who": "Oleksandra Ekster",
+   "title": "Planes",
+   "line": "Planes",
+   "year": "1916–18",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/ekster-planes.webp",
+   "url": "",
+   "note": "kyiv, paris, moscow: cubo-futurist canvases and then costumes that treated the stage as a plane of colour. she taught, designed for tairov, and left for paris in 1924. the planes keep moving after the figures have gone.",
+   "added": "2026-09-07",
+   "x": 0.9921,
+   "y": -0.2137,
    "unplaced": false
   },
   {
@@ -162,8 +230,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.1039,
-   "y": 0.2127,
+   "x": 0.3122,
+   "y": 0.1063,
    "unplaced": false
   },
   {
@@ -179,8 +247,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.2658,
-   "y": 0.0838,
+   "x": 0.2854,
+   "y": 0.3278,
    "unplaced": false
   },
   {
@@ -230,8 +298,8 @@
    "url": "",
    "note": "Painted in 1907, years before abstraction was credited to anyone else. She left instructions that the work not be shown until twenty years after her death, and it was not shown properly for forty.",
    "added": "2026-08-15",
-   "x": 0.296,
-   "y": 0.3234,
+   "x": 0.0514,
+   "y": 0.1483,
    "unplaced": false
   },
   {
@@ -264,8 +332,8 @@
    "url": "",
    "note": "one of the ten skies the site runs on.",
    "added": "2026-08-29",
-   "x": 0.2134,
-   "y": -1.0383,
+   "x": 0.2068,
+   "y": -1.0396,
    "unplaced": true
   },
   {
@@ -281,8 +349,8 @@
    "url": "",
    "note": "the estuary. stands behind taste.",
    "added": "2026-08-18",
-   "x": 0.418,
-   "y": -0.9741,
+   "x": 0.4056,
+   "y": -0.9793,
    "unplaced": true
   },
   {
@@ -298,8 +366,8 @@
    "url": "",
    "note": "sunflowers. stands behind what came before.",
    "added": "2026-08-18",
-   "x": 0.6055,
-   "y": -0.87,
+   "x": 0.5889,
+   "y": -0.8814,
    "unplaced": true
   },
   {
@@ -315,8 +383,8 @@
    "url": "",
    "note": "the campfire. stands behind how he works.",
    "added": "2026-08-18",
-   "x": 0.7683,
-   "y": -0.7303,
+   "x": 0.7495,
+   "y": -0.7495,
    "unplaced": true
   },
   {
@@ -332,8 +400,8 @@
    "url": "",
    "note": "the fuji rafts. stands behind replika.",
    "added": "2026-08-18",
-   "x": 0.8996,
-   "y": -0.5607,
+   "x": 0.8814,
+   "y": -0.5889,
    "unplaced": true
   },
   {
@@ -349,8 +417,8 @@
    "url": "",
    "note": "the lavender walk. stands behind the camera.",
    "added": "2026-08-18",
-   "x": 0.994,
-   "y": -0.3681,
+   "x": 0.9793,
+   "y": -0.4056,
    "unplaced": true
   },
   {
@@ -366,8 +434,8 @@
    "url": "",
    "note": "a dark courtyard. carries the reading pages.",
    "added": "2026-08-18",
-   "x": 1.0478,
-   "y": -0.1605,
+   "x": 1.0396,
+   "y": -0.2068,
    "unplaced": true
   },
   {
@@ -383,8 +451,8 @@
    "url": "",
    "note": "the snowlit village. stands behind saying hi.",
    "added": "2026-08-18",
-   "x": 1.0586,
-   "y": 0.0537,
+   "x": 1.06,
+   "y": 0,
    "unplaced": true
   },
   {
@@ -400,8 +468,8 @@
    "url": "",
    "note": "one of his own, taken down to night, for learning.",
    "added": "2026-08-18",
-   "x": 1.0262,
-   "y": 0.2657,
+   "x": 1.0396,
+   "y": 0.2068,
    "unplaced": true
   },
   {
@@ -417,8 +485,8 @@
    "url": "",
    "note": "the swimmer under the orange sun. the opening screen.",
    "added": "2026-08-18",
-   "x": 0.9517,
-   "y": 0.4668,
+   "x": 0.9793,
+   "y": 0.4056,
    "unplaced": true
   },
   {
@@ -456,6 +524,23 @@
    "unplaced": false
   },
   {
+   "id": "huang-binhong-landscape",
+   "type": "painting",
+   "who": "Huang Binhong",
+   "title": "Landscape",
+   "line": "Landscape",
+   "year": "1937",
+   "where": "",
+   "weather": "dissolution",
+   "src": "/images/vault/huang-binhong-landscape.webp",
+   "url": "",
+   "note": "late landscapes so dense the ink becomes night, then a path appears. he wrote about the old brush methods and then used them until they were almost new. the 1930s scrolls are the ones that dissolve.",
+   "added": "2026-09-07",
+   "x": -0.5966,
+   "y": 0.5284,
+   "unplaced": false
+  },
+  {
    "id": "j-m-w-turner-norham-castle-sunrise",
    "type": "painting",
    "who": "J. M. W. Turner",
@@ -468,8 +553,8 @@
    "url": "",
    "note": "Never exhibited. It was found in his studio after he died, one of a group he seems to have painted for himself, and the castle has almost finished dissolving into the light.",
    "added": "2026-08-15",
-   "x": -0.445,
-   "y": 0.5565,
+   "x": -0.3625,
+   "y": 0.4504,
    "unplaced": false
   },
   {
@@ -485,8 +570,8 @@
    "url": "",
    "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
    "added": "2026-08-15",
-   "x": 0.7864,
-   "y": -0.096,
+   "x": 0.9249,
+   "y": 0.018,
    "unplaced": false
   },
   {
@@ -524,6 +609,23 @@
    "unplaced": false
   },
   {
+   "id": "kubista-sebastian",
+   "type": "painting",
+   "who": "Bohumil Kubišta",
+   "title": "Saint Sebastian",
+   "line": "Saint Sebastian",
+   "year": "1912",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/kubista-sebastian.webp",
+   "url": "",
+   "note": "prague cubist who wanted the picture to have the structure of a crystal. painted saint sebastian the year before he went to war. died of the flu in 1918, at thirty-four.",
+   "added": "2026-09-07",
+   "x": 0.4044,
+   "y": 0.2129,
+   "unplaced": false
+  },
+  {
    "id": "lovers-and-beloveds-a-composite-of-scenes-from-p",
    "type": "painting",
    "who": "Chitarman II",
@@ -536,8 +638,42 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.0941,
-   "y": 0.0906,
+   "x": 0.0776,
+   "y": 0.3016,
+   "unplaced": false
+  },
+  {
+   "id": "marquet-quai-conti",
+   "type": "painting",
+   "who": "Albert Marquet",
+   "title": "Quai de Conti, l'Automne",
+   "line": "Quai de Conti, l'Automne",
+   "year": "",
+   "where": "",
+   "weather": "dissolution",
+   "src": "/images/vault/marquet-quai-conti.webp",
+   "url": "",
+   "note": "fauve at the start, then harbours and quays in a quieter key, the same view painted until the weather changed. friends with matisse; worked from windows more than from the street. the water does most of the work.",
+   "added": "2026-09-07",
+   "x": -0.4633,
+   "y": 0.6589,
+   "unplaced": false
+  },
+  {
+   "id": "modersohn-becker-milk-soup",
+   "type": "painting",
+   "who": "Paula Modersohn-Becker",
+   "title": "Still life with milk soup",
+   "line": "Still life with milk soup",
+   "year": "1905",
+   "where": "",
+   "weather": "the plain thing",
+   "src": "/images/vault/modersohn-becker-milk-soup.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": -0.2103,
+   "y": -0.8864,
    "unplaced": false
   },
   {
@@ -570,8 +706,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.5909,
-   "y": 0.5521,
+   "x": -0.6286,
+   "y": 0.4341,
    "unplaced": false
   },
   {
@@ -626,6 +762,23 @@
    "unplaced": false
   },
   {
+   "id": "pirosmani-still-life",
+   "type": "painting",
+   "who": "Niko Pirosmani",
+   "title": "Still Life",
+   "line": "Still Life",
+   "year": "",
+   "where": "",
+   "weather": "the plain thing",
+   "src": "/images/vault/pirosmani-still-life.webp",
+   "url": "",
+   "note": "self-taught, painted on oilcloth for taverns in tbilisi: animals, feasts, a deer looking back. he sold them for meals. the still lifes are as plain as a table after the guests have gone.",
+   "added": "2026-09-07",
+   "x": -0.0852,
+   "y": -1.042,
+   "unplaced": false
+  },
+  {
    "id": "redon-flowers",
    "type": "painting",
    "who": "Odilon Redon",
@@ -638,8 +791,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.2047,
-   "y": -0.8752,
+   "x": -0.0406,
+   "y": -0.79,
    "unplaced": false
   },
   {
@@ -655,8 +808,25 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.3988,
-   "y": 0.4191,
+   "x": -0.2952,
+   "y": 0.5122,
+   "unplaced": false
+  },
+  {
+   "id": "rossi-sailor",
+   "type": "painting",
+   "who": "Gino Rossi",
+   "title": "Michel Carion, sailor",
+   "line": "Michel Carion, sailor",
+   "year": "",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/rossi-sailor.webp",
+   "url": "",
+   "note": "venetian modernist who went to paris, came back, and painted breton and burano figures as if they were cut from wood. interned during the war; the last years were in a hospital. the sailor is enough.",
+   "added": "2026-09-07",
+   "x": 0.1506,
+   "y": 0.0525,
    "unplaced": false
   },
   {
@@ -672,8 +842,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.9565,
-   "y": -0.2327,
+   "x": 0.7424,
+   "y": -0.1931,
    "unplaced": false
   },
   {
@@ -689,8 +859,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.4946,
-   "y": 0.6591,
+   "x": -0.6364,
+   "y": 0.605,
    "unplaced": false
   },
   {
@@ -706,8 +876,42 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.8682,
-   "y": 0.0169,
+   "x": 1.0775,
+   "y": -0.0753,
+   "unplaced": false
+  },
+  {
+   "id": "stettheimer-heat",
+   "type": "painting",
+   "who": "Florine Stettheimer",
+   "title": "Heat",
+   "line": "Heat",
+   "year": "1919",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/stettheimer-heat.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.8091,
+   "y": 0.2199,
+   "unplaced": false
+  },
+  {
+   "id": "strzeminski-afterimage-sun",
+   "type": "painting",
+   "who": "Władysław Strzemiński",
+   "title": "Afterimage of the Sun",
+   "line": "Afterimage of the Sun",
+   "year": "1948",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/strzeminski-afterimage-sun.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.8743,
+   "y": 0.4537,
    "unplaced": false
   },
   {
@@ -723,8 +927,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.6046,
-   "y": 0.4095,
+   "x": -0.453,
+   "y": 0.3626,
    "unplaced": false
   },
   {
@@ -757,8 +961,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.3001,
-   "y": 0.4828,
+   "x": -0.3362,
+   "y": 0.6201,
    "unplaced": false
   },
   {
@@ -793,6 +997,23 @@
    "added": "2026-08-26",
    "x": -0.3652,
    "y": 0.8011,
+   "unplaced": false
+  },
+  {
+   "id": "vallotton-woman-writing",
+   "type": "painting",
+   "who": "Félix Vallotton",
+   "title": "Woman Writing in an Interior",
+   "line": "Woman Writing in an Interior",
+   "year": "1904",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/vallotton-woman-writing.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": -0.0361,
+   "y": -0.6475,
    "unplaced": false
   },
   {
@@ -842,8 +1063,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.0185,
-   "y": -0.6915,
+   "x": 0.3188,
+   "y": -0.6607,
    "unplaced": false
   },
   {
@@ -859,8 +1080,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.3229,
-   "y": -0.5961,
+   "x": -0.0136,
+   "y": -0.5314,
    "unplaced": false
   },
   {
@@ -898,6 +1119,74 @@
    "unplaced": false
   },
   {
+   "id": "hohlwein-zoo-munich",
+   "type": "poster",
+   "who": "Ludwig Hohlwein",
+   "title": "Zoologischer Garten München",
+   "line": "Zoologischer Garten München",
+   "year": "1912",
+   "where": "",
+   "weather": "the plain thing",
+   "src": "/images/vault/hohlwein-zoo-munich.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": -0.2277,
+   "y": -1.0279,
+   "unplaced": false
+  },
+  {
+   "id": "narbut-coat-of-arms",
+   "type": "poster",
+   "who": "Heorhiy Narbut",
+   "title": "cover for the large coat of arms of the ukrainian state",
+   "line": "cover for the large coat of arms of the ukrainian state",
+   "year": "1918",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/narbut-coat-of-arms.webp",
+   "url": "",
+   "note": "the graphic hand of the short-lived ukrainian state: coats of arms, banknotes, an alphabet. studied in st petersburg, came home in 1917, and drew a country that lasted two years. he died at thirty-four, of typhus.",
+   "added": "2026-09-07",
+   "x": -0.9,
+   "y": -0.5591,
+   "unplaced": false
+  },
+  {
+   "id": "onchi-flowers",
+   "type": "print",
+   "who": "Onchi Kōshirō",
+   "title": "Flowers",
+   "line": "Flowers",
+   "year": "1946",
+   "where": "",
+   "weather": "dissolution",
+   "src": "/images/vault/onchi-flowers.webp",
+   "url": "",
+   "note": "the abstract end of sōsaku-hanga: flowers that are almost only colour, lyric prints numbered like poems. he led the first thursday society and printed through the war. the late flowers are the ones that feel like weather.",
+   "added": "2026-09-07",
+   "x": -0.643,
+   "y": 0.4448,
+   "unplaced": false
+  },
+  {
+   "id": "yoshida-funatsu",
+   "type": "print",
+   "who": "Yoshida Hiroshi",
+   "title": "Funatsu",
+   "line": "Funatsu",
+   "year": "1928",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/yoshida-funatsu.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": -0.4707,
+   "y": 0.8888,
+   "unplaced": false
+  },
+  {
    "id": "attributed-to-sappho-the-moon-has-set-and-the-pleiades-it-i",
    "type": "poem",
    "who": "attributed to Sappho",
@@ -913,8 +1202,8 @@
    "original": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
    "translator": "translated for this page, not a published version",
    "lang": "greek",
-   "x": 0.0894,
-   "y": -0.467,
+   "x": 0.0571,
+   "y": -0.7622,
    "unplaced": false
   },
   {
@@ -933,8 +1222,8 @@
    "original": "馬をさへ\nながむる雪の\n朝哉",
    "translator": "translated for this page, not a published version",
    "lang": "japanese",
-   "x": -0.8894,
-   "y": -0.5588,
+   "x": -0.7831,
+   "y": -0.2767,
    "unplaced": false
   },
   {
@@ -953,8 +1242,8 @@
    "original": "古池や\n蛙飛びこむ\n水の音",
    "translator": "translated for this page, not a published version",
    "lang": "japanese",
-   "x": -0.0666,
-   "y": -1.0393,
+   "x": 0.0691,
+   "y": -0.9846,
    "unplaced": false
   },
   {
@@ -973,8 +1262,8 @@
    "original": "身にしむや\n亡妻の櫛を\n閨に踏む",
    "translator": "translated for this page, not a published version",
    "lang": "japanese",
-   "x": 0.403,
-   "y": 0.2236,
+   "x": 0.3095,
+   "y": 0.3392,
    "unplaced": false
   },
   {
@@ -993,8 +1282,8 @@
    "original": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
    "translator": "translated for this page, not a published version",
    "lang": "greek",
-   "x": 0.8112,
-   "y": -0.2537,
+   "x": 0.732,
+   "y": -0.0534,
    "unplaced": false
   },
   {
@@ -1011,8 +1300,8 @@
    "note": "Published four years after her death, from the fascicles she sewed and kept in a drawer. The 1890 text, as her first editors printed it.",
    "added": "2026-09-02",
    "lang": "english",
-   "x": -0.7596,
-   "y": -0.2964,
+   "x": -1.0849,
+   "y": -0.3948,
    "unplaced": false
   },
   {
@@ -1029,8 +1318,8 @@
    "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote.",
    "added": "2026-08-15",
    "lang": "english",
-   "x": 0.81,
-   "y": 0.22,
+   "x": 0.609,
+   "y": 0.2946,
    "unplaced": false
   },
   {
@@ -1049,8 +1338,8 @@
    "original": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
    "translator": "translated for this page, not a published version",
    "lang": "french",
-   "x": -0.5618,
-   "y": 0.6627,
+   "x": -0.3706,
+   "y": 0.3917,
    "unplaced": false
   },
   {
@@ -1067,8 +1356,8 @@
    "note": "Written the summer he was ordained. Not published until 1918, twenty-nine years after he died; he had shown it to almost no one.",
    "added": "2026-09-02",
    "lang": "english",
-   "x": -0.129,
-   "y": -0.7826,
+   "x": -0.2645,
+   "y": -0.8473,
    "unplaced": false
   },
   {
@@ -1087,8 +1376,8 @@
    "original": "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。",
    "translator": "translated for this page, not a published version",
    "lang": "chinese",
-   "x": 0.1406,
-   "y": -0.7791,
+   "x": 0.2645,
+   "y": -0.5023,
    "unplaced": false
   },
   {
@@ -1107,8 +1396,8 @@
    "original": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
    "translator": "translated for this page, not a published version",
    "lang": "german",
-   "x": 0.1602,
-   "y": 0.3506,
+   "x": 0.0447,
+   "y": 0.2508,
    "unplaced": false
   },
   {
@@ -1127,8 +1416,8 @@
    "original": "Herr: es ist Zeit. Der Sommer war sehr groß.\nLeg deinen Schatten auf die Sonnenuhren,\nund auf den Fluren laß die Winde los.\n\nBefiehl den letzten Früchten voll zu sein;\ngieb ihnen noch zwei südlichere Tage,\ndränge sie zur Vollendung hin und jage\ndie letzte Süße in den schweren Wein.\n\nWer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
    "translator": "translated for this page, not a published version",
    "lang": "german",
-   "x": -0.4269,
-   "y": 0.3676,
+   "x": -0.5632,
+   "y": 0.6621,
    "unplaced": false
   },
   {
@@ -1147,8 +1436,8 @@
    "original": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
    "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929",
    "lang": "chinese",
-   "x": -0.4796,
-   "y": 0.9119,
+   "x": -0.1376,
+   "y": 0.8738,
    "unplaced": false
   },
   {
@@ -1165,8 +1454,8 @@
    "note": "First printed as \"Aedh Wishes for the Cloths of Heaven\", one of three named voices Yeats later folded into a single \"he\".",
    "added": "2026-09-02",
    "lang": "english",
-   "x": 0.2419,
-   "y": 0.042,
+   "x": 0.3791,
+   "y": 0.1188,
    "unplaced": false
   },
   {
@@ -1182,8 +1471,8 @@
    "url": "",
    "note": "One left-hand figure, held for seven minutes, improvised in a single take at the end of a session.",
    "added": "2026-08-15",
-   "x": -0.2717,
-   "y": -0.9634,
+   "x": -0.1666,
+   "y": -1.0684,
    "unplaced": false
   },
   {
@@ -1199,8 +1488,8 @@
    "url": "",
    "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his.",
    "added": "2026-08-15",
-   "x": 0.2843,
-   "y": -0.5205,
+   "x": -0.0446,
+   "y": -0.6096,
    "unplaced": false
   },
   {
@@ -1216,8 +1505,8 @@
    "url": "",
    "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens.",
    "added": "2026-08-15",
-   "x": -0.3293,
-   "y": 0.6122,
+   "x": -0.6098,
+   "y": 0.4066,
    "unplaced": false
   },
   {
@@ -1233,8 +1522,8 @@
    "url": "",
    "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds.",
    "added": "2026-08-15",
-   "x": 0.7937,
-   "y": 0.4792,
+   "x": 0.965,
+   "y": 0.3405,
    "unplaced": false
   },
   {
@@ -1250,8 +1539,8 @@
    "url": "",
    "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia.",
    "added": "2026-08-15",
-   "x": 0.3717,
-   "y": 0.2911,
+   "x": 0.2283,
+   "y": 0.3589,
    "unplaced": false
   },
   {
@@ -1267,8 +1556,8 @@
    "url": "",
    "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician.",
    "added": "2026-08-15",
-   "x": -1.0813,
-   "y": -0.4317,
+   "x": -0.7414,
+   "y": -0.4819,
    "unplaced": false
   },
   {
@@ -1284,8 +1573,8 @@
    "url": "",
    "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything.",
    "added": "2026-08-15",
-   "x": 1.0835,
-   "y": -0.1402,
+   "x": 0.8926,
+   "y": -0.279,
    "unplaced": false
   },
   {
@@ -1301,8 +1590,8 @@
    "url": "",
    "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it.",
    "added": "2026-08-15",
-   "x": -0.1216,
-   "y": 0.9078,
+   "x": -0.3984,
+   "y": 1.0847,
    "unplaced": false
   },
   {
@@ -1319,8 +1608,8 @@
    "note": "",
    "added": "2026-09-02",
    "lang": "english",
-   "x": 0.0363,
-   "y": 0.219,
+   "x": 0.0907,
+   "y": 0.0862,
    "unplaced": false
   },
   {
@@ -1338,8 +1627,8 @@
    "added": "2026-08-15",
    "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
    "lang": "french",
-   "x": 0.6308,
-   "y": 0.2549,
+   "x": 0.6647,
+   "y": 0.4644,
    "unplaced": false
   },
   {
@@ -1357,8 +1646,8 @@
    "added": "2026-08-15",
    "english": "To be ignorant of what happened before you were born is to remain a child forever.",
    "lang": "latin",
-   "x": -0.2799,
-   "y": 1.1082,
+   "x": -0.439,
+   "y": 0.845,
    "unplaced": false
   },
   {
@@ -1376,8 +1665,8 @@
    "added": "2026-08-15",
    "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
    "lang": "spanish",
-   "x": -0.0398,
-   "y": -0.6574,
+   "x": 0.302,
+   "y": -0.6968,
    "unplaced": false
   },
   {
@@ -1394,8 +1683,8 @@
    "note": "",
    "added": "2026-08-17",
    "lang": "english",
-   "x": 0.8268,
-   "y": 0.0261,
+   "x": 1.0629,
+   "y": -0.0445,
    "unplaced": false
   },
   {
@@ -1412,8 +1701,8 @@
    "note": "",
    "added": "2026-09-02",
    "lang": "english",
-   "x": 0.0807,
-   "y": -0.9542,
+   "x": 0.0415,
+   "y": -0.8175,
    "unplaced": false
   },
   {
@@ -1431,8 +1720,8 @@
    "added": "2026-08-15",
    "english": "A drop hollows the stone; a ring is worn away by use.",
    "lang": "latin",
-   "x": -0.2594,
-   "y": -0.8392,
+   "x": -0.2715,
+   "y": -0.9796,
    "unplaced": false
   },
   {
@@ -1449,8 +1738,8 @@
    "note": "",
    "added": "2026-08-17",
    "lang": "english",
-   "x": 0.8461,
-   "y": -0.2722,
+   "x": 0.719,
+   "y": -0.0872,
    "unplaced": false
   },
   {
@@ -1468,8 +1757,8 @@
    "added": "2026-08-15",
    "english": "The wind is rising… we must try to live.",
    "lang": "french",
-   "x": -0.6558,
-   "y": 0.4704,
+   "x": -0.3169,
+   "y": 0.5951,
    "unplaced": false
   },
   {
@@ -1487,8 +1776,8 @@
    "added": "2026-09-02",
    "english": "have patience with everything unresolved in your heart, and try to love the questions themselves.",
    "lang": "german",
-   "x": -0.3281,
-   "y": 0.4292,
+   "x": -0.648,
+   "y": 0.5867,
    "unplaced": false
   },
   {
@@ -1506,8 +1795,8 @@
    "added": "2026-08-15",
    "english": "It is not because things are difficult that we do not dare; it is because we do not dare that they are difficult.",
    "lang": "latin",
-   "x": 1.0321,
-   "y": -0.0086,
+   "x": 1.0406,
+   "y": -0.2234,
    "unplaced": false
   },
   {
@@ -1525,8 +1814,8 @@
    "added": "2026-09-02",
    "english": "It is not that we have little time, but that we lose much of it.",
    "lang": "latin",
-   "x": 0.7215,
-   "y": -0.1617,
+   "x": 0.836,
+   "y": 0.0293,
    "unplaced": false
   },
   {
@@ -1544,8 +1833,8 @@
    "added": "2026-08-15",
    "english": "Attention is the rarest and purest form of generosity.",
    "lang": "french",
-   "x": -0.7354,
-   "y": -0.4727,
+   "x": -0.9643,
+   "y": -0.2508,
    "unplaced": false
   },
   {
@@ -1562,8 +1851,8 @@
    "note": "",
    "added": "2026-08-17",
    "lang": "english",
-   "x": 0.986,
-   "y": -0.2609,
+   "x": 0.7444,
+   "y": -0.206,
    "unplaced": false
   },
   {
@@ -1581,8 +1870,8 @@
    "added": "2026-08-15",
    "english": "Perhaps one day it will be a pleasure to remember even this.",
    "lang": "english",
-   "x": 0.3533,
-   "y": 0.0897,
+   "x": 0.4029,
+   "y": 0.2239,
    "unplaced": false
   },
   {
@@ -1600,8 +1889,8 @@
    "added": "2026-09-02",
    "english": "Absolutely unmixed attention is prayer.",
    "lang": "french",
-   "x": -0.9122,
-   "y": -0.2412,
+   "x": -1.0157,
+   "y": -0.5241,
    "unplaced": false
   },
   {
@@ -1621,8 +1910,8 @@
    "tags": [
     "motion"
    ],
-   "x": 0.8382,
-   "y": 0.6488,
+   "x": 0.8814,
+   "y": 0.5889,
    "unplaced": true
   },
   {
@@ -1641,8 +1930,8 @@
    "tags": [
     "taste"
    ],
-   "x": 0.6905,
-   "y": 0.8043,
+   "x": 0.7495,
+   "y": 0.7495,
    "unplaced": true
   },
   {
@@ -1661,8 +1950,8 @@
    "tags": [
     "components"
    ],
-   "x": 0.5144,
-   "y": 0.9268,
+   "x": 0.5889,
+   "y": 0.8814,
    "unplaced": true
   },
   {
@@ -1681,8 +1970,8 @@
    "tags": [
     "components"
    ],
-   "x": 0.3173,
-   "y": 1.0114,
+   "x": 0.4056,
+   "y": 0.9793,
    "unplaced": true
   },
   {
@@ -1701,8 +1990,8 @@
    "tags": [
     "craft"
    ],
-   "x": 0.1072,
-   "y": 1.0546,
+   "x": 0.2068,
+   "y": 1.0396,
    "unplaced": true
   },
   {
@@ -1722,8 +2011,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.1072,
-   "y": 1.0546,
+   "x": 0,
+   "y": 1.06,
    "unplaced": true
   },
   {
@@ -1743,8 +2032,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.3173,
-   "y": 1.0114,
+   "x": -0.2068,
+   "y": 1.0396,
    "unplaced": true
   },
   {
@@ -1763,8 +2052,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.5144,
-   "y": 0.9268,
+   "x": -0.4056,
+   "y": 0.9793,
    "unplaced": true
   },
   {
@@ -1783,8 +2072,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.6905,
-   "y": 0.8043,
+   "x": -0.5889,
+   "y": 0.8814,
    "unplaced": true
   },
   {
@@ -1804,8 +2093,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.8382,
-   "y": 0.6488,
+   "x": -0.7495,
+   "y": 0.7495,
    "unplaced": true
   },
   {
@@ -1826,8 +2115,8 @@
     "motion",
     "agents"
    ],
-   "x": -0.9517,
-   "y": 0.4668,
+   "x": -0.8814,
+   "y": 0.5889,
    "unplaced": true
   },
   {
@@ -1843,8 +2132,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0262,
-   "y": 0.2657,
+   "x": -0.9793,
+   "y": 0.4056,
    "unplaced": true
   },
   {
@@ -1860,8 +2149,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0586,
-   "y": 0.0537,
+   "x": -1.0396,
+   "y": 0.2068,
    "unplaced": true
   },
   {
@@ -1877,8 +2166,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0478,
-   "y": -0.1605,
+   "x": -1.06,
+   "y": 0,
    "unplaced": true
   },
   {
@@ -1894,9 +2183,43 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.994,
-   "y": -0.3681,
+   "x": -1.0396,
+   "y": -0.2068,
    "unplaced": true
+  },
+  {
+   "id": "felix-vallotton",
+   "type": "person",
+   "who": "Félix Vallotton",
+   "title": "",
+   "line": "Félix Vallotton",
+   "year": "",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/felix-vallotton.webp",
+   "url": "",
+   "note": "nabi painter and woodcutter; interiors where two people share a room and almost nothing else. born in lausanne, naturalised french, and late in life he painted sunsets as flat bands of heat. the interiors are the ones that stay.",
+   "added": "2026-09-07",
+   "x": 0.128,
+   "y": -0.4612,
+   "unplaced": false
+  },
+  {
+   "id": "florine-stettheimer",
+   "type": "person",
+   "who": "Florine Stettheimer",
+   "title": "",
+   "line": "Florine Stettheimer",
+   "year": "",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/florine-stettheimer.webp",
+   "url": "",
+   "note": "painted the new york salon she kept: pink rooms, families standing as if on a stage, heat you can feel in the colour. she showed little in her lifetime; after she died her sisters gave the pictures away rather than sell them.",
+   "added": "2026-09-07",
+   "x": 0.7274,
+   "y": 0.1875,
+   "unplaced": false
   },
   {
    "id": "hajime-sorayama",
@@ -1911,9 +2234,43 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.8996,
-   "y": -0.5607,
+   "x": -0.9793,
+   "y": -0.4056,
    "unplaced": true
+  },
+  {
+   "id": "ludwig-hohlwein",
+   "type": "person",
+   "who": "Ludwig Hohlwein",
+   "title": "",
+   "line": "Ludwig Hohlwein",
+   "year": "",
+   "where": "",
+   "weather": "the plain thing",
+   "src": "/images/vault/ludwig-hohlwein.webp",
+   "url": "",
+   "note": "munich poster designer; flat colour, a single animal or a single coat, the type sitting still beside it. trained as an architect. the zoo poster is the one that reads from across a street.",
+   "added": "2026-09-07",
+   "x": 0.0613,
+   "y": -0.9978,
+   "unplaced": false
+  },
+  {
+   "id": "paula-modersohn-becker",
+   "type": "person",
+   "who": "Paula Modersohn-Becker",
+   "title": "",
+   "line": "Paula Modersohn-Becker",
+   "year": "",
+   "where": "",
+   "weather": "the plain thing",
+   "src": "/images/vault/paula-modersohn-becker.webp",
+   "url": "",
+   "note": "worpswede, then paris, then a handful of years in which she painted herself as a person rather than a type. first german woman to paint a nude self-portrait. she died at thirty-one, after the birth of her daughter.",
+   "added": "2026-09-07",
+   "x": -0.0867,
+   "y": -0.7613,
+   "unplaced": false
   },
   {
    "id": "robin-williams",
@@ -1928,8 +2285,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.7683,
-   "y": -0.7303,
+   "x": -0.8814,
+   "y": -0.5889,
    "unplaced": true
   },
   {
@@ -1945,9 +2302,60 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.6055,
-   "y": -0.87,
+   "x": -0.7495,
+   "y": -0.7495,
    "unplaced": true
+  },
+  {
+   "id": "wladyslaw-strzeminski",
+   "type": "person",
+   "who": "Władysław Strzemiński",
+   "title": "",
+   "line": "Władysław Strzemiński",
+   "year": "",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/wladyslaw-strzeminski.webp",
+   "url": "",
+   "note": "unism: pictures that refuse a centre, afterimages of the sun, a theory written down as well as painted. studied in moscow, built the a.r. group in łódź with katarzyna kobro, his wife. the late sun pictures are almost nothing and almost too much.",
+   "added": "2026-09-07",
+   "x": 0.9222,
+   "y": 0.4418,
+   "unplaced": false
+  },
+  {
+   "id": "xu-beihong",
+   "type": "person",
+   "who": "Xu Beihong",
+   "title": "",
+   "line": "Xu Beihong",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/xu-beihong.webp",
+   "url": "",
+   "note": "trained in paris, then painted ink horses that move as if the paper were weather. taught in beijing and helped set the academic line for the new republic. the horses are what people remember; the portraits are quieter.",
+   "added": "2026-09-07",
+   "x": -0.5889,
+   "y": -0.8814,
+   "unplaced": true
+  },
+  {
+   "id": "yoshida-hiroshi",
+   "type": "person",
+   "who": "Yoshida Hiroshi",
+   "title": "",
+   "line": "Yoshida Hiroshi",
+   "year": "",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/yoshida-hiroshi.webp",
+   "url": "",
+   "note": "shin-hanga landscapes: water, boats, a mountain held in a few blocks of colour. he carved and printed his own work, and travelled to india and the american west. funatsu is one of the quieter fuji views.",
+   "added": "2026-09-07",
+   "x": -0.1393,
+   "y": 1.0288,
+   "unplaced": false
   },
   {
    "id": "my-only-english-teacher-was-a-homeless-man-on-the-town-squar",
@@ -1962,8 +2370,8 @@
    "url": "/writing/english-teacher",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.418,
-   "y": -0.9741,
+   "x": -0.4056,
+   "y": -0.9793,
    "unplaced": true
   },
   {
@@ -1979,8 +2387,8 @@
    "url": "/writing/staying-human",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.2134,
-   "y": -1.0383,
+   "x": -0.2068,
+   "y": -1.0396,
    "unplaced": true
   }
  ],
@@ -1990,7 +2398,7 @@
    "x": -0.9,
    "y": -0.4,
    "why": "winter light and precision, aimed at something small",
-   "count": 12,
+   "count": 13,
    "forms": [
     {
      "form": "painting",
@@ -2015,11 +2423,11 @@
    "x": -0.1,
    "y": -0.92,
    "why": "one object, looked at until it stops being ordinary",
-   "count": 7,
+   "count": 12,
    "forms": [
     {
      "form": "painting",
-     "n": 2
+     "n": 4
     },
     {
      "form": "poem",
@@ -2040,11 +2448,11 @@
    "x": 0.14,
    "y": -0.62,
    "why": "one light on, company at a distance",
-   "count": 10,
+   "count": 12,
    "forms": [
     {
      "form": "painting",
-     "n": 6
+     "n": 7
     },
     {
      "form": "poem",
@@ -2065,11 +2473,11 @@
    "x": 0.9,
    "y": -0.12,
    "why": "ambition with its nerve showing, and the cost of it",
-   "count": 11,
+   "count": 13,
    "forms": [
     {
      "form": "painting",
-     "n": 4
+     "n": 6
     },
     {
      "form": "poem",
@@ -2090,11 +2498,11 @@
    "x": 0.78,
    "y": 0.34,
    "why": "heat held against the dark",
-   "count": 5,
+   "count": 9,
    "forms": [
     {
      "form": "painting",
-     "n": 2
+     "n": 4
     },
     {
      "form": "poem",
@@ -2115,11 +2523,11 @@
    "x": 0.22,
    "y": 0.2,
    "why": "gravity, falling, and being held anyway",
-   "count": 11,
+   "count": 14,
    "forms": [
     {
      "form": "painting",
-     "n": 5
+     "n": 8
     },
     {
      "form": "poem",
@@ -2140,11 +2548,11 @@
    "x": -0.48,
    "y": 0.52,
    "why": "edges going, fog, the moment a shape stops being one",
-   "count": 11,
+   "count": 15,
    "forms": [
     {
      "form": "painting",
-     "n": 6
+     "n": 9
     },
     {
      "form": "poem",
@@ -2165,7 +2573,7 @@
    "x": -0.3,
    "y": 0.95,
    "why": "the scale that puts you in your place",
-   "count": 12,
+   "count": 14,
    "forms": [
     {
      "form": "painting",
@@ -2237,6 +2645,48 @@
    ]
   },
   {
+   "who": "Paula Modersohn-Becker",
+   "ids": [
+    "modersohn-becker-milk-soup",
+    "paula-modersohn-becker"
+   ]
+  },
+  {
+   "who": "Florine Stettheimer",
+   "ids": [
+    "stettheimer-heat",
+    "florine-stettheimer"
+   ]
+  },
+  {
+   "who": "Władysław Strzemiński",
+   "ids": [
+    "strzeminski-afterimage-sun",
+    "wladyslaw-strzeminski"
+   ]
+  },
+  {
+   "who": "Félix Vallotton",
+   "ids": [
+    "vallotton-woman-writing",
+    "felix-vallotton"
+   ]
+  },
+  {
+   "who": "Ludwig Hohlwein",
+   "ids": [
+    "hohlwein-zoo-munich",
+    "ludwig-hohlwein"
+   ]
+  },
+  {
+   "who": "Yoshida Hiroshi",
+   "ids": [
+    "yoshida-funatsu",
+    "yoshida-hiroshi"
+   ]
+  },
+  {
    "who": "Bashō",
    "ids": [
     "bash-even-the-horse-holds-my-eye-snow-on-th",
@@ -2288,11 +2738,11 @@
    ]
   }
  ],
- "unplaced": 31,
+ "unplaced": 32,
  "forms": [
   {
    "form": "painting",
-   "n": 51
+   "n": 64
   },
   {
    "form": "object",
@@ -2304,11 +2754,11 @@
   },
   {
    "form": "poster",
-   "n": 0
+   "n": 2
   },
   {
    "form": "print",
-   "n": 0
+   "n": 2
   },
   {
    "form": "photograph",
@@ -2332,7 +2782,7 @@
   },
   {
    "form": "person",
-   "n": 7
+   "n": 14
   },
   {
    "form": "writing",
@@ -2373,6 +2823,14 @@
    "n": 2
   },
   {
+   "who": "Félix Vallotton",
+   "n": 2
+  },
+  {
+   "who": "Florine Stettheimer",
+   "n": 2
+  },
+  {
    "who": "Hilma af Klint",
    "n": 2
   },
@@ -2385,7 +2843,15 @@
    "n": 2
   },
   {
+   "who": "Ludwig Hohlwein",
+   "n": 2
+  },
+  {
    "who": "Odilon Redon",
+   "n": 2
+  },
+  {
+   "who": "Paula Modersohn-Becker",
    "n": 2
   },
   {
@@ -2401,6 +2867,14 @@
    "n": 2
   },
   {
+   "who": "Władysław Strzemiński",
+   "n": 2
+  },
+  {
+   "who": "Yoshida Hiroshi",
+   "n": 2
+  },
+  {
    "who": "Agnes Martin",
    "n": 1
   },
@@ -2410,6 +2884,10 @@
   },
   {
    "who": "Albert Camus",
+   "n": 1
+  },
+  {
+   "who": "Albert Marquet",
    "n": 1
   },
   {
@@ -2429,6 +2907,10 @@
    "n": 1
   },
   {
+   "who": "Bohumil Kubišta",
+   "n": 1
+  },
+  {
    "who": "Brian Eno",
    "n": 1
   },
@@ -2442,6 +2924,10 @@
   },
   {
    "who": "Carlos Baca-Flor",
+   "n": 1
+  },
+  {
+   "who": "Charles Demuth",
    "n": 1
   },
   {
@@ -2513,6 +2999,10 @@
    "n": 1
   },
   {
+   "who": "Gino Rossi",
+   "n": 1
+  },
+  {
    "who": "Giorgio Morandi",
    "n": 1
   },
@@ -2522,6 +3012,14 @@
   },
   {
    "who": "Hendrick Dubbels",
+   "n": 1
+  },
+  {
+   "who": "Heorhiy Narbut",
+   "n": 1
+  },
+  {
+   "who": "Huang Binhong",
    "n": 1
   },
   {
@@ -2561,6 +3059,10 @@
    "n": 1
   },
   {
+   "who": "María Blanchard",
+   "n": 1
+  },
+  {
    "who": "Maurice Galbraith Cullen",
    "n": 1
   },
@@ -2569,11 +3071,27 @@
    "n": 1
   },
   {
+   "who": "Niko Pirosmani",
+   "n": 1
+  },
+  {
    "who": "Nina Simone",
    "n": 1
   },
   {
+   "who": "Oleksandr Bohomazov",
+   "n": 1
+  },
+  {
+   "who": "Oleksandra Ekster",
+   "n": 1
+  },
+  {
    "who": "Olga Wisinger-Florian",
+   "n": 1
+  },
+  {
+   "who": "Onchi Kōshirō",
    "n": 1
   },
   {
@@ -2645,13 +3163,17 @@
    "n": 1
   },
   {
+   "who": "Xu Beihong",
+   "n": 1
+  },
+  {
    "who": "Yosa Buson",
    "n": 1
   }
  ],
  "depth": {
-  "notes": 110,
-  "people": 76,
+  "notes": 134,
+  "people": 94,
   "thinnest": "invincible summer",
   "oneDeep": 0
  }
