@@ -191,6 +191,79 @@ test("the chapter rail follows the section crossing the reading line", async () 
   assert.equal(attrs.get("experience:aria-current"), "location");
 });
 
+test("the chapter compass names the current section and closes after choosing one", async () => {
+  const file = "src/scripts/chapter-rail.js";
+  const { setupChapterRail } = await import(path.join(root, file));
+
+  const attrs = new Map();
+  const listeners = new Map();
+  const makeLink = (id, name) => ({
+    dataset: { chapter: id, chapterName: name },
+    setAttribute(key, value) { attrs.set(`${id}:${key}`, value); },
+    removeAttribute(key) { attrs.delete(`${id}:${key}`); },
+    addEventListener(name, fn) { listeners.set(`${id}:${name}`, fn); },
+  });
+  const links = [makeLink("top", "hello"), makeLink("experience", "experience")];
+  const rects = {
+    top: { top: 0, bottom: 620 },
+    experience: { top: 620, bottom: 1600 },
+  };
+  const sections = Object.fromEntries(Object.keys(rects).map((id) => [id, {
+    id,
+    getBoundingClientRect: () => rects[id],
+  }]));
+  const rail = { dataset: {} };
+  const compass = { open: true };
+  const label = { textContent: "" };
+  const count = { textContent: "" };
+  const doc = {
+    querySelectorAll: () => links,
+    getElementById: (id) => sections[id],
+    querySelector(selector) {
+      return {
+        ".chapter-rail": rail,
+        ".chapter-compass": compass,
+        "[data-chapter-label]": label,
+        "[data-chapter-count]": count,
+      }[selector];
+    },
+    addEventListener(name, fn) { listeners.set(`document:${name}`, fn); },
+  };
+  const view = {
+    innerHeight: 1000,
+    scrollY: 0,
+    addEventListener: (name, fn) => listeners.set(`window:${name}`, fn),
+    requestAnimationFrame: (fn) => { fn(); return 1; },
+  };
+
+  setupChapterRail(doc, view);
+  assert.equal(label.textContent, "hello");
+  assert.equal(count.textContent, "01 / 02");
+  assert.equal(rail.dataset.visible, "false");
+
+  view.scrollY = 500;
+  rects.top = { top: -700, bottom: -80 };
+  rects.experience = { top: -80, bottom: 900 };
+  listeners.get("window:scroll")();
+  assert.equal(label.textContent, "experience");
+  assert.equal(count.textContent, "02 / 02");
+  assert.equal(rail.dataset.visible, "true");
+
+  listeners.get("experience:click")();
+  assert.equal(compass.open, false);
+});
+
+test("scene blending crosses each act over a quarter viewport", async () => {
+  const file = "src/scripts/scene-choreography.js";
+  assert.ok(exists(file), "the scene choreography has no controller");
+  const { sceneWeights } = await import(path.join(root, file));
+
+  assert.deepEqual(sceneWeights([540, 1600], 1000), [1, 0, 0]);
+  assert.deepEqual(sceneWeights([420, 1600], 1000), [0.5, 0.5, 0]);
+  assert.deepEqual(sceneWeights([300, 420], 1000), [0, 0.5, 0.5]);
+  assert.deepEqual(sceneWeights([200, 300], 1000), [0, 0, 1]);
+});
+
 test("the journey easel has two media buffers so a new memory cannot teleport in", () => {
   const page = read("src/pages/index.astro");
   const layers = [...page.matchAll(/class="easel-layer(?: is-active)?"/g)];

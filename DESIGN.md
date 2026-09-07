@@ -151,13 +151,12 @@ as fixed scenes. The homepage is a deliberate three-act progression:
 method, and **estuary** opens the personal, contact and closing chapters into
 morning. A sky changes only at one of those act boundaries, never between two
 sections that form one thought. Other URLs claim one painting of their own.
-Sections carry `data-scene`; an IntersectionObserver with a centred band
-(−42% top and bottom) hands the sky to the section nearest mid-viewport, and
-scene layers crossfade over 900ms. The painting is alive rather than static:
-it breathes (scale 1.04 → 1.1 over 70s, alternating) and parallaxes against
-scroll (−4vh over the first viewport) and cursor (eased, −14px/−9px),
-compositor transforms and opacity only. Idle preloading warms the remaining
-scenes after first paint.
+Sections carry `data-scene`; each new act blends in across a 24vh band around
+the reading line, so the sky changes spatially rather than snapping at a
+section edge. The three homepage paintings do not move alike: fire breathes
+over 48s with the deepest scroll and cursor response, ember drifts over 88s,
+and the estuary is almost held at 132s. Only compositor transforms and opacity
+move. Idle preloading warms the remaining scenes after first paint.
 
 ### Readability — Smoked Glass
 
@@ -239,10 +238,19 @@ media, 8.7MB against 1.2MB for every other picture on the page, and more
 photographs of the company's models than of him in the section about what
 he did. The stage now carries the brand film alone, at the 16:9 of its own
 encode so nothing letterboxes, with no border, no caption and no picker.
+On desktop it holds the right rail while the story and receipts pass beside
+it. On phones it holds briefly at the top of its own entry, then releases at
+the end; the three receipts become one transparent horizontal proof strip.
 The stills are gone: cropping three of them to a shared ratio to get one
 baseline took a face off the portrait, and the cream mat that suits his own
 snapshots made advertising look like holiday prints. The hero carries a fourth, small Times
 Radio studio loop in the front corner of its existing print pile.
+
+The long homepage carries two forms of the same local map. At 1200px and up,
+the left-edge dot rail stays visible. Below that, a thumb-edge compass appears
+after the opening frame, names the current chapter as `02 / 07 · experience`,
+and opens the complete seven-stop list. Both are driven by the same reading
+line and close back into the page after a destination is chosen.
 
 ### Named Rules (dream)
 

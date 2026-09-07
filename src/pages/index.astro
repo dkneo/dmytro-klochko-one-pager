@@ -288,11 +288,37 @@ const also = [
 
 <Layout title={title} description={description} current="home" scenes={["fire", "ember", "estuary"]}>
   <nav class="chapter-rail" aria-label="on this page">
+    <details class="chapter-compass">
+      <summary>
+        <span data-chapter-count>01 / {String(chapters.length).padStart(2, "0")}</span>
+        <span aria-hidden="true">·</span>
+        <b data-chapter-label>{chapters[0].label}</b>
+        <i aria-hidden="true" />
+      </summary>
+      <div class="chapter-compass-list">
+        {
+          chapters.map((chapter, index) => (
+            <a
+              href={`#${chapter.id}`}
+              data-chapter={chapter.id}
+              data-chapter-name={chapter.label}
+              aria-current={index === 0 ? "location" : undefined}
+            >
+              <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
+              <span>{chapter.label}</span>
+            </a>
+          ))
+        }
+      </div>
+    </details>
+
+    <div class="chapter-rail-list">
     {
       chapters.map((chapter, index) => (
         <a
           href={`#${chapter.id}`}
           data-chapter={chapter.id}
+          data-chapter-name={chapter.label}
           aria-current={index === 0 ? "location" : undefined}
         >
           <i aria-hidden="true" />
@@ -300,6 +326,7 @@ const also = [
         </a>
       ))
     }
+    </div>
   </nav>
 
   <script>

@@ -836,6 +836,8 @@ html.is-shook .scenes {
 .scenes i {
   position: absolute;
   inset: -6%;
+  --breathe-from: 1.04;
+  --breathe-to: 1.08;
   opacity: 0;
   background: center / cover no-repeat;
   transform-origin: 50% 100%;
@@ -846,8 +848,37 @@ html.is-shook .scenes {
 }
 
 @keyframes scene-breathe {
-  from { scale: 1.04; }
-  to { scale: 1.08; }
+  from { scale: var(--breathe-from); }
+  to { scale: var(--breathe-to); }
+}
+
+/* Three acts, three tempos. Fire is close and alive; the ember moon drifts
+   at the pace of the evidence; the estuary is almost a held frame. The same
+   scroll and pointer signals drive all three, but each painting answers with
+   its own amount of movement. */
+
+.scenes i[data-s="fire"] {
+  --breathe-from: 1.045;
+  --breathe-to: 1.095;
+  animation-duration: 48s;
+  transform: translateY(calc(var(--scroll, 0) * -3.2vh))
+    translate(calc(var(--px, 0) * -40px), calc(var(--py, 0) * -26px));
+}
+
+.scenes i[data-s="ember"] {
+  --breathe-from: 1.03;
+  --breathe-to: 1.06;
+  animation-duration: 88s;
+  transform: translateY(calc(var(--scroll, 0) * -1.45vh))
+    translate(calc(var(--px, 0) * -18px), calc(var(--py, 0) * -12px));
+}
+
+.scenes i[data-s="estuary"] {
+  --breathe-from: 1.015;
+  --breathe-to: 1.032;
+  animation-duration: 132s;
+  transform: translateY(calc(var(--scroll, 0) * -0.55vh))
+    translate(calc(var(--px, 0) * -7px), calc(var(--py, 0) * -5px));
 }
 
 /* The painted sun warms and cools on a slow clock — light over the art,
@@ -991,6 +1022,15 @@ html[data-scene="nightcourt"] .scenes i[data-s="nightcourt"],
 html[data-scene="ember"] .scenes i[data-s="ember"],
 html[data-scene="study"] .scenes i[data-s="study"] {
   opacity: 1;
+}
+
+/* Multi-act pages blend by scroll position rather than snapping at one
+   observer threshold. The controller writes only these three compositor
+   values and lets the ordinary active-scene rules remain as the no-js path. */
+
+html[data-mode="dream"] .scenes[data-progressive] i[data-s] {
+  opacity: var(--scene-opacity, 0);
+  transition: none;
 }
 
 /* The reading lane is smoked glass, not paint: backdrop brightness dims
@@ -1444,9 +1484,13 @@ svg.pin {
   transition: opacity 900ms var(--ease);
 }
 
-html[data-weather="fire"] .weather--fire { opacity: 1; }
+html[data-weather="fire"] .weather--fire { opacity: var(--fire-weather-opacity, 1); }
 
 html[data-scene="snow"] .weather--snow { opacity: 1; }
+
+html[data-scene="estuary"] .scenes .glints s {
+  animation-duration: 24s;
+}
 
 html[data-motion="paused"] .dream-sky b,
 html[data-motion="paused"] .scenes i,
@@ -1820,7 +1864,7 @@ html[data-motion="paused"] .scenes .firelight {
         "role showcase"
         "copy showcase"
         "more showcase"
-        "receipts receipts";
+        "receipts showcase";
       column-gap: var(--sp-4);
       align-items: start;
     }
@@ -1837,8 +1881,8 @@ html[data-motion="paused"] .scenes .firelight {
 
   [data-mode="dream"] .cv-job--lead .receipts {
       grid-area: receipts;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: var(--sp-4);
+      grid-template-columns: 1fr;
+      margin-top: var(--sp-3);
     }
 }
 
@@ -1913,8 +1957,56 @@ html[data-motion="paused"] .scenes .firelight {
 }
 
 @media (max-width: 860px) {
+  [data-mode="dream"] .cv-job--lead {
+      display: flex;
+      flex-direction: column;
+    }
+
+  [data-mode="dream"] .cv-lead-name { order: 1; }
+
+  [data-mode="dream"] .cv-job--lead > .reg-line { order: 2; }
+
+  [data-mode="dream"] .cv-job--lead > .replika-showcase {
+      order: 3;
+      position: sticky;
+      z-index: 4;
+      top: 0.65rem;
+      margin: var(--sp-1) 0 var(--sp-3);
+    }
+
+  [data-mode="dream"] .cv-job--lead > .cv-spread { order: 4; }
+
+  [data-mode="dream"] .cv-job--lead > .cv-job--lead-more { order: 5; }
+
+  [data-mode="dream"] .cv-job--lead > .receipts {
+      order: 6;
+      display: flex;
+      gap: var(--sp-2);
+      width: calc(100% + var(--gutter));
+      margin-top: var(--sp-3);
+      padding: 0 var(--gutter) var(--sp-1) 0;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: rgb(255 155 192 / 55%) transparent;
+    }
+
+  [data-mode="dream"] .cv-job--lead > .receipts li {
+      flex: 0 0 min(82vw, 20rem);
+      scroll-snap-align: start;
+    }
+
   [data-mode="dream"] .replika-showcase {
       margin-top: var(--sp-3);
+    }
+}
+
+@media (min-width: 861px) {
+  [data-mode="dream"] .cv-job--lead > .replika-showcase {
+      position: sticky;
+      top: clamp(1.25rem, 5vh, 3rem);
+      align-self: start;
     }
 }
 
@@ -2627,6 +2719,156 @@ html[data-motion="paused"] .scenes .firelight {
   display: none;
 }
 
+/* Below the dot rail, the same map becomes one small instrument at the
+   thumb edge. It stays out of the opening frame, then names the chapter the
+   reading line is crossing. Native details keeps the whole map usable when
+   javascript or animation is unavailable. */
+
+@media (max-width: 1199px) {
+  [data-mode="dream"] .chapter-rail {
+      position: fixed;
+      z-index: 13;
+      right: auto;
+      bottom: calc(0.8rem + env(safe-area-inset-bottom));
+      left: 50%;
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%);
+      transition:
+        opacity 200ms var(--ease),
+        transform 200ms var(--ease);
+    }
+
+  [data-mode="dream"] .chapter-rail[data-enhanced][data-visible="false"] {
+      opacity: 0;
+      transform: translate(-50%, calc(100% + 1.6rem));
+      pointer-events: none;
+    }
+
+  [data-mode="dream"] .chapter-rail-list {
+      display: none;
+    }
+
+  [data-mode="dream"] .chapter-compass {
+      position: relative;
+      color: var(--bone);
+      font-family: var(--mono);
+      font-size: var(--t-xs);
+      letter-spacing: var(--ls-wide);
+    }
+
+  [data-mode="dream"] .chapter-compass > summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.46rem;
+      min-width: 11.5rem;
+      min-height: 44px;
+      padding: 0.52rem 0.75rem;
+      border: 1px solid rgb(236 230 217 / 24%);
+      border-radius: 999px;
+      background: rgb(24 28 46 / 86%);
+      box-shadow: 0 12px 34px rgb(6 9 18 / 34%);
+      -webkit-backdrop-filter: blur(12px) brightness(0.8);
+      backdrop-filter: blur(12px) brightness(0.8);
+      cursor: pointer;
+      list-style: none;
+      transition:
+        border-color 160ms var(--ease),
+        background 160ms var(--ease),
+        transform 160ms var(--ease);
+    }
+
+  [data-mode="dream"] .chapter-compass > summary::-webkit-details-marker {
+      display: none;
+    }
+
+  [data-mode="dream"] .chapter-compass > summary > span:first-child {
+      color: var(--hot);
+      font-variant-numeric: tabular-nums;
+    }
+
+  [data-mode="dream"] .chapter-compass > summary b {
+      font-weight: 400;
+    }
+
+  [data-mode="dream"] .chapter-compass > summary i {
+      width: 0.38rem;
+      height: 0.38rem;
+      margin-left: 0.08rem;
+      border-right: 1px solid var(--quiet);
+      border-bottom: 1px solid var(--quiet);
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 200ms var(--ease);
+    }
+
+  [data-mode="dream"] .chapter-compass[open] > summary {
+      border-color: rgb(255 155 192 / 58%);
+      background: rgb(24 28 46 / 94%);
+    }
+
+  [data-mode="dream"] .chapter-compass[open] > summary i {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+  [data-mode="dream"] .chapter-compass > summary:active {
+      transform: scale(0.97);
+    }
+
+  [data-mode="dream"] .chapter-compass > summary:focus-visible {
+      outline: 2px solid var(--hot);
+      outline-offset: 3px;
+    }
+
+  [data-mode="dream"] .chapter-compass-list {
+      position: absolute;
+      right: 50%;
+      bottom: calc(100% + 0.55rem);
+      display: grid;
+      width: min(20rem, calc(100vw - 2rem));
+      padding: 0.45rem;
+      border: 1px solid rgb(236 230 217 / 20%);
+      border-radius: var(--r-row);
+      background: rgb(24 28 46 / 94%);
+      box-shadow: 0 22px 54px rgb(6 9 18 / 46%);
+      -webkit-backdrop-filter: blur(16px) brightness(0.76);
+      backdrop-filter: blur(16px) brightness(0.76);
+      transform: translateX(50%);
+    }
+
+  [data-mode="dream"] .chapter-compass-list a {
+      display: grid;
+      grid-template-columns: 2.2rem 1fr;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.35rem 0.55rem;
+      border-radius: calc(var(--r-row) - 2px);
+      color: var(--quiet);
+      text-decoration: none;
+      transition: color 160ms var(--ease), background 160ms var(--ease);
+    }
+
+  [data-mode="dream"] .chapter-compass-list a > b {
+      color: var(--dim);
+      font-weight: 400;
+      font-variant-numeric: tabular-nums;
+    }
+
+  [data-mode="dream"] .chapter-compass-list a[aria-current="location"] {
+      background: rgb(255 155 192 / 12%);
+      color: var(--bone);
+    }
+
+  [data-mode="dream"] .chapter-compass-list a[aria-current="location"] > b {
+      color: var(--hot);
+    }
+
+  [data-mode="dream"] .chapter-compass-list a:focus-visible {
+      outline: 2px solid var(--hot);
+      outline-offset: -2px;
+    }
+}
+
 @media (min-width: 1200px) {
   [data-mode="dream"] .chapter-rail {
       position: fixed;
@@ -2636,6 +2878,15 @@ html[data-motion="paused"] .scenes .firelight {
       display: grid;
       gap: 0.08rem;
       transform: translateY(-50%);
+    }
+
+  [data-mode="dream"] .chapter-compass {
+      display: none;
+    }
+
+  [data-mode="dream"] .chapter-rail-list {
+      display: grid;
+      gap: 0.08rem;
     }
 
   [data-mode="dream"] .chapter-rail::before {
