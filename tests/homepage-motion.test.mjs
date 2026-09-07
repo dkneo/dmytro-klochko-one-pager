@@ -109,8 +109,8 @@ test("proof arrives before the homepage asks readers to trust its operating styl
   assert.match(page, /my sense of urgency is outstanding/i);
   assert.match(page, /natural aptitude for <b>taste<\/b>/i);
   assert.match(page, /<b>clairvoyant<\/b>/i);
-  assert.match(page, /truly novel and beautiful/i);
-  assert.match(page, /unleash their potential to the fullest/i);
+  assert.match(page, /the agent i wish existed/i);
+  assert.match(page, /help people become more\s+themselves/i);
 });
 
 test("the homepage moves through three authored acts without changing sky mid-thought", () => {
