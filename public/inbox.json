@@ -6911,6 +6911,31 @@
    "source": "https://www.youtube.com/results?search_query=Schumann%20Tr%C3%A4umerei",
    "licence": "public domain",
    "note_md": "---\ntype: song\nwho: Robert Schumann\ntitle: \"Träumerei\"\nyear: \"1838\"\nadded: {{added}}\nyoutube: \"https://www.youtube.com/results?search_query=Schumann%20Tr%C3%A4umerei\"\nspotify: \"https://open.spotify.com/search/Schumann%20Tr%C3%A4umerei\"\nnote: |-\n  From Kinderszenen, written when he was twenty-eight. No weather yet.\n---\n\nwho: [[Robert Schumann]]\n"
+  },
+  {
+   "id": "xu-beihong-eight-horses",
+   "type": "painting",
+   "who": "Xu Beihong",
+   "title": "The eight horses",
+   "year": "",
+   "weather": "nerve",
+   "src": "https://upload.wikimedia.org/wikipedia/commons/f/fd/The_eight_horses_%28Xu_Beihong%29.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:The_eight_horses_(Xu_Beihong).jpg",
+   "licence": "public domain; commons original is 978 px, too small to hang until a larger scan exists",
+   "found": "2026-09-07"
+  },
+  {
+   "id": "silvashi-colour-fields",
+   "type": "bookmark",
+   "who": "Tiberiy Silvashi",
+   "title": "Tiberiy Silvashi",
+   "site": "uk.wikipedia.org",
+   "line": "kyiv painter of colour fields, named in the vault's own doctrine. living; sit the link, do not host a canvas.",
+   "url": "https://uk.wikipedia.org/wiki/%D0%A1%D1%96%D0%BB%D1%8C%D0%B2%D0%B0%D1%88%D1%96_%D0%A2%D1%96%D0%B1%D0%B5%D1%80%D1%96%D0%B9_%D0%99%D0%BE%D1%81%D0%B8%D0%BF%D0%BE%D0%B2%D0%B8%D1%87",
+   "weather": "dissolution",
+   "source": "https://uk.wikipedia.org/wiki/%D0%A1%D1%96%D0%BB%D1%8C%D0%B2%D0%B0%D1%88%D1%96_%D0%A2%D1%96%D0%B1%D0%B5%D1%80%D1%96%D0%B9_%D0%99%D0%BE%D1%81%D0%B8%D0%BF%D0%BE%D0%B2%D0%B8%D1%87",
+   "licence": "all rights reserved; living painter, no canvas hosted",
+   "found": "2026-09-07"
   }
  ]
 }
