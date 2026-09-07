@@ -20,6 +20,7 @@ export function toMarks(map) {
     who: it.who || "",
     line: it.line || it.title || "",
     year: it.year || "",
+    // JSON has no -0. the orbit page stringifies these; live marks must match.
     x: it.x * 4.4 + 0,
     y: -it.y * 3.4 + 0,
     z: ((stratum.get(it.weather) ?? (W - 1) / 2) - (W - 1) / 2) * 1.05
