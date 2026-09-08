@@ -1,6 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import EidosLayout from "../../layouts/EidosLayout.astro";
+import EidosHeader from "../../components/eidos/EidosHeader.astro";
 import "../../styles/pages/eidos.css";
+import "../../styles/pages/eidos-atlas.css";
 import map from "../../data/map.json";
 import inbox from "../../../public/inbox.json";
 
@@ -31,21 +33,28 @@ const thumbFor = (src: string) => src
   .replace("/images/", "/images/thumbs/")
   .replace(/\.[^.]+$/, ".webp");
 
-const title = "the sketch · eidos";
-const description = "the map view of the eidos library: every mark placed by feeling on two argued axes.";
+const title = "atlas · eidos";
+const description = "a living atlas of taste: every mark placed by feeling on two argued axes.";
 ---
 
-<Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted>
-  <section class="shell session eidos-map" data-scene="nightcourt" aria-labelledby="em">
-    <div class="card">
-      <h1 class="card-title" id="em">the sketch</h1>
-    </div>
+<EidosLayout title={title} description={description}>
+  <div class="eidos-atlas" data-mode="dream">
+    <EidosHeader current="atlas" />
+    <main class="ea-shell">
+  <section class="eidos-map" aria-labelledby="em">
+    <header class="ea-intro">
+      <div>
+        <p class="ep-index">a living coordinate system</p>
+        <h1 id="em">the atlas</h1>
+      </div>
+      <p>every mark placed by feeling, not category. move through it to see where paintings, words, songs and people touch.</p>
+    </header>
 
-    <p class="today-how">
+    <p class="ea-explain">
       the whole vault placed on two axes you can argue with: cold to warm
       across, one thing to everything up. this is the working map, so it
-      holds what <a href="/eidos">the library</a> does not shelve — the craft
-      links that live on <a href="/learning">learning</a> — and the ring
+      holds what <a href="/eidos">the portrait</a> does not shelve, including the craft
+      links that live on <a href="/learning">learning</a>. the ring
       around the edge is everything that has not said how it feels.
     </p>
 
@@ -58,12 +67,12 @@ const description = "the map view of the eidos library: every mark placed by fee
     </dl>
 
     <p class="em-honest">
-      this is a sketch, not a map. {depth.oneDeep} of the {weathers.length}
-      weathers hold one of each form and no more, <b>{thinnest.name}</b> is the
-      thinnest, and {unplaced} notes have never been told how they feel. the
-      ring around the edge is those. it should be empty.
+      <span>{`this is a map that admits uncertainty. ${depth.oneDeep} of ${weathers.length} weathers hold one of each form and no more, `}</span>
+      <b>{thinnest.name}</b>
+      <span>{` is the thinnest, and ${unplaced} notes have never been told how they feel. the ring around the edge is those. it should be empty.`}</span>
     </p>
 
+    <div class="ea-map-frame">
     {/* ── controls ──────────────────────────────────────────────────── */}
     <div class="em-controls" role="group" aria-label="filter the map">
       <button class="em-chip is-on" data-filter="all" type="button">everything</button>
@@ -140,13 +149,17 @@ const description = "the map view of the eidos library: every mark placed by fee
       <button class="em-close" type="button" aria-label="close">close</button>
       <div class="em-detail-body"></div>
     </aside>
+    </div>
 
+    <details class="ea-private-tools">
+      <summary>open the private instruments <span>ask · place · compare</span></summary>
+      <div class="ea-private-grid">
     {/* ── ask it ────────────────────────────────────────────────────── */}
     <h2 class="em-head">ask it</h2>
     <p class="today-how">
       the map can answer for itself. it reads every note in the vault before
       it replies, and it is told to say <em>i don't know</em> rather than
-      invent a taste he has not shown.
+      invent a taste i have not shown.
     </p>
     <form class="em-ask" id="ask">
       <input type="text" name="q" autocomplete="off"
@@ -170,7 +183,7 @@ const description = "the map view of the eidos library: every mark placed by fee
     <section class="em-three" id="three" aria-labelledby="th3">
       <h3 id="th3">today's three</h3>
       <p>
-        three things it thinks he might want, picked fresh each day from{" "}
+        three things it thinks i might want, picked fresh each day from{" "}
         {candidates.length} waiting. keep or pass; either answer teaches it
         something, and a pass teaches it as much as a keep.
       </p>
@@ -200,13 +213,15 @@ const description = "the map view of the eidos library: every mark placed by fee
         <h3>the deck</h3>
         <p>
           seventy six paintings, keep or pass. it reads how still, how peopled,
-          how ordered and how lit your eye wants a picture, and the reading
+          how ordered and how lit my eye wants a picture, and the reading
           now comes back here instead of dying on the screen it was drawn on.
         </p>
         <p class="em-reading" id="reading" hidden></p>
         <a class="em-do" href="/eidos/deck">open the deck<span class="arw" aria-hidden="true">→</span></a>
       </li>
     </ol>
+      </div>
+    </details>
 
     {/* ── the people ────────────────────────────────────────────────── */}
     <h2 class="em-head">the company</h2>
@@ -238,10 +253,9 @@ const description = "the map view of the eidos library: every mark placed by fee
       </table>
     </details>
 
-    <a class="onward onward--back" href="/eidos">
-      <span class="arw" aria-hidden="true">↖</span><span>back to the library</span>
-    </a>
+    <footer class="ep-footer"><a href="/eidos">portrait</a><span>every mark keeps its source</span><a href="/eidos/inbox">incoming</a></footer>
   </section>
+    </main>
 
   <script define:vars={{ items, weathers, candidates }}>
     (() => {
@@ -428,7 +442,7 @@ const description = "the map view of the eidos library: every mark placed by fee
           const say = (v, low, high) =>
             Math.abs(v) < 0.25 ? "either way" : (v > 0 ? high : low);
           el.hidden = false;
-          el.innerHTML = `last read: your eye wants it <b>${esc(say(a.calm, "restless", "still"))}</b>, ` +
+          el.innerHTML = `last read: my eye wants it <b>${esc(say(a.calm, "restless", "still"))}</b>, ` +
             `<b>${esc(say(a.human, "empty of people", "peopled"))}</b>, ` +
             `<b>${esc(say(a.order, "loose", "ordered"))}</b> and <b>${esc(say(a.light, "dark", "lit"))}</b>. ` +
             `${d.latest.kept} kept of ${d.latest.seen}, over ${d.runs} run${d.runs === 1 ? "" : "s"}.`;
@@ -448,7 +462,7 @@ const description = "the map view of the eidos library: every mark placed by fee
         } catch {}
         const pool = candidates.filter((c) => !judged.includes(c.id));
         if (!pool.length) {
-          host.innerHTML = `<p class="em-three-done">every candidate has been judged. the queue is empty, which means it needs new ones more than it needs him.</p>`;
+          host.innerHTML = `<p class="em-three-done">every candidate has been judged. the queue is empty, which means it needs new ones more than it needs me.</p>`;
           return;
         }
         const day = Math.floor(Date.now() / 86400000);
@@ -490,4 +504,5 @@ const description = "the map view of the eidos library: every mark placed by fee
       paint();
     })();
   </script>
-</Layout>
+  </div>
+</EidosLayout>

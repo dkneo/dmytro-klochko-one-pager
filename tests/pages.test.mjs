@@ -133,7 +133,7 @@ test("the inbox takes a link and judges what waits", () => {
   assert.deepEqual(literals, [], `the inbox invents radii: ${literals.join(", ")}`);
 });
 
-test("the orbit reads one stable mapper without duplicating its payload onto home", async () => {
+test("the atlas owns the geometry without duplicating its payload onto home", async () => {
   const { toMarks } = await import("../src/scripts/eidos-marks.mjs");
   const map = JSON.parse(read("src/data/map.json"));
   const { marks, threads } = toMarks(map);
@@ -150,14 +150,9 @@ test("the orbit reads one stable mapper without duplicating its payload onto hom
   // The dedicated page owns the geometry. Home no longer ships a second,
   // smaller copy that asks the same content to explain itself twice.
   //
-  // The orbit chooses its input — it shows taste, so the craft links stay on
-  // /learning — but it must still get its geometry from this one mapper and
-  // never grow a second copy of the maths. So the comparison feeds the
-  // mapper what the page feeds it, and any drift in the mapper still fails.
-  const orbit = JSON.parse(read("dist/eidos/orbit/index.html").match(/id="eo-data"[^>]*>([^<]*)</)[1]);
-  const taste = toMarks({ ...map, items: map.items.filter((it) => it.type !== "link") });
-  assert.deepEqual(orbit.marks, taste.marks);
-  assert.ok(!orbit.marks.some((m) => m.t === "link"), "craft links belong on /learning");
+  // The duplicate 3D orbit is retired. Keeping its old static payload would
+  // still make every build ship Three.js for a route the worker redirects.
+  assert.ok(!exists("dist/eidos/orbit/index.html"), "the retired orbit still ships a page and its 3D bundle");
   assert.doesNotMatch(read("dist/index.html"), /id="me-orbit-data"/);
 
   // the thumbnails they point at have to exist

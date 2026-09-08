@@ -803,6 +803,11 @@ export default {
     if (/^\/eidos\/sit\/?$/i.test(url.pathname)) {
       return Response.redirect(new URL("/eidos/inbox", url).toString(), 301);
     }
+    // Orbit duplicated the atlas with a harder interaction and less legible
+    // labels. Keep old bookmarks alive, but give the product one map.
+    if (/^\/eidos\/orbit\/?$/i.test(url.pathname)) {
+      return Response.redirect(new URL("/eidos/map", url).toString(), 301);
+    }
 
     // The inbox: adding a link is a write, listing is his to see.
     if (url.pathname === "/api/eidos/bookmark" && request.method === "POST") return inboxAdd(request, env);

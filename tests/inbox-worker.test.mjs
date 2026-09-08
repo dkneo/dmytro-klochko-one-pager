@@ -41,6 +41,14 @@ test("the sitting's old address walks you to the inbox", async () => {
   assert.equal(slash.status, 301);
 });
 
+test("the duplicate orbit walks to the atlas", async () => {
+  for (const path of ["/eidos/orbit", "/eidos/orbit/"]) {
+    const r = await worker.fetch(new Request(`https://dmklochko.com${path}`), env());
+    assert.equal(r.status, 301);
+    assert.equal(new URL(r.headers.get("location")).pathname, "/eidos/map");
+  }
+});
+
 test("the inbox is his: adding and listing both need the door", async () => {
   const bindings = env();
   const add = await worker.fetch(new Request("https://dmklochko.com/api/eidos/bookmark", {

@@ -127,3 +127,14 @@ test("save and pass feedback use the approved non-blocking character clips", () 
   assert.match(html, /open-next-card\.webm/);
   assert.match(html, /data-studio-feedback/);
 });
+
+test("the atlas is the product's one map and keeps private tools secondary", () => {
+  const html = read("dist/eidos/map/index.html");
+  assert.match(html, /data-eidos-product/);
+  assert.match(html, /class="eidos-atlas"/);
+  assert.match(html, /aria-current="page"[^>]*>atlas</);
+  assert.match(html, /class="ea-map-frame"/);
+  assert.match(html, /<details class="ea-private-tools"/);
+  assert.match(html, /<summary>open the private instruments/);
+  assert.doesNotMatch(html, /data-scene="nightcourt"/);
+});
