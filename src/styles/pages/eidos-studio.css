@@ -1,0 +1,380 @@
+.eidos-studio {
+  min-height: 100vh;
+  color: var(--ep-ink);
+}
+
+.eidos-studio [hidden] { display: none !important; }
+
+.eidos-studio .in-shell {
+  width: min(var(--ep-max), calc(100% - 4rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.eidos-studio .in-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(23rem, 0.42fr);
+  align-items: end;
+  gap: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.eidos-studio .in-intro h1 {
+  max-width: none;
+  margin: 0;
+  font-family: var(--display, "Zodiak", var(--serif));
+  font-size: clamp(3.6rem, 5.2vw, 5.8rem);
+  font-weight: 300;
+  letter-spacing: -0.052em;
+  line-height: 0.92;
+  white-space: nowrap;
+}
+
+.eidos-studio .in-intro > p {
+  max-width: 37rem;
+  margin: 0;
+  color: var(--ep-quiet);
+  font-size: 1.05rem;
+  line-height: 1.58;
+}
+
+.eidos-studio .in-workbench {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(10.5rem, 0.26fr) minmax(30rem, 1fr) minmax(18rem, 0.42fr);
+  align-items: start;
+  gap: 1.25rem;
+  min-height: 39rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ep-rule);
+}
+
+.eidos-studio .in-label {
+  margin: 0;
+  color: var(--ep-raspberry);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eidos-studio .in-rail {
+  position: sticky;
+  top: 5.5rem;
+  display: grid;
+  align-content: start;
+  gap: 1.7rem;
+  min-height: 35rem;
+  padding: 1rem 1.1rem 1rem 0;
+  border-right: 1px solid var(--ep-rule);
+  font-family: var(--mono);
+}
+
+.eidos-studio .in-count {
+  margin: 0.8rem 0 0;
+  color: var(--ep-ink);
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.eidos-studio .in-shelf {
+  display: block;
+  margin: 0;
+  color: var(--ep-quiet);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  line-height: 1.75;
+}
+
+.eidos-studio .in-add { border-top: 1px solid var(--ep-rule); padding-top: 1rem; }
+.eidos-studio .in-add summary {
+  display: flex;
+  justify-content: space-between;
+  min-height: 32px;
+  color: var(--ep-ink);
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  cursor: pointer;
+  list-style: none;
+}
+.eidos-studio .in-add summary::-webkit-details-marker { display: none; }
+.eidos-studio .in-add summary span { color: var(--ep-raspberry); font-size: 1rem; }
+.eidos-studio .in-add[open] summary span { transform: rotate(45deg); }
+
+.eidos-studio .in-throw {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.7rem 0 0;
+}
+.eidos-studio .in-throw::before { display: none; }
+.eidos-studio .in-url { display: grid; gap: 0.35rem; }
+.eidos-studio .in-url span { color: var(--ep-quiet); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.eidos-studio .in-throw input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.6rem 0.55rem;
+  color: var(--ep-ink);
+  background: var(--ep-paper-light);
+  border: 1px solid var(--ep-rule);
+  border-radius: var(--r-print);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+}
+.eidos-studio .in-throw button {
+  min-height: 36px;
+  padding: 0.45rem 0.6rem;
+  color: var(--ep-paper-light);
+  background: var(--ep-ink);
+  border: 0;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+.eidos-studio .in-throw button:hover { background: var(--ep-raspberry); }
+.eidos-studio .in-throw-note { margin: 0; color: var(--ep-quiet); font-size: 0.65rem; line-height: 1.45; }
+
+.eidos-studio .in-history { margin-top: auto; border-top: 1px solid var(--ep-rule); padding-top: 1rem; }
+.eidos-studio .in-history ol { display: grid; gap: 0.55rem; margin: 0.8rem 0 0; padding: 0; list-style: none; }
+.eidos-studio .in-history li { display: grid; grid-template-columns: 1rem 1fr; gap: 0.45rem; color: var(--ep-quiet); font-size: 0.67rem; line-height: 1.25; }
+.eidos-studio .in-history li.is-empty { display: block; }
+.eidos-studio .in-history li b { color: var(--ep-raspberry); font-weight: 400; }
+
+.eidos-studio .in-center { position: relative; min-width: 0; }
+.eidos-studio .in-stage {
+  position: relative;
+  max-width: none;
+  margin: 0;
+  padding: 0 0.8rem 0.8rem 0;
+  overflow: visible;
+  touch-action: pan-y;
+}
+.eidos-studio .in-next-edge {
+  position: absolute;
+  inset: 0.7rem 0 0 0.7rem;
+  z-index: 0;
+  background: color-mix(in srgb, var(--ep-olive) 28%, var(--ep-paper-light));
+  border: 1px solid var(--ep-rule);
+  transform: rotate(0.8deg);
+}
+.eidos-studio .in-card {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-height: 31rem;
+  padding: 1.05rem;
+  color: var(--ep-ink);
+  background: var(--ep-paper-light);
+  border: 1px solid var(--ep-rule);
+  border-radius: var(--r-print);
+  box-shadow: 0 22px 48px var(--ep-shadow);
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
+}
+.eidos-studio .in-card:active { cursor: grabbing; }
+.eidos-studio .in-card.is-flying { transition: transform 360ms cubic-bezier(0.2, 0, 0.2, 1), opacity 300ms ease; }
+.eidos-studio .in-card.is-home { transition: transform 420ms cubic-bezier(0.18, 0.72, 0.18, 1); }
+.eidos-studio .in-leaf--it { display: grid; min-height: 29rem; grid-template-rows: 1fr auto; }
+.eidos-studio .in-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 26rem;
+  background: color-mix(in srgb, var(--ep-paper) 60%, white);
+}
+.eidos-studio .in-art img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(56svh, 30rem);
+  object-fit: contain;
+  border-radius: 0;
+  pointer-events: none;
+}
+.eidos-studio .in-art img.is-loading { opacity: 0.22; }
+.eidos-studio .in-art-miss { position: absolute; inset: 0; display: grid; place-content: center; gap: 1rem; text-align: center; color: var(--ep-quiet); font-family: var(--mono); font-size: 0.7rem; }
+.eidos-studio .in-read { display: grid; align-content: center; gap: 1rem; min-height: 30rem; padding: 3rem clamp(1.5rem, 6vw, 5rem); }
+.eidos-studio .in-site { margin: 0; color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.eidos-studio .in-title { margin: 0; font-family: var(--display, "Zodiak", var(--serif)); font-size: clamp(2.2rem, 4vw, 4.3rem); font-weight: 300; line-height: 1; }
+.eidos-studio .in-desc { margin: 0; color: var(--ep-quiet); font-size: 1.03rem; line-height: 1.6; white-space: pre-line; }
+.eidos-studio .in-desc.is-verse { color: var(--ep-ink); font-size: 1.2rem; }
+.eidos-studio .in-tags { margin: 0; color: var(--ep-quiet); font-family: var(--mono); font-size: 0.68rem; }
+.eidos-studio .in-tags i { color: var(--ep-raspberry); font-style: normal; }
+.eidos-studio .in-credit { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.75rem; margin: 1rem 0 0; font-size: 0.82rem; }
+.eidos-studio .in-credit b { font-family: var(--display, "Zodiak", var(--serif)); font-size: 1rem; font-weight: 400; }
+.eidos-studio .in-credit span { color: var(--ep-quiet); }
+.eidos-studio .in-credit a { display: inline-flex; align-items: center; min-height: 28px; margin-left: auto; color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.66rem; }
+
+.eidos-studio .in-edge { position: absolute; top: 1.6rem; z-index: 3; padding: 0.35rem 0.55rem; border: 2px solid; opacity: 0; pointer-events: none; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.eidos-studio .in-edge--in { right: 1.5rem; color: var(--ep-raspberry); transform: rotate(6deg); }
+.eidos-studio .in-edge--out { left: 1.5rem; color: var(--ep-ink); transform: rotate(-6deg); }
+
+.eidos-studio .in-do { display: flex; justify-content: center; gap: 0.5rem; margin: 1.2rem 0 0; }
+.eidos-studio .in-btn {
+  min-height: 42px;
+  padding: 0.55rem 0.9rem;
+  color: var(--ep-ink);
+  background: transparent;
+  border: 1px solid var(--ep-rule);
+  border-radius: var(--r-print);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+.eidos-studio .in-btn kbd { color: var(--ep-quiet); font-family: var(--mono); }
+.eidos-studio .in-btn--pass:hover { color: var(--ep-paper-light); background: var(--ep-ink); }
+.eidos-studio .in-btn--keep { color: var(--ep-paper-light); background: var(--ep-raspberry); border-color: var(--ep-raspberry); }
+.eidos-studio .in-btn--keep:hover { background: var(--ep-salmon); border-color: var(--ep-salmon); }
+.eidos-studio .in-btn:disabled { opacity: 0.32; cursor: default; }
+.eidos-studio .in-note { margin: 2rem 0; color: var(--ep-quiet); line-height: 1.5; }
+
+.eidos-studio .in-note-panel {
+  position: sticky;
+  top: 5.5rem;
+  min-height: 35rem;
+  background: color-mix(in srgb, var(--ep-salmon) 11%, var(--ep-paper-light));
+  border: 1px solid var(--ep-rule);
+  box-shadow: 0 14px 32px var(--ep-shadow);
+  transform: rotate(0.25deg);
+}
+.eidos-studio .in-leaf--me { display: grid; gap: 1rem; min-height: 33rem; padding: 1.25rem; }
+.eidos-studio .in-note-head { display: flex; justify-content: space-between; align-items: baseline; }
+.eidos-studio #draft-status { color: var(--ep-quiet); font-family: var(--mono); font-size: 0.62rem; }
+.eidos-studio .in-say { display: grid; gap: 0.55rem; }
+.eidos-studio .in-say-k { color: var(--ep-quiet); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.eidos-studio .in-say textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 15rem;
+  padding: 0.2rem 0;
+  resize: vertical;
+  color: var(--ep-ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--ep-rule);
+  border-radius: 0;
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+.eidos-studio .in-say textarea:focus { outline: 0; border-color: var(--ep-raspberry); }
+.eidos-studio .in-say textarea::placeholder { color: color-mix(in srgb, var(--ep-quiet) 60%, transparent); }
+.eidos-studio .in-say-hint { display: flex; flex-wrap: wrap; gap: 0.35rem 0.8rem; margin: 0; color: var(--ep-quiet); font-family: var(--mono); font-size: 0.62rem; line-height: 1.5; }
+.eidos-studio .in-say-hint span { display: inline-flex; align-items: baseline; gap: 0.28rem; }
+.eidos-studio .in-say-hint kbd { display: inline; color: var(--ep-ink); font-family: inherit; }
+.eidos-studio .in-file-details { margin-top: auto; border-top: 1px solid var(--ep-rule); padding-top: 0.8rem; }
+.eidos-studio .in-file-details summary { min-height: 32px; color: var(--ep-quiet); font-family: var(--mono); font-size: 0.67rem; cursor: pointer; }
+.eidos-studio .in-file { display: grid; gap: 0.45rem; margin: 0.5rem 0 0; }
+.eidos-studio .in-file div { display: grid; grid-template-columns: 4.7rem 1fr; gap: 0.6rem; }
+.eidos-studio .in-file dt, .eidos-studio .in-file dd { margin: 0; font-family: var(--mono); font-size: 0.66rem; }
+.eidos-studio .in-file dt { color: var(--ep-quiet); text-transform: uppercase; letter-spacing: 0.08em; }
+.eidos-studio .in-file dd { color: var(--ep-ink); overflow-wrap: anywhere; }
+
+.eidos-studio .in-feedback { position: absolute; right: 1.5rem; bottom: 5rem; z-index: 5; width: 9rem; aspect-ratio: 1; pointer-events: none; }
+.eidos-studio .in-feedback video { position: absolute; inset: 0; display: none; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.eidos-studio .in-feedback video.is-playing { display: block; }
+
+.eidos-studio .in-gate {
+  display: grid;
+  gap: 0.9rem;
+  width: min(31rem, calc(100% - 2rem));
+  margin: 6rem auto;
+  padding: 2.5rem;
+  color: var(--ep-ink);
+  background: var(--ep-paper-light);
+  border: 1px solid var(--ep-rule);
+  box-shadow: 0 22px 54px var(--ep-shadow);
+}
+.eidos-studio .in-gate-mark { color: var(--ep-olive); font-family: var(--display, "Zodiak", var(--serif)); font-size: 3rem; }
+.eidos-studio .in-gate h2, .eidos-studio .in-gate p { margin: 0; color: var(--ep-ink); }
+.eidos-studio .in-gate h2 { font-family: var(--display, "Zodiak", var(--serif)); font-size: 2.3rem; font-weight: 300; }
+.eidos-studio .in-gate label { display: grid; gap: 0.35rem; }
+.eidos-studio .in-gate label span, .eidos-studio .in-gate-note { color: var(--ep-quiet); font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.06em; text-transform: none; }
+.eidos-studio .in-gate input { padding: 0.65rem; color: var(--ep-ink); background: transparent; border: 1px solid var(--ep-rule); border-radius: var(--r-print); }
+.eidos-studio .in-gate button { justify-self: start; min-height: 42px; padding: 0.55rem 0.9rem; color: var(--ep-paper-light); background: var(--ep-ink); border: 0; border-radius: var(--r-print); cursor: pointer; }
+
+.eidos-studio .in-keys { width: min(28rem, calc(100% - 2rem)); margin: auto; padding: 1.5rem; color: var(--ep-ink); background: var(--ep-paper-light); border: 1px solid var(--ep-rule); border-radius: var(--r-print); box-shadow: 0 24px 72px rgb(41 39 35 / 28%); }
+.eidos-studio .in-keys::backdrop { background: rgb(41 39 35 / 52%); backdrop-filter: blur(4px); }
+.eidos-studio .in-keys h2 { margin: 0 0 1rem; font-family: var(--display, "Zodiak", var(--serif)); font-size: 2rem; font-weight: 300; }
+.eidos-studio .in-keys dl { display: grid; gap: 0.55rem; margin: 0; }
+.eidos-studio .in-keys dl div { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; }
+.eidos-studio .in-keys dt, .eidos-studio .in-keys dd { margin: 0; font-family: var(--mono); font-size: 0.7rem; }
+.eidos-studio .in-keys dd { color: var(--ep-quiet); }
+.eidos-studio .in-keys form { display: flex; justify-content: flex-end; margin-top: 1.5rem; }
+
+@media (max-width: 1080px) {
+  .eidos-studio .in-workbench { grid-template-columns: 9rem minmax(27rem, 1fr) minmax(16rem, 0.42fr); }
+}
+
+@media (max-width: 820px) {
+  .eidos-studio .in-shell { width: min(100% - 2rem, var(--ep-max)); }
+  .eidos-studio .in-intro { display: block; }
+  .eidos-studio .in-intro h1 { white-space: normal; }
+  .eidos-studio .in-intro > p { margin-top: 1rem; }
+  .eidos-studio .in-workbench { grid-template-columns: 1fr; }
+  .eidos-studio .in-rail, .eidos-studio .in-note-panel { position: static; min-height: 0; }
+  .eidos-studio .in-rail { grid-template-columns: 1fr 1fr; border-right: 0; border-bottom: 1px solid var(--ep-rule); }
+  .eidos-studio .in-history { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eidos-studio .in-card.is-flying, .eidos-studio .in-card.is-home { transition: opacity 180ms ease; }
+  .eidos-studio .in-feedback { display: none; }
+}
+
+/* The inbox predates the product shell and still carries scoped component
+   rules after its markup. These higher-specificity rules are the migration
+   boundary: keep its behavior, but make every visible surface belong here. */
+body .eidos-studio .in-rail .in-count,
+body .eidos-studio .in-rail .in-shelf { color: var(--ep-quiet); }
+body .eidos-studio .in-center .in-stage { max-width: none; margin: 0; overflow: visible; }
+body .eidos-studio .in-center .in-card {
+  display: block;
+  min-height: 31rem;
+  padding: 1.05rem;
+  color: var(--ep-ink);
+  background: var(--ep-paper-light);
+  border-color: var(--ep-rule);
+  border-radius: var(--r-print);
+  box-shadow: 0 22px 48px var(--ep-shadow);
+}
+body .eidos-studio .in-center .in-art { min-height: 26rem; background: color-mix(in srgb, var(--ep-paper) 60%, white); }
+body .eidos-studio .in-center .in-art img { width: auto; max-width: 100%; height: auto; max-height: min(56svh, 30rem); border-radius: 0; }
+body .eidos-studio .in-center .in-read { min-height: 30rem; padding: 3rem clamp(1.5rem, 6vw, 5rem); }
+body .eidos-studio .in-center .in-title,
+body .eidos-studio .in-center .in-credit b { color: var(--ep-ink); }
+body .eidos-studio .in-center .in-desc,
+body .eidos-studio .in-center .in-credit span { color: var(--ep-quiet); }
+body .eidos-studio .in-center .in-credit a { color: var(--ep-raspberry); }
+body .eidos-studio .in-center .in-btn { color: var(--ep-ink); background: transparent; border-color: var(--ep-rule); border-radius: var(--r-print); }
+body .eidos-studio .in-center .in-btn--keep { color: var(--ep-paper-light); background: var(--ep-raspberry); border-color: var(--ep-raspberry); }
+body .eidos-studio .in-note-panel .in-leaf--me {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 33rem;
+  padding: 1.25rem;
+}
+body .eidos-studio .in-note-panel .in-say { display: grid; grid-row: auto; gap: 0.55rem; }
+body .eidos-studio .in-note-panel .in-say-k,
+body .eidos-studio .in-note-panel .in-say-hint { color: var(--ep-quiet); }
+body .eidos-studio .in-note-panel .in-say-hint kbd { display: inline; color: var(--ep-ink); }
+body .eidos-studio .in-note-panel .in-say textarea {
+  min-height: 15rem;
+  padding: 0.2rem 0;
+  color: var(--ep-ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--ep-rule);
+  border-radius: 0;
+  font-size: 1.08rem;
+}
+body .eidos-studio .in-note-panel .in-say textarea:focus { border-color: var(--ep-raspberry); }
+body .eidos-studio .in-note-panel .in-file dt { color: var(--ep-quiet); }
+body .eidos-studio .in-note-panel .in-file dd { color: var(--ep-ink); }

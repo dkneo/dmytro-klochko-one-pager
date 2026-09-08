@@ -95,3 +95,35 @@ test("the hero is static first and motion is an enhancement", () => {
   assert.match(html, /hero-ambient-mobile\.mp4/);
   assert.match(html, /data-eidos-ambient/);
 });
+
+test("the private inbox is the working studio of the same product", () => {
+  const html = read("dist/eidos/inbox/index.html");
+
+  assert.match(html, /class="eidos-studio"/);
+  assert.match(html, /class="ep-header/);
+  assert.match(html, /class="in-workbench"/);
+  assert.match(html, /class="in-rail"/);
+  assert.match(html, /class="in-center"/);
+  assert.match(html, /class="in-note-panel"/);
+  assert.doesNotMatch(html, /class="in-ground"/, "the old blurred artwork wallpaper survived");
+});
+
+test("the studio keeps drafts and a visible five-verdict session trail", () => {
+  const source = read("src/pages/eidos/inbox.astro");
+  const html = read("dist/eidos/inbox/index.html");
+
+  assert.match(source, /localStorage/);
+  assert.match(source, /eidos:draft:/);
+  assert.match(html, /id="draft-status"/);
+  assert.match(html, /id="session-trail"/);
+  assert.match(source, /slice\(-5\)/);
+});
+
+test("save and pass feedback use the approved non-blocking character clips", () => {
+  const html = read("dist/eidos/inbox/index.html");
+
+  assert.match(html, /save-to-profile\.webm/);
+  assert.match(html, /pass-card\.webm/);
+  assert.match(html, /open-next-card\.webm/);
+  assert.match(html, /data-studio-feedback/);
+});

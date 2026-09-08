@@ -75,14 +75,12 @@ test("the library opens as a product with a static-first character scene", () =>
   assert.match(styles("dist/eidos/index.html"), /\.ep-action[^}]*min-height:\s*44px/, "hero actions lost their tap floor");
 });
 
-test("the composer sits under the game and is lit from behind on focus", () => {
+test("the composer lives in the incoming rail without the old SaaS glow", () => {
   const html = read("dist/eidos/inbox/index.html");
-  const deck = html.indexOf('id="stage"'), form = html.indexOf('id="throw"');
-  assert.ok(deck > 0 && form > deck, "the composer is above the deck");
+  const rail = html.indexOf('class="in-rail"'), form = html.indexOf('id="throw"'), deck = html.indexOf('id="stage"');
+  assert.ok(rail > 0 && form > rail && form < deck, "the composer is not inside the incoming rail");
   const css = styles("dist/eidos/inbox/index.html");
-  assert.match(css, /\.in-throw[^{]*:before\{[^}]*conic-gradient/, "no light behind the composer");
-  assert.match(css, /\.in-throw(\[[^\]]*\])?:focus-within(\[[^\]]*\])?:before\{[^}]*opacity/, "the light does not answer focus");
-  assert.doesNotMatch(css, /\.in-throw(\[[^\]]*\])?:hover/, "the light must answer focus, never hover");
+  assert.match(css, /\.eidos-studio \.in-throw:{1,2}before\s*\{\s*display:\s*none/, "the old generated glow still paints the composer");
 });
 
 test("the deck is dealt so no two neighbours are alike", () => {
@@ -144,15 +142,15 @@ test("a card never wears the last card's picture, and a missing one can be asked
   assert.match(html, /id="art-miss"[^>]*hidden/, "the miss panel must start hidden");
 });
 
-// ── the second leaf: his line travels with the verdict ─────────────────
-test("the card has two leaves and the line reaches the note", () => {
+// ── the field note stays beside the card and travels with the verdict ───
+test("the workbench separates the card from the field note and sends the note", () => {
   const html = read("dist/eidos/inbox/index.html");
   const src = read("src/pages/eidos/inbox.astro");
-  const card = html.match(/<article class="in-card"[\s\S]*?<\/article>/)?.[0] ?? "";
-  assert.match(card, /class="in-leaf in-leaf--it"/, "no leaf for the thing");
-  assert.match(card, /class="in-leaf in-leaf--me"[\s\S]*<textarea id="say"/, "no leaf for his line");
-  assert.match(card, /<dl class="in-file"[^>]*>[\s\S]*<dt[^>]*>room<\/dt>[\s\S]*<dt[^>]*>form<\/dt>[\s\S]*<dt[^>]*>from<\/dt>/, "the right leaf does not say where it files");
-  assert.match(html, /<div class="in-ground" id="ground"/, "no ground for the picture to wallpaper");
+  const workbench = html.slice(html.indexOf('class="in-workbench"'), html.indexOf('class="in-keys"'));
+  assert.match(workbench, /class="in-card"[\s\S]*class="in-note-panel"/, "the card and note are not separate workbench regions");
+  assert.match(workbench, /class="in-leaf in-leaf--me"[\s\S]*<textarea id="say"/, "no field note leaf");
+  assert.match(workbench, /<dl class="in-file"[^>]*>[\s\S]*<dt[^>]*>weather<\/dt>[\s\S]*<dt[^>]*>form<\/dt>[\s\S]*<dt[^>]*>from<\/dt>/, "the field note does not say where it files");
+  assert.doesNotMatch(html, /class="in-ground"/, "the old wallpaper ground survived");
   // the verdict carries the line, both ways
   assert.match(src, /say: say \|\| ""/, "the verdict payload has no line");
   assert.match(src, /send\(cand, "keep", cand\.weather, line\)/, "keep does not send the line");
@@ -165,9 +163,7 @@ test("the card has two leaves and the line reaches the note", () => {
   const worker = read("worker/index.js");
   assert.match(worker, /const \{ id, verdict, weather, say \} = body/, "the worker ignores the line");
   assert.match(worker, /slice\(0, 600\)/, "the line is unbounded");
-  // the ground is lit only by the picture that has arrived, and never for words
-  assert.match(src, /art\.getAttribute\("src"\) === cur\.src[\s\S]*ground\.classList\.add\("is-lit"\)/, "the ground lights before the picture lands");
-  assert.match(src, /if \(isRead\) ground\.classList\.remove\("is-lit"\)/, "words wear the last picture's ground");
+  assert.match(src, /localStorage\.setItem\(draftKey\(cur\.id\), say\.value\)/, "field note drafts are not saved locally");
 });
 
 // ── the keys ─────────────────────────────────────────────────────────────

@@ -1,6 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import "../../styles/pages/eidos.css";
+import EidosLayout from "../../layouts/EidosLayout.astro";
+import EidosHeader from "../../components/eidos/EidosHeader.astro";
+import "../../styles/pages/eidos-studio.css";
 import inbox from "../../../public/inbox.json";
 
 // The inbox. Where he throws links, and where he judges.
@@ -49,151 +50,144 @@ const title = "inbox · eidos";
 const description = "throw a link in; judge what waits. the door to the library.";
 ---
 
-<Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted>
-  <section class="shell session eidos-inbox" data-scene="nightcourt" aria-labelledby="ib">
-    <div class="card">
-      <h1 class="card-title" id="ib">inbox</h1>
-    </div>
-
-    <p class="today-how" id="in-lede">
-      throw me a link. i read it once, keep what a card needs, and it waits
-      here with what the harvester brought — pictures, and now poems, quotes
-      and songs. say a line about it if you have one; right if it stays, left
-      if it goes. what stays becomes part of <a href="/eidos">the library</a>,
-      your line first.
-    </p>
-
-    {/* ── the door ──────────────────────────────────────────────────── */}
-    <form class="in-gate" id="gate" method="POST" action="/names" hidden>
-      <input type="hidden" name="next" value="/eidos/inbox" />
-      <p>the inbox writes to the vault, so it needs the door first.</p>
-      <label>
-        <span>password</span>
-        <input type="password" name="password" autocomplete="current-password"
-               autocapitalize="none" autocorrect="off" spellcheck="false" required />
-      </label>
-      <button type="submit">come in</button>
-      <span class="in-gate-note" id="gate-note"></span>
-      <span class="in-gate-note">
-        or <a href="/names" target="_blank" rel="noreferrer">open the door in a tab</a> and reload this page.
-      </span>
-    </form>
-
-    {/* ── the deck ──────────────────────────────────────────────────── */}
-    <p class="in-shelf" id="shelf">
-      <span id="shelf-links"></span>
-      <span>{pictures} pictures, {words} words and {reads} reads waiting</span>
-    </p>
-
-    {/* The picture wallpapers the page. Its own tile, blurred and dimmed,
-        behind the card: derived from the thing being judged, never a theme.
-        Words and links bring no picture, so the ground goes dark for them. */}
-    <div class="in-ground" id="ground" aria-hidden="true"></div>
-
-    <div class="in-stage" id="stage">
-      <article class="in-card" id="card" hidden>
-        <div class="in-leaf in-leaf--it">
-        <div class="in-art" id="art-wrap">
-          <img id="art" alt="" decoding="async" />
-          <div class="in-art-miss" id="art-miss" hidden>
-            <p>the picture did not arrive</p>
-            <button type="button" id="art-retry" class="in-btn">reload picture <span aria-hidden="true">↻</span></button>
-          </div>
+<EidosLayout title={title} description={description}>
+  <div class="eidos-studio">
+    <EidosHeader current="studio" studio />
+    <section class="in-shell" aria-labelledby="ib">
+      <header class="in-intro">
+        <div>
+          <p class="ep-index">private fieldwork</p>
+          <h1 id="ib">notice. decide. remember.</h1>
         </div>
-        <div class="in-read" id="read" hidden>
-          <p class="in-site" id="r-site"></p>
-          <h2 class="in-title" id="r-title"></h2>
-          <p class="in-desc" id="r-desc"></p>
-          <p class="in-tags" id="r-tags"></p>
-        </div>
-        <p class="in-credit">
-          <b id="c-title"></b>
-          <span id="c-who"></span>
-          <a id="c-source" href="#" target="_blank" rel="noreferrer">open ↗</a>
-        </p>
-        </div>
-        {/* Two leaves, two voices. The left is the thing and its facts. The
-            right is him: a line in his own words that travels with the
-            verdict and opens the vault note. Nothing here is required; a
-            swipe with the field empty is the swipe there always was. */}
-        <div class="in-leaf in-leaf--me">
-          <label class="in-say">
-            <span class="in-say-k">in your words</span>
-            <textarea id="say" rows="5" placeholder="a line about it, before it goes either way" maxlength="600"></textarea>
-          </label>
-          <p class="in-say-hint"><kbd>⌘↵</kbd> keep with the line · <kbd>esc</kbd> back to the cards</p>
-          <dl class="in-file">
-            <div><dt>room</dt><dd id="f-weather"></dd></div>
-            <div><dt>form</dt><dd id="f-form"></dd></div>
-            <div><dt>from</dt><dd id="f-from"></dd></div>
-          </dl>
-        </div>
-        <span class="in-edge in-edge--in" aria-hidden="true">keep</span>
-        <span class="in-edge in-edge--out" aria-hidden="true">pass</span>
-      </article>
-      <p class="in-note" id="note-line" hidden></p>
-    </div>
+        <p id="in-lede">one thing at a time. keep what pulls you closer, pass what does not, and leave a field note when you know why.</p>
+      </header>
 
-    <div class="in-do" id="do">
-      <button type="button" id="pass" class="in-btn in-btn--pass" aria-keyshortcuts="ArrowLeft h">pass <kbd>←</kbd></button>
-      <button type="button" id="undo" class="in-btn in-btn--undo" aria-keyshortcuts="u z Meta+z" disabled>undo <kbd>u</kbd></button>
-      <button type="button" id="keep" class="in-btn in-btn--keep" aria-keyshortcuts="ArrowRight l"><kbd>→</kbd> keep</button>
-      <button type="button" id="keys-open" class="in-btn in-btn--keys" aria-label="keyboard shortcuts" aria-keyshortcuts="?"><kbd>?</kbd></button>
-    </div>
-
-    {/* The sheet every keyboard-first tool has behind "?". Native dialog:
-        it traps focus, answers esc and paints its own backdrop without a
-        line of script for any of it. */}
-    <dialog class="in-keys" id="keys" aria-labelledby="keys-h">
-      <h2 id="keys-h">keys</h2>
-      <dl>
-        <div><dt><kbd>→</kbd> <kbd>l</kbd></dt><dd>keep</dd></div>
-        <div><dt><kbd>←</kbd> <kbd>h</kbd></dt><dd>pass</dd></div>
-        <div><dt><kbd>u</kbd> <kbd>⌘z</kbd></dt><dd>undo the last verdict</dd></div>
-        <div><dt><kbd>n</kbd></dt><dd>write a line about it</dd></div>
-        <div><dt><kbd>⌘↵</kbd></dt><dd>keep, from inside the line</dd></div>
-        <div><dt><kbd>o</kbd> <kbd>↵</kbd></dt><dd>open the source in a new tab</dd></div>
-        <div><dt><kbd>r</kbd></dt><dd>reload the picture</dd></div>
-        <div><dt><kbd>/</kbd></dt><dd>throw a link</dd></div>
-        <div><dt><kbd>?</kbd></dt><dd>this sheet</dd></div>
-        <div><dt><kbd>esc</kbd></dt><dd>out of any field, or close this</dd></div>
-      </dl>
-      <form method="dialog"><button type="submit" class="in-btn">close <kbd>esc</kbd></button></form>
-    </dialog>
-
-    <p class="in-count" id="count"></p>
-
-    {/* ── the composer, under the game ──────────────────────────────── */}
-    {/* One field with a light behind it. The glow is a blurred conic
-        gradient on a ::before, not a shadow — a shadow holds one colour and
-        this holds four — and it answers focus, never hover: a glow that
-        follows the pointer is decoration; one that wakes when the caret
-        lands says the field is listening. */}
-    <form class="in-throw" id="throw" autocomplete="off">
-      <div class="in-throw-surface">
-        <label class="in-url">
-          <span class="in-sr">a link</span>
-          <input type="url" name="url" id="url" placeholder="throw me a link" inputmode="url"
-                 autocapitalize="none" autocorrect="off" spellcheck="false" required />
-          <kbd class="in-tab" aria-hidden="true">↵</kbd>
+      <form class="in-gate" id="gate" method="POST" action="/names" hidden>
+        <span class="in-gate-mark" aria-hidden="true">G</span>
+        <input type="hidden" name="next" value="/eidos/inbox" />
+        <h2>the archive is private.</h2>
+        <p>open it to continue.</p>
+        <label>
+          <span>password</span>
+          <input type="password" name="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" required />
         </label>
-        <div class="in-tools">
-          <span class="in-tool in-tool--plus" aria-hidden="true">+</span>
-          <span class="in-tool-hint">i read it once and keep what a card needs</span>
-          <button type="submit" id="throw-go" class="in-send" aria-label="throw it in">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
+        <button type="submit">open archive</button>
+        <span class="in-gate-note" id="gate-note"></span>
+        <span class="in-gate-note">or <a href="/names" target="_blank" rel="noreferrer">open the door in a tab</a> and reload.</span>
+      </form>
+
+      <div class="in-workbench" id="workbench">
+        <aside class="in-rail" aria-label="incoming queue">
+          <div>
+            <p class="in-label">incoming</p>
+            <p class="in-count" id="count"></p>
+          </div>
+          <p class="in-shelf" id="shelf">
+            <span id="shelf-links"></span>
+            <span>{pictures} pictures<br />{words} words<br />{reads} reads</span>
+          </p>
+          <details class="in-add">
+            <summary>add something <span aria-hidden="true">+</span></summary>
+            <form class="in-throw" id="throw" autocomplete="off">
+              <label class="in-url">
+                <span>a link</span>
+                <input type="url" name="url" id="url" placeholder="https://" inputmode="url" autocapitalize="none" autocorrect="off" spellcheck="false" required />
+              </label>
+              <button type="submit" id="throw-go">read and add</button>
+              <p class="in-throw-note" id="throw-note" aria-live="polite">i will show what arrived before it joins the queue.</p>
+            </form>
+          </details>
+          <div class="in-history">
+            <p class="in-label">this sitting</p>
+            <ol id="session-trail"><li class="is-empty">nothing judged yet</li></ol>
+          </div>
+        </aside>
+
+        <section class="in-center" aria-label="current discovery card">
+          <div class="in-stage" id="stage">
+            <div class="in-next-edge" aria-hidden="true"></div>
+            <article class="in-card" id="card" hidden>
+              <div class="in-leaf in-leaf--it">
+                <div class="in-art" id="art-wrap">
+                  <img id="art" alt="" decoding="async" />
+                  <div class="in-art-miss" id="art-miss" hidden>
+                    <p>the picture did not arrive</p>
+                    <button type="button" id="art-retry" class="in-btn">reload picture <span aria-hidden="true">↻</span></button>
+                  </div>
+                </div>
+                <div class="in-read" id="read" hidden>
+                  <p class="in-site" id="r-site"></p>
+                  <h2 class="in-title" id="r-title"></h2>
+                  <p class="in-desc" id="r-desc"></p>
+                  <p class="in-tags" id="r-tags"></p>
+                </div>
+                <p class="in-credit">
+                  <b id="c-title"></b>
+                  <span id="c-who"></span>
+                  <a id="c-source" href="#" target="_blank" rel="noreferrer">source ↗</a>
+                </p>
+              </div>
+              <span class="in-edge in-edge--in" aria-hidden="true">keep</span>
+              <span class="in-edge in-edge--out" aria-hidden="true">pass</span>
+            </article>
+            <p class="in-note" id="note-line" hidden></p>
+          </div>
+
+          <div class="in-do" id="do">
+            <button type="button" id="pass" class="in-btn in-btn--pass" aria-keyshortcuts="ArrowLeft h">pass <kbd>←</kbd></button>
+            <button type="button" id="undo" class="in-btn in-btn--undo" aria-keyshortcuts="u z Meta+z" disabled>undo <kbd>u</kbd></button>
+            <button type="button" id="keep" class="in-btn in-btn--keep" aria-keyshortcuts="ArrowRight l"><kbd>→</kbd> keep</button>
+            <button type="button" id="keys-open" class="in-btn in-btn--keys" aria-label="keyboard shortcuts" aria-keyshortcuts="?"><kbd>?</kbd></button>
+          </div>
+
+          <div class="in-feedback" data-studio-feedback aria-hidden="true">
+            <video id="feedback-keep" muted playsinline preload="metadata"><source src="/images/eidos/product/save-to-profile.webm" type="video/webm" /><source src="/images/eidos/product/save-to-profile.mp4" type="video/mp4" /></video>
+            <video id="feedback-pass" muted playsinline preload="metadata"><source src="/images/eidos/product/pass-card.webm" type="video/webm" /><source src="/images/eidos/product/pass-card.mp4" type="video/mp4" /></video>
+            <video id="feedback-open" muted playsinline preload="metadata"><source src="/images/eidos/product/open-next-card.webm" type="video/webm" /><source src="/images/eidos/product/open-next-card.mp4" type="video/mp4" /></video>
+          </div>
+          <div id="ground" hidden aria-hidden="true"></div>
+        </section>
+
+        <aside class="in-note-panel" aria-label="field note">
+          <div class="in-leaf in-leaf--me">
+            <div class="in-note-head"><p class="in-label">field note</p><span id="draft-status">ready</span></div>
+            <label class="in-say">
+              <span class="in-say-k">in your words</span>
+              <textarea id="say" rows="9" placeholder="what held you here?" maxlength="600"></textarea>
+            </label>
+            <p class="in-say-hint"><span><kbd>⌘↵</kbd> keep with note</span><span><kbd>esc</kbd> return</span></p>
+            <details class="in-file-details">
+              <summary>filing details</summary>
+              <dl class="in-file">
+                <div><dt>weather</dt><dd id="f-weather"></dd></div>
+                <div><dt>form</dt><dd id="f-form"></dd></div>
+                <div><dt>from</dt><dd id="f-from"></dd></div>
+              </dl>
+            </details>
+          </div>
+        </aside>
       </div>
-      <p class="in-throw-note" id="throw-note" aria-live="polite">what you throw in waits here with the rest, and is judged the same way.</p>
-    </form>
 
-    <a class="onward onward--back" href="/eidos">
-      <span class="arw" aria-hidden="true">↖</span><span>back to the library</span>
-    </a>
-  </section>
+      <dialog class="in-keys" id="keys" aria-labelledby="keys-h">
+        <h2 id="keys-h">keys</h2>
+        <dl>
+          <div><dt><kbd>→</kbd> <kbd>l</kbd></dt><dd>keep</dd></div>
+          <div><dt><kbd>←</kbd> <kbd>h</kbd></dt><dd>pass</dd></div>
+          <div><dt><kbd>u</kbd> <kbd>⌘z</kbd></dt><dd>undo the last verdict</dd></div>
+          <div><dt><kbd>n</kbd></dt><dd>write a note</dd></div>
+          <div><dt><kbd>⌘↵</kbd></dt><dd>keep with the note</dd></div>
+          <div><dt><kbd>o</kbd> <kbd>↵</kbd></dt><dd>open source</dd></div>
+          <div><dt><kbd>r</kbd></dt><dd>reload picture</dd></div>
+          <div><dt><kbd>/</kbd></dt><dd>add a link</dd></div>
+          <div><dt><kbd>?</kbd></dt><dd>this sheet</dd></div>
+        </dl>
+        <form method="dialog"><button type="submit" class="in-btn">close <kbd>esc</kbd></button></form>
+      </dialog>
+    </section>
+    <footer class="ep-footer"><a href="/eidos">portrait</a><span>private working studio</span><a href="/eidos/map">atlas</a></footer>
+  </div>
 
-  <style>
+  <style media="not all">
     /* An author display rule beats the user agent's [hidden]; the sitting
        learned this the hard way when its door would not close. */
     [hidden] { display: none !important; }
@@ -435,9 +429,35 @@ const description = "throw a link in; judge what waits. the door to the library.
       const edgeIn = document.querySelector(".in-edge--in");
       const edgeOut = document.querySelector(".in-edge--out");
       const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-      const say = $("say"), ground = $("ground");
+      const say = $("say"), ground = $("ground"), draftStatus = $("draft-status"), trail = $("session-trail");
       let deck = [], cur = null, sat = 0, keptThis = [], last = null, busy = false;
       let canSummarise = false;
+      let draftTimer = 0;
+      const session = [];
+
+      const draftKey = (id) => `eidos:draft:${id}`;
+      const playFeedback = (kind) => {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const video = $(`feedback-${kind}`);
+        if (!video) return;
+        document.querySelectorAll("[data-studio-feedback] video").forEach((item) => { item.pause(); item.classList.remove("is-playing"); });
+        video.currentTime = 0;
+        video.classList.add("is-playing");
+        video.play().catch(() => video.classList.remove("is-playing"));
+      };
+      document.querySelectorAll("[data-studio-feedback] video").forEach((video) => video.addEventListener("ended", () => video.classList.remove("is-playing")));
+      const renderTrail = () => {
+        trail.replaceChildren();
+        const recent = session.slice(-5).reverse();
+        if (!recent.length) { const li = document.createElement("li"); li.className = "is-empty"; li.textContent = "nothing judged yet"; trail.append(li); return; }
+        recent.forEach((entry) => {
+          const li = document.createElement("li");
+          const mark = document.createElement("b"); mark.textContent = entry.verdict === "keep" ? "+" : "−";
+          const label = document.createElement("span"); label.textContent = `${entry.cand.title || entry.cand.line || entry.cand.who || entry.cand.type}${entry.say ? " · note" : ""}`;
+          li.append(mark, label); trail.append(li);
+        });
+      };
+      const record = (cand, verdict, line) => { session.push({ cand, verdict, say: line }); renderTrail(); };
 
       const count = () => {
         const left = deck.length + (cur ? 1 : 0);
@@ -499,19 +519,21 @@ const description = "throw a link in; judge what waits. the door to the library.
       const WORDS = new Set(["poem", "quote", "song"]);
       function show(c) {
         const isRead = !c.src;
-        say.value = "";
+        clearTimeout(draftTimer);
+        try { say.value = localStorage.getItem(draftKey(c.id)) || ""; } catch { say.value = ""; }
+        draftStatus.textContent = say.value ? "saved locally" : "ready";
         $("f-weather").textContent = c.weather || "unfiled";
         $("f-form").textContent = c.type || (c.url ? "read" : "");
         let from = "";
         try { from = new URL(c.source || c.url || c.src).hostname.replace(/^www\./, ""); } catch {}
-        $("f-from").textContent = from || "—";
+        $("f-from").textContent = from || "unknown";
         if (isRead) ground.classList.remove("is-lit");
         artWrap.hidden = isRead;
         read.hidden = !isRead;
         $("r-desc").classList.toggle("is-verse", WORDS.has(c.type));
         if (WORDS.has(c.type)) {
           $("r-site").textContent = c.type + (c.where ? " · " + c.where : "") + (c.year ? " · " + c.year : "");
-          $("r-title").textContent = c.type === "song" ? `${c.who} — ${c.title}` : c.who;
+          $("r-title").textContent = c.type === "song" ? `${c.who} · ${c.title}` : c.who;
           const text = c.type === "song" ? "" : (c.line || "") + (c.english ? "\n\n" + c.english : "");
           $("r-desc").textContent = text;
           $("r-desc").hidden = !text;
@@ -591,6 +613,7 @@ const description = "throw a link in; judge what waits. the door to the library.
         busy = false;
         count();
         prefetch();
+        if (!sat) playFeedback("open");
       }
       function rest_(text) {
         cur = null;
@@ -635,6 +658,7 @@ const description = "throw a link in; judge what waits. the door to the library.
         if (gated) return;
         gated = true;
         $("gate").hidden = false;
+        $("workbench").hidden = true;
         $("do").hidden = true;
         $("stage").hidden = true;
         $("gate-note").textContent = pending.length
@@ -660,7 +684,7 @@ const description = "throw a link in; judge what waits. the door to the library.
           field.select(); return;
         }
         gated = false; field.value = "";
-        $("gate").hidden = true; $("do").hidden = false; $("stage").hidden = false; $("gate-note").textContent = "";
+        $("gate").hidden = true; $("workbench").hidden = false; $("do").hidden = false; $("stage").hidden = false; $("gate-note").textContent = "";
         for (const u of pending.splice(0)) await send(u.cand, u.verdict, u.weather);
         if (!cur) build();
       });
@@ -685,7 +709,7 @@ const description = "throw a link in; judge what waits. the door to the library.
           tnote.textContent = d.already
             ? "already in the inbox."
             : `kept: ${b.title}${d.summarised ? " · summarised" : canSummarise ? "" : " · no summary until a key is set"}`;
-          urlField.value = ""; noteField.value = "";
+          urlField.value = "";
           if (!d.already) {
             // the new card goes to the front, so what he just threw is what he sees
             if (cur) deck.unshift(cur);
@@ -709,12 +733,14 @@ const description = "throw a link in; judge what waits. the door to the library.
       function pass() {
         if (!cur || busy) return;
         busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "pass", say: line }; $("undo").disabled = false;
-        fly(-1); send(cand, "pass", "", line); sat++; setTimeout(next, 300);
+        record(cand, "pass", line); try { localStorage.removeItem(draftKey(cand.id)); } catch {}
+        playFeedback("pass"); fly(-1); send(cand, "pass", "", line); sat++; setTimeout(next, 300);
       }
       function keep() {
         if (!cur || busy) return;
         busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "keep", say: line }; $("undo").disabled = false;
-        keptThis.push(cand); send(cand, "keep", cand.weather, line); sat++; fly(1); setTimeout(next, 300);
+        keptThis.push(cand); record(cand, "keep", line); try { localStorage.removeItem(draftKey(cand.id)); } catch {}
+        playFeedback("keep"); send(cand, "keep", cand.weather, line); sat++; fly(1); setTimeout(next, 300);
       }
       function undo() {
         if (!last || busy) return;
@@ -722,6 +748,7 @@ const description = "throw a link in; judge what waits. the door to the library.
         if (cur) deck.unshift(cur);
         deck.unshift(last.cand);
         const line = last.say || "";
+        session.pop(); renderTrail();
         sat = Math.max(0, sat - 1); last = null; $("undo").disabled = true; $("do").hidden = false; next();
         say.value = line;
       }
@@ -740,6 +767,15 @@ const description = "throw a link in; judge what waits. the door to the library.
       say.addEventListener("keydown", (e) => {
         if (e.key === "Escape") { say.blur(); e.preventDefault(); }
         if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); say.blur(); keep(); }
+      });
+      say.addEventListener("input", () => {
+        if (!cur) return;
+        draftStatus.textContent = "saving…";
+        clearTimeout(draftTimer);
+        draftTimer = setTimeout(() => {
+          try { localStorage.setItem(draftKey(cur.id), say.value); draftStatus.textContent = "saved locally"; }
+          catch { draftStatus.textContent = "could not save"; }
+        }, 280);
       });
       // The rules every keyboard-first tool agrees on: single letters do
       // nothing while a field has focus; a held key does not fire twice; a
@@ -792,4 +828,4 @@ const description = "throw a link in; judge what waits. the door to the library.
       build();
     })();
   </script>
-</Layout>
+</EidosLayout>
