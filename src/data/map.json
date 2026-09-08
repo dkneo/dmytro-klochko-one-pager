@@ -1,5 +1,5 @@
 {
- "built": "2026-09-07",
+ "built": "2026-09-08",
  "axes": {
   "x": {
    "from": "cold",
@@ -82,6 +82,57 @@
    "unplaced": false
   },
   {
+   "id": "blanchard-bracelet",
+   "type": "painting",
+   "who": "María Blanchard",
+   "title": "L'enfant au bracelet",
+   "line": "L'enfant au bracelet",
+   "year": "1925–26",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/blanchard-bracelet.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0,
+   "y": -1.06,
+   "unplaced": true
+  },
+  {
+   "id": "blanchard-comulgante",
+   "type": "painting",
+   "who": "María Blanchard",
+   "title": "La comulgante",
+   "line": "La comulgante",
+   "year": "1914",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/blanchard-comulgante.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.0231,
+   "y": -1.0597,
+   "unplaced": true
+  },
+  {
+   "id": "blanchard-cubist-still",
+   "type": "painting",
+   "who": "María Blanchard",
+   "title": "Cubist Still Life",
+   "line": "Cubist Still Life",
+   "year": "c. 1916–18",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/blanchard-cubist-still.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.0462,
+   "y": -1.059,
+   "unplaced": true
+  },
+  {
    "id": "blanchard-fillette",
    "type": "painting",
    "who": "María Blanchard",
@@ -94,8 +145,110 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0,
-   "y": -1.06,
+   "x": 0.0693,
+   "y": -1.0577,
+   "unplaced": true
+  },
+  {
+   "id": "blanchard-guitar",
+   "type": "painting",
+   "who": "María Blanchard",
+   "title": "Woman with Guitar",
+   "line": "Woman with Guitar",
+   "year": "1917",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/blanchard-guitar.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.0924,
+   "y": -1.056,
+   "unplaced": true
+  },
+  {
+   "id": "bocklin-death-fiddler",
+   "type": "painting",
+   "who": "Arnold Böcklin",
+   "title": "Self-Portrait with Death as a Fiddler",
+   "line": "Self-Portrait with Death as a Fiddler",
+   "year": "1872",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/bocklin-death-fiddler.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.1154,
+   "y": -1.0537,
+   "unplaced": true
+  },
+  {
+   "id": "bocklin-odysseus",
+   "type": "painting",
+   "who": "Arnold Böcklin",
+   "title": "Odysseus and Polyphemus",
+   "line": "Odysseus and Polyphemus",
+   "year": "1896",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/bocklin-odysseus.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.1384,
+   "y": -1.0509,
+   "unplaced": true
+  },
+  {
+   "id": "bocklin-toteninsel-iii",
+   "type": "painting",
+   "who": "Arnold Böcklin",
+   "title": "Isle of the Dead III",
+   "line": "Isle of the Dead III",
+   "year": "1883",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/bocklin-toteninsel-iii.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.1613,
+   "y": -1.0477,
+   "unplaced": true
+  },
+  {
+   "id": "bocklin-villa-1865",
+   "type": "painting",
+   "who": "Arnold Böcklin",
+   "title": "Villa by the Sea II",
+   "line": "Villa by the Sea II",
+   "year": "1865",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/bocklin-villa-1865.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.1841,
+   "y": -1.0439,
+   "unplaced": true
+  },
+  {
+   "id": "bocklin-villa-iii",
+   "type": "painting",
+   "who": "Arnold Böcklin",
+   "title": "Villa by the Sea III",
+   "line": "Villa by the Sea III",
+   "year": "1871–74",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/bocklin-villa-iii.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.2068,
+   "y": -1.0396,
    "unplaced": true
   },
   {
@@ -111,8 +264,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.0911,
-   "y": -1.0561,
+   "x": 0.2294,
+   "y": -1.0349,
    "unplaced": true
   },
   {
@@ -133,6 +286,108 @@
    "unplaced": false
   },
   {
+   "id": "boznanska-chrysanthemums",
+   "type": "painting",
+   "who": "Olga Boznańska",
+   "title": "Girl with Chrysanthemums",
+   "line": "Girl with Chrysanthemums",
+   "year": "1894",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/boznanska-chrysanthemums.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.2519,
+   "y": -1.0296,
+   "unplaced": true
+  },
+  {
+   "id": "boznanska-flowers-self",
+   "type": "painting",
+   "who": "Olga Boznańska",
+   "title": "Self-Portrait with Flowers",
+   "line": "Self-Portrait with Flowers",
+   "year": "1909",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/boznanska-flowers-self.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.2743,
+   "y": -1.0239,
+   "unplaced": true
+  },
+  {
+   "id": "boznanska-japonka",
+   "type": "painting",
+   "who": "Olga Boznańska",
+   "title": "Japonka",
+   "line": "Japonka",
+   "year": "1889",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/boznanska-japonka.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.2966,
+   "y": -1.0177,
+   "unplaced": true
+  },
+  {
+   "id": "boznanska-mother-child",
+   "type": "painting",
+   "who": "Olga Boznańska",
+   "title": "Woman with a Little Girl",
+   "line": "Woman with a Little Girl",
+   "year": "1893",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/boznanska-mother-child.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.3187,
+   "y": -1.0109,
+   "unplaced": true
+  },
+  {
+   "id": "boznanska-radwan",
+   "type": "painting",
+   "who": "Olga Boznańska",
+   "title": "Portrait of August Radwan",
+   "line": "Portrait of August Radwan",
+   "year": "1906",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/boznanska-radwan.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.3407,
+   "y": -1.0037,
+   "unplaced": true
+  },
+  {
+   "id": "boznanska-still-life-vase",
+   "type": "painting",
+   "who": "Olga Boznańska",
+   "title": "Still life with a vase",
+   "line": "Still life with a vase",
+   "year": "1918",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/boznanska-still-life-vase.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.3625,
+   "y": -0.9961,
+   "unplaced": true
+  },
+  {
    "id": "caspar-david-friedrich-the-monk-by-the-sea",
    "type": "painting",
    "who": "Caspar David Friedrich",
@@ -148,6 +403,57 @@
    "x": -0.4118,
    "y": 0.9798,
    "unplaced": false
+  },
+  {
+   "id": "chasseriau-esther",
+   "type": "painting",
+   "who": "Théodore Chassériau",
+   "title": "Esther Preparing to be Presented to King Ahasuerus",
+   "line": "Esther Preparing to be Presented to King Ahasuerus",
+   "year": "1841",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/chasseriau-esther.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.3842,
+   "y": -0.9879,
+   "unplaced": true
+  },
+  {
+   "id": "chasseriau-tepidarium",
+   "type": "painting",
+   "who": "Théodore Chassériau",
+   "title": "The Tepidarium",
+   "line": "The Tepidarium",
+   "year": "1853",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/chasseriau-tepidarium.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.4056,
+   "y": -0.9793,
+   "unplaced": true
+  },
+  {
+   "id": "chasseriau-two-sisters",
+   "type": "painting",
+   "who": "Théodore Chassériau",
+   "title": "The Two Sisters",
+   "line": "The Two Sisters",
+   "year": "1843",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/chasseriau-two-sisters.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.4269,
+   "y": -0.9702,
+   "unplaced": true
   },
   {
    "id": "claude-monet-water-lilies",
@@ -179,8 +485,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.1816,
-   "y": -1.0443,
+   "x": 0.448,
+   "y": -0.9607,
    "unplaced": true
   },
   {
@@ -201,6 +507,74 @@
    "unplaced": false
   },
   {
+   "id": "eakins-concert-singer",
+   "type": "painting",
+   "who": "Thomas Eakins",
+   "title": "The Concert Singer",
+   "line": "The Concert Singer",
+   "year": "1890–92",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/eakins-concert-singer.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.4688,
+   "y": -0.9507,
+   "unplaced": true
+  },
+  {
+   "id": "eakins-gross-clinic",
+   "type": "painting",
+   "who": "Thomas Eakins",
+   "title": "The Gross Clinic",
+   "line": "The Gross Clinic",
+   "year": "1875",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/eakins-gross-clinic.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.4895,
+   "y": -0.9402,
+   "unplaced": true
+  },
+  {
+   "id": "eakins-schmitt",
+   "type": "painting",
+   "who": "Thomas Eakins",
+   "title": "Max Schmitt in a Single Scull",
+   "line": "Max Schmitt in a Single Scull",
+   "year": "1871",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/eakins-schmitt.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.5098,
+   "y": -0.9293,
+   "unplaced": true
+  },
+  {
+   "id": "eakins-swimming",
+   "type": "painting",
+   "who": "Thomas Eakins",
+   "title": "Swimming",
+   "line": "Swimming",
+   "year": "1885",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/eakins-swimming.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.53,
+   "y": -0.918,
+   "unplaced": true
+  },
+  {
    "id": "ekster-planes",
    "type": "painting",
    "who": "Oleksandra Ekster",
@@ -213,8 +587,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.2707,
-   "y": -1.0249,
+   "x": 0.5499,
+   "y": -0.9062,
    "unplaced": true
   },
   {
@@ -269,6 +643,91 @@
    "unplaced": false
   },
   {
+   "id": "fuseli-nightmare",
+   "type": "painting",
+   "who": "Henry Fuseli",
+   "title": "The Nightmare",
+   "line": "The Nightmare",
+   "year": "1781",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/fuseli-nightmare.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.5695,
+   "y": -0.894,
+   "unplaced": true
+  },
+  {
+   "id": "fuseli-thor",
+   "type": "painting",
+   "who": "Henry Fuseli",
+   "title": "Thor Battering the Midgard Serpent",
+   "line": "Thor Battering the Midgard Serpent",
+   "year": "1788",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/fuseli-thor.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.5889,
+   "y": -0.8814,
+   "unplaced": true
+  },
+  {
+   "id": "fuseli-tiresias",
+   "type": "painting",
+   "who": "Henry Fuseli",
+   "title": "Tiresias appears to Ulysses during the sacrifice",
+   "line": "Tiresias appears to Ulysses during the sacrifice",
+   "year": "c. 1780–85",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/fuseli-tiresias.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.608,
+   "y": -0.8683,
+   "unplaced": true
+  },
+  {
+   "id": "fuseli-titania-bottom",
+   "type": "painting",
+   "who": "Henry Fuseli",
+   "title": "Titania and Bottom",
+   "line": "Titania and Bottom",
+   "year": "c. 1790",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/fuseli-titania-bottom.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.6268,
+   "y": -0.8548,
+   "unplaced": true
+  },
+  {
+   "id": "fuseli-titania-hires",
+   "type": "painting",
+   "who": "Henry Fuseli",
+   "title": "Titania caressing the ass-headed Bottom",
+   "line": "Titania caressing the ass-headed Bottom",
+   "year": "1793–94",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/fuseli-titania-hires.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.6453,
+   "y": -0.841,
+   "unplaced": true
+  },
+  {
    "id": "gao-jianfu-landscape",
    "type": "painting",
    "who": "Gao Jianfu",
@@ -281,8 +740,195 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.3578,
-   "y": -0.9978,
+   "x": 0.6635,
+   "y": -0.8267,
+   "unplaced": true
+  },
+  {
+   "id": "girodet-atala",
+   "type": "painting",
+   "who": "Anne-Louis Girodet",
+   "title": "The Entombment of Atala",
+   "line": "The Entombment of Atala",
+   "year": "1808",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/girodet-atala.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.6814,
+   "y": -0.812,
+   "unplaced": true
+  },
+  {
+   "id": "girodet-balzac",
+   "type": "painting",
+   "who": "Anne-Louis Girodet",
+   "title": "Portrait of Louis-Charles Balzac",
+   "line": "Portrait of Louis-Charles Balzac",
+   "year": "1811",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/girodet-balzac.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.6989,
+   "y": -0.797,
+   "unplaced": true
+  },
+  {
+   "id": "girodet-cairo",
+   "type": "painting",
+   "who": "Anne-Louis Girodet",
+   "title": "The Revolt of Cairo",
+   "line": "The Revolt of Cairo",
+   "year": "1810",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/girodet-cairo.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.7161,
+   "y": -0.7815,
+   "unplaced": true
+  },
+  {
+   "id": "girodet-endymion",
+   "type": "painting",
+   "who": "Anne-Louis Girodet",
+   "title": "The Sleep of Endymion",
+   "line": "The Sleep of Endymion",
+   "year": "1791",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/girodet-endymion.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.733,
+   "y": -0.7657,
+   "unplaced": true
+  },
+  {
+   "id": "girodet-larrey",
+   "type": "painting",
+   "who": "Anne-Louis Girodet",
+   "title": "Jean-Dominique Larrey",
+   "line": "Jean-Dominique Larrey",
+   "year": "1804",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/girodet-larrey.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.7495,
+   "y": -0.7495,
+   "unplaced": true
+  },
+  {
+   "id": "girodet-odalisque",
+   "type": "painting",
+   "who": "Anne-Louis Girodet",
+   "title": "L'Odalisque",
+   "line": "L'Odalisque",
+   "year": "c. 1820",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/girodet-odalisque.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.7657,
+   "y": -0.733,
+   "unplaced": true
+  },
+  {
+   "id": "gwen-john-cloak",
+   "type": "painting",
+   "who": "Gwen John",
+   "title": "Woman with Cloak",
+   "line": "Woman with Cloak",
+   "year": "c. 1920–24",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/gwen-john-cloak.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.7815,
+   "y": -0.7161,
+   "unplaced": true
+  },
+  {
+   "id": "gwen-john-convalescent",
+   "type": "painting",
+   "who": "Gwen John",
+   "title": "The Convalescent",
+   "line": "The Convalescent",
+   "year": "1918–19",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/gwen-john-convalescent.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.797,
+   "y": -0.6989,
+   "unplaced": true
+  },
+  {
+   "id": "gwen-john-corner",
+   "type": "painting",
+   "who": "Gwen John",
+   "title": "A Corner of the Artist's Room in Paris",
+   "line": "A Corner of the Artist's Room in Paris",
+   "year": "1907–09",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/gwen-john-corner.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.812,
+   "y": -0.6814,
+   "unplaced": true
+  },
+  {
+   "id": "gwen-john-dorelia",
+   "type": "painting",
+   "who": "Gwen John",
+   "title": "Dorelia in a Black Dress",
+   "line": "Dorelia in a Black Dress",
+   "year": "c. 1903–04",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/gwen-john-dorelia.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.8267,
+   "y": -0.6635,
+   "unplaced": true
+  },
+  {
+   "id": "gwen-john-reading",
+   "type": "painting",
+   "who": "Gwen John",
+   "title": "Girl Reading at a Window",
+   "line": "Girl Reading at a Window",
+   "year": "1911",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/gwen-john-reading.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.841,
+   "y": -0.6453,
    "unplaced": true
   },
   {
@@ -332,8 +978,8 @@
    "url": "",
    "note": "the boy fishing. stands behind childhood.",
    "added": "2026-08-18",
-   "x": 0.4422,
-   "y": -0.9633,
+   "x": 0.8548,
+   "y": -0.6268,
    "unplaced": true
   },
   {
@@ -349,8 +995,8 @@
    "url": "",
    "note": "one of the ten skies the site runs on.",
    "added": "2026-08-29",
-   "x": 0.5234,
-   "y": -0.9218,
+   "x": 0.8683,
+   "y": -0.608,
    "unplaced": true
   },
   {
@@ -366,8 +1012,8 @@
    "url": "",
    "note": "the estuary. stands behind taste.",
    "added": "2026-08-18",
-   "x": 0.6007,
-   "y": -0.8734,
+   "x": 0.8814,
+   "y": -0.5889,
    "unplaced": true
   },
   {
@@ -383,8 +1029,8 @@
    "url": "",
    "note": "sunflowers. stands behind what came before.",
    "added": "2026-08-18",
-   "x": 0.6736,
-   "y": -0.8185,
+   "x": 0.894,
+   "y": -0.5695,
    "unplaced": true
   },
   {
@@ -400,8 +1046,8 @@
    "url": "",
    "note": "the campfire. stands behind how he works.",
    "added": "2026-08-18",
-   "x": 0.7414,
-   "y": -0.7576,
+   "x": 0.9062,
+   "y": -0.5499,
    "unplaced": true
   },
   {
@@ -417,8 +1063,8 @@
    "url": "",
    "note": "the fuji rafts. stands behind replika.",
    "added": "2026-08-18",
-   "x": 0.8038,
-   "y": -0.691,
+   "x": 0.918,
+   "y": -0.53,
    "unplaced": true
   },
   {
@@ -434,8 +1080,8 @@
    "url": "",
    "note": "the lavender walk. stands behind the camera.",
    "added": "2026-08-18",
-   "x": 0.8602,
-   "y": -0.6194,
+   "x": 0.9293,
+   "y": -0.5098,
    "unplaced": true
   },
   {
@@ -451,8 +1097,8 @@
    "url": "",
    "note": "a dark courtyard. carries the reading pages.",
    "added": "2026-08-18",
-   "x": 0.9103,
-   "y": -0.5431,
+   "x": 0.9402,
+   "y": -0.4895,
    "unplaced": true
   },
   {
@@ -468,8 +1114,8 @@
    "url": "",
    "note": "the snowlit village. stands behind saying hi.",
    "added": "2026-08-18",
-   "x": 0.9536,
-   "y": -0.4629,
+   "x": 0.9507,
+   "y": -0.4688,
    "unplaced": true
   },
   {
@@ -485,8 +1131,8 @@
    "url": "",
    "note": "one of his own, taken down to night, for learning.",
    "added": "2026-08-18",
-   "x": 0.9899,
-   "y": -0.3792,
+   "x": 0.9607,
+   "y": -0.448,
    "unplaced": true
   },
   {
@@ -502,8 +1148,8 @@
    "url": "",
    "note": "the swimmer under the orange sun. the opening screen.",
    "added": "2026-08-18",
-   "x": 1.0188,
-   "y": -0.2927,
+   "x": 0.9702,
+   "y": -0.4269,
    "unplaced": true
   },
   {
@@ -553,8 +1199,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0402,
-   "y": -0.204,
+   "x": 0.9793,
+   "y": -0.4056,
    "unplaced": true
   },
   {
@@ -626,6 +1272,193 @@
    "unplaced": false
   },
   {
+   "id": "kauffman-charcoal",
+   "type": "painting",
+   "who": "Angelica Kauffman",
+   "title": "Self-Portrait with Charcoal Holder and Sharpener",
+   "line": "Self-Portrait with Charcoal Holder and Sharpener",
+   "year": "c. 1770–75",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kauffman-charcoal.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9879,
+   "y": -0.3842,
+   "unplaced": true
+  },
+  {
+   "id": "kauffman-cymon",
+   "type": "painting",
+   "who": "Angelica Kauffman",
+   "title": "Cymon and Iphigenia",
+   "line": "Cymon and Iphigenia",
+   "year": "c. 1780",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kauffman-cymon.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9961,
+   "y": -0.3625,
+   "unplaced": true
+  },
+  {
+   "id": "kauffman-diana-nymphs",
+   "type": "painting",
+   "who": "Angelica Kauffman",
+   "title": "Diana and her nymphs bathing",
+   "line": "Diana and her nymphs bathing",
+   "year": "c. 1778",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kauffman-diana-nymphs.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0037,
+   "y": -0.3407,
+   "unplaced": true
+  },
+  {
+   "id": "kauffman-gower-family",
+   "type": "painting",
+   "who": "Angelica Kauffman",
+   "title": "The Family of the Earl of Gower",
+   "line": "The Family of the Earl of Gower",
+   "year": "1772",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kauffman-gower-family.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0109,
+   "y": -0.3187,
+   "unplaced": true
+  },
+  {
+   "id": "kauffman-self-1784",
+   "type": "painting",
+   "who": "Angelica Kauffman",
+   "title": "Self-Portrait",
+   "line": "Self-Portrait",
+   "year": "1784",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kauffman-self-1784.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0177,
+   "y": -0.2966,
+   "unplaced": true
+  },
+  {
+   "id": "kauffman-sibyl",
+   "type": "painting",
+   "who": "Angelica Kauffman",
+   "title": "Cumaean Sibyl",
+   "line": "Cumaean Sibyl",
+   "year": "c. 1763",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kauffman-sibyl.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0239,
+   "y": -0.2743,
+   "unplaced": true
+  },
+  {
+   "id": "kishida-pumpkin-woman",
+   "type": "painting",
+   "who": "Kishida Ryūsei",
+   "title": "Woman with a Pumpkin",
+   "line": "Woman with a Pumpkin",
+   "year": "1914",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kishida-pumpkin-woman.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0296,
+   "y": -0.2519,
+   "unplaced": true
+  },
+  {
+   "id": "kishida-reiko-doll",
+   "type": "painting",
+   "who": "Kishida Ryūsei",
+   "title": "Seated Portrait of Reiko with a Doll",
+   "line": "Seated Portrait of Reiko with a Doll",
+   "year": "1920",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kishida-reiko-doll.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0349,
+   "y": -0.2294,
+   "unplaced": true
+  },
+  {
+   "id": "kishida-reiko-five",
+   "type": "painting",
+   "who": "Kishida Ryūsei",
+   "title": "Reiko, Five Years Old",
+   "line": "Reiko, Five Years Old",
+   "year": "1918",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kishida-reiko-five.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0396,
+   "y": -0.2068,
+   "unplaced": true
+  },
+  {
+   "id": "kishida-reiko-smiling",
+   "type": "painting",
+   "who": "Kishida Ryūsei",
+   "title": "Portrait of Reiko",
+   "line": "Portrait of Reiko",
+   "year": "1921",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kishida-reiko-smiling.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0439,
+   "y": -0.1841,
+   "unplaced": true
+  },
+  {
+   "id": "krychevsky-life",
+   "type": "painting",
+   "who": "Fedir Krychevsky",
+   "title": "Life",
+   "line": "Life",
+   "year": "1925–29",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/krychevsky-life.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0477,
+   "y": -0.1613,
+   "unplaced": true
+  },
+  {
    "id": "kubista-sebastian",
    "type": "painting",
    "who": "Bohumil Kubišta",
@@ -638,8 +1471,76 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0539,
-   "y": -0.1138,
+   "x": 1.0509,
+   "y": -0.1384,
+   "unplaced": true
+  },
+  {
+   "id": "labille-guiard-madame-adelaide",
+   "type": "painting",
+   "who": "Adélaïde Labille-Guiard",
+   "title": "Marie Adélaïde de France",
+   "line": "Marie Adélaïde de France",
+   "year": "c. 1787",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/labille-guiard-madame-adelaide.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0537,
+   "y": -0.1154,
+   "unplaced": true
+  },
+  {
+   "id": "labille-guiard-madame-elisabeth",
+   "type": "painting",
+   "who": "Adélaïde Labille-Guiard",
+   "title": "Madame Élisabeth de France",
+   "line": "Madame Élisabeth de France",
+   "year": "1787",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/labille-guiard-madame-elisabeth.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.056,
+   "y": -0.0924,
+   "unplaced": true
+  },
+  {
+   "id": "labille-guiard-portrait-woman-1787",
+   "type": "painting",
+   "who": "Adélaïde Labille-Guiard",
+   "title": "Portrait of a Woman",
+   "line": "Portrait of a Woman",
+   "year": "1787",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/labille-guiard-portrait-woman-1787.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0577,
+   "y": -0.0693,
+   "unplaced": true
+  },
+  {
+   "id": "labille-guiard-self-pupils",
+   "type": "painting",
+   "who": "Adélaïde Labille-Guiard",
+   "title": "Self-Portrait with Two Pupils",
+   "line": "Self-Portrait with Two Pupils",
+   "year": "1785",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/labille-guiard-self-pupils.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.059,
+   "y": -0.0462,
    "unplaced": true
   },
   {
@@ -660,6 +1561,125 @@
    "unplaced": false
   },
   {
+   "id": "malczewski-in-the-cloud",
+   "type": "painting",
+   "who": "Jacek Malczewski",
+   "title": "In the Cloud",
+   "line": "In the Cloud",
+   "year": "1893–94",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/malczewski-in-the-cloud.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0597,
+   "y": -0.0231,
+   "unplaced": true
+  },
+  {
+   "id": "malczewski-jasienski",
+   "type": "painting",
+   "who": "Jacek Malczewski",
+   "title": "Portrait of Feliks Jasieński",
+   "line": "Portrait of Feliks Jasieński",
+   "year": "1903",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/malczewski-jasienski.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.06,
+   "y": 0,
+   "unplaced": true
+  },
+  {
+   "id": "malczewski-melancholia",
+   "type": "painting",
+   "who": "Jacek Malczewski",
+   "title": "Melancholia",
+   "line": "Melancholia",
+   "year": "1890–94",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/malczewski-melancholia.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0597,
+   "y": 0.0231,
+   "unplaced": true
+  },
+  {
+   "id": "malczewski-reconciliation",
+   "type": "painting",
+   "who": "Jacek Malczewski",
+   "title": "Reconciliation",
+   "line": "Reconciliation",
+   "year": "1904",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/malczewski-reconciliation.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.059,
+   "y": 0.0462,
+   "unplaced": true
+  },
+  {
+   "id": "malczewski-thanatos-ii",
+   "type": "painting",
+   "who": "Jacek Malczewski",
+   "title": "Thanatos II",
+   "line": "Thanatos II",
+   "year": "1899",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/malczewski-thanatos-ii.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0577,
+   "y": 0.0693,
+   "unplaced": true
+  },
+  {
+   "id": "malczewski-thanatos",
+   "type": "painting",
+   "who": "Jacek Malczewski",
+   "title": "Thanatos",
+   "line": "Thanatos",
+   "year": "1898–99",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/malczewski-thanatos.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.056,
+   "y": 0.0924,
+   "unplaced": true
+  },
+  {
+   "id": "malczewski-vicious-circle",
+   "type": "painting",
+   "who": "Jacek Malczewski",
+   "title": "Vicious Circle",
+   "line": "Vicious Circle",
+   "year": "1897",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/malczewski-vicious-circle.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0537,
+   "y": 0.1154,
+   "unplaced": true
+  },
+  {
    "id": "marquet-quai-conti",
    "type": "painting",
    "who": "Albert Marquet",
@@ -672,8 +1692,25 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0598,
-   "y": -0.0228,
+   "x": 1.0509,
+   "y": 0.1384,
+   "unplaced": true
+  },
+  {
+   "id": "modersohn-becker-girl-child",
+   "type": "painting",
+   "who": "Paula Modersohn-Becker",
+   "title": "Girl with Child",
+   "line": "Girl with Child",
+   "year": "1902",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/modersohn-becker-girl-child.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0477,
+   "y": 0.1613,
    "unplaced": true
   },
   {
@@ -689,8 +1726,76 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0578,
-   "y": 0.0684,
+   "x": 1.0439,
+   "y": 0.1841,
+   "unplaced": true
+  },
+  {
+   "id": "modersohn-becker-poppies",
+   "type": "painting",
+   "who": "Paula Modersohn-Becker",
+   "title": "Old poor woman with a glass ball and poppies",
+   "line": "Old poor woman with a glass ball and poppies",
+   "year": "1907",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/modersohn-becker-poppies.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0396,
+   "y": 0.2068,
+   "unplaced": true
+  },
+  {
+   "id": "modersohn-becker-rilke",
+   "type": "painting",
+   "who": "Paula Modersohn-Becker",
+   "title": "Portrait of Rainer Maria Rilke",
+   "line": "Portrait of Rainer Maria Rilke",
+   "year": "1906",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/modersohn-becker-rilke.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0349,
+   "y": 0.2294,
+   "unplaced": true
+  },
+  {
+   "id": "modersohn-becker-self-1906",
+   "type": "painting",
+   "who": "Paula Modersohn-Becker",
+   "title": "Self-portrait",
+   "line": "Self-portrait",
+   "year": "1906",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/modersohn-becker-self-1906.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0296,
+   "y": 0.2519,
+   "unplaced": true
+  },
+  {
+   "id": "modersohn-becker-wedding",
+   "type": "painting",
+   "who": "Paula Modersohn-Becker",
+   "title": "Self-portrait on her sixth wedding anniversary",
+   "line": "Self-portrait on her sixth wedding anniversary",
+   "year": "1906",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/modersohn-becker-wedding.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0239,
+   "y": 0.2743,
    "unplaced": true
   },
   {
@@ -728,6 +1833,74 @@
    "unplaced": false
   },
   {
+   "id": "moreau-apparition",
+   "type": "painting",
+   "who": "Gustave Moreau",
+   "title": "The Apparition",
+   "line": "The Apparition",
+   "year": "1876",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/moreau-apparition.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0177,
+   "y": 0.2966,
+   "unplaced": true
+  },
+  {
+   "id": "moreau-hesiod",
+   "type": "painting",
+   "who": "Gustave Moreau",
+   "title": "Hesiod and the Muse",
+   "line": "Hesiod and the Muse",
+   "year": "1857",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/moreau-hesiod.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0109,
+   "y": 0.3187,
+   "unplaced": true
+  },
+  {
+   "id": "moreau-oedipus",
+   "type": "painting",
+   "who": "Gustave Moreau",
+   "title": "Oedipus and the Sphinx",
+   "line": "Oedipus and the Sphinx",
+   "year": "1864",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/moreau-oedipus.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 1.0037,
+   "y": 0.3407,
+   "unplaced": true
+  },
+  {
+   "id": "moreau-orpheus",
+   "type": "painting",
+   "who": "Gustave Moreau",
+   "title": "Orpheus",
+   "line": "Orpheus",
+   "year": "1865",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/moreau-orpheus.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9961,
+   "y": 0.3625,
+   "unplaced": true
+  },
+  {
    "id": "mountains-mont-sainte-victoire-seen-from-the-bib",
    "type": "painting",
    "who": "Paul Cézanne",
@@ -743,6 +1916,74 @@
    "x": -0.3964,
    "y": 0.8203,
    "unplaced": false
+  },
+  {
+   "id": "murashko-annunciation",
+   "type": "painting",
+   "who": "Oleksandr Murashko",
+   "title": "Annunciation",
+   "line": "Annunciation",
+   "year": "1907–08",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/murashko-annunciation.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9879,
+   "y": 0.3842,
+   "unplaced": true
+  },
+  {
+   "id": "murashko-burial-otaman",
+   "type": "painting",
+   "who": "Oleksandr Murashko",
+   "title": "Burial of a Kish Otaman",
+   "line": "Burial of a Kish Otaman",
+   "year": "1900",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/murashko-burial-otaman.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9793,
+   "y": 0.4056,
+   "unplaced": true
+  },
+  {
+   "id": "murashko-carousel-sketch",
+   "type": "painting",
+   "who": "Oleksandr Murashko",
+   "title": "Sketch for Carousel",
+   "line": "Sketch for Carousel",
+   "year": "1905",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/murashko-carousel-sketch.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9702,
+   "y": 0.4269,
+   "unplaced": true
+  },
+  {
+   "id": "murashko-girl-red-hat",
+   "type": "painting",
+   "who": "Oleksandr Murashko",
+   "title": "Girl in a Red Hat",
+   "line": "Girl in a Red Hat",
+   "year": "1902–03",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/murashko-girl-red-hat.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9607,
+   "y": 0.448,
+   "unplaced": true
   },
   {
    "id": "no-man-s-land",
@@ -779,6 +2020,91 @@
    "unplaced": false
   },
   {
+   "id": "pirosmani-beer-seller",
+   "type": "painting",
+   "who": "Niko Pirosmani",
+   "title": "Beer seller",
+   "line": "Beer seller",
+   "year": "c. 1915",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/pirosmani-beer-seller.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9507,
+   "y": 0.4688,
+   "unplaced": true
+  },
+  {
+   "id": "pirosmani-deer",
+   "type": "painting",
+   "who": "Niko Pirosmani",
+   "title": "Deer",
+   "line": "Deer",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/pirosmani-deer.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9402,
+   "y": 0.4895,
+   "unplaced": true
+  },
+  {
+   "id": "pirosmani-feast-bank",
+   "type": "painting",
+   "who": "Niko Pirosmani",
+   "title": "A feast on the bank",
+   "line": "A feast on the bank",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/pirosmani-feast-bank.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9293,
+   "y": 0.5098,
+   "unplaced": true
+  },
+  {
+   "id": "pirosmani-fruit-seller",
+   "type": "painting",
+   "who": "Niko Pirosmani",
+   "title": "Tatar fruit seller",
+   "line": "Tatar fruit seller",
+   "year": "c. 1915",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/pirosmani-fruit-seller.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.918,
+   "y": 0.53,
+   "unplaced": true
+  },
+  {
+   "id": "pirosmani-roe-deer",
+   "type": "painting",
+   "who": "Niko Pirosmani",
+   "title": "Roe deer",
+   "line": "Roe deer",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/pirosmani-roe-deer.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.9062,
+   "y": 0.5499,
+   "unplaced": true
+  },
+  {
    "id": "pirosmani-still-life",
    "type": "painting",
    "who": "Niko Pirosmani",
@@ -791,8 +2117,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.048,
-   "y": 0.1591,
+   "x": 0.894,
+   "y": 0.5695,
    "unplaced": true
   },
   {
@@ -842,8 +2168,110 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0304,
-   "y": 0.2486,
+   "x": 0.8814,
+   "y": 0.5889,
+   "unplaced": true
+  },
+  {
+   "id": "schjerfbeck-clothes-drying",
+   "type": "painting",
+   "who": "Helene Schjerfbeck",
+   "title": "Clothes Drying",
+   "line": "Clothes Drying",
+   "year": "1883",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/schjerfbeck-clothes-drying.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.8683,
+   "y": 0.608,
+   "unplaced": true
+  },
+  {
+   "id": "schjerfbeck-convalescent",
+   "type": "painting",
+   "who": "Helene Schjerfbeck",
+   "title": "The Convalescent",
+   "line": "The Convalescent",
+   "year": "1888",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/schjerfbeck-convalescent.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.8548,
+   "y": 0.6268,
+   "unplaced": true
+  },
+  {
+   "id": "schjerfbeck-heirloom",
+   "type": "painting",
+   "who": "Helene Schjerfbeck",
+   "title": "The Family Heirloom",
+   "line": "The Family Heirloom",
+   "year": "1915–16",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/schjerfbeck-heirloom.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.841,
+   "y": 0.6453,
+   "unplaced": true
+  },
+  {
+   "id": "schjerfbeck-mother",
+   "type": "painting",
+   "who": "Helene Schjerfbeck",
+   "title": "My Mother",
+   "line": "My Mother",
+   "year": "1909",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/schjerfbeck-mother.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.8267,
+   "y": 0.6635,
+   "unplaced": true
+  },
+  {
+   "id": "schjerfbeck-red-haired",
+   "type": "painting",
+   "who": "Helene Schjerfbeck",
+   "title": "The Red-Haired Girl II",
+   "line": "The Red-Haired Girl II",
+   "year": "1915",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/schjerfbeck-red-haired.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.812,
+   "y": 0.6814,
+   "unplaced": true
+  },
+  {
+   "id": "schjerfbeck-self-1884",
+   "type": "painting",
+   "who": "Helene Schjerfbeck",
+   "title": "Self-Portrait",
+   "line": "Self-Portrait",
+   "year": "1884–85",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/schjerfbeck-self-1884.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.797,
+   "y": 0.6989,
    "unplaced": true
   },
   {
@@ -881,6 +2309,108 @@
    "unplaced": false
   },
   {
+   "id": "segantini-ave-maria",
+   "type": "painting",
+   "who": "Giovanni Segantini",
+   "title": "Ave Maria Crossing the Lake",
+   "line": "Ave Maria Crossing the Lake",
+   "year": "1886",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/segantini-ave-maria.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.7815,
+   "y": 0.7161,
+   "unplaced": true
+  },
+  {
+   "id": "segantini-evil-mothers",
+   "type": "painting",
+   "who": "Giovanni Segantini",
+   "title": "The Evil Mothers",
+   "line": "The Evil Mothers",
+   "year": "1894",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/segantini-evil-mothers.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.7657,
+   "y": 0.733,
+   "unplaced": true
+  },
+  {
+   "id": "segantini-punishment-lust",
+   "type": "painting",
+   "who": "Giovanni Segantini",
+   "title": "The Punishment of Lust",
+   "line": "The Punishment of Lust",
+   "year": "1891",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/segantini-punishment-lust.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.7495,
+   "y": 0.7495,
+   "unplaced": true
+  },
+  {
+   "id": "segantini-return-forest",
+   "type": "painting",
+   "who": "Giovanni Segantini",
+   "title": "Return from the Forest",
+   "line": "Return from the Forest",
+   "year": "1890",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/segantini-return-forest.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.733,
+   "y": 0.7657,
+   "unplaced": true
+  },
+  {
+   "id": "segantini-sheepshearing",
+   "type": "painting",
+   "who": "Giovanni Segantini",
+   "title": "The Sheepshearing",
+   "line": "The Sheepshearing",
+   "year": "1883–84",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/segantini-sheepshearing.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.7161,
+   "y": 0.7815,
+   "unplaced": true
+  },
+  {
+   "id": "segantini-spinning",
+   "type": "painting",
+   "who": "Giovanni Segantini",
+   "title": "Spinning",
+   "line": "Spinning",
+   "year": "1891",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/segantini-spinning.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.6989,
+   "y": 0.797,
+   "unplaced": true
+  },
+  {
    "id": "shipwreck",
    "type": "painting",
    "who": "Francis Danby",
@@ -898,6 +2428,278 @@
    "unplaced": false
   },
   {
+   "id": "sickert-camden-dawn",
+   "type": "painting",
+   "who": "Walter Sickert",
+   "title": "Dawn, Camden Town",
+   "line": "Dawn, Camden Town",
+   "year": "c. 1909",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/sickert-camden-dawn.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.6814,
+   "y": 0.812,
+   "unplaced": true
+  },
+  {
+   "id": "sickert-ennui-study",
+   "type": "painting",
+   "who": "Walter Sickert",
+   "title": "Ennui (study)",
+   "line": "Ennui (study)",
+   "year": "1914",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/sickert-ennui-study.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.6635,
+   "y": 0.8267,
+   "unplaced": true
+  },
+  {
+   "id": "sickert-ennui",
+   "type": "painting",
+   "who": "Walter Sickert",
+   "title": "Ennui",
+   "line": "Ennui",
+   "year": "1914",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/sickert-ennui.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.6453,
+   "y": 0.841,
+   "unplaced": true
+  },
+  {
+   "id": "sickert-mornington",
+   "type": "painting",
+   "who": "Walter Sickert",
+   "title": "Mornington Crescent",
+   "line": "Mornington Crescent",
+   "year": "c. 1909",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/sickert-mornington.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.6268,
+   "y": 0.8548,
+   "unplaced": true
+  },
+  {
+   "id": "sorolla-alcazar",
+   "type": "painting",
+   "who": "Joaquín Sorolla",
+   "title": "Court of the Dances, Alcázar, Sevilla",
+   "line": "Court of the Dances, Alcázar, Sevilla",
+   "year": "1910",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/sorolla-alcazar.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.608,
+   "y": 0.8683,
+   "unplaced": true
+  },
+  {
+   "id": "sorolla-house-garden",
+   "type": "painting",
+   "who": "Joaquín Sorolla",
+   "title": "The Gardens at the Sorolla Family House",
+   "line": "The Gardens at the Sorolla Family House",
+   "year": "1920",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/sorolla-house-garden.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.5889,
+   "y": 0.8814,
+   "unplaced": true
+  },
+  {
+   "id": "sorolla-palace-pond",
+   "type": "painting",
+   "who": "Joaquín Sorolla",
+   "title": "Palace of Pond, Royal Gardens in Seville",
+   "line": "Palace of Pond, Royal Gardens in Seville",
+   "year": "1910",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/sorolla-palace-pond.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.5695,
+   "y": 0.894,
+   "unplaced": true
+  },
+  {
+   "id": "sorolla-patio",
+   "type": "painting",
+   "who": "Joaquín Sorolla",
+   "title": "Courtyard of the Casa Sorolla",
+   "line": "Courtyard of the Casa Sorolla",
+   "year": "1917",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/sorolla-patio.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.5499,
+   "y": 0.9062,
+   "unplaced": true
+  },
+  {
+   "id": "sorolla-siesta-jardin",
+   "type": "painting",
+   "who": "Joaquín Sorolla",
+   "title": "Nap in the Garden",
+   "line": "Nap in the Garden",
+   "year": "1904",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/sorolla-siesta-jardin.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.53,
+   "y": 0.918,
+   "unplaced": true
+  },
+  {
+   "id": "spilliaert-absinthe",
+   "type": "painting",
+   "who": "Léon Spilliaert",
+   "title": "The Absinth Drinker",
+   "line": "The Absinth Drinker",
+   "year": "1907",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/spilliaert-absinthe.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.5098,
+   "y": 0.9293,
+   "unplaced": true
+  },
+  {
+   "id": "spilliaert-pendus",
+   "type": "painting",
+   "who": "Léon Spilliaert",
+   "title": "Les Pendus",
+   "line": "Les Pendus",
+   "year": "1912",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/spilliaert-pendus.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.4895,
+   "y": 0.9402,
+   "unplaced": true
+  },
+  {
+   "id": "spilliaert-red-pencil",
+   "type": "painting",
+   "who": "Léon Spilliaert",
+   "title": "Self-Portrait with a Red Pencil",
+   "line": "Self-Portrait with a Red Pencil",
+   "year": "1908",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/spilliaert-red-pencil.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.4688,
+   "y": 0.9507,
+   "unplaced": true
+  },
+  {
+   "id": "spilliaert-seawall",
+   "type": "painting",
+   "who": "Léon Spilliaert",
+   "title": "The Sea Wall and Kursaal at Ostend",
+   "line": "The Sea Wall and Kursaal at Ostend",
+   "year": "1909",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/spilliaert-seawall.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.448,
+   "y": 0.9607,
+   "unplaced": true
+  },
+  {
+   "id": "spilliaert-silhouette",
+   "type": "painting",
+   "who": "Léon Spilliaert",
+   "title": "Silhouette of the Painter",
+   "line": "Silhouette of the Painter",
+   "year": "after 1907",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/spilliaert-silhouette.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.4269,
+   "y": 0.9702,
+   "unplaced": true
+  },
+  {
+   "id": "spilliaert-vertigo",
+   "type": "painting",
+   "who": "Léon Spilliaert",
+   "title": "Vertigo",
+   "line": "Vertigo",
+   "year": "1908",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/spilliaert-vertigo.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.4056,
+   "y": 0.9793,
+   "unplaced": true
+  },
+  {
+   "id": "spilliaert-vissersvrouw",
+   "type": "painting",
+   "who": "Léon Spilliaert",
+   "title": "Vissersvrouw",
+   "line": "Vissersvrouw",
+   "year": "1912",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/spilliaert-vissersvrouw.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.3842,
+   "y": 0.9879,
+   "unplaced": true
+  },
+  {
    "id": "stettheimer-heat",
    "type": "painting",
    "who": "Florine Stettheimer",
@@ -910,8 +2712,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0053,
-   "y": 0.3362,
+   "x": 0.3625,
+   "y": 0.9961,
    "unplaced": true
   },
   {
@@ -927,8 +2729,76 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.9726,
-   "y": 0.4214,
+   "x": 0.3407,
+   "y": 1.0037,
+   "unplaced": true
+  },
+  {
+   "id": "taeuber-arp-animated-circle",
+   "type": "painting",
+   "who": "Sophie Taeuber-Arp",
+   "title": "Animated Circle Figure",
+   "line": "Animated Circle Figure",
+   "year": "1934",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/taeuber-arp-animated-circle.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.3187,
+   "y": 1.0109,
+   "unplaced": true
+  },
+  {
+   "id": "taeuber-arp-composition-1930",
+   "type": "painting",
+   "who": "Sophie Taeuber-Arp",
+   "title": "Composition",
+   "line": "Composition",
+   "year": "1930",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/taeuber-arp-composition-1930.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.2966,
+   "y": 1.0177,
+   "unplaced": true
+  },
+  {
+   "id": "taeuber-arp-kompozycja",
+   "type": "painting",
+   "who": "Sophie Taeuber-Arp",
+   "title": "Kompozycja",
+   "line": "Kompozycja",
+   "year": "1931",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/taeuber-arp-kompozycja.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.2743,
+   "y": 1.0239,
+   "unplaced": true
+  },
+  {
+   "id": "taeuber-arp-kreisbild",
+   "type": "painting",
+   "who": "Sophie Taeuber-Arp",
+   "title": "Kreisbild",
+   "line": "Kreisbild",
+   "year": "1933",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/taeuber-arp-kreisbild.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.2519,
+   "y": 1.0296,
    "unplaced": true
   },
   {
@@ -1000,6 +2870,57 @@
    "unplaced": false
   },
   {
+   "id": "tissot-calcutta",
+   "type": "painting",
+   "who": "James Tissot",
+   "title": "The Gallery of H.M.S. Calcutta",
+   "line": "The Gallery of H.M.S. Calcutta",
+   "year": "1876",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/tissot-calcutta.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.2294,
+   "y": 1.0349,
+   "unplaced": true
+  },
+  {
+   "id": "tissot-holyday",
+   "type": "painting",
+   "who": "James Tissot",
+   "title": "Holyday",
+   "line": "Holyday",
+   "year": "c. 1876",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/tissot-holyday.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.2068,
+   "y": 1.0396,
+   "unplaced": true
+  },
+  {
+   "id": "tissot-london-visitors",
+   "type": "painting",
+   "who": "James Tissot",
+   "title": "London Visitors",
+   "line": "London Visitors",
+   "year": "c. 1874",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/tissot-london-visitors.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.1841,
+   "y": 1.0439,
+   "unplaced": true
+  },
+  {
    "id": "two-stage-rocket-painting-by-chesley-bonestell",
    "type": "painting",
    "who": "Chesley Bonestell",
@@ -1017,6 +2938,193 @@
    "unplaced": false
   },
   {
+   "id": "valadon-blue-room",
+   "type": "painting",
+   "who": "Suzanne Valadon",
+   "title": "The Blue Room",
+   "line": "The Blue Room",
+   "year": "1923",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/valadon-blue-room.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.1613,
+   "y": 1.0477,
+   "unplaced": true
+  },
+  {
+   "id": "valadon-rose-blanche",
+   "type": "painting",
+   "who": "Suzanne Valadon",
+   "title": "Nature morte à la rose blanche",
+   "line": "Nature morte à la rose blanche",
+   "year": "1936",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/valadon-rose-blanche.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.1384,
+   "y": 1.0509,
+   "unplaced": true
+  },
+  {
+   "id": "vallayer-coster-attributes",
+   "type": "painting",
+   "who": "Anne Vallayer-Coster",
+   "title": "Les attributs de la peinture, de la sculpture et de l'architecture",
+   "line": "Les attributs de la peinture, de la sculpture et de l'architecture",
+   "year": "1769",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallayer-coster-attributes.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.1154,
+   "y": 1.0537,
+   "unplaced": true
+  },
+  {
+   "id": "vallayer-coster-brioche",
+   "type": "painting",
+   "who": "Anne Vallayer-Coster",
+   "title": "Still Life with Brioche, Fruit and Vegetables",
+   "line": "Still Life with Brioche, Fruit and Vegetables",
+   "year": "1775",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallayer-coster-brioche.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.0924,
+   "y": 1.056,
+   "unplaced": true
+  },
+  {
+   "id": "vallayer-coster-flowers",
+   "type": "painting",
+   "who": "Anne Vallayer-Coster",
+   "title": "Still-life with flowers",
+   "line": "Still-life with flowers",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallayer-coster-flowers.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.0693,
+   "y": 1.0577,
+   "unplaced": true
+  },
+  {
+   "id": "vallayer-coster-ham",
+   "type": "painting",
+   "who": "Anne Vallayer-Coster",
+   "title": "Still Life with Ham, Bottles, and Radishes",
+   "line": "Still Life with Ham, Bottles, and Radishes",
+   "year": "1767",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallayer-coster-ham.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.0462,
+   "y": 1.059,
+   "unplaced": true
+  },
+  {
+   "id": "vallayer-coster-mackerel",
+   "type": "painting",
+   "who": "Anne Vallayer-Coster",
+   "title": "Still Life with Mackerel",
+   "line": "Still Life with Mackerel",
+   "year": "1787",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallayer-coster-mackerel.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0.0231,
+   "y": 1.0597,
+   "unplaced": true
+  },
+  {
+   "id": "vallayer-coster-violinist",
+   "type": "painting",
+   "who": "Anne Vallayer-Coster",
+   "title": "Portrait of a Violinist",
+   "line": "Portrait of a Violinist",
+   "year": "1773",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallayer-coster-violinist.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": 0,
+   "y": 1.06,
+   "unplaced": true
+  },
+  {
+   "id": "vallotton-baiser",
+   "type": "painting",
+   "who": "Félix Vallotton",
+   "title": "Le baiser",
+   "line": "Le baiser",
+   "year": "1898",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallotton-baiser.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.0231,
+   "y": 1.0597,
+   "unplaced": true
+  },
+  {
+   "id": "vallotton-chambre-rouge",
+   "type": "painting",
+   "who": "Félix Vallotton",
+   "title": "La chambre rouge",
+   "line": "La chambre rouge",
+   "year": "1898",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallotton-chambre-rouge.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.0462,
+   "y": 1.059,
+   "unplaced": true
+  },
+  {
+   "id": "vallotton-coiffant",
+   "type": "painting",
+   "who": "Félix Vallotton",
+   "title": "Femme se coiffant",
+   "line": "Femme se coiffant",
+   "year": "1900",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallotton-coiffant.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.0693,
+   "y": 1.0577,
+   "unplaced": true
+  },
+  {
    "id": "vallotton-woman-writing",
    "type": "painting",
    "who": "Félix Vallotton",
@@ -1029,8 +3137,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.9328,
-   "y": 0.5034,
+   "x": -0.0924,
+   "y": 1.056,
    "unplaced": true
   },
   {
@@ -1049,6 +3157,125 @@
    "x": -0.1744,
    "y": 1.0668,
    "unplaced": false
+  },
+  {
+   "id": "vigee-le-brun-gramont",
+   "type": "painting",
+   "who": "Élisabeth Vigée Le Brun",
+   "title": "Marie Gabrielle de Gramont, Duchesse de Caderousse",
+   "line": "Marie Gabrielle de Gramont, Duchesse de Caderousse",
+   "year": "1784",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vigee-le-brun-gramont.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.1154,
+   "y": 1.0537,
+   "unplaced": true
+  },
+  {
+   "id": "vigee-le-brun-hubert-robert",
+   "type": "painting",
+   "who": "Élisabeth Vigée Le Brun",
+   "title": "Hubert Robert",
+   "line": "Hubert Robert",
+   "year": "1788",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vigee-le-brun-hubert-robert.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.1384,
+   "y": 1.0509,
+   "unplaced": true
+  },
+  {
+   "id": "vigee-le-brun-madame-grand",
+   "type": "painting",
+   "who": "Élisabeth Vigée Le Brun",
+   "title": "Madame Grand",
+   "line": "Madame Grand",
+   "year": "1783",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vigee-le-brun-madame-grand.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.1613,
+   "y": 1.0477,
+   "unplaced": true
+  },
+  {
+   "id": "vigee-le-brun-mole-reymond",
+   "type": "painting",
+   "who": "Élisabeth Vigée Le Brun",
+   "title": "Madame Molé-Reymond",
+   "line": "Madame Molé-Reymond",
+   "year": "1786",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vigee-le-brun-mole-reymond.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.1841,
+   "y": 1.0439,
+   "unplaced": true
+  },
+  {
+   "id": "vigee-le-brun-straw-hat",
+   "type": "painting",
+   "who": "Élisabeth Vigée Le Brun",
+   "title": "Self-Portrait in a Straw Hat",
+   "line": "Self-Portrait in a Straw Hat",
+   "year": "after 1782",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vigee-le-brun-straw-hat.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.2068,
+   "y": 1.0396,
+   "unplaced": true
+  },
+  {
+   "id": "vigee-le-brun-vaudreuil",
+   "type": "painting",
+   "who": "Élisabeth Vigée Le Brun",
+   "title": "The Vicomtesse de Vaudreuil",
+   "line": "The Vicomtesse de Vaudreuil",
+   "year": "1785",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vigee-le-brun-vaudreuil.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.2294,
+   "y": 1.0349,
+   "unplaced": true
+  },
+  {
+   "id": "vigee-le-brun-young-boy",
+   "type": "painting",
+   "who": "Élisabeth Vigée Le Brun",
+   "title": "Portrait of a young boy",
+   "line": "Portrait of a young boy",
+   "year": "1817",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vigee-le-brun-young-boy.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.2519,
+   "y": 1.0296,
+   "unplaced": true
   },
   {
    "id": "vilhelm-hammersh-i-dust-motes-dancing-in-the-sunbeams",
@@ -1119,6 +3346,193 @@
    "unplaced": false
   },
   {
+   "id": "wright-air-pump",
+   "type": "painting",
+   "who": "Joseph Wright of Derby",
+   "title": "An Experiment on a Bird in the Air Pump",
+   "line": "An Experiment on a Bird in the Air Pump",
+   "year": "1768",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wright-air-pump.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.2743,
+   "y": 1.0239,
+   "unplaced": true
+  },
+  {
+   "id": "wright-alchemist",
+   "type": "painting",
+   "who": "Joseph Wright of Derby",
+   "title": "The Alchemist Discovering Phosphorus",
+   "line": "The Alchemist Discovering Phosphorus",
+   "year": "1771",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wright-alchemist.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.2966,
+   "y": 1.0177,
+   "unplaced": true
+  },
+  {
+   "id": "wright-iron-forge",
+   "type": "painting",
+   "who": "Joseph Wright of Derby",
+   "title": "An Iron Forge",
+   "line": "An Iron Forge",
+   "year": "1772",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wright-iron-forge.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.3187,
+   "y": 1.0109,
+   "unplaced": true
+  },
+  {
+   "id": "wright-orrery",
+   "type": "painting",
+   "who": "Joseph Wright of Derby",
+   "title": "A Philosopher Giving a Lecture on the Orrery",
+   "line": "A Philosopher Giving a Lecture on the Orrery",
+   "year": "c. 1766",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wright-orrery.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.3407,
+   "y": 1.0037,
+   "unplaced": true
+  },
+  {
+   "id": "wright-vesuvius",
+   "type": "painting",
+   "who": "Joseph Wright of Derby",
+   "title": "Vesuvius in Eruption, viewed from Posillipo",
+   "line": "Vesuvius in Eruption, viewed from Posillipo",
+   "year": "c. 1789",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wright-vesuvius.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.3625,
+   "y": 0.9961,
+   "unplaced": true
+  },
+  {
+   "id": "wyspianski-chocholy",
+   "type": "painting",
+   "who": "Stanisław Wyspiański",
+   "title": "Chochoły",
+   "line": "Chochoły",
+   "year": "1898–99",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wyspianski-chocholy.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.3842,
+   "y": 0.9879,
+   "unplaced": true
+  },
+  {
+   "id": "wyspianski-kosciuszko",
+   "type": "painting",
+   "who": "Stanisław Wyspiański",
+   "title": "View of Kościuszko Mound from the Artist's Atelier",
+   "line": "View of Kościuszko Mound from the Artist's Atelier",
+   "year": "1904",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wyspianski-kosciuszko.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.4056,
+   "y": 0.9793,
+   "unplaced": true
+  },
+  {
+   "id": "wyspianski-motherhood-1905",
+   "type": "painting",
+   "who": "Stanisław Wyspiański",
+   "title": "Motherhood",
+   "line": "Motherhood",
+   "year": "1905",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wyspianski-motherhood-1905.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.4269,
+   "y": 0.9702,
+   "unplaced": true
+  },
+  {
+   "id": "wyspianski-parisian",
+   "type": "painting",
+   "who": "Stanisław Wyspiański",
+   "title": "Parisian Woman",
+   "line": "Parisian Woman",
+   "year": "1891–92",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wyspianski-parisian.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.448,
+   "y": 0.9607,
+   "unplaced": true
+  },
+  {
+   "id": "wyspianski-planty-dawn",
+   "type": "painting",
+   "who": "Stanisław Wyspiański",
+   "title": "Planty at Dawn",
+   "line": "Planty at Dawn",
+   "year": "1894",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wyspianski-planty-dawn.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.4688,
+   "y": 0.9507,
+   "unplaced": true
+  },
+  {
+   "id": "wyspianski-self-dying",
+   "type": "painting",
+   "who": "Stanisław Wyspiański",
+   "title": "Self-Portrait from the Month Before Dying",
+   "line": "Self-Portrait from the Month Before Dying",
+   "year": "1907",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wyspianski-self-dying.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.4895,
+   "y": 0.9402,
+   "unplaced": true
+  },
+  {
    "id": "xu-beihong-horse-1943",
    "type": "painting",
    "who": "Xu Beihong",
@@ -1131,8 +3545,93 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.8861,
-   "y": 0.5818,
+   "x": -0.5098,
+   "y": 0.9293,
+   "unplaced": true
+  },
+  {
+   "id": "zuloaga-farmers",
+   "type": "painting",
+   "who": "Ignacio Zuloaga",
+   "title": "Spanish Farmers at a Market",
+   "line": "Spanish Farmers at a Market",
+   "year": "1899",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/zuloaga-farmers.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.53,
+   "y": 0.918,
+   "unplaced": true
+  },
+  {
+   "id": "zuloaga-gregorio",
+   "type": "painting",
+   "who": "Ignacio Zuloaga",
+   "title": "Dwarf Gregorio",
+   "line": "Dwarf Gregorio",
+   "year": "1908",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/zuloaga-gregorio.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.5499,
+   "y": 0.9062,
+   "unplaced": true
+  },
+  {
+   "id": "zuloaga-hermit",
+   "type": "painting",
+   "who": "Ignacio Zuloaga",
+   "title": "The Hermit",
+   "line": "The Hermit",
+   "year": "1904",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/zuloaga-hermit.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.5695,
+   "y": 0.894,
+   "unplaced": true
+  },
+  {
+   "id": "zuloaga-segovia",
+   "type": "painting",
+   "who": "Ignacio Zuloaga",
+   "title": "Man from Segovia",
+   "line": "Man from Segovia",
+   "year": "1906",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/zuloaga-segovia.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.5889,
+   "y": 0.8814,
+   "unplaced": true
+  },
+  {
+   "id": "zuloaga-torerillo",
+   "type": "painting",
+   "who": "Ignacio Zuloaga",
+   "title": "Torerillo",
+   "line": "Torerillo",
+   "year": "1906",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/zuloaga-torerillo.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.608,
+   "y": 0.8683,
    "unplaced": true
   },
   {
@@ -1153,6 +3652,57 @@
    "unplaced": false
   },
   {
+   "id": "rosso-bookmaker",
+   "type": "object",
+   "who": "Medardo Rosso",
+   "title": "Bookmaker",
+   "line": "Bookmaker",
+   "year": "1894",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/rosso-bookmaker.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.6268,
+   "y": 0.8548,
+   "unplaced": true
+  },
+  {
+   "id": "rosso-carne-altrui",
+   "type": "object",
+   "who": "Medardo Rosso",
+   "title": "Carne altrui",
+   "line": "Carne altrui",
+   "year": "1883–84",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/rosso-carne-altrui.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.6453,
+   "y": 0.841,
+   "unplaced": true
+  },
+  {
+   "id": "rosso-enfant-soleil",
+   "type": "object",
+   "who": "Medardo Rosso",
+   "title": "L'enfant au soleil",
+   "line": "L'enfant au soleil",
+   "year": "c. 1892",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/rosso-enfant-soleil.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.6635,
+   "y": 0.8267,
+   "unplaced": true
+  },
+  {
    "id": "hohlwein-zoo-munich",
    "type": "poster",
    "who": "Ludwig Hohlwein",
@@ -1165,8 +3715,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.8328,
-   "y": 0.6558,
+   "x": -0.6814,
+   "y": 0.812,
    "unplaced": true
   },
   {
@@ -1182,8 +3732,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.7733,
-   "y": 0.725,
+   "x": -0.6989,
+   "y": 0.797,
    "unplaced": true
   },
   {
@@ -1199,8 +3749,110 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.7081,
-   "y": 0.7888,
+   "x": -0.7161,
+   "y": 0.7815,
+   "unplaced": true
+  },
+  {
+   "id": "kollwitz-arbeiterfrau",
+   "type": "print",
+   "who": "Käthe Kollwitz",
+   "title": "Arbeiterfrau im Profil nach links",
+   "line": "Arbeiterfrau im Profil nach links",
+   "year": "1903",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kollwitz-arbeiterfrau.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.733,
+   "y": 0.7657,
+   "unplaced": true
+  },
+  {
+   "id": "kollwitz-battlefield",
+   "type": "print",
+   "who": "Käthe Kollwitz",
+   "title": "Battlefield",
+   "line": "Battlefield",
+   "year": "1908",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kollwitz-battlefield.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.7495,
+   "y": 0.7495,
+   "unplaced": true
+  },
+  {
+   "id": "kollwitz-dead-child",
+   "type": "print",
+   "who": "Käthe Kollwitz",
+   "title": "Woman with Dead Child",
+   "line": "Woman with Dead Child",
+   "year": "1903",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kollwitz-dead-child.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.7657,
+   "y": 0.733,
+   "unplaced": true
+  },
+  {
+   "id": "kollwitz-downtrodden",
+   "type": "print",
+   "who": "Käthe Kollwitz",
+   "title": "The Downtrodden",
+   "line": "The Downtrodden",
+   "year": "c. 1900",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kollwitz-downtrodden.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.7815,
+   "y": 0.7161,
+   "unplaced": true
+  },
+  {
+   "id": "kollwitz-hospital",
+   "type": "print",
+   "who": "Käthe Kollwitz",
+   "title": "Besuch im Krankenhaus",
+   "line": "Besuch im Krankenhaus",
+   "year": "1929",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kollwitz-hospital.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.797,
+   "y": 0.6989,
+   "unplaced": true
+  },
+  {
+   "id": "kollwitz-prisoners",
+   "type": "print",
+   "who": "Käthe Kollwitz",
+   "title": "The Prisoners",
+   "line": "The Prisoners",
+   "year": "1908",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kollwitz-prisoners.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.812,
+   "y": 0.6814,
    "unplaced": true
   },
   {
@@ -1216,8 +3868,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.6377,
-   "y": 0.8467,
+   "x": -0.8267,
+   "y": 0.6635,
    "unplaced": true
   },
   {
@@ -1233,8 +3885,42 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.5626,
-   "y": 0.8984,
+   "x": -0.841,
+   "y": 0.6453,
+   "unplaced": true
+  },
+  {
+   "id": "onchi-lyric-12",
+   "type": "print",
+   "who": "Onchi Kōshirō",
+   "title": "Lyric No. 12, Uncertain Hope",
+   "line": "Lyric No. 12, Uncertain Hope",
+   "year": "1951",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/onchi-lyric-12.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.8548,
+   "y": 0.6268,
+   "unplaced": true
+  },
+  {
+   "id": "vallotton-guitare",
+   "type": "print",
+   "who": "Félix Vallotton",
+   "title": "La guitare",
+   "line": "La guitare",
+   "year": "1897",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallotton-guitare.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.8683,
+   "y": 0.608,
    "unplaced": true
   },
   {
@@ -1250,8 +3936,25 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.4833,
-   "y": 0.9434,
+   "x": -0.8814,
+   "y": 0.5889,
+   "unplaced": true
+  },
+  {
+   "id": "yoshida-komagatake",
+   "type": "print",
+   "who": "Yoshida Hiroshi",
+   "title": "From the Summit of Komagatake",
+   "line": "From the Summit of Komagatake",
+   "year": "1928",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/yoshida-komagatake.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-08",
+   "x": -0.894,
+   "y": 0.5695,
    "unplaced": true
   },
   {
@@ -1978,8 +4681,8 @@
    "tags": [
     "motion"
    ],
-   "x": 0.4004,
-   "y": 0.9815,
+   "x": -0.9062,
+   "y": 0.5499,
    "unplaced": true
   },
   {
@@ -1998,8 +4701,8 @@
    "tags": [
     "taste"
    ],
-   "x": 0.3145,
-   "y": 1.0123,
+   "x": -0.918,
+   "y": 0.53,
    "unplaced": true
   },
   {
@@ -2018,8 +4721,8 @@
    "tags": [
     "components"
    ],
-   "x": 0.2263,
-   "y": 1.0356,
+   "x": -0.9293,
+   "y": 0.5098,
    "unplaced": true
   },
   {
@@ -2038,8 +4741,8 @@
    "tags": [
     "components"
    ],
-   "x": 0.1365,
-   "y": 1.0512,
+   "x": -0.9402,
+   "y": 0.4895,
    "unplaced": true
   },
   {
@@ -2058,8 +4761,8 @@
    "tags": [
     "craft"
    ],
-   "x": 0.0456,
-   "y": 1.059,
+   "x": -0.9507,
+   "y": 0.4688,
    "unplaced": true
   },
   {
@@ -2079,8 +4782,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.0456,
-   "y": 1.059,
+   "x": -0.9607,
+   "y": 0.448,
    "unplaced": true
   },
   {
@@ -2100,8 +4803,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.1365,
-   "y": 1.0512,
+   "x": -0.9702,
+   "y": 0.4269,
    "unplaced": true
   },
   {
@@ -2120,8 +4823,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.2263,
-   "y": 1.0356,
+   "x": -0.9793,
+   "y": 0.4056,
    "unplaced": true
   },
   {
@@ -2140,8 +4843,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.3145,
-   "y": 1.0123,
+   "x": -0.9879,
+   "y": 0.3842,
    "unplaced": true
   },
   {
@@ -2161,8 +4864,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.4004,
-   "y": 0.9815,
+   "x": -0.9961,
+   "y": 0.3625,
    "unplaced": true
   },
   {
@@ -2183,8 +4886,25 @@
     "motion",
     "agents"
    ],
-   "x": -0.4833,
-   "y": 0.9434,
+   "x": -1.0037,
+   "y": 0.3407,
+   "unplaced": true
+  },
+  {
+   "id": "adelaide-labille-guiard",
+   "type": "person",
+   "who": "Adélaïde Labille-Guiard",
+   "title": "",
+   "line": "Adélaïde Labille-Guiard",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/adelaide-labille-guiard.webp",
+   "url": "",
+   "note": "admitted to the académie the same day as vigée le brun, and painted herself teaching. the two pupils in the met picture are not furniture; they look back. she stayed in paris through the revolution and painted the women the court had left behind.",
+   "added": "2026-09-08",
+   "x": -1.0109,
+   "y": 0.3187,
    "unplaced": true
   },
   {
@@ -2200,8 +4920,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.5626,
-   "y": 0.8984,
+   "x": -1.0177,
+   "y": 0.2966,
    "unplaced": true
   },
   {
@@ -2217,8 +4937,144 @@
    "url": "",
    "note": "fauve at the start, then harbours and quays in a quieter key, the same view painted until the weather changed. friends with matisse; worked from windows more than from the street. the water does most of the work.",
    "added": "2026-09-07",
-   "x": -0.6377,
-   "y": 0.8467,
+   "x": -1.0239,
+   "y": 0.2743,
+   "unplaced": true
+  },
+  {
+   "id": "alice-neel",
+   "type": "person",
+   "who": "Alice Neel",
+   "title": "",
+   "line": "Alice Neel",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Alice_Neel",
+   "note": "portraits that sit too close: the chair, the flesh, the look back. she died in 1984; the paintings stay with the estate.",
+   "added": "2026-09-08",
+   "x": -1.0296,
+   "y": 0.2519,
+   "unplaced": true
+  },
+  {
+   "id": "alina-szapocznikow",
+   "type": "person",
+   "who": "Alina Szapocznikow",
+   "title": "",
+   "line": "Alina Szapocznikow",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Alina_Szapocznikow",
+   "note": "polish sculptor of lamps that are mouths, tumors that are objects, the body as something you can cast and switch on. she died in 1973; the works stay under copyright.",
+   "added": "2026-09-08",
+   "x": -1.0349,
+   "y": 0.2294,
+   "unplaced": true
+  },
+  {
+   "id": "amy-sillman",
+   "type": "person",
+   "who": "Amy Sillman",
+   "title": "",
+   "line": "Amy Sillman",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Amy_Sillman",
+   "note": "painter who treats drawing as thinking out loud. figures arrive and get painted over until the room is both cartoon and oil. living; no studio shot belongs here.",
+   "added": "2026-09-08",
+   "x": -1.0396,
+   "y": 0.2068,
+   "unplaced": true
+  },
+  {
+   "id": "angelica-kauffman",
+   "type": "person",
+   "who": "Angelica Kauffman",
+   "title": "",
+   "line": "Angelica Kauffman",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/angelica-kauffman.webp",
+   "url": "",
+   "note": "swiss-born, roman-trained, a founding royal academician in london. history painting when women were told to stay with portraits. the self-portraits hold a charcoal and look slightly past you.",
+   "added": "2026-09-08",
+   "x": -1.0439,
+   "y": 0.1841,
+   "unplaced": true
+  },
+  {
+   "id": "anne-louis-girodet",
+   "type": "person",
+   "who": "Anne-Louis Girodet",
+   "title": "",
+   "line": "Anne-Louis Girodet",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/anne-louis-girodet.webp",
+   "url": "",
+   "note": "david's pupil who turned the neoclassical machine toward moonlight. endymion asleep, atala buried, cairo in revolt: the same pale heat. he painted chateaubriand and then went back to myth.",
+   "added": "2026-09-08",
+   "x": -1.0477,
+   "y": 0.1613,
+   "unplaced": true
+  },
+  {
+   "id": "anne-vallayer-coster",
+   "type": "person",
+   "who": "Anne Vallayer-Coster",
+   "title": "",
+   "line": "Anne Vallayer-Coster",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/anne-vallayer-coster.webp",
+   "url": "",
+   "note": "still life as a serious genre when the académie still treated it as lesser. lobster, glass, a dead pheasant, a spray of flowers: one table, looked at until it holds. marie-antoinette sat for her once; the tables are the ones that stay.",
+   "added": "2026-09-08",
+   "x": -1.0509,
+   "y": 0.1384,
+   "unplaced": true
+  },
+  {
+   "id": "arnold-bocklin",
+   "type": "person",
+   "who": "Arnold Böcklin",
+   "title": "",
+   "line": "Arnold Böcklin",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/arnold-bocklin.webp",
+   "url": "",
+   "note": "basel, rome, florence. villas by the sea before the island of the dead became a poster. odysseus against polyphemus; a self-portrait with death at the fiddle. the villas are the ones that stay.",
+   "added": "2026-09-08",
+   "x": -1.0537,
+   "y": 0.1154,
+   "unplaced": true
+  },
+  {
+   "id": "ayoung-kim",
+   "type": "person",
+   "who": "Ayoung Kim",
+   "title": "",
+   "line": "Ayoung Kim",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "http://ayoungkim.com/wp/",
+   "note": "seoul. speculative video where delivery routes, petra, and a fictional mineral share one clock. living; nothing from the studio is ours to host.",
+   "added": "2026-09-08",
+   "x": -1.056,
+   "y": 0.0924,
    "unplaced": true
   },
   {
@@ -2234,8 +5090,42 @@
    "url": "",
    "note": "prague cubist who wanted the picture to have the structure of a crystal. painted saint sebastian the year before he went to war. died of the flu in 1918, at thirty-four.",
    "added": "2026-09-07",
-   "x": -0.7081,
-   "y": 0.7888,
+   "x": -1.0577,
+   "y": 0.0693,
+   "unplaced": true
+  },
+  {
+   "id": "brice-marden",
+   "type": "person",
+   "who": "Brice Marden",
+   "title": "",
+   "line": "Brice Marden",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Brice_Marden",
+   "note": "oil and wax as a plane, then the long vines. he died in 2023; nothing from the studio is ours to host.",
+   "added": "2026-09-08",
+   "x": -1.059,
+   "y": 0.0462,
+   "unplaced": true
+  },
+  {
+   "id": "carol-rama",
+   "type": "person",
+   "who": "Carol Rama",
+   "title": "",
+   "line": "Carol Rama",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Carol_Rama",
+   "note": "turin. bodies, bicycle inner tubes, a room assembled from what a workshop discards. she died in 2015; the pictures stay with the archive.",
+   "added": "2026-09-08",
+   "x": -1.0597,
+   "y": 0.0231,
    "unplaced": true
   },
   {
@@ -2251,8 +5141,25 @@
    "url": "",
    "note": "a precisionist who treated factories and hulls as if they were still lifes. summers in provincetown and bermuda, winters in lancaster, and a long friendship with william carlos williams. he died at fifty-one; the pictures stayed sharp.",
    "added": "2026-09-07",
-   "x": -0.7733,
-   "y": 0.725,
+   "x": -1.06,
+   "y": 0,
+   "unplaced": true
+  },
+  {
+   "id": "cy-twombly",
+   "type": "person",
+   "who": "Cy Twombly",
+   "title": "",
+   "line": "Cy Twombly",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Cy_Twombly",
+   "note": "scribbled rooms, later in rome: a name written as if it were a plant. he died in 2011; the pictures stay with the foundation.",
+   "added": "2026-09-08",
+   "x": -1.0597,
+   "y": -0.0231,
    "unplaced": true
   },
   {
@@ -2268,8 +5175,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.8328,
-   "y": 0.6558,
+   "x": -1.059,
+   "y": -0.0462,
    "unplaced": true
   },
   {
@@ -2285,8 +5192,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.8861,
-   "y": 0.5818,
+   "x": -1.0577,
+   "y": -0.0693,
    "unplaced": true
   },
   {
@@ -2302,8 +5209,59 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.9328,
-   "y": 0.5034,
+   "x": -1.056,
+   "y": -0.0924,
+   "unplaced": true
+  },
+  {
+   "id": "elene-akhvlediani",
+   "type": "person",
+   "who": "Elene Akhvlediani",
+   "title": "",
+   "line": "Elene Akhvlediani",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Elene_Akhvlediani",
+   "note": "tbilisi painter of the city as a tight stack of roofs and balconies. paris in the twenties, then home. living work stays under copyright; commons had no early file large enough and clean enough to host.",
+   "added": "2026-09-08",
+   "x": -1.0537,
+   "y": -0.1154,
+   "unplaced": true
+  },
+  {
+   "id": "elisabeth-vigee-le-brun",
+   "type": "person",
+   "who": "Élisabeth Vigée Le Brun",
+   "title": "",
+   "line": "Élisabeth Vigée Le Brun",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/elisabeth-vigee-le-brun.webp",
+   "url": "",
+   "note": "the painter of the last french court who could make a face look like a thought. self-portraits first, then the women who sat for her in straw hats and cashmere. she left france in 1789 and painted the same attention in rome, naples, vienna and st petersburg.",
+   "added": "2026-09-08",
+   "x": -1.0509,
+   "y": -0.1384,
+   "unplaced": true
+  },
+  {
+   "id": "fedir-krychevsky",
+   "type": "person",
+   "who": "Fedir Krychevsky",
+   "title": "",
+   "line": "Fedir Krychevsky",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "the first rector of the ukrainian academy of arts. life is a triptych: love, life, death, three panels in folk dress that read as one weather. he stayed in kyiv through the thirties; the pictures stayed clearer than the years.",
+   "added": "2026-09-08",
+   "x": -1.0477,
+   "y": -0.1613,
    "unplaced": true
   },
   {
@@ -2319,8 +5277,8 @@
    "url": "",
    "note": "nabi painter and woodcutter; interiors where two people share a room and almost nothing else. born in lausanne, naturalised french, and late in life he painted sunsets as flat bands of heat. the interiors are the ones that stay.",
    "added": "2026-09-07",
-   "x": -0.9726,
-   "y": 0.4214,
+   "x": -1.0439,
+   "y": -0.1841,
    "unplaced": true
   },
   {
@@ -2336,8 +5294,42 @@
    "url": "",
    "note": "painted the new york salon she kept: pink rooms, families standing as if on a stage, heat you can feel in the colour. she showed little in her lifetime; after she died her sisters gave the pictures away rather than sell them.",
    "added": "2026-09-07",
-   "x": -1.0053,
-   "y": 0.3362,
+   "x": -1.0396,
+   "y": -0.2068,
+   "unplaced": true
+  },
+  {
+   "id": "frantisek-kupka",
+   "type": "person",
+   "who": "František Kupka",
+   "title": "",
+   "line": "František Kupka",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Franti%C5%A1ek_Kupka",
+   "note": "bohemia, then paris. amorpha and the disks of newton: colour as motion before it had a school. commons had no early canvas large enough and marked public domain, so the card is a name.",
+   "added": "2026-09-08",
+   "x": -1.0349,
+   "y": -0.2294,
+   "unplaced": true
+  },
+  {
+   "id": "gala-porras-kim",
+   "type": "person",
+   "who": "Gala Porras-Kim",
+   "title": "",
+   "line": "Gala Porras-Kim",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Gala_Porras-Kim",
+   "note": "work about what a museum keeps and cannot name: dust, a missing provenance, an object that still has a ritual job. living; no studio image belongs here.",
+   "added": "2026-09-08",
+   "x": -1.0296,
+   "y": -0.2519,
    "unplaced": true
   },
   {
@@ -2353,8 +5345,8 @@
    "url": "",
    "note": "lingnan school; ink that had looked at paris and still came home as a mountain. taught in guangzhou, painted through the war. the 1926 landscape is the one commons will give us clean.",
    "added": "2026-09-07",
-   "x": -1.0304,
-   "y": 0.2486,
+   "x": -1.0239,
+   "y": -0.2743,
    "unplaced": true
   },
   {
@@ -2370,8 +5362,76 @@
    "url": "",
    "note": "venetian modernist who went to paris, came back, and painted breton and burano figures as if they were cut from wood. interned during the war; the last years were in a hospital. the sailor is enough.",
    "added": "2026-09-07",
-   "x": -1.048,
-   "y": 0.1591,
+   "x": -1.0177,
+   "y": -0.2966,
+   "unplaced": true
+  },
+  {
+   "id": "giorgio-de-chirico",
+   "type": "person",
+   "who": "Giorgio de Chirico",
+   "title": "",
+   "line": "Giorgio de Chirico",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://www.moma.org/artists/1106",
+   "note": "the early metaphysical squares: a tower, a glove, a train. later he painted something else. he died in 1978; commons had no early canvas both public domain and large enough, so the card is a name and a door out.",
+   "added": "2026-09-08",
+   "x": -1.0109,
+   "y": -0.3187,
+   "unplaced": true
+  },
+  {
+   "id": "giovanni-segantini",
+   "type": "person",
+   "who": "Giovanni Segantini",
+   "title": "",
+   "line": "Giovanni Segantini",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "italian divisionist of the alps: sheep, spinning, a boat crossing with an ave maria. the bad mothers hang in the air like weather. he died at forty-one in the engadine.",
+   "added": "2026-09-08",
+   "x": -1.0037,
+   "y": -0.3407,
+   "unplaced": true
+  },
+  {
+   "id": "gustave-moreau",
+   "type": "person",
+   "who": "Gustave Moreau",
+   "title": "",
+   "line": "Gustave Moreau",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "orpheus carried, hesiod listening, oedipus facing the sphinx. the myth pictures that are not jewellery. he taught at the académie; the quieter canvases are the ones kept here.",
+   "added": "2026-09-08",
+   "x": -0.9961,
+   "y": -0.3625,
+   "unplaced": true
+  },
+  {
+   "id": "gwen-john",
+   "type": "person",
+   "who": "Gwen John",
+   "title": "",
+   "line": "Gwen John",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/gwen-john.webp",
+   "url": "",
+   "note": "slade, then paris, then a room in meudon. a corner with a wicker chair, a girl reading at a window, convalescents who sit still. augustus's sister; the quieter painter.",
+   "added": "2026-09-08",
+   "x": -0.9879,
+   "y": -0.3842,
    "unplaced": true
   },
   {
@@ -2387,8 +5447,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0578,
-   "y": 0.0684,
+   "x": -0.9793,
+   "y": -0.4056,
    "unplaced": true
   },
   {
@@ -2404,8 +5464,42 @@
    "url": "",
    "note": "a handful of shin-hanga beauties, each block cut as if it were the only print he would ever make. trained as a painter, then twelve sheets, then he died at forty-one. yokugo no onna is the one that holds still.",
    "added": "2026-09-07",
-   "x": -1.0598,
-   "y": -0.0228,
+   "x": -0.9702,
+   "y": -0.4269,
+   "unplaced": true
+  },
+  {
+   "id": "helene-schjerfbeck",
+   "type": "person",
+   "who": "Helene Schjerfbeck",
+   "title": "",
+   "line": "Helene Schjerfbeck",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/helene-schjerfbeck.webp",
+   "url": "",
+   "note": "helsinki, then a quieter finland. the convalescent, then self-portraits that thin the face until it is almost only paint. she kept looking at her own head for fifty years.",
+   "added": "2026-09-08",
+   "x": -0.9607,
+   "y": -0.448,
+   "unplaced": true
+  },
+  {
+   "id": "henry-fuseli",
+   "type": "person",
+   "who": "Henry Fuseli",
+   "title": "",
+   "line": "Henry Fuseli",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "zurich then london. nightmares, titania, thor against the serpent: the royal academy's unquiet member. he taught and he painted sleep as a weight sitting on a chest.",
+   "added": "2026-09-08",
+   "x": -0.9507,
+   "y": -0.4688,
    "unplaced": true
   },
   {
@@ -2421,8 +5515,8 @@
    "url": "",
    "note": "the graphic hand of the short-lived ukrainian state: coats of arms, banknotes, an alphabet. studied in st petersburg, came home in 1917, and drew a country that lasted two years. he died at thirty-four, of typhus.",
    "added": "2026-09-07",
-   "x": -1.0539,
-   "y": -0.1138,
+   "x": -0.9402,
+   "y": -0.4895,
    "unplaced": true
   },
   {
@@ -2438,8 +5532,212 @@
    "url": "",
    "note": "late landscapes so dense the ink becomes night, then a path appears. he wrote about the old brush methods and then used them until they were almost new. the 1930s scrolls are the ones that dissolve.",
    "added": "2026-09-07",
-   "x": -1.0402,
-   "y": -0.204,
+   "x": -0.9293,
+   "y": -0.5098,
+   "unplaced": true
+  },
+  {
+   "id": "ignacio-zuloaga",
+   "type": "person",
+   "who": "Ignacio Zuloaga",
+   "title": "",
+   "line": "Ignacio Zuloaga",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Ignacio_Zuloaga",
+   "note": "eibar, paris, then spain again. dwarfs, women of sepúlveda, a face that is almost a landscape. commons was thin on large unframed files, so the card may stay mostly a name.",
+   "added": "2026-09-08",
+   "x": -0.918,
+   "y": -0.53,
+   "unplaced": true
+  },
+  {
+   "id": "jacek-malczewski",
+   "type": "person",
+   "who": "Jacek Malczewski",
+   "title": "",
+   "line": "Jacek Malczewski",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/jacek-malczewski.webp",
+   "url": "",
+   "note": "polish symbolist who put thanatos in the doorway and himself in a white dress. melancholia is a field of figures that will not resolve. kraków, then the same face painted until it became a country.",
+   "added": "2026-09-08",
+   "x": -0.9062,
+   "y": -0.5499,
+   "unplaced": true
+  },
+  {
+   "id": "james-tissot",
+   "type": "person",
+   "who": "James Tissot",
+   "title": "",
+   "line": "James Tissot",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "nantes, paris, then london. shipboard galleries and visitors on the steps of the national gallery. the social pictures, not the costume posters. he went back to france and painted less of that world.",
+   "added": "2026-09-08",
+   "x": -0.894,
+   "y": -0.5695,
+   "unplaced": true
+  },
+  {
+   "id": "joan-mitchell",
+   "type": "person",
+   "who": "Joan Mitchell",
+   "title": "",
+   "line": "Joan Mitchell",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Joan_Mitchell",
+   "note": "second-wave new york painting, then vétheuil: trees and the river as a kind of weather. she died in 1992; the canvases stay with the foundation.",
+   "added": "2026-09-08",
+   "x": -0.8814,
+   "y": -0.5889,
+   "unplaced": true
+  },
+  {
+   "id": "joaquin-sorolla",
+   "type": "person",
+   "who": "Joaquín Sorolla",
+   "title": "",
+   "line": "Joaquín Sorolla",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "valencia, madrid, then the hispanic society in new york. the gardens and the vision of spain, not the beach posters. alcázar, the house patio, a nap in the garden.",
+   "added": "2026-09-08",
+   "x": -0.8683,
+   "y": -0.608,
+   "unplaced": true
+  },
+  {
+   "id": "josef-sudek",
+   "type": "person",
+   "who": "Josef Sudek",
+   "title": "",
+   "line": "Josef Sudek",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Josef_Sudek",
+   "note": "prague photographer of the window, the garden, a glass of water in the light that just made it through. he died in 1976; the prints stay with the estate.",
+   "added": "2026-09-08",
+   "x": -0.8548,
+   "y": -0.6268,
+   "unplaced": true
+  },
+  {
+   "id": "joseph-wright-of-derby",
+   "type": "person",
+   "who": "Joseph Wright of Derby",
+   "title": "",
+   "line": "Joseph Wright of Derby",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "the midlands enlightenment painted as candle and moon. an air pump, an orrery, a forge, an alchemist finding phosphorus. science as a room with one light.",
+   "added": "2026-09-08",
+   "x": -0.841,
+   "y": -0.6453,
+   "unplaced": true
+  },
+  {
+   "id": "julie-mehretu",
+   "type": "person",
+   "who": "Julie Mehretu",
+   "title": "",
+   "line": "Julie Mehretu",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Julie_Mehretu",
+   "note": "addis, then detroit, then new york. layered maps that look like weather systems over a city plan. living; the studio pictures stay with her. the card is a name and a door out.",
+   "added": "2026-09-08",
+   "x": -0.8267,
+   "y": -0.6635,
+   "unplaced": true
+  },
+  {
+   "id": "kathe-kollwitz",
+   "type": "person",
+   "who": "Käthe Kollwitz",
+   "title": "",
+   "line": "Käthe Kollwitz",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "königsberg, berlin, the print as a form of attention. mothers, the dead, her own face until it was only line. she lost a son in 1914 and kept looking at grief until it became public.",
+   "added": "2026-09-08",
+   "x": -0.812,
+   "y": -0.6814,
+   "unplaced": true
+  },
+  {
+   "id": "kishida-ryusei",
+   "type": "person",
+   "who": "Kishida Ryūsei",
+   "title": "",
+   "line": "Kishida Ryūsei",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kishida-ryusei.webp",
+   "url": "",
+   "note": "tokyo western-style painter who made his daughter reiko sit until the face was almost northern renaissance. pumpkins, a woollen shawl, a smile that does not perform. he died at thirty-eight.",
+   "added": "2026-09-08",
+   "x": -0.797,
+   "y": -0.6989,
+   "unplaced": true
+  },
+  {
+   "id": "lado-gudiashvili",
+   "type": "person",
+   "who": "Lado Gudiashvili",
+   "title": "",
+   "line": "Lado Gudiashvili",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Lado_Gudiashvili",
+   "note": "tbilisi, then montparnasse, then tbilisi again. figures that lean as if the room were a fresco. he died in 1980; the studio pictures are not ours to host. the name sits here until a clean early file exists.",
+   "added": "2026-09-08",
+   "x": -0.7815,
+   "y": -0.7161,
+   "unplaced": true
+  },
+  {
+   "id": "leon-spilliaert",
+   "type": "person",
+   "who": "Léon Spilliaert",
+   "title": "",
+   "line": "Léon Spilliaert",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/leon-spilliaert.webp",
+   "url": "",
+   "note": "ostend at night: a digue, a lamp, a silhouette that is almost only ink. self-portraits with a red pencil and then with masks. he walked the sea wall until the town became a single edge.",
+   "added": "2026-09-08",
+   "x": -0.7657,
+   "y": -0.733,
    "unplaced": true
   },
   {
@@ -2455,8 +5753,25 @@
    "url": "",
    "note": "munich poster designer; flat colour, a single animal or a single coat, the type sitting still beside it. trained as an architect. the zoo poster is the one that reads from across a street.",
    "added": "2026-09-07",
-   "x": -1.0188,
-   "y": -0.2927,
+   "x": -0.7495,
+   "y": -0.7495,
+   "unplaced": true
+  },
+  {
+   "id": "magdalena-abakanowicz",
+   "type": "person",
+   "who": "Magdalena Abakanowicz",
+   "title": "",
+   "line": "Magdalena Abakanowicz",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Magdalena_Abakanowicz",
+   "note": "abakans: woven volumes that stand in a room like a forest of coats. later, crowds of headless figures. she died in 2017; the works stay with the estate.",
+   "added": "2026-09-08",
+   "x": -0.733,
+   "y": -0.7657,
    "unplaced": true
   },
   {
@@ -2472,8 +5787,42 @@
    "url": "",
    "note": "santander, madrid, paris; cubism first, then children sitting in rooms that have no extra furniture. born with a spinal condition; she painted seated figures as if she knew the weight of sitting. died in paris at fifty.",
    "added": "2026-09-07",
-   "x": -0.9899,
-   "y": -0.3792,
+   "x": -0.7161,
+   "y": -0.7815,
+   "unplaced": true
+  },
+  {
+   "id": "medardo-rosso",
+   "type": "person",
+   "who": "Medardo Rosso",
+   "title": "",
+   "line": "Medardo Rosso",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "turin, milan, then paris. wax and plaster that look as if light had modelled them: a child in the sun, a bookmaker, carne altrui. sculpture as atmosphere.",
+   "added": "2026-09-08",
+   "x": -0.6989,
+   "y": -0.797,
+   "unplaced": true
+  },
+  {
+   "id": "nicolas-de-stael",
+   "type": "person",
+   "who": "Nicolas de Staël",
+   "title": "",
+   "line": "Nicolas de Staël",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Nicolas_de_Sta%C3%ABl",
+   "note": "thick colour as a wall, then the sicilian light flattened into slabs. he died in 1955, which puts him on the edge of public domain in some rooms and not in others, so the card is a name until a clean file is ours to host.",
+   "added": "2026-09-08",
+   "x": -0.6814,
+   "y": -0.812,
    "unplaced": true
   },
   {
@@ -2489,8 +5838,8 @@
    "url": "",
    "note": "self-taught, painted on oilcloth for taverns in tbilisi: animals, feasts, a deer looking back. he sold them for meals. the still lifes are as plain as a table after the guests have gone.",
    "added": "2026-09-07",
-   "x": -0.9536,
-   "y": -0.4629,
+   "x": -0.6635,
+   "y": -0.8267,
    "unplaced": true
   },
   {
@@ -2506,8 +5855,8 @@
    "url": "",
    "note": "kacho-e for the export market: a crow, a blossom, almost no ground. also signed shōson. the birds are the ones that stay.",
    "added": "2026-09-07",
-   "x": -0.9103,
-   "y": -0.5431,
+   "x": -0.6453,
+   "y": -0.841,
    "unplaced": true
   },
   {
@@ -2523,8 +5872,25 @@
    "url": "",
    "note": "kyiv cubo-futurist; he wrote that colour and line have their own tempo, then painted the city as if it were vibrating. taught at the kyiv art institute after the war. died of tuberculosis at fifty.",
    "added": "2026-09-07",
-   "x": -0.8602,
-   "y": -0.6194,
+   "x": -0.6268,
+   "y": -0.8548,
+   "unplaced": true
+  },
+  {
+   "id": "oleksandr-murashko",
+   "type": "person",
+   "who": "Oleksandr Murashko",
+   "title": "",
+   "line": "Oleksandr Murashko",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/oleksandr-murashko.webp",
+   "url": "",
+   "note": "kyiv painter who brought a paris light home: red hats, an annunciation in a peasant room, a carousel sketched as heat. taught at the ukrainian academy. shot in 1919 on the way back from his studio.",
+   "added": "2026-09-08",
+   "x": -0.608,
+   "y": -0.8683,
    "unplaced": true
   },
   {
@@ -2540,8 +5906,25 @@
    "url": "",
    "note": "kyiv, paris, moscow: cubo-futurist canvases and then costumes that treated the stage as a plane of colour. she taught, designed for tairov, and left for paris in 1924. the planes keep moving after the figures have gone.",
    "added": "2026-09-07",
-   "x": -0.8038,
-   "y": -0.691,
+   "x": -0.5889,
+   "y": -0.8814,
+   "unplaced": true
+  },
+  {
+   "id": "olga-boznanska",
+   "type": "person",
+   "who": "Olga Boznańska",
+   "title": "",
+   "line": "Olga Boznańska",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/olga-boznanska.webp",
+   "url": "",
+   "note": "kraków then munich then paris; girls and chrysanthemums in rooms that have almost no furniture. the faces sit in grey-green air. she painted herself with a palette and then with flowers and then almost without a room at all.",
+   "added": "2026-09-08",
+   "x": -0.5695,
+   "y": -0.894,
    "unplaced": true
   },
   {
@@ -2557,8 +5940,8 @@
    "url": "",
    "note": "the abstract end of sōsaku-hanga: flowers that are almost only colour, lyric prints numbered like poems. he led the first thursday society and printed through the war. the late flowers are the ones that feel like weather.",
    "added": "2026-09-07",
-   "x": -0.7414,
-   "y": -0.7576,
+   "x": -0.5499,
+   "y": -0.9062,
    "unplaced": true
   },
   {
@@ -2574,8 +5957,42 @@
    "url": "",
    "note": "worpswede, then paris, then a handful of years in which she painted herself as a person rather than a type. first german woman to paint a nude self-portrait. she died at thirty-one, after the birth of her daughter.",
    "added": "2026-09-07",
-   "x": -0.6736,
-   "y": -0.8185,
+   "x": -0.53,
+   "y": -0.918,
+   "unplaced": true
+  },
+  {
+   "id": "pierre-soulages",
+   "type": "person",
+   "who": "Pierre Soulages",
+   "title": "",
+   "line": "Pierre Soulages",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Pierre_Soulages",
+   "note": "outrenoir: black as a place light comes back from, not a colour you fill in. he died in 2022; the estate holds the pictures.",
+   "added": "2026-09-08",
+   "x": -0.5098,
+   "y": -0.9293,
+   "unplaced": true
+  },
+  {
+   "id": "richard-diebenkorn",
+   "type": "person",
+   "who": "Richard Diebenkorn",
+   "title": "",
+   "line": "Richard Diebenkorn",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Richard_Diebenkorn",
+   "note": "ocean park: planes of berkeley light, a balcony as geometry. he died in 1993; the paintings stay with the foundation.",
+   "added": "2026-09-08",
+   "x": -0.4895,
+   "y": -0.9402,
    "unplaced": true
   },
   {
@@ -2591,8 +6008,42 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.6007,
-   "y": -0.8734,
+   "x": -0.4688,
+   "y": -0.9507,
+   "unplaced": true
+  },
+  {
+   "id": "ruth-asawa",
+   "type": "person",
+   "who": "Ruth Asawa",
+   "title": "",
+   "line": "Ruth Asawa",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Ruth_Asawa",
+   "note": "san francisco. looped wire that hangs as a volume you can see through. she died in 2013; the estate holds the photographs, so the card is a name.",
+   "added": "2026-09-08",
+   "x": -0.448,
+   "y": -0.9607,
+   "unplaced": true
+  },
+  {
+   "id": "sanyu",
+   "type": "person",
+   "who": "Sanyu",
+   "title": "",
+   "line": "Sanyu",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Sanyu_(painter)",
+   "note": "sichuan, then paris. pink nudes and animals on an empty ground; the line does most of the work. auction rooms have been loud about him. we do not host the pictures.",
+   "added": "2026-09-08",
+   "x": -0.4269,
+   "y": -0.9702,
    "unplaced": true
   },
   {
@@ -2608,8 +6059,178 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.5234,
-   "y": -0.9218,
+   "x": -0.4056,
+   "y": -0.9793,
+   "unplaced": true
+  },
+  {
+   "id": "simone-leigh",
+   "type": "person",
+   "who": "Simone Leigh",
+   "title": "",
+   "line": "Simone Leigh",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Simone_Leigh",
+   "note": "sculpture in ceramic and bronze: cowrie, raffia, a head that is also a building. the 2022 venice pavilion. living; the works stay with her and the museums.",
+   "added": "2026-09-08",
+   "x": -0.3842,
+   "y": -0.9879,
+   "unplaced": true
+  },
+  {
+   "id": "sophie-taeuber-arp",
+   "type": "person",
+   "who": "Sophie Taeuber-Arp",
+   "title": "",
+   "line": "Sophie Taeuber-Arp",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "zurich dada, then strasbourg, then paris. vertical-horizontal compositions, circle pictures, marionettes. she danced and she designed and she painted planes that do not illustrate.",
+   "added": "2026-09-08",
+   "x": -0.3625,
+   "y": -0.9961,
+   "unplaced": true
+  },
+  {
+   "id": "stanislaw-wyspianski",
+   "type": "person",
+   "who": "Stanisław Wyspiański",
+   "title": "",
+   "line": "Stanisław Wyspiański",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/stanislaw-wyspianski.webp",
+   "url": "",
+   "note": "kraków pastels: planty at dawn, chochoły in the park at night, motherhood as a heap of colour. playwright and stained-glass designer; the pastels are the ones that stay. he died at thirty-eight.",
+   "added": "2026-09-08",
+   "x": -0.3407,
+   "y": -1.0037,
+   "unplaced": true
+  },
+  {
+   "id": "suzanne-valadon",
+   "type": "person",
+   "who": "Suzanne Valadon",
+   "title": "",
+   "line": "Suzanne Valadon",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "model first, then painter. the blue room is a woman on a couch who is not performing. still lifes, her mother, a family that includes uttrillo. montmartre without the poster version of montmartre.",
+   "added": "2026-09-08",
+   "x": -0.3187,
+   "y": -1.0109,
+   "unplaced": true
+  },
+  {
+   "id": "theodore-chasseriau",
+   "type": "person",
+   "who": "Théodore Chassériau",
+   "title": "",
+   "line": "Théodore Chassériau",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "inge's pupil who went toward delacroix without becoming him. esther at her toilet, two sisters, a tepidarium. he died at thirty-seven; the portraits hold.",
+   "added": "2026-09-08",
+   "x": -0.2966,
+   "y": -1.0177,
+   "unplaced": true
+  },
+  {
+   "id": "thomas-eakins",
+   "type": "person",
+   "who": "Thomas Eakins",
+   "title": "",
+   "line": "Thomas Eakins",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/thomas-eakins.webp",
+   "url": "",
+   "note": "philadelphia. max schmitt on the schuylkill, the gross clinic, a concert singer, swimming. he taught at the pennsylvania academy and was asked to leave; the pictures stayed exact.",
+   "added": "2026-09-08",
+   "x": -0.2743,
+   "y": -1.0239,
+   "unplaced": true
+  },
+  {
+   "id": "toyen",
+   "type": "person",
+   "who": "Toyen",
+   "title": "",
+   "line": "Toyen",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Toyen",
+   "note": "prague surrealist, then paris. marie čermínová, who signed toyen and painted sleep as a desert with a few exact objects in it. died 1980; the pictures stay under copyright.",
+   "added": "2026-09-08",
+   "x": -0.2519,
+   "y": -1.0296,
+   "unplaced": true
+  },
+  {
+   "id": "vija-celmins",
+   "type": "person",
+   "who": "Vija Celmins",
+   "title": "",
+   "line": "Vija Celmins",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Vija_Celmins",
+   "note": "oceans, spiderwebs, the night sky, painted until they almost look like photographs and then do not. living; the pictures stay with her.",
+   "added": "2026-09-08",
+   "x": -0.2294,
+   "y": -1.0349,
+   "unplaced": true
+  },
+  {
+   "id": "walter-sickert",
+   "type": "person",
+   "who": "Walter Sickert",
+   "title": "",
+   "line": "Walter Sickert",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "dieppe, camden town, music halls. ennui as two people in a room who have run out of sentences. the nudes are rooms first. he taught a generation of english painters to look at ordinary light.",
+   "added": "2026-09-08",
+   "x": -0.2068,
+   "y": -1.0396,
+   "unplaced": true
+  },
+  {
+   "id": "wilhelm-sasnal",
+   "type": "person",
+   "who": "Wilhelm Sasnal",
+   "title": "",
+   "line": "Wilhelm Sasnal",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Wilhelm_Sasnal",
+   "note": "kraków painter of the newspaper image made still: a factory, a face, a field. living; the canvases are not ours to host.",
+   "added": "2026-09-08",
+   "x": -0.1841,
+   "y": -1.0439,
    "unplaced": true
   },
   {
@@ -2625,8 +6246,8 @@
    "url": "",
    "note": "unism: pictures that refuse a centre, afterimages of the sun, a theory written down as well as painted. studied in moscow, built the a.r. group in łódź with katarzyna kobro, his wife. the late sun pictures are almost nothing and almost too much.",
    "added": "2026-09-07",
-   "x": -0.4422,
-   "y": -0.9633,
+   "x": -0.1613,
+   "y": -1.0477,
    "unplaced": true
   },
   {
@@ -2642,8 +6263,8 @@
    "url": "",
    "note": "trained in paris, then painted ink horses that move as if the paper were weather. taught in beijing and helped set the academic line for the new republic. the horses are what people remember; the portraits are quieter.",
    "added": "2026-09-07",
-   "x": -0.3578,
-   "y": -0.9978,
+   "x": -0.1384,
+   "y": -1.0509,
    "unplaced": true
   },
   {
@@ -2659,8 +6280,42 @@
    "url": "",
    "note": "shin-hanga landscapes: water, boats, a mountain held in a few blocks of colour. he carved and printed his own work, and travelled to india and the american west. funatsu is one of the quieter fuji views.",
    "added": "2026-09-07",
-   "x": -0.2707,
-   "y": -1.0249,
+   "x": -0.1154,
+   "y": -1.0537,
+   "unplaced": true
+  },
+  {
+   "id": "zao-wou-ki",
+   "type": "person",
+   "who": "Zao Wou-Ki",
+   "title": "",
+   "line": "Zao Wou-Ki",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Zao_Wou-Ki",
+   "note": "beijing, then paris. ink becoming oil becoming weather, without becoming a landscape poster. he died in 2013; the canvases stay with the estate.",
+   "added": "2026-09-08",
+   "x": -0.0924,
+   "y": -1.056,
+   "unplaced": true
+  },
+  {
+   "id": "zhanna-kadyrova",
+   "type": "person",
+   "who": "Zhanna Kadyrova",
+   "title": "",
+   "line": "Zhanna Kadyrova",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Zhanna_Kadyrova",
+   "note": "kyiv sculptor of tiles, paving stone, the stuff a city is made of after it has been used. living; the works stay under copyright.",
+   "added": "2026-09-08",
+   "x": -0.0693,
+   "y": -1.0577,
    "unplaced": true
   },
   {
@@ -2676,8 +6331,8 @@
    "url": "/writing/english-teacher",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.1816,
-   "y": -1.0443,
+   "x": -0.0462,
+   "y": -1.059,
    "unplaced": true
   },
   {
@@ -2693,8 +6348,8 @@
    "url": "/writing/staying-human",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.0911,
-   "y": -1.0561,
+   "x": -0.0231,
+   "y": -1.0597,
    "unplaced": true
   }
  ],
@@ -2911,8 +6566,23 @@
   {
    "who": "María Blanchard",
    "ids": [
+    "blanchard-bracelet",
+    "blanchard-comulgante",
+    "blanchard-cubist-still",
     "blanchard-fillette",
+    "blanchard-guitar",
     "maria-blanchard"
+   ]
+  },
+  {
+   "who": "Arnold Böcklin",
+   "ids": [
+    "bocklin-death-fiddler",
+    "bocklin-odysseus",
+    "bocklin-toteninsel-iii",
+    "bocklin-villa-1865",
+    "bocklin-villa-iii",
+    "arnold-bocklin"
    ]
   },
   {
@@ -2923,10 +6593,31 @@
    ]
   },
   {
+   "who": "Olga Boznańska",
+   "ids": [
+    "boznanska-chrysanthemums",
+    "boznanska-flowers-self",
+    "boznanska-japonka",
+    "boznanska-mother-child",
+    "boznanska-radwan",
+    "boznanska-still-life-vase",
+    "olga-boznanska"
+   ]
+  },
+  {
    "who": "Caspar David Friedrich",
    "ids": [
     "caspar-david-friedrich-the-monk-by-the-sea",
     "friedrich-fog"
+   ]
+  },
+  {
+   "who": "Théodore Chassériau",
+   "ids": [
+    "chasseriau-esther",
+    "chasseriau-tepidarium",
+    "chasseriau-two-sisters",
+    "theodore-chasseriau"
    ]
   },
   {
@@ -2944,6 +6635,16 @@
    ]
   },
   {
+   "who": "Thomas Eakins",
+   "ids": [
+    "eakins-concert-singer",
+    "eakins-gross-clinic",
+    "eakins-schmitt",
+    "eakins-swimming",
+    "thomas-eakins"
+   ]
+  },
+  {
    "who": "Oleksandra Ekster",
    "ids": [
     "ekster-planes",
@@ -2958,10 +6659,44 @@
    ]
   },
   {
+   "who": "Henry Fuseli",
+   "ids": [
+    "fuseli-nightmare",
+    "fuseli-thor",
+    "fuseli-tiresias",
+    "fuseli-titania-bottom",
+    "fuseli-titania-hires",
+    "henry-fuseli"
+   ]
+  },
+  {
    "who": "Gao Jianfu",
    "ids": [
     "gao-jianfu-landscape",
     "gao-jianfu"
+   ]
+  },
+  {
+   "who": "Anne-Louis Girodet",
+   "ids": [
+    "girodet-atala",
+    "girodet-balzac",
+    "girodet-cairo",
+    "girodet-endymion",
+    "girodet-larrey",
+    "girodet-odalisque",
+    "anne-louis-girodet"
+   ]
+  },
+  {
+   "who": "Gwen John",
+   "ids": [
+    "gwen-john-cloak",
+    "gwen-john-convalescent",
+    "gwen-john-corner",
+    "gwen-john-dorelia",
+    "gwen-john-reading",
+    "gwen-john"
    ]
   },
   {
@@ -2993,10 +6728,62 @@
    ]
   },
   {
+   "who": "Angelica Kauffman",
+   "ids": [
+    "kauffman-charcoal",
+    "kauffman-cymon",
+    "kauffman-diana-nymphs",
+    "kauffman-gower-family",
+    "kauffman-self-1784",
+    "kauffman-sibyl",
+    "angelica-kauffman"
+   ]
+  },
+  {
+   "who": "Kishida Ryūsei",
+   "ids": [
+    "kishida-pumpkin-woman",
+    "kishida-reiko-doll",
+    "kishida-reiko-five",
+    "kishida-reiko-smiling",
+    "kishida-ryusei"
+   ]
+  },
+  {
+   "who": "Fedir Krychevsky",
+   "ids": [
+    "krychevsky-life",
+    "fedir-krychevsky"
+   ]
+  },
+  {
    "who": "Bohumil Kubišta",
    "ids": [
     "kubista-sebastian",
     "bohumil-kubista"
+   ]
+  },
+  {
+   "who": "Adélaïde Labille-Guiard",
+   "ids": [
+    "labille-guiard-madame-adelaide",
+    "labille-guiard-madame-elisabeth",
+    "labille-guiard-portrait-woman-1787",
+    "labille-guiard-self-pupils",
+    "adelaide-labille-guiard"
+   ]
+  },
+  {
+   "who": "Jacek Malczewski",
+   "ids": [
+    "malczewski-in-the-cloud",
+    "malczewski-jasienski",
+    "malczewski-melancholia",
+    "malczewski-reconciliation",
+    "malczewski-thanatos-ii",
+    "malczewski-thanatos",
+    "malczewski-vicious-circle",
+    "jacek-malczewski"
    ]
   },
   {
@@ -3009,13 +6796,43 @@
   {
    "who": "Paula Modersohn-Becker",
    "ids": [
+    "modersohn-becker-girl-child",
     "modersohn-becker-milk-soup",
+    "modersohn-becker-poppies",
+    "modersohn-becker-rilke",
+    "modersohn-becker-self-1906",
+    "modersohn-becker-wedding",
     "paula-modersohn-becker"
+   ]
+  },
+  {
+   "who": "Gustave Moreau",
+   "ids": [
+    "moreau-apparition",
+    "moreau-hesiod",
+    "moreau-oedipus",
+    "moreau-orpheus",
+    "gustave-moreau"
+   ]
+  },
+  {
+   "who": "Oleksandr Murashko",
+   "ids": [
+    "murashko-annunciation",
+    "murashko-burial-otaman",
+    "murashko-carousel-sketch",
+    "murashko-girl-red-hat",
+    "oleksandr-murashko"
    ]
   },
   {
    "who": "Niko Pirosmani",
    "ids": [
+    "pirosmani-beer-seller",
+    "pirosmani-deer",
+    "pirosmani-feast-bank",
+    "pirosmani-fruit-seller",
+    "pirosmani-roe-deer",
     "pirosmani-still-life",
     "niko-pirosmani"
    ]
@@ -3025,6 +6842,64 @@
    "ids": [
     "rossi-sailor",
     "gino-rossi"
+   ]
+  },
+  {
+   "who": "Helene Schjerfbeck",
+   "ids": [
+    "schjerfbeck-clothes-drying",
+    "schjerfbeck-convalescent",
+    "schjerfbeck-heirloom",
+    "schjerfbeck-mother",
+    "schjerfbeck-red-haired",
+    "schjerfbeck-self-1884",
+    "helene-schjerfbeck"
+   ]
+  },
+  {
+   "who": "Giovanni Segantini",
+   "ids": [
+    "segantini-ave-maria",
+    "segantini-evil-mothers",
+    "segantini-punishment-lust",
+    "segantini-return-forest",
+    "segantini-sheepshearing",
+    "segantini-spinning",
+    "giovanni-segantini"
+   ]
+  },
+  {
+   "who": "Walter Sickert",
+   "ids": [
+    "sickert-camden-dawn",
+    "sickert-ennui-study",
+    "sickert-ennui",
+    "sickert-mornington",
+    "walter-sickert"
+   ]
+  },
+  {
+   "who": "Joaquín Sorolla",
+   "ids": [
+    "sorolla-alcazar",
+    "sorolla-house-garden",
+    "sorolla-palace-pond",
+    "sorolla-patio",
+    "sorolla-siesta-jardin",
+    "joaquin-sorolla"
+   ]
+  },
+  {
+   "who": "Léon Spilliaert",
+   "ids": [
+    "spilliaert-absinthe",
+    "spilliaert-pendus",
+    "spilliaert-red-pencil",
+    "spilliaert-seawall",
+    "spilliaert-silhouette",
+    "spilliaert-vertigo",
+    "spilliaert-vissersvrouw",
+    "leon-spilliaert"
    ]
   },
   {
@@ -3042,10 +6917,89 @@
    ]
   },
   {
+   "who": "Sophie Taeuber-Arp",
+   "ids": [
+    "taeuber-arp-animated-circle",
+    "taeuber-arp-composition-1930",
+    "taeuber-arp-kompozycja",
+    "taeuber-arp-kreisbild",
+    "sophie-taeuber-arp"
+   ]
+  },
+  {
+   "who": "James Tissot",
+   "ids": [
+    "tissot-calcutta",
+    "tissot-holyday",
+    "tissot-london-visitors",
+    "james-tissot"
+   ]
+  },
+  {
+   "who": "Suzanne Valadon",
+   "ids": [
+    "valadon-blue-room",
+    "valadon-rose-blanche",
+    "suzanne-valadon"
+   ]
+  },
+  {
+   "who": "Anne Vallayer-Coster",
+   "ids": [
+    "vallayer-coster-attributes",
+    "vallayer-coster-brioche",
+    "vallayer-coster-flowers",
+    "vallayer-coster-ham",
+    "vallayer-coster-mackerel",
+    "vallayer-coster-violinist",
+    "anne-vallayer-coster"
+   ]
+  },
+  {
    "who": "Félix Vallotton",
    "ids": [
+    "vallotton-baiser",
+    "vallotton-chambre-rouge",
+    "vallotton-coiffant",
     "vallotton-woman-writing",
+    "vallotton-guitare",
     "felix-vallotton"
+   ]
+  },
+  {
+   "who": "Élisabeth Vigée Le Brun",
+   "ids": [
+    "vigee-le-brun-gramont",
+    "vigee-le-brun-hubert-robert",
+    "vigee-le-brun-madame-grand",
+    "vigee-le-brun-mole-reymond",
+    "vigee-le-brun-straw-hat",
+    "vigee-le-brun-vaudreuil",
+    "vigee-le-brun-young-boy",
+    "elisabeth-vigee-le-brun"
+   ]
+  },
+  {
+   "who": "Joseph Wright of Derby",
+   "ids": [
+    "wright-air-pump",
+    "wright-alchemist",
+    "wright-iron-forge",
+    "wright-orrery",
+    "wright-vesuvius",
+    "joseph-wright-of-derby"
+   ]
+  },
+  {
+   "who": "Stanisław Wyspiański",
+   "ids": [
+    "wyspianski-chocholy",
+    "wyspianski-kosciuszko",
+    "wyspianski-motherhood-1905",
+    "wyspianski-parisian",
+    "wyspianski-planty-dawn",
+    "wyspianski-self-dying",
+    "stanislaw-wyspianski"
    ]
   },
   {
@@ -3053,6 +7007,26 @@
    "ids": [
     "xu-beihong-horse-1943",
     "xu-beihong"
+   ]
+  },
+  {
+   "who": "Ignacio Zuloaga",
+   "ids": [
+    "zuloaga-farmers",
+    "zuloaga-gregorio",
+    "zuloaga-hermit",
+    "zuloaga-segovia",
+    "zuloaga-torerillo",
+    "ignacio-zuloaga"
+   ]
+  },
+  {
+   "who": "Medardo Rosso",
+   "ids": [
+    "rosso-bookmaker",
+    "rosso-carne-altrui",
+    "rosso-enfant-soleil",
+    "medardo-rosso"
    ]
   },
   {
@@ -3077,6 +7051,18 @@
    ]
   },
   {
+   "who": "Käthe Kollwitz",
+   "ids": [
+    "kollwitz-arbeiterfrau",
+    "kollwitz-battlefield",
+    "kollwitz-dead-child",
+    "kollwitz-downtrodden",
+    "kollwitz-hospital",
+    "kollwitz-prisoners",
+    "kathe-kollwitz"
+   ]
+  },
+  {
    "who": "Ohara Koson",
    "ids": [
     "koson-crow-and-blossom",
@@ -3087,6 +7073,7 @@
    "who": "Onchi Kōshirō",
    "ids": [
     "onchi-flowers",
+    "onchi-lyric-12",
     "onchi-koshiro"
    ]
   },
@@ -3094,6 +7081,7 @@
    "who": "Yoshida Hiroshi",
    "ids": [
     "yoshida-funatsu",
+    "yoshida-komagatake",
     "yoshida-hiroshi"
    ]
   },
@@ -3149,15 +7137,15 @@
    ]
   }
  ],
- "unplaced": 73,
+ "unplaced": 288,
  "forms": [
   {
    "form": "painting",
-   "n": 66
+   "n": 213
   },
   {
    "form": "object",
-   "n": 1
+   "n": 4
   },
   {
    "form": "building",
@@ -3169,7 +7157,7 @@
   },
   {
    "form": "print",
-   "n": 4
+   "n": 13
   },
   {
    "form": "photograph",
@@ -3193,7 +7181,7 @@
   },
   {
    "form": "person",
-   "n": 28
+   "n": 84
   },
   {
    "form": "writing",
@@ -3214,7 +7202,143 @@
    "n": 10
   },
   {
+   "who": "Élisabeth Vigée Le Brun",
+   "n": 8
+  },
+  {
+   "who": "Jacek Malczewski",
+   "n": 8
+  },
+  {
+   "who": "Léon Spilliaert",
+   "n": 8
+  },
+  {
+   "who": "Angelica Kauffman",
+   "n": 7
+  },
+  {
+   "who": "Anne Vallayer-Coster",
+   "n": 7
+  },
+  {
+   "who": "Anne-Louis Girodet",
+   "n": 7
+  },
+  {
+   "who": "Giovanni Segantini",
+   "n": 7
+  },
+  {
+   "who": "Helene Schjerfbeck",
+   "n": 7
+  },
+  {
+   "who": "Käthe Kollwitz",
+   "n": 7
+  },
+  {
+   "who": "Niko Pirosmani",
+   "n": 7
+  },
+  {
+   "who": "Olga Boznańska",
+   "n": 7
+  },
+  {
+   "who": "Paula Modersohn-Becker",
+   "n": 7
+  },
+  {
+   "who": "Stanisław Wyspiański",
+   "n": 7
+  },
+  {
+   "who": "Arnold Böcklin",
+   "n": 6
+  },
+  {
+   "who": "Félix Vallotton",
+   "n": 6
+  },
+  {
+   "who": "Gwen John",
+   "n": 6
+  },
+  {
+   "who": "Henry Fuseli",
+   "n": 6
+  },
+  {
+   "who": "Ignacio Zuloaga",
+   "n": 6
+  },
+  {
+   "who": "Joaquín Sorolla",
+   "n": 6
+  },
+  {
+   "who": "Joseph Wright of Derby",
+   "n": 6
+  },
+  {
+   "who": "María Blanchard",
+   "n": 6
+  },
+  {
+   "who": "Adélaïde Labille-Guiard",
+   "n": 5
+  },
+  {
+   "who": "Gustave Moreau",
+   "n": 5
+  },
+  {
+   "who": "Kishida Ryūsei",
+   "n": 5
+  },
+  {
+   "who": "Oleksandr Murashko",
+   "n": 5
+  },
+  {
+   "who": "Sophie Taeuber-Arp",
+   "n": 5
+  },
+  {
+   "who": "Thomas Eakins",
+   "n": 5
+  },
+  {
+   "who": "Walter Sickert",
+   "n": 5
+  },
+  {
+   "who": "James Tissot",
+   "n": 4
+  },
+  {
+   "who": "Medardo Rosso",
+   "n": 4
+  },
+  {
+   "who": "Théodore Chassériau",
+   "n": 4
+  },
+  {
+   "who": "Onchi Kōshirō",
+   "n": 3
+  },
+  {
    "who": "Rainer Maria Rilke",
+   "n": 3
+  },
+  {
+   "who": "Suzanne Valadon",
+   "n": 3
+  },
+  {
+   "who": "Yoshida Hiroshi",
    "n": 3
   },
   {
@@ -3246,7 +7370,7 @@
    "n": 2
   },
   {
-   "who": "Félix Vallotton",
+   "who": "Fedir Krychevsky",
    "n": 2
   },
   {
@@ -3290,14 +7414,6 @@
    "n": 2
   },
   {
-   "who": "María Blanchard",
-   "n": 2
-  },
-  {
-   "who": "Niko Pirosmani",
-   "n": 2
-  },
-  {
    "who": "Odilon Redon",
    "n": 2
   },
@@ -3311,14 +7427,6 @@
   },
   {
    "who": "Oleksandra Ekster",
-   "n": 2
-  },
-  {
-   "who": "Onchi Kōshirō",
-   "n": 2
-  },
-  {
-   "who": "Paula Modersohn-Becker",
    "n": 2
   },
   {
@@ -3342,10 +7450,6 @@
    "n": 2
   },
   {
-   "who": "Yoshida Hiroshi",
-   "n": 2
-  },
-  {
    "who": "Agnes Martin",
    "n": 1
   },
@@ -3355,6 +7459,18 @@
   },
   {
    "who": "Albert Camus",
+   "n": 1
+  },
+  {
+   "who": "Alice Neel",
+   "n": 1
+  },
+  {
+   "who": "Alina Szapocznikow",
+   "n": 1
+  },
+  {
+   "who": "Amy Sillman",
    "n": 1
   },
   {
@@ -3370,11 +7486,19 @@
    "n": 1
   },
   {
+   "who": "Ayoung Kim",
+   "n": 1
+  },
+  {
    "who": "Bill Evans",
    "n": 1
   },
   {
    "who": "Brian Eno",
+   "n": 1
+  },
+  {
+   "who": "Brice Marden",
    "n": 1
   },
   {
@@ -3387,6 +7511,10 @@
   },
   {
    "who": "Carlos Baca-Flor",
+   "n": 1
+  },
+  {
+   "who": "Carol Rama",
    "n": 1
   },
   {
@@ -3414,6 +7542,10 @@
    "n": 1
   },
   {
+   "who": "Cy Twombly",
+   "n": 1
+  },
+  {
    "who": "david bowie",
    "n": 1
   },
@@ -3434,6 +7566,10 @@
    "n": 1
   },
   {
+   "who": "Elene Akhvlediani",
+   "n": 1
+  },
+  {
    "who": "Erik Satie",
    "n": 1
   },
@@ -3446,6 +7582,10 @@
    "n": 1
   },
   {
+   "who": "František Kupka",
+   "n": 1
+  },
+  {
    "who": "Frederic Remington",
    "n": 1
   },
@@ -3454,7 +7594,15 @@
    "n": 1
   },
   {
+   "who": "Gala Porras-Kim",
+   "n": 1
+  },
+  {
    "who": "Gerard Manley Hopkins",
+   "n": 1
+  },
+  {
+   "who": "Giorgio de Chirico",
    "n": 1
   },
   {
@@ -3471,6 +7619,10 @@
   },
   {
    "who": "Jean-Baptiste-Siméon Chardin",
+   "n": 1
+  },
+  {
+   "who": "Joan Mitchell",
    "n": 1
   },
   {
@@ -3494,11 +7646,27 @@
    "n": 1
   },
   {
+   "who": "Josef Sudek",
+   "n": 1
+  },
+  {
+   "who": "Julie Mehretu",
+   "n": 1
+  },
+  {
    "who": "Katsushika Hokusai",
    "n": 1
   },
   {
+   "who": "Lado Gudiashvili",
+   "n": 1
+  },
+  {
    "who": "Li Bai",
+   "n": 1
+  },
+  {
+   "who": "Magdalena Abakanowicz",
    "n": 1
   },
   {
@@ -3511,6 +7679,10 @@
   },
   {
    "who": "meng to",
+   "n": 1
+  },
+  {
+   "who": "Nicolas de Staël",
    "n": 1
   },
   {
@@ -3538,7 +7710,23 @@
    "n": 1
   },
   {
+   "who": "Pierre Soulages",
+   "n": 1
+  },
+  {
+   "who": "Richard Diebenkorn",
+   "n": 1
+  },
+  {
    "who": "robin williams",
+   "n": 1
+  },
+  {
+   "who": "Ruth Asawa",
+   "n": 1
+  },
+  {
+   "who": "Sanyu",
    "n": 1
   },
   {
@@ -3547,6 +7735,10 @@
   },
   {
    "who": "serhii korolov",
+   "n": 1
+  },
+  {
+   "who": "Simone Leigh",
    "n": 1
   },
   {
@@ -3562,7 +7754,15 @@
    "n": 1
   },
   {
+   "who": "Toyen",
+   "n": 1
+  },
+  {
    "who": "Vangelis",
+   "n": 1
+  },
+  {
+   "who": "Vija Celmins",
    "n": 1
   },
   {
@@ -3582,6 +7782,10 @@
    "n": 1
   },
   {
+   "who": "Wilhelm Sasnal",
+   "n": 1
+  },
+  {
    "who": "William Henry Barnard",
    "n": 1
   },
@@ -3592,11 +7796,19 @@
   {
    "who": "Yosa Buson",
    "n": 1
+  },
+  {
+   "who": "Zao Wou-Ki",
+   "n": 1
+  },
+  {
+   "who": "Zhanna Kadyrova",
+   "n": 1
   }
  ],
  "depth": {
-  "notes": 152,
-  "people": 97,
+  "notes": 367,
+  "people": 153,
   "thinnest": "invincible summer",
   "oneDeep": 0
  }
