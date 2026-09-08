@@ -1,0 +1,27 @@
+---
+// A wrong address used to get a blank page: the worker's not-found handling
+// looks for 404.html and there was none. This is the smallest honest page in
+// the site's own voice, with the three doors a lost reader might want.
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="nothing here · dmytro klochko" description="that address does not exist on dmklochko.com." current="home" unlisted={true} scenes={["estuary"]}>
+  <section class="shell session lost" data-scene="estuary" aria-labelledby="lost">
+    <div class="card">
+      <h1 class="card-title" id="lost">nothing here</h1>
+    </div>
+    <p class="today-how">
+      that address does not exist, or it did and moved on. the page you wanted
+      is probably one of these.
+    </p>
+    <nav class="lost-doors" aria-label="doors">
+      <a class="onward" href="/"><span>the front page</span><span class="arw" aria-hidden="true">→</span></a>
+      <a class="onward" href="/press"><span>press</span><span class="arw" aria-hidden="true">→</span></a>
+      <a class="onward" href="/learning"><span>learning</span><span class="arw" aria-hidden="true">→</span></a>
+      <a class="onward" href="/eidos"><span>the library</span><span class="arw" aria-hidden="true">→</span></a>
+    </nav>
+  </section>
+  <style>
+    .lost { min-height: 52svh; }
+    .lost-doors { display: grid; gap: var(--sp-1); margin-top: var(--sp-3); max-width: 24rem; }
+  </style>
+</Layout>

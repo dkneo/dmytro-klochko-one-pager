@@ -288,3 +288,22 @@ function bundled(page, html) {
     .map((m) => read(path.join("dist", m[1])))
     .join("\n");
 }
+
+// ── a wrong address gets a page, not a blank ─────────────────────────────
+test("the 404 is a page in the site's voice with doors out", () => {
+  const html = read("dist/404.html");
+  assert.match(html, /<title>nothing here · dmytro klochko<\/title>/);
+  assert.match(html, /<meta name="robots" content="noindex, follow"/, "the 404 is indexable");
+  for (const door of ['href="/"', 'href="/press"', 'href="/learning"', 'href="/eidos"']) {
+    assert.ok(html.includes(door), `the 404 has no door ${door}`);
+  }
+});
+
+test("every route carries the four security headers; nothing forbids framing the embed", () => {
+  const headers = read("public/_headers");
+  const all = headers.match(/^\/\*\n([\s\S]*?)\n\n/m)?.[1] ?? "";
+  for (const h of ["X-Content-Type-Options: nosniff", "Referrer-Policy: strict-origin-when-cross-origin", "Permissions-Policy:", "Strict-Transport-Security: max-age="]) {
+    assert.ok(all.includes(h), `/* lacks ${h}`);
+  }
+  assert.doesNotMatch(headers, /X-Frame-Options|frame-ancestors/, "the embed could not be framed");
+});

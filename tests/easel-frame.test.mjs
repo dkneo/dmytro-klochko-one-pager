@@ -29,6 +29,6 @@ test("the built journey interaction bundles its frame helper", async () => {
 
 test("journey focus lights the bead instead of boxing the opened print", async () => {
   const css = await readFile(new URL("../src/styles/dream.css", import.meta.url), "utf8");
-  assert.match(css, /\.log--journey li:focus-visible\s*{[^}]*outline:\s*none/s);
-  assert.match(css, /\.log--journey li:focus-visible::before\s*{[^}]*box-shadow:/s);
+  assert.match(css, /\.log--journey \.log-bead:focus-visible\s*{[^}]*outline:\s*none/s);
+  assert.match(css, /\.log--journey \.log-bead:focus-visible::before\s*{[^}]*box-shadow:/s);
 });

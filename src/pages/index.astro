@@ -647,10 +647,11 @@ const also = [
     </div>
 
     <div class="bay journey-bay">
-      <ol class="log log--journey">
+      <div class="log log--journey" role="group" aria-label="the journey">
         {
           journey.map((j) => (
-            <li
+            <div
+              class="log-bead"
               role="button"
               tabindex="0"
               aria-expanded="false"
@@ -684,10 +685,10 @@ const also = [
                 {"video" in j && j.video ? "peek" : "photo"}
                 <b class="cv-chev" aria-hidden="true" />
               </span>
-            </li>
+            </div>
           ))
         }
-      </ol>
+      </div>
 
       <figure class="easel" id="journey-preview" aria-hidden="true">
         <span class="cell">
@@ -765,7 +766,7 @@ const also = [
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
       const wide = matchMedia("(hover: hover) and (min-width: 861px)");
       const easelOn = () => wide.matches;
-      const beads = [...bay.querySelectorAll(".log--journey li")];
+      const beads = [...bay.querySelectorAll(".log--journey .log-bead")];
       let active = null;
       let layerIndex = 0;
       let swapToken = 0;

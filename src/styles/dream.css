@@ -57,14 +57,14 @@
 /* Upbringing reads as a life, not a numbered list. The beads carry the
    chronology on their own; stems between them looked like form dividers. */
 
-[data-mode="dream"] .log li {
+[data-mode="dream"] .log .log-bead {
   position: relative;
   grid-template-columns: 1.75rem 1fr;
   gap: var(--sp-tight);
   padding-bottom: var(--sp-2);
 }
 
-[data-mode="dream"] .log li::before {
+[data-mode="dream"] .log .log-bead::before {
   content: "";
   justify-self: center;
   align-self: start;
@@ -86,7 +86,7 @@
    told apart from the choice. The negative margin lets the light bleed past
    the text without moving it. */
 
-[data-mode="dream"] .log--journey li[data-easel] {
+[data-mode="dream"] .log--journey .log-bead[data-easel] {
   cursor: pointer;
   margin-inline: -0.8rem;
   padding: 0.42rem 0.8rem calc(var(--sp-2) - 0.1rem);
@@ -95,7 +95,7 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  [data-mode="dream"] .log--journey li[data-easel]:hover {
+  [data-mode="dream"] .log--journey .log-bead[data-easel]:hover {
       background: color-mix(in srgb, var(--bone) 5.5%, transparent);
     }
 }
@@ -106,17 +106,17 @@
    from the 5.5% whisper without shouting, and the bead beside it is already
    doing half the work. */
 
-[data-mode="dream"] .log--journey li[data-easel].is-shown {
+[data-mode="dream"] .log--journey .log-bead[data-easel].is-shown {
   background: color-mix(in srgb, var(--hot) 9%, transparent);
 }
 
 /* gentler, not absent: the shown row must still look shown. */
 
 @media (prefers-reduced-motion: reduce) {
-  [data-mode="dream"] .log--journey li[data-easel] { transition: none; }
+  [data-mode="dream"] .log--journey .log-bead[data-easel] { transition: none; }
 }
 
-[data-mode="dream"] .log--journey li[data-easel]::before {
+[data-mode="dream"] .log--journey .log-bead[data-easel]::before {
   background: rgb(255 155 192 / 55%);
 }
 
@@ -124,17 +124,17 @@
    boxes that whole print, so keyboard focus stays on the road marker and the
    sentence that names the memory instead. */
 
-[data-mode="dream"] .log--journey li:focus-visible {
+[data-mode="dream"] .log--journey .log-bead:focus-visible {
   outline: none;
 }
 
-[data-mode="dream"] .log--journey li:focus-visible::before {
+[data-mode="dream"] .log--journey .log-bead:focus-visible::before {
   background: var(--hot);
   box-shadow: 0 0 0 5px rgb(255 155 192 / 24%);
   scale: 1.25;
 }
 
-[data-mode="dream"] .log--journey li:focus-visible p {
+[data-mode="dream"] .log--journey .log-bead:focus-visible p {
   color: var(--bone);
   text-decoration: underline 1px rgb(255 155 192 / 62%);
   text-underline-offset: 0.22em;
@@ -142,24 +142,24 @@
 
 /* The bead the frame is showing: lit, ringed, and roped to the picture. */
 
-[data-mode="dream"] .log--journey li.is-shown::before {
+[data-mode="dream"] .log--journey .log-bead.is-shown::before {
   background: var(--hot);
   box-shadow: 0 0 0 4px rgb(255 155 192 / 18%);
   scale: 1.25;
 }
 
-[data-mode="dream"] .log--journey li::before {
+[data-mode="dream"] .log--journey .log-bead::before {
   transition:
     background var(--dur) var(--ease),
     box-shadow var(--dur) var(--ease),
     scale var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .log--journey li.is-shown p {
+[data-mode="dream"] .log--journey .log-bead.is-shown p {
   color: var(--bone);
 }
 
-[data-mode="dream"] .log--journey li p {
+[data-mode="dream"] .log--journey .log-bead p {
   transition: color var(--dur) var(--ease);
 }
 
