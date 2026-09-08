@@ -31,21 +31,20 @@ const scripts = (page) => {
   return [...linked, ...inline].join("\n");
 };
 
-test("the reading room speaks in one voice: upright, prose size, english first", () => {
+test("word cards keep english first and the original quieter", () => {
   const css = allCss();
-  const base = css.match(/^\[data-mode="dream"\] \.lib-line \{[^}]*\}/m)[0];
-  assert.match(base, /font-style:\s*normal/, "set text is italic at the base");
-  assert.match(base, /font-size:\s*var\(--t-prose\)/, "set text is not at the prose size");
-  const orig = css.match(/^\[data-mode="dream"\] \.lib-orig \{[^}]*\}/m)[0];
-  assert.match(orig, /font-style:\s*italic/, "the original tongue is the one italic, and it is missing");
+  const base = css.match(/\.ep-piece-words > span:not\(\.ep-piece-mark\)[^{]*\{[^}]*\}/)?.[0] ?? "";
+  assert.match(base, /font-size:/, "set text has no deliberate reading size");
+  const orig = css.match(/\.ep-piece-words i\s*\{[^}]*\}/)?.[0] ?? "";
+  assert.match(orig, /color:\s*var\(--ep-quiet\)/, "the original tongue is not quieter");
 
   const html = read("dist/eidos/index.html");
   // for every translated quote, the english precedes the original in the DOM
-  const lines = [...html.matchAll(/<span class="lib-line"[^>]*>([\s\S]*?)<\/button>/g)].map((m) => m[1]);
-  const withOrig = lines.filter((l) => l.includes('class="lib-orig"'));
+  const lines = [...html.matchAll(/<button[^>]*class="ep-piece-open ep-piece-words"[^>]*>([\s\S]*?)<\/button>/g)].map((m) => m[1]);
+  const withOrig = lines.filter((line) => line.includes("<i>"));
   assert.ok(withOrig.length >= 5, `expected translated lines, found ${withOrig.length}`);
-  for (const l of withOrig) {
-    const english = l.slice(0, l.indexOf('<span class="lib-orig"')).replace(/<[^>]+>/g, "").trim();
+  for (const line of withOrig) {
+    const english = line.slice(0, line.indexOf("<i>")).replace(/<[^>]+>/g, "").trim();
     assert.ok(english.length > 0, "a translated line opens with its original instead of its english");
   }
 });
@@ -54,7 +53,7 @@ test("no punctuation mark is left to wrap alone", () => {
   // French spaces its ! ? ; : off the word. On a measure, that space became a
   // break and the mark fell alone to the next line. The build glues them.
   const html = read("dist/eidos/index.html");
-  const room = html.slice(html.indexOf('id="words"'), html.indexOf('id="read"'));
+  const room = html.slice(html.indexOf('class="ep-grid"'), html.indexOf('class="ep-more"'));
   const loose = room.match(/[a-zà-ÿ] [!?;:»]/gi) || [];
   assert.deepEqual(loose, [], `a plain space before a mark: ${loose.join(" · ")}`);
   assert.match(room, / [!?;:»]/, "the glue itself is missing — no narrow no-break space in the room");
@@ -68,13 +67,12 @@ test("the homepage folds the library into literally me", () => {
   assert.match(me, /class="wall"/, "the wall of people is gone");
 });
 
-test("the library opens on a small portrait and a pill that fits", () => {
+test("the library opens as a product with a static-first character scene", () => {
   const html = read("dist/eidos/index.html");
-  assert.match(html, /class="lib-portrait"/, "no hero");
-  assert.match(html, /hi-2\.webp" width="560" height="499"/, "the hero declares the wrong size");
-  assert.match(html, /class="lib-toc-door"[^>]*>inbox <b[^>]*>\d+<\/b>/, "the door says more than fits");
-  // the library's css crossed the inline threshold and is bundled now
-  assert.match(styles("dist/eidos/index.html"), /\.lib-toc-door(\[[^\]]*\])?\{[^}]*white-space:nowrap/, "the pill can still wrap out of its border");
+  assert.match(html, /class="ep-hero"/, "no hero");
+  assert.match(html, /hero-desktop-poster\.webp" width="1920" height="1080"/, "the desktop hero declares the wrong size");
+  assert.match(html, /hero-mobile-poster\.webp/, "the mobile hero has no poster");
+  assert.match(styles("dist/eidos/index.html"), /\.ep-action[^}]*min-height:\s*44px/, "hero actions lost their tap floor");
 });
 
 test("the composer sits under the game and is lit from behind on focus", () => {

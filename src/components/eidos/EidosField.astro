@@ -1,0 +1,32 @@
+---
+interface Props { profile: any; dimensions: Record<string, { width: number; height: number }> }
+const { profile, dimensions } = Astro.props;
+const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+---
+<section class="ep-field ep-section" aria-labelledby="field-title">
+  <header class="ep-section-head ep-section-head--split">
+    <div>
+      <p class="ep-index">02 · the field</p>
+      <h2 id="field-title">eight ways a thing can feel.</h2>
+    </div>
+    <p>the weathers are my filing system, from cold clarity to nerve. choose one to bend the collection toward it.</p>
+  </header>
+  <div class="ep-weather-list" role="group" aria-label="filter by weather">
+    {profile.weathers.map((weather: any) => (
+      <button type="button" class="ep-weather" data-weather-filter={weather.name} aria-pressed="false">
+        <span class="ep-weather-ink" style={`--weather:${`linear-gradient(90deg, ${weather.stops.join(",")})`}`}></span>
+        <span class="ep-weather-name">{weather.name}</span>
+        <small>{weather.why}</small>
+        <b>{weather.count}</b>
+        <span class="ep-weather-preview" aria-hidden="true">
+          {weather.representative.filter((item: any) => item.src).slice(0, 3).map((item: any) => (
+            <img src={plateFor(item.src)} alt="" width={dimensions[item.id]?.width} height={dimensions[item.id]?.height} loading="lazy" decoding="async" />
+          ))}
+        </span>
+      </button>
+    ))}
+    <button type="button" class="ep-weather ep-weather--all is-active" data-weather-filter="all" aria-pressed="true">
+      <span class="ep-weather-name">the whole field</span><b>{profile.collection.length}</b>
+    </button>
+  </div>
+</section>

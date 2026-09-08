@@ -166,58 +166,21 @@ test("the orbit reads one stable mapper without duplicating its payload onto hom
   }
 });
 
-test("the library shelves every mark, in two rooms and a shelf", () => {
+test("the product collection carries every shelved mark without becoming a filing manual", () => {
   const html = read("dist/eidos/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-
-  // Pictures hang, words are read, what he has read is its own shelf, and
-  // nothing is silently dropped: every shelved mark is exactly one of them.
-  // Links are the deliberate exception — craft articles, kept on /learning.
-  const cards = [...html.matchAll(/class="lib-card lib-card--(\w+)"/g)].length;
-  const said = [...html.matchAll(/class="lib-said lib-said--(\w+)"/g)].length;
-  const kept = [...html.matchAll(/class="lib-bm"/g)].length;
   const shelved = map.items.filter((it) => it.type !== "link").length;
-  assert.equal(cards + said + kept, shelved,
-    `library shows ${cards} hung + ${said} read + ${kept} kept of ${shelved} shelved marks`);
-  assert.ok(cards > 0 && said > 0, "a library needs both a hall and a reading room");
+  const pieces = [...html.matchAll(/data-piece data-form="([^"]+)"/g)];
+  assert.equal(pieces.length, shelved, `product shows ${pieces.length} of ${shelved} shelved marks`);
+  assert.equal(new Set([...html.matchAll(/data-piece[^>]+data-id="([^"]+)"/g)].map((match) => match[1])).size, shelved, "a mark appears twice");
+  assert.ok(pieces.some((match) => ["painting", "photograph", "building", "object"].includes(match[1])), "no visual work survived");
+  assert.ok(pieces.some((match) => ["poem", "quote", "song", "writing"].includes(match[1])), "no words survived");
 
-  // The page must not overstate itself: every number is counted from what
-  // it shows. The portrait's paragraph and its counts both say the total.
   const dd = (name) => Number(html.match(new RegExp(`<dt[^>]*>${name}<\\/dt>\\s*<dd[^>]*>(\\d+)<\\/dd>`))?.[1]);
-  const claimed = dd("things");
-  assert.equal(claimed, shelved, "the portrait counts what is not there");
-  const lede = Number(html.match(/(\d+) real things i love/)[1]);
-  assert.equal(lede, shelved, "the paragraph counts what is not there");
-  const unfiledDd = dd("unfiled");
-  const unfiledSays = html.match(/(\d+) things that have never been told/);
-  if (unfiledSays) assert.equal(unfiledDd, Number(unfiledSays[1]), "the ring disagrees with itself");
-  assert.ok(!/lib-card--link|lib-said--link/.test(html), "craft links belong on /learning");
-
-  // the rooms, in order, and the weathers inside them cold to warm
-  const at = (id) => html.indexOf(`id="${id}"`);
-  assert.ok(at("pictures") > 0 && at("words") > at("pictures") && at("read") > at("words"),
-    "pictures, then words, then read");
-  const weathersInOrder = map.weathers.slice().sort((a, b) => a.x - b.x).map((w) => w.name.replace(/\W+/g, "-"));
-  const runs = [...html.matchAll(/class="lib-run" id="w-([\w-]+)"/g)].map((m) => m[1]);
-  assert.ok(runs.length >= 6, `expected most weathers to hang pictures, found ${runs.length}`);
-  assert.deepEqual(runs, weathersInOrder.filter((w) => runs.includes(w)), "the hall runs cold to warm");
-
-  // a poem shows its own language above the english and names its translator
-  assert.match(html, /class="lib-orig"/, "no poem shows its original");
+  assert.equal(dd("things kept"), shelved, "the record counts what is not there");
+  assert.match(html, /class="ep-piece-open ep-piece-words"/, "words have no reading surface");
   assert.match(html, /translated for this page, not a published version/, "a house translation is labelled as one");
-
-  // each weather label carries its paint chips from the real palette
-  const pal = JSON.parse(read("src/data/palettes.json"));
-  for (const w of map.weathers) {
-    const p = pal.palettes.find((x) => x.weather === w.name);
-    if (p && runs.includes(w.name.replace(/\W+/g, "-"))) assert.ok(html.includes(`background:${p.stops[0]}`), `${w.name} lost its paint chips`);
-  }
-
-  // reading is public, teaching stays behind doors
-  assert.ok(html.includes("/eidos/inbox"), "the door to the inbox is named");
-  assert.match(html, /class="lib-toc-door"[^>]*>/, "the inbox is a visible door in the room index, not a mention in running text");
   assert.ok(!html.includes("api/eidos/verdict"), "the library itself never writes");
-  // and it shares as itself
   assert.match(html, /property="og:image" content="[^"]*og-eidos\.png/);
   assert.match(html, /property="og:title" content="eidos/);
 });

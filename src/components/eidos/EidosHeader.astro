@@ -1,0 +1,27 @@
+---
+interface Props {
+  current?: "portrait" | "collection" | "atlas" | "studio";
+  studio?: boolean;
+}
+const { current = "portrait", studio = false } = Astro.props;
+---
+<header class="ep-header">
+  <a class="ep-wordmark" href="/eidos" aria-label="Eidos home">
+    <span>eidos</span><i aria-hidden="true"></i>
+  </a>
+  {studio ? (
+    <nav class="ep-nav" aria-label="studio">
+      <a href="#incoming" aria-current={current === "studio" ? "page" : undefined}>incoming</a>
+      <a href="/eidos">portrait</a>
+      <a href="/eidos/map">atlas</a>
+    </nav>
+  ) : (
+    <nav class="ep-nav" aria-label="Eidos">
+      <a href="/eidos#portrait" aria-current={current === "portrait" ? "page" : undefined}>portrait</a>
+      <a href="/eidos#collection" aria-current={current === "collection" ? "page" : undefined}>collection</a>
+      <a href="/eidos/map" aria-current={current === "atlas" ? "page" : undefined}>atlas</a>
+    </nav>
+  )}
+  <a class="ep-parent" href="/">dmytro klochko <span aria-hidden="true">↗</span></a>
+</header>
+

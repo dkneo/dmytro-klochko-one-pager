@@ -94,12 +94,8 @@ test("eidos map marks use small derivatives", async () => {
 
 test("the library hangs uncropped plates, not full paintings", async () => {
   const html = read("dist/eidos/index.html");
-  // per card, and only inside it: a word card has no img, and a lazy
-  // cross-card regex once matched clean into the script's template string
-  const tags = html.split('<button class="lib-card')
-    .slice(1)
-    .map((chunk) => chunk.slice(0, chunk.indexOf("</button>")).match(/<img\b[^>]*>/)?.[0])
-    .filter(Boolean);
+  const collection = html.slice(html.indexOf('class="ep-grid"'), html.indexOf('class="ep-more"'));
+  const tags = [...collection.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
   assert.ok(tags.length > 0);
   for (const tag of tags) {
     const src = attr(tag, "src");

@@ -1,0 +1,45 @@
+<section class="ep-hero" aria-labelledby="eidos-title">
+  <div class="ep-hero-copy">
+    <p class="ep-kicker">a living portrait, made from choices</p>
+    <h1 id="eidos-title">what i love, and what it says about me.</h1>
+    <p class="ep-hero-lede">
+      i keep paintings, poems, songs, people and objects. the patterns become
+      a portrait. this one is mine. later, you can make yours.
+    </p>
+    <div class="ep-hero-actions">
+      <a class="ep-action ep-action--solid" href="#collection">enter my collection</a>
+      <a class="ep-action" href="#portrait">how it works</a>
+    </div>
+  </div>
+  <figure class="ep-hero-art" data-eidos-ambient>
+    <picture class="ep-hero-poster">
+      <source media="(max-width: 680px)" srcset="/images/eidos/product/hero-mobile-poster.webp" />
+      <img src="/images/eidos/product/hero-desktop-poster.webp" width="1920" height="1080" alt="a graphite Faun beside an olive and salmon Gryphon, held by an open pink circle" fetchpriority="high" decoding="async" />
+    </picture>
+    <video class="ep-hero-video ep-hero-video--desktop" muted autoplay loop playsinline preload="metadata" poster="/images/eidos/product/hero-desktop-poster.webp" aria-hidden="true">
+      <source src="/images/eidos/product/hero-ambient-desktop.webm" type="video/webm" />
+      <source src="/images/eidos/product/hero-ambient-desktop.mp4" type="video/mp4" />
+    </video>
+    <video class="ep-hero-video ep-hero-video--mobile" muted autoplay loop playsinline preload="metadata" poster="/images/eidos/product/hero-mobile-poster.webp" aria-hidden="true">
+      <source src="/images/eidos/product/hero-ambient-mobile.webm" type="video/webm" />
+      <source src="/images/eidos/product/hero-ambient-mobile.mp4" type="video/mp4" />
+    </video>
+    <figcaption>faun notices · gryphon remembers</figcaption>
+  </figure>
+</section>
+
+<script is:inline>
+  (() => {
+    const videos = [...document.querySelectorAll("[data-eidos-ambient] video")];
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const saver = navigator.connection?.saveData;
+    if (reduced || saver) {
+      videos.forEach((video) => {
+        video.pause();
+        video.hidden = true;
+      });
+      return;
+    }
+    videos.forEach((video) => video.addEventListener("playing", () => video.closest("[data-eidos-ambient]")?.classList.add("is-moving"), { once: true }));
+  })();
+</script>
