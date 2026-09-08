@@ -112,7 +112,7 @@ for (const [id, v] of kept) {
     born.push(`  + ${id} → ${c.who}, ${c.type}`);
     if (!apply) continue;
     mkdirSync(file.slice(0, file.lastIndexOf("/")), { recursive: true });
-    writeFileSync(file, wordNote(c, { weather: v.weather || c.weather || "", added: new Date().toISOString().slice(0, 10) }));
+    writeFileSync(file, wordNote(c, { weather: v.weather || c.weather || "", added: new Date().toISOString().slice(0, 10), say: v.say }));
     continue;
   }
   const remote = !(c.src || "").startsWith("/");
@@ -132,6 +132,7 @@ for (const [id, v] of kept) {
     weather,
     src,
     added: new Date().toISOString().slice(0, 10),
+    say: v.say,
   }));
 }
 if (apply && born.some((b) => b.startsWith("  +"))) {
@@ -154,6 +155,7 @@ for (const [id, b] of Object.entries(bookmarks)) {
   writeFileSync(file, bookmarkNote(b, {
     weather: v.weather || b.weather || "",
     added: new Date().toISOString().slice(0, 10),
+    say: v.say,
   }));
 }
 

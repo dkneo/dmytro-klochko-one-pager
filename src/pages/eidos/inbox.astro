@@ -58,8 +58,9 @@ const description = "throw a link in; judge what waits. the door to the library.
     <p class="today-how" id="in-lede">
       throw me a link. i read it once, keep what a card needs, and it waits
       here with what the harvester brought — pictures, and now poems, quotes
-      and songs. right if it stays, left if it goes; what stays becomes part
-      of <a href="/eidos">the library</a>.
+      and songs. say a line about it if you have one; right if it stays, left
+      if it goes. what stays becomes part of <a href="/eidos">the library</a>,
+      your line first.
     </p>
 
     {/* ── the door ──────────────────────────────────────────────────── */}
@@ -84,8 +85,14 @@ const description = "throw a link in; judge what waits. the door to the library.
       <span>{pictures} pictures, {words} words and {reads} reads waiting</span>
     </p>
 
+    {/* The picture wallpapers the page. Its own tile, blurred and dimmed,
+        behind the card: derived from the thing being judged, never a theme.
+        Words and links bring no picture, so the ground goes dark for them. */}
+    <div class="in-ground" id="ground" aria-hidden="true"></div>
+
     <div class="in-stage" id="stage">
       <article class="in-card" id="card" hidden>
+        <div class="in-leaf in-leaf--it">
         <div class="in-art" id="art-wrap">
           <img id="art" alt="" decoding="async" />
           <div class="in-art-miss" id="art-miss" hidden>
@@ -104,6 +111,23 @@ const description = "throw a link in; judge what waits. the door to the library.
           <span id="c-who"></span>
           <a id="c-source" href="#" target="_blank" rel="noreferrer">open ↗</a>
         </p>
+        </div>
+        {/* Two leaves, two voices. The left is the thing and its facts. The
+            right is him: a line in his own words that travels with the
+            verdict and opens the vault note. Nothing here is required; a
+            swipe with the field empty is the swipe there always was. */}
+        <div class="in-leaf in-leaf--me">
+          <label class="in-say">
+            <span class="in-say-k">in your words</span>
+            <textarea id="say" rows="5" placeholder="a line about it, before it goes either way" maxlength="600"></textarea>
+          </label>
+          <p class="in-say-hint"><kbd>⌘↵</kbd> keep with the line · <kbd>esc</kbd> back to the cards</p>
+          <dl class="in-file">
+            <div><dt>room</dt><dd id="f-weather"></dd></div>
+            <div><dt>form</dt><dd id="f-form"></dd></div>
+            <div><dt>from</dt><dd id="f-from"></dd></div>
+          </dl>
+        </div>
         <span class="in-edge in-edge--in" aria-hidden="true">keep</span>
         <span class="in-edge in-edge--out" aria-hidden="true">pass</span>
       </article>
@@ -316,8 +340,46 @@ const description = "throw a link in; judge what waits. the door to the library.
     .in-btn--pass:hover { border-color: var(--dim); }
     .in-btn--undo { color: var(--dim); }
     .in-btn:disabled { opacity: 0.35; cursor: default; }
+    /* ── two leaves ─────────────────────────────────────────────────
+       Wide, the card opens like a book: the thing on the left, him on the
+       right. Narrow, the right leaf comes under. */
+    .in-leaf--me { display: grid; gap: var(--sp-tight); padding: var(--sp-tight) var(--sp-hair) 0; }
+    .in-say { display: grid; gap: var(--sp-hair); }
+    .in-say-k { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+    .in-say textarea {
+      width: 100%; min-height: 7.5rem; resize: none;
+      padding: 0.7rem 0.8rem;
+      background: color-mix(in oklab, var(--deck) 70%, black);
+      border: 1px solid var(--rule); border-radius: var(--r-row);
+      color: var(--bone); font-family: var(--serif); font-size: var(--t-prose-sm); line-height: 1.5;
+      transition: border-color var(--dur) var(--ease);
+    }
+    .in-say textarea::placeholder { color: var(--dim); }
+    .in-say textarea:focus { outline: none; border-color: var(--hot); }
+    .in-say-hint { margin: 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--dim); }
+    .in-say-hint kbd { font-family: inherit; color: var(--bone); }
+    .in-file { display: grid; gap: 0.3rem; margin: var(--sp-hair) 0 0; }
+    .in-file div { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: var(--sp-tight); align-items: baseline; }
+    .in-file dt { margin: 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+    .in-file dd { margin: 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.04em; color: var(--bone); overflow-wrap: anywhere; }
+    @media (min-width: 60rem) {
+      .in-stage { max-width: 62rem; }
+      .in-card { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--sp-2); align-items: start; }
+      .in-leaf--me { padding: var(--sp-hair) var(--sp-hair) 0 0; align-self: stretch; grid-template-rows: auto 1fr auto auto; }
+      .in-say { grid-row: 1 / 3; grid-template-rows: auto 1fr; }
+      .in-say textarea { min-height: 100%; }
+    }
+    /* ── the ground ───────────────────────────────────────────────── */
+    .in-ground {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-repeat: repeat; background-position: center; background-size: 44vmin;
+      filter: blur(14px) saturate(0.7) brightness(0.42);
+      opacity: 0; transition: opacity 0.9s var(--ease);
+    }
+    .in-ground.is-lit { opacity: 1; }
     .in-count { margin-top: var(--sp-tight); text-align: center; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.08em; color: var(--dim); }
     @media (prefers-reduced-motion: reduce) {
+      .in-ground { transition: none; }
       .in-card.is-flying, .in-card.is-home { transition: opacity 0.3s ease; }
       .in-throw::before, .in-send, .in-tab { transition: none; }
     }
@@ -335,6 +397,7 @@ const description = "throw a link in; judge what waits. the door to the library.
       const edgeIn = document.querySelector(".in-edge--in");
       const edgeOut = document.querySelector(".in-edge--out");
       const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      const say = $("say"), ground = $("ground");
       let deck = [], cur = null, sat = 0, keptThis = [], last = null, busy = false;
       let canSummarise = false;
 
@@ -398,6 +461,13 @@ const description = "throw a link in; judge what waits. the door to the library.
       const WORDS = new Set(["poem", "quote", "song"]);
       function show(c) {
         const isRead = !c.src;
+        say.value = "";
+        $("f-weather").textContent = c.weather || "unfiled";
+        $("f-form").textContent = c.type || (c.url ? "read" : "");
+        let from = "";
+        try { from = new URL(c.source || c.url || c.src).hostname.replace(/^www\./, ""); } catch {}
+        $("f-from").textContent = from || "—";
+        if (isRead) ground.classList.remove("is-lit");
         artWrap.hidden = isRead;
         read.hidden = !isRead;
         $("r-desc").classList.toggle("is-verse", WORDS.has(c.type));
@@ -461,7 +531,12 @@ const description = "throw a link in; judge what waits. the door to the library.
       function next() {
         cur = deck.shift() || null;
         if (!cur) return rest_("that is all of them. throw a link in, or let the harvester bring more.");
-        art.onload = () => { art.classList.remove("is-loading"); $("art-miss").hidden = true; };
+        art.onload = () => {
+          art.classList.remove("is-loading"); $("art-miss").hidden = true;
+          // the ground takes the picture only once it has arrived, so it never
+          // wears the last card's tile under this card's name
+          if (cur && art.getAttribute("src") === cur.src) { ground.style.backgroundImage = `url("${cur.src}")`; ground.classList.add("is-lit"); }
+        };
         art.onerror = () => {
           if (!cur || !art.getAttribute("src")) return;
           art.classList.remove("is-loading");
@@ -503,13 +578,13 @@ const description = "throw a link in; judge what waits. the door to the library.
       // ── the verdicts, spoken to the server ───────────────────────────
       let gated = false;
       const pending = [];
-      async function send(cand, verdict, weather) {
+      async function send(cand, verdict, weather, say) {
         try {
           const r = await fetch("/api/eidos/verdict", {
             method: "POST", headers: { "content-type": "application/json" },
-            body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather || "" }),
+            body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather || "", say: say || "" }),
           });
-          if (r.status === 401) { shutOut({ cand, verdict, weather }); return false; }
+          if (r.status === 401) { shutOut({ cand, verdict, weather, say }); return false; }
           return r.ok;
         } catch {
           noteLine.hidden = false;
@@ -595,23 +670,29 @@ const description = "throw a link in; judge what waits. the door to the library.
       }
       function pass() {
         if (!cur || busy) return;
-        busy = true; const cand = cur; last = { cand, verdict: "pass" }; $("undo").disabled = false;
-        fly(-1); send(cand, "pass"); sat++; setTimeout(next, 300);
+        busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "pass", say: line }; $("undo").disabled = false;
+        fly(-1); send(cand, "pass", "", line); sat++; setTimeout(next, 300);
       }
       function keep() {
         if (!cur || busy) return;
-        busy = true; const cand = cur; last = { cand, verdict: "keep" }; $("undo").disabled = false;
-        keptThis.push(cand); send(cand, "keep", cand.weather); sat++; fly(1); setTimeout(next, 300);
+        busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "keep", say: line }; $("undo").disabled = false;
+        keptThis.push(cand); send(cand, "keep", cand.weather, line); sat++; fly(1); setTimeout(next, 300);
       }
       $("undo").addEventListener("click", () => {
         if (!last) return;
         if (last.verdict === "keep") keptThis = keptThis.filter((k) => k.id !== last.cand.id);
         if (cur) deck.unshift(cur);
         deck.unshift(last.cand);
+        const line = last.say || "";
         sat = Math.max(0, sat - 1); last = null; $("undo").disabled = true; $("do").hidden = false; next();
+        say.value = line;
       });
       $("pass").addEventListener("click", pass);
       $("keep").addEventListener("click", keep);
+      say.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") { say.blur(); e.preventDefault(); }
+        if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); say.blur(); keep(); }
+      });
       document.addEventListener("keydown", (e) => {
         if (e.target && e.target.closest && e.target.closest("input,textarea,select")) return;
         if (e.key === "ArrowLeft") pass();
@@ -620,7 +701,7 @@ const description = "throw a link in; judge what waits. the door to the library.
 
       // ── the hand on the card ─────────────────────────────────────────
       let x0 = 0, dx = 0, dragging = false;
-      const onDown = (e) => { if (!cur || busy || e.target.closest("a, button")) return; dragging = true; x0 = e.clientX; card.classList.remove("is-flying", "is-home"); card.setPointerCapture?.(e.pointerId); };
+      const onDown = (e) => { if (!cur || busy || e.target.closest("a, button, textarea, label")) return; dragging = true; x0 = e.clientX; card.classList.remove("is-flying", "is-home"); card.setPointerCapture?.(e.pointerId); };
       const onMove = (e) => {
         if (!dragging) return;
         dx = e.clientX - x0;

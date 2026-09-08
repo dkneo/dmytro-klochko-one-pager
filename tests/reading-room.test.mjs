@@ -145,3 +145,29 @@ test("a card never wears the last card's picture, and a missing one can be asked
   assert.match(html, /id="art-retry"/, "no way to ask for the picture again");
   assert.match(html, /id="art-miss"[^>]*hidden/, "the miss panel must start hidden");
 });
+
+// ── the second leaf: his line travels with the verdict ─────────────────
+test("the card has two leaves and the line reaches the note", () => {
+  const html = read("dist/eidos/inbox/index.html");
+  const src = read("src/pages/eidos/inbox.astro");
+  const card = html.match(/<article class="in-card"[\s\S]*?<\/article>/)?.[0] ?? "";
+  assert.match(card, /class="in-leaf in-leaf--it"/, "no leaf for the thing");
+  assert.match(card, /class="in-leaf in-leaf--me"[\s\S]*<textarea id="say"/, "no leaf for his line");
+  assert.match(card, /<dl class="in-file"[^>]*>[\s\S]*<dt[^>]*>room<\/dt>[\s\S]*<dt[^>]*>form<\/dt>[\s\S]*<dt[^>]*>from<\/dt>/, "the right leaf does not say where it files");
+  assert.match(html, /<div class="in-ground" id="ground"/, "no ground for the picture to wallpaper");
+  // the verdict carries the line, both ways
+  assert.match(src, /say: say \|\| ""/, "the verdict payload has no line");
+  assert.match(src, /send\(cand, "keep", cand\.weather, line\)/, "keep does not send the line");
+  assert.match(src, /send\(cand, "pass", "", line\)/, "pass does not send the line");
+  // the hand does not drag from the field; the field owns esc and ⌘↵
+  assert.match(src, /closest\("a, button, textarea, label"\)/, "a drag can start from the field");
+  assert.match(src, /e\.key === "Escape"[\s\S]*say\.blur\(\)/, "esc does not leave the field");
+  assert.match(src, /e\.key === "Enter" && \(e\.metaKey \|\| e\.ctrlKey\)[\s\S]*keep\(\)/, "⌘↵ does not keep");
+  // the worker keeps it, trimmed and bounded
+  const worker = read("worker/index.js");
+  assert.match(worker, /const \{ id, verdict, weather, say \} = body/, "the worker ignores the line");
+  assert.match(worker, /slice\(0, 600\)/, "the line is unbounded");
+  // the ground is lit only by the picture that has arrived, and never for words
+  assert.match(src, /art\.getAttribute\("src"\) === cur\.src[\s\S]*ground\.classList\.add\("is-lit"\)/, "the ground lights before the picture lands");
+  assert.match(src, /if \(isRead\) ground\.classList\.remove\("is-lit"\)/, "words wear the last picture's ground");
+});

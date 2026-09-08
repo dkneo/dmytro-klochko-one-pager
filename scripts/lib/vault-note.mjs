@@ -7,7 +7,7 @@
 // file, and none of them forgive a surprise.
 
 /** The markdown for a kept mark. `src` must already be local. */
-export function paintingNote(c, { weather, src, added }) {
+export function paintingNote(c, { weather, src, added, say }) {
   if (!src || !src.startsWith("/")) {
     throw new Error(`a note needs a local src, got ${JSON.stringify(src)}`);
   }
@@ -34,6 +34,7 @@ export function paintingNote(c, { weather, src, added }) {
   return [
     "---", ...front, "---", "",
     `![[${src.split("/").pop()}]]`, "",
+    ...(say ? [say.trim(), ""] : []),
     links,
     "", "kept from the queue on /eidos.", "",
   ].join("\n");
@@ -49,7 +50,7 @@ export function paintingNote(c, { weather, src, added }) {
  * wikilink trail at the foot, so the vault's graph joins it to the weather it
  * was filed under and to whoever wrote it.
  */
-export function bookmarkNote(b, { weather, added }) {
+export function bookmarkNote(b, { weather, added, say }) {
   if (!b.url || !/^https?:\/\//.test(b.url)) {
     throw new Error(`a bookmark needs a url, got ${JSON.stringify(b.url)}`);
   }
@@ -75,6 +76,7 @@ export function bookmarkNote(b, { weather, added }) {
   ].filter(Boolean).join(" · ");
 
   const body = [
+    say ? say.trim() : "",
     b.note ? b.note.trim() : "",
     b.summary ? b.summary.trim() : "",
     b.description && !b.summary ? b.description.trim() : "",
@@ -96,7 +98,7 @@ export function bookmarkNote(b, { weather, added }) {
  * the weather he saw on the card if there was one, and extends the wikilink
  * trail so the graph joins it to its room. Nothing is re-authored.
  */
-export function wordNote(c, { weather, added }) {
+export function wordNote(c, { weather, added, say }) {
   if (!["poem", "quote", "song"].includes(c.type)) {
     throw new Error(`a word note is a poem, a quote or a song, got ${JSON.stringify(c.type)}`);
   }
@@ -117,6 +119,11 @@ export function wordNote(c, { weather, added }) {
     if (/^weather:/m.test(md)) md = md.replace(/^weather: .*$/m, `weather: ${weather}`);
     else md = md.replace(/^(who: .*)$/m, `$1\nweather: ${weather}`);
     if (!/^weather: \[\[/m.test(md)) md = md.replace(/^who: \[\[/m, `weather: [[${weather}]] · who: [[`);
+  }
+  // his line goes above the wikilink trail, as the first thing after the words
+  if (say && say.trim()) {
+    const trail = md.match(/^(?:weather|who): \[\[.*$/m);
+    md = trail ? md.replace(trail[0], say.trim() + "\n\n" + trail[0]) : md.trimEnd() + "\n\n" + say.trim() + "\n";
   }
   return md.trimEnd() + "\n";
 }
