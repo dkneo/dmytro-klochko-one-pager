@@ -171,3 +171,22 @@ test("the card has two leaves and the line reaches the note", () => {
   assert.match(src, /art\.getAttribute\("src"\) === cur\.src[\s\S]*ground\.classList\.add\("is-lit"\)/, "the ground lights before the picture lands");
   assert.match(src, /if \(isRead\) ground\.classList\.remove\("is-lit"\)/, "words wear the last picture's ground");
 });
+
+// ── the keys ─────────────────────────────────────────────────────────────
+test("the inbox answers the keyboard the way keyboard-first tools do", () => {
+  const html = read("dist/eidos/inbox/index.html");
+  const src = read("src/pages/eidos/inbox.astro");
+  // every button says its key, in the markup and to assistive tech
+  assert.match(html, /id="pass"[^>]*aria-keyshortcuts="ArrowLeft h"/, "pass has no key");
+  assert.match(html, /id="keep"[^>]*aria-keyshortcuts="ArrowRight l"/, "keep has no key");
+  assert.match(html, /id="undo"[^>]*aria-keyshortcuts="u z Meta\+z"[\s\S]*?<kbd[^>]*>u<\/kbd>/, "undo does not show its key");
+  // the sheet behind ? is a native dialog
+  assert.match(html, /<dialog class="in-keys" id="keys"/, "no shortcuts sheet");
+  assert.match(html, /<form method="dialog"[^>]*>/, "the sheet has no native close");
+  // one map, and the three rules
+  assert.match(src, /const KEYS = \{[\s\S]*ArrowRight: keep, l: keep,[\s\S]*ArrowLeft: pass, h: pass,[\s\S]*"\/": \(\) => \$\("url"\)\.focus\(\),[\s\S]*"\?": toggleKeys,/, "the key map is incomplete");
+  assert.match(src, /closest\("input,textarea,select"\)\) return;/, "letters fire inside fields");
+  assert.match(src, /if \(e\.repeat && act !== undo\) return;/, "a held arrow fires twice");
+  assert.match(src, /if \(e\.metaKey \|\| e\.ctrlKey \|\| e\.altKey\) return;/, "browser chords are swallowed");
+  assert.match(src, /e\.key\.toLowerCase\(\) === "z"\) \{ e\.preventDefault\(\); undo\(\)/, "⌘z does not undo");
+});

@@ -551,7 +551,10 @@ right leaf is a textarea (`#say`) whose text travels with the verdict as
 builder in `scripts/lib/vault-note.mjs`, which writes it as the first body
 paragraph — above the summariser's sentences, above the wikilink trail. His
 words open the note; the machine's follow. Keys inside the field: esc leaves
-it, ⌘↵ keeps with the line. The page ground (`#ground`) takes the current
+it, ⌘↵ keeps with the line. Outside a field: → l keep, ← h pass, u z ⌘z
+undo, n line, o ↵ open source, r reload picture, / throw a link, ? the
+sheet (a native dialog). One map (`KEYS`); letters never fire inside a
+field, a held key never fires twice, ctrl/alt chords go to the browser. The page ground (`#ground`) takes the current
 picture's own tile, lit only once that picture has loaded, dark for words
 and links. tests/reading-room.test.mjs and tests/vault-note.test.mjs pin all
 of this.

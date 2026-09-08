@@ -135,10 +135,31 @@ const description = "throw a link in; judge what waits. the door to the library.
     </div>
 
     <div class="in-do" id="do">
-      <button type="button" id="pass" class="in-btn in-btn--pass">pass <kbd>←</kbd></button>
-      <button type="button" id="undo" class="in-btn in-btn--undo" disabled>undo</button>
-      <button type="button" id="keep" class="in-btn in-btn--keep"><kbd>→</kbd> keep</button>
+      <button type="button" id="pass" class="in-btn in-btn--pass" aria-keyshortcuts="ArrowLeft h">pass <kbd>←</kbd></button>
+      <button type="button" id="undo" class="in-btn in-btn--undo" aria-keyshortcuts="u z Meta+z" disabled>undo <kbd>u</kbd></button>
+      <button type="button" id="keep" class="in-btn in-btn--keep" aria-keyshortcuts="ArrowRight l"><kbd>→</kbd> keep</button>
+      <button type="button" id="keys-open" class="in-btn in-btn--keys" aria-label="keyboard shortcuts" aria-keyshortcuts="?"><kbd>?</kbd></button>
     </div>
+
+    {/* The sheet every keyboard-first tool has behind "?". Native dialog:
+        it traps focus, answers esc and paints its own backdrop without a
+        line of script for any of it. */}
+    <dialog class="in-keys" id="keys" aria-labelledby="keys-h">
+      <h2 id="keys-h">keys</h2>
+      <dl>
+        <div><dt><kbd>→</kbd> <kbd>l</kbd></dt><dd>keep</dd></div>
+        <div><dt><kbd>←</kbd> <kbd>h</kbd></dt><dd>pass</dd></div>
+        <div><dt><kbd>u</kbd> <kbd>⌘z</kbd></dt><dd>undo the last verdict</dd></div>
+        <div><dt><kbd>n</kbd></dt><dd>write a line about it</dd></div>
+        <div><dt><kbd>⌘↵</kbd></dt><dd>keep, from inside the line</dd></div>
+        <div><dt><kbd>o</kbd> <kbd>↵</kbd></dt><dd>open the source in a new tab</dd></div>
+        <div><dt><kbd>r</kbd></dt><dd>reload the picture</dd></div>
+        <div><dt><kbd>/</kbd></dt><dd>throw a link</dd></div>
+        <div><dt><kbd>?</kbd></dt><dd>this sheet</dd></div>
+        <div><dt><kbd>esc</kbd></dt><dd>out of any field, or close this</dd></div>
+      </dl>
+      <form method="dialog"><button type="submit" class="in-btn">close <kbd>esc</kbd></button></form>
+    </dialog>
 
     <p class="in-count" id="count"></p>
 
@@ -339,6 +360,23 @@ const description = "throw a link in; judge what waits. the door to the library.
     .in-btn--keep:hover { border-color: var(--hot); }
     .in-btn--pass:hover { border-color: var(--dim); }
     .in-btn--undo { color: var(--dim); }
+    .in-btn--keys { padding-inline: 0.8rem; color: var(--dim); }
+    .in-btn--keys:hover { border-color: var(--bone); }
+    .in-keys {
+      margin: auto; padding: var(--sp-2) var(--sp-3);
+      width: min(100% - 2rem, 26rem);
+      background: color-mix(in oklab, var(--deck) 88%, black);
+      color: var(--bone); border: 1px solid var(--rule); border-radius: var(--r-panel);
+      box-shadow: 0 22px 60px var(--shadow-deep);
+    }
+    .in-keys::backdrop { background: rgb(0 0 0 / 55%); backdrop-filter: blur(6px); }
+    .in-keys h2 { margin: 0 0 var(--sp-2); font-family: var(--serif); font-weight: 400; font-size: var(--t-lede); }
+    .in-keys dl { margin: 0; display: grid; gap: 0.45rem; }
+    .in-keys dl div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--sp-tight); align-items: baseline; }
+    .in-keys dt, .in-keys dd { margin: 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.04em; }
+    .in-keys dd { color: var(--dim); }
+    .in-keys kbd { display: inline-block; min-width: 1.4em; padding: 0.1em 0.4em; border: 1px solid var(--rule); border-radius: var(--r-print); text-align: center; color: var(--bone); }
+    .in-keys form { margin-top: var(--sp-2); display: flex; justify-content: flex-end; }
     .in-btn:disabled { opacity: 0.35; cursor: default; }
     /* ── two leaves ─────────────────────────────────────────────────
        Wide, the card opens like a book: the thing on the left, him on the
@@ -678,25 +716,54 @@ const description = "throw a link in; judge what waits. the door to the library.
         busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "keep", say: line }; $("undo").disabled = false;
         keptThis.push(cand); send(cand, "keep", cand.weather, line); sat++; fly(1); setTimeout(next, 300);
       }
-      $("undo").addEventListener("click", () => {
-        if (!last) return;
+      function undo() {
+        if (!last || busy) return;
         if (last.verdict === "keep") keptThis = keptThis.filter((k) => k.id !== last.cand.id);
         if (cur) deck.unshift(cur);
         deck.unshift(last.cand);
         const line = last.say || "";
         sat = Math.max(0, sat - 1); last = null; $("undo").disabled = true; $("do").hidden = false; next();
         say.value = line;
-      });
+      }
+      function openSource() {
+        const href = cur && (cur.url || cur.source);
+        if (href && href !== "#") window.open(href, "_blank", "noopener,noreferrer");
+      }
+      $("undo").addEventListener("click", undo);
       $("pass").addEventListener("click", pass);
       $("keep").addEventListener("click", keep);
+      const keys = $("keys");
+      const toggleKeys = () => (keys.open ? keys.close() : keys.showModal());
+      $("keys-open").addEventListener("click", toggleKeys);
+      // a click on the backdrop, outside the sheet's own box, closes it
+      keys.addEventListener("click", (e) => { if (e.target === keys) keys.close(); });
       say.addEventListener("keydown", (e) => {
         if (e.key === "Escape") { say.blur(); e.preventDefault(); }
         if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); say.blur(); keep(); }
       });
+      // The rules every keyboard-first tool agrees on: single letters do
+      // nothing while a field has focus; a held key does not fire twice; a
+      // chord with alt or ctrl belongs to the browser, except undo's own.
+      const KEYS = {
+        ArrowRight: keep, l: keep,
+        ArrowLeft: pass, h: pass,
+        u: undo, z: undo,
+        n: () => { if (cur) say.focus(); },
+        "/": () => $("url").focus(),
+        o: openSource, Enter: openSource,
+        r: () => { if (cur && cur.src) $("art-retry").click(); },
+        "?": toggleKeys,
+      };
       document.addEventListener("keydown", (e) => {
         if (e.target && e.target.closest && e.target.closest("input,textarea,select")) return;
-        if (e.key === "ArrowLeft") pass();
-        if (e.key === "ArrowRight") keep();
+        if (keys.open) return; // the dialog answers esc itself; nothing else while it is up
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "z") { e.preventDefault(); undo(); return; }
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        const act = KEYS[e.key];
+        if (!act) return;
+        if (e.repeat && act !== undo) return;
+        e.preventDefault();
+        act();
       });
 
       // ── the hand on the card ─────────────────────────────────────────
