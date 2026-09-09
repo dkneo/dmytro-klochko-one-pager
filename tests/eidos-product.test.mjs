@@ -152,6 +152,7 @@ test("the public experiment belongs to the product and explains itself", () => {
   assert.match(html, /swipe-keep-overlay\.(?:webm|mp4)/);
   assert.match(html, /swipe-pass-overlay\.(?:webm|mp4)/);
   assert.match(html, /classList\.add\("is-deck-active"\)/, "starting the deck does not make room for the card");
+  assert.doesNotMatch(html, /—/, "the product voice slipped into em dashes");
 });
 
 test("the mobile product keeps its doors visible without loading two hero films", () => {
@@ -182,4 +183,16 @@ test("the portrait tablet keeps the product map instead of collapsing to an exit
   assert.match(tablet, /grid-template-rows: 3\.75rem 2\.75rem;/);
   assert.match(tablet, /\.ep-nav \{[\s\S]*?display: flex;/);
   assert.doesNotMatch(tablet, /\.ep-nav \{\s*display: none;/);
+});
+
+test("frequent product gestures stay quick, interruptible and respectful", () => {
+  const product = read("src/styles/pages/eidos-product.css");
+  const studio = read("src/styles/pages/eidos-studio.css");
+  const deck = read("src/pages/eidos/deck.astro");
+
+  assert.match(product, /@media \(hover: hover\) and \(pointer: fine\)/, "pointer-only flourishes are not gated");
+  assert.match(product, /@media \(prefers-reduced-motion: reduce\)/);
+  assert.match(studio, /is-flying \{ transition: transform 2[0-9]{2}ms cubic-bezier/);
+  assert.doesNotMatch(studio, /is-(?:flying|home)[^{]*\{[^}]*transition:[^;}]*(?:3[1-9][0-9]|[4-9][0-9]{2})ms/);
+  assert.doesNotMatch(deck, /transform (?:3[1-9][0-9]|[4-9][0-9]{2})ms/);
 });

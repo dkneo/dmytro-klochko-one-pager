@@ -215,7 +215,7 @@ const description = "throw a link in; judge what waits. the door to the library.
          effect — and fully lit when the caret lands */
       opacity: 0.58;
       pointer-events: none;
-      transition: opacity 380ms ease;
+      transition: opacity 240ms var(--ease);
     }
     .in-throw:focus-within::before { opacity: 0.9; }
     .in-throw-surface {
@@ -308,8 +308,8 @@ const description = "throw a link in; judge what waits. the door to the library.
       -webkit-user-select: none;
       will-change: transform;
     }
-    .in-card.is-flying { transition: transform 0.42s var(--ease-slick), opacity 0.42s var(--ease-slick); }
-    .in-card.is-home { transition: transform 0.45s var(--ease); }
+    .in-card.is-flying { transition: transform 240ms var(--ease-slick), opacity 220ms var(--ease); }
+    .in-card.is-home { transition: transform 220ms var(--ease); }
     .in-card:active { cursor: grabbing; }
     .in-art { position: relative; display: flex; align-items: center; justify-content: center; min-height: min(38svh, 340px); }
     .in-art img.is-loading { opacity: 0.18; transition: opacity var(--dur) var(--ease); }
@@ -418,7 +418,7 @@ const description = "throw a link in; judge what waits. the door to the library.
     .in-count { margin-top: var(--sp-tight); text-align: center; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.08em; color: var(--dim); }
     @media (prefers-reduced-motion: reduce) {
       .in-ground { transition: none; }
-      .in-card.is-flying, .in-card.is-home { transition: opacity 0.3s ease; }
+      .in-card.is-flying, .in-card.is-home { transition: opacity 160ms var(--ease); }
       .in-throw::before, .in-send, .in-tab { transition: none; }
     }
     @media (max-width: 600px) {
@@ -753,13 +753,13 @@ const description = "throw a link in; judge what waits. the door to the library.
         if (!cur || busy) return;
         busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "pass", say: line }; $("undo").disabled = false;
         record(cand, "pass", line); try { localStorage.removeItem(draftKey(cand.id)); } catch {}
-        playFeedback("pass"); fly(-1); send(cand, "pass", "", line); sat++; setTimeout(next, 300);
+        playFeedback("pass"); fly(-1); send(cand, "pass", "", line); sat++; setTimeout(next, 240);
       }
       function keep() {
         if (!cur || busy) return;
         busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "keep", say: line }; $("undo").disabled = false;
         keptThis.push(cand); record(cand, "keep", line); try { localStorage.removeItem(draftKey(cand.id)); } catch {}
-        playFeedback("keep"); send(cand, "keep", cand.weather, line); sat++; fly(1); setTimeout(next, 300);
+        playFeedback("keep"); send(cand, "keep", cand.weather, line); sat++; fly(1); setTimeout(next, 240);
       }
       function undo() {
         if (!last || busy) return;

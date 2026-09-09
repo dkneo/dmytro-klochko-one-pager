@@ -144,7 +144,6 @@ html[data-eidos-product] body {
   transform-origin: right;
   transition: transform 220ms cubic-bezier(0.2, 0, 0.2, 1);
 }
-.ep-nav a:hover::after,
 .ep-nav a:focus-visible::after,
 .ep-nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
 .ep-parent { justify-self: end; gap: 0.35rem; }
@@ -213,9 +212,9 @@ html[data-eidos-product] body {
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-decoration: none;
-  transition: transform 180ms ease, color 180ms ease, background 180ms ease;
+  transition: transform 180ms var(--ease), color 180ms var(--ease), background 180ms var(--ease);
 }
-.ep-action:hover { transform: translateY(-2px); color: var(--ep-raspberry); }
+.ep-action:hover { color: var(--ep-raspberry); }
 .ep-action--solid { background: var(--ep-ink); color: var(--ep-paper-light) !important; border: 1px solid var(--ep-ink); }
 .ep-action--solid:hover { background: var(--ep-raspberry); border-color: var(--ep-raspberry); color: var(--ep-paper-light) !important; }
 
@@ -229,7 +228,7 @@ html[data-eidos-product] body {
 .ep-hero-poster,
 .ep-hero-poster img,
 .ep-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-.ep-hero-video { opacity: 0; transition: opacity 700ms ease; }
+.ep-hero-video { opacity: 0; transition: opacity 700ms var(--ease); }
 .ep-hero-art.is-moving .ep-hero-video { opacity: 1; }
 .ep-hero-art figcaption {
   position: absolute;
@@ -305,11 +304,10 @@ html[data-eidos-product] body {
   border-right: 1px solid var(--ep-rule);
   border-bottom: 1px solid var(--ep-rule);
   cursor: pointer;
-  transition: background 180ms ease, transform 180ms ease;
+  transition: background 180ms var(--ease), transform 180ms var(--ease);
 }
 .ep-weather:nth-child(4n) { border-right: 0; }
 .ep-weather:hover, .ep-weather:focus-visible, .ep-weather.is-active { background: var(--ep-paper-light); }
-.ep-weather:hover { transform: translateY(-3px); z-index: 2; }
 .ep-weather-ink { grid-column: 1 / -1; width: 100%; height: 0.6rem; background: var(--weather); }
 .ep-weather-name { font-family: var(--display, "Zodiak", var(--serif)); font-size: 1.5rem; line-height: 1.05; }
 .ep-weather small { grid-column: 1 / -1; align-self: end; max-width: 28ch; color: var(--ep-quiet); font-size: 0.82rem; line-height: 1.35; }
@@ -324,12 +322,10 @@ html[data-eidos-product] body {
   gap: 0.3rem;
   opacity: 0;
   transform: translateY(6px);
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition: opacity 180ms var(--ease), transform 180ms var(--ease);
 }
 .ep-weather-preview img { width: auto; height: 3.7rem; max-width: 30%; object-fit: contain; box-shadow: 0 4px 12px var(--ep-shadow); }
-.ep-weather:hover .ep-weather-preview,
 .ep-weather:focus-visible .ep-weather-preview { opacity: 1; transform: none; }
-.ep-weather:hover small,
 .ep-weather:focus-visible small { opacity: 0; }
 .ep-weather--all { min-height: 6rem; align-content: center; background: var(--ep-ink); color: var(--ep-paper-light); }
 .ep-weather--all:hover, .ep-weather--all:focus-visible, .ep-weather--all.is-active { background: var(--ep-raspberry); }
@@ -362,10 +358,9 @@ html[data-eidos-product] body {
   vertical-align: top;
   background: var(--ep-paper-light);
   box-shadow: 0 0 0 1px var(--ep-rule), 0 12px 30px var(--ep-shadow);
-  transition: transform 220ms cubic-bezier(0.2, 0, 0.2, 1), box-shadow 220ms ease;
+  transition: transform 220ms cubic-bezier(0.2, 0, 0.2, 1), box-shadow 220ms var(--ease);
 }
 .ep-piece[hidden] { display: none; }
-.ep-piece:hover { transform: translateY(-4px) rotate(-0.18deg); box-shadow: 0 0 0 1px var(--ep-rule), 0 18px 38px rgb(73 49 36 / 22%); }
 .ep-piece-open { display: block; width: 100%; padding: 0; color: inherit; background: transparent; border: 0; cursor: zoom-in; text-align: left; }
 .ep-piece-open img { display: block; width: 100%; height: auto; }
 .ep-piece footer { display: grid; gap: 0.35rem; padding: 0.9rem 1rem 1rem; }
@@ -410,6 +405,16 @@ html[data-eidos-product] body {
 .ep-detail-close { position: sticky; top: 0; z-index: 2; float: right; min-width: 44px; min-height: 44px; color: var(--ep-paper-light); background: var(--ep-ink); border: 0; cursor: pointer; }
 .ep-detail .ep-piece { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.34fr); margin: 0; box-shadow: none; }
 .ep-detail .ep-piece:hover { transform: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  .ep-nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+  .ep-action:hover { transform: translateY(-2px); }
+  .ep-weather:hover { transform: translateY(-3px); z-index: 2; }
+  .ep-weather:hover .ep-weather-preview { opacity: 1; transform: none; }
+  .ep-weather:hover small { opacity: 0; }
+  .ep-piece:hover { transform: translateY(-4px) rotate(-0.18deg); box-shadow: 0 0 0 1px var(--ep-rule), 0 18px 38px rgb(73 49 36 / 22%); }
+  .ep-detail .ep-piece:hover { transform: none; }
+}
 .ep-detail .ep-piece-open img { max-height: calc(100svh - 6rem); object-fit: contain; }
 
 .ep-trace-grid { display: grid; grid-template-columns: repeat(6, 1fr); margin: 0; border-top: 1px solid var(--ep-rule); border-bottom: 1px solid var(--ep-rule); }

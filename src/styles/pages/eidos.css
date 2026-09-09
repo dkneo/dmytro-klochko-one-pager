@@ -397,7 +397,7 @@
   background: var(--hot);
   transform: scaleX(var(--p, 0));
   transform-origin: left center;
-  transition: transform 320ms var(--ease);
+  transition: transform 180ms var(--ease);
 }
 
 [data-mode="dream"] .eidos-bar {
@@ -408,9 +408,14 @@
   margin-top: var(--sp-3);
 }
 
-[data-mode="dream"] .eidos-btn--keep:hover { color: var(--hot); border-color: var(--hot); scale: 1.08; }
+[data-mode="dream"] .eidos-btn--keep:hover { color: var(--hot); border-color: var(--hot); }
 
-[data-mode="dream"] .eidos-btn--pass:hover { color: var(--bone); border-color: var(--bone); scale: 1.08; }
+[data-mode="dream"] .eidos-btn--pass:hover { color: var(--bone); border-color: var(--bone); }
+
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .eidos-btn--keep:hover,
+  [data-mode="dream"] .eidos-btn--pass:hover { scale: 1.08; }
+}
 
 [data-mode="dream"] .eidos-count {
   min-width: 5rem;

@@ -188,8 +188,8 @@
   will-change: transform;
 }
 .eidos-studio .in-card:active { cursor: grabbing; }
-.eidos-studio .in-card.is-flying { transition: transform 360ms cubic-bezier(0.2, 0, 0.2, 1), opacity 300ms ease; }
-.eidos-studio .in-card.is-home { transition: transform 420ms cubic-bezier(0.18, 0.72, 0.18, 1); }
+.eidos-studio .in-card.is-flying { transition: transform 240ms cubic-bezier(0.2, 0, 0.2, 1), opacity 220ms var(--ease); }
+.eidos-studio .in-card.is-home { transition: transform 220ms cubic-bezier(0.18, 0.72, 0.18, 1); }
 .eidos-studio .in-leaf--it { display: grid; min-height: 29rem; grid-template-rows: 1fr auto; }
 .eidos-studio .in-art {
   position: relative;
@@ -347,7 +347,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .eidos-studio .in-card.is-flying, .eidos-studio .in-card.is-home { transition: opacity 180ms ease; }
+  .eidos-studio .in-card.is-flying, .eidos-studio .in-card.is-home { transition: opacity 160ms var(--ease); }
   .eidos-studio .in-feedback { display: none; }
   .eidos-studio .in-link-loader { display: none; }
 }

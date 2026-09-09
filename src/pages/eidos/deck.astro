@@ -7,8 +7,8 @@ import works from "../../data/eidos.json";
 
 // Thirty-one paintings from the Met's open-access collection, all public
 // domain, chosen for range rather than fame: renaissance to impressionism,
-// woodblock to natural history. Each carries four numbers — how still it is,
-// how much it is about people, how ordered, how lit — and the portrait at
+// woodblock to natural history. Each carries four numbers: how still it is,
+// how much it is about people, how ordered, how lit. The portrait at
 // the end is only ever the average of the ones you kept.
 const title = "the deck · eidos";
 const description = "swipe through paintings, find out what your eye is actually after.";
@@ -186,7 +186,7 @@ const description = "swipe through paintings, find out what your eye is actually
 
       // A card is not retired until its throw finishes, so without this guard
       // a held arrow key or a fast thumb counts the same painting several
-      // times over — which quietly poisons the reading at the end.
+      // times over, which quietly poisons the reading at the end.
       let throwing = false;
 
       const throwIt = (dir) => {
@@ -195,7 +195,7 @@ const description = "swipe through paintings, find out what your eye is actually
         throwing = true;
         if (dir > 0) kept.push(c);
         playFeedback(dir > 0 ? "keep" : "pass");
-        c.style.transition = still ? "none" : "transform 420ms cubic-bezier(0.2,0,0.2,1), opacity 420ms";
+        c.style.transition = still ? "none" : "transform 240ms cubic-bezier(0.2,0,0.2,1), opacity 220ms cubic-bezier(0.2,0,0.2,1)";
         c.style.transform = `translate3d(${dir * 140}%, ${dir > 0 ? -8 : 8}%, 0) rotate(${dir * 18}deg)`;
         c.style.opacity = "0";
         const done = () => {
@@ -203,7 +203,7 @@ const description = "swipe through paintings, find out what your eye is actually
           throwing = false;
           if (at >= order.length) finish(); else paint();
         };
-        still ? done() : setTimeout(done, 260);
+        still ? done() : setTimeout(done, 240);
       };
 
       root.querySelector(".eidos-start").addEventListener("click", () => {
@@ -248,7 +248,7 @@ const description = "swipe through paintings, find out what your eye is actually
         c.style.setProperty("--keep", "0");
         c.style.setProperty("--pass", "0");
         if (Math.abs(dx) > 90) { throwIt(dx > 0 ? 1 : -1); return; }
-        c.style.transition = "transform 300ms cubic-bezier(0.2,0,0.2,1)";
+        c.style.transition = "transform 220ms cubic-bezier(0.2,0,0.2,1)";
         c.style.transform = "";
       });
 
@@ -266,11 +266,11 @@ const description = "swipe through paintings, find out what your eye is actually
 
         const say = {
           calm: [
-            "you want a picture to hold still. what you kept is quiet on purpose — rooms where nothing is about to happen, water that has already settled.",
+            "you want a picture to hold still. what you kept is quiet on purpose: rooms where nothing is about to happen, water that has already settled.",
             "you are not drawn to stillness. the ones you kept are mid-event: weather arriving, water breaking, something about to go wrong or has just gone.",
           ],
           human: [
-            "and you look for people. faces, hands, someone caught in the middle of their own life — the landscape only matters to you when a person is standing in it.",
+            "and you look for people. faces, hands, someone caught in the middle of their own life. the landscape only matters to you when a person is standing in it.",
             "and you would rather be left alone with the world. you kept weather, water, forests and objects; the paintings with people in them went past without stopping you.",
           ],
           order: [
@@ -278,7 +278,7 @@ const description = "swipe through paintings, find out what your eye is actually
             "your eye distrusts tidiness. you kept the loose ones, the gestural ones, the paintings that look like they happened rather than were planned.",
           ],
           light: [
-            "and you keep reaching for the light — the bright, the open, the sunlit.",
+            "and you keep reaching for the light: the bright, the open, the sunlit.",
             "and you keep reaching into the dark. the ones you kept are lit by a candle at most.",
           ],
         };
@@ -288,7 +288,7 @@ const description = "swipe through paintings, find out what your eye is actually
           lines.push(say[k][v > 0 ? 0 : 1]);
         }
         if (!lines.length) {
-          lines.push("your eye refuses a type. you kept a little of everything and nothing dominates — which is its own answer: you are led by the single picture in front of you, not by a taste you carry around.");
+          lines.push("your eye refuses a type. you kept a little of everything and nothing dominates. that is its own answer: you are led by the single picture in front of you, not by a taste you carry around.");
         }
 
         const names = {};
@@ -307,7 +307,7 @@ const description = "swipe through paintings, find out what your eye is actually
         read.innerHTML = "";
         if (!kept.length) {
           const p = document.createElement("p");
-          p.textContent = "thirty-one paintings and not one of them stopped you. either the set is wrong or you were never really looking — both are worth knowing.";
+          p.textContent = "thirty-one paintings and not one of them stopped you. either the set is wrong or you were never really looking. both are worth knowing.";
           read.appendChild(p);
         } else {
           for (const l of lines) {
@@ -318,7 +318,7 @@ const description = "swipe through paintings, find out what your eye is actually
           const p = document.createElement("p");
           p.className = "eidos-tally";
           p.textContent = `you kept ${kept.length} of ${order.length}` +
-            (top3.length ? ` — most often ${top3.join(", ")}.` : ".");
+            (top3.length ? ` · most often ${top3.join(", ")}.` : ".");
           read.appendChild(p);
         }
 
