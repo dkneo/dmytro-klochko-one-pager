@@ -20,18 +20,13 @@ test("the share card is composed from the same vault the page reads", async () =
 
   assert.ok(svg.includes(`${shelved} real things`), "the card counts something other than the library");
   assert.equal((svg.match(/fill="url\(#g\d+\)"/g) || []).length, map.weathers.length, "one bar per weather");
-  for (const w of map.weathers) assert.ok(svg.includes(`${w.name} `), `${w.name} is not named on the card`);
-
-  // nothing runs off the right edge. The 26px serif sentences: 1056px holds
-  // about 72 characters. The 12px mono legend is a different measure, about
-  // 140, and is checked at its own.
-  const prose = (svg.match(/<g font-family="Georgia[^>]*font-size="26"[^>]*>([\s\S]*?)<\/g>/) || [])[1] || "";
-  const texts = [...prose.matchAll(/<text[^>]*>([^<]*)<\/text>/g)].map((m) => m[1]);
-  assert.ok(texts.length >= 4, "the card lost its sentences");
-  for (const t of texts) assert.ok(t.length <= 72, `a line is too long for the card: "${t}"`);
-  for (const m of svg.matchAll(/font-size="12"[^>]*>([^<]*)<\/text>/g)) assert.ok(m[1].length <= 140, `a legend line is too long: "${m[1]}"`);
-  // and the last sentence is whole, not cut by a line cap
-  assert.ok(texts.some((t) => /languages\.$/.test(t)), "the portrait's last sentence was cut");
+  assert.match(svg, /what i love, and what it says about me\./);
+  assert.match(svg, /faun notices · gryphon remembers/);
+  assert.match(svg, /data:image\/jpeg;base64,/);
+  assert.match(svg, /#f2e2c9/);
+  assert.match(svg, /#a8425d/);
+  assert.doesNotMatch(svg, /#131a2b/);
+  assert.doesNotMatch(svg, /filed under eight weathers i made up/);
 });
 
 test("the card ships at social size and the page points at this build of it", async () => {

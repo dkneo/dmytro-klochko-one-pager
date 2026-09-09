@@ -1,108 +1,83 @@
-// The share image for /eidos, drawn from the vault at build time.
-//
-// A static card lied within a day: it said 65 things while the library held
-// 98. This one is composed from map.json and palettes.json — the same numbers
-// the portrait on the page computes — so the card and the page can never
-// disagree. Rasterised with sharp; system serif, because librsvg cannot load
-// the site's woff2 and a card is read at a glance, not set.
+// The share image for /eidos, composed from the live vault and the product art.
 //
 //   node scripts/og-eidos-build.mjs        writes public/og-eidos.png
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const W = 1200, H = 628;
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const hero = (await sharp(path.join(root, "public/images/eidos/product/hero-desktop-poster.webp"))
+  .jpeg({ quality: 90, chromaSubsampling: "4:4:4" })
+  .toBuffer()).toString("base64");
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const lower = (s) => String(s).toLowerCase();
-const list = (xs) => xs.length <= 1 ? xs.join("") : xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1];
 
 export function compose(map, palettes) {
-  const HANGS = new Set(["painting", "object", "building", "poster", "print", "photograph"]);
-  const shelved = map.items.filter((i) => i.type !== "link");
-  const isHim = (who) => /^dmytro klochko$/i.test((who || "").trim());
-  const weathers = map.weathers.slice().sort((a, b) => a.x - b.x).map((w) => ({
-    name: w.name, n: shelved.filter((i) => i.weather === w.name).length,
-    stops: (palettes.palettes.find((p) => p.weather === w.name) || { stops: ["#888"] }).stops,
-  }));
-  const total = shelved.length;
-  const art = shelved.filter((i) => HANGS.has(i.type));
-  const own = art.filter((i) => isHim(i.who));
-  const makers = new Map();
-  for (const i of shelved) if (i.who && !isHim(i.who)) makers.set(i.who, (makers.get(i.who) || 0) + 1);
-  const recurring = [...makers].filter(([, n]) => n > 1).sort((a, b) => b[1] - a[1]).map(([w]) => w);
-  const painters = recurring.filter((w) => art.some((i) => i.who === w)).slice(0, 3);
-  const writers = recurring.filter((w) => !art.some((i) => i.who === w)).slice(0, 3);
-  const tongues = new Set(shelved.map((i) => i.lang).filter(Boolean)).size;
-  const byFull = weathers.slice().sort((a, b) => b.n - a.n);
+  const shelved = map.items.filter((item) => item.type !== "link");
+  const weathers = map.weathers
+    .slice()
+    .sort((a, b) => a.x - b.x)
+    .map((weather) => ({
+      ...weather,
+      count: shelved.filter((item) => item.weather === weather.name).length,
+      stops: palettes.palettes.find((palette) => palette.weather === weather.name)?.stops || ["#a8425d"],
+    }));
+  const languages = new Set(shelved.map((item) => item.lang).filter(Boolean)).size;
 
-  const line1 = `${total} real things i love, filed under eight weathers i made up.`;
-  const line2 = `${byFull[0].name} is the fullest room, ${byFull[byFull.length - 1].name} the thinnest.`;
-  const line3 = own.length
-    ? `${own.length} of the ${art.length} pictures are mine; the rest lean to ${list(painters.map(lower))}.`
-    : `${art.length} pictures, leaning to ${list(painters.map(lower))}.`;
-  const line4 = writers.length
-    ? `the words keep coming back to ${list(writers.map(lower))}, in ${tongues} languages.`
-    : `the words come in ${tongues} languages.`;
-  const built = new Date(map.built || Date.now());
-  const fresh = shelved.filter((i) => i.added && (built - new Date(i.added)) / 86400000 <= 14);
-  const grew = {};
-  for (const i of fresh) if (i.weather) grew[i.weather] = (grew[i.weather] || 0) + 1;
-  const most = Object.entries(grew).sort((a, b) => b[1] - a[1])[0];
-  const line5 = fresh.length
-    ? `${fresh.length} kept in the last two weeks${most ? `; ${most[0]} grew the most` : ""}.`
-    : "";
-  const wrap = (t, n = 66) => { const out = []; let cur = ""; for (const w of t.split(" ")) { if ((cur + " " + w).trim().length > n) { out.push(cur.trim()); cur = w; } else cur += " " + w; } if (cur.trim()) out.push(cur.trim()); return out; };
-  const lines = [line1, line2, line3, line4, line5].filter(Boolean).flatMap((l) => wrap(l)).slice(0, 7);
+  const definitions = weathers.map((weather, index) =>
+    `<linearGradient id="g${index}" x1="0" x2="1">${weather.stops.map((colour, stop) =>
+      `<stop offset="${stop / Math.max(1, weather.stops.length - 1)}" stop-color="${colour}"/>`).join("")}</linearGradient>`
+  ).join("");
 
-  // the strip: eight bars, each as wide as it is full, wearing its own paint
-  const filed = weathers.reduce((s, w) => s + w.n, 0) || 1;
-  const stripX = 72, stripW = W - 144, stripY = 430, stripH = 26, gap = 6;
-  let x = stripX;
-  const defs = [], bars = [], labels = [];
-  weathers.forEach((w, k) => {
-    const bw = Math.max(10, (stripW - gap * (weathers.length - 1)) * (w.n / filed));
-    defs.push(`<linearGradient id="g${k}" x1="0" x2="1">${w.stops.map((c, i) => `<stop offset="${(i / Math.max(1, w.stops.length - 1)).toFixed(2)}" stop-color="${c}"/>`).join("")}</linearGradient>`);
-    bars.push(`<rect x="${x.toFixed(1)}" y="${stripY}" width="${bw.toFixed(1)}" height="${stripH}" rx="3" fill="url(#g${k})"/>`);
-    const label = `${w.name} ${w.n}`;
-    if (bw > label.length * 7.6) labels.push(`<text x="${(x + 2).toFixed(1)}" y="${stripY + stripH + 22}" font-family="Menlo, Consolas, monospace" font-size="12" letter-spacing="1" fill="#9aa0b4">${esc(label)}</text>`);
-    x += bw + gap;
-  });
-  const shown = [];
-  const half = Math.ceil(weathers.length / 2);
-  const row = (ws) => esc(ws.map((w) => `${w.name} ${w.n}`).join("   ·   "));
-  const why = `<text x="72" y="${stripY - 18}" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="17" fill="#b9b3a6">${esc(byFull[0].name)} — ${esc((map.weathers.find((w) => w.name === byFull[0].name) || {}).why || "")}</text>`;
-  const legend = `<text x="72" y="${stripY + stripH + 24}" font-family="Menlo, Consolas, monospace" font-size="12" letter-spacing="1" fill="#9aa0b4">${row(weathers.slice(0, half))}</text>
-  <text x="72" y="${stripY + stripH + 46}" font-family="Menlo, Consolas, monospace" font-size="12" letter-spacing="1" fill="#9aa0b4">${row(weathers.slice(half))}</text>`;
-
-  const counts = [["things", total], ["makers", makers.size + (own.length ? 1 : 0)], ["languages", tongues], ["weathers", weathers.length]];
-  const countsSvg = counts.map(([k, v], i) =>
-    `<text x="${72 + i * 150}" y="566" font-family="Menlo, Consolas, monospace" font-size="12" letter-spacing="2" fill="#7f8699">${k.toUpperCase()}</text>` +
-    `<text x="${72 + i * 150}" y="598" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#ece6d9">${v}</text>`).join("");
+  const totalFiled = weathers.reduce((sum, weather) => sum + weather.count, 0) || 1;
+  const available = 452;
+  const gap = 5;
+  let x = 60;
+  const bars = weathers.map((weather, index) => {
+    const width = Math.max(9, (available - gap * (weathers.length - 1)) * weather.count / totalFiled);
+    const bar = `<rect x="${x.toFixed(1)}" y="524" width="${width.toFixed(1)}" height="13" rx="6.5" fill="url(#g${index})"/>`;
+    x += width + gap;
+    return bar;
+  }).join("");
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <defs>${defs.join("")}
-    <radialGradient id="glow" cx="0.85" cy="0.1" r="0.9"><stop offset="0" stop-color="#ff9bc0" stop-opacity="0.14"/><stop offset="1" stop-color="#ff9bc0" stop-opacity="0"/></radialGradient>
+  <title>what i love, and what it says about me.</title>
+  <defs>
+    ${definitions}
+    <pattern id="paper" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M4 8h1M31 17h1M17 39h1M44 31h1" stroke="#746757" stroke-opacity=".11" stroke-width=".7"/>
+      <path d="M8 27c8-2 15-2 24 0M22 6c4 7 5 14 3 20" fill="none" stroke="#9b8b75" stroke-opacity=".04" stroke-width=".8"/>
+    </pattern>
+    <clipPath id="art"><rect x="586" y="54" width="554" height="480" rx="2"/></clipPath>
   </defs>
-  <rect width="${W}" height="${H}" fill="#131a2b"/>
-  <rect width="${W}" height="${H}" fill="url(#glow)"/>
-  <text x="72" y="118" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="84" fill="#ece6d9">eidos</text>
-  <text x="290" y="118" font-family="Menlo, Consolas, monospace" font-size="14" letter-spacing="3" fill="#ff9bc0">WHAT DMYTRO KLOCHKO LOVES</text>
-  <g font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#d9d4c8">
-    ${lines.map((l, i) => `<text x="72" y="${172 + i * 33}">${esc(l)}</text>`).join("\n    ")}
+  <rect width="${W}" height="${H}" fill="#f2e2c9"/>
+  <rect width="${W}" height="${H}" fill="url(#paper)"/>
+  <circle cx="1104" cy="62" r="136" fill="none" stroke="#a8425d" stroke-width="2.5" opacity=".7"/>
+
+  <text x="60" y="78" font-family="Menlo, Consolas, monospace" font-size="14" letter-spacing="3" fill="#a8425d">A LIVING PORTRAIT, MADE FROM CHOICES</text>
+  <text x="60" y="158" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="64" fill="#292723">what i love,</text>
+  <text x="60" y="228" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="64" fill="#292723">and what it says</text>
+  <text x="60" y="298" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="64" fill="#292723">about me.</text>
+
+  <text x="60" y="405" font-family="Menlo, Consolas, monospace" font-size="15" letter-spacing="1" fill="#5d5449">${shelved.length} real things · ${languages} languages · ${weathers.length} weathers</text>
+  <text x="60" y="449" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#5d5449">a public taste, still changing.</text>
+  ${bars}
+  <text x="60" y="575" font-family="Menlo, Consolas, monospace" font-size="13" letter-spacing="2" fill="#a8425d">DMKLOCHKO.COM/EIDOS</text>
+
+  <g clip-path="url(#art)">
+    <image href="data:image/jpeg;base64,${hero}" x="586" y="54" width="554" height="480" preserveAspectRatio="xMidYMid meet"/>
   </g>
-  ${bars.join("")}
-  ${shown.join("")}
-  ${why}
-  ${legend}
-  ${countsSvg}
-  <text x="${W - 72}" y="598" text-anchor="end" font-family="Menlo, Consolas, monospace" font-size="13" letter-spacing="2" fill="#7f8699">DMKLOCHKO.COM/EIDOS</text>
+  <path d="M586 558h554" stroke="#a8425d" stroke-opacity=".4"/>
+  <text x="586" y="585" font-family="Menlo, Consolas, monospace" font-size="13" letter-spacing="2" fill="#5d5449">faun notices · gryphon remembers</text>
 </svg>`;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const map = JSON.parse(readFileSync("src/data/map.json", "utf8"));
-  const palettes = JSON.parse(readFileSync("src/data/palettes.json", "utf8"));
+  const map = JSON.parse(readFileSync(path.join(root, "src/data/map.json"), "utf8"));
+  const palettes = JSON.parse(readFileSync(path.join(root, "src/data/palettes.json"), "utf8"));
   const svg = compose(map, palettes);
-  await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toFile("public/og-eidos.png");
-  const m = await sharp("public/og-eidos.png").metadata();
-  console.log(`og-eidos.png → ${m.width}x${m.height}, from ${map.items.filter((i) => i.type !== "link").length} shelved marks`);
+  await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toFile(path.join(root, "public/og-eidos.png"));
+  const metadata = await sharp(path.join(root, "public/og-eidos.png")).metadata();
+  console.log(`og-eidos.png → ${metadata.width}x${metadata.height}, from ${map.items.filter((item) => item.type !== "link").length} shelved marks`);
 }
