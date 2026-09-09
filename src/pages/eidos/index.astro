@@ -15,10 +15,30 @@ const profile = buildProfile(map, palettes);
 const visuals = profile.collection.filter((item: any) => item.src);
 const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
 const dimensions: Record<string, { width: number; height: number }> = {};
+const dominantColors: Record<string, { hex: string; key: number }> = {};
+const hueKey = (red: number, green: number, blue: number) => {
+  const [r, g, b] = [red, green, blue].map((value) => value / 255);
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const lightness = (max + min) / 2;
+  const delta = max - min;
+  if (delta < 0.08) return 720 + Math.round(lightness * 100);
+  let hue = max === r ? ((g - b) / delta) % 6 : max === g ? (b - r) / delta + 2 : (r - g) / delta + 4;
+  hue = Math.round(hue * 60); if (hue < 0) hue += 360;
+  return hue;
+};
 for (const item of visuals) {
   try {
-    const metadata = await sharp(path.join(process.cwd(), "public", plateFor(item.src))).metadata();
+    const image = sharp(path.join(process.cwd(), "public", plateFor(item.src)));
+    const [metadata, stats] = await Promise.all([
+      image.metadata(),
+      image.clone().resize({ width: 64, height: 64, fit: "inside" }).stats(),
+    ]);
     if (metadata.width && metadata.height) dimensions[item.id] = { width: metadata.width, height: metadata.height };
+    const { r, g, b } = stats.dominant;
+    dominantColors[item.id] = {
+      hex: `#${[r, g, b].map((value) => value.toString(16).padStart(2, "0")).join("")}`,
+      key: hueKey(r, g, b),
+    };
   } catch {}
 }
 
@@ -34,7 +54,7 @@ const ogVersion = createHash("sha1")
   <div class="eidos-product">
     <EidosHeader current="moodboard" />
     <EidosHero />
-    <EidosMoodboard items={visuals} dimensions={dimensions} />
+    <EidosMoodboard items={visuals} dimensions={dimensions} colors={dominantColors} />
 
     <section class="ep-make-yours" aria-labelledby="make-yours-title">
       <div>

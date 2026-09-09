@@ -90,6 +90,20 @@ test("the product opens as one visual moodboard with plain doors", () => {
   assert.doesNotMatch(html, /\b(?:01|02|03) ·/);
 });
 
+test("the moodboard can become a salon, a color field, or an absolute-favorites shelf", () => {
+  const page = read("src/pages/eidos/index.astro");
+  const moodboard = read("src/components/eidos/EidosMoodboard.astro");
+  assert.match(page, /dominantColors/);
+  assert.match(page, /<EidosMoodboard[^>]*colors=\{dominantColors\}/);
+  for (const view of ["salon", "color", "favorites"]) {
+    assert.match(moodboard, new RegExp(`data-mood-view="${view}"`), `missing ${view} view`);
+  }
+  assert.match(moodboard, /data-color-key=\{colors\[item\.id\]/);
+  assert.match(moodboard, /data-favorite=\{item\.favorite/);
+  assert.match(moodboard, /grid\.append\(\.\.\.ordered\)/);
+  assert.match(moodboard, /nothing has been marked absolute yet/);
+});
+
 test("words remain intact on their own quiet page", () => {
   const html = read("dist/eidos/words/index.html");
   const map = JSON.parse(read("src/data/map.json"));
