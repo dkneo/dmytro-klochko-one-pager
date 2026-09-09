@@ -24,6 +24,7 @@ const measured = items.filter((item: any) => item.heightCm && item.widthCm);
     <button type="button" data-mood-view="scale" aria-pressed="false">physical scale <small>{measured.length}</small></button>
     <a href="/eidos/places">where they live</a>
   </div>
+  <p class="ep-scale-note" data-scale-note hidden>actual proportions · 1 px = 1 cm · scroll the wall →</p>
 
   <div class="ep-mood-grid">
     <div class="ep-scale-ruler" data-scale-ruler hidden aria-label="height reference from zero to two metres">
@@ -85,6 +86,7 @@ const measured = items.filter((item: any) => item.heightCm && item.widthCm);
     const grid = root.querySelector(".ep-mood-grid");
     const pieces = [...root.querySelectorAll("[data-visual-piece]")];
     const ruler = root.querySelector("[data-scale-ruler]");
+    const scaleNote = root.querySelector("[data-scale-note]");
     const reduce = matchMedia("(prefers-reduced-motion: reduce)");
     const arrange = (view, button) => {
       const paint = () => {
@@ -97,6 +99,7 @@ const measured = items.filter((item: any) => item.heightCm && item.widthCm);
             || (view === "scale" && !piece.dataset.heightCm);
         });
         ruler.hidden = view !== "scale";
+        scaleNote.hidden = view !== "scale";
         root.dataset.view = view;
         root.querySelector("[data-mood-empty]").hidden = view !== "favorites" || pieces.some((piece) => piece.dataset.favorite === "true");
         root.querySelectorAll("[data-mood-view]").forEach((choice) => choice.setAttribute("aria-pressed", String(choice === button)));

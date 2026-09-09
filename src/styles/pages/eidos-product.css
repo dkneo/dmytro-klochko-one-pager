@@ -309,6 +309,14 @@ html[data-eidos-product] body {
 .ep-mood-views button:focus-visible,
 .ep-mood-views button[aria-pressed="true"] { color: var(--ep-ink); border-color: var(--ep-raspberry); }
 .ep-mood-views button:focus-visible { outline: 2px solid var(--ep-raspberry); outline-offset: 3px; }
+.ep-scale-note {
+  margin: -1rem 0 0;
+  color: var(--ep-quiet);
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+}
+.ep-scale-note[hidden] { display: none; }
 
 .ep-mood-grid { columns: 5 14rem; column-gap: clamp(0.8rem, 1.4vw, 1.35rem); }
 .ep-moodboard[data-view="color"] .ep-mood-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(0.65rem, 1.1vw, 1rem); }

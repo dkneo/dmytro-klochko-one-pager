@@ -122,6 +122,7 @@ test("the moodboard exposes physical scale and quiet museum labels", () => {
   assert.match(moodboard, /data-height-cm=\{item\.heightCm/);
   assert.match(moodboard, /data-width-cm=\{item\.widthCm/);
   assert.match(moodboard, /ep-visual-location/);
+  assert.match(moodboard, /1 px = 1 cm/);
   assert.match(html, /href="\/eidos\/places"/);
 });
 
