@@ -93,6 +93,30 @@
 .eidos-studio .in-shelf strong { color: var(--ep-ink); font-weight: 600; }
 .eidos-studio .in-shelf small { color: var(--ep-quiet); font: inherit; line-height: 1.55; }
 
+.eidos-studio .in-filters { display: grid; gap: 0.12rem; }
+.eidos-studio .in-filters .in-label { margin-bottom: 0.45rem; }
+.eidos-studio .in-filters button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 30px;
+  padding: 0.2rem 0;
+  color: var(--ep-quiet);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  font: inherit;
+  font-size: 0.67rem;
+  text-align: left;
+  cursor: pointer;
+}
+.eidos-studio .in-filters button b { color: var(--ep-quiet); font-weight: 400; font-variant-numeric: tabular-nums; }
+.eidos-studio .in-filters button:hover { color: var(--ep-ink); }
+.eidos-studio .in-filters button[aria-pressed="true"] { color: var(--ep-ink); border-color: var(--ep-raspberry); }
+.eidos-studio .in-filters button[aria-pressed="true"] b { color: var(--ep-raspberry); }
+.eidos-studio .in-filters small { margin-top: 0.65rem; color: var(--ep-quiet); font-size: 0.6rem; line-height: 1.5; }
+
 .eidos-studio .in-add { border-top: 1px solid var(--ep-rule); padding-top: 1rem; }
 .eidos-studio .in-add summary {
   display: flex;
@@ -275,6 +299,32 @@
 .eidos-studio .in-edge { position: absolute; top: 1.6rem; z-index: 3; padding: 0.35rem 0.55rem; border: 2px solid; opacity: 0; pointer-events: none; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
 .eidos-studio .in-edge--in { right: 1.5rem; color: var(--ep-raspberry); transform: rotate(6deg); }
 .eidos-studio .in-edge--out { left: 1.5rem; color: var(--ep-ink); transform: rotate(-6deg); }
+.eidos-studio .in-favorite-stamp {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  z-index: 4;
+  display: grid;
+  gap: 0.12rem;
+  min-width: 9rem;
+  padding: 0.55rem 0.75rem;
+  color: var(--ep-raspberry);
+  background: color-mix(in srgb, var(--ep-paper-light) 88%, transparent);
+  border: 3px double currentColor;
+  font-family: var(--mono);
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-7deg) scale(1.45);
+  pointer-events: none;
+}
+.eidos-studio .in-favorite-stamp b { font-size: 0.78rem; letter-spacing: 0.17em; }
+.eidos-studio .in-favorite-stamp small { font-size: 0.52rem; letter-spacing: 0.1em; }
+.eidos-studio .in-card.is-favorite .in-favorite-stamp { animation: favorite-press 440ms cubic-bezier(0.18, 0.8, 0.24, 1) both; }
+@keyframes favorite-press {
+  0% { opacity: 0; transform: translate(-50%, -50%) rotate(-7deg) scale(1.45); }
+  42%, 78% { opacity: 1; transform: translate(-50%, -50%) rotate(-7deg) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) rotate(-7deg) scale(0.98); }
+}
 
 .eidos-studio .in-do { display: flex; justify-content: center; gap: 0.5rem; margin: 1.2rem 0 0; }
 .eidos-studio .in-btn {
@@ -292,6 +342,9 @@
 .eidos-studio .in-btn--pass:hover { color: var(--ep-paper-light); background: var(--ep-ink); }
 .eidos-studio .in-btn--keep { color: var(--ep-paper-light); background: var(--ep-raspberry); border-color: var(--ep-raspberry); }
 .eidos-studio .in-btn--keep:hover { background: var(--ep-salmon); border-color: var(--ep-salmon); }
+.eidos-studio .in-btn--favorite { color: var(--ep-ink); background: color-mix(in srgb, var(--ep-orange) 24%, var(--ep-paper-light)); border-color: color-mix(in srgb, var(--ep-orange) 70%, var(--ep-rule)); }
+.eidos-studio .in-btn--favorite:hover { color: var(--ep-paper-light); background: var(--ep-ink); border-color: var(--ep-ink); }
+.eidos-studio .in-btn--favorite span { color: var(--ep-raspberry); }
 .eidos-studio .in-btn:disabled { opacity: 0.32; cursor: default; }
 .eidos-studio .in-note { margin: 2rem 0; color: var(--ep-quiet); line-height: 1.5; }
 
@@ -369,6 +422,37 @@
 .eidos-studio .in-keys dd { color: var(--ep-quiet); }
 .eidos-studio .in-keys form { display: flex; justify-content: flex-end; margin-top: 1.5rem; }
 
+.eidos-studio .in-comparison {
+  width: min(60rem, calc(100% - 3rem));
+  margin: auto;
+  padding: 1.5rem;
+  color: var(--ep-ink);
+  background: var(--ep-paper-light);
+  border: 1px solid var(--ep-rule);
+  border-radius: var(--r-print);
+  box-shadow: 0 30px 100px rgb(41 39 35 / 35%);
+}
+.eidos-studio .in-comparison::backdrop { background: rgb(41 39 35 / 62%); backdrop-filter: blur(5px); }
+.eidos-studio .in-comparison h2 { margin: 0.35rem 0 0; font-family: var(--display, "Zodiak", var(--serif)); font-size: clamp(2.4rem, 4vw, 4.2rem); font-weight: 300; line-height: 1; }
+.eidos-studio .in-comparison > p:not(.in-label) { margin: 0.6rem 0 1.25rem; color: var(--ep-quiet); }
+.eidos-studio .in-comparison-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.eidos-studio .in-comparison-pair button {
+  display: grid;
+  grid-template-rows: minmax(17rem, 52svh) auto;
+  gap: 0.65rem;
+  padding: 0.75rem;
+  color: var(--ep-ink);
+  background: var(--ep-paper);
+  border: 1px solid var(--ep-rule);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  text-align: left;
+  cursor: pointer;
+}
+.eidos-studio .in-comparison-pair button:hover { border-color: var(--ep-raspberry); transform: translateY(-2px); }
+.eidos-studio .in-comparison-pair img { width: 100%; height: 100%; min-height: 0; object-fit: contain; background: var(--ep-paper-light); }
+.eidos-studio .in-comparison-skip { display: block; margin: 1rem 0 0 auto; padding: 0.45rem; color: var(--ep-quiet); background: transparent; border: 0; font-family: var(--mono); font-size: 0.65rem; cursor: pointer; }
+
 @media (max-width: 1080px) {
   .eidos-studio .in-workbench { grid-template-columns: 9rem minmax(27rem, 1fr); }
 }
@@ -381,12 +465,19 @@
   .eidos-studio .in-workbench { grid-template-columns: 1fr; }
   .eidos-studio .in-rail, .eidos-studio .in-note-panel { position: static; min-height: 0; }
   .eidos-studio .in-rail { grid-template-columns: 1fr 1fr; border-right: 0; border-bottom: 1px solid var(--ep-rule); }
+  .eidos-studio .in-filters { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); gap: 0.25rem 0.75rem; }
+  .eidos-studio .in-filters .in-label, .eidos-studio .in-filters small { grid-column: 1 / -1; }
   .eidos-studio .in-history { display: none; }
 }
 
 @media (max-width: 680px) {
   .eidos-studio .in-add summary { align-items: center; min-height: 44px; }
   .eidos-studio .in-btn { min-height: 44px; }
+  .eidos-studio .in-do { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .eidos-studio .in-btn--keys { position: absolute; right: 0; bottom: calc(100% + 0.75rem); }
+  .eidos-studio .in-comparison { width: calc(100% - 1rem); padding: 1rem; }
+  .eidos-studio .in-comparison-pair { grid-template-columns: 1fr; }
+  .eidos-studio .in-comparison-pair button { grid-template-rows: minmax(12rem, 31svh) auto; }
   .eidos-studio .in-btn--undo kbd,
   .eidos-studio .in-btn--keys,
   .eidos-studio .in-say-hint { display: none; }
@@ -400,6 +491,7 @@
   .eidos-studio .in-feedback { display: none; }
   .eidos-studio .in-link-loader { display: none; }
   .eidos-studio .in-plate-loader .in-register-ring { animation: none; }
+  .eidos-studio .in-card.is-favorite .in-favorite-stamp { animation: none; opacity: 1; transform: translate(-50%, -50%) rotate(-7deg); }
 }
 
 /* The inbox predates the product shell and still carries scoped component

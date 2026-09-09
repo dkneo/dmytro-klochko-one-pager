@@ -142,6 +142,21 @@ test("the studio holds every non-visual outside the current queue", () => {
   assert.match(source, /slice\(-5\)/);
 });
 
+test("the visual Studio has shelves, an absolute favorite, and a comparison ritual", () => {
+  const source = read("src/pages/eidos/inbox.astro");
+  assert.match(source, /data-queue-filter=\{shelf\.id\}/);
+  for (const shelf of ["paintings", "prints", "objects", "photography", "people"]) {
+    assert.match(source, new RegExp(`id: "${shelf}"`), `missing ${shelf} shelf`);
+  }
+  assert.match(source, /id="favorite"[^>]*aria-keyshortcuts="f"/);
+  assert.match(source, /absolute favorite<\/button>/);
+  assert.match(source, /id="comparison"/);
+  assert.match(source, /positiveThis\.length\s*>=\s*12/);
+  assert.match(source, /fetch\("\/api\/eidos\/pair"/);
+  assert.match(source, /weather:\s*"overall"/);
+  assert.match(source, /send\(cand, "favorite", cand\.weather\)/);
+});
+
 test("the studio keeps reaction clips but loads a plate without a mascot overlay", () => {
   const html = read("dist/eidos/inbox/index.html");
   const css = read("src/styles/pages/eidos-studio.css");

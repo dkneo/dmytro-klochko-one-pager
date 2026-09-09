@@ -7,7 +7,7 @@
 // file, and none of them forgive a surprise.
 
 /** The markdown for a kept mark. `src` must already be local. */
-export function paintingNote(c, { weather, src, added, say }) {
+export function paintingNote(c, { weather, src, added, say, favorite = false }) {
   if (!src || !src.startsWith("/")) {
     throw new Error(`a note needs a local src, got ${JSON.stringify(src)}`);
   }
@@ -23,6 +23,7 @@ export function paintingNote(c, { weather, src, added, say }) {
     c.source ? `source: "${c.source}"` : "",
     c.licence ? `licence: ${c.licence}` : "",
     weather ? `weather: ${weather}` : "",
+    favorite ? "favorite: true" : "",
     `added: ${added}`,
   ].filter(Boolean);
 

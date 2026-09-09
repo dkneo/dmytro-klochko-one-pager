@@ -499,16 +499,17 @@ async function eidosWrite(request, env, url) {
   }
   if (url.pathname.endsWith("/verdict")) {
     const { id, verdict, weather, say } = body || {};
-    if (!id || (verdict !== "keep" && verdict !== "pass")) {
-      return json({ error: "id and verdict:keep|pass required" }, 400);
+    if (!id || !["keep", "pass", "favorite"].includes(verdict)) {
+      return json({ error: "id and verdict:keep|pass|favorite required" }, 400);
     }
     const seen = (await env.VAULT.get("eidos:verdicts", "json")) || {};
     // his line, in his words, travels with the verdict and opens the note
     const line = String(say || "").trim().slice(0, 600);
     seen[id] = { verdict, weather: weather || "", at: now, ...(line ? { say: line } : {}) };
     await env.VAULT.put("eidos:verdicts", JSON.stringify(seen));
-    const kept = Object.values(seen).filter((v) => v.verdict === "keep").length;
-    return json({ ok: true, judged: Object.keys(seen).length, kept });
+    const kept = Object.values(seen).filter((v) => v.verdict === "keep" || v.verdict === "favorite").length;
+    const favorites = Object.values(seen).filter((v) => v.verdict === "favorite").length;
+    return json({ ok: true, judged: Object.keys(seen).length, kept, favorites });
   }
   if (url.pathname.endsWith("/portrait")) {
     const { axes, kept, seen } = body || {};

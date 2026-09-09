@@ -141,6 +141,7 @@ for (const kind of ["paintings", "objects", "buildings", "posters", "prints", "p
       url: fm.url || "",
       note: fm.note || "",
       added: fm.added || "",
+      ...(fm.favorite === "true" ? { favorite: true } : {}),
       ...(fm.type === "quote" && fm.english ? { english: String(fm.english).trim() } : {}),
       ...(fm.type === "poem" && fm.english
         ? { original: body.split("\n").filter((l) => !/^\s*(weather:|who:|!\[\[)/.test(l)).join("\n").trim(),

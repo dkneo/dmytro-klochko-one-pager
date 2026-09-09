@@ -49,6 +49,22 @@ test("the duplicate orbit walks to the atlas", async () => {
   }
 });
 
+test("an absolute favorite is a first-class positive verdict", async () => {
+  const bindings = env();
+  const cookie = await login(bindings);
+  const r = await worker.fetch(new Request("https://dmklochko.com/api/eidos/verdict", {
+    method: "POST",
+    headers: { "content-type": "application/json", cookie },
+    body: JSON.stringify({ id: "painting-one", verdict: "favorite", weather: "nerve" }),
+  }), bindings);
+  assert.equal(r.status, 200);
+  const result = await r.json();
+  assert.equal(result.favorites, 1);
+  assert.equal(result.kept, 1, "favorites belong in the kept total");
+  const stored = JSON.parse(bindings._store["eidos:verdicts"]);
+  assert.equal(stored["painting-one"].verdict, "favorite");
+});
+
 test("the inbox is his: adding and listing both need the door", async () => {
   const bindings = env();
   const add = await worker.fetch(new Request("https://dmklochko.com/api/eidos/bookmark", {

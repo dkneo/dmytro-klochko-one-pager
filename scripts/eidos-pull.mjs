@@ -96,7 +96,7 @@ for (const [id, v] of Object.entries(placed)) {
 // proposed weather is only used because he saw it on the card and kept it
 // anyway, which is an answer.
 const inbox = JSON.parse(readFileSync("public/inbox.json", "utf8")).candidates || [];
-const kept = Object.entries(verdicts).filter(([, v]) => v.verdict === "keep");
+const kept = Object.entries(verdicts).filter(([, v]) => v.verdict === "keep" || v.verdict === "favorite");
 const born = [];
 for (const [id, v] of kept) {
   const c = inbox.find((x) => x.id === id);
@@ -133,6 +133,7 @@ for (const [id, v] of kept) {
     src,
     added: new Date().toISOString().slice(0, 10),
     say: v.say,
+    favorite: v.verdict === "favorite",
   }));
 }
 if (apply && born.some((b) => b.startsWith("  +"))) {
@@ -146,7 +147,7 @@ if (apply && born.some((b) => b.startsWith("  +"))) {
 const bookmarks = kv("eidos:bookmarks") || {};
 for (const [id, b] of Object.entries(bookmarks)) {
   const v = verdicts[id];
-  if (!v || v.verdict !== "keep") continue;
+  if (!v || (v.verdict !== "keep" && v.verdict !== "favorite")) continue;
   const file = `vault/bookmarks/${id}.md`;
   if (existsSync(file)) { born.push(`  = ${id}: already a note`); continue; }
   born.push(`  + ${id} → ${b.site || "link"}, ${b.title || b.url}${b.summary ? "" : " (no summary yet)"}`);

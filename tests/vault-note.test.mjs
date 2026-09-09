@@ -90,6 +90,14 @@ test("a kept print, poster or photograph keeps its own kind", async () => {
   }
 });
 
+test("an absolute favorite stays marked when it becomes a vault note", () => {
+  const note = paintingNote(
+    { type: "painting", who: "x", title: "y" },
+    { weather: "nerve", src: "/images/vault/favorite.webp", added: "2026-09-09", favorite: true },
+  );
+  assert.match(note, /^favorite: true$/m);
+});
+
 test("a kept word is filed as the note it arrived as, dated, and joined to its room", async () => {
   const { wordNote } = await import("../scripts/lib/vault-note.mjs");
   const raw = "---\ntype: quote\nwho: Horace\nwhere: Odes 1.11\nadded: {{added}}\nenglish: |-\n  Seize the day.\n---\n\ncarpe diem.\n\nwho: [[Horace]]\n";
