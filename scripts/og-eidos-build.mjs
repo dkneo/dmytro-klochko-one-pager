@@ -14,37 +14,11 @@ const hero = (await sharp(path.join(root, "public/images/eidos/product/hero-desk
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 export function compose(map, palettes) {
-  const shelved = map.items.filter((item) => item.type !== "link");
-  const weathers = map.weathers
-    .slice()
-    .sort((a, b) => a.x - b.x)
-    .map((weather) => ({
-      ...weather,
-      count: shelved.filter((item) => item.weather === weather.name).length,
-      stops: palettes.palettes.find((palette) => palette.weather === weather.name)?.stops || ["#a8425d"],
-    }));
-  const languages = new Set(shelved.map((item) => item.lang).filter(Boolean)).size;
-
-  const definitions = weathers.map((weather, index) =>
-    `<linearGradient id="g${index}" x1="0" x2="1">${weather.stops.map((colour, stop) =>
-      `<stop offset="${stop / Math.max(1, weather.stops.length - 1)}" stop-color="${colour}"/>`).join("")}</linearGradient>`
-  ).join("");
-
-  const totalFiled = weathers.reduce((sum, weather) => sum + weather.count, 0) || 1;
-  const available = 452;
-  const gap = 5;
-  let x = 60;
-  const bars = weathers.map((weather, index) => {
-    const width = Math.max(9, (available - gap * (weathers.length - 1)) * weather.count / totalFiled);
-    const bar = `<rect x="${x.toFixed(1)}" y="524" width="${width.toFixed(1)}" height="13" rx="6.5" fill="url(#g${index})"/>`;
-    x += width + gap;
-    return bar;
-  }).join("");
+  const visuals = map.items.filter((item) => item.type !== "link" && item.src);
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <title>what i love, and what it says about me.</title>
+  <title>a beautiful, endless moodboard of things i love.</title>
   <defs>
-    ${definitions}
     <pattern id="paper" width="48" height="48" patternUnits="userSpaceOnUse">
       <path d="M4 8h1M31 17h1M17 39h1M44 31h1" stroke="#746757" stroke-opacity=".11" stroke-width=".7"/>
       <path d="M8 27c8-2 15-2 24 0M22 6c4 7 5 14 3 20" fill="none" stroke="#9b8b75" stroke-opacity=".04" stroke-width=".8"/>
@@ -55,14 +29,16 @@ export function compose(map, palettes) {
   <rect width="${W}" height="${H}" fill="url(#paper)"/>
   <circle cx="1104" cy="62" r="136" fill="none" stroke="#a8425d" stroke-width="2.5" opacity=".7"/>
 
-  <text x="60" y="78" font-family="Menlo, Consolas, monospace" font-size="14" letter-spacing="3" fill="#a8425d">A LIVING PORTRAIT, MADE FROM CHOICES</text>
-  <text x="60" y="158" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="64" fill="#292723">what i love,</text>
-  <text x="60" y="228" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="64" fill="#292723">and what it says</text>
-  <text x="60" y="298" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="64" fill="#292723">about me.</text>
+  <text x="60" y="78" font-family="Menlo, Consolas, monospace" font-size="14" letter-spacing="3" fill="#a8425d">EIDOS · A LIVING MOODBOARD</text>
+  <text x="60" y="158" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="61" fill="#292723">a beautiful, endless</text>
+  <text x="60" y="225" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="61" fill="#292723">moodboard of things</text>
+  <text x="60" y="292" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="61" fill="#292723">i love.</text>
 
-  <text x="60" y="405" font-family="Menlo, Consolas, monospace" font-size="15" letter-spacing="1" fill="#5d5449">${shelved.length} real things · ${languages} languages · ${weathers.length} weathers</text>
-  <text x="60" y="449" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#5d5449">a public taste, still changing.</text>
-  ${bars}
+  <text x="60" y="405" font-family="Menlo, Consolas, monospace" font-size="15" letter-spacing="1" fill="#5d5449">${visuals.length} visual things · every one real · every one credited</text>
+  <text x="60" y="449" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#5d5449">paintings, photographs, people and objects.</text>
+  <path d="M60 524h452" stroke="#a8425d" stroke-width="3"/>
+  <circle cx="176" cy="524" r="8" fill="#ff9bc0"/>
+  <circle cx="354" cy="524" r="8" fill="#ff5f24"/>
   <text x="60" y="575" font-family="Menlo, Consolas, monospace" font-size="13" letter-spacing="2" fill="#a8425d">DMKLOCHKO.COM/EIDOS</text>
 
   <g clip-path="url(#art)">

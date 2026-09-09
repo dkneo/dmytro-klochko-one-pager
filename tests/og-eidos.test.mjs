@@ -17,11 +17,11 @@ test("the share card is composed from the same vault the page reads", async () =
   const map = JSON.parse(read("src/data/map.json"));
   const palettes = JSON.parse(read("src/data/palettes.json"));
   const svg = compose(map, palettes);
-  const shelved = map.items.filter((i) => i.type !== "link").length;
+  const visuals = map.items.filter((i) => i.type !== "link" && i.src).length;
 
-  assert.ok(svg.includes(`${shelved} real things`), "the card counts something other than the library");
-  assert.equal((svg.match(/fill="url\(#g\d+\)"/g) || []).length, map.weathers.length, "one bar per weather");
-  assert.match(svg, /what i love, and what it says about me\./);
+  assert.ok(svg.includes(`${visuals} visual things`), "the card counts something other than the moodboard");
+  assert.doesNotMatch(svg, /languages|weathers|url\(#g\d+\)/i);
+  assert.match(svg, /a beautiful, endless moodboard/);
   assert.match(svg, /faun notices · gryphon remembers/);
   assert.match(svg, /data:image\/jpeg;base64,/);
   assert.match(svg, /#f2e2c9/);
