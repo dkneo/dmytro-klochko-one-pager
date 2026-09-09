@@ -158,9 +158,10 @@ test("the mobile product keeps its doors visible without loading two hero films"
   const header = read("src/components/eidos/EidosHeader.astro");
   const hero = read("src/components/eidos/EidosHero.astro");
   const css = read("src/styles/pages/eidos-product.css");
+  const tablet = css.split("@media (max-width: 980px)")[1].split("@media (max-width: 680px)")[0];
 
   assert.match(header, /ep-parent-mobile[^>]*>site</);
-  assert.match(css, /@media \(max-width: 680px\)[\s\S]*?\.ep-nav \{[\s\S]*?display: flex;/);
+  assert.match(tablet, /\.ep-nav \{[\s\S]*?display: flex;/);
   assert.equal((hero.match(/class="ep-hero-video"/g) || []).length, 1);
   assert.match(hero, /media="\(max-width: 680px\)"[^>]*hero-ambient-mobile\.webm/);
 });
@@ -173,4 +174,12 @@ test("the mobile workbench removes desktop-only hints and preserves generous con
   assert.match(studio, /@media \(max-width: 680px\)[\s\S]*?\.in-say-hint \{\s*display: none;/);
   assert.match(atlas, /@media \(max-width: 700px\)[\s\S]*?\.em-chip \{\s*min-height: 44px;/);
   assert.match(product, /\.ep-makers li \{[^}]*display: inline-flex;[^}]*gap:/);
+});
+
+test("the portrait tablet keeps the product map instead of collapsing to an exit", () => {
+  const css = read("src/styles/pages/eidos-product.css");
+  const tablet = css.split("@media (max-width: 980px)")[1].split("@media (max-width: 680px)")[0];
+  assert.match(tablet, /grid-template-rows: 3\.75rem 2\.75rem;/);
+  assert.match(tablet, /\.ep-nav \{[\s\S]*?display: flex;/);
+  assert.doesNotMatch(tablet, /\.ep-nav \{\s*display: none;/);
 });
