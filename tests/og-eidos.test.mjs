@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
@@ -30,9 +31,10 @@ test("the share card is composed from the same vault the page reads", async () =
 });
 
 test("the card ships at social size and the page points at this build of it", async () => {
-  const m = await sharp(path.join(root, "public/og-eidos.png")).metadata();
+  const card = fs.readFileSync(path.join(root, "public/og-eidos.png"));
+  const m = await sharp(card).metadata();
   assert.equal(`${m.width}x${m.height}`, "1200x628");
-  const map = JSON.parse(read("src/data/map.json"));
-  assert.match(read("dist/eidos/index.html"), new RegExp(`og-eidos\\.png\\?v=${map.built}`), "the og url does not carry the map's build date, so caches will show a stale card");
+  const version = createHash("sha1").update(card).digest("hex").slice(0, 10);
+  assert.match(read("dist/eidos/index.html"), new RegExp(`og-eidos\\.png\\?v=${version}`), "the og url does not carry the image's content hash, so same-day edits stay stale");
   assert.match(read("package.json"), /og-eidos-build\.mjs/, "the card is not part of the build");
 });

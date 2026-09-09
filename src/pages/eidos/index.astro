@@ -1,4 +1,6 @@
 ---
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
 import EidosLayout from "../../layouts/EidosLayout.astro";
@@ -25,9 +27,13 @@ for (const item of profile.collection) {
 
 const title = "eidos · a living portrait of dmytro's taste";
 const description = "paintings, poems, songs, people and objects kept by dmytro klochko, and the patterns they leave behind.";
+const ogVersion = createHash("sha1")
+  .update(readFileSync(path.join(process.cwd(), "public", "og-eidos.png")))
+  .digest("hex")
+  .slice(0, 10);
 ---
 
-<EidosLayout title={title} description={description} ogImage={`/og-eidos.png?v=${map.built}`}>
+<EidosLayout title={title} description={description} ogImage={`/og-eidos.png?v=${ogVersion}`}>
   <div class="eidos-product">
     <EidosHeader current="portrait" />
     <EidosHero />
