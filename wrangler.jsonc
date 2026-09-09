@@ -10,9 +10,21 @@
     "directory": "./dist",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
-    // The request desk is gated by the worker. Without this, the asset server
-    // answers /ask/ directly and the password is decorative.
-    "run_worker_first": ["/ask", "/ask/*", "/api/ask/*", "/scout", "/scout/*"]
+    // Every path the worker owns must be listed here. The asset layer runs
+    // first for anything else, and with a 404 page in dist it answers an
+    // unknown path itself — the worker never sees it. On 8 Sep 2026 a 404
+    // page shipped and /names, /eidos/sit and every /api/* door returned the
+    // 404 page for fifteen hours. tests/pages.test.mjs pins this list against
+    // the routes in worker/index.js; scripts/ship.sh knocks on the doors after
+    // every deploy.
+    "run_worker_first": [
+      "/names", "/names/*",
+      "/ask", "/ask/*", "/api/ask/*",
+      "/scout", "/scout/*",
+      "/api/*",
+      "/eidos/sit", "/eidos/sit/",
+      "/curate", "/curate/*"
+    ]
   },
   "kv_namespaces": [
     {

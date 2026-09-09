@@ -265,3 +265,15 @@ test("every route carries the four security headers; nothing forbids framing the
   }
   assert.doesNotMatch(headers, /X-Frame-Options|frame-ancestors/, "the embed could not be framed");
 });
+
+// ── the worker sees its own doors ────────────────────────────────────────
+test("every path the worker owns runs the worker first", () => {
+  const cfg = read("wrangler.jsonc").replace(/^\s*\/\/.*$/gm, "");
+  const list = JSON.parse(cfg.match(/"run_worker_first":\s*(\[[\s\S]*?\])/)[1]);
+  const covers = (p) => list.some((g) => g === p || (g.endsWith("/*") && p.startsWith(g.slice(0, -1))) || (g.endsWith("*") && p.startsWith(g.slice(0, -1))));
+  for (const p of ["/names", "/names/old", "/names/ii", "/ask", "/ask/x", "/api/ask/x", "/scout", "/scout/x", "/api/eidos/verdict", "/api/eidos/bookmark", "/api/curate/queue", "/eidos/sit", "/curate"]) {
+    assert.ok(covers(p), `the asset layer would answer ${p} before the worker`);
+  }
+  // and a 404 page exists, which is exactly why the list matters
+  assert.ok(fs.existsSync("dist/404.html"));
+});

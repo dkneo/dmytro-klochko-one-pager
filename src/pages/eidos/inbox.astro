@@ -652,6 +652,10 @@ const description = "throw a link in; judge what waits. the door to the library.
             body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather || "", say: say || "" }),
           });
           if (r.status === 401) { shutOut({ cand, verdict, weather, say }); return false; }
+          if (!r.ok) {
+            noteLine.hidden = false;
+            noteLine.textContent = `that one did not reach the vault (the server said ${r.status}). undo brings it back; try again in a moment.`;
+          }
           return r.ok;
         } catch {
           noteLine.hidden = false;
