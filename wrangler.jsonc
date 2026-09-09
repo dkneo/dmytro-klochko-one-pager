@@ -19,7 +19,7 @@
     // every deploy.
     "run_worker_first": [
       "/names", "/names/*",
-      "/ask", "/ask/*", "/api/ask/*",
+      "/ask", "/ask/*",
       "/scout", "/scout/*",
       "/api/*",
       "/eidos/sit", "/eidos/sit/",
