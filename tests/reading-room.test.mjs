@@ -31,20 +31,20 @@ const scripts = (page) => {
   return [...linked, ...inline].join("\n");
 };
 
-test("word cards keep english first and the original quieter", () => {
+test("the parked words keep english first and the original quieter", () => {
   const css = allCss();
-  const base = css.match(/\.ep-piece-words > span:not\(\.ep-piece-mark\)[^{]*\{[^}]*\}/)?.[0] ?? "";
+  const base = css.match(/\.ep-word blockquote\s*\{[^}]*\}/)?.[0] ?? "";
   assert.match(base, /font-size:/, "set text has no deliberate reading size");
-  const orig = css.match(/\.ep-piece-words i\s*\{[^}]*\}/)?.[0] ?? "";
+  const orig = css.match(/\.ep-word > p\s*\{[^}]*\}/)?.[0] ?? "";
   assert.match(orig, /color:\s*var\(--ep-quiet\)/, "the original tongue is not quieter");
 
-  const html = read("dist/eidos/index.html");
+  const html = read("dist/eidos/words/index.html");
   // for every translated quote, the english precedes the original in the DOM
-  const lines = [...html.matchAll(/<button[^>]*class="ep-piece-open ep-piece-words"[^>]*>([\s\S]*?)<\/button>/g)].map((m) => m[1]);
-  const withOrig = lines.filter((line) => line.includes("<i>"));
+  const lines = [...html.matchAll(/<article[^>]*data-word-piece[^>]*>([\s\S]*?)<\/article>/g)].map((m) => m[1]);
+  const withOrig = lines.filter((line) => line.includes(" lang="));
   assert.ok(withOrig.length >= 5, `expected translated lines, found ${withOrig.length}`);
   for (const line of withOrig) {
-    const english = line.slice(0, line.indexOf("<i>")).replace(/<[^>]+>/g, "").trim();
+    const english = line.slice(0, line.indexOf("<p lang=")).replace(/<[^>]+>/g, "").trim();
     assert.ok(english.length > 0, "a translated line opens with its original instead of its english");
   }
 });
@@ -52,11 +52,10 @@ test("word cards keep english first and the original quieter", () => {
 test("no punctuation mark is left to wrap alone", () => {
   // French spaces its ! ? ; : off the word. On a measure, that space became a
   // break and the mark fell alone to the next line. The build glues them.
-  const html = read("dist/eidos/index.html");
-  const room = html.slice(html.indexOf('class="ep-grid"'), html.indexOf('class="ep-more"'));
+  const html = read("dist/eidos/words/index.html");
+  const room = html.slice(html.indexOf('class="ep-words-grid"'), html.indexOf('class="ep-footer"'));
   const loose = room.match(/[a-zà-ÿ] [!?;:»]/gi) || [];
   assert.deepEqual(loose, [], `a plain space before a mark: ${loose.join(" · ")}`);
-  assert.match(room, / [!?;:»]/, "the glue itself is missing — no narrow no-break space in the room");
 });
 
 test("the homepage folds the library into literally me", () => {

@@ -94,7 +94,7 @@ test("eidos map marks use small derivatives", async () => {
 
 test("the library hangs uncropped plates, not full paintings", async () => {
   const html = read("dist/eidos/index.html");
-  const collection = html.slice(html.indexOf('class="ep-grid"'), html.indexOf('class="ep-more"'));
+  const collection = html.slice(html.indexOf('class="ep-mood-grid"'), html.indexOf('class="ep-detail"'));
   const tags = [...collection.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
   assert.ok(tags.length > 0);
   for (const tag of tags) {

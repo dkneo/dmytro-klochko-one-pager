@@ -161,20 +161,17 @@ test("the atlas owns the geometry without duplicating its payload onto home", as
   }
 });
 
-test("the product collection carries every shelved mark without becoming a filing manual", () => {
+test("the product moodboard carries every visual mark and parks every word", () => {
   const html = read("dist/eidos/index.html");
+  const words = read("dist/eidos/words/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-  const shelved = map.items.filter((it) => it.type !== "link").length;
-  const pieces = [...html.matchAll(/data-piece data-form="([^"]+)"/g)];
-  assert.equal(pieces.length, shelved, `product shows ${pieces.length} of ${shelved} shelved marks`);
-  assert.equal(new Set([...html.matchAll(/data-piece[^>]+data-id="([^"]+)"/g)].map((match) => match[1])).size, shelved, "a mark appears twice");
-  assert.ok(pieces.some((match) => ["painting", "photograph", "building", "object"].includes(match[1])), "no visual work survived");
-  assert.ok(pieces.some((match) => ["poem", "quote", "song", "writing"].includes(match[1])), "no words survived");
-
-  const dd = (name) => Number(html.match(new RegExp(`<dt[^>]*>${name}<\\/dt>\\s*<dd[^>]*>(\\d+)<\\/dd>`))?.[1]);
-  assert.equal(dd("things kept"), shelved, "the record counts what is not there");
-  assert.match(html, /class="ep-piece-open ep-piece-words"/, "words have no reading surface");
-  assert.match(html, /translated for this page, not a published version/, "a house translation is labelled as one");
+  const visual = map.items.filter((it) => it.type !== "link" && it.src);
+  const verbal = map.items.filter((it) => it.type !== "link" && !it.src);
+  const pieces = [...html.matchAll(/<figure class="ep-visual[^>]+data-id="([^"]+)"/g)];
+  assert.equal(pieces.length, visual.length, `product shows ${pieces.length} of ${visual.length} visual marks`);
+  assert.equal(new Set(pieces.map((match) => match[1])).size, visual.length, "a visual mark appears twice");
+  assert.equal([...words.matchAll(/data-word-piece/g)].length, verbal.length, "the word room lost a mark");
+  assert.doesNotMatch(html, /ep-piece-words|ep-piece-record/, "words leaked into the moodboard");
   assert.ok(!html.includes("api/eidos/verdict"), "the library itself never writes");
   assert.match(html, /property="og:image" content="[^"]*og-eidos\.png/);
   assert.match(html, /property="og:title" content="eidos/);

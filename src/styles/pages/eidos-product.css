@@ -154,9 +154,9 @@ html[data-eidos-product] body {
 
 .ep-hero {
   display: grid;
-  grid-template-columns: minmax(23rem, 0.82fr) minmax(38rem, 1.65fr);
+  grid-template-columns: minmax(25rem, 0.9fr) minmax(38rem, 1.5fr);
   align-items: center;
-  min-height: clamp(40rem, 74svh, 52rem);
+  min-height: clamp(39rem, 70svh, 49rem);
   padding: 2.5rem 0 3rem;
 }
 
@@ -178,10 +178,10 @@ html[data-eidos-product] body {
 }
 
 .ep-hero h1 {
-  max-width: 10.5ch;
+  max-width: 10ch;
   margin: 0;
   font-family: var(--display, "Zodiak", var(--serif));
-  font-size: clamp(4rem, 6.3vw, 7.5rem);
+  font-size: clamp(3.8rem, 5.35vw, 6.25rem);
   font-weight: 300;
   letter-spacing: -0.055em;
   line-height: 0.91;
@@ -241,6 +241,89 @@ html[data-eidos-product] body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+.ep-hero-art figcaption i { font-family: var(--serif); font-weight: 600; text-transform: none; }
+
+.ep-moodboard {
+  width: min(var(--ep-max), calc(100% - 4rem));
+  margin: 0 auto;
+  padding: clamp(4rem, 7vw, 7rem) 0 clamp(6rem, 10vw, 11rem);
+  border-top: 1px solid var(--ep-rule);
+  scroll-margin-top: 5rem;
+}
+
+.ep-moodboard-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.45fr);
+  align-items: end;
+  gap: 3rem;
+  margin-bottom: clamp(2.5rem, 5vw, 5rem);
+}
+.ep-moodboard-head h2,
+.ep-words-intro h1 {
+  max-width: 12ch;
+  margin: 0;
+  font-family: var(--display, "Zodiak", var(--serif));
+  font-size: clamp(3.5rem, 6.7vw, 7rem);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+}
+.ep-moodboard-head p {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--ep-quiet);
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.ep-mood-grid { columns: 5 14rem; column-gap: clamp(0.8rem, 1.4vw, 1.35rem); }
+.ep-visual {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 clamp(1.4rem, 2.5vw, 2.25rem);
+  break-inside: avoid;
+  vertical-align: top;
+}
+.ep-visual-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  color: inherit;
+  background: var(--ep-paper-light);
+  border: 0;
+  box-shadow: 0 1px 0 var(--ep-rule), 0 13px 32px var(--ep-shadow);
+  cursor: zoom-in;
+}
+.ep-visual-open img { display: block; width: 100%; height: auto; transition: transform 240ms cubic-bezier(.2, 0, .2, 1), filter 240ms cubic-bezier(.2, 0, .2, 1); }
+.ep-visual figcaption { display: grid; gap: 0.25rem; padding-top: 0.75rem; }
+.ep-visual figcaption > span { color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.ep-visual figcaption b { font-family: var(--display, "Zodiak", var(--serif)); font-size: 1rem; font-weight: 400; line-height: 1.15; }
+.ep-visual figcaption small { color: var(--ep-quiet); font-size: 0.74rem; line-height: 1.35; }
+
+.ep-detail [data-detail-body] { clear: both; }
+.ep-detail .ep-visual { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.35fr); align-items: center; width: 100%; margin: 0; }
+.ep-detail .ep-visual-open { box-shadow: none; cursor: default; }
+.ep-detail .ep-visual-open img { max-height: calc(100svh - 5rem); object-fit: contain; }
+.ep-detail .ep-visual figcaption { padding: 2rem; }
+
+.ep-words-intro {
+  display: grid;
+  grid-template-columns: 1fr minmax(18rem, 0.45fr);
+  align-items: end;
+  gap: 3rem;
+  width: min(var(--ep-max), calc(100% - 4rem));
+  min-height: 28rem;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+.ep-words-intro p { max-width: 35rem; margin: 0; color: var(--ep-quiet); font-size: 1.15rem; line-height: 1.6; }
+.ep-words-grid { columns: 3 20rem; column-gap: 1px; width: min(var(--ep-max), calc(100% - 4rem)); margin: 0 auto clamp(6rem, 10vw, 10rem); background: var(--ep-rule); }
+.ep-word { display: inline-block; width: 100%; min-height: 19rem; margin: 0 0 1px; padding: 1.5rem; break-inside: avoid; vertical-align: top; background: var(--ep-paper-light); }
+.ep-word > span { color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.11em; text-transform: uppercase; }
+.ep-word blockquote { margin: 2rem 0; font-family: var(--display, "Zodiak", var(--serif)); font-size: 1.35rem; line-height: 1.35; white-space: pre-line; }
+.ep-word > p { color: var(--ep-quiet); white-space: pre-line; }
+.ep-word footer { color: var(--ep-quiet); font-size: 0.8rem; }
 
 .ep-section {
   width: min(var(--ep-max), calc(100% - 4rem));
@@ -414,6 +497,8 @@ html[data-eidos-product] body {
   .ep-weather:hover small { opacity: 0; }
   .ep-piece:hover { transform: translateY(-4px) rotate(-0.18deg); box-shadow: 0 0 0 1px var(--ep-rule), 0 18px 38px rgb(73 49 36 / 22%); }
   .ep-detail .ep-piece:hover { transform: none; }
+  .ep-visual-open:hover img { transform: scale(1.018); filter: saturate(1.04); }
+  .ep-detail .ep-visual-open:hover img { transform: none; filter: none; }
 }
 .ep-detail .ep-piece-open img { max-height: calc(100svh - 6rem); object-fit: contain; }
 
@@ -481,6 +566,7 @@ html[data-eidos-product] body {
   .ep-nav a::after { bottom: 0.35rem; }
   .ep-hero { grid-template-columns: 0.85fr 1.15fr; }
   .ep-hero h1 { font-size: clamp(3.4rem, 7vw, 5.4rem); }
+  .ep-mood-grid { columns: 3 13rem; }
   .ep-reading-grid { grid-template-columns: 1fr; }
   .ep-observation { display: grid; grid-template-columns: 2rem 1fr 15rem; align-items: center; min-height: 0; }
   .ep-observation > p { min-height: 0; }
@@ -495,6 +581,9 @@ html[data-eidos-product] body {
 @media (max-width: 680px) {
   .ep-header,
   .ep-hero,
+  .ep-moodboard,
+  .ep-words-intro,
+  .ep-words-grid,
   .ep-section,
   .ep-make-yours,
   .ep-footer { width: min(100% - 2rem, var(--ep-max)); }
@@ -505,10 +594,25 @@ html[data-eidos-product] body {
   .ep-parent { gap: 0.4rem; font-size: 0.64rem; }
   .ep-hero { display: flex; flex-direction: column; align-items: stretch; min-height: 0; padding: 2rem 0 4rem; }
   .ep-hero-copy { padding: 0; }
-  .ep-hero h1 { max-width: 9ch; font-size: clamp(3.65rem, 17vw, 5.2rem); }
+  .ep-hero h1 { max-width: 9.5ch; font-size: clamp(3.3rem, 14vw, 4.9rem); }
   .ep-hero-lede { font-size: 1.05rem; }
   .ep-hero-art { order: -1; width: calc(100% + 2rem); margin-left: -1rem; margin-bottom: 1.5rem; aspect-ratio: 9 / 13; }
   .ep-hero-art figcaption { right: 1rem; bottom: 0.5rem; }
+  .ep-moodboard { padding-top: 3.5rem; }
+  .ep-moodboard-head,
+  .ep-words-intro { display: block; }
+  .ep-moodboard-head h2,
+  .ep-words-intro h1 { font-size: clamp(3.5rem, 15vw, 5rem); }
+  .ep-moodboard-head p,
+  .ep-words-intro p { margin-top: 1.5rem; }
+  .ep-mood-grid { columns: 2 9.5rem; column-gap: 0.75rem; }
+  .ep-visual { margin-bottom: 1.35rem; }
+  .ep-visual figcaption { padding-top: 0.55rem; }
+  .ep-visual figcaption b { font-size: 0.9rem; }
+  .ep-detail .ep-visual { display: block; }
+  .ep-detail .ep-visual figcaption { padding: 1rem; }
+  .ep-words-intro { min-height: 0; padding: 4rem 0; }
+  .ep-words-grid { columns: 1; }
   .ep-section { padding: 4.5rem 0; }
   .ep-section-head--split { display: block; }
   .ep-section-head h2 { font-size: clamp(3.2rem, 14vw, 4.5rem); }

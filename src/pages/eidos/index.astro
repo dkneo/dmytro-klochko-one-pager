@@ -6,27 +6,24 @@ import sharp from "sharp";
 import EidosLayout from "../../layouts/EidosLayout.astro";
 import EidosHeader from "../../components/eidos/EidosHeader.astro";
 import EidosHero from "../../components/eidos/EidosHero.astro";
-import EidosReading from "../../components/eidos/EidosReading.astro";
-import EidosField from "../../components/eidos/EidosField.astro";
-import EidosCollection from "../../components/eidos/EidosCollection.astro";
-import EidosTraces from "../../components/eidos/EidosTraces.astro";
+import EidosMoodboard from "../../components/eidos/EidosMoodboard.astro";
 import { buildProfile } from "../../lib/eidos-view.mjs";
 import map from "../../data/map.json";
 import palettes from "../../data/palettes.json";
 
 const profile = buildProfile(map, palettes);
+const visuals = profile.collection.filter((item: any) => item.src);
 const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
 const dimensions: Record<string, { width: number; height: number }> = {};
-for (const item of profile.collection) {
-  if (!item.src) continue;
+for (const item of visuals) {
   try {
     const metadata = await sharp(path.join(process.cwd(), "public", plateFor(item.src))).metadata();
     if (metadata.width && metadata.height) dimensions[item.id] = { width: metadata.width, height: metadata.height };
   } catch {}
 }
 
-const title = "eidos · a living portrait of dmytro's taste";
-const description = "paintings, poems, songs, people and objects kept by dmytro klochko, and the patterns they leave behind.";
+const title = "eidos · dmytro's endless moodboard";
+const description = "a living moodboard of paintings, photographs, people and objects loved by dmytro klochko.";
 const ogVersion = createHash("sha1")
   .update(readFileSync(path.join(process.cwd(), "public", "og-eidos.png")))
   .digest("hex")
@@ -35,30 +32,25 @@ const ogVersion = createHash("sha1")
 
 <EidosLayout title={title} description={description} ogImage={`/og-eidos.png?v=${ogVersion}`}>
   <div class="eidos-product">
-    <EidosHeader current="portrait" />
+    <EidosHeader current="moodboard" />
     <EidosHero />
-    <EidosReading profile={profile} dimensions={dimensions} />
-    <EidosField profile={profile} dimensions={dimensions} />
-    <EidosCollection profile={profile} dimensions={dimensions} />
-    <EidosTraces profile={profile} />
+    <EidosMoodboard items={visuals} dimensions={dimensions} />
 
     <section class="ep-make-yours" aria-labelledby="make-yours-title">
       <div>
-        <p class="ep-index">05 · later, yours</p>
         <h2 id="make-yours-title">this is mine. yours would look different.</h2>
         <p>
-          keep what stops you. leave what does not. over time, the pattern becomes
-          a portrait you can share. the full product is still being built; the
-          small painting deck is the working experiment.
+          keep what stops you. leave what does not. over time, your own moodboard
+          becomes a portrait without needing to explain you.
         </p>
-        <a class="ep-action ep-action--solid" href="/eidos/deck">try the experiment</a>
+        <a class="ep-action ep-action--solid" href="/eidos/deck">play with paintings</a>
       </div>
       <img src="/images/eidos/product/card-back.webp" width="1400" height="1750" alt="Faun and Gryphon waiting beneath an open pink circle" loading="lazy" decoding="async" />
     </section>
 
     <footer class="ep-footer">
       <a href="/">dmytro klochko <span aria-hidden="true">↗</span></a>
-      <span>{profile.collection.length} real things · every one attributed</span>
+      <a href="/eidos/words">words, elsewhere</a>
       <a href="#eidos-main">back to top ↑</a>
     </footer>
   </div>

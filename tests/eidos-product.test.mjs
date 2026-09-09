@@ -71,17 +71,39 @@ test("every product observation carries visible evidence", async () => {
   }
 });
 
-test("the built profile opens as Eidos the product, not an archive manual", () => {
+test("the product opens as one visual moodboard with plain doors", () => {
   const html = read("dist/eidos/index.html");
+  const map = JSON.parse(read("src/data/map.json"));
+  const visualCount = map.items.filter((item) => item.type !== "link" && item.src).length;
 
   assert.match(html, /class="eidos-product"/);
   assert.match(html, /class="ep-header"/);
-  assert.match(html, />portrait</);
-  assert.match(html, />collection</);
-  assert.match(html, />atlas</);
-  assert.match(html, /what i love, and what it says about me\./);
-  assert.match(html, /enter my collection/);
-  assert.doesNotMatch(html.slice(0, html.indexOf("</section>")), /the greek for the form/);
+  assert.match(html, />moodboard</);
+  assert.match(html, />play</);
+  assert.match(html, /href="\/eidos\/inbox"[^>]*>studio</);
+  assert.match(html, /a beautiful, endless moodboard of things i love\./);
+  assert.match(html, /data-visual-moodboard/);
+  assert.equal((html.match(/<figure class="ep-visual/g) || []).length, visualCount);
+  assert.doesNotMatch(html, /ep-reading-grid|ep-weather-list|ep-trace-grid/);
+  assert.doesNotMatch(html, /\b(?:poem|quote|song|writing)s?\b[^<]*card/i);
+  assert.doesNotMatch(html, /keep exploring|data-more|data-form-filter|data-weather-filter/);
+  assert.doesNotMatch(html, /\b(?:01|02|03) ·/);
+});
+
+test("words remain intact on their own quiet page", () => {
+  const html = read("dist/eidos/words/index.html");
+  const map = JSON.parse(read("src/data/map.json"));
+  const wordCount = map.items.filter((item) => item.type !== "link" && !item.src).length;
+
+  assert.match(html, /the words are resting here\./);
+  assert.equal((html.match(/data-word-piece/g) || []).length, wordCount);
+  assert.doesNotMatch(html, /data-visual-piece/);
+  assert.match(read("dist/eidos/index.html"), /href="\/eidos\/words"[^>]*>words, elsewhere</);
+});
+
+test("an opened artwork does not leave an inert nested opener in the detail view", () => {
+  const source = read("src/components/eidos/EidosMoodboard.astro");
+  assert.match(source, /clone\.querySelector\("\.ep-visual-open"\)\.disabled = true/);
 });
 
 test("the hero is static first and motion is an enhancement", () => {
@@ -134,7 +156,7 @@ test("the atlas is the product's one map and keeps private tools secondary", () 
   const html = read("dist/eidos/map/index.html");
   assert.match(html, /data-eidos-product/);
   assert.match(html, /class="eidos-atlas"/);
-  assert.match(html, /aria-current="page"[^>]*>atlas</);
+  assert.doesNotMatch(html, /class="ep-nav"[\s\S]*?>atlas</, "the technical atlas returned to the primary product navigation");
   assert.match(html, /class="ea-map-frame"/);
   assert.match(html, /<details class="ea-private-tools"/);
   assert.match(html, /<summary>open the private instruments/);

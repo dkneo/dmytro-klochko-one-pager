@@ -1,0 +1,63 @@
+---
+interface Props {
+  items: any[];
+  dimensions: Record<string, { width: number; height: number }>;
+}
+const { items, dimensions } = Astro.props;
+const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u202F$1").replace(/(«)\s+/g, "$1\u202F");
+const kind = (type: string) => type === "person" ? "person" : type;
+---
+<section class="ep-moodboard" id="collection" aria-labelledby="collection-title" data-visual-moodboard>
+  <header class="ep-moodboard-head">
+    <h2 id="collection-title">things that stop me.</h2>
+    <p>{items.length} paintings, photographs, people and objects. every one real, every one credited.</p>
+  </header>
+
+  <div class="ep-mood-grid">
+    {items.map((item: any, index: number) => (
+      <figure class={`ep-visual ep-visual--${index % 7}`} data-visual-piece data-id={item.id}>
+        <button type="button" class="ep-visual-open" aria-label={`open ${glue(item.title || item.line)}`}>
+          <img
+            src={plateFor(item.src)}
+            alt={glue(item.title || item.line || item.type)}
+            width={dimensions[item.id]?.width}
+            height={dimensions[item.id]?.height}
+            loading={index < 8 ? "eager" : "lazy"}
+            decoding="async"
+          />
+        </button>
+        <figcaption>
+          <span>{kind(item.type)}</span>
+          <b>{glue(item.line || item.title)}</b>
+          {item.who && <small>{item.who}{item.year ? ` · ${item.year}` : ""}</small>}
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+
+  <dialog class="ep-detail" data-mood-detail>
+    <button type="button" class="ep-detail-close" aria-label="close image">close</button>
+    <div data-detail-body></div>
+  </dialog>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-visual-moodboard]");
+    if (!root) return;
+    const detail = root.querySelector("[data-mood-detail]");
+    const body = root.querySelector("[data-detail-body]");
+    root.querySelectorAll(".ep-visual-open").forEach((button) => button.addEventListener("click", () => {
+      const piece = button.closest("[data-visual-piece]");
+      const clone = piece.cloneNode(true);
+      clone.querySelector(".ep-visual-open").disabled = true;
+      body.replaceChildren(clone);
+      detail.showModal();
+    }));
+    root.querySelector(".ep-detail-close")?.addEventListener("click", () => detail.close());
+    detail?.addEventListener("click", (event) => {
+      if (event.target === detail) detail.close();
+    });
+  })();
+</script>

@@ -24,8 +24,9 @@ test("the embed is the portrait alone, with no site furniture showing through th
   const lib = read("dist/eidos/index.html");
   const map = JSON.parse(read("src/data/map.json"));
   const shelved = map.items.filter((item) => item.type !== "link").length;
-  assert.equal(Number(html.match(/data-total="(\d+)"/)?.[1]), shelved, "the embed miscounts the vault");
-  assert.equal([...lib.matchAll(/data-piece data-form=/g)].length, shelved, "the product miscounts the vault");
+  const visual = map.items.filter((item) => item.type !== "link" && item.src).length;
+  assert.equal(Number(html.match(/data-total="(\d+)"/)?.[1]), shelved, "the legacy embed miscounts the vault");
+  assert.equal([...lib.matchAll(/<figure class="ep-visual/g)].length, visual, "the product miscounts the moodboard");
 });
 
 test("the product keeps frame machinery out of the story, and the sitemap keeps the frame out", () => {

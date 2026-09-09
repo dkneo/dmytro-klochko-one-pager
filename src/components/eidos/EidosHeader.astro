@@ -1,28 +1,19 @@
 ---
 interface Props {
-  current?: "portrait" | "collection" | "atlas" | "experiment" | "studio";
+  current?: "moodboard" | "atlas" | "experiment" | "play" | "studio";
   studio?: boolean;
 }
-const { current = "portrait", studio = false } = Astro.props;
+const { current = "moodboard", studio = false } = Astro.props;
 ---
 <header class="ep-header">
   <a class="ep-wordmark" href="/eidos" aria-label="Eidos home">
     <span>eidos</span><i aria-hidden="true"></i>
   </a>
-  {studio ? (
-    <nav class="ep-nav" aria-label="studio">
-      <a href="#incoming" aria-current={current === "studio" ? "page" : undefined}>incoming</a>
-      <a href="/eidos">portrait</a>
-      <a href="/eidos/map">atlas</a>
-    </nav>
-  ) : (
-    <nav class="ep-nav" aria-label="Eidos">
-      <a href="/eidos#portrait" aria-current={current === "portrait" ? "page" : undefined}>portrait</a>
-      <a href="/eidos#collection" aria-current={current === "collection" ? "page" : undefined}>collection</a>
-      <a href="/eidos/map" aria-current={current === "atlas" ? "page" : undefined}>atlas</a>
-      <a href="/eidos/deck" aria-current={current === "experiment" ? "page" : undefined}>try it</a>
-    </nav>
-  )}
+  <nav class="ep-nav" aria-label={studio ? "studio" : "Eidos"}>
+    <a href="/eidos#collection" aria-current={current === "moodboard" ? "page" : undefined}>moodboard</a>
+    <a href="/eidos/deck" aria-current={current === "experiment" || current === "play" ? "page" : undefined}>play</a>
+    <a href="/eidos/inbox" aria-current={current === "studio" ? "page" : undefined}>studio</a>
+  </nav>
   <a class="ep-parent" href="/">
     <span class="ep-parent-name">dmytro klochko</span>
     <span class="ep-parent-mobile">site</span>
