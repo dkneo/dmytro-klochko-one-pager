@@ -126,30 +126,33 @@ test("the private inbox is the working studio of the same product", () => {
   assert.match(html, /class="in-workbench"/);
   assert.match(html, /class="in-rail"/);
   assert.match(html, /class="in-center"/);
-  assert.match(html, /class="in-note-panel"/);
+  assert.doesNotMatch(html, /class="in-note-panel"/);
   assert.doesNotMatch(html, /class="in-ground"/, "the old blurred artwork wallpaper survived");
 });
 
-test("the studio keeps drafts and a visible five-verdict session trail", () => {
+test("the studio holds every non-visual outside the current queue", () => {
   const source = read("src/pages/eidos/inbox.astro");
   const html = read("dist/eidos/inbox/index.html");
 
-  assert.match(source, /localStorage/);
-  assert.match(source, /eidos:draft:/);
-  assert.match(html, /id="draft-status"/);
+  assert.match(source, /filter\(\(c\) => c\.src\)/, "the build payload still carries words or links");
+  assert.doesNotMatch(source, /fetch\("\/api\/eidos\/bookmarks"\)/, "private bookmarks still join the visual queue");
+  assert.doesNotMatch(html, /id="throw"|id="say"|class="in-read"/, "non-visual intake or annotation is still visible");
+  assert.match(html, /visuals only for now/);
   assert.match(html, /id="session-trail"/);
   assert.match(source, /slice\(-5\)/);
 });
 
-test("save and pass feedback use the approved non-blocking character clips", () => {
+test("the studio keeps reaction clips but loads a plate without a mascot overlay", () => {
   const html = read("dist/eidos/inbox/index.html");
+  const css = read("src/styles/pages/eidos-studio.css");
 
   assert.match(html, /save-to-profile\.webm/);
   assert.match(html, /pass-card\.webm/);
-  assert.match(html, /open-next-card\.webm/);
   assert.match(html, /data-studio-feedback/);
-  assert.match(html, /id="in-link-loader"/);
-  assert.match(html, /loader-circle\.webm/);
+  assert.doesNotMatch(html, /open-next-card|loader-circle/);
+  assert.match(html, /data-plate-loader/);
+  assert.match(css, /@keyframes plate-register/);
+  assert.match(css, /prefers-reduced-motion: reduce[\s\S]*?\.in-plate-loader/);
 });
 
 test("the atlas is the product's one map and keeps private tools secondary", () => {
@@ -189,14 +192,20 @@ test("the mobile product keeps its doors visible without loading two hero films"
   assert.match(hero, /media="\(max-width: 680px\)"[^>]*hero-ambient-mobile\.webm/);
 });
 
-test("the mobile workbench removes desktop-only hints and preserves generous controls", () => {
+test("the mobile workbench preserves generous controls", () => {
   const studio = read("src/styles/pages/eidos-studio.css");
   const atlas = read("src/styles/pages/eidos-atlas.css");
   const product = read("src/styles/pages/eidos-product.css");
 
-  assert.match(studio, /@media \(max-width: 680px\)[\s\S]*?\.in-say-hint \{\s*display: none;/);
+  assert.match(studio, /@media \(max-width: 680px\)[\s\S]*?\.in-btn \{\s*min-height: 44px;/);
   assert.match(atlas, /@media \(max-width: 700px\)[\s\S]*?\.em-chip \{\s*min-height: 44px;/);
   assert.match(product, /\.ep-makers li \{[^}]*display: inline-flex;[^}]*gap:/);
+});
+
+test("the desktop studio keeps its verdict controls inside a short laptop viewport", () => {
+  const studio = read("src/styles/pages/eidos-studio.css");
+  assert.match(studio, /\.in-card \{[\s\S]*?min-height:\s*min\(31rem, calc\(100svh - 22rem\)\)/);
+  assert.match(studio, /\.in-art \{[\s\S]*?min-height:\s*min\(26rem, calc\(100svh - 27rem\)\)/);
 });
 
 test("the portrait tablet keeps the product map instead of collapsing to an exit", () => {

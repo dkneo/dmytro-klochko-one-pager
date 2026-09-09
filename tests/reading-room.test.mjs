@@ -74,12 +74,11 @@ test("the library opens as a product with a static-first character scene", () =>
   assert.match(styles("dist/eidos/index.html"), /\.ep-action[^}]*min-height:\s*44px/, "hero actions lost their tap floor");
 });
 
-test("the composer lives in the incoming rail without the old SaaS glow", () => {
+test("the studio says what is temporarily held without exposing non-visual intake", () => {
   const html = read("dist/eidos/inbox/index.html");
-  const rail = html.indexOf('class="in-rail"'), form = html.indexOf('id="throw"'), deck = html.indexOf('id="stage"');
-  assert.ok(rail > 0 && form > rail && form < deck, "the composer is not inside the incoming rail");
-  const css = styles("dist/eidos/inbox/index.html");
-  assert.match(css, /\.eidos-studio \.in-throw:{1,2}before\s*\{\s*display:\s*none/, "the old generated glow still paints the composer");
+  assert.match(html, /visuals only for now/);
+  assert.match(html, /words and links are safely held/);
+  assert.doesNotMatch(html, /id="throw"|id="url"|read and add/);
 });
 
 test("the deck is dealt so no two neighbours are alike", () => {
@@ -141,28 +140,13 @@ test("a card never wears the last card's picture, and a missing one can be asked
   assert.match(html, /id="art-miss"[^>]*hidden/, "the miss panel must start hidden");
 });
 
-// ── the field note stays beside the card and travels with the verdict ───
-test("the workbench separates the card from the field note and sends the note", () => {
+test("the visual studio does not ask for commentary before a verdict", () => {
   const html = read("dist/eidos/inbox/index.html");
   const src = read("src/pages/eidos/inbox.astro");
-  const workbench = html.slice(html.indexOf('class="in-workbench"'), html.indexOf('class="in-keys"'));
-  assert.match(workbench, /class="in-card"[\s\S]*class="in-note-panel"/, "the card and note are not separate workbench regions");
-  assert.match(workbench, /class="in-leaf in-leaf--me"[\s\S]*<textarea id="say"/, "no field note leaf");
-  assert.match(workbench, /<dl class="in-file"[^>]*>[\s\S]*<dt[^>]*>weather<\/dt>[\s\S]*<dt[^>]*>form<\/dt>[\s\S]*<dt[^>]*>from<\/dt>/, "the field note does not say where it files");
-  assert.doesNotMatch(html, /class="in-ground"/, "the old wallpaper ground survived");
-  // the verdict carries the line, both ways
-  assert.match(src, /say: say \|\| ""/, "the verdict payload has no line");
-  assert.match(src, /send\(cand, "keep", cand\.weather, line\)/, "keep does not send the line");
-  assert.match(src, /send\(cand, "pass", "", line\)/, "pass does not send the line");
-  // the hand does not drag from the field; the field owns esc and ⌘↵
-  assert.match(src, /closest\("a, button, textarea, label"\)/, "a drag can start from the field");
-  assert.match(src, /e\.key === "Escape"[\s\S]*say\.blur\(\)/, "esc does not leave the field");
-  assert.match(src, /e\.key === "Enter" && \(e\.metaKey \|\| e\.ctrlKey\)[\s\S]*keep\(\)/, "⌘↵ does not keep");
-  // the worker keeps it, trimmed and bounded
-  const worker = read("worker/index.js");
-  assert.match(worker, /const \{ id, verdict, weather, say \} = body/, "the worker ignores the line");
-  assert.match(worker, /slice\(0, 600\)/, "the line is unbounded");
-  assert.match(src, /localStorage\.setItem\(draftKey\(cur\.id\), say\.value\)/, "field note drafts are not saved locally");
+  assert.doesNotMatch(html, /field note|id="say"|what held you here/);
+  assert.doesNotMatch(src, /draftKey|localStorage|say\.value/);
+  assert.match(src, /send\(cand, "keep", cand\.weather\)/);
+  assert.match(src, /send\(cand, "pass", ""\)/);
 });
 
 // ── the keys ─────────────────────────────────────────────────────────────
@@ -177,7 +161,7 @@ test("the inbox answers the keyboard the way keyboard-first tools do", () => {
   assert.match(html, /<dialog class="in-keys" id="keys"/, "no shortcuts sheet");
   assert.match(html, /<form method="dialog"[^>]*>/, "the sheet has no native close");
   // one map, and the three rules
-  assert.match(src, /const KEYS = \{[\s\S]*ArrowRight: keep, l: keep,[\s\S]*ArrowLeft: pass, h: pass,[\s\S]*"\/": \(\) => \$\("url"\)\.focus\(\),[\s\S]*"\?": toggleKeys,/, "the key map is incomplete");
+  assert.match(src, /const KEYS = \{[\s\S]*ArrowRight: keep, l: keep,[\s\S]*ArrowLeft: pass, h: pass,[\s\S]*"\?": toggleKeys,/, "the key map is incomplete");
   assert.match(src, /closest\("input,textarea,select"\)\) return;/, "letters fire inside fields");
   assert.match(src, /if \(e\.repeat && act !== undo\) return;/, "a held arrow fires twice");
   assert.match(src, /if \(e\.metaKey \|\| e\.ctrlKey \|\| e\.altKey\) return;/, "browser chords are swallowed");

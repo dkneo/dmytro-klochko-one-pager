@@ -30,11 +30,11 @@ export function compose(map, palettes) {
   <circle cx="1104" cy="62" r="136" fill="none" stroke="#a8425d" stroke-width="2.5" opacity=".7"/>
 
   <text x="60" y="78" font-family="Menlo, Consolas, monospace" font-size="14" letter-spacing="3" fill="#a8425d">EIDOS · A LIVING MOODBOARD</text>
-  <text x="60" y="158" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="61" fill="#292723">a beautiful, endless</text>
-  <text x="60" y="225" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="61" fill="#292723">moodboard of things</text>
-  <text x="60" y="292" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="61" fill="#292723">i love.</text>
+  <text class="og-headline" x="60" y="158" textLength="284" lengthAdjust="spacingAndGlyphs" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="52" fill="#292723">a beautiful,</text>
+  <text class="og-headline" x="60" y="225" textLength="402" lengthAdjust="spacingAndGlyphs" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="52" fill="#292723">endless moodboard</text>
+  <text class="og-headline" x="60" y="292" textLength="346" lengthAdjust="spacingAndGlyphs" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="52" fill="#292723">of things i love.</text>
 
-  <text x="60" y="405" font-family="Menlo, Consolas, monospace" font-size="15" letter-spacing="1" fill="#5d5449">${visuals.length} visual things · every one real · every one credited</text>
+  <text x="60" y="405" font-family="Menlo, Consolas, monospace" font-size="15" letter-spacing="1" fill="#5d5449">${visuals.length} visual things · real · credited</text>
   <text x="60" y="449" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#5d5449">paintings, photographs, people and objects.</text>
   <path d="M60 524h452" stroke="#a8425d" stroke-width="3"/>
   <circle cx="176" cy="524" r="8" fill="#ff9bc0"/>

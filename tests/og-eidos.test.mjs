@@ -30,6 +30,19 @@ test("the share card is composed from the same vault the page reads", async () =
   assert.doesNotMatch(svg, /filed under eight weathers i made up/);
 });
 
+test("the share-card headline cannot run underneath the artwork", async () => {
+  const { compose } = await import("../scripts/og-eidos-build.mjs");
+  const map = JSON.parse(read("src/data/map.json"));
+  const palettes = JSON.parse(read("src/data/palettes.json"));
+  const svg = compose(map, palettes);
+  const lines = [...svg.matchAll(/<text class="og-headline" x="(\d+)"[^>]*textLength="(\d+)"/g)];
+
+  assert.ok(lines.length >= 3, "the headline has no measurable line bounds");
+  for (const [, x, width] of lines) {
+    assert.ok(Number(x) + Number(width) <= 548, `headline reaches ${Number(x) + Number(width)}px into the artwork column`);
+  }
+});
+
 test("the card ships at social size and the page points at this build of it", async () => {
   const card = fs.readFileSync(path.join(root, "public/og-eidos.png"));
   const m = await sharp(card).metadata();

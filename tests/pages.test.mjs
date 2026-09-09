@@ -77,36 +77,23 @@ test("the learning page carries its three subjects and the queue", () => {
   assert.ok(exists("public/images/learning-terminal.webp"), "artefact shot missing");
 });
 
-test("the inbox takes a link and judges what waits", () => {
+test("the studio judges pictures while the private link pipeline waits", () => {
   const html = read("dist/eidos/inbox/index.html");
   const css = bundledCss("dist/eidos/inbox/index.html");
 
-  // every candidate rides along: pictures with a source and a licence, reads
-  // with a url. Both are judged with the same two buttons.
+  // Only visual candidates ride along for now. Links and words remain in the
+  // source queue and worker, but they do not compete with images in Studio.
   const data = JSON.parse(html.match(/id="in-data"[^>]*>([^<]*)</)[1]);
   assert.ok(data.length >= 20, `expected 20+ candidates, found ${data.length}`);
   for (const c of data) {
     assert.ok(c.id, `candidate without id: ${JSON.stringify(c)}`);
-    if (c.src) {
-      assert.ok(c.source, `${c.id} has no source url`);
-      assert.ok(c.licence, `${c.id} has no licence`);
-    } else {
-      // a card with no picture is a link — or a word: a poem, quote or song
-      // carrying its text or its title, which the deck learned to show
-      const isWord = ["poem", "quote", "song"].includes(c.type) && !!(c.line || c.title);
-      if (!isWord) assert.match(c.url || "", /^https?:\/\//, `${c.id} is neither a picture, a link nor a word`);
-    }
+    assert.ok(c.src, `${c.id} has no picture`);
+    assert.ok(c.source, `${c.id} has no source url`);
+    assert.ok(c.licence, `${c.id} has no licence`);
   }
   assert.ok(data.some((c) => c.type === "poster"), "the posters reached the inbox");
-  assert.ok(data.some((c) => c.type === "bookmark"), "the reads reached the inbox");
-
-  // the composer: a url field and one verb. It answers focus, not hover —
-  // a glow that follows the pointer is decoration; one that lights when the
-  // caret lands says the field is live.
-  assert.match(html, /<form class="in-throw" id="throw"/);
-  assert.match(html, /<input type="url" name="url" id="url"/);
-  assert.match(css, /\.in-throw(?:\[[^\]]*\])?:focus-within/);
-  assert.doesNotMatch(css, /\.in-throw(?:\[[^\]]*\])?:hover\s*\{[^}]*box-shadow/);
+  assert.ok(data.every((c) => !["bookmark", "poem", "quote", "song"].includes(c.type)), "a non-visual entered Studio");
+  assert.doesNotMatch(html, /id="throw"|id="url"/);
 
   // two buttons, and the door posts back here
   assert.match(html, /id="keep"/);
@@ -127,7 +114,7 @@ test("the inbox takes a link and judges what waits", () => {
   const ownSheet = html.match(/href="(\/_astro\/inbox\.[^"]+\.css)"/)?.[1];
   assert.ok(ownSheet, "the inbox has no stylesheet of its own to check");
   const own = read(path.join("dist", ownSheet));
-  assert.match(own, /in-throw/, "the sheet found is not the inbox's");
+  assert.match(own, /in-card/, "the sheet found is not the inbox's");
   const literals = [...own.matchAll(/border-radius:\s*([^;}]+)/g)].map((m) => m[1].trim())
     .filter((v) => !/var\(|999px|50%|inherit|^0$/.test(v));
   assert.deepEqual(literals, [], `the inbox invents radii: ${literals.join(", ")}`);

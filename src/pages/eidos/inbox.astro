@@ -4,14 +4,9 @@ import EidosHeader from "../../components/eidos/EidosHeader.astro";
 import "../../styles/pages/eidos-studio.css";
 import inbox from "../../../public/inbox.json";
 
-// The inbox. Where he throws links, and where he judges.
-//
-// One surface for two kinds of thing: what the harvester brought (paintings,
-// posters, objects, buildings — candidates with a picture) and what he threw
-// in himself (links — bookmarks with a title, a site, a line). Both are
-// cards; both are judged with the same motion, right if it stays, left if
-// it goes. A kept candidate becomes a note through eidos-pull; a kept link
-// becomes a bookmark note the same way, and lands on /eidos under "read".
+// The visual Studio. The source inbox still carries pictures, words and links,
+// but this room deals only candidates with an image. Nothing else is deleted;
+// those records wait for a later, purpose-built reading surface.
 //
 // Three things carried over from the sitting it replaces:
 //
@@ -24,7 +19,7 @@ import inbox from "../../../public/inbox.json";
 //
 //   No ceremony. He judges until he stops; the line says where he is.
 
-const candidates = (inbox.candidates || []).map((c) => ({
+const candidates = (inbox.candidates || []).filter((c) => c.src).map((c) => ({
   id: c.id,
   type: c.type || "painting",
   who: c.who || "",
@@ -34,20 +29,13 @@ const candidates = (inbox.candidates || []).map((c) => ({
   src: c.src || "",
   url: c.url || "",
   site: c.site || "",
-  line: c.line || "",
-  // a word card shows where it is from and its english; the note itself
-  // stays in inbox.json for the pull and never ships to the browser
-  where: c.where || "",
-  english: c.english || "",
   source: c.source || "",
   licence: c.licence || "",
 }));
-const pictures = candidates.filter((c) => c.src).length;
-const words = candidates.filter((c) => ["poem", "quote", "song"].includes(c.type)).length;
-const reads = candidates.length - pictures - words;
+const pictures = candidates.length;
 
 const title = "inbox · eidos";
-const description = "throw a link in; judge what waits. the door to the library.";
+const description = "judge the visual things waiting to join the moodboard.";
 ---
 
 <EidosLayout title={title} description={description}>
@@ -59,7 +47,7 @@ const description = "throw a link in; judge what waits. the door to the library.
           <p class="ep-index">private fieldwork</p>
           <h1 id="ib">notice. decide. remember.</h1>
         </div>
-        <p id="in-lede">one thing at a time. keep what pulls you closer, pass what does not, and leave a field note when you know why.</p>
+        <p id="in-lede">one image at a time. keep what pulls you closer and pass what does not. words and links are safely held elsewhere.</p>
       </header>
 
       <form class="in-gate" id="gate" method="POST" action="/names" hidden>
@@ -83,26 +71,10 @@ const description = "throw a link in; judge what waits. the door to the library.
             <p class="in-count" id="count"></p>
           </div>
           <p class="in-shelf" id="shelf">
-            <span id="shelf-links"></span>
-            <span>{pictures} pictures<br />{words} words<br />{reads} reads</span>
+            <strong>visuals only for now</strong>
+            <span>{pictures} pictures waiting</span>
+            <small>words and links are safely held for later.</small>
           </p>
-          <details class="in-add">
-            <summary>add something <span aria-hidden="true">+</span></summary>
-            <form class="in-throw" id="throw" autocomplete="off">
-              <label class="in-url">
-                <span>a link</span>
-                <input type="url" name="url" id="url" placeholder="https://" inputmode="url" autocapitalize="none" autocorrect="off" spellcheck="false" required />
-              </label>
-              <button type="submit" id="throw-go">read and add</button>
-              <div class="in-link-loader" id="in-link-loader" hidden aria-hidden="true">
-                <video muted playsinline preload="metadata">
-                  <source src="/images/eidos/product/loader-circle.webm" type="video/webm" />
-                  <source src="/images/eidos/product/loader-circle.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <p class="in-throw-note" id="throw-note" aria-live="polite">i will show what arrived before it joins the queue.</p>
-            </form>
-          </details>
           <div class="in-history">
             <p class="in-label">this sitting</p>
             <ol id="session-trail"><li class="is-empty">nothing judged yet</li></ol>
@@ -115,17 +87,18 @@ const description = "throw a link in; judge what waits. the door to the library.
             <article class="in-card" id="card" hidden>
               <div class="in-leaf in-leaf--it">
                 <div class="in-art" id="art-wrap">
+                  <div class="in-plate-loader" id="plate-loader" data-plate-loader hidden aria-hidden="true">
+                    <span class="in-register-ring in-register-ring--ink"></span>
+                    <span class="in-register-ring in-register-ring--pink"></span>
+                    <span class="in-register-ring in-register-ring--ochre"></span>
+                    <i></i>
+                    <small>registering plate</small>
+                  </div>
                   <img id="art" alt="" decoding="async" />
                   <div class="in-art-miss" id="art-miss" hidden>
                     <p>the picture did not arrive</p>
                     <button type="button" id="art-retry" class="in-btn">reload picture <span aria-hidden="true">↻</span></button>
                   </div>
-                </div>
-                <div class="in-read" id="read" hidden>
-                  <p class="in-site" id="r-site"></p>
-                  <h2 class="in-title" id="r-title"></h2>
-                  <p class="in-desc" id="r-desc"></p>
-                  <p class="in-tags" id="r-tags"></p>
                 </div>
                 <p class="in-credit">
                   <b id="c-title"></b>
@@ -149,29 +122,8 @@ const description = "throw a link in; judge what waits. the door to the library.
           <div class="in-feedback" data-studio-feedback aria-hidden="true">
             <video id="feedback-keep" muted playsinline preload="metadata"><source src="/images/eidos/product/save-to-profile.webm" type="video/webm" /><source src="/images/eidos/product/save-to-profile.mp4" type="video/mp4" /></video>
             <video id="feedback-pass" muted playsinline preload="metadata"><source src="/images/eidos/product/pass-card.webm" type="video/webm" /><source src="/images/eidos/product/pass-card.mp4" type="video/mp4" /></video>
-            <video id="feedback-open" muted playsinline preload="metadata"><source src="/images/eidos/product/open-next-card.webm" type="video/webm" /><source src="/images/eidos/product/open-next-card.mp4" type="video/mp4" /></video>
           </div>
-          <div id="ground" hidden aria-hidden="true"></div>
         </section>
-
-        <aside class="in-note-panel" aria-label="field note">
-          <div class="in-leaf in-leaf--me">
-            <div class="in-note-head"><p class="in-label">field note</p><span id="draft-status">ready</span></div>
-            <label class="in-say">
-              <span class="in-say-k">in your words</span>
-              <textarea id="say" rows="9" placeholder="what held you here?" maxlength="600"></textarea>
-            </label>
-            <p class="in-say-hint"><span><kbd>⌘↵</kbd> keep with note</span><span><kbd>esc</kbd> return</span></p>
-            <details class="in-file-details">
-              <summary>filing details</summary>
-              <dl class="in-file">
-                <div><dt>weather</dt><dd id="f-weather"></dd></div>
-                <div><dt>form</dt><dd id="f-form"></dd></div>
-                <div><dt>from</dt><dd id="f-from"></dd></div>
-              </dl>
-            </details>
-          </div>
-        </aside>
       </div>
 
       <dialog class="in-keys" id="keys" aria-labelledby="keys-h">
@@ -180,11 +132,8 @@ const description = "throw a link in; judge what waits. the door to the library.
           <div><dt><kbd>→</kbd> <kbd>l</kbd></dt><dd>keep</dd></div>
           <div><dt><kbd>←</kbd> <kbd>h</kbd></dt><dd>pass</dd></div>
           <div><dt><kbd>u</kbd> <kbd>⌘z</kbd></dt><dd>undo the last verdict</dd></div>
-          <div><dt><kbd>n</kbd></dt><dd>write a note</dd></div>
-          <div><dt><kbd>⌘↵</kbd></dt><dd>keep with the note</dd></div>
           <div><dt><kbd>o</kbd> <kbd>↵</kbd></dt><dd>open source</dd></div>
           <div><dt><kbd>r</kbd></dt><dd>reload picture</dd></div>
-          <div><dt><kbd>/</kbd></dt><dd>add a link</dd></div>
           <div><dt><kbd>?</kbd></dt><dd>this sheet</dd></div>
         </dl>
         <form method="dialog"><button type="submit" class="in-btn">close <kbd>esc</kbd></button></form>
@@ -431,17 +380,12 @@ const description = "throw a link in; judge what waits. the door to the library.
     (() => {
       const harvested = JSON.parse(document.getElementById("in-data").textContent);
       const $ = (id) => document.getElementById(id);
-      const card = $("card"), art = $("art"), artWrap = $("art-wrap"), read = $("read"), noteLine = $("note-line");
+      const card = $("card"), art = $("art"), noteLine = $("note-line"), plateLoader = $("plate-loader");
       const edgeIn = document.querySelector(".in-edge--in");
       const edgeOut = document.querySelector(".in-edge--out");
-      const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-      const say = $("say"), ground = $("ground"), draftStatus = $("draft-status"), trail = $("session-trail");
+      const trail = $("session-trail");
       let deck = [], cur = null, sat = 0, keptThis = [], last = null, busy = false;
-      let canSummarise = false;
-      let draftTimer = 0;
       const session = [];
-
-      const draftKey = (id) => `eidos:draft:${id}`;
       const playFeedback = (kind) => {
         if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
         const video = $(`feedback-${kind}`);
@@ -459,32 +403,23 @@ const description = "throw a link in; judge what waits. the door to the library.
         recent.forEach((entry) => {
           const li = document.createElement("li");
           const mark = document.createElement("b"); mark.textContent = entry.verdict === "keep" ? "+" : "−";
-          const label = document.createElement("span"); label.textContent = `${entry.cand.title || entry.cand.line || entry.cand.who || entry.cand.type}${entry.say ? " · note" : ""}`;
+          const label = document.createElement("span"); label.textContent = entry.cand.title || entry.cand.who || entry.cand.type;
           li.append(mark, label); trail.append(li);
         });
       };
-      const record = (cand, verdict, line) => { session.push({ cand, verdict, say: line }); renderTrail(); };
+      const record = (cand, verdict) => { session.push({ cand, verdict }); renderTrail(); };
 
       const count = () => {
         const left = deck.length + (cur ? 1 : 0);
         $("count").textContent = left ? `${sat} judged${sat ? " today" : ""} · ${left} left` : "";
       };
 
-      // ── the deck: his links first, then what the harvester brought ────
+      // ── the visual deck ─────────────────────────────────────────────
       async function build() {
         let judged = new Set();
         try {
           const r = await fetch("/api/eidos/judged");
           if (r.ok) judged = new Set((await r.json()).judged || []);
-        } catch {}
-        let mine = [];
-        try {
-          const r = await fetch("/api/eidos/bookmarks");
-          if (r.ok) {
-            const d = await r.json();
-            canSummarise = Boolean(d.canSummarise);
-            mine = (d.bookmarks || []).filter((b) => !b.verdict).map((b) => ({ ...b, type: "bookmark", kind: "mine" }));
-          }
         } catch {}
         const rest = harvested.filter((c) => !judged.has(c.id));
         // Harvest order is a run of look-alikes: two hundred Met objects,
@@ -506,11 +441,8 @@ const description = "throw a link in; judge what waits. the door to the library.
           prev = pool.splice(pick, 1)[0];
           dealt.push(prev);
         }
-        deck = [...mine, ...dealt];
-        $("shelf-links").textContent = mine.length
-          ? `${mine.length} link${mine.length === 1 ? "" : "s"} you threw in, unjudged · `
-          : "";
-        if (!deck.length) return rest_("nothing waits. throw a link in, or let the harvester bring more.");
+        deck = dealt;
+        if (!deck.length) return rest_("nothing visual waits. let the harvester bring more.");
         if (!(await doorOpen())) return shutOut(null);
         next();
       }
@@ -522,90 +454,32 @@ const description = "throw a link in; judge what waits. the door to the library.
         art.src = cur.src + (cur.src.includes("?") ? "&" : "?") + "r=" + Date.now();
       });
       function prefetch() { const n = deck[0]; if (n && n.src) { const i = new Image(); i.src = n.src; } }
-      const WORDS = new Set(["poem", "quote", "song"]);
       function show(c) {
-        const isRead = !c.src;
-        clearTimeout(draftTimer);
-        try { say.value = localStorage.getItem(draftKey(c.id)) || ""; } catch { say.value = ""; }
-        draftStatus.textContent = say.value ? "saved locally" : "ready";
-        $("f-weather").textContent = c.weather || "unfiled";
-        $("f-form").textContent = c.type || (c.url ? "read" : "");
-        let from = "";
-        try { from = new URL(c.source || c.url || c.src).hostname.replace(/^www\./, ""); } catch {}
-        $("f-from").textContent = from || "unknown";
-        if (isRead) ground.classList.remove("is-lit");
-        artWrap.hidden = isRead;
-        read.hidden = !isRead;
-        $("r-desc").classList.toggle("is-verse", WORDS.has(c.type));
-        if (WORDS.has(c.type)) {
-          $("r-site").textContent = c.type + (c.where ? " · " + c.where : "") + (c.year ? " · " + c.year : "");
-          $("r-title").textContent = c.type === "song" ? `${c.who} · ${c.title}` : c.who;
-          const text = c.type === "song" ? "" : (c.line || "") + (c.english ? "\n\n" + c.english : "");
-          $("r-desc").textContent = text;
-          $("r-desc").hidden = !text;
-          $("r-tags").hidden = true;
-          $("c-title").textContent = "";
-          $("c-who").textContent = "to judge";
-          $("c-source").href = c.source || "#";
-          $("c-source").hidden = !c.source;
-        } else if (isRead) {
-          $("c-source").hidden = false;
-          $("r-site").textContent = c.site || (c.url ? new URL(c.url).hostname.replace(/^www\./, "") : "");
-          $("r-title").textContent = c.title || c.url || "";
-          const desc = c.summary || c.description || c.line || c.excerpt || "";
-          $("r-desc").textContent = desc;
-          $("r-desc").hidden = !desc;
-          const tags = (c.tags || []).filter(Boolean);
-          $("r-tags").innerHTML = tags.map((t) => `<i>#</i>${esc(t)}`).join(" ");
-          $("r-tags").hidden = !tags.length;
-          $("c-title").textContent = c.who || "";
-          $("c-who").textContent = c.summary ? "summarised" : (c.kind === "mine" ? (canSummarise ? "" : "no summary: no key set") : "suggested");
-          $("c-source").href = c.url || c.source || "#";
-          if (!c.summary && c.url && !gated) summariseCard(c);
-        } else {
-          $("c-source").hidden = false;
-          // The caption and the picture used to change at different moments:
-          // the caption at once, the picture only when it had decoded. Slow or
-          // failed, the previous card's painting sat under the new card's name.
-          art.removeAttribute("src");
-          art.classList.add("is-loading");
-          $("art-miss").hidden = true;
-          delete art.dataset.failed;
-          art.src = c.src;
-          art.alt = `${c.title}, ${c.who}`;
-          $("c-title").textContent = c.title;
-          $("c-who").textContent = `${c.who}${c.year ? " · " + c.year : ""}${c.type && c.type !== "painting" ? " · " + c.type : ""}`;
-          $("c-source").href = c.source || "#";
-        }
-      }
-      // the summary a harvested link never had: asked for once, cached by the
-      // worker, written into the card if it is still the one showing
-      async function summariseCard(c) {
-        try {
-          const r = await fetch("/api/eidos/summary", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ url: c.url }) });
-          if (!r.ok) return;
-          const { summary, tags } = await r.json();
-          if (!summary) return;
-          c.summary = summary; c.tags = tags || [];
-          if (cur && cur.id === c.id) {
-            $("r-desc").textContent = summary; $("r-desc").hidden = false;
-            $("r-tags").innerHTML = (c.tags || []).map((t) => `<i>#</i>${esc(t)}`).join(" "); $("r-tags").hidden = !c.tags.length;
-            $("c-who").textContent = "summarised";
-          }
-        } catch {}
+        $("c-source").hidden = false;
+        // Clear the old picture before the new caption changes. The loader is
+        // the registration of a new plate, never a mascot over the artwork.
+        art.removeAttribute("src");
+        art.classList.add("is-loading");
+        plateLoader.hidden = false;
+        $("art-miss").hidden = true;
+        delete art.dataset.failed;
+        art.src = c.src;
+        art.alt = `${c.title}, ${c.who}`;
+        $("c-title").textContent = c.title;
+        $("c-who").textContent = `${c.who}${c.year ? " · " + c.year : ""}${c.type && c.type !== "painting" ? " · " + c.type : ""}`;
+        $("c-source").href = c.source || "#";
       }
       function next() {
         cur = deck.shift() || null;
-        if (!cur) return rest_("that is all of them. throw a link in, or let the harvester bring more.");
+        if (!cur) return rest_("that is all of the visual queue. let the harvester bring more.");
         art.onload = () => {
           art.classList.remove("is-loading"); $("art-miss").hidden = true;
-          // the ground takes the picture only once it has arrived, so it never
-          // wears the last card's tile under this card's name
-          if (cur && art.getAttribute("src") === cur.src) { ground.style.backgroundImage = `url("${cur.src}")`; ground.classList.add("is-lit"); }
+          plateLoader.hidden = true;
         };
         art.onerror = () => {
           if (!cur || !art.getAttribute("src")) return;
           art.classList.remove("is-loading");
+          plateLoader.hidden = true;
           $("art-miss").hidden = false;
           $("art-miss").querySelector("p").textContent = `${cur.title} did not arrive from ${(() => { try { return new URL(cur.src, location.href).host.replace(/^www\./, ""); } catch { return "its source"; } })()}`;
         };
@@ -619,7 +493,6 @@ const description = "throw a link in; judge what waits. the door to the library.
         busy = false;
         count();
         prefetch();
-        if (!sat) playFeedback("open");
       }
       function rest_(text) {
         cur = null;
@@ -645,13 +518,13 @@ const description = "throw a link in; judge what waits. the door to the library.
       // ── the verdicts, spoken to the server ───────────────────────────
       let gated = false;
       const pending = [];
-      async function send(cand, verdict, weather, say) {
+      async function send(cand, verdict, weather) {
         try {
           const r = await fetch("/api/eidos/verdict", {
             method: "POST", headers: { "content-type": "application/json" },
-            body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather || "", say: say || "" }),
+            body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather || "" }),
           });
-          if (r.status === 401) { shutOut({ cand, verdict, weather, say }); return false; }
+          if (r.status === 401) { shutOut({ cand, verdict, weather }); return false; }
           if (!r.ok) {
             noteLine.hidden = false;
             noteLine.textContent = `that one did not reach the vault (the server said ${r.status}). undo brings it back; try again in a moment.`;
@@ -699,54 +572,6 @@ const description = "throw a link in; judge what waits. the door to the library.
         if (!cur) build();
       });
 
-      // ── the composer ─────────────────────────────────────────────────
-      const form = $("throw"), urlField = $("url"), go = $("throw-go"), tnote = $("throw-note");
-      const linkLoader = $("in-link-loader"), linkLoaderVideo = linkLoader?.querySelector("video");
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const url = urlField.value.trim();
-        if (!url) return;
-        go.disabled = true;
-        tnote.textContent = "reading it…";
-        if (linkLoader && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          linkLoader.hidden = false;
-          if (linkLoaderVideo) {
-            linkLoaderVideo.currentTime = 0;
-            linkLoaderVideo.play().catch(() => {});
-          }
-        }
-        try {
-          const r = await fetch("/api/eidos/bookmark", {
-            method: "POST", headers: { "content-type": "application/json" },
-            body: JSON.stringify({ url }),
-          });
-          if (r.status === 401) { tnote.textContent = "the door first."; shutOut(null); return; }
-          const d = await r.json();
-          if (!r.ok) { tnote.textContent = d.error || "could not read that one."; return; }
-          const b = { ...d.bookmark, type: "bookmark", kind: "mine" };
-          tnote.textContent = d.already
-            ? "already in the inbox."
-            : `kept: ${b.title}${d.summarised ? " · summarised" : canSummarise ? "" : " · no summary until a key is set"}`;
-          urlField.value = "";
-          if (!d.already) {
-            // the new card goes to the front, so what he just threw is what he sees
-            if (cur) deck.unshift(cur);
-            deck.unshift(b);
-            $("do").hidden = false;
-            next();
-          }
-        } catch {
-          tnote.textContent = "could not reach the inbox. the connection, not you.";
-        } finally {
-          go.disabled = false;
-          if (linkLoader) linkLoader.hidden = true;
-          if (linkLoaderVideo) {
-            linkLoaderVideo.pause();
-            linkLoaderVideo.currentTime = 0;
-          }
-        }
-      });
-
       // ── the two motions ──────────────────────────────────────────────
       function fly(dir) {
         card.classList.add("is-flying");
@@ -755,25 +580,23 @@ const description = "throw a link in; judge what waits. the door to the library.
       }
       function pass() {
         if (!cur || busy) return;
-        busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "pass", say: line }; $("undo").disabled = false;
-        record(cand, "pass", line); try { localStorage.removeItem(draftKey(cand.id)); } catch {}
-        playFeedback("pass"); fly(-1); send(cand, "pass", "", line); sat++; setTimeout(next, 240);
+        busy = true; const cand = cur; last = { cand, verdict: "pass" }; $("undo").disabled = false;
+        record(cand, "pass");
+        playFeedback("pass"); fly(-1); send(cand, "pass", ""); sat++; setTimeout(next, 240);
       }
       function keep() {
         if (!cur || busy) return;
-        busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "keep", say: line }; $("undo").disabled = false;
-        keptThis.push(cand); record(cand, "keep", line); try { localStorage.removeItem(draftKey(cand.id)); } catch {}
-        playFeedback("keep"); send(cand, "keep", cand.weather, line); sat++; fly(1); setTimeout(next, 240);
+        busy = true; const cand = cur; last = { cand, verdict: "keep" }; $("undo").disabled = false;
+        keptThis.push(cand); record(cand, "keep");
+        playFeedback("keep"); send(cand, "keep", cand.weather); sat++; fly(1); setTimeout(next, 240);
       }
       function undo() {
         if (!last || busy) return;
         if (last.verdict === "keep") keptThis = keptThis.filter((k) => k.id !== last.cand.id);
         if (cur) deck.unshift(cur);
         deck.unshift(last.cand);
-        const line = last.say || "";
         session.pop(); renderTrail();
         sat = Math.max(0, sat - 1); last = null; $("undo").disabled = true; $("do").hidden = false; next();
-        say.value = line;
       }
       function openSource() {
         const href = cur && (cur.url || cur.source);
@@ -787,19 +610,6 @@ const description = "throw a link in; judge what waits. the door to the library.
       $("keys-open").addEventListener("click", toggleKeys);
       // a click on the backdrop, outside the sheet's own box, closes it
       keys.addEventListener("click", (e) => { if (e.target === keys) keys.close(); });
-      say.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") { say.blur(); e.preventDefault(); }
-        if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); say.blur(); keep(); }
-      });
-      say.addEventListener("input", () => {
-        if (!cur) return;
-        draftStatus.textContent = "saving…";
-        clearTimeout(draftTimer);
-        draftTimer = setTimeout(() => {
-          try { localStorage.setItem(draftKey(cur.id), say.value); draftStatus.textContent = "saved locally"; }
-          catch { draftStatus.textContent = "could not save"; }
-        }, 280);
-      });
       // The rules every keyboard-first tool agrees on: single letters do
       // nothing while a field has focus; a held key does not fire twice; a
       // chord with alt or ctrl belongs to the browser, except undo's own.
@@ -807,8 +617,6 @@ const description = "throw a link in; judge what waits. the door to the library.
         ArrowRight: keep, l: keep,
         ArrowLeft: pass, h: pass,
         u: undo, z: undo,
-        n: () => { if (cur) say.focus(); },
-        "/": () => $("url").focus(),
         o: openSource, Enter: openSource,
         r: () => { if (cur && cur.src) $("art-retry").click(); },
         "?": toggleKeys,
