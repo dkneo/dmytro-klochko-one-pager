@@ -4,6 +4,10 @@ who: Vilhelm Hammershøi
 title: Dust Motes Dancing in the Sunbeams
 year: 1900
 collection: Ordrupgaard, Copenhagen
+collection_city: Copenhagen
+collection_url: https://hammershoi.smk.dk/artwork/sunbeams-or-sunshine-dust-motes-dancing-in-the-sunbeams/
+height_cm: 71
+width_cm: 61
 src: /images/today/hammershoi.webp
 source: "https://commons.wikimedia.org/wiki/File:Hammersh%C3%B8i_Dust_motes_dancing.jpg"
 licence: public domain

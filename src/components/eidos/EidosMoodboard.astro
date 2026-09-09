@@ -8,6 +8,7 @@ const { items, dimensions, colors } = Astro.props;
 const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
 const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u202F$1").replace(/(«)\s+/g, "$1\u202F");
 const kind = (type: string) => type === "person" ? "person" : type;
+const measured = items.filter((item: any) => item.heightCm && item.widthCm);
 ---
 <section class="ep-moodboard" id="collection" aria-labelledby="collection-title" data-visual-moodboard>
   <header class="ep-moodboard-head">
@@ -20,9 +21,14 @@ const kind = (type: string) => type === "person" ? "person" : type;
     <button type="button" data-mood-view="salon" aria-pressed="true">salon</button>
     <button type="button" data-mood-view="color" aria-pressed="false">sort by color</button>
     <button type="button" data-mood-view="favorites" aria-pressed="false">absolute favorites</button>
+    <button type="button" data-mood-view="scale" aria-pressed="false">physical scale <small>{measured.length}</small></button>
+    <a href="/eidos/places">where they live</a>
   </div>
 
   <div class="ep-mood-grid">
+    <div class="ep-scale-ruler" data-scale-ruler hidden aria-label="height reference from zero to two metres">
+      <span>2m</span><span>1m</span><span>0</span>
+    </div>
     {items.map((item: any, index: number) => (
       <figure
         class={`ep-visual ep-visual--${index % 7}`}
@@ -31,7 +37,9 @@ const kind = (type: string) => type === "person" ? "person" : type;
         data-index={index}
         data-color-key={colors[item.id]?.key ?? 999}
         data-favorite={item.favorite ? "true" : "false"}
-        style={`--piece-color:${colors[item.id]?.hex || "transparent"}`}
+        data-height-cm={item.heightCm || undefined}
+        data-width-cm={item.widthCm || undefined}
+        style={`--piece-color:${colors[item.id]?.hex || "transparent"};--physical-width:${item.widthCm || 0}px;--physical-height:${item.heightCm || 0}px`}
       >
         <button type="button" class="ep-visual-open" aria-label={`open ${glue(item.title || item.line)}`}>
           <img
@@ -47,6 +55,13 @@ const kind = (type: string) => type === "person" ? "person" : type;
           <span><i aria-hidden="true"></i>{kind(item.type)}</span>
           <b>{glue(item.line || item.title)}</b>
           {item.who && <small>{item.who}{item.year ? ` · ${item.year}` : ""}</small>}
+          {item.collection && !/^his own|google art project$/i.test(item.collection) && (
+            item.collectionUrl
+              ? <a class="ep-visual-location" href={item.collectionUrl}>{item.collection}{item.collectionCity && !item.collection.includes(item.collectionCity) ? `, ${item.collectionCity}` : ""} ↗</a>
+              : <small class="ep-visual-location">{item.collection}</small>
+          )}
+          {item.heightCm && item.widthCm && <small class="ep-visual-scale">{item.heightCm} × {item.widthCm} cm</small>}
+          {item.displayStatus && <small class="ep-visual-status">{item.displayStatus}</small>}
         </figcaption>
       </figure>
     ))}
@@ -69,6 +84,7 @@ const kind = (type: string) => type === "person" ? "person" : type;
     const body = root.querySelector("[data-detail-body]");
     const grid = root.querySelector(".ep-mood-grid");
     const pieces = [...root.querySelectorAll("[data-visual-piece]")];
+    const ruler = root.querySelector("[data-scale-ruler]");
     const reduce = matchMedia("(prefers-reduced-motion: reduce)");
     const arrange = (view, button) => {
       const paint = () => {
@@ -76,7 +92,11 @@ const kind = (type: string) => type === "person" ? "person" : type;
           ? pieces.slice().sort((a, b) => Number(a.dataset.colorKey) - Number(b.dataset.colorKey) || Number(a.dataset.index) - Number(b.dataset.index))
           : pieces;
         grid.append(...ordered);
-        pieces.forEach((piece) => { piece.hidden = view === "favorites" && piece.dataset.favorite !== "true"; });
+        pieces.forEach((piece) => {
+          piece.hidden = (view === "favorites" && piece.dataset.favorite !== "true")
+            || (view === "scale" && !piece.dataset.heightCm);
+        });
+        ruler.hidden = view !== "scale";
         root.dataset.view = view;
         root.querySelector("[data-mood-empty]").hidden = view !== "favorites" || pieces.some((piece) => piece.dataset.favorite === "true");
         root.querySelectorAll("[data-mood-view]").forEach((choice) => choice.setAttribute("aria-pressed", String(choice === button)));

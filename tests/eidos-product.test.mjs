@@ -104,6 +104,35 @@ test("the moodboard can become a salon, a color field, or an absolute-favorites 
   assert.match(moodboard, /nothing has been marked absolute yet/);
 });
 
+test("measured works keep their real scale and collection record", () => {
+  const map = JSON.parse(read("src/data/map.json"));
+  const measured = map.items.filter((item) => item.heightCm && item.widthCm);
+  assert.ok(measured.length >= 6, "the scale room has too few verified works");
+  for (const item of measured) {
+    assert.ok(item.collection, `${item.id} has dimensions but no collection`);
+    assert.ok(item.collectionUrl?.startsWith("https://"), `${item.id} has no museum source`);
+    assert.ok(item.collectionCity, `${item.id} cannot join a city pilgrimage`);
+  }
+});
+
+test("the moodboard exposes physical scale and quiet museum labels", () => {
+  const moodboard = read("src/components/eidos/EidosMoodboard.astro");
+  const html = read("dist/eidos/index.html");
+  assert.match(moodboard, /data-mood-view="scale"/);
+  assert.match(moodboard, /data-height-cm=\{item\.heightCm/);
+  assert.match(moodboard, /data-width-cm=\{item\.widthCm/);
+  assert.match(moodboard, /ep-visual-location/);
+  assert.match(html, /href="\/eidos\/places"/);
+});
+
+test("the pilgrimage room groups collectable visits by city", () => {
+  const html = read("dist/eidos/places/index.html");
+  assert.match(html, /works i can meet in person\./);
+  assert.match(html, /data-place-city/);
+  assert.match(html, /data-place-work/);
+  assert.match(html, /names the institution holding a work\. it is not a promise that the work is on view today/);
+});
+
 test("words remain intact on their own quiet page", () => {
   const html = read("dist/eidos/words/index.html");
   const map = JSON.parse(read("src/data/map.json"));

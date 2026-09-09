@@ -4,6 +4,10 @@ who: Caspar David Friedrich
 title: The Monk by the Sea
 year: 1808–1810
 collection: Alte Nationalgalerie, Berlin
+collection_city: Berlin
+collection_url: https://www.smb.museum/en/museums-institutions/alte-nationalgalerie/collection-research/conservation-care/caspar-david-friedrich-project/
+height_cm: 110.6
+width_cm: 171.4
 src: /images/today/friedrich.webp
 source: "https://commons.wikimedia.org/wiki/File:Friedrich,_Caspar_David_-_M%C3%B6nch_am_Meer_-_Alte_Nationalgalerie_in_Berlin.jpg"
 licence: public domain

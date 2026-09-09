@@ -4,6 +4,12 @@ who: J. M. W. Turner
 title: "Staffa, Fingal's Cave"
 year: 1831–32
 collection: Yale Center for British Art
+collection_city: New Haven
+collection_url: https://artsandculture.google.com/asset/staffa-fingal-s-cave-joseph-mallord-william-turner-1775%E2%80%931851-british/UwGUbiwJ5MsHvQ
+display_status: on view
+status_checked: 2026-09-09
+height_cm: 90.8
+width_cm: 121.3
 src: /images/today/turner-staffa.webp
 source: https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg
 licence: public domain
