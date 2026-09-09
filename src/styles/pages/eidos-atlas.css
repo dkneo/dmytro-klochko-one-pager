@@ -73,6 +73,7 @@
 .eidos-atlas .em-chip--open { color: var(--ep-raspberry); border-color: color-mix(in srgb, var(--ep-raspberry) 50%, transparent); }
 .eidos-atlas .em-chip--open.is-on { color: var(--ep-paper-light); background: var(--ep-raspberry); border-color: var(--ep-raspberry); }
 .eidos-atlas .em-hint { color: var(--ep-quiet); }
+.eidos-atlas .em-hint-mobile { display: none; }
 
 .eidos-atlas .em-field {
   height: min(72svh, 760px);
@@ -232,6 +233,9 @@
   .eidos-atlas .em-state > div:nth-child(2) { border-right: 0; }
   .eidos-atlas .em-state > div:nth-child(-n + 2) { border-bottom: 1px solid var(--ep-rule); }
   .eidos-atlas .em-hint { width: 100%; margin: 0.4rem 0 0; }
+  .eidos-atlas .em-chip { min-height: 44px; }
+  .eidos-atlas .em-hint-desktop { display: none; }
+  .eidos-atlas .em-hint-mobile { display: inline; }
   .eidos-atlas .ea-private-tools > summary span { display: none; }
 }
 

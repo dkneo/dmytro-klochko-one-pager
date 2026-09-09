@@ -335,6 +335,17 @@
   .eidos-studio .in-history { display: none; }
 }
 
+@media (max-width: 680px) {
+  .eidos-studio .in-add summary { align-items: center; min-height: 44px; }
+  .eidos-studio .in-btn { min-height: 44px; }
+  .eidos-studio .in-btn--undo kbd,
+  .eidos-studio .in-btn--keys,
+  .eidos-studio .in-say-hint { display: none; }
+  .eidos-studio .in-note-panel,
+  .eidos-studio .in-leaf--me { min-height: 0; }
+  .eidos-studio .in-say textarea { min-height: 11rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .eidos-studio .in-card.is-flying, .eidos-studio .in-card.is-home { transition: opacity 180ms ease; }
   .eidos-studio .in-feedback { display: none; }

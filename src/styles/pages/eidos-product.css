@@ -148,7 +148,8 @@ html[data-eidos-product] body {
 .ep-nav a:focus-visible::after,
 .ep-nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
 .ep-parent { justify-self: end; gap: 0.35rem; }
-.ep-parent span { color: var(--ep-raspberry); }
+.ep-parent-mobile { display: none; }
+.ep-parent-arrow { color: var(--ep-raspberry); }
 
 .ep-hero { width: min(var(--ep-max), calc(100% - 4rem)); margin-inline: auto; }
 
@@ -230,7 +231,6 @@ html[data-eidos-product] body {
 .ep-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .ep-hero-video { opacity: 0; transition: opacity 700ms ease; }
 .ep-hero-art.is-moving .ep-hero-video { opacity: 1; }
-.ep-hero-video--mobile { display: none; }
 .ep-hero-art figcaption {
   position: absolute;
   right: 5%;
@@ -419,7 +419,8 @@ html[data-eidos-product] body {
 .ep-trace-grid dd { margin: 1.1rem 0 0; font-family: var(--display, "Zodiak", var(--serif)); font-size: clamp(1.8rem, 3vw, 3.2rem); }
 .ep-makers { display: grid; grid-template-columns: 12rem 1fr; gap: 2rem; margin-top: 3rem; }
 .ep-makers ol { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0; padding: 0; list-style: none; }
-.ep-makers li { font-size: 1.1rem; }
+.ep-makers li { display: inline-flex; gap: 0.28rem; align-items: baseline; font-size: 1.1rem; }
+.ep-makers li b { color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.68rem; font-weight: 500; }
 
 .ep-make-yours {
   position: relative;
@@ -477,15 +478,32 @@ html[data-eidos-product] body {
   .ep-make-yours,
   .ep-footer { width: min(100% - 2rem, var(--ep-max)); }
   .ep-header { min-height: 3.75rem; }
-  .ep-parent { font-size: 0; }
-  .ep-parent span { font-size: 1rem; }
+  .ep-header {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 3.75rem 2.75rem;
+    min-height: 6.5rem;
+  }
+  .ep-nav {
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-start;
+    gap: 1.35rem;
+    overflow-x: auto;
+    border-top: 1px solid color-mix(in srgb, var(--ep-rule) 65%, transparent);
+    scrollbar-width: none;
+  }
+  .ep-nav::-webkit-scrollbar { display: none; }
+  .ep-nav a { flex: none; min-height: 44px; font-size: 0.64rem; }
+  .ep-nav a::after { bottom: 0.35rem; }
+  .ep-parent-name { display: none; }
+  .ep-parent-mobile { display: inline; color: var(--ep-ink); }
+  .ep-parent { gap: 0.4rem; font-size: 0.64rem; }
   .ep-hero { display: flex; flex-direction: column; align-items: stretch; min-height: 0; padding: 2rem 0 4rem; }
   .ep-hero-copy { padding: 0; }
   .ep-hero h1 { max-width: 9ch; font-size: clamp(3.65rem, 17vw, 5.2rem); }
   .ep-hero-lede { font-size: 1.05rem; }
   .ep-hero-art { order: -1; width: calc(100% + 2rem); margin-left: -1rem; margin-bottom: 1.5rem; aspect-ratio: 9 / 13; }
-  .ep-hero-video--desktop { display: none; }
-  .ep-hero-video--mobile { display: block; }
   .ep-hero-art figcaption { right: 1rem; bottom: 0.5rem; }
   .ep-section { padding: 4.5rem 0; }
   .ep-section-head--split { display: block; }

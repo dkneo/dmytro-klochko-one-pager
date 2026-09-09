@@ -23,5 +23,9 @@ const { current = "portrait", studio = false } = Astro.props;
       <a href="/eidos/deck" aria-current={current === "experiment" ? "page" : undefined}>try it</a>
     </nav>
   )}
-  <a class="ep-parent" href="/">dmytro klochko <span aria-hidden="true">↗</span></a>
+  <a class="ep-parent" href="/">
+    <span class="ep-parent-name">dmytro klochko</span>
+    <span class="ep-parent-mobile">site</span>
+    <span class="ep-parent-arrow" aria-hidden="true">↗</span>
+  </a>
 </header>

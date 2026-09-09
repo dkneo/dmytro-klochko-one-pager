@@ -153,3 +153,24 @@ test("the public experiment belongs to the product and explains itself", () => {
   assert.match(html, /swipe-pass-overlay\.(?:webm|mp4)/);
   assert.match(html, /classList\.add\("is-deck-active"\)/, "starting the deck does not make room for the card");
 });
+
+test("the mobile product keeps its doors visible without loading two hero films", () => {
+  const header = read("src/components/eidos/EidosHeader.astro");
+  const hero = read("src/components/eidos/EidosHero.astro");
+  const css = read("src/styles/pages/eidos-product.css");
+
+  assert.match(header, /ep-parent-mobile[^>]*>site</);
+  assert.match(css, /@media \(max-width: 680px\)[\s\S]*?\.ep-nav \{[\s\S]*?display: flex;/);
+  assert.equal((hero.match(/class="ep-hero-video"/g) || []).length, 1);
+  assert.match(hero, /media="\(max-width: 680px\)"[^>]*hero-ambient-mobile\.webm/);
+});
+
+test("the mobile workbench removes desktop-only hints and preserves generous controls", () => {
+  const studio = read("src/styles/pages/eidos-studio.css");
+  const atlas = read("src/styles/pages/eidos-atlas.css");
+  const product = read("src/styles/pages/eidos-product.css");
+
+  assert.match(studio, /@media \(max-width: 680px\)[\s\S]*?\.in-say-hint \{\s*display: none;/);
+  assert.match(atlas, /@media \(max-width: 700px\)[\s\S]*?\.em-chip \{\s*min-height: 44px;/);
+  assert.match(product, /\.ep-makers li \{[^}]*display: inline-flex;[^}]*gap:/);
+});
