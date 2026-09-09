@@ -126,6 +126,8 @@ test("save and pass feedback use the approved non-blocking character clips", () 
   assert.match(html, /pass-card\.webm/);
   assert.match(html, /open-next-card\.webm/);
   assert.match(html, /data-studio-feedback/);
+  assert.match(html, /id="in-link-loader"/);
+  assert.match(html, /loader-circle\.webm/);
 });
 
 test("the atlas is the product's one map and keeps private tools secondary", () => {
@@ -137,4 +139,17 @@ test("the atlas is the product's one map and keeps private tools secondary", () 
   assert.match(html, /<details class="ea-private-tools"/);
   assert.match(html, /<summary>open the private instruments/);
   assert.doesNotMatch(html, /data-scene="nightcourt"/);
+});
+
+test("the public experiment belongs to the product and explains itself", () => {
+  const html = read("dist/eidos/deck/index.html");
+  assert.match(html, /data-eidos-product/);
+  assert.match(html, /class="eidos-experiment"/);
+  assert.match(html, /what does your eye keep\?/);
+  assert.match(html, /76-card experiment/);
+  assert.doesNotMatch(html, /the greek for the form of a thing/);
+  assert.match(html, /data-deck-feedback/);
+  assert.match(html, /swipe-keep-overlay\.(?:webm|mp4)/);
+  assert.match(html, /swipe-pass-overlay\.(?:webm|mp4)/);
+  assert.match(html, /classList\.add\("is-deck-active"\)/, "starting the deck does not make room for the card");
 });

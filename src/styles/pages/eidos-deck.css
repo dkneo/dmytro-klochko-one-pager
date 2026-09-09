@@ -1,0 +1,207 @@
+.eidos-experiment {
+  min-height: 100vh;
+  color: var(--ep-ink);
+}
+
+.eidos-experiment [hidden] { display: none !important; }
+
+.eidos-experiment .ed-shell {
+  width: min(var(--ep-max), calc(100% - 4rem));
+  margin: 0 auto;
+  padding: 3rem 0 0;
+}
+
+.eidos-experiment .ed-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(23rem, 0.42fr);
+  align-items: end;
+  gap: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--ep-rule);
+}
+
+.eidos-experiment .ed-intro h1 {
+  max-width: 11ch;
+  margin: 0;
+  color: var(--ep-ink);
+  font-family: var(--display, "Zodiak", var(--serif));
+  font-size: clamp(4rem, 7vw, 7.4rem);
+  font-weight: 300;
+  letter-spacing: -0.06em;
+  line-height: 0.88;
+}
+
+.eidos-experiment .ed-intro > p {
+  max-width: 36rem;
+  margin: 0;
+  color: var(--ep-quiet);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.eidos-experiment.is-deck-active .ed-intro {
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 0.75rem 0;
+}
+.eidos-experiment.is-deck-active .ed-intro .ep-index,
+.eidos-experiment.is-deck-active .ed-intro > p { display: none; }
+.eidos-experiment.is-deck-active .ed-intro h1 { max-width: none; font-size: 2rem; letter-spacing: -0.035em; line-height: 1; }
+.eidos-experiment.is-deck-active .eidos { margin-top: 1rem; }
+
+.eidos-experiment .eidos { position: relative; min-height: 38rem; margin: 2rem 0 0; }
+
+.eidos-experiment .eidos-intro {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.72fr) minmax(22rem, 0.85fr);
+  align-items: center;
+  gap: clamp(3rem, 9vw, 9rem);
+  width: min(62rem, 100%);
+  min-height: 35rem;
+  margin: 0 auto;
+}
+.eidos-experiment .eidos-intro img {
+  display: block;
+  width: min(100%, 25rem);
+  height: auto;
+  max-height: 31rem;
+  object-fit: contain;
+  justify-self: end;
+  filter: drop-shadow(0 22px 32px var(--ep-shadow));
+  transform: rotate(-1.2deg);
+}
+.eidos-experiment .eidos-intro > div { display: grid; justify-items: start; gap: 1.3rem; }
+.eidos-experiment .eidos-intro p { max-width: 28ch; margin: 0; color: var(--ep-quiet); font-size: 1.25rem; line-height: 1.5; }
+.eidos-experiment .eidos-start,
+.eidos-experiment .eidos-restart {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 44px;
+  padding: 0.65rem 1.1rem;
+  color: var(--ep-paper-light);
+  background: var(--ep-raspberry);
+  border: 1px solid var(--ep-raspberry);
+  border-radius: var(--r-row);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.eidos-experiment .eidos-start:hover,
+.eidos-experiment .eidos-restart:hover { color: var(--ep-paper-light); background: var(--ep-salmon); border-color: var(--ep-salmon); }
+
+.eidos-experiment .eidos-deck { min-height: 36rem; }
+.eidos-experiment .eidos-cards { height: min(61svh, 34rem); max-width: 44rem; }
+.eidos-experiment .eidos-card { position: absolute; inset: 0; display: grid; place-items: center; transform-origin: 50% 120%; translate: 0 calc(var(--behind, 0) * 10px); scale: calc(1 - var(--behind, 0) * 0.04); will-change: transform; }
+.eidos-experiment .eidos-card figure { margin: 0; display: grid; gap: 0.8rem; justify-items: center; }
+.eidos-experiment .eidos-card .cell {
+  height: min(50svh, 27rem);
+  width: auto;
+  max-width: min(76vw, 42rem);
+  aspect-ratio: clamp(0.62, var(--art-ratio, 1.48), 1.58);
+  padding: 0.85rem;
+  background: var(--ep-paper-light);
+  border: 1px solid var(--ep-rule);
+  border-radius: var(--r-print);
+  box-shadow: 0 24px 50px var(--ep-shadow);
+}
+.eidos-experiment .eidos-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--r-print);
+}
+.eidos-experiment .eidos-card figcaption b { color: var(--ep-ink); }
+.eidos-experiment .eidos-card figcaption em { color: var(--ep-quiet); }
+.eidos-experiment .eidos-card:not(.is-top) .cell {
+  aspect-ratio: clamp(0.62, var(--top-art-ratio, 1.48), 1.58);
+  background: color-mix(in srgb, var(--ep-olive) 18%, var(--ep-paper-light));
+  filter: none;
+}
+.eidos-experiment .eidos-card:not(.is-top) img { visibility: hidden; }
+.eidos-experiment .eidos-stamp {
+  position: absolute;
+  top: 12%;
+  padding: 0.3rem 0.9rem;
+  border: 2px solid currentColor;
+  border-radius: var(--r-panel);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.eidos-experiment .eidos-stamp--keep { color: var(--ep-raspberry); }
+.eidos-experiment .eidos-stamp--pass { color: var(--ep-ink); }
+.eidos-experiment .eidos-progress { background: color-mix(in srgb, var(--ep-rule) 70%, transparent); }
+.eidos-experiment .eidos-progress i { background: var(--ep-raspberry); }
+.eidos-experiment .eidos-bar { margin-top: 1.3rem; }
+.eidos-experiment .eidos-btn {
+  width: 3.25rem;
+  height: 3.25rem;
+  color: var(--ep-quiet);
+  background: rgb(248 236 217 / 62%);
+  border: 1px solid var(--ep-rule);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.eidos-experiment .eidos-btn--keep:hover { color: var(--ep-paper-light); background: var(--ep-raspberry); border-color: var(--ep-raspberry); }
+.eidos-experiment .eidos-btn--pass:hover { color: var(--ep-paper-light); background: var(--ep-ink); border-color: var(--ep-ink); }
+.eidos-experiment .eidos-count { color: var(--ep-quiet); }
+.eidos-experiment .eidos-count b { color: var(--ep-ink); }
+.eidos-experiment .eidos-hint { color: var(--ep-quiet); }
+
+.eidos-experiment .eidos-out {
+  width: min(66rem, 100%);
+  margin: 2rem auto 0;
+  padding: clamp(2rem, 5vw, 5rem);
+  background: color-mix(in srgb, var(--ep-salmon) 9%, var(--ep-paper-light));
+  border: 1px solid var(--ep-rule);
+  box-shadow: 0 24px 54px var(--ep-shadow);
+}
+.eidos-experiment .eidos-kicker { color: var(--ep-raspberry); }
+.eidos-experiment .eidos-name { color: var(--ep-ink); }
+.eidos-experiment .eidos-read { max-width: 44rem; color: var(--ep-ink); }
+.eidos-experiment .eidos-tally,
+.eidos-experiment .eidos-credit { color: var(--ep-quiet); }
+.eidos-experiment .eidos-picks figure { background: var(--ep-paper-light); box-shadow: 0 12px 26px var(--ep-shadow); }
+
+.eidos-experiment .ed-feedback {
+  position: absolute;
+  right: 4%;
+  bottom: 5.5rem;
+  z-index: 70;
+  width: 10rem;
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+.eidos-experiment .ed-feedback video { position: absolute; inset: 0; display: none; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.eidos-experiment .ed-feedback video.is-playing { display: block; }
+.eidos-experiment .eidos-credit { margin: 1.5rem auto 0; text-align: center; font-size: 0.78rem; }
+.eidos-experiment .ep-footer { margin-top: 3rem; }
+
+@media (max-width: 820px) {
+  .eidos-experiment .ed-intro { grid-template-columns: 1fr; gap: 1.4rem; }
+  .eidos-experiment .eidos-intro { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+@media (max-width: 620px) {
+  .eidos-experiment .ed-shell { width: min(100% - 2rem, var(--ep-max)); padding-top: 2rem; }
+  .eidos-experiment .ed-intro h1 { font-size: clamp(3.4rem, 16vw, 5rem); }
+  .eidos-experiment .eidos-intro { grid-template-columns: 1fr; gap: 1rem; min-height: 0; padding: 1.5rem 0; }
+  .eidos-experiment .eidos-intro img { width: min(58vw, 16rem); justify-self: center; }
+  .eidos-experiment .eidos-intro > div { justify-items: center; text-align: center; }
+  .eidos-experiment .eidos-cards { height: min(58svh, 29rem); }
+  .eidos-experiment .eidos-card .cell { width: calc(100vw - 3rem); height: min(43svh, 22rem); }
+  .eidos-experiment .ed-feedback { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eidos-experiment .ed-feedback { display: none; }
+}

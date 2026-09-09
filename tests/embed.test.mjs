@@ -13,7 +13,8 @@ const exists = (f) => fs.existsSync(path.join(root, f));
 test("the embed is the portrait alone, with no site furniture showing through the frame", () => {
   assert.ok(exists("dist/eidos/embed/index.html"), "no embed page was built");
   const html = read("dist/eidos/embed/index.html");
-  assert.match(html, /class="eidos-portrait/, "the embed does not carry the portrait");
+  assert.match(html, /data-eidos-product/, "the embed did not inherit the product system");
+  assert.match(html, /class="eidos-embed/, "the embed does not carry the portrait");
   for (const chrome of ["site-header", "site-footer", "dream-sky", 'class="scenes"', "chapter-rail"]) {
     assert.ok(!html.includes(chrome), `the embed shows the site's ${chrome} inside the frame`);
   }
@@ -23,7 +24,7 @@ test("the embed is the portrait alone, with no site furniture showing through th
   const lib = read("dist/eidos/index.html");
   const map = JSON.parse(read("src/data/map.json"));
   const shelved = map.items.filter((item) => item.type !== "link").length;
-  assert.equal(Number(html.match(/(\d+) real things i love/)?.[1]), shelved, "the embed miscounts the vault");
+  assert.equal(Number(html.match(/data-total="(\d+)"/)?.[1]), shelved, "the embed miscounts the vault");
   assert.equal([...lib.matchAll(/data-piece data-form=/g)].length, shelved, "the product miscounts the vault");
 });
 

@@ -94,6 +94,12 @@ const description = "throw a link in; judge what waits. the door to the library.
                 <input type="url" name="url" id="url" placeholder="https://" inputmode="url" autocapitalize="none" autocorrect="off" spellcheck="false" required />
               </label>
               <button type="submit" id="throw-go">read and add</button>
+              <div class="in-link-loader" id="in-link-loader" hidden aria-hidden="true">
+                <video muted playsinline preload="metadata">
+                  <source src="/images/eidos/product/loader-circle.webm" type="video/webm" />
+                  <source src="/images/eidos/product/loader-circle.mp4" type="video/mp4" />
+                </video>
+              </div>
               <p class="in-throw-note" id="throw-note" aria-live="polite">i will show what arrived before it joins the queue.</p>
             </form>
           </details>
@@ -691,12 +697,20 @@ const description = "throw a link in; judge what waits. the door to the library.
 
       // ── the composer ─────────────────────────────────────────────────
       const form = $("throw"), urlField = $("url"), go = $("throw-go"), tnote = $("throw-note");
+      const linkLoader = $("in-link-loader"), linkLoaderVideo = linkLoader?.querySelector("video");
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         const url = urlField.value.trim();
         if (!url) return;
         go.disabled = true;
         tnote.textContent = "reading it…";
+        if (linkLoader && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          linkLoader.hidden = false;
+          if (linkLoaderVideo) {
+            linkLoaderVideo.currentTime = 0;
+            linkLoaderVideo.play().catch(() => {});
+          }
+        }
         try {
           const r = await fetch("/api/eidos/bookmark", {
             method: "POST", headers: { "content-type": "application/json" },
@@ -721,6 +735,11 @@ const description = "throw a link in; judge what waits. the door to the library.
           tnote.textContent = "could not reach the inbox. the connection, not you.";
         } finally {
           go.disabled = false;
+          if (linkLoader) linkLoader.hidden = true;
+          if (linkLoaderVideo) {
+            linkLoaderVideo.pause();
+            linkLoaderVideo.currentTime = 0;
+          }
         }
       });
 

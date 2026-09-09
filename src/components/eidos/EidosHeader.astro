@@ -1,6 +1,6 @@
 ---
 interface Props {
-  current?: "portrait" | "collection" | "atlas" | "studio";
+  current?: "portrait" | "collection" | "atlas" | "experiment" | "studio";
   studio?: boolean;
 }
 const { current = "portrait", studio = false } = Astro.props;
@@ -20,8 +20,8 @@ const { current = "portrait", studio = false } = Astro.props;
       <a href="/eidos#portrait" aria-current={current === "portrait" ? "page" : undefined}>portrait</a>
       <a href="/eidos#collection" aria-current={current === "collection" ? "page" : undefined}>collection</a>
       <a href="/eidos/map" aria-current={current === "atlas" ? "page" : undefined}>atlas</a>
+      <a href="/eidos/deck" aria-current={current === "experiment" ? "page" : undefined}>try it</a>
     </nav>
   )}
   <a class="ep-parent" href="/">dmytro klochko <span aria-hidden="true">↗</span></a>
 </header>
-

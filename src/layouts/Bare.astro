@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import "../styles/dream.css";
+import "../styles/pages/eidos-product.css";
 
 // A layout with no chrome: no sky, no header, no footer, no scenes. For the
 // one page that is meant to sit inside someone else's page — the portrait as
@@ -10,18 +10,18 @@ interface Props { title: string; description?: string }
 const { title, description = "" } = Astro.props;
 ---
 <!doctype html>
-<html lang="en" data-mode="dream">
+<html lang="en" data-eidos-product>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="light" />
     <meta name="robots" content="noindex, follow" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/zodiak-300.woff2" />
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/newsreader-400.woff2" />
   </head>
-  <body class="bare">
+  <body class="bare eidos-body">
     <slot />
   </body>
 </html>
