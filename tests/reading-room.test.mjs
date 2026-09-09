@@ -74,10 +74,10 @@ test("the library opens as a product with a static-first character scene", () =>
   assert.match(styles("dist/eidos/index.html"), /\.ep-action[^}]*min-height:\s*44px/, "hero actions lost their tap floor");
 });
 
-test("the studio says what is temporarily held without exposing non-visual intake", () => {
+test("discover names its narrow queue without exposing non-visual intake", () => {
   const html = read("dist/eidos/inbox/index.html");
-  assert.match(html, /visuals only for now/);
-  assert.match(html, /words and links are safely held/);
+  assert.match(html, /paintings and posters only/);
+  assert.match(html, /earlier swipes and other media stay safely archived/);
   assert.doesNotMatch(html, /id="throw"|id="url"|read and add/);
 });
 

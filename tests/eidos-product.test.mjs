@@ -79,8 +79,8 @@ test("the product opens as one visual moodboard with plain doors", () => {
   assert.match(html, /class="eidos-product"/);
   assert.match(html, /class="ep-header"/);
   assert.match(html, />moodboard</);
-  assert.match(html, />play</);
-  assert.match(html, /href="\/eidos\/inbox"[^>]*>studio</);
+  assert.match(html, /href="\/eidos\/inbox"[^>]*>discover</);
+  assert.doesNotMatch(html, /href="\/eidos\/deck"/, "the legacy experiment is still a competing product door");
   assert.match(html, /a beautiful, endless moodboard of things i love\./);
   assert.match(html, /data-visual-moodboard/);
   assert.equal((html.match(/<figure class="ep-visual/g) || []).length, visualCount);
@@ -174,14 +174,20 @@ test("the private inbox is the working studio of the same product", () => {
   assert.doesNotMatch(html, /class="in-ground"/, "the old blurred artwork wallpaper survived");
 });
 
-test("the studio holds every non-visual outside the current queue", () => {
+test("discover queues only paintings, prints, and posters", () => {
   const source = read("src/pages/eidos/inbox.astro");
   const html = read("dist/eidos/inbox/index.html");
+  const inbox = JSON.parse(read("public/inbox.json"));
+  const payload = JSON.parse(html.match(/<script type="application\/json" id="in-data">([\s\S]*?)<\/script>/)?.[1] || "[]");
+  const allowed = new Set(["painting", "print", "poster"]);
+  const expected = inbox.candidates.filter((candidate) => candidate.src && allowed.has(candidate.type || "painting")).length;
 
-  assert.match(source, /filter\(\(c\) => c\.src\)/, "the build payload still carries words or links");
+  assert.equal(payload.length, expected);
+  assert.ok(payload.length > 0, "the focused discovery queue is empty");
+  assert.ok(payload.every((candidate) => allowed.has(candidate.type)), "a non-artwork entered Discover");
   assert.doesNotMatch(source, /fetch\("\/api\/eidos\/bookmarks"\)/, "private bookmarks still join the visual queue");
   assert.doesNotMatch(html, /id="throw"|id="say"|class="in-read"/, "non-visual intake or annotation is still visible");
-  assert.match(html, /visuals only for now/);
+  assert.match(html, /paintings and posters only/);
   assert.match(html, /id="session-trail"/);
   assert.match(source, /slice\(-5\)/);
 });
@@ -189,8 +195,11 @@ test("the studio holds every non-visual outside the current queue", () => {
 test("the visual Studio has shelves, an absolute favorite, and a comparison ritual", () => {
   const source = read("src/pages/eidos/inbox.astro");
   assert.match(source, /data-queue-filter=\{shelf\.id\}/);
-  for (const shelf of ["paintings", "prints", "objects", "photography", "people"]) {
+  for (const shelf of ["paintings", "prints"]) {
     assert.match(source, new RegExp(`id: "${shelf}"`), `missing ${shelf} shelf`);
+  }
+  for (const shelf of ["objects", "photography", "people"]) {
+    assert.doesNotMatch(source, new RegExp(`id: "${shelf}"`), `obsolete ${shelf} shelf remains`);
   }
   assert.match(source, /id="favorite"[^>]*aria-keyshortcuts="f"/);
   assert.match(source, /absolute favorite<\/button>/);

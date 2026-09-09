@@ -4,9 +4,9 @@ import EidosHeader from "../../components/eidos/EidosHeader.astro";
 import "../../styles/pages/eidos-studio.css";
 import inbox from "../../../public/inbox.json";
 
-// The visual Studio. The source inbox still carries pictures, words and links,
-// but this room deals only candidates with an image. Nothing else is deleted;
-// those records wait for a later, purpose-built reading surface.
+// Discover is deliberately only paintings, prints and posters. The source
+// inbox still carries every other picture, word and link. Nothing is deleted;
+// those records wait for their own purpose-built surfaces.
 //
 // Three things carried over from the sitting it replaces:
 //
@@ -19,44 +19,44 @@ import inbox from "../../../public/inbox.json";
 //
 //   No ceremony. He judges until he stops; the line says where he is.
 
-const candidates = (inbox.candidates || []).filter((c) => c.src).map((c) => ({
-  id: c.id,
-  type: c.type || "painting",
-  who: c.who || "",
-  title: c.title || "",
-  year: c.year || "",
-  weather: c.weather || "",
-  src: c.src || "",
-  url: c.url || "",
-  site: c.site || "",
-  source: c.source || "",
-  licence: c.licence || "",
-}));
+const artworkTypes = new Set(["painting", "print", "poster"]);
+const candidates = (inbox.candidates || [])
+  .filter((c) => c.src && artworkTypes.has(c.type || "painting"))
+  .map((c) => ({
+    id: c.id,
+    type: c.type || "painting",
+    who: c.who || "",
+    title: c.title || "",
+    year: c.year || "",
+    weather: c.weather || "",
+    src: c.src || "",
+    url: c.url || "",
+    site: c.site || "",
+    source: c.source || "",
+    licence: c.licence || "",
+  }));
 const pictures = candidates.length;
 const shelfCount = (types) => candidates.filter((c) => types.includes(c.type)).length;
 const shelves = [
-  { id: "all", label: "all visuals", count: pictures },
+  { id: "all", label: "all works", count: pictures },
   { id: "paintings", label: "paintings", count: shelfCount(["painting"]) },
   { id: "prints", label: "prints + posters", count: shelfCount(["print", "poster"]) },
-  { id: "objects", label: "objects + buildings", count: shelfCount(["object", "building"]) },
-  { id: "photography", label: "photography", count: shelfCount(["photograph"]) },
-  { id: "people", label: "people", count: shelfCount(["person"]) },
 ].filter((shelf) => shelf.id === "all" || shelf.count > 0);
 
-const title = "inbox · eidos";
-const description = "judge the visual things waiting to join the moodboard.";
+const title = "discover · eidos";
+const description = "discover paintings and posters for the moodboard.";
 ---
 
 <EidosLayout title={title} description={description}>
   <div class="eidos-studio">
-    <EidosHeader current="studio" studio />
+    <EidosHeader current="discover" studio />
     <section class="in-shell" aria-labelledby="ib">
       <header class="in-intro">
         <div>
-          <p class="ep-index">private fieldwork</p>
+          <p class="ep-index">private discovery room</p>
           <h1 id="ib">notice. decide. remember.</h1>
         </div>
-        <p id="in-lede">one image at a time. keep what pulls you closer and pass what does not. words and links are safely held elsewhere.</p>
+        <p id="in-lede">paintings and posters, one at a time. keep what pulls you closer and pass what does not.</p>
       </header>
 
       <form class="in-gate" id="gate" method="POST" action="/names" hidden>
@@ -80,9 +80,9 @@ const description = "judge the visual things waiting to join the moodboard.";
             <p class="in-count" id="count"></p>
           </div>
           <p class="in-shelf" id="shelf">
-            <strong>visuals only for now</strong>
-            <span>{pictures} pictures waiting</span>
-            <small>words and links are safely held for later.</small>
+            <strong>paintings and posters only</strong>
+            <span>{pictures} works waiting</span>
+            <small>earlier swipes and other media stay safely archived.</small>
           </p>
           <nav class="in-filters" aria-label="filter the visual queue">
             <p class="in-label">show me</p>
@@ -171,7 +171,7 @@ const description = "judge the visual things waiting to join the moodboard.";
         <button type="button" class="in-comparison-skip" id="comparison-skip">not now</button>
       </dialog>
     </section>
-    <footer class="ep-footer"><a href="/eidos">portrait</a><span>private working studio</span><a href="/eidos/map">atlas</a></footer>
+    <footer class="ep-footer"><a href="/eidos">moodboard</a><span>private discovery room</span><a href="/eidos/map">atlas</a></footer>
   </div>
 
   <style media="not all">
