@@ -122,8 +122,14 @@ test("a poem, a quote or a song in the deck carries what a card and a note need"
     assert.match(w.note_md, /added: \{\{added\}\}/, `${w.id}'s note has a fixed date`);
     assert.doesNotMatch(w.note_md, /^weather: /m, `${w.id} arrived with a weather nobody chose`);
   }
-  const shelved = [...fs.readdirSync(path.join(root, "vault/poems")), ...fs.readdirSync(path.join(root, "vault/quotes")), ...fs.readdirSync(path.join(root, "vault/songs"))];
-  for (const w of words) assert.ok(!shelved.includes(`${w.id}.md`), `${w.id} is in the vault without a swipe`);
+  const shelves = ["poems", "quotes", "songs"];
+  for (const w of words) {
+    const shelf = shelves.find((name) => fs.existsSync(path.join(root, "vault", name, `${w.id}.md`)));
+    if (!shelf) continue;
+    const note = read(path.join("vault", shelf, `${w.id}.md`));
+    assert.doesNotMatch(note, /\{\{added\}\}/, `${w.id} was copied into the vault without being filed`);
+    assert.match(note, /^added: \d{4}-\d{2}-\d{2}$/m, `${w.id} has no pull date`);
+  }
 });
 
 test("a card never wears the last card's picture, and a missing one can be asked for again", () => {

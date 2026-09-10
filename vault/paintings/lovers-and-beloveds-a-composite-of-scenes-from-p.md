@@ -3,6 +3,9 @@ type: painting
 who: Chitarman II
 title: Lovers and Beloveds
 year: c. 1735
+collection: "Cleveland Museum of Art"
+collection_city: "Cleveland"
+collection_url: "https://www.clevelandart.org/art/1945.383"
 src: /images/vault/lovers-and-beloveds-a-composite-of-scenes-from-p.webp
 source: "https://commons.wikimedia.org/wiki/File:%27Lovers_and_beloveds,_A_composite_of_scenes_from_Persian,_Urdu,_and_Sanskrit_literature%27,_painting_by_Chitarman_II,_ca_1735.png"
 licence: public domain

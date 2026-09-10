@@ -40,13 +40,26 @@ function fullSize(c) {
   return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=1600`;
 }
 
+async function sourceImage(c) {
+  const commons = c.src.startsWith(INBOX) ? fullSize(c) : null;
+  if (commons) return commons;
+  const metId = String(c.source || "").match(/metmuseum\.org\/art\/collection\/search\/(\d+)/)?.[1];
+  if (!metId) return c.src;
+  const metadata = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${metId}`, {
+    headers: { "user-agent": UA },
+  });
+  if (!metadata.ok) throw new Error(`${metadata.status} fetching Met record ${metId}`);
+  const record = await metadata.json();
+  return record.primaryImage || c.src;
+}
+
 async function bringHome(c) {
-  const thumb = c.src.startsWith(INBOX) ? fullSize(c) : null;
-  if (c.src.startsWith("/") && !thumb) return c.src;    // already ours
+  const remote = await sourceImage(c);
+  if (c.src.startsWith("/") && remote === c.src) return c.src;    // already ours
   const out = join(KEPT_DIR, `${c.id}.webp`);
   const local = `/images/vault/${c.id}.webp`;
   if (existsSync(out)) return local;
-  const url = (thumb || c.src).split("?")[0] + (thumb ? "?width=1600" : "");
+  const url = remote;
   const r = await fetch(url, { headers: { "user-agent": UA } });
   if (!r.ok) throw new Error(`${r.status} fetching ${url}`);
   mkdirSync(KEPT_DIR, { recursive: true });

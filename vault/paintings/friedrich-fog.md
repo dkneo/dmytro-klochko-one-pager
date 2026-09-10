@@ -3,6 +3,9 @@ type: painting
 who: Caspar David Friedrich
 title: Wanderer above the Sea of Fog
 year: c. 1818
+collection: "Hamburger Kunsthalle"
+collection_city: "Hamburg"
+collection_url: "https://online-sammlung.hamburger-kunsthalle.de/en/objekt/HK-5161"
 src: /images/vault/friedrich-fog.webp
 source: "https://commons.wikimedia.org/wiki/File%3ACaspar_David_Friedrich_-_Der_Wanderer_%C3%BCber_dem_Nebelmeer.jpg"
 licence: Public domain

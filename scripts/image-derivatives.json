@@ -1,6 +1,21 @@
 {
   "version": 1,
   "jobs": {
+    "/images/thumbs/vault/a-ship-in-a-rough-sea.webp": {
+      "src": "/images/vault/a-ship-in-a-rough-sea.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "310b18f1f5de71f347932e6bd6a12f76c84474f30003b058db171cdcbebb0fde",
+      "outputSha256": "cc0fde737a577088784e447bd33c61685a8ede9d361dc240063f2190421fcb12"
+    },
     "/images/thumbs/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp": {
       "src": "/images/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp",
       "recipe": {
@@ -15,6 +30,21 @@
       },
       "sourceSha256": "9b87b0d71d441d4d7c77b19afd79f3519dc2234825cb785e710c801f6f743728",
       "outputSha256": "6d51a5a02b6fe30bb9411e405a62f2aafba31dfef44ce99e4430b53d0af9649d"
+    },
+    "/images/thumbs/vault/a-still-life-with-strawberries-in-a-bowl-and-rad.webp": {
+      "src": "/images/vault/a-still-life-with-strawberries-in-a-bowl-and-rad.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "db80d6a55ac66a6dfe627e90ac165a53ea87f4fecfc20886267acd060743bfa8",
+      "outputSha256": "4ee8784ac6b43f1d515dea7f6c446349fdc212efeb235151247b846fa149fa82"
     },
     "/images/thumbs/vault/a-village-road-in-the-summer-midday-sun.webp": {
       "src": "/images/vault/a-village-road-in-the-summer-midday-sun.webp",
@@ -106,6 +136,21 @@
       "sourceSha256": "1714655da6c020653eff7dfb51807013633525568e03eb87d9a223e6ca44b0fc",
       "outputSha256": "c9ed96bfae253735f4c2994f320eae1e4f5c5a39027bc0d2163c9aadf439643e"
     },
+    "/images/thumbs/vault/dancers.webp": {
+      "src": "/images/vault/dancers.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7d9b02e8e90cfbd3f71c195e26280be4771ad048dedd3ef5519416211052a58b",
+      "outputSha256": "1bb1fa01a4a8c25e7670d624b96258d2ab268e806eaa1d7adb9b7fcf5fb8234c"
+    },
     "/images/thumbs/vault/der-seesturm-the-storm-at-sea.webp": {
       "src": "/images/vault/der-seesturm-the-storm-at-sea.webp",
       "recipe": {
@@ -120,6 +165,36 @@
       },
       "sourceSha256": "e265a87156e680ef1034d6296b397999c6085451a9a9f018cd5443619efe60a0",
       "outputSha256": "190fb47106a2d8501d833213019c5f24a63cd9425a65ebe481338ff169f76814"
+    },
+    "/images/thumbs/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp": {
+      "src": "/images/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ade64d5b44afc17e1fbca6b40ca2dd198a0bc83c952be0debc4acdba754ac0a8",
+      "outputSha256": "a77fba3aa3beae642ee5de1746189c48136950e58cde65b91247d048b6cceb72"
+    },
+    "/images/thumbs/vault/eruption-of-the-volcano-vesuvius.webp": {
+      "src": "/images/vault/eruption-of-the-volcano-vesuvius.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "64bbefe05e566e46f4fbf71b6846799f695d7956cb43b249e8e6a58c1b157c96",
+      "outputSha256": "7102f40595e7dc7925d412b015e95c9df85e92835f8a2d0dee77c819e1601939"
     },
     "/images/thumbs/vault/figure-of-a-lady-laura.webp": {
       "src": "/images/vault/figure-of-a-lady-laura.webp",
@@ -181,6 +256,21 @@
       "sourceSha256": "43e5fc7cb5951081dc5d6bca3b4c29f34563490cb6bdda1e39c11bdacae4bd0c",
       "outputSha256": "8404d535af5d416b24cfc0e382315a67764819447aaa52f60405ee6873d1d65a"
     },
+    "/images/thumbs/vault/haystacks.webp": {
+      "src": "/images/vault/haystacks.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6538d2988b217f3e3b6a1289b996e9334bce266475eb14465cd440f5fc3f95ae",
+      "outputSha256": "7cca74200b66a80a27164935b48f166094c333098c08883c11679fd01694f4e2"
+    },
     "/images/thumbs/today/afklint.webp": {
       "src": "/images/today/afklint.webp",
       "recipe": {
@@ -196,8 +286,8 @@
       "sourceSha256": "d2fa05eb286bdab61b4bb5c761e72d1b742c0bb079c647ca04c8afe155647cd5",
       "outputSha256": "03ae658946fe6c91a9bcbd19786050a557b8eb4100df071b85f5a38ea4190c1b"
     },
-    "/images/thumbs/scenes/dock.webp": {
-      "src": "/images/scenes/dock.webp",
+    "/images/thumbs/vault/hoarfrost.webp": {
+      "src": "/images/vault/hoarfrost.webp",
       "recipe": {
         "width": 320,
         "height": 320,
@@ -208,158 +298,8 @@
         "quality": 76,
         "effort": 6
       },
-      "sourceSha256": "a9e4f003af315d915bd342625e4c4275350c8aa2d2cf09e61d546288130532ff",
-      "outputSha256": "3f58926663cbcde25f7e89753d45daf52b0a484f6921420929d5249c765f66a7"
-    },
-    "/images/thumbs/scenes/ember.webp": {
-      "src": "/images/scenes/ember.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "daacf20ac3eb14c2607c8ce0222c5fe26481dd9374433554dbfbfd39f64ce68a",
-      "outputSha256": "ec5c5e2756faec0ee1f85e0c9fc37e54fc1ea03c1d2818fcefc7407b4c50f39b"
-    },
-    "/images/thumbs/scenes/estuary.webp": {
-      "src": "/images/scenes/estuary.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "290c47237877a0df57774f670851030512eac8d9850fec73dae24b84cf305f0c",
-      "outputSha256": "64d242e04f26e47c9335abd169f9eb5bc9f710586e3c3ade67d8bd70b39e39cb"
-    },
-    "/images/thumbs/scenes/fields.webp": {
-      "src": "/images/scenes/fields.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "6c23b5130c9a1b406ee98a2a44de2d0a2c058134b69763081c50f0932a6385da",
-      "outputSha256": "4e6b0f902f5a84553281abc81821797157519e47883f56328ce3382c7e436b66"
-    },
-    "/images/thumbs/scenes/fire.webp": {
-      "src": "/images/scenes/fire.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "8507cd23fb3e2028c53c7afa31ed2452c2fa03e4acf18cb75d7cef7b419bd142",
-      "outputSha256": "aab4672f753d875ee24e5e203726803685611c061b4817af554e81eb951924da"
-    },
-    "/images/thumbs/scenes/fuji.webp": {
-      "src": "/images/scenes/fuji.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "8146e48b1b654634f193a053b4e53ad69fad1facf10c34faaaf1a94d579b7dcc",
-      "outputSha256": "b178cb0a928cfe5f9efa79652dbfea711380368a20cb77b540c43029b001e253"
-    },
-    "/images/thumbs/scenes/lavender.webp": {
-      "src": "/images/scenes/lavender.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "7f21f2477f5ba123cc8c44b6ad5156772ad4f69a21fefc0a762cd4bdf3962137",
-      "outputSha256": "98e37d578841902bbe2499477b2355552c4dd6bb3651f161fe4cbd96c49c4f0c"
-    },
-    "/images/thumbs/scenes/nightcourt.webp": {
-      "src": "/images/scenes/nightcourt.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "ec790ef94b9de36179793ea22c3ac9012130dbbf364cba1d9bab3443834fdc3a",
-      "outputSha256": "97d0d9b1256ff0b2acc03666b0c2001cbc6fc1b170726d2b81c5864fd8e432d7"
-    },
-    "/images/thumbs/scenes/snow.webp": {
-      "src": "/images/scenes/snow.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "f3673745fb0e12fcf69a9bc64238fad70f1f5c962778541c1fa76c4267f8e37d",
-      "outputSha256": "efbd451323c384bf3b72440307fab62035bafc1c4eca3f339470ee1f606e3620"
-    },
-    "/images/thumbs/scenes/study.webp": {
-      "src": "/images/scenes/study.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "aaaca69f919a0083a7cc9f499600af15eb3d362370aa941ac4d1cfdc9ce3e9f5",
-      "outputSha256": "9636045e382bfbdf627f7f10befc40987c37fbc00406a6cea0de019d3d9d4f2d"
-    },
-    "/images/thumbs/scenes/swim.webp": {
-      "src": "/images/scenes/swim.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "46178135c9a02485eabc45eb2e2bbc19b0ed8c77b47a2c646ab896ebfef04a07",
-      "outputSha256": "80226d146ea77a8d51e505a8d9a1d080b639cbd68fc5a470053384ad538cc4c2"
+      "sourceSha256": "e05e7fac21b54c347d204549f096aa4a3e484d8718521e30725c4c30a506df90",
+      "outputSha256": "d2b8c88122bd6ed3a7e36979b1cad328f8f37f00da52448a1af8f50bd37a5c68"
     },
     "/images/thumbs/inbox/hokusai-wave.webp": {
       "src": "/images/inbox/hokusai-wave.webp",
@@ -451,6 +391,51 @@
       "sourceSha256": "f2330af0638a26a58f664c0fc7484a88ff1690eaec2bfc205c47aae2cceeac79",
       "outputSha256": "ab37da2ce9df02921fc53f97df9c83cee02a79407f389f3995e7071df24ae277"
     },
+    "/images/thumbs/vault/landscape-with-waterfall-and-a-mother-and-child.webp": {
+      "src": "/images/vault/landscape-with-waterfall-and-a-mother-and-child.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "838edada5a87b034bd13a90a060a4ba20efbc77fb96f5f35f57a7fc5467bb283",
+      "outputSha256": "7a8ea08d54d608650caabea79068905982a9e0c7382315d8d188bb8e868c0404"
+    },
+    "/images/thumbs/vault/landscape.webp": {
+      "src": "/images/vault/landscape.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3ed8e968104678f31bfa2afd104251c4380c702850e1d41f119ccc617d04813c",
+      "outputSha256": "ce248b39b863d0c2bae7d789c6f2f430dbf12c78cedb353e71092d6fdeee14fe"
+    },
+    "/images/thumbs/vault/love-in-death-for-good-words.webp": {
+      "src": "/images/vault/love-in-death-for-good-words.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "bd659e83d45d0153a7f8bc6835de8914820044232a1c3bd03ba3fbe5e2de9edb",
+      "outputSha256": "e8474a77e788ed631f298d8e499a0a1af5371d4a8b43c7d0e5ed378156364e9b"
+    },
     "/images/thumbs/vault/lovers-and-beloveds-a-composite-of-scenes-from-p.webp": {
       "src": "/images/vault/lovers-and-beloveds-a-composite-of-scenes-from-p.webp",
       "recipe": {
@@ -465,6 +450,21 @@
       },
       "sourceSha256": "424b648c191202cc124a330cca91c6e234a5a1f1270829f578a8898c39a0304b",
       "outputSha256": "afd6f2c54da1a3bf5d699fa3374f985cb61b9758a177253da9b9a24bfa2a02bb"
+    },
+    "/images/thumbs/vault/man-reading-by-lamplight.webp": {
+      "src": "/images/vault/man-reading-by-lamplight.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "45f333f60126f5a64fda08b813d70cf0b0d8282ff8f1f0c5c73918729ddc192e",
+      "outputSha256": "8629987a4f9e4f2e7da13095fef855ed012e524b75060dc027967524ade67102"
     },
     "/images/thumbs/inbox/monet-magpie.webp": {
       "src": "/images/inbox/monet-magpie.webp",
@@ -496,6 +496,21 @@
       "sourceSha256": "14a310f7fee20968be72e518036b89207b926064775b5b28646be2ac35b807b2",
       "outputSha256": "a69f16354a144da4ef54e47ec428de8222c7bc784872823468c530c38a4f4c64"
     },
+    "/images/thumbs/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp": {
+      "src": "/images/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "89deff5be653018d5071851a7b6387b89a81c91d7040db660fe41f9ca52b1230",
+      "outputSha256": "25406511d3cc0c48c1f881ff66ead441e529737a1821260b4bfb101ee6c0883f"
+    },
     "/images/thumbs/vault/mountains-mont-sainte-victoire-seen-from-the-bib.webp": {
       "src": "/images/vault/mountains-mont-sainte-victoire-seen-from-the-bib.webp",
       "recipe": {
@@ -525,6 +540,36 @@
       },
       "sourceSha256": "618e96178391c92bf9ed48f16864c51fed7de082193ec615ddf46a7bcf8c1a8f",
       "outputSha256": "951324a246880fa4df64527a3551bf54c376f00814248e9c622bb148747e72b0"
+    },
+    "/images/thumbs/vault/nocturne.webp": {
+      "src": "/images/vault/nocturne.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c2ef2634f394ef5716706d8f92d427d019281b83773cc92d81fb332ffe6b5566",
+      "outputSha256": "d9987c45b368759a938cef95c166dfe9745c9ab177d19d639b1e1bd050bec380"
+    },
+    "/images/thumbs/vault/orchard.webp": {
+      "src": "/images/vault/orchard.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "91a03451075c0e9b5d9b5874c15fab17f4e8e01c7a1eba0d11f149e2fc40ad21",
+      "outputSha256": "03d6e225bc0e4e8928930a8f9d7e403862f7d57b2f61f5d1ab9eff343d9c831a"
     },
     "/images/thumbs/vault/paris-nocturne-the-singer.webp": {
       "src": "/images/vault/paris-nocturne-the-singer.webp",
@@ -586,6 +631,21 @@
       "sourceSha256": "9153f79b4e7a60a8c0e3da6110ff3b668da4a479f0cdbb2fc22055e48afeb868",
       "outputSha256": "e11fd8247414914d2c81c9c0fb644f665816428aa518588681f25f10e8fa411d"
     },
+    "/images/thumbs/vault/sea-bass-from-fish-from-american-waters-series-n.webp": {
+      "src": "/images/vault/sea-bass-from-fish-from-american-waters-series-n.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4eff736bb1c80ba6f1cb998e63626db76eddf49660b46d7955c8f2969d00a773",
+      "outputSha256": "50ede4a852cc5b7580bd9d10bf0fb54cb1abe30d679334eaa48eae314f72b533"
+    },
     "/images/thumbs/vault/seascape-study-with-rain-cloud-rainstorm-over-th.webp": {
       "src": "/images/vault/seascape-study-with-rain-cloud-rainstorm-over-th.webp",
       "recipe": {
@@ -615,6 +675,111 @@
       },
       "sourceSha256": "d3acae31e78b055fe52824957179c84742b51967cdab44424b8385d8e25dd3d7",
       "outputSha256": "fdfbb6c96ef8109f1b7c584eb02a80146d8f9ba274b37479c9a19826bf63cf11"
+    },
+    "/images/thumbs/vault/snow-in-picardie-la-neige-en-picardie.webp": {
+      "src": "/images/vault/snow-in-picardie-la-neige-en-picardie.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a15031dfad85338a913c4d3e9c99ca273bf3f0e68a3ef7f023bc39ec06a7643b",
+      "outputSha256": "dc5b7aa11c118e3fed6b6635bcb43ed4309cc6fb758f0d518864341ef8e646cd"
+    },
+    "/images/thumbs/vault/stormy-sea.webp": {
+      "src": "/images/vault/stormy-sea.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "17091d4a526ab350366e4b6b506743377467bfd9c9dd0a67aa6ff3c7e2a4c668",
+      "outputSha256": "a547cac4559102f647f52fa424e33e20d08c7e6ff828914503c9c7510873d47a"
+    },
+    "/images/thumbs/vault/summer-landscape-with-figures-bringing-in-the-ha.webp": {
+      "src": "/images/vault/summer-landscape-with-figures-bringing-in-the-ha.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c4b14be81c3664f794062408ad570fd3da91f62a4b4b8122cd27e629547d3382",
+      "outputSha256": "80b1b485e2d486857446f54c2b38b310f132d5adbada0cc7f9a310f95d158ea8"
+    },
+    "/images/thumbs/vault/swans-in-central-park.webp": {
+      "src": "/images/vault/swans-in-central-park.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "425f15bb816087f6717f44d107344e0f2cdc057fa2326e51fbecf9de404a4326",
+      "outputSha256": "81b052e98876a3e354267e9b16c0453b52020fc22e73abec14ccc255e5ffbd8d"
+    },
+    "/images/thumbs/vault/swans-in-reeds.webp": {
+      "src": "/images/vault/swans-in-reeds.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "42255d867a925a1e4599ab5a0f0a197a21f6cc10e6e2331259e897926f950e19",
+      "outputSha256": "20c880652fe71da0cbdc52a96c4acb89ba33376ff435e727cb32ea08330f3716"
+    },
+    "/images/thumbs/vault/swimmers-in-the-river-cave-of-the-seafarers-cave.webp": {
+      "src": "/images/vault/swimmers-in-the-river-cave-of-the-seafarers-cave.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c6960e0a62c550c70ee5c8aee6a65e9fc0ff587a26bc4d8915e702989bffec14",
+      "outputSha256": "a05d3de4df7dfa729860a12aff60cc2e0b33441f0b22cebc6066a9b51f3f633c"
+    },
+    "/images/thumbs/vault/the-dancing-class.webp": {
+      "src": "/images/vault/the-dancing-class.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "5cf21ca5fd5302bbd5d0be2f87e3ae661cbb61b66f85a871c3222caa11bd87ff",
+      "outputSha256": "9dad6514af65c4657d1e6a954638ab6fba2bcf2c187492a0f96965dca631d628"
     },
     "/images/thumbs/vault/the-fog-warning.webp": {
       "src": "/images/vault/the-fog-warning.webp",
@@ -646,6 +811,36 @@
       "sourceSha256": "91efd9e6a7b4405f31de839638f37682de6d83ab3b36e67af1e7423546045e91",
       "outputSha256": "1f0f53a9455f20f015b3c027c63fb9c3cb1c721443fb6de974663a33c22727f0"
     },
+    "/images/thumbs/vault/the-remains-of-a-shipwreck.webp": {
+      "src": "/images/vault/the-remains-of-a-shipwreck.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ab2ace3f45d3184d13cc5c44d15dfd78c1f20ee6e29f9fc7cfd02409097220f3",
+      "outputSha256": "855735b808dee10c410321d8216f48a4b62902aadf27e99b535b09068f7ffe81"
+    },
+    "/images/thumbs/vault/the-rescue.webp": {
+      "src": "/images/vault/the-rescue.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9ca40d112aa0d1f9c4f52f840cdb2b1527e2ef59079309931572f67946396a32",
+      "outputSha256": "550df4eddd5f31758724a2ea205914530e2dff7645c64ffb14bc85c32f0436a1"
+    },
     "/images/thumbs/vault/the-river-at-dusk-oxford.webp": {
       "src": "/images/vault/the-river-at-dusk-oxford.webp",
       "recipe": {
@@ -676,6 +871,21 @@
       "sourceSha256": "0cbb8f9a3e2bc0c2b92d0392e300ca9885be0095ecf21022cbf8a6f9c6ca0861",
       "outputSha256": "b46cceace7a8c93d7d75776c8e336c6925ee213adade1d4de7953b1344734c81"
     },
+    "/images/thumbs/vault/the-yellow-house-the-street.webp": {
+      "src": "/images/vault/the-yellow-house-the-street.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2ac55e3b14ebe3ef39f86e39b3c597207f1ee17b951074f1e7956a70f9c34c8c",
+      "outputSha256": "6e4318ee3bf2c6ca0c90f7110c4e478c99546d38d414fff3f7302cc04e2eea07"
+    },
     "/images/thumbs/vault/two-stage-rocket-painting-by-chesley-bonestell.webp": {
       "src": "/images/vault/two-stage-rocket-painting-by-chesley-bonestell.webp",
       "recipe": {
@@ -690,6 +900,21 @@
       },
       "sourceSha256": "434f5a2f628104b002800b5a9877e9921398253c66bc8773df6bb60c984c17ce",
       "outputSha256": "c2060edb18d8ee8b360f3a03236ef9538a31a0ba222453b8ebf583daa748fd9d"
+    },
+    "/images/thumbs/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp": {
+      "src": "/images/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0d2df64e0ba80543f0fa7e96d20c9324a19a40850424c4c778701233a6a75901",
+      "outputSha256": "ccfb51e7b46b9295a20199816c336dcc556d30c0c0148de4f93ee17c7bc44aec"
     },
     "/images/thumbs/vault/view-of-sugarloaf-mountain-from-the-silvestre-ro.webp": {
       "src": "/images/vault/view-of-sugarloaf-mountain-from-the-silvestre-ro.webp",
@@ -721,6 +946,21 @@
       "sourceSha256": "40e55880213f333c240906c2f2e747eda6658310a8b61a6d50f4250026b2361b",
       "outputSha256": "1a358aff8b526335d7695030170ff8a77c810aa47d66c2776a8ba5f59fcab6e8"
     },
+    "/images/thumbs/vault/vill-giature-from-croquis-d-t-published-in-le-ch.webp": {
+      "src": "/images/vault/vill-giature-from-croquis-d-t-published-in-le-ch.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "25a32cc797e01451eb2bd892cc99604a2aa829f9632b3fc394e96211cbf5dd4e",
+      "outputSha256": "d4ba19f188db35d04bf19994e5f1e5a53a91d48d749a745bddaf8f575f2ec318"
+    },
     "/images/thumbs/inbox/vuillard-clarac.webp": {
       "src": "/images/inbox/vuillard-clarac.webp",
       "recipe": {
@@ -735,6 +975,36 @@
       },
       "sourceSha256": "41952438824c43a72ebe1be3153981bf0c50ece0ab6c917658d52b4e669ed567",
       "outputSha256": "a1749d61fe4498840e63badac7210561b1fb82cc7df7bc654dc4a3c02b2690c6"
+    },
+    "/images/thumbs/vault/waterfall-on-a-cold-cliff.webp": {
+      "src": "/images/vault/waterfall-on-a-cold-cliff.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "04244ff872ec407a31422f70c41b633e3c9cba41606d179380d6b170001b8f55",
+      "outputSha256": "9aaeacf628cc1063748a4a5f2391dcf361475ce6484ce7ade77765a339c6cf62"
+    },
+    "/images/thumbs/vault/waves-breaking-on-rocks-from-scrapbook.webp": {
+      "src": "/images/vault/waves-breaking-on-rocks-from-scrapbook.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "790be15d0b6242e6abf00c19f9af19d389dee4f903bc7ec191012955a892e39c",
+      "outputSha256": "8087d81380ddc380813d28fe19a280f05cae6e7459dba8d988185efa742304aa"
     },
     "/images/thumbs/vault/whistler-nocturne-grey.webp": {
       "src": "/images/vault/whistler-nocturne-grey.webp",
@@ -766,6 +1036,21 @@
       "sourceSha256": "4e0940e05bb5788ef65060fd1c2f8f3c83421ed228cb2bfdba5e1d62605401ef",
       "outputSha256": "82150ea5c8b637b0ae4b41ccc9ccb66f1c64dc3bade0dab55d25ca85377ec224"
     },
+    "/images/thumbs/vault/明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn.webp": {
+      "src": "/images/vault/明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "be7c4342c8a38109a7c7fc1c84386949dddd327e76af2c813c6f572a4847fe36",
+      "outputSha256": "f0ae5f4af874903a1f091cec2e59c75f40758d8f7c174eaebe47857ffe6ff5f4"
+    },
     "/images/thumbs/vault/botanical-dish-with-white-sunflower.webp": {
       "src": "/images/vault/botanical-dish-with-white-sunflower.webp",
       "recipe": {
@@ -780,6 +1065,306 @@
       },
       "sourceSha256": "813deb629157bf44ea5eadc7f449035a9d58c6525f36c7fe47816986e360f4a2",
       "outputSha256": "bb846ced3f3654a2232e0aaf8fe6e0eef63df21785e3c7182c52fd9057d925e4"
+    },
+    "/images/thumbs/vault/bowl-emulating-chinese-stoneware.webp": {
+      "src": "/images/vault/bowl-emulating-chinese-stoneware.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4970ec165a769a9da828b8a844a21b6795e15cc4a5dd3aa71f321b9a3238d679",
+      "outputSha256": "2e9646fa02a1db28e05ffcbe08ea2b4e7fb0e9b3ebc3c3aefe3562eadf91be74"
+    },
+    "/images/thumbs/vault/courtesan-by-a-lantern-fire-from-the-series-five.webp": {
+      "src": "/images/vault/courtesan-by-a-lantern-fire-from-the-series-five.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b891a7c2f0fe5fe3fee055f33d69352505b832f26b04fa7ddadeb2c9330ca2a8",
+      "outputSha256": "f06a530b16689653eba678326aeb8ceb04e15aaf3ae55f45d4d1d0a3b78caaa3"
+    },
+    "/images/thumbs/vault/design-for-a-porcelain-platter.webp": {
+      "src": "/images/vault/design-for-a-porcelain-platter.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "43f28add4c407c57c3eacd90eefb1c1b9b5ea25c79cc594a289ca3d8bad1b348",
+      "outputSha256": "8d0af49b872e30f3e92130890802b904858c36275d3686a590d73d6727e75126"
+    },
+    "/images/thumbs/vault/felsenhuhn.webp": {
+      "src": "/images/vault/felsenhuhn.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "042292d8603bd95320e23c31a383bea17ce7794e35c3380a2199f57589f427b6",
+      "outputSha256": "abc1e6a287b3ed5831dc08bb8072f0a4dc2efbe8dc5c370690ad3ff047a23ccd"
+    },
+    "/images/thumbs/vault/first-day-of-autumn-risshu.webp": {
+      "src": "/images/vault/first-day-of-autumn-risshu.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9b0b1bdfee757f4ba0edeeb7d8e96081eb136e6c229ce01fc9e89df7fea65472",
+      "outputSha256": "3967c9f156c362c2935f79ec7c16b439f8a9a05ea6d6135d47de9ea0ebbdda29"
+    },
+    "/images/thumbs/vault/le-rempailleur-de-chaises.webp": {
+      "src": "/images/vault/le-rempailleur-de-chaises.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ee8c093cdef7b698ab48e3c7f076690a4d94ee85b11bb71d039aec7f8b672513",
+      "outputSha256": "4abf0da33196aa1bb3a4d1c514e3dacc9f0c738a1aac774a6b74e5d20c83d919"
+    },
+    "/images/thumbs/vault/stained-glass-panel-with-saint-roch-the-van-merl.webp": {
+      "src": "/images/vault/stained-glass-panel-with-saint-roch-the-van-merl.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3d8360242a4dd8cc9c12e46188cb2f86f09893de06853875ea3236bcb2ad3659",
+      "outputSha256": "0d24472e072bbef7dce287db882d9c02585ef8a70a588fc8df487d5ab17ad2bc"
+    },
+    "/images/thumbs/vault/the-second-ichikawa-monnosuke-as-a-samurai-stand.webp": {
+      "src": "/images/vault/the-second-ichikawa-monnosuke-as-a-samurai-stand.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8f434f6156cc0913aae166774dfdbaa95673680be08165072a0fb3155e9a60fe",
+      "outputSha256": "2a287c044d8adfc6748ceba35be6bf255a4354ce342153b376a4687f954b1951"
+    },
+    "/images/thumbs/vault/interior-main-residence-spiral-staircase-detail-.webp": {
+      "src": "/images/vault/interior-main-residence-spiral-staircase-detail-.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0888807336e8c8a45c3fdb4fa84e92671daa6838eaf9f0cc233eb1ed32a46be5",
+      "outputSha256": "982e3f5f7ef5ea23bae69286cefb6d4abdd851fa21ad8393ee029153203715af"
+    },
+    "/images/thumbs/vault/americans-will-always-fight-for-liberty.webp": {
+      "src": "/images/vault/americans-will-always-fight-for-liberty.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "01f2131c16faf5664950a2f0f2f588fddd76457850acc2576f5e9021cc017f74",
+      "outputSha256": "3180b7c6317d77281c088d34b5721768224777c4c7f0e1d3f09107cffebb1777"
+    },
+    "/images/thumbs/vault/poster-cheret-folies-bergere.webp": {
+      "src": "/images/vault/poster-cheret-folies-bergere.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4004199968f6232f03cceba6ed02452c4f3b80992724a2e04310b4ee62caa110",
+      "outputSha256": "0c9f0582287b1b2a208d6c4ce74eed5ca729e9f0b07503193892ffe7cf1946fd"
+    },
+    "/images/thumbs/vault/poster-steinlen-tournee-du-chat-noir.webp": {
+      "src": "/images/vault/poster-steinlen-tournee-du-chat-noir.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "dd64bb76cfa460577b9913f9e1935acc94f7a2bb8fae4c2688fabea2e249bb6f",
+      "outputSha256": "b4c5fa696db9566f68f765a4df4aed2fc5185ecdd210f6c1ce26322ddc059665"
+    },
+    "/images/thumbs/vault/poster-toulouse-lautrec-divan-japonais.webp": {
+      "src": "/images/vault/poster-toulouse-lautrec-divan-japonais.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "bd1e8f5f69acff0ee1515682f146db7bc0a3847bd66e31c72758c2177c1d4a84",
+      "outputSha256": "4f4b13851c59f5ce02c88a0376f7165babe4baaed599044babfe974806d0a3e8"
+    },
+    "/images/thumbs/vault/poster-toulouse-lautrec-moulin-rouge-la-goulue.webp": {
+      "src": "/images/vault/poster-toulouse-lautrec-moulin-rouge-la-goulue.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "995113fc295697018f4be889851263cc0e9724cbe393980e6fa680dadcca448d",
+      "outputSha256": "4f8a2c29289099e73b2d6fef7a6f7dca179d95e7d5d540e96e35b1723bf99d25"
+    },
+    "/images/thumbs/vault/summer-lccn2015648021.webp": {
+      "src": "/images/vault/summer-lccn2015648021.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8e3e98f31df218d52cbdbc1ec07d6d00770dad27304e49a48fc2cee011f05df0",
+      "outputSha256": "70972cc90c3bac2c04fb90f1a6b8b9644d8238004cea8cec6df1020afabed3af"
+    },
+    "/images/thumbs/vault/fujikawa-sanchu-yamanaka-no-sato-miyajiyama.webp": {
+      "src": "/images/vault/fujikawa-sanchu-yamanaka-no-sato-miyajiyama.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a85a0523850d029428c84ef0626361b65a9cdeb845438ddc94c012fd18081ed5",
+      "outputSha256": "a3293e112c7290e2f1e79e164434bca71db0f0724679ea12d6fe982828d9c9ca"
+    },
+    "/images/thumbs/vault/gasshukoku-suishi-teitoku-k-j-gaki-oral-statemen.webp": {
+      "src": "/images/vault/gasshukoku-suishi-teitoku-k-j-gaki-oral-statemen.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "392e5764c92be51d155f8001d774bfc1e5ef48c188b2623129bf126217458baf",
+      "outputSha256": "8bae294772cf21c0284479b93700706af57388c55d8b4257837b4ee8673e8152"
+    },
+    "/images/thumbs/vault/mallard-and-snow-covered-reeds.webp": {
+      "src": "/images/vault/mallard-and-snow-covered-reeds.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "79861ed5fbb837595fc92142872089e0be75dbeb5f3cb57bc975fa7d746f2cc1",
+      "outputSha256": "d442f39426879944ac5f2380e99a77562053d24a7f6123b1a879c89d424f07f4"
+    },
+    "/images/thumbs/vault/night-rain-at-gankir.webp": {
+      "src": "/images/vault/night-rain-at-gankir.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0b90362593a6fc47680e9d949643f9e0bc3b0be209aa5656049234b80ff11403",
+      "outputSha256": "3af7e637a31356812d33062c3c22af6b85fcddfe3b3c865975884ad1da6e13d7"
+    },
+    "/images/thumbs/vault/seaside-village-in-winter-from-hokusai-s-album-o.webp": {
+      "src": "/images/vault/seaside-village-in-winter-from-hokusai-s-album-o.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "dec1af65ce9fc3d6d61cb531c749efcc70dcebe276a87861f5e7fe2cc705c34b",
+      "outputSha256": "d1be976c3c33a23c36e58033580cf4861d2c528380bf33c697e7f3b36ad7ddba"
     },
     "/images/thumbs/wall/w15.webp": {
       "src": "/images/wall/w15.webp",
@@ -886,6 +1471,20 @@
       "sourceSha256": "a925e2b1f70554b064e5dad34c35b3467f61a410fd4fb2cee43d194120004877",
       "outputSha256": "4c0e2bf27fbdae8761f6cac39da17b9440b3884c5c7f5e23e974b1ec9ccd1a3b"
     },
+    "/images/plates/vault/a-ship-in-a-rough-sea.webp": {
+      "src": "/images/vault/a-ship-in-a-rough-sea.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "310b18f1f5de71f347932e6bd6a12f76c84474f30003b058db171cdcbebb0fde",
+      "outputSha256": "7b268982eae23355f2f0197362919981c4eb9cc834790209a72085d81b67a5ae"
+    },
     "/images/plates/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp": {
       "src": "/images/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp",
       "recipe": {
@@ -899,6 +1498,20 @@
       },
       "sourceSha256": "9b87b0d71d441d4d7c77b19afd79f3519dc2234825cb785e710c801f6f743728",
       "outputSha256": "4528a38053719309a65f2f294ba6b478cec6a19f132e87d9f5d86c762728905d"
+    },
+    "/images/plates/vault/a-still-life-with-strawberries-in-a-bowl-and-rad.webp": {
+      "src": "/images/vault/a-still-life-with-strawberries-in-a-bowl-and-rad.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "db80d6a55ac66a6dfe627e90ac165a53ea87f4fecfc20886267acd060743bfa8",
+      "outputSha256": "8532beb58c5b41245f3ad06de518ed5daefd18ed467c41febcb7fdce7f8eff89"
     },
     "/images/plates/vault/a-village-road-in-the-summer-midday-sun.webp": {
       "src": "/images/vault/a-village-road-in-the-summer-midday-sun.webp",
@@ -984,6 +1597,20 @@
       "sourceSha256": "1714655da6c020653eff7dfb51807013633525568e03eb87d9a223e6ca44b0fc",
       "outputSha256": "422a78333c0cc90175e81da14d9f455d3cbbed43ba668dad714700970fc994df"
     },
+    "/images/plates/vault/dancers.webp": {
+      "src": "/images/vault/dancers.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7d9b02e8e90cfbd3f71c195e26280be4771ad048dedd3ef5519416211052a58b",
+      "outputSha256": "dff0b02dff73399735ede81e5d68bdd4aba4691eed80519100add2f2a8803877"
+    },
     "/images/plates/vault/der-seesturm-the-storm-at-sea.webp": {
       "src": "/images/vault/der-seesturm-the-storm-at-sea.webp",
       "recipe": {
@@ -997,6 +1624,34 @@
       },
       "sourceSha256": "e265a87156e680ef1034d6296b397999c6085451a9a9f018cd5443619efe60a0",
       "outputSha256": "c87c503e1864b78d1e30413179429d15597d08781d88186e115275a9cb8ccc5d"
+    },
+    "/images/plates/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp": {
+      "src": "/images/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ade64d5b44afc17e1fbca6b40ca2dd198a0bc83c952be0debc4acdba754ac0a8",
+      "outputSha256": "979157a540818ead8b8efef2d63fe229503658c05b9b37168e45f6b2998ba580"
+    },
+    "/images/plates/vault/eruption-of-the-volcano-vesuvius.webp": {
+      "src": "/images/vault/eruption-of-the-volcano-vesuvius.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "64bbefe05e566e46f4fbf71b6846799f695d7956cb43b249e8e6a58c1b157c96",
+      "outputSha256": "e1672ec0f676a06a4b7d77feb6d342d05b40ce43865e1410afb3c94f6bfceea9"
     },
     "/images/plates/vault/figure-of-a-lady-laura.webp": {
       "src": "/images/vault/figure-of-a-lady-laura.webp",
@@ -1054,6 +1709,20 @@
       "sourceSha256": "43e5fc7cb5951081dc5d6bca3b4c29f34563490cb6bdda1e39c11bdacae4bd0c",
       "outputSha256": "a6f9d36d631a0cb95ea7a13331837811d686c935e236b5ef6cdd9e7951ed3129"
     },
+    "/images/plates/vault/haystacks.webp": {
+      "src": "/images/vault/haystacks.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "6538d2988b217f3e3b6a1289b996e9334bce266475eb14465cd440f5fc3f95ae",
+      "outputSha256": "62dbd34c234a7c97703cf9ce896ff7703d1430874d86b5a1d08a06db67635f85"
+    },
     "/images/plates/today/afklint.webp": {
       "src": "/images/today/afklint.webp",
       "recipe": {
@@ -1068,8 +1737,8 @@
       "sourceSha256": "d2fa05eb286bdab61b4bb5c761e72d1b742c0bb079c647ca04c8afe155647cd5",
       "outputSha256": "5b19dbca92972460a9a8f9f31df09b9305d434af4305126cb08b2ad10a44a6b2"
     },
-    "/images/plates/scenes/dock.webp": {
-      "src": "/images/scenes/dock.webp",
+    "/images/plates/vault/hoarfrost.webp": {
+      "src": "/images/vault/hoarfrost.webp",
       "recipe": {
         "width": 440,
         "fit": "inside",
@@ -1079,148 +1748,8 @@
         "quality": 80,
         "effort": 6
       },
-      "sourceSha256": "a9e4f003af315d915bd342625e4c4275350c8aa2d2cf09e61d546288130532ff",
-      "outputSha256": "10a4c212db82a9a24ffbc55cce82a8b98d5b165b52658ff27f015ada846c7cd3"
-    },
-    "/images/plates/scenes/ember.webp": {
-      "src": "/images/scenes/ember.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "daacf20ac3eb14c2607c8ce0222c5fe26481dd9374433554dbfbfd39f64ce68a",
-      "outputSha256": "69221442aa25099ea0b6cf418d5b43d46a2b5a84d824177acb0bfc1331f73f83"
-    },
-    "/images/plates/scenes/estuary.webp": {
-      "src": "/images/scenes/estuary.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "290c47237877a0df57774f670851030512eac8d9850fec73dae24b84cf305f0c",
-      "outputSha256": "01f43f4ff8bf929ad868fc169c604799fccb857585448b2b87c61a26624367bb"
-    },
-    "/images/plates/scenes/fields.webp": {
-      "src": "/images/scenes/fields.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "6c23b5130c9a1b406ee98a2a44de2d0a2c058134b69763081c50f0932a6385da",
-      "outputSha256": "72317f68c8a31a4625efc90f791dbbe53deb2f530ff1dbe7be0a1131aa2559c5"
-    },
-    "/images/plates/scenes/fire.webp": {
-      "src": "/images/scenes/fire.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "8507cd23fb3e2028c53c7afa31ed2452c2fa03e4acf18cb75d7cef7b419bd142",
-      "outputSha256": "f0f1eeb5b912b12315dddd67913e0afa40c2cc5bcc940efa06a6d9fb3d498475"
-    },
-    "/images/plates/scenes/fuji.webp": {
-      "src": "/images/scenes/fuji.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "8146e48b1b654634f193a053b4e53ad69fad1facf10c34faaaf1a94d579b7dcc",
-      "outputSha256": "27a2444e34273d278de2bede703f9d92636f8d43aecf16cbdcfe3044e508c1ef"
-    },
-    "/images/plates/scenes/lavender.webp": {
-      "src": "/images/scenes/lavender.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "7f21f2477f5ba123cc8c44b6ad5156772ad4f69a21fefc0a762cd4bdf3962137",
-      "outputSha256": "0a95c1478dbc997c107df552f8c42aa31e71c9dcf2d869453f170e1bb52bfa43"
-    },
-    "/images/plates/scenes/nightcourt.webp": {
-      "src": "/images/scenes/nightcourt.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "ec790ef94b9de36179793ea22c3ac9012130dbbf364cba1d9bab3443834fdc3a",
-      "outputSha256": "574fc88b57b2864ab5a65972d0d628a88292683a8589d2026625acf312bf736e"
-    },
-    "/images/plates/scenes/snow.webp": {
-      "src": "/images/scenes/snow.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "f3673745fb0e12fcf69a9bc64238fad70f1f5c962778541c1fa76c4267f8e37d",
-      "outputSha256": "b76159f9b1e8ce41bdf5c82eeffa3297bbf4fd2c9eb0cddc4ca6522c9025d642"
-    },
-    "/images/plates/scenes/study.webp": {
-      "src": "/images/scenes/study.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "aaaca69f919a0083a7cc9f499600af15eb3d362370aa941ac4d1cfdc9ce3e9f5",
-      "outputSha256": "c57bf6cef3a130662642fb62e1de35802ce1181b6098f2bd9d63b078a408ab33"
-    },
-    "/images/plates/scenes/swim.webp": {
-      "src": "/images/scenes/swim.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "46178135c9a02485eabc45eb2e2bbc19b0ed8c77b47a2c646ab896ebfef04a07",
-      "outputSha256": "d46e584adbe2195056385ef6cefc88bd5cf6e64716b042bc71c10d54253590dd"
+      "sourceSha256": "e05e7fac21b54c347d204549f096aa4a3e484d8718521e30725c4c30a506df90",
+      "outputSha256": "576141fbfd9c321bd2835089c8b82a7655399381c7bd7f07570d0e3834d989ae"
     },
     "/images/plates/inbox/hokusai-wave.webp": {
       "src": "/images/inbox/hokusai-wave.webp",
@@ -1306,6 +1835,48 @@
       "sourceSha256": "f2330af0638a26a58f664c0fc7484a88ff1690eaec2bfc205c47aae2cceeac79",
       "outputSha256": "c8fa40c3f8352682ba0c3e5dfb6b6e59ed779db540e7688b9761fa607e9ee515"
     },
+    "/images/plates/vault/landscape-with-waterfall-and-a-mother-and-child.webp": {
+      "src": "/images/vault/landscape-with-waterfall-and-a-mother-and-child.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "838edada5a87b034bd13a90a060a4ba20efbc77fb96f5f35f57a7fc5467bb283",
+      "outputSha256": "4a57d8626bb50b71989b5d116ce01a10a62afa3bf21d8d49e98441d0f7c29d07"
+    },
+    "/images/plates/vault/landscape.webp": {
+      "src": "/images/vault/landscape.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3ed8e968104678f31bfa2afd104251c4380c702850e1d41f119ccc617d04813c",
+      "outputSha256": "020a16bc9ba04f7514111e89ab45b54e5bd70fbdd53c15bf68d26c22fee2be92"
+    },
+    "/images/plates/vault/love-in-death-for-good-words.webp": {
+      "src": "/images/vault/love-in-death-for-good-words.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "bd659e83d45d0153a7f8bc6835de8914820044232a1c3bd03ba3fbe5e2de9edb",
+      "outputSha256": "fe9b1e266ecd1948ceab7a3ba5b6a3a84d1a416151cfa78e04bfee197de2b854"
+    },
     "/images/plates/vault/lovers-and-beloveds-a-composite-of-scenes-from-p.webp": {
       "src": "/images/vault/lovers-and-beloveds-a-composite-of-scenes-from-p.webp",
       "recipe": {
@@ -1319,6 +1890,20 @@
       },
       "sourceSha256": "424b648c191202cc124a330cca91c6e234a5a1f1270829f578a8898c39a0304b",
       "outputSha256": "6d88a95b5eea6b24ef3f4d5a37ebbba0c1ccb797d1f32fb8194514d2a5a62a5a"
+    },
+    "/images/plates/vault/man-reading-by-lamplight.webp": {
+      "src": "/images/vault/man-reading-by-lamplight.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "45f333f60126f5a64fda08b813d70cf0b0d8282ff8f1f0c5c73918729ddc192e",
+      "outputSha256": "5f711dc9df076030d38e78261d5d7d038bf25507d3a0d9f8cbf59553afc4a105"
     },
     "/images/plates/inbox/monet-magpie.webp": {
       "src": "/images/inbox/monet-magpie.webp",
@@ -1348,6 +1933,20 @@
       "sourceSha256": "14a310f7fee20968be72e518036b89207b926064775b5b28646be2ac35b807b2",
       "outputSha256": "c0aa8d9fd9cd524565afaa4df98778999ba4d3f1be189810750867edaddc56e4"
     },
+    "/images/plates/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp": {
+      "src": "/images/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "89deff5be653018d5071851a7b6387b89a81c91d7040db660fe41f9ca52b1230",
+      "outputSha256": "571037ca77cb2dbb0e80797e7c86c6dbad8459655350b6ced3d85e36c3d5eca9"
+    },
     "/images/plates/vault/mountains-mont-sainte-victoire-seen-from-the-bib.webp": {
       "src": "/images/vault/mountains-mont-sainte-victoire-seen-from-the-bib.webp",
       "recipe": {
@@ -1375,6 +1974,34 @@
       },
       "sourceSha256": "618e96178391c92bf9ed48f16864c51fed7de082193ec615ddf46a7bcf8c1a8f",
       "outputSha256": "93ac2dbe5b9ace3d5a987a5780cd0eb2790fb78c6519e800fdd5b63275015f9a"
+    },
+    "/images/plates/vault/nocturne.webp": {
+      "src": "/images/vault/nocturne.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c2ef2634f394ef5716706d8f92d427d019281b83773cc92d81fb332ffe6b5566",
+      "outputSha256": "009f0f9deac18af14320bbf7aae9f14c227841d7972f8d04de61a08c3b28ca83"
+    },
+    "/images/plates/vault/orchard.webp": {
+      "src": "/images/vault/orchard.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "91a03451075c0e9b5d9b5874c15fab17f4e8e01c7a1eba0d11f149e2fc40ad21",
+      "outputSha256": "938a4f7d56f68411879bbd1eccb4792610317759d97a294ebcd42fc7571c6b40"
     },
     "/images/plates/vault/paris-nocturne-the-singer.webp": {
       "src": "/images/vault/paris-nocturne-the-singer.webp",
@@ -1432,6 +2059,20 @@
       "sourceSha256": "9153f79b4e7a60a8c0e3da6110ff3b668da4a479f0cdbb2fc22055e48afeb868",
       "outputSha256": "05d0d1cda39d8567e80e0383d52ff42fcd67aca1e77dbcff69b95b0b1d6bb494"
     },
+    "/images/plates/vault/sea-bass-from-fish-from-american-waters-series-n.webp": {
+      "src": "/images/vault/sea-bass-from-fish-from-american-waters-series-n.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4eff736bb1c80ba6f1cb998e63626db76eddf49660b46d7955c8f2969d00a773",
+      "outputSha256": "57282be35367df2693d50c12df4f4bfea45eaf8116e7ba9ece2fe087c455c58b"
+    },
     "/images/plates/vault/seascape-study-with-rain-cloud-rainstorm-over-th.webp": {
       "src": "/images/vault/seascape-study-with-rain-cloud-rainstorm-over-th.webp",
       "recipe": {
@@ -1459,6 +2100,104 @@
       },
       "sourceSha256": "d3acae31e78b055fe52824957179c84742b51967cdab44424b8385d8e25dd3d7",
       "outputSha256": "cde6cff8b1de4bdf52adac4353946c188ed2b4707b6b26b265a2845ef4ae24d8"
+    },
+    "/images/plates/vault/snow-in-picardie-la-neige-en-picardie.webp": {
+      "src": "/images/vault/snow-in-picardie-la-neige-en-picardie.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a15031dfad85338a913c4d3e9c99ca273bf3f0e68a3ef7f023bc39ec06a7643b",
+      "outputSha256": "324574da688933ead9241ed742977df658ffd7fc17f607a5ac7ba7dbe0b36b43"
+    },
+    "/images/plates/vault/stormy-sea.webp": {
+      "src": "/images/vault/stormy-sea.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "17091d4a526ab350366e4b6b506743377467bfd9c9dd0a67aa6ff3c7e2a4c668",
+      "outputSha256": "ca1efe3b69827f4bf1ea129b0b8dbc5e828dd7def0909fdfd10104d5d5b70182"
+    },
+    "/images/plates/vault/summer-landscape-with-figures-bringing-in-the-ha.webp": {
+      "src": "/images/vault/summer-landscape-with-figures-bringing-in-the-ha.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c4b14be81c3664f794062408ad570fd3da91f62a4b4b8122cd27e629547d3382",
+      "outputSha256": "2b3b5532a1944ac0de75cb7d680ddd53b5d77d30ed276d17a011e83d5fff364e"
+    },
+    "/images/plates/vault/swans-in-central-park.webp": {
+      "src": "/images/vault/swans-in-central-park.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "425f15bb816087f6717f44d107344e0f2cdc057fa2326e51fbecf9de404a4326",
+      "outputSha256": "1b23cddb301156c9bac747e737b540c394abf08eab147ace95a03ce6c82a0be0"
+    },
+    "/images/plates/vault/swans-in-reeds.webp": {
+      "src": "/images/vault/swans-in-reeds.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "42255d867a925a1e4599ab5a0f0a197a21f6cc10e6e2331259e897926f950e19",
+      "outputSha256": "f07ec13beb14e5421c49a0efad91622acd6d573be35e59afb5ed1b3806d96dd3"
+    },
+    "/images/plates/vault/swimmers-in-the-river-cave-of-the-seafarers-cave.webp": {
+      "src": "/images/vault/swimmers-in-the-river-cave-of-the-seafarers-cave.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c6960e0a62c550c70ee5c8aee6a65e9fc0ff587a26bc4d8915e702989bffec14",
+      "outputSha256": "e8a5ab4eb49ddf2f3d6ac6d731bec56918dea7a4b3bd6ccf0adc06dbc1bbe01e"
+    },
+    "/images/plates/vault/the-dancing-class.webp": {
+      "src": "/images/vault/the-dancing-class.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "5cf21ca5fd5302bbd5d0be2f87e3ae661cbb61b66f85a871c3222caa11bd87ff",
+      "outputSha256": "0271ab9a9b8b3a98ccc1d4de6c0fdafc3efe9b41197d6269057d395471d44d16"
     },
     "/images/plates/vault/the-fog-warning.webp": {
       "src": "/images/vault/the-fog-warning.webp",
@@ -1488,6 +2227,34 @@
       "sourceSha256": "91efd9e6a7b4405f31de839638f37682de6d83ab3b36e67af1e7423546045e91",
       "outputSha256": "0e593ec5babe5f366a3c9054778216a6cbd149c4f0ea77b9528f33cf0fa26f62"
     },
+    "/images/plates/vault/the-remains-of-a-shipwreck.webp": {
+      "src": "/images/vault/the-remains-of-a-shipwreck.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ab2ace3f45d3184d13cc5c44d15dfd78c1f20ee6e29f9fc7cfd02409097220f3",
+      "outputSha256": "4783e6dacc815ca7a2f492a754bda78be511903527fe6f34d38fbf612898661d"
+    },
+    "/images/plates/vault/the-rescue.webp": {
+      "src": "/images/vault/the-rescue.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9ca40d112aa0d1f9c4f52f840cdb2b1527e2ef59079309931572f67946396a32",
+      "outputSha256": "716218ac7aa394c5be2c4235b5f587475f50373e99d3fda70fd2f8e9ad085053"
+    },
     "/images/plates/vault/the-river-at-dusk-oxford.webp": {
       "src": "/images/vault/the-river-at-dusk-oxford.webp",
       "recipe": {
@@ -1516,6 +2283,20 @@
       "sourceSha256": "0cbb8f9a3e2bc0c2b92d0392e300ca9885be0095ecf21022cbf8a6f9c6ca0861",
       "outputSha256": "66cd786605c7072c5d4bb1bb990c80013e7cd036d33c2bec1395d8a1efe6130e"
     },
+    "/images/plates/vault/the-yellow-house-the-street.webp": {
+      "src": "/images/vault/the-yellow-house-the-street.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2ac55e3b14ebe3ef39f86e39b3c597207f1ee17b951074f1e7956a70f9c34c8c",
+      "outputSha256": "a19fb49d07955c6e934aeeb9c9e98cd7e8f00d6acf0a5e01512a37a4f8756df4"
+    },
     "/images/plates/vault/two-stage-rocket-painting-by-chesley-bonestell.webp": {
       "src": "/images/vault/two-stage-rocket-painting-by-chesley-bonestell.webp",
       "recipe": {
@@ -1529,6 +2310,20 @@
       },
       "sourceSha256": "434f5a2f628104b002800b5a9877e9921398253c66bc8773df6bb60c984c17ce",
       "outputSha256": "4d11b9ab88e9cb32bb923376e4416b124f49094376e9c3c1015f8366406391d4"
+    },
+    "/images/plates/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp": {
+      "src": "/images/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0d2df64e0ba80543f0fa7e96d20c9324a19a40850424c4c778701233a6a75901",
+      "outputSha256": "9ff8a6465d4ecd61cfbbd3204adc1164157cac9490038868cce4de588f3b3a7d"
     },
     "/images/plates/vault/view-of-sugarloaf-mountain-from-the-silvestre-ro.webp": {
       "src": "/images/vault/view-of-sugarloaf-mountain-from-the-silvestre-ro.webp",
@@ -1558,6 +2353,20 @@
       "sourceSha256": "40e55880213f333c240906c2f2e747eda6658310a8b61a6d50f4250026b2361b",
       "outputSha256": "c8701922fc5ab9ec1b4ab029decadee2c036009b57c541e1eb3d9749337cd628"
     },
+    "/images/plates/vault/vill-giature-from-croquis-d-t-published-in-le-ch.webp": {
+      "src": "/images/vault/vill-giature-from-croquis-d-t-published-in-le-ch.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "25a32cc797e01451eb2bd892cc99604a2aa829f9632b3fc394e96211cbf5dd4e",
+      "outputSha256": "4d9d138fea7f993f84af5749da58b7582e167a8af99f615975945b7c342ce439"
+    },
     "/images/plates/inbox/vuillard-clarac.webp": {
       "src": "/images/inbox/vuillard-clarac.webp",
       "recipe": {
@@ -1571,6 +2380,34 @@
       },
       "sourceSha256": "41952438824c43a72ebe1be3153981bf0c50ece0ab6c917658d52b4e669ed567",
       "outputSha256": "aa84b06722e02a73fc28590a10d3b101ed32f20d99b2f1c95639a1f914307e2c"
+    },
+    "/images/plates/vault/waterfall-on-a-cold-cliff.webp": {
+      "src": "/images/vault/waterfall-on-a-cold-cliff.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "04244ff872ec407a31422f70c41b633e3c9cba41606d179380d6b170001b8f55",
+      "outputSha256": "27d8a1f2f982667917cdf5025ab232d98e7d47c89f78592f5d32ce6aeab28342"
+    },
+    "/images/plates/vault/waves-breaking-on-rocks-from-scrapbook.webp": {
+      "src": "/images/vault/waves-breaking-on-rocks-from-scrapbook.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "790be15d0b6242e6abf00c19f9af19d389dee4f903bc7ec191012955a892e39c",
+      "outputSha256": "9e1354d7427dc2e8ba00a1013f0e0ad7ecdc423f8f2cb751b6f89519becba061"
     },
     "/images/plates/vault/whistler-nocturne-grey.webp": {
       "src": "/images/vault/whistler-nocturne-grey.webp",
@@ -1600,6 +2437,20 @@
       "sourceSha256": "4e0940e05bb5788ef65060fd1c2f8f3c83421ed228cb2bfdba5e1d62605401ef",
       "outputSha256": "3fec2a174dacef47104a7668d90a32ba3f6b4edd05275a6410ca636da9c9d659"
     },
+    "/images/plates/vault/明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn.webp": {
+      "src": "/images/vault/明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "be7c4342c8a38109a7c7fc1c84386949dddd327e76af2c813c6f572a4847fe36",
+      "outputSha256": "df7d9b39a9211b5e27aec77e15f903e9a591c124af0ca23ffc025ccf41ab0d8e"
+    },
     "/images/plates/vault/botanical-dish-with-white-sunflower.webp": {
       "src": "/images/vault/botanical-dish-with-white-sunflower.webp",
       "recipe": {
@@ -1613,6 +2464,286 @@
       },
       "sourceSha256": "813deb629157bf44ea5eadc7f449035a9d58c6525f36c7fe47816986e360f4a2",
       "outputSha256": "35c60d649f542fd3b874559aa831742d344812d5be557582f09d33e7776fb5ae"
+    },
+    "/images/plates/vault/bowl-emulating-chinese-stoneware.webp": {
+      "src": "/images/vault/bowl-emulating-chinese-stoneware.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4970ec165a769a9da828b8a844a21b6795e15cc4a5dd3aa71f321b9a3238d679",
+      "outputSha256": "85f3fe7640fb3edad0dd5940451a8f4a65b7d667b166792f3962151e50d41ad6"
+    },
+    "/images/plates/vault/courtesan-by-a-lantern-fire-from-the-series-five.webp": {
+      "src": "/images/vault/courtesan-by-a-lantern-fire-from-the-series-five.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b891a7c2f0fe5fe3fee055f33d69352505b832f26b04fa7ddadeb2c9330ca2a8",
+      "outputSha256": "d0ac637a17552dc70220f2a1047d948c7c9f81d05d750b5dc0bd32ec1f6c07cf"
+    },
+    "/images/plates/vault/design-for-a-porcelain-platter.webp": {
+      "src": "/images/vault/design-for-a-porcelain-platter.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "43f28add4c407c57c3eacd90eefb1c1b9b5ea25c79cc594a289ca3d8bad1b348",
+      "outputSha256": "d315fd4d9415cb9cdced97fc53bbdaff1ccd5acf8f96219f8a631318473a2e92"
+    },
+    "/images/plates/vault/felsenhuhn.webp": {
+      "src": "/images/vault/felsenhuhn.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "042292d8603bd95320e23c31a383bea17ce7794e35c3380a2199f57589f427b6",
+      "outputSha256": "c318a95ffe5b7bd68368e75750e9ede065767a1f06fb743fc569f465d77a5317"
+    },
+    "/images/plates/vault/first-day-of-autumn-risshu.webp": {
+      "src": "/images/vault/first-day-of-autumn-risshu.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9b0b1bdfee757f4ba0edeeb7d8e96081eb136e6c229ce01fc9e89df7fea65472",
+      "outputSha256": "4e24bc942917f9a9073a2cc464a1e433394c02e440492fdd48983b925019ffd2"
+    },
+    "/images/plates/vault/le-rempailleur-de-chaises.webp": {
+      "src": "/images/vault/le-rempailleur-de-chaises.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ee8c093cdef7b698ab48e3c7f076690a4d94ee85b11bb71d039aec7f8b672513",
+      "outputSha256": "98b90a2c2abb22aecc488bf0ba57712e820f209812d09f6fdf71f8f44d5ac38c"
+    },
+    "/images/plates/vault/stained-glass-panel-with-saint-roch-the-van-merl.webp": {
+      "src": "/images/vault/stained-glass-panel-with-saint-roch-the-van-merl.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3d8360242a4dd8cc9c12e46188cb2f86f09893de06853875ea3236bcb2ad3659",
+      "outputSha256": "da239c72fa1c8d972732c237dfc3f2d9e4f1142182e602c0e7156813774296b7"
+    },
+    "/images/plates/vault/the-second-ichikawa-monnosuke-as-a-samurai-stand.webp": {
+      "src": "/images/vault/the-second-ichikawa-monnosuke-as-a-samurai-stand.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "8f434f6156cc0913aae166774dfdbaa95673680be08165072a0fb3155e9a60fe",
+      "outputSha256": "4b8f89e5dcbb4f7d87b81a177b790e90dabced0943b842fd40bb61b9d95995c8"
+    },
+    "/images/plates/vault/interior-main-residence-spiral-staircase-detail-.webp": {
+      "src": "/images/vault/interior-main-residence-spiral-staircase-detail-.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0888807336e8c8a45c3fdb4fa84e92671daa6838eaf9f0cc233eb1ed32a46be5",
+      "outputSha256": "f73024e57dffa0765dda375d2c0ae810e3c5f5bd06a4febcd1dedd337b0542d2"
+    },
+    "/images/plates/vault/americans-will-always-fight-for-liberty.webp": {
+      "src": "/images/vault/americans-will-always-fight-for-liberty.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "01f2131c16faf5664950a2f0f2f588fddd76457850acc2576f5e9021cc017f74",
+      "outputSha256": "d368b5c3c497156e50b900b39cc39663272ac662a8cc1fe71b4b1f317e22ad07"
+    },
+    "/images/plates/vault/poster-cheret-folies-bergere.webp": {
+      "src": "/images/vault/poster-cheret-folies-bergere.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4004199968f6232f03cceba6ed02452c4f3b80992724a2e04310b4ee62caa110",
+      "outputSha256": "058c85d57e6c96902b0de803dc21df91da88100a45624e028c37c8659500edbe"
+    },
+    "/images/plates/vault/poster-steinlen-tournee-du-chat-noir.webp": {
+      "src": "/images/vault/poster-steinlen-tournee-du-chat-noir.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "dd64bb76cfa460577b9913f9e1935acc94f7a2bb8fae4c2688fabea2e249bb6f",
+      "outputSha256": "212a487328677696ade050cd9404678c1fccb38eab1febd990c3d965a08a6bf8"
+    },
+    "/images/plates/vault/poster-toulouse-lautrec-divan-japonais.webp": {
+      "src": "/images/vault/poster-toulouse-lautrec-divan-japonais.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "bd1e8f5f69acff0ee1515682f146db7bc0a3847bd66e31c72758c2177c1d4a84",
+      "outputSha256": "33cd60db63709b84f2d0ff28afef80a2bb08efc7950bbfedccd9adfc318a3135"
+    },
+    "/images/plates/vault/poster-toulouse-lautrec-moulin-rouge-la-goulue.webp": {
+      "src": "/images/vault/poster-toulouse-lautrec-moulin-rouge-la-goulue.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "995113fc295697018f4be889851263cc0e9724cbe393980e6fa680dadcca448d",
+      "outputSha256": "e61ac140b05cdf5a284fada935ff7c020d0d1b3c3c0548eaebed32a13beaef09"
+    },
+    "/images/plates/vault/summer-lccn2015648021.webp": {
+      "src": "/images/vault/summer-lccn2015648021.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "8e3e98f31df218d52cbdbc1ec07d6d00770dad27304e49a48fc2cee011f05df0",
+      "outputSha256": "95e4e577ceb48242876aa5b63d67410eff491856f433230733e128f5c4321cfb"
+    },
+    "/images/plates/vault/fujikawa-sanchu-yamanaka-no-sato-miyajiyama.webp": {
+      "src": "/images/vault/fujikawa-sanchu-yamanaka-no-sato-miyajiyama.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a85a0523850d029428c84ef0626361b65a9cdeb845438ddc94c012fd18081ed5",
+      "outputSha256": "371603eb3d683364df5a7f71d99629c77ff46a7ef32d3ae4cfa716087d18743d"
+    },
+    "/images/plates/vault/gasshukoku-suishi-teitoku-k-j-gaki-oral-statemen.webp": {
+      "src": "/images/vault/gasshukoku-suishi-teitoku-k-j-gaki-oral-statemen.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "392e5764c92be51d155f8001d774bfc1e5ef48c188b2623129bf126217458baf",
+      "outputSha256": "18112703153f0b8ef18095609f994dc0aec7fbde88536cd079b52739397d954b"
+    },
+    "/images/plates/vault/mallard-and-snow-covered-reeds.webp": {
+      "src": "/images/vault/mallard-and-snow-covered-reeds.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "79861ed5fbb837595fc92142872089e0be75dbeb5f3cb57bc975fa7d746f2cc1",
+      "outputSha256": "1740bcf54075e9475962102290c19e9ea9db27f25dbc54465263e0332178af6c"
+    },
+    "/images/plates/vault/night-rain-at-gankir.webp": {
+      "src": "/images/vault/night-rain-at-gankir.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0b90362593a6fc47680e9d949643f9e0bc3b0be209aa5656049234b80ff11403",
+      "outputSha256": "6be31f49e67fa32f50bca04451f7ac7a4fdfe2e7fbd479c32e7f7c44eff7b975"
+    },
+    "/images/plates/vault/seaside-village-in-winter-from-hokusai-s-album-o.webp": {
+      "src": "/images/vault/seaside-village-in-winter-from-hokusai-s-album-o.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "dec1af65ce9fc3d6d61cb531c749efcc70dcebe276a87861f5e7fe2cc705c34b",
+      "outputSha256": "a86e278fd50a9385b3e411b28f7f3244fc065a4fc59d97852d4fd89c527d11d0"
     },
     "/images/plates/wall/w15.webp": {
       "src": "/images/wall/w15.webp",
@@ -1768,6 +2899,62 @@
       "sourceSha256": "43e5fc7cb5951081dc5d6bca3b4c29f34563490cb6bdda1e39c11bdacae4bd0c",
       "outputSha256": "8f980d772b1f2aca40f2e76c9185db1d81a0a2d48ecb9f69d9d9e9590bdcb343"
     },
+    "/images/responsive/today/hoarfrost-480.webp": {
+      "src": "/images/vault/hoarfrost.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e05e7fac21b54c347d204549f096aa4a3e484d8718521e30725c4c30a506df90",
+      "outputSha256": "172019fa913ad85b35911c14527af5ec9c7231c9570d6f53c05b02cec24f766d"
+    },
+    "/images/responsive/today/hoarfrost-960.webp": {
+      "src": "/images/vault/hoarfrost.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e05e7fac21b54c347d204549f096aa4a3e484d8718521e30725c4c30a506df90",
+      "outputSha256": "c3d69da2db69afdc22cfc3947682f7cade441c4d6cd25e0a4085d544dfde93d1"
+    },
+    "/images/responsive/today/love-in-death-for-good-words-480.webp": {
+      "src": "/images/vault/love-in-death-for-good-words.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "bd659e83d45d0153a7f8bc6835de8914820044232a1c3bd03ba3fbe5e2de9edb",
+      "outputSha256": "a1d2420dcd9ebc99415cbcffdaa1392c3bbf8444a5434de9661a4bd4996f49cd"
+    },
+    "/images/responsive/today/love-in-death-for-good-words-960.webp": {
+      "src": "/images/vault/love-in-death-for-good-words.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "bd659e83d45d0153a7f8bc6835de8914820044232a1c3bd03ba3fbe5e2de9edb",
+      "outputSha256": "ba63779648114552a62c3ca4f8fb4373bb62b1d40a60a43e1b1a816f9173b42d"
+    },
     "/images/responsive/today/monet-magpie-480.webp": {
       "src": "/images/inbox/monet-magpie.webp",
       "recipe": {
@@ -1795,6 +2982,62 @@
       },
       "sourceSha256": "db2a197b766f0995d7d1299d722315b3dd7c12d36715f4b9db74405088ba61ea",
       "outputSha256": "5366f474ffa7b18b614e25c9ab9da5696bafe5da7e42b346a13c3c5227bd24dc"
+    },
+    "/images/responsive/today/morning-after-the-snow-at-koishikawa-in-edo-kois-480.webp": {
+      "src": "/images/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "89deff5be653018d5071851a7b6387b89a81c91d7040db660fe41f9ca52b1230",
+      "outputSha256": "6087ae4588e49c4e9ba80f73b32463a453100f14c76781de98b1a4758a423ff2"
+    },
+    "/images/responsive/today/morning-after-the-snow-at-koishikawa-in-edo-kois-960.webp": {
+      "src": "/images/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "89deff5be653018d5071851a7b6387b89a81c91d7040db660fe41f9ca52b1230",
+      "outputSha256": "4d84be7c1a46273b22d3136671a10fbed26ba3f029563ec9b432d296f93c7d27"
+    },
+    "/images/responsive/today/snow-in-picardie-la-neige-en-picardie-480.webp": {
+      "src": "/images/vault/snow-in-picardie-la-neige-en-picardie.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a15031dfad85338a913c4d3e9c99ca273bf3f0e68a3ef7f023bc39ec06a7643b",
+      "outputSha256": "49bdfb722b3d79d4fbfad524eccf7fb42ce169705ac94f841774bd79685eec07"
+    },
+    "/images/responsive/today/snow-in-picardie-la-neige-en-picardie-960.webp": {
+      "src": "/images/vault/snow-in-picardie-la-neige-en-picardie.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a15031dfad85338a913c4d3e9c99ca273bf3f0e68a3ef7f023bc39ec06a7643b",
+      "outputSha256": "772a81b4a5290bfb0097afa3286b5a71414c91f10f094c72d6604c47b777786b"
     },
     "/images/responsive/today/the-louvre-under-snow-480.webp": {
       "src": "/images/vault/the-louvre-under-snow.webp",
@@ -1879,6 +3122,34 @@
       },
       "sourceSha256": "4e0940e05bb5788ef65060fd1c2f8f3c83421ed228cb2bfdba5e1d62605401ef",
       "outputSha256": "b9e07d16648984089e09257fb538b03029f0b3d6538c906f25c5b1da7a9f37d6"
+    },
+    "/images/responsive/today/明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn-480.webp": {
+      "src": "/images/vault/明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "be7c4342c8a38109a7c7fc1c84386949dddd327e76af2c813c6f572a4847fe36",
+      "outputSha256": "10581023a5a9ec5e51dc8dd7d7515d2a567b2930cea30a3abbe667ca6072504c"
+    },
+    "/images/responsive/today/明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn-960.webp": {
+      "src": "/images/vault/明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "be7c4342c8a38109a7c7fc1c84386949dddd327e76af2c813c6f572a4847fe36",
+      "outputSha256": "e0a155cc509c8cd0fe82c259cb3e8c390f5b969d69c3e0400bd1c4f2d505cfb2"
     },
     "/images/responsive/today/turner-480.webp": {
       "src": "/images/today/turner.webp",
@@ -2104,6 +3375,146 @@
       "sourceSha256": "1714655da6c020653eff7dfb51807013633525568e03eb87d9a223e6ca44b0fc",
       "outputSha256": "ccd21bc63f81252d9fcaded40c376be8dc161fbbea57b02eb8130fbf096e0e8a"
     },
+    "/images/responsive/today/haystacks-480.webp": {
+      "src": "/images/vault/haystacks.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6538d2988b217f3e3b6a1289b996e9334bce266475eb14465cd440f5fc3f95ae",
+      "outputSha256": "beaab7b4ca43e38262a80589f1b6c874e284f8a50e52142229618e679d0c5522"
+    },
+    "/images/responsive/today/haystacks-960.webp": {
+      "src": "/images/vault/haystacks.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "6538d2988b217f3e3b6a1289b996e9334bce266475eb14465cd440f5fc3f95ae",
+      "outputSha256": "99ba3f16b2e1b6683abf7d07c9b0dd62407e203058043996783d423b7eed6c46"
+    },
+    "/images/responsive/today/orchard-480.webp": {
+      "src": "/images/vault/orchard.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "91a03451075c0e9b5d9b5874c15fab17f4e8e01c7a1eba0d11f149e2fc40ad21",
+      "outputSha256": "3399ca0f7191cc5e3bd92987d0a29f3061d12254f98377787bf4fc17cd79154f"
+    },
+    "/images/responsive/today/orchard-960.webp": {
+      "src": "/images/vault/orchard.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "91a03451075c0e9b5d9b5874c15fab17f4e8e01c7a1eba0d11f149e2fc40ad21",
+      "outputSha256": "30dfd4b34249edd953cf410de49cadf21a490c86dc10a6e84ee4cd2ad64b6b87"
+    },
+    "/images/responsive/today/summer-landscape-with-figures-bringing-in-the-ha-480.webp": {
+      "src": "/images/vault/summer-landscape-with-figures-bringing-in-the-ha.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c4b14be81c3664f794062408ad570fd3da91f62a4b4b8122cd27e629547d3382",
+      "outputSha256": "a1b9a0593f05f511cb8fef3dd3b05eeee04bd8783ec2fb1a9c4a60f69e75bed0"
+    },
+    "/images/responsive/today/summer-landscape-with-figures-bringing-in-the-ha-960.webp": {
+      "src": "/images/vault/summer-landscape-with-figures-bringing-in-the-ha.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c4b14be81c3664f794062408ad570fd3da91f62a4b4b8122cd27e629547d3382",
+      "outputSha256": "def10030d4c86fe6b9c301faee2eb9c5aea7e332a9582197f6d41667455aa765"
+    },
+    "/images/responsive/today/swimmers-in-the-river-cave-of-the-seafarers-cave-480.webp": {
+      "src": "/images/vault/swimmers-in-the-river-cave-of-the-seafarers-cave.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c6960e0a62c550c70ee5c8aee6a65e9fc0ff587a26bc4d8915e702989bffec14",
+      "outputSha256": "3552a3a832925c34855076825be8570bd6f690dfffcdda97878409427d7c0e39"
+    },
+    "/images/responsive/today/swimmers-in-the-river-cave-of-the-seafarers-cave-960.webp": {
+      "src": "/images/vault/swimmers-in-the-river-cave-of-the-seafarers-cave.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c6960e0a62c550c70ee5c8aee6a65e9fc0ff587a26bc4d8915e702989bffec14",
+      "outputSha256": "3937d5a44c2ab9ce47c480f038f23aaccdae961778fe90cbe4fc74ff7defccc4"
+    },
+    "/images/responsive/today/vill-giature-from-croquis-d-t-published-in-le-ch-480.webp": {
+      "src": "/images/vault/vill-giature-from-croquis-d-t-published-in-le-ch.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "25a32cc797e01451eb2bd892cc99604a2aa829f9632b3fc394e96211cbf5dd4e",
+      "outputSha256": "351470cf9b9d2096240914cd140bff2dcb9c3132e87cdf4c13d7d7d9374313dd"
+    },
+    "/images/responsive/today/vill-giature-from-croquis-d-t-published-in-le-ch-960.webp": {
+      "src": "/images/vault/vill-giature-from-croquis-d-t-published-in-le-ch.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "25a32cc797e01451eb2bd892cc99604a2aa829f9632b3fc394e96211cbf5dd4e",
+      "outputSha256": "1167087186bc668dc5fa5eb085412c11081197b29fdf63e2f4f9ffbe71d4045f"
+    },
     "/images/responsive/today/der-seesturm-the-storm-at-sea-480.webp": {
       "src": "/images/vault/der-seesturm-the-storm-at-sea.webp",
       "recipe": {
@@ -2131,6 +3542,62 @@
       },
       "sourceSha256": "e265a87156e680ef1034d6296b397999c6085451a9a9f018cd5443619efe60a0",
       "outputSha256": "fba27e33214bb93fa4e383964a9085a8b6925c956248db1dd7dc47df26ac878e"
+    },
+    "/images/responsive/today/ejiri-number-19-from-the-series-fifty-three-stat-480.webp": {
+      "src": "/images/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ade64d5b44afc17e1fbca6b40ca2dd198a0bc83c952be0debc4acdba754ac0a8",
+      "outputSha256": "3a0944423d3e7af55cbcbd3bd169b9f3b337a9c031142c4dcdc017f976268c50"
+    },
+    "/images/responsive/today/ejiri-number-19-from-the-series-fifty-three-stat-960.webp": {
+      "src": "/images/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ade64d5b44afc17e1fbca6b40ca2dd198a0bc83c952be0debc4acdba754ac0a8",
+      "outputSha256": "82f61364da8c1232f79530b10e5626a2a1a33d4bcd739775bc76795957256e01"
+    },
+    "/images/responsive/today/eruption-of-the-volcano-vesuvius-480.webp": {
+      "src": "/images/vault/eruption-of-the-volcano-vesuvius.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "64bbefe05e566e46f4fbf71b6846799f695d7956cb43b249e8e6a58c1b157c96",
+      "outputSha256": "8db7b9c6a9004fb4de4c69cb71127f47740aa529e12fd0398d3647ee8fd2b780"
+    },
+    "/images/responsive/today/eruption-of-the-volcano-vesuvius-960.webp": {
+      "src": "/images/vault/eruption-of-the-volcano-vesuvius.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "64bbefe05e566e46f4fbf71b6846799f695d7956cb43b249e8e6a58c1b157c96",
+      "outputSha256": "d6c51305d391280ee253ed0f105d6b3ee5a684cf8ea103bccf38506ab6ca4986"
     },
     "/images/responsive/today/turner-staffa-480.webp": {
       "src": "/images/today/turner-staffa.webp",
@@ -2216,6 +3683,146 @@
       "sourceSha256": "d3acae31e78b055fe52824957179c84742b51967cdab44424b8385d8e25dd3d7",
       "outputSha256": "586a77de297188d4df093559ed828b358a0541279b49829cf9bdb947e6036004"
     },
+    "/images/responsive/today/stormy-sea-480.webp": {
+      "src": "/images/vault/stormy-sea.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "17091d4a526ab350366e4b6b506743377467bfd9c9dd0a67aa6ff3c7e2a4c668",
+      "outputSha256": "e8ea66cb1c39ffa3c4549d5333d6a5a6794235f086799d9cc6c6e40c06b03d3e"
+    },
+    "/images/responsive/today/stormy-sea-960.webp": {
+      "src": "/images/vault/stormy-sea.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "17091d4a526ab350366e4b6b506743377467bfd9c9dd0a67aa6ff3c7e2a4c668",
+      "outputSha256": "0226078e1bf35f1d935852b8431dab5fb6ea214c6be9e08d32c543e2e4dbf0cc"
+    },
+    "/images/responsive/today/the-remains-of-a-shipwreck-480.webp": {
+      "src": "/images/vault/the-remains-of-a-shipwreck.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ab2ace3f45d3184d13cc5c44d15dfd78c1f20ee6e29f9fc7cfd02409097220f3",
+      "outputSha256": "d92da4af20957286e3ed8be8d1a990825311ca27d986d6001273a151b94b56b7"
+    },
+    "/images/responsive/today/the-remains-of-a-shipwreck-960.webp": {
+      "src": "/images/vault/the-remains-of-a-shipwreck.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ab2ace3f45d3184d13cc5c44d15dfd78c1f20ee6e29f9fc7cfd02409097220f3",
+      "outputSha256": "9f94d4aaa1ac84fd8a79db2a56f427bb9b34406cc967d7d3373d896c5273fb26"
+    },
+    "/images/responsive/today/the-rescue-480.webp": {
+      "src": "/images/vault/the-rescue.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9ca40d112aa0d1f9c4f52f840cdb2b1527e2ef59079309931572f67946396a32",
+      "outputSha256": "a3d5efc488870704c2c5867582d9ed2bc7ecc74019ee79d4f2fee75488172b0b"
+    },
+    "/images/responsive/today/the-rescue-960.webp": {
+      "src": "/images/vault/the-rescue.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9ca40d112aa0d1f9c4f52f840cdb2b1527e2ef59079309931572f67946396a32",
+      "outputSha256": "0fe9f86256fb8457c93fdbfc4de87321fff2df3798a117b07284f9efc1dc6585"
+    },
+    "/images/responsive/today/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv-480.webp": {
+      "src": "/images/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0d2df64e0ba80543f0fa7e96d20c9324a19a40850424c4c778701233a6a75901",
+      "outputSha256": "324eb796d3f49ce4fc398d89170c1235a666a8efb683065cc84c53004bf2566e"
+    },
+    "/images/responsive/today/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv-960.webp": {
+      "src": "/images/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0d2df64e0ba80543f0fa7e96d20c9324a19a40850424c4c778701233a6a75901",
+      "outputSha256": "a4f5bb4239e4c62c77d9029fa9a63544df345090ccd99bb7e7242b6bf8d15184"
+    },
+    "/images/responsive/today/waves-breaking-on-rocks-from-scrapbook-480.webp": {
+      "src": "/images/vault/waves-breaking-on-rocks-from-scrapbook.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "790be15d0b6242e6abf00c19f9af19d389dee4f903bc7ec191012955a892e39c",
+      "outputSha256": "c335072402d180f948679e5329938d65070475ce59028e6a78c108393f2f9768"
+    },
+    "/images/responsive/today/waves-breaking-on-rocks-from-scrapbook-960.webp": {
+      "src": "/images/vault/waves-breaking-on-rocks-from-scrapbook.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "790be15d0b6242e6abf00c19f9af19d389dee4f903bc7ec191012955a892e39c",
+      "outputSha256": "507146a89c8cbb7cf214526089dc8886d8c8eab6671d455ea5327551f49d3535"
+    },
     "/images/responsive/today/boy-teasing-a-dog-nightscene-lit-by-pinewood-tor-480.webp": {
       "src": "/images/vault/boy-teasing-a-dog-nightscene-lit-by-pinewood-tor.webp",
       "recipe": {
@@ -2300,6 +3907,62 @@
       "sourceSha256": "5402b161b1cd14a5f7d12e9e44f7c9c0c6f22e261a137f3a7581b963236f54e9",
       "outputSha256": "46c54485f0ae32cf8faae2fca72eee9c201ccfb980242d8baf62a8d9dbc47c45"
     },
+    "/images/responsive/today/man-reading-by-lamplight-480.webp": {
+      "src": "/images/vault/man-reading-by-lamplight.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "45f333f60126f5a64fda08b813d70cf0b0d8282ff8f1f0c5c73918729ddc192e",
+      "outputSha256": "4226ee1d83e902a6411ba824fdd0159c986c1f4df92f4760fc4e94a745045a3d"
+    },
+    "/images/responsive/today/man-reading-by-lamplight-960.webp": {
+      "src": "/images/vault/man-reading-by-lamplight.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "45f333f60126f5a64fda08b813d70cf0b0d8282ff8f1f0c5c73918729ddc192e",
+      "outputSha256": "60bcd0e9c9457783dd192e05167b2539d52021e5983ee4048cb44ab362cc03b5"
+    },
+    "/images/responsive/today/nocturne-480.webp": {
+      "src": "/images/vault/nocturne.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c2ef2634f394ef5716706d8f92d427d019281b83773cc92d81fb332ffe6b5566",
+      "outputSha256": "dce35e21682495899270254c99a548aa8df06d6c32c57b08c20592c554d50bd7"
+    },
+    "/images/responsive/today/nocturne-960.webp": {
+      "src": "/images/vault/nocturne.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c2ef2634f394ef5716706d8f92d427d019281b83773cc92d81fb332ffe6b5566",
+      "outputSha256": "9dad83bad8938d661f6a7c69d75072600b03b556308a4acf1ef39f9165496832"
+    },
     "/images/responsive/today/paris-nocturne-the-singer-480.webp": {
       "src": "/images/vault/paris-nocturne-the-singer.webp",
       "recipe": {
@@ -2327,6 +3990,34 @@
       },
       "sourceSha256": "9fb0d80ef5d22bbf74ed2f76d7c8d344fc1ada62717534fecbfe47fe7f5e3825",
       "outputSha256": "d74e896adfd1cba634d0a0f599e8e6f85488bde590452547e94b44c4b5d867ba"
+    },
+    "/images/responsive/today/the-yellow-house-the-street-480.webp": {
+      "src": "/images/vault/the-yellow-house-the-street.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2ac55e3b14ebe3ef39f86e39b3c597207f1ee17b951074f1e7956a70f9c34c8c",
+      "outputSha256": "56e0a5059819f2e8c92670d6e2b84b201737abb4296698d209ecaec89fe1e037"
+    },
+    "/images/responsive/today/the-yellow-house-the-street-960.webp": {
+      "src": "/images/vault/the-yellow-house-the-street.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2ac55e3b14ebe3ef39f86e39b3c597207f1ee17b951074f1e7956a70f9c34c8c",
+      "outputSha256": "f9741d23234fe7aa0e1ec3190d3169e59664bc309da832717f754c4bc8a2e72d"
     },
     "/images/responsive/today/vuillard-clarac-480.webp": {
       "src": "/images/inbox/vuillard-clarac.webp",
@@ -2384,6 +4075,34 @@
       "sourceSha256": "7a0b04388a831ad350d35d25c1f3ecdf13c1cb14f4502823f80f21e88091af0f",
       "outputSha256": "71b70cfb1564a8c27bdecd56b2e4283df4c9ca75b28150e0de9d23a73b4b067b"
     },
+    "/images/responsive/today/a-still-life-with-strawberries-in-a-bowl-and-rad-480.webp": {
+      "src": "/images/vault/a-still-life-with-strawberries-in-a-bowl-and-rad.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "db80d6a55ac66a6dfe627e90ac165a53ea87f4fecfc20886267acd060743bfa8",
+      "outputSha256": "9fa0a8327cdb2403b35c1963e024e6bc866907a9e21e562bfd9b01dc860878ac"
+    },
+    "/images/responsive/today/a-still-life-with-strawberries-in-a-bowl-and-rad-960.webp": {
+      "src": "/images/vault/a-still-life-with-strawberries-in-a-bowl-and-rad.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "db80d6a55ac66a6dfe627e90ac165a53ea87f4fecfc20886267acd060743bfa8",
+      "outputSha256": "c2191d41af8959d6be1266b49be63446b69f6fb115cb32d4325596e63f07f28d"
+    },
     "/images/responsive/today/chardin-480.webp": {
       "src": "/images/today/chardin.webp",
       "recipe": {
@@ -2439,6 +4158,34 @@
       },
       "sourceSha256": "1da3ca352e09a1afdba588a286ae7f87e023978029e56a10cdf53e62b28068ef",
       "outputSha256": "e5c3432b5f786c797921cc90f29f537ba17552f1fabc567d3c759622f0cd2931"
+    },
+    "/images/responsive/today/a-ship-in-a-rough-sea-480.webp": {
+      "src": "/images/vault/a-ship-in-a-rough-sea.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "310b18f1f5de71f347932e6bd6a12f76c84474f30003b058db171cdcbebb0fde",
+      "outputSha256": "ae1ff29d0f54d5d711b029d9b0964b257d3d1a30e834297e023d4a762aea73c4"
+    },
+    "/images/responsive/today/a-ship-in-a-rough-sea-960.webp": {
+      "src": "/images/vault/a-ship-in-a-rough-sea.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "310b18f1f5de71f347932e6bd6a12f76c84474f30003b058db171cdcbebb0fde",
+      "outputSha256": "33b3547e7113bcf54e4b9202bdcbff5b309744282885f66362d2170e748183e3"
     },
     "/images/responsive/today/a-smalschip-with-two-dutch-east-indiamen-coming--480.webp": {
       "src": "/images/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp",
@@ -2552,6 +4299,62 @@
       "sourceSha256": "a47e289f20b05ce820619f0f781be50f076171c4512537f6c06976d563ce4327",
       "outputSha256": "ccd8f74f5a8d15d955777ff592df35896fc8dc7a9e57806cb7e9745df7918e54"
     },
+    "/images/responsive/today/landscape-with-waterfall-and-a-mother-and-child-480.webp": {
+      "src": "/images/vault/landscape-with-waterfall-and-a-mother-and-child.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "838edada5a87b034bd13a90a060a4ba20efbc77fb96f5f35f57a7fc5467bb283",
+      "outputSha256": "400d912f600d190ecad138a19869552f8ca7adc21d6b623b32280517a127bb8e"
+    },
+    "/images/responsive/today/landscape-with-waterfall-and-a-mother-and-child-960.webp": {
+      "src": "/images/vault/landscape-with-waterfall-and-a-mother-and-child.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "838edada5a87b034bd13a90a060a4ba20efbc77fb96f5f35f57a7fc5467bb283",
+      "outputSha256": "6a7c01de5a451a099ddebdd61672fe5c00c747d9a449ffaba6ac6167727d6c63"
+    },
+    "/images/responsive/today/landscape-480.webp": {
+      "src": "/images/vault/landscape.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3ed8e968104678f31bfa2afd104251c4380c702850e1d41f119ccc617d04813c",
+      "outputSha256": "98bb20472c5f2c5316d00f5f36b4cbc146e21e7bb23f436129c20997ee192a59"
+    },
+    "/images/responsive/today/landscape-960.webp": {
+      "src": "/images/vault/landscape.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3ed8e968104678f31bfa2afd104251c4380c702850e1d41f119ccc617d04813c",
+      "outputSha256": "6321d9bb2e4236d2aa6a20d832a98d3f9102e23b6e4240d5cd0709ae0f735aa0"
+    },
     "/images/responsive/today/mountains-mont-sainte-victoire-seen-from-the-bib-480.webp": {
       "src": "/images/vault/mountains-mont-sainte-victoire-seen-from-the-bib.webp",
       "recipe": {
@@ -2607,6 +4410,34 @@
       },
       "sourceSha256": "618e96178391c92bf9ed48f16864c51fed7de082193ec615ddf46a7bcf8c1a8f",
       "outputSha256": "970b3de69873def29376d0a367248c60dab4d6bdf305313b031b1736e5342bd5"
+    },
+    "/images/responsive/today/sea-bass-from-fish-from-american-waters-series-n-480.webp": {
+      "src": "/images/vault/sea-bass-from-fish-from-american-waters-series-n.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4eff736bb1c80ba6f1cb998e63626db76eddf49660b46d7955c8f2969d00a773",
+      "outputSha256": "61993d07a6abd0e17517a8914ad8d521cfed29007a66eb539b358b2beb7d39da"
+    },
+    "/images/responsive/today/sea-bass-from-fish-from-american-waters-series-n-960.webp": {
+      "src": "/images/vault/sea-bass-from-fish-from-american-waters-series-n.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4eff736bb1c80ba6f1cb998e63626db76eddf49660b46d7955c8f2969d00a773",
+      "outputSha256": "02489b62c1b98dba9415c9c3596d51c1a91b05fc422c52cb818998d7368abb57"
     },
     "/images/responsive/today/the-starry-night-480.webp": {
       "src": "/images/vault/the-starry-night.webp",
@@ -2692,6 +4523,34 @@
       "sourceSha256": "7a89025947f24db9f3198dd5dafebcefbdc084158b429427f5be3d87cffc5dca",
       "outputSha256": "ea432370a3ee5caed912a8c44d41fe0416f0fb07e2a2d2ee9709d75839fa0f51"
     },
+    "/images/responsive/today/waterfall-on-a-cold-cliff-480.webp": {
+      "src": "/images/vault/waterfall-on-a-cold-cliff.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "04244ff872ec407a31422f70c41b633e3c9cba41606d179380d6b170001b8f55",
+      "outputSha256": "9129134f340760a9f0436a03565cbd0901ade1e971201903001d7d44f6762484"
+    },
+    "/images/responsive/today/waterfall-on-a-cold-cliff-960.webp": {
+      "src": "/images/vault/waterfall-on-a-cold-cliff.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "04244ff872ec407a31422f70c41b633e3c9cba41606d179380d6b170001b8f55",
+      "outputSha256": "09fd974fa337764ebbdbec8dbed36dcc6711a38bbf3d91b8955c760bfbe52694"
+    },
     "/images/responsive/today/afklint-swan-10-480.webp": {
       "src": "/images/inbox/afklint-swan-10.webp",
       "recipe": {
@@ -2719,6 +4578,34 @@
       },
       "sourceSha256": "7bfe4933132699171bbbad6cb9c5950f13a915775b249c8d05f8ce23035ffb5b",
       "outputSha256": "481b369f0b5937654e2d11a96032a52c0fa3c055c44f0f11e17304a2fa50de54"
+    },
+    "/images/responsive/today/dancers-480.webp": {
+      "src": "/images/vault/dancers.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7d9b02e8e90cfbd3f71c195e26280be4771ad048dedd3ef5519416211052a58b",
+      "outputSha256": "0e19b66192f541beae29435339b7d3bcd232ad85b75e7e52eea6805475a22770"
+    },
+    "/images/responsive/today/dancers-960.webp": {
+      "src": "/images/vault/dancers.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7d9b02e8e90cfbd3f71c195e26280be4771ad048dedd3ef5519416211052a58b",
+      "outputSha256": "aa15e12b8ea247f9825958903fc2506f03f831167d8c74f426c139d49bffbc0c"
     },
     "/images/responsive/today/figure-of-a-lady-laura-480.webp": {
       "src": "/images/vault/figure-of-a-lady-laura.webp",
@@ -2831,6 +4718,90 @@
       },
       "sourceSha256": "424b648c191202cc124a330cca91c6e234a5a1f1270829f578a8898c39a0304b",
       "outputSha256": "97882d79dde38bd9ed66310b6683031650104ac9169abe383113ae14aa839338"
+    },
+    "/images/responsive/today/swans-in-central-park-480.webp": {
+      "src": "/images/vault/swans-in-central-park.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "425f15bb816087f6717f44d107344e0f2cdc057fa2326e51fbecf9de404a4326",
+      "outputSha256": "ecf806bbce6c9a569dd047996c80a78c565a1dbb2790cda5e6d980389c8ca2a0"
+    },
+    "/images/responsive/today/swans-in-central-park-960.webp": {
+      "src": "/images/vault/swans-in-central-park.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "425f15bb816087f6717f44d107344e0f2cdc057fa2326e51fbecf9de404a4326",
+      "outputSha256": "afdbc0f12a53a17a339c3a38a87edb1fb85f9872784a4145c46d16f09f93721d"
+    },
+    "/images/responsive/today/swans-in-reeds-480.webp": {
+      "src": "/images/vault/swans-in-reeds.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "42255d867a925a1e4599ab5a0f0a197a21f6cc10e6e2331259e897926f950e19",
+      "outputSha256": "7766bcf5625c77467e2d8856f00a4edd8f86b5b8b987cd635cfec8d26043e785"
+    },
+    "/images/responsive/today/swans-in-reeds-960.webp": {
+      "src": "/images/vault/swans-in-reeds.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "42255d867a925a1e4599ab5a0f0a197a21f6cc10e6e2331259e897926f950e19",
+      "outputSha256": "ad92949f913811ba7c6d8765d2780d3c49c8f6ad0dce33565db75edeb00d0db8"
+    },
+    "/images/responsive/today/the-dancing-class-480.webp": {
+      "src": "/images/vault/the-dancing-class.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "5cf21ca5fd5302bbd5d0be2f87e3ae661cbb61b66f85a871c3222caa11bd87ff",
+      "outputSha256": "f473da09a0bccc965d6345c1dacbfd22304e2fdebb8c809e8b855f8a448efe4b"
+    },
+    "/images/responsive/today/the-dancing-class-960.webp": {
+      "src": "/images/vault/the-dancing-class.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "5cf21ca5fd5302bbd5d0be2f87e3ae661cbb61b66f85a871c3222caa11bd87ff",
+      "outputSha256": "fe5bc9beb6ea90bf17fea436d059bd47bbbb400b674cddf06de003f3416c7155"
     },
     "/images/responsive/pond/fuji-800.webp": {
       "src": "/images/pond/fuji.webp",

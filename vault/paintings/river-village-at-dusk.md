@@ -3,6 +3,9 @@ type: painting
 who: anonymous
 title: River Village at Dusk
 year: 18th century
+collection: "Los Angeles County Museum of Art"
+collection_city: "Los Angeles"
+collection_url: "https://collections.lacma.org/node/199472"
 src: /images/vault/river-village-at-dusk.webp
 source: "https://commons.wikimedia.org/wiki/File:River_Village_at_Dusk_LACMA_M.2000.15.25.jpg"
 licence: public domain
