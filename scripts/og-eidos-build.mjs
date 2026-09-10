@@ -14,7 +14,8 @@ const hero = (await sharp(path.join(root, "public/images/eidos/product/hero-desk
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 export function compose(map, palettes) {
-  const visuals = map.items.filter((item) => item.type !== "link" && item.src);
+  const artworkKinds = new Set(["painting", "print", "poster"]);
+  const visuals = map.items.filter((item) => artworkKinds.has(item.type) && item.src && !item.id.startsWith("his-"));
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <title>a beautiful, endless moodboard of things i love.</title>
@@ -35,7 +36,7 @@ export function compose(map, palettes) {
   <text class="og-headline" x="60" y="292" textLength="346" lengthAdjust="spacingAndGlyphs" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="52" fill="#292723">of things i love.</text>
 
   <text x="60" y="405" font-family="Menlo, Consolas, monospace" font-size="15" letter-spacing="1" fill="#5d5449">${visuals.length} visual things · real · credited</text>
-  <text x="60" y="449" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#5d5449">paintings, photographs, people and objects.</text>
+  <text x="60" y="449" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#5d5449">paintings, prints and posters.</text>
   <path d="M60 524h452" stroke="#a8425d" stroke-width="3"/>
   <circle cx="176" cy="524" r="8" fill="#ff9bc0"/>
   <circle cx="354" cy="524" r="8" fill="#ff5f24"/>

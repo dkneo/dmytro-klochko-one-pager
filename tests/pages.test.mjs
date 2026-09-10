@@ -148,11 +148,11 @@ test("the atlas owns the geometry without duplicating its payload onto home", as
   }
 });
 
-test("the product moodboard carries every visual mark and parks every word", () => {
+test("the product moodboard carries every chosen artwork and parks every word", () => {
   const html = read("dist/eidos/index.html");
   const words = read("dist/eidos/words/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-  const visual = map.items.filter((it) => it.type !== "link" && it.src);
+  const visual = map.items.filter((it) => ["painting", "print", "poster"].includes(it.type) && it.src && !it.id.startsWith("his-"));
   const verbal = map.items.filter((it) => it.type !== "link" && !it.src);
   const pieces = [...html.matchAll(/<figure class="ep-visual[^>]+data-id="([^"]+)"/g)];
   assert.equal(pieces.length, visual.length, `product shows ${pieces.length} of ${visual.length} visual marks`);

@@ -74,34 +74,52 @@ test("every product observation carries visible evidence", async () => {
 test("the product opens as one visual moodboard with plain doors", () => {
   const html = read("dist/eidos/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-  const visualCount = map.items.filter((item) => item.type !== "link" && item.src).length;
+  const artworkTypes = new Set(["painting", "print", "poster"]);
+  const visualCount = map.items.filter((item) => artworkTypes.has(item.type) && item.src && !item.id.startsWith("his-")).length;
 
   assert.match(html, /class="eidos-product"/);
   assert.match(html, /class="ep-header"/);
   assert.match(html, />moodboard</);
   assert.match(html, /href="\/eidos\/inbox"[^>]*>discover</);
+  assert.match(html, /href="\/eidos\/places"[^>]*>map</);
   assert.doesNotMatch(html, /href="\/eidos\/deck"/, "the legacy experiment is still a competing product door");
   assert.match(html, /a beautiful, endless moodboard of things i love\./);
+  assert.match(html, /paintings, prints and posters/);
+  assert.doesNotMatch(html, /paintings, photographs, people and objects/);
   assert.match(html, /data-visual-moodboard/);
   assert.equal((html.match(/<figure class="ep-visual/g) || []).length, visualCount);
+  assert.doesNotMatch(html, /data-kind="(?:person|object|building|photograph)"/);
+  assert.doesNotMatch(html, /data-id="his-/);
   assert.doesNotMatch(html, /ep-reading-grid|ep-weather-list|ep-trace-grid/);
   assert.doesNotMatch(html, /\b(?:poem|quote|song|writing)s?\b[^<]*card/i);
   assert.doesNotMatch(html, /keep exploring|data-more|data-form-filter|data-weather-filter/);
   assert.doesNotMatch(html, /\b(?:01|02|03) ·/);
 });
 
-test("the moodboard can become a salon, a color field, or an absolute-favorites shelf", () => {
+test("the moodboard is one readable chromatic salon", () => {
   const page = read("src/pages/eidos/index.astro");
   const moodboard = read("src/components/eidos/EidosMoodboard.astro");
+  const html = read("dist/eidos/index.html");
+  const figures = [...html.matchAll(/<figure class="ep-visual[\s\S]*?<\/figure>/g)].map((match) => match[0]);
+  const keys = [...html.matchAll(/<figure[^>]*data-color-key="([0-9.]+)"/g)].map((match) => Number(match[1]));
   assert.match(page, /dominantColors/);
   assert.match(page, /<EidosMoodboard[^>]*colors=\{dominantColors\}/);
-  for (const view of ["salon", "color", "favorites"]) {
-    assert.match(moodboard, new RegExp(`data-mood-view="${view}"`), `missing ${view} view`);
-  }
   assert.match(moodboard, /data-color-key=\{colors\[item\.id\]/);
-  assert.match(moodboard, /data-favorite=\{item\.favorite/);
-  assert.match(moodboard, /grid\.append\(\.\.\.ordered\)/);
-  assert.match(moodboard, /nothing has been marked absolute yet/);
+  assert.ok(keys.length > 20, "the chromatic salon has too little art");
+  assert.deepEqual(keys, keys.slice().sort((a, b) => a - b), "the default wall is not ordered by color");
+  assert.equal(figures.length, keys.length, "the color wall lost an artwork");
+  assert.ok(figures.every((figure) => figure.includes("<figcaption>")), "color order hid an artwork label");
+  assert.doesNotMatch(moodboard, /data-mood-view|physical scale|sort by color|absolute favorites/);
+  assert.doesNotMatch(moodboard, /aspect-ratio:\s*1|figcaption\s*\{\s*display:\s*none/);
+});
+
+test("generated website scenes never masquerade as Dmytro's paintings", () => {
+  const paintingDir = path.join(root, "vault/paintings");
+  const paintings = fs.readdirSync(paintingDir)
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => read(path.join("vault/paintings", file)))
+    .join("\n");
+  assert.doesNotMatch(paintings, /made with Seedream|^title:\s*(?:dock|ember|estuary|fields|fire|fuji|lavender|nightcourt|snow|study|swim)$/m);
 });
 
 test("measured works keep their real scale and collection record", () => {
@@ -115,22 +133,24 @@ test("measured works keep their real scale and collection record", () => {
   }
 });
 
-test("the moodboard exposes physical scale and quiet museum labels", () => {
+test("the moodboard keeps quiet museum labels without a scale mode", () => {
   const moodboard = read("src/components/eidos/EidosMoodboard.astro");
   const html = read("dist/eidos/index.html");
-  assert.match(moodboard, /data-mood-view="scale"/);
-  assert.match(moodboard, /data-height-cm=\{item\.heightCm/);
-  assert.match(moodboard, /data-width-cm=\{item\.widthCm/);
   assert.match(moodboard, /ep-visual-location/);
-  assert.match(moodboard, /1 px = 1 cm/);
+  assert.doesNotMatch(moodboard, /data-mood-view="scale"|data-scale-ruler|1 px = 1 cm/);
   assert.match(html, /href="\/eidos\/places"/);
 });
 
 test("the pilgrimage room groups collectable visits by city", () => {
   const html = read("dist/eidos/places/index.html");
+  const map = JSON.parse(read("src/data/map.json"));
+  const artworks = map.items.filter((item) => ["painting", "print", "poster"].includes(item.type) && item.src && !item.id.startsWith("his-"));
+  const located = artworks.filter((item) => item.collectionCity && item.collection && item.collectionUrl);
   assert.match(html, /works i can meet in person\./);
   assert.match(html, /data-place-city/);
   assert.match(html, /data-place-work/);
+  assert.doesNotMatch(html, /data-kind="(?:person|object|building|photograph)"/);
+  assert.ok(located.length >= Math.ceil(artworks.length * 0.75), "most artworks still have no museum record");
   assert.match(html, /names the institution holding a work\. it is not a promise that the work is on view today/);
 });
 

@@ -5,8 +5,9 @@ import map from "../../data/map.json";
 import "../../styles/pages/eidos-places.css";
 
 const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+const artworkKinds = new Set(["painting", "print", "poster"]);
 const works = map.items
-  .filter((item: any) => item.src && item.collectionCity && item.collection && !/^his own|google art project$/i.test(item.collection))
+  .filter((item: any) => artworkKinds.has(item.type) && item.src && item.collectionCity && item.collection && !/^his own|google art project$/i.test(item.collection))
   .sort((a: any, b: any) => a.collectionCity.localeCompare(b.collectionCity) || a.who.localeCompare(b.who));
 const cities = [...new Set(works.map((item: any) => item.collectionCity))].map((city) => ({
   city,
@@ -14,7 +15,7 @@ const cities = [...new Set(works.map((item: any) => item.collectionCity))].map((
 }));
 ---
 
-<EidosLayout title="where the works live · eidos" description="the museums and cities holding works in dmytro's moodboard.">
+<EidosLayout title="map · eidos" description="the museums and cities holding works in dmytro's moodboard.">
   <div class="eidos-places">
     <EidosHeader current="places" />
     <div class="epl-shell">
@@ -35,7 +36,7 @@ const cities = [...new Set(works.map((item: any) => item.collectionCity))].map((
             </header>
             <div class="epl-works">
               {cityWorks.map((item: any) => (
-                <article class="epl-work" data-place-work>
+                <article class="epl-work" data-place-work data-kind={item.type}>
                   <img src={plateFor(item.src)} alt={item.title || item.line} loading="lazy" decoding="async" />
                   <div>
                     <h3>{item.title || item.line}</h3>
@@ -57,7 +58,7 @@ const cities = [...new Set(works.map((item: any) => item.collectionCity))].map((
 
       <footer class="epl-footer">
         <a href="/eidos#collection">back to the moodboard</a>
-        <span>faun notices · gryphon remembers where</span>
+        <span>faun notices · gryphon keeps the map</span>
       </footer>
     </div>
   </div>

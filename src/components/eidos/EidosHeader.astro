@@ -12,7 +12,7 @@ const { current = "moodboard", studio = false } = Astro.props;
   <nav class="ep-nav" aria-label={studio ? "discover" : "Eidos"}>
     <a href="/eidos#collection" aria-current={current === "moodboard" ? "page" : undefined}>moodboard</a>
     <a href="/eidos/inbox" aria-current={current === "discover" || current === "studio" ? "page" : undefined}>discover</a>
-    <a href="/eidos/places" aria-current={current === "places" ? "page" : undefined}>where</a>
+    <a href="/eidos/places" aria-current={current === "places" ? "page" : undefined}>map</a>
   </nav>
   <a class="ep-parent" href="/">
     <span class="ep-parent-name">dmytro klochko</span>

@@ -14,7 +14,7 @@ test("the visual moodboard lives in the library; the homepage carries one door t
   const home = read("dist/index.html");
   const lib = read("dist/eidos/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-  const visual = map.items.filter((it) => it.type !== "link" && it.src).length;
+  const visual = map.items.filter((it) => ["painting", "print", "poster"].includes(it.type) && it.src && !it.id.startsWith("his-")).length;
 
   assert.match(lib, /data-visual-moodboard/, "the library has no visual wall");
   const pieces = [...lib.matchAll(/<figure class="ep-visual/g)].length;

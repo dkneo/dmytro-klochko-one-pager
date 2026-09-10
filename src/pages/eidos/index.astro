@@ -12,38 +12,64 @@ import map from "../../data/map.json";
 import palettes from "../../data/palettes.json";
 
 const profile = buildProfile(map, palettes);
-const visuals = profile.collection.filter((item: any) => item.src);
+const artworkKinds = new Set(["painting", "print", "poster"]);
+const artwork = profile.collection.filter((item: any) =>
+  item.src && artworkKinds.has(item.type) && !item.id.startsWith("his-")
+);
 const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
 const dimensions: Record<string, { width: number; height: number }> = {};
 const dominantColors: Record<string, { hex: string; key: number }> = {};
-const hueKey = (red: number, green: number, blue: number) => {
+const moodColor = (data: Buffer, channels: number) => {
+  let red = 0, green = 0, blue = 0, weight = 0;
+  for (let index = 0; index < data.length; index += channels) {
+    const [r, g, b, alpha = 255] = [data[index], data[index + 1], data[index + 2], channels > 3 ? data[index + 3] : 255];
+    if (alpha < 128) continue;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    const lightness = (max + min) / 510;
+    if (lightness < 0.035 || lightness > 0.965) continue;
+    const saturation = max === 0 ? 0 : (max - min) / max;
+    const pixelWeight = 0.35 + Math.pow(saturation, 0.7);
+    red += r * pixelWeight;
+    green += g * pixelWeight;
+    blue += b * pixelWeight;
+    weight += pixelWeight;
+  }
+  return weight ? [red, green, blue].map((value) => Math.round(value / weight)) : [128, 128, 128];
+};
+const colorKey = (red: number, green: number, blue: number) => {
   const [r, g, b] = [red, green, blue].map((value) => value / 255);
   const max = Math.max(r, g, b), min = Math.min(r, g, b);
   const lightness = (max + min) / 2;
   const delta = max - min;
-  if (delta < 0.08) return 720 + Math.round(lightness * 100);
+  if (delta < 0.08) return Math.round(lightness * 100);
   let hue = max === r ? ((g - b) / delta) % 6 : max === g ? (b - r) / delta + 2 : (r - g) / delta + 4;
   hue = Math.round(hue * 60); if (hue < 0) hue += 360;
-  return hue;
+  const saturation = delta / (1 - Math.abs(2 * lightness - 1));
+  const rotatedHue = (hue + 30) % 360;
+  return 1000 + rotatedHue * 1000 + Math.round(lightness * 90 + saturation * 10);
 };
-for (const item of visuals) {
+for (const item of artwork) {
   try {
     const image = sharp(path.join(process.cwd(), "public", plateFor(item.src)));
-    const [metadata, stats] = await Promise.all([
+    const [metadata, sample] = await Promise.all([
       image.metadata(),
-      image.clone().resize({ width: 64, height: 64, fit: "inside" }).stats(),
+      image.clone().resize({ width: 48, height: 48, fit: "inside" }).ensureAlpha().raw().toBuffer({ resolveWithObject: true }),
     ]);
     if (metadata.width && metadata.height) dimensions[item.id] = { width: metadata.width, height: metadata.height };
-    const { r, g, b } = stats.dominant;
+    const [r, g, b] = moodColor(sample.data, sample.info.channels);
     dominantColors[item.id] = {
       hex: `#${[r, g, b].map((value) => value.toString(16).padStart(2, "0")).join("")}`,
-      key: hueKey(r, g, b),
+      key: colorKey(r, g, b),
     };
   } catch {}
 }
+const visuals = artwork.slice().sort((a: any, b: any) =>
+  (dominantColors[a.id]?.key ?? Number.MAX_SAFE_INTEGER) - (dominantColors[b.id]?.key ?? Number.MAX_SAFE_INTEGER)
+  || String(a.title || a.line).localeCompare(String(b.title || b.line))
+);
 
 const title = "eidos · dmytro's endless moodboard";
-const description = "a living moodboard of paintings, photographs, people and objects loved by dmytro klochko.";
+const description = "a living moodboard of paintings, prints and posters loved by dmytro klochko.";
 const ogVersion = createHash("sha1")
   .update(readFileSync(path.join(process.cwd(), "public", "og-eidos.png")))
   .digest("hex")

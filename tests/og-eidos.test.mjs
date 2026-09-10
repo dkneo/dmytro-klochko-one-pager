@@ -17,7 +17,7 @@ test("the share card is composed from the same vault the page reads", async () =
   const map = JSON.parse(read("src/data/map.json"));
   const palettes = JSON.parse(read("src/data/palettes.json"));
   const svg = compose(map, palettes);
-  const visuals = map.items.filter((i) => i.type !== "link" && i.src).length;
+  const visuals = map.items.filter((i) => ["painting", "print", "poster"].includes(i.type) && i.src && !i.id.startsWith("his-")).length;
 
   assert.ok(svg.includes(`${visuals} visual things`), "the card counts something other than the moodboard");
   assert.doesNotMatch(svg, /languages|weathers|url\(#g\d+\)/i);

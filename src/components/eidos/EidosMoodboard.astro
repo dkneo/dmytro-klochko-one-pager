@@ -7,40 +7,25 @@ interface Props {
 const { items, dimensions, colors } = Astro.props;
 const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
 const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u202F$1").replace(/(«)\s+/g, "$1\u202F");
-const kind = (type: string) => type === "person" ? "person" : type;
-const measured = items.filter((item: any) => item.heightCm && item.widthCm);
 ---
 <section class="ep-moodboard" id="collection" aria-labelledby="collection-title" data-visual-moodboard>
   <header class="ep-moodboard-head">
     <h2 id="collection-title">things that stop me.</h2>
-    <p>{items.length} paintings, photographs, people and objects. every one real, every one credited.</p>
+    <div>
+      <p>{items.length} paintings, prints and posters, flowing by color. every one chosen, every one credited.</p>
+      <a class="ep-mood-map" href="/eidos/places">map the collection ↗</a>
+    </div>
   </header>
 
-  <div class="ep-mood-views" role="group" aria-label="change how the moodboard is arranged">
-    <span>arrange</span>
-    <button type="button" data-mood-view="salon" aria-pressed="true">salon</button>
-    <button type="button" data-mood-view="color" aria-pressed="false">sort by color</button>
-    <button type="button" data-mood-view="favorites" aria-pressed="false">absolute favorites</button>
-    <button type="button" data-mood-view="scale" aria-pressed="false">physical scale <small>{measured.length}</small></button>
-    <a href="/eidos/places">where they live</a>
-  </div>
-  <p class="ep-scale-note" data-scale-note hidden>actual proportions · 1 px = 1 cm · scroll the wall →</p>
-
   <div class="ep-mood-grid">
-    <div class="ep-scale-ruler" data-scale-ruler hidden aria-label="height reference from zero to two metres">
-      <span>2m</span><span>1m</span><span>0</span>
-    </div>
     {items.map((item: any, index: number) => (
       <figure
         class={`ep-visual ep-visual--${index % 7}`}
         data-visual-piece
         data-id={item.id}
-        data-index={index}
+        data-kind={item.type}
         data-color-key={colors[item.id]?.key ?? 999}
-        data-favorite={item.favorite ? "true" : "false"}
-        data-height-cm={item.heightCm || undefined}
-        data-width-cm={item.widthCm || undefined}
-        style={`--piece-color:${colors[item.id]?.hex || "transparent"};--physical-width:${item.widthCm || 0}px;--physical-height:${item.heightCm || 0}px`}
+        style={`--piece-color:${colors[item.id]?.hex || "transparent"}`}
       >
         <button type="button" class="ep-visual-open" aria-label={`open ${glue(item.title || item.line)}`}>
           <img
@@ -53,7 +38,7 @@ const measured = items.filter((item: any) => item.heightCm && item.widthCm);
           />
         </button>
         <figcaption>
-          <span><i aria-hidden="true"></i>{kind(item.type)}</span>
+          <span><i aria-hidden="true"></i>{item.type}</span>
           <b>{glue(item.line || item.title)}</b>
           {item.who && <small>{item.who}{item.year ? ` · ${item.year}` : ""}</small>}
           {item.collection && !/^his own|google art project$/i.test(item.collection) && (
@@ -61,15 +46,11 @@ const measured = items.filter((item: any) => item.heightCm && item.widthCm);
               ? <a class="ep-visual-location" href={item.collectionUrl}>{item.collection}{item.collectionCity && !item.collection.includes(item.collectionCity) ? `, ${item.collectionCity}` : ""} ↗</a>
               : <small class="ep-visual-location">{item.collection}</small>
           )}
-          {item.heightCm && item.widthCm && <small class="ep-visual-scale">{item.heightCm} × {item.widthCm} cm</small>}
           {item.displayStatus && <small class="ep-visual-status">{item.displayStatus}</small>}
         </figcaption>
       </figure>
     ))}
   </div>
-  <p class="ep-mood-empty" data-mood-empty hidden>
-    nothing has been marked absolute yet. <a href="/eidos/inbox">choose one in Studio.</a>
-  </p>
 
   <dialog class="ep-detail" data-mood-detail>
     <button type="button" class="ep-detail-close" aria-label="close image">close</button>
@@ -83,34 +64,6 @@ const measured = items.filter((item: any) => item.heightCm && item.widthCm);
     if (!root) return;
     const detail = root.querySelector("[data-mood-detail]");
     const body = root.querySelector("[data-detail-body]");
-    const grid = root.querySelector(".ep-mood-grid");
-    const pieces = [...root.querySelectorAll("[data-visual-piece]")];
-    const ruler = root.querySelector("[data-scale-ruler]");
-    const scaleNote = root.querySelector("[data-scale-note]");
-    const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-    const arrange = (view, button) => {
-      const paint = () => {
-        const ordered = view === "color"
-          ? pieces.slice().sort((a, b) => Number(a.dataset.colorKey) - Number(b.dataset.colorKey) || Number(a.dataset.index) - Number(b.dataset.index))
-          : pieces;
-        grid.append(...ordered);
-        pieces.forEach((piece) => {
-          piece.hidden = (view === "favorites" && piece.dataset.favorite !== "true")
-            || (view === "scale" && !piece.dataset.heightCm);
-        });
-        ruler.hidden = view !== "scale";
-        scaleNote.hidden = view !== "scale";
-        root.dataset.view = view;
-        root.querySelector("[data-mood-empty]").hidden = view !== "favorites" || pieces.some((piece) => piece.dataset.favorite === "true");
-        root.querySelectorAll("[data-mood-view]").forEach((choice) => choice.setAttribute("aria-pressed", String(choice === button)));
-      };
-      paint();
-      if (!reduce.matches) grid.animate(
-        [{ opacity: 0.72, transform: "translateY(4px)" }, { opacity: 1, transform: "none" }],
-        { duration: 220, easing: "cubic-bezier(.2,0,.2,1)" },
-      );
-    };
-    root.querySelectorAll("[data-mood-view]").forEach((button) => button.addEventListener("click", () => arrange(button.dataset.moodView, button)));
     root.querySelectorAll(".ep-visual-open").forEach((button) => button.addEventListener("click", () => {
       const piece = button.closest("[data-visual-piece]");
       const clone = piece.cloneNode(true);
