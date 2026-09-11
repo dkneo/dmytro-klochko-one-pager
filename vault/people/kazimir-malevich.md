@@ -6,7 +6,7 @@ source: "https://commons.wikimedia.org/wiki/File:Self-Portrait%20(1908%20or%2019
 licence: public domain
 added: 2026-09-11
 note: |-
-  born near kyiv to a polish family; later rooms filed him as russian. he taught at the kyiv art institute in 1928-30, and the suprematist planes were argued in that city as much as in vitebsk. black square is the postcard; the village after snow is the work.
+  born near kyiv to a polish family. later catalogues often say russian. he taught at the kyiv art institute in 1928-30; that is the link, not a claim that suprematism was a kyiv school. black square is the postcard; the village after snow is the work.
 ---
 
 no weather yet: that is his to say.

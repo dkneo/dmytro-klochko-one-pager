@@ -209,6 +209,29 @@ test("malevich hangs the village and the grinder, not the postcard square", () =
   }
 });
 
+test("ua framing: troubina is paris commune, malevich is kyiv-linked, boychuk is absence", () => {
+  const troubina = read("vault/people/valeria-troubina.md").toLowerCase();
+  assert.match(troubina, /paris commune/, "troubina lost the squat");
+  assert.match(troubina, /holosiy/, "troubina lost holosiy");
+  assert.match(troubina, /not silvashi/, "troubina collapsed into silvashi");
+
+  const malevich = read("vault/people/kazimir-malevich.md").toLowerCase();
+  assert.match(malevich, /kyiv art institute/, "malevich lost the kyiv years");
+  assert.match(malevich, /not a claim/, "malevich reads as a nationality claim");
+
+  const boychuk = read("vault/people/mykhailo-boychuk.md").toLowerCase();
+  assert.match(boychuk, /we do not rebuild the walls/, "boychuk invites a reconstruction");
+  assert.match(boychuk, /not reconstructions/, "boychuk lost the absence caveat");
+  assert.doesNotMatch(boychuk, /the rest is reconstruction/, "boychuk still calls the hang a reconstruction");
+
+  const padalka = read("vault/people/ivan-padalka.md").toLowerCase();
+  assert.match(padalka, /not rebuilt murals/, "padalka lost the mural caveat");
+
+  const saint = read("vault/paintings/boychuk-saint-john.md").toLowerCase();
+  assert.match(saint, /surviving/, "saint john is not labelled as surviving");
+  assert.match(saint, /not a reconstruction/, "saint john lost the mosaic caveat");
+});
+
 test("estate and living ua names have no hosted canvas", () => {
   const banned = [
     "Kateryna Bilokur", "Maria Prymachenko", "Tetyana Yablonska", "Alla Horska",

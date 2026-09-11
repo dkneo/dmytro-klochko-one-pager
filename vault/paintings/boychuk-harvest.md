@@ -13,4 +13,4 @@ added: 2026-09-11
 
 who: [[Mykhailo Boychuk]]
 
-tempera, 1910. public domain. most of the frescoes were destroyed after 1937.
+gouache on paper, early 1910s, lviv national museum. public domain. a surviving easel work, not a rebuilt fresco.
