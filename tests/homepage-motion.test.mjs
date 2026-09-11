@@ -78,7 +78,7 @@ test("replika makes its case in one film and nothing beside it", () => {
   assert.equal(stage.length, 1, "the case should load through one video element");
   assert.match(stage[0], /preload="none"/);
   assert.doesNotMatch(stage[0], /autoplay/);
-  assert.match(stage[0], /\/video\/replika\/app\.mp4/, "the stage shows the product, not the slogan film");
+  assert.match(stage[0], /\/video\/replika\/app(-loop)?\.mp4/, "the stage shows the product, not the slogan film");
 
   // This section grew a gallery twice and a picker twice. Five scattered
   // prints, then three cropped to a shared ratio that beheaded the portrait;
