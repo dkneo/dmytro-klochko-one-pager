@@ -78,13 +78,14 @@ test("replika makes its case in one film and nothing beside it", () => {
   assert.equal(stage.length, 1, "the case should load through one video element");
   assert.match(stage[0], /preload="none"/);
   assert.doesNotMatch(stage[0], /autoplay/);
+  assert.match(stage[0], /\/video\/replika\/app\.mp4/, "the stage shows the product, not the slogan film");
 
   // This section grew a gallery twice and a picker twice. Five scattered
   // prints, then three cropped to a shared ratio that beheaded the portrait;
   // a twelve-tile contact sheet, then a six-frame strip of faces. Both times
   // the page ended up carrying more pictures of Replika's models than of
-  // him, in the section about what he did. One film, and the brand film is
-  // the one that is about the product rather than about lifestyle.
+  // him, in the section about what he did. One film, and the app film is
+  // the one that is the product rather than a slogan about it.
   assert.doesNotMatch(html, /data-replika-print/, "no wall of campaign stills");
   assert.doesNotMatch(html, /data-replika-pick/, "no picker: there is one film to pick");
 

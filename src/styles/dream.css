@@ -646,6 +646,7 @@ html.is-shook .scenes {
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2);
   margin: var(--sp-3) 0 0;
   font-family: var(--serif); font-size: var(--t-prose); color: var(--quiet);
+  justify-content: flex-end;
 }
 
 [data-mode="dream"] .me-door {
@@ -1937,10 +1938,12 @@ html[data-motion="paused"] .scenes .firelight {
   display: grid;
   place-items: center;
   width: 100%;
-  /* the film's own ratio. It was 16/10 around a 16:9 encode, which is
-     exactly the letterbox that showed as two dark bands, and a hairline
-     border drew a frame around them. */
-  aspect-ratio: 16 / 9;
+  /* the film's own ratio: a phone, 540 by 1172. The screen stands at the
+     width of a hand-held device and no wider, centred in its column, so it
+     reads as the thing itself rather than a banner stretched to fill. */
+  aspect-ratio: 540 / 1172;
+  width: min(100%, 17rem);
+  margin-inline: auto;
   overflow: hidden;
   border-radius: var(--r-panel);
   box-shadow: 0 24px 58px var(--shadow-deep);
