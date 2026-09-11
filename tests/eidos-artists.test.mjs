@@ -214,6 +214,24 @@ const LINK_ONLY = [
   "Piero Manzoni",
   "Fortunato Depero",
   "Afro Basaldella",
+  "Agnes Martin",
+  "Fairfield Porter",
+  "Lois Dodd",
+  "Jane Freilicher",
+  "Philip Guston",
+  "Rackstraw Downes",
+  "Alex Katz",
+  "Jane Wilson",
+  "Neil Welliver",
+  "Sylvia Plimack Mangold",
+  "Catherine Murphy",
+  "Louisa Matthíasdóttir",
+  "Rudy Burckhardt",
+  "Joan Brown",
+  "Mark di Suvero",
+  "Lee Bontecou",
+  "Eva Hesse",
+  "Mark Rothko",
 ];
 
 const workDirs = ["paintings", "prints", "posters", "objects"];
@@ -512,6 +530,80 @@ test("morandi is a person on the doctrine, not a new still life", () => {
   for (const f of list("vault/paintings")) {
     assert.doesNotMatch(read(`vault/paintings/${f}`), /^who: Giorgio Morandi$/m, `${f} hosts a morandi canvas`);
   }
+});
+
+test("estate and living nyc names have no hosted canvas", () => {
+  const banned = [
+    "Agnes Martin", "Fairfield Porter", "Lois Dodd", "Jane Freilicher",
+    "Philip Guston", "Rackstraw Downes", "Alex Katz", "Jane Wilson",
+    "Neil Welliver", "Sylvia Plimack Mangold", "Catherine Murphy",
+    "Louisa Matthíasdóttir", "Rudy Burckhardt", "Joan Brown",
+    "Mark di Suvero", "Lee Bontecou", "Eva Hesse", "Mark Rothko",
+  ];
+  for (const f of list("vault/paintings")) {
+    const text = read(`vault/paintings/${f}`);
+    for (const name of banned) {
+      assert.doesNotMatch(text, new RegExp(`^who: ${name}$`, "m"),
+        `${f} hosts a canvas for ${name}`);
+    }
+  }
+});
+
+test("the nyc pack skips hopper as a new tourist pitch", () => {
+  assert.ok(!fs.existsSync(path.join(root, "vault/people/edward-hopper.md")),
+    "hopper got a person page");
+  const people = list("vault/people").map((f) => read(`vault/people/${f}`)).join("\n");
+  assert.doesNotMatch(people, /^name: Edward Hopper$/m);
+  const works = list("vault/paintings")
+    .filter((f) => f.startsWith("hopper-"))
+    .map((f) => {
+      const text = read(`vault/paintings/${f}`);
+      const title = (/^title: (.*)$/m.exec(text) || [])[1] || "";
+      return `${f}\n${title}`;
+    }).join("\n");
+  assert.doesNotMatch(works, /Nighthawks|Automat|Chop Suey|Gas Station|Early Sunday/i);
+});
+
+test("guston names the late hoods once and hosts nothing", () => {
+  const text = read("vault/people/philip-guston.md");
+  assert.match(text, /hood/, "guston lost the late-cycle clause");
+  assert.match(text, /violence/, "guston lost the honest frame");
+  const lines = text.split("\n").filter((l) => /hood|klan/i.test(l));
+  assert.ok(lines.length <= 2, "guston centered the cycle");
+  assert.doesNotMatch(text, /^src:/m);
+  for (const f of list("vault/paintings")) {
+    assert.doesNotMatch(read(`vault/paintings/${f}`), /^who: Philip Guston$/m,
+      `${f} hosts a guston canvas`);
+  }
+});
+
+test("rothko and martin are doctrine people, not tourist canvases", () => {
+  const rothko = read("vault/people/mark-rothko.md").toLowerCase();
+  assert.match(rothko, /doctrine/, "rothko lost the doctrine line");
+  assert.match(rothko, /orange and yellow/, "rothko lost the postcard refusal");
+  assert.doesNotMatch(rothko, /^src:/m);
+
+  const martin = read("vault/people/agnes-martin.md").toLowerCase();
+  assert.match(martin, /doctrine/, "martin lost the doctrine line");
+  assert.doesNotMatch(martin, /^src:/m);
+
+  for (const f of list("vault/paintings")) {
+    const text = read(`vault/paintings/${f}`);
+    assert.doesNotMatch(text, /^who: Mark Rothko$/m, `${f} hosts a rothko canvas`);
+    assert.doesNotMatch(text, /^who: Agnes Martin$/m, `${f} hosts a martin canvas`);
+    assert.doesNotMatch(text, /Orange and Yellow|No\. 5\/No\. 22|Orange, Red, Yellow/i,
+      `${f} is a tourist rothko`);
+  }
+});
+
+test("the figurative spine is porter, freilicher, dodd and guston", () => {
+  const porter = read("vault/people/fairfield-porter.md").toLowerCase();
+  assert.match(porter, /figure|people in rooms/, "porter lost the figure");
+  const freilicher = read("vault/people/jane-freilicher.md").toLowerCase();
+  assert.match(freilicher, /window|flowers/, "freilicher lost the room");
+  const dodd = read("vault/people/lois-dodd.md").toLowerCase();
+  assert.match(dodd, /window|laundry/, "dodd lost the looking");
+  assert.match(dodd, /living/, "dodd lost that she is alive");
 });
 
 test("estate and living ua names have no hosted canvas", () => {
