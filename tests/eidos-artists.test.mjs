@@ -80,6 +80,25 @@ const ARTISTS = [
   { name: "Gigo Gabashvili", work: "gabashvili-market" },
   { name: "Aleksandre Tsimakuridze", work: "tsimakuridze-kvishkheti" },
   { name: "Henryk Hryniewski", work: "hryniewski-old-soldier" },
+  { name: "Kuroda Seiki", work: "kuroda-lakeside" },
+  { name: "Fujishima Takeji", work: "fujishima-black-fan" },
+  { name: "Yokoyama Taikan", work: "yokoyama-innocence" },
+  { name: "Uemura Shōen", work: "uemura-jo-no-mai" },
+  { name: "Nakamura Tsune", work: "nakamura-yaroshenko" },
+  { name: "Koide Narashige", work: "koide-still-life" },
+  { name: "Murakami Kagaku", work: "murakami-kannon" },
+  { name: "Yasui Sōtarō", work: "yasui-roses" },
+  { name: "Tsuchida Bakusen", work: "bakusen-maiko" },
+  { name: "Hayami Gyoshū", work: "hayami-enbu" },
+  { name: "Aoki Shigeru", work: "aoki-mera" },
+  { name: "Max Beckmann", work: "beckmann-roses" },
+  { name: "Ernst Ludwig Kirchner", work: "kirchner-czardas" },
+  { name: "Franz Marc", work: "marc-deer-snow" },
+  { name: "Alexej von Jawlensky", work: "jawlensky-sakharoff" },
+  { name: "Lovis Corinth", work: "corinth-samson" },
+  { name: "Max Liebermann", work: "liebermann-wannsee" },
+  { name: "Kurt Schwitters", work: "schwitters-merz-50" },
+  { name: "Willi Baumeister", work: "baumeister-tori" },
 ];
 
 const LINK_ONLY = [
@@ -146,6 +165,19 @@ const LINK_ONLY = [
   "Félix Varlamishvili",
   "Thea Djordjadze",
   "Andro Wekua",
+  "Tsuguharu Foujita",
+  "Kayama Matazō",
+  "Dōmoto Inshō",
+  "Maeda Seison",
+  "Hiroshi Sugimoto",
+  "Gabriele Münter",
+  "Christian Schad",
+  "Lotte Laserstein",
+  "Otto Dix",
+  "George Grosz",
+  "Hannah Höch",
+  "Lyonel Feininger",
+  "Jeanne Mammen",
 ];
 
 const workDirs = ["paintings", "prints", "posters", "objects"];
@@ -291,6 +323,75 @@ test("mehoffer hangs the garden and the glass", () => {
   const garden = read("vault/paintings/mehoffer-strange-garden.md");
   assert.match(garden, /^who: Józef Mehoffer$/m);
   assert.doesNotMatch(garden, /^weather:/m);
+});
+
+test("estate and living jp/de names have no hosted canvas", () => {
+  const banned = [
+    "Tsuguharu Foujita", "Kayama Matazō", "Dōmoto Inshō", "Maeda Seison",
+    "Hiroshi Sugimoto", "Gabriele Münter", "Christian Schad", "Lotte Laserstein",
+    "Otto Dix", "George Grosz", "Hannah Höch", "Lyonel Feininger", "Jeanne Mammen",
+  ];
+  for (const f of list("vault/paintings")) {
+    const text = read(`vault/paintings/${f}`);
+    for (const name of banned) {
+      assert.doesNotMatch(text, new RegExp(`^who: ${name}$`, "m"),
+        `${f} hosts a canvas for ${name}`);
+    }
+  }
+});
+
+test("the japan pack skips the great wave and hasui", () => {
+  const pack = [
+    "kuroda-seiki", "fujishima-takeji", "yokoyama-taikan", "uemura-shoen",
+    "nakamura-tsune", "koide-narashige", "murakami-kagaku", "yasui-sotaro",
+    "tsuchida-bakusen", "hayami-gyoshu", "aoki-shigeru", "tsuguharu-foujita",
+    "kayama-matazo", "domoto-insho", "maeda-seison", "hiroshi-sugimoto",
+  ];
+  const people = pack.map((id) => read(`vault/people/${id}.md`)).join("\n");
+  const works = list("vault/paintings")
+    .filter((f) => /^(kuroda|fujishima|yokoyama|uemura|nakamura|koide|murakami|yasui|bakusen|hayami|aoki)-/.test(f))
+    .map((f) => read(`vault/paintings/${f}`)).join("\n");
+  assert.doesNotMatch(people, /Hokusai|Hasui|Great Wave/);
+  assert.doesNotMatch(works, /Great Wave|神奈川沖浪裏|Hasui/);
+});
+
+test("kuroda hangs the lake and the triptych, shoen hangs the dance", () => {
+  assert.ok(fs.existsSync(path.join(root, "vault/paintings/kuroda-lakeside.md")));
+  assert.ok(fs.existsSync(path.join(root, "public/images/vault/kuroda-lakeside.webp")));
+  assert.ok(fs.existsSync(path.join(root, "vault/paintings/kuroda-wisdom-impression-sentiment.md")));
+  assert.ok(fs.existsSync(path.join(root, "vault/paintings/uemura-jo-no-mai.md")));
+  const lake = read("vault/paintings/kuroda-lakeside.md");
+  assert.match(lake, /^who: Kuroda Seiki$/m);
+  assert.doesNotMatch(lake, /^weather:/m);
+});
+
+test("foujita names the war in one line and does not hang it", () => {
+  const text = read("vault/people/tsuguharu-foujita.md");
+  assert.match(text, /army|war/, "foujita lost the wartime clause");
+  assert.match(text, /cats|nudes/, "foujita became only the war");
+  const lines = text.split("\n").filter((l) => /army|war/.test(l));
+  assert.ok(lines.length <= 2, "foujita centered the war");
+});
+
+test("beckmann hangs still lifes, not the postcard night", () => {
+  const files = list("vault/paintings").filter((f) => f.startsWith("beckmann-"));
+  assert.ok(files.includes("beckmann-roses.md"));
+  assert.ok(files.includes("beckmann-palettes.md"));
+  for (const f of files) {
+    const text = read(`vault/paintings/${f}`).toLowerCase();
+    assert.doesNotMatch(text, /the night|die nacht|departure|abfahrt|tuxedo|smoking/,
+      `${f} is a postcard beckmann`);
+  }
+});
+
+test("marc hangs deer, not the blue horse postcard", () => {
+  const files = list("vault/paintings").filter((f) => f.startsWith("marc-"));
+  assert.ok(files.includes("marc-deer-snow.md"));
+  for (const f of files) {
+    const text = read(`vault/paintings/${f}`).toLowerCase();
+    assert.doesNotMatch(text, /blue horse|blaues pferd/,
+      `${f} is the postcard horse`);
+  }
 });
 
 test("estate and living ua names have no hosted canvas", () => {
