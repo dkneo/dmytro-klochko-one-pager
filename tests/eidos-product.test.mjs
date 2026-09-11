@@ -158,7 +158,10 @@ test("the moodboard keeps quiet museum labels without a scale mode", () => {
 test("the pilgrimage room groups collectable visits by city", () => {
   const html = read("dist/eidos/places/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-  const artworks = map.items.filter((item) => ["painting", "print", "poster"].includes(item.type) && item.src && !item.id.startsWith("his-"));
+  // Unsat harvests sit on the ring with no weather and no museum card.
+  // The pilgrimage is for works already placed; do not invent collections
+  // just to keep the ratio.
+  const artworks = map.items.filter((item) => ["painting", "print", "poster"].includes(item.type) && item.src && !item.id.startsWith("his-") && item.weather);
   const located = artworks.filter((item) => item.collectionCity && item.collection && item.collectionUrl);
   assert.match(html, /works i can meet in person\./);
   assert.match(html, /data-place-city/);

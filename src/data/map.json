@@ -125,6 +125,40 @@
    "unplaced": false
   },
   {
+   "id": "blanchard-fillette",
+   "type": "painting",
+   "who": "María Blanchard",
+   "title": "Fillette assise",
+   "line": "Fillette assise",
+   "year": "1925",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/blanchard-fillette.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0,
+   "y": -1.06,
+   "unplaced": true
+  },
+  {
+   "id": "bohomazov-window",
+   "type": "painting",
+   "who": "Oleksandr Bohomazov",
+   "title": "Blick aus dem Fenster",
+   "line": "Blick aus dem Fenster",
+   "year": "1913",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/bohomazov-window.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.1055,
+   "y": -1.0547,
+   "unplaced": true
+  },
+  {
    "id": "boy-teasing-a-dog-nightscene-lit-by-pinewood-tor",
    "type": "painting",
    "who": "Johann Conrad Seekatz",
@@ -213,6 +247,23 @@
    "unplaced": false
   },
   {
+   "id": "demuth-bermuda-masts",
+   "type": "painting",
+   "who": "Charles Demuth",
+   "title": "Bermuda, Masts and Foliage",
+   "line": "Bermuda, Masts and Foliage",
+   "year": "1917",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/demuth-bermuda-masts.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.21,
+   "y": -1.039,
+   "unplaced": true
+  },
+  {
    "id": "der-seesturm-the-storm-at-sea",
    "type": "painting",
    "who": "Joos de Momper the Younger",
@@ -250,6 +301,23 @@
    "x": 0.7872,
    "y": -0.0932,
    "unplaced": false
+  },
+  {
+   "id": "ekster-planes",
+   "type": "painting",
+   "who": "Oleksandra Ekster",
+   "title": "Planes",
+   "line": "Planes",
+   "year": "1916–18",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/ekster-planes.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.3124,
+   "y": -1.0129,
+   "unplaced": true
   },
   {
    "id": "figure-of-a-lady-laura",
@@ -304,6 +372,23 @@
    "x": -0.2234,
    "y": 1.0731,
    "unplaced": false
+  },
+  {
+   "id": "gao-jianfu-landscape",
+   "type": "painting",
+   "who": "Gao Jianfu",
+   "title": "Landscape",
+   "line": "Landscape",
+   "year": "1926",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/gao-jianfu-landscape.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.4117,
+   "y": -0.9768,
+   "unplaced": true
   },
   {
    "id": "hammershoi-courtyard",
@@ -428,6 +513,23 @@
    "unplaced": false
   },
   {
+   "id": "huang-binhong-landscape",
+   "type": "painting",
+   "who": "Huang Binhong",
+   "title": "Landscape",
+   "line": "Landscape",
+   "year": "1937",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/huang-binhong-landscape.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.5069,
+   "y": -0.9309,
+   "unplaced": true
+  },
+  {
    "id": "j-m-w-turner-norham-castle-sunrise",
    "type": "painting",
    "who": "J. M. W. Turner",
@@ -518,6 +620,23 @@
    "x": -0.2144,
    "y": -0.8988,
    "unplaced": false
+  },
+  {
+   "id": "kubista-sebastian",
+   "type": "painting",
+   "who": "Bohumil Kubišta",
+   "title": "Saint Sebastian",
+   "line": "Saint Sebastian",
+   "year": "1912",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kubista-sebastian.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.5971,
+   "y": -0.8758,
+   "unplaced": true
   },
   {
    "id": "landscape-with-waterfall-and-a-mother-and-child",
@@ -621,6 +740,40 @@
    "x": 0.1226,
    "y": -0.4812,
    "unplaced": false
+  },
+  {
+   "id": "marquet-quai-conti",
+   "type": "painting",
+   "who": "Albert Marquet",
+   "title": "Quai de Conti, l'Automne",
+   "line": "Quai de Conti, l'Automne",
+   "year": "c. 1947",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/marquet-quai-conti.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.6814,
+   "y": -0.812,
+   "unplaced": true
+  },
+  {
+   "id": "modersohn-becker-milk-soup",
+   "type": "painting",
+   "who": "Paula Modersohn-Becker",
+   "title": "Still life with milk soup",
+   "line": "Still life with milk soup",
+   "year": "1905",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/modersohn-becker-milk-soup.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.7588,
+   "y": -0.7401,
+   "unplaced": true
   },
   {
    "id": "monet-magpie",
@@ -783,6 +936,23 @@
    "unplaced": false
   },
   {
+   "id": "pirosmani-still-life",
+   "type": "painting",
+   "who": "Niko Pirosmani",
+   "title": "Still Life",
+   "line": "Still Life",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/pirosmani-still-life.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.8287,
+   "y": -0.6609,
+   "unplaced": true
+  },
+  {
    "id": "redon-flowers",
    "type": "painting",
    "who": "Odilon Redon",
@@ -818,6 +988,23 @@
    "x": -0.3988,
    "y": 0.4191,
    "unplaced": false
+  },
+  {
+   "id": "rossi-sailor",
+   "type": "painting",
+   "who": "Gino Rossi",
+   "title": "Michel Carion, sailor",
+   "line": "Michel Carion, sailor",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/rossi-sailor.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.8904,
+   "y": -0.5751,
+   "unplaced": true
   },
   {
    "id": "scouts-climbing-a-mountain",
@@ -921,6 +1108,23 @@
    "unplaced": false
   },
   {
+   "id": "stettheimer-heat",
+   "type": "painting",
+   "who": "Florine Stettheimer",
+   "title": "Heat",
+   "line": "Heat",
+   "year": "1919",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/stettheimer-heat.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.9433,
+   "y": -0.4836,
+   "unplaced": true
+  },
+  {
    "id": "stormy-sea",
    "type": "painting",
    "who": "Eduard Hildebrandt",
@@ -941,6 +1145,23 @@
    "x": 1.0841,
    "y": -0.1045,
    "unplaced": false
+  },
+  {
+   "id": "strzeminski-afterimage-sun",
+   "type": "painting",
+   "who": "Władysław Strzemiński",
+   "title": "Afterimage of the Sun",
+   "line": "Afterimage of the Sun",
+   "year": "1948",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/strzeminski-afterimage-sun.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.9867,
+   "y": -0.3873,
+   "unplaced": true
   },
   {
    "id": "summer-landscape-with-figures-bringing-in-the-ha",
@@ -1204,6 +1425,23 @@
    "unplaced": false
   },
   {
+   "id": "vallotton-woman-writing",
+   "type": "painting",
+   "who": "Félix Vallotton",
+   "title": "Femme lisant dans un intérieur",
+   "line": "Femme lisant dans un intérieur",
+   "year": "1904",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vallotton-woman-writing.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 1.0204,
+   "y": -0.2871,
+   "unplaced": true
+  },
+  {
    "id": "vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv",
    "type": "painting",
    "who": "Johan Christian Dahl",
@@ -1392,6 +1630,23 @@
    "x": -1.0752,
    "y": -0.4512,
    "unplaced": false
+  },
+  {
+   "id": "xu-beihong-horse-1943",
+   "type": "painting",
+   "who": "Xu Beihong",
+   "title": "Horse",
+   "line": "Horse",
+   "year": "1943",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/xu-beihong-horse-1943.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 1.0439,
+   "y": -0.1841,
+   "unplaced": true
   },
   {
    "id": "明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn",
@@ -1640,6 +1895,40 @@
    "unplaced": false
   },
   {
+   "id": "hohlwein-zoo-munich",
+   "type": "poster",
+   "who": "Ludwig Hohlwein",
+   "title": "Zoologischer Garten München",
+   "line": "Zoologischer Garten München",
+   "year": "1912",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/hohlwein-zoo-munich.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 1.057,
+   "y": -0.0792,
+   "unplaced": true
+  },
+  {
+   "id": "narbut-coat-of-arms",
+   "type": "poster",
+   "who": "Heorhiy Narbut",
+   "title": "coat of arms of the ukrainian state",
+   "line": "coat of arms of the ukrainian state",
+   "year": "1918",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/narbut-coat-of-arms.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 1.0597,
+   "y": 0.0264,
+   "unplaced": true
+  },
+  {
    "id": "poster-cheret-folies-bergere",
    "type": "poster",
    "who": "Jules Chéret",
@@ -1773,6 +2062,40 @@
    "unplaced": false
   },
   {
+   "id": "goyo-woman-after-bath",
+   "type": "print",
+   "who": "Hashiguchi Goyō",
+   "title": "Yokugo no onna",
+   "line": "Yokugo no onna",
+   "year": "1915",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/goyo-woman-after-bath.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 1.0518,
+   "y": 0.1318,
+   "unplaced": true
+  },
+  {
+   "id": "koson-crow-and-blossom",
+   "type": "print",
+   "who": "Ohara Koson",
+   "title": "Crow and blossom",
+   "line": "Crow and blossom",
+   "year": "c. 1910",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/koson-crow-and-blossom.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 1.0334,
+   "y": 0.2359,
+   "unplaced": true
+  },
+  {
    "id": "mallard-and-snow-covered-reeds",
    "type": "print",
    "who": "Utagawa Hiroshige",
@@ -1817,6 +2140,23 @@
    "unplaced": false
   },
   {
+   "id": "onchi-flowers",
+   "type": "print",
+   "who": "Onchi Kōshirō",
+   "title": "Flowers",
+   "line": "Flowers",
+   "year": "1946",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/onchi-flowers.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 1.0048,
+   "y": 0.3376,
+   "unplaced": true
+  },
+  {
    "id": "seaside-village-in-winter-from-hokusai-s-album-o",
    "type": "print",
    "who": "Katsushika Hokusai",
@@ -1837,6 +2177,23 @@
    "x": -0.8118,
    "y": -0.2602,
    "unplaced": false
+  },
+  {
+   "id": "yoshida-funatsu",
+   "type": "print",
+   "who": "Yoshida Hiroshi",
+   "title": "Funatsu",
+   "line": "Funatsu",
+   "year": "1928",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/yoshida-funatsu.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-07",
+   "x": 0.9662,
+   "y": 0.436,
+   "unplaced": true
   },
   {
    "id": "attributed-to-sappho-the-moon-has-set-and-the-pleiades-it-i",
@@ -2123,8 +2480,8 @@
    "url": "",
    "note": "The Adagio sostenuto. Published 1801. No weather yet.",
    "added": "2026-09-10",
-   "x": 0,
-   "y": -1.06,
+   "x": 0.918,
+   "y": 0.53,
    "unplaced": true
   },
   {
@@ -2579,8 +2936,8 @@
    "tags": [
     "motion"
    ],
-   "x": 0.3124,
-   "y": -1.0129,
+   "x": 0.8607,
+   "y": 0.6188,
    "unplaced": true
   },
   {
@@ -2599,8 +2956,8 @@
    "tags": [
     "taste"
    ],
-   "x": 0.5971,
-   "y": -0.8758,
+   "x": 0.7948,
+   "y": 0.7014,
    "unplaced": true
   },
   {
@@ -2619,8 +2976,8 @@
    "tags": [
     "components"
    ],
-   "x": 0.8287,
-   "y": -0.6609,
+   "x": 0.721,
+   "y": 0.777,
    "unplaced": true
   },
   {
@@ -2639,8 +2996,8 @@
    "tags": [
     "components"
    ],
-   "x": 0.9867,
-   "y": -0.3873,
+   "x": 0.64,
+   "y": 0.845,
    "unplaced": true
   },
   {
@@ -2659,8 +3016,8 @@
    "tags": [
     "craft"
    ],
-   "x": 1.057,
-   "y": -0.0792,
+   "x": 0.5527,
+   "y": 0.9045,
    "unplaced": true
   },
   {
@@ -2680,8 +3037,8 @@
    "tags": [
     "taste"
    ],
-   "x": 1.0334,
-   "y": 0.2359,
+   "x": 0.4599,
+   "y": 0.955,
    "unplaced": true
   },
   {
@@ -2701,8 +3058,8 @@
    "tags": [
     "taste"
    ],
-   "x": 0.918,
-   "y": 0.53,
+   "x": 0.3625,
+   "y": 0.9961,
    "unplaced": true
   },
   {
@@ -2721,8 +3078,8 @@
    "tags": [
     "motion"
    ],
-   "x": 0.721,
-   "y": 0.777,
+   "x": 0.2616,
+   "y": 1.0272,
    "unplaced": true
   },
   {
@@ -2741,8 +3098,8 @@
    "tags": [
     "taste"
    ],
-   "x": 0.4599,
-   "y": 0.955,
+   "x": 0.158,
+   "y": 1.0482,
    "unplaced": true
   },
   {
@@ -2762,8 +3119,8 @@
    "tags": [
     "motion"
    ],
-   "x": 0.158,
-   "y": 1.0482,
+   "x": 0.0528,
+   "y": 1.0587,
    "unplaced": true
   },
   {
@@ -2784,8 +3141,8 @@
     "motion",
     "agents"
    ],
-   "x": -0.158,
-   "y": 1.0482,
+   "x": -0.0528,
+   "y": 1.0587,
    "unplaced": true
   },
   {
@@ -2801,6 +3158,57 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
+   "x": -0.158,
+   "y": 1.0482,
+   "unplaced": true
+  },
+  {
+   "id": "albert-marquet",
+   "type": "person",
+   "who": "Albert Marquet",
+   "title": "",
+   "line": "Albert Marquet",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/albert-marquet.webp",
+   "url": "",
+   "note": "fauve at the start, then harbours and quays in a quieter key, the same view painted until the weather changed. friends with matisse; worked from windows more than from the street. the water does most of the work.",
+   "added": "2026-09-07",
+   "x": -0.2616,
+   "y": 1.0272,
+   "unplaced": true
+  },
+  {
+   "id": "bohumil-kubista",
+   "type": "person",
+   "who": "Bohumil Kubišta",
+   "title": "",
+   "line": "Bohumil Kubišta",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/bohumil-kubista.webp",
+   "url": "",
+   "note": "prague cubist who wanted the picture to have the structure of a crystal. painted saint sebastian the year before he went to war. died of the flu in 1918, at thirty-four.",
+   "added": "2026-09-07",
+   "x": -0.3625,
+   "y": 0.9961,
+   "unplaced": true
+  },
+  {
+   "id": "charles-demuth",
+   "type": "person",
+   "who": "Charles Demuth",
+   "title": "",
+   "line": "Charles Demuth",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/charles-demuth.webp",
+   "url": "",
+   "note": "a precisionist who treated factories and hulls as if they were still lifes. summers in provincetown and bermuda, winters in lancaster, and a long friendship with william carlos williams. he died at fifty-one; the pictures stayed sharp.",
+   "added": "2026-09-07",
    "x": -0.4599,
    "y": 0.955,
    "unplaced": true
@@ -2818,8 +3226,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.721,
-   "y": 0.777,
+   "x": -0.5527,
+   "y": 0.9045,
    "unplaced": true
   },
   {
@@ -2835,8 +3243,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.918,
-   "y": 0.53,
+   "x": -0.64,
+   "y": 0.845,
    "unplaced": true
   },
   {
@@ -2852,8 +3260,76 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0334,
-   "y": 0.2359,
+   "x": -0.721,
+   "y": 0.777,
+   "unplaced": true
+  },
+  {
+   "id": "felix-vallotton",
+   "type": "person",
+   "who": "Félix Vallotton",
+   "title": "",
+   "line": "Félix Vallotton",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/felix-vallotton.webp",
+   "url": "",
+   "note": "nabi painter and woodcutter; interiors where two people share a room and almost nothing else. born in lausanne, naturalised french, and late in life he painted sunsets as flat bands of heat. the interiors are the ones that stay.",
+   "added": "2026-09-07",
+   "x": -0.7948,
+   "y": 0.7014,
+   "unplaced": true
+  },
+  {
+   "id": "florine-stettheimer",
+   "type": "person",
+   "who": "Florine Stettheimer",
+   "title": "",
+   "line": "Florine Stettheimer",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/florine-stettheimer.webp",
+   "url": "",
+   "note": "painted the new york salon she kept: pink rooms, families standing as if on a stage, heat you can feel in the colour. she showed little in her lifetime; after she died her sisters gave the pictures away rather than sell them.",
+   "added": "2026-09-07",
+   "x": -0.8607,
+   "y": 0.6188,
+   "unplaced": true
+  },
+  {
+   "id": "gao-jianfu",
+   "type": "person",
+   "who": "Gao Jianfu",
+   "title": "",
+   "line": "Gao Jianfu",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/gao-jianfu.webp",
+   "url": "",
+   "note": "lingnan school; ink that had looked at paris and still came home as a mountain. taught in guangzhou, painted through the war. the 1926 landscape is the one commons will give us clean.",
+   "added": "2026-09-07",
+   "x": -0.918,
+   "y": 0.53,
+   "unplaced": true
+  },
+  {
+   "id": "gino-rossi",
+   "type": "person",
+   "who": "Gino Rossi",
+   "title": "",
+   "line": "Gino Rossi",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "venetian modernist who went to paris, came back, and painted breton and burano figures as if they were cut from wood. interned during the war; the last years were in a hospital. the sailor is enough.",
+   "added": "2026-09-07",
+   "x": -0.9662,
+   "y": 0.436,
    "unplaced": true
   },
   {
@@ -2869,8 +3345,195 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
+   "x": -1.0048,
+   "y": 0.3376,
+   "unplaced": true
+  },
+  {
+   "id": "hashiguchi-goyo",
+   "type": "person",
+   "who": "Hashiguchi Goyō",
+   "title": "",
+   "line": "Hashiguchi Goyō",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/hashiguchi-goyo.webp",
+   "url": "",
+   "note": "a handful of shin-hanga beauties, each block cut as if it were the only print he would ever make. trained as a painter, then twelve sheets, then he died at forty-one. yokugo no onna is the one that holds still.",
+   "added": "2026-09-07",
+   "x": -1.0334,
+   "y": 0.2359,
+   "unplaced": true
+  },
+  {
+   "id": "heorhiy-narbut",
+   "type": "person",
+   "who": "Heorhiy Narbut",
+   "title": "",
+   "line": "Heorhiy Narbut",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/heorhiy-narbut.webp",
+   "url": "",
+   "note": "the graphic hand of the short-lived ukrainian state: coats of arms, banknotes, an alphabet. studied in st petersburg, came home in 1917, and drew a country that lasted two years. he died at thirty-four, of typhus.",
+   "added": "2026-09-07",
+   "x": -1.0518,
+   "y": 0.1318,
+   "unplaced": true
+  },
+  {
+   "id": "huang-binhong",
+   "type": "person",
+   "who": "Huang Binhong",
+   "title": "",
+   "line": "Huang Binhong",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "late landscapes so dense the ink becomes night, then a path appears. he wrote about the old brush methods and then used them until they were almost new. the 1930s scrolls are the ones that dissolve.",
+   "added": "2026-09-07",
+   "x": -1.0597,
+   "y": 0.0264,
+   "unplaced": true
+  },
+  {
+   "id": "ludwig-hohlwein",
+   "type": "person",
+   "who": "Ludwig Hohlwein",
+   "title": "",
+   "line": "Ludwig Hohlwein",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/ludwig-hohlwein.webp",
+   "url": "",
+   "note": "munich poster designer; flat colour, a single animal or a single coat, the type sitting still beside it. trained as an architect. the zoo poster is the one that reads from across a street.",
+   "added": "2026-09-07",
    "x": -1.057,
    "y": -0.0792,
+   "unplaced": true
+  },
+  {
+   "id": "maria-blanchard",
+   "type": "person",
+   "who": "María Blanchard",
+   "title": "",
+   "line": "María Blanchard",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "santander, madrid, paris; cubism first, then children sitting in rooms that have no extra furniture. born with a spinal condition; she painted seated figures as if she knew the weight of sitting. died in paris at fifty.",
+   "added": "2026-09-07",
+   "x": -1.0439,
+   "y": -0.1841,
+   "unplaced": true
+  },
+  {
+   "id": "niko-pirosmani",
+   "type": "person",
+   "who": "Niko Pirosmani",
+   "title": "",
+   "line": "Niko Pirosmani",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/niko-pirosmani.webp",
+   "url": "",
+   "note": "self-taught, painted on oilcloth for taverns in tbilisi: animals, feasts, a deer looking back. he sold them for meals. the still lifes are as plain as a table after the guests have gone.",
+   "added": "2026-09-07",
+   "x": -1.0204,
+   "y": -0.2871,
+   "unplaced": true
+  },
+  {
+   "id": "ohara-koson",
+   "type": "person",
+   "who": "Ohara Koson",
+   "title": "",
+   "line": "Ohara Koson",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "kacho-e for the export market: a crow, a blossom, almost no ground. also signed shōson. the birds are the ones that stay.",
+   "added": "2026-09-07",
+   "x": -0.9867,
+   "y": -0.3873,
+   "unplaced": true
+  },
+  {
+   "id": "oleksandr-bohomazov",
+   "type": "person",
+   "who": "Oleksandr Bohomazov",
+   "title": "",
+   "line": "Oleksandr Bohomazov",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "kyiv cubo-futurist; he wrote that colour and line have their own tempo, then painted the city as if it were vibrating. taught at the kyiv art institute after the war. died of tuberculosis at fifty.",
+   "added": "2026-09-07",
+   "x": -0.9433,
+   "y": -0.4836,
+   "unplaced": true
+  },
+  {
+   "id": "oleksandra-ekster",
+   "type": "person",
+   "who": "Oleksandra Ekster",
+   "title": "",
+   "line": "Oleksandra Ekster",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "kyiv, paris, moscow: cubo-futurist canvases and then costumes that treated the stage as a plane of colour. she taught, designed for tairov, and left for paris in 1924. the planes keep moving after the figures have gone.",
+   "added": "2026-09-07",
+   "x": -0.8904,
+   "y": -0.5751,
+   "unplaced": true
+  },
+  {
+   "id": "onchi-koshiro",
+   "type": "person",
+   "who": "Onchi Kōshirō",
+   "title": "",
+   "line": "Onchi Kōshirō",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/onchi-koshiro.webp",
+   "url": "",
+   "note": "the abstract end of sōsaku-hanga: flowers that are almost only colour, lyric prints numbered like poems. he led the first thursday society and printed through the war. the late flowers are the ones that feel like weather.",
+   "added": "2026-09-07",
+   "x": -0.8287,
+   "y": -0.6609,
+   "unplaced": true
+  },
+  {
+   "id": "paula-modersohn-becker",
+   "type": "person",
+   "who": "Paula Modersohn-Becker",
+   "title": "",
+   "line": "Paula Modersohn-Becker",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/paula-modersohn-becker.webp",
+   "url": "",
+   "note": "worpswede, then paris, then a handful of years in which she painted herself as a person rather than a type. first german woman to paint a nude self-portrait. she died at thirty-one, after the birth of her daughter.",
+   "added": "2026-09-07",
+   "x": -0.7588,
+   "y": -0.7401,
    "unplaced": true
   },
   {
@@ -2886,8 +3549,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.9867,
-   "y": -0.3873,
+   "x": -0.6814,
+   "y": -0.812,
    "unplaced": true
   },
   {
@@ -2903,8 +3566,59 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.8287,
-   "y": -0.6609,
+   "x": -0.5971,
+   "y": -0.8758,
+   "unplaced": true
+  },
+  {
+   "id": "wladyslaw-strzeminski",
+   "type": "person",
+   "who": "Władysław Strzemiński",
+   "title": "",
+   "line": "Władysław Strzemiński",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/wladyslaw-strzeminski.webp",
+   "url": "",
+   "note": "unism: pictures that refuse a centre, afterimages of the sun, a theory written down as well as painted. studied in moscow, built the a.r. group in łódź with katarzyna kobro, his wife. the late sun pictures are almost nothing and almost too much.",
+   "added": "2026-09-07",
+   "x": -0.5069,
+   "y": -0.9309,
+   "unplaced": true
+  },
+  {
+   "id": "xu-beihong",
+   "type": "person",
+   "who": "Xu Beihong",
+   "title": "",
+   "line": "Xu Beihong",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/xu-beihong.webp",
+   "url": "",
+   "note": "trained in paris, then painted ink horses that move as if the paper were weather. taught in beijing and helped set the academic line for the new republic. the horses are what people remember; the portraits are quieter.",
+   "added": "2026-09-07",
+   "x": -0.4117,
+   "y": -0.9768,
+   "unplaced": true
+  },
+  {
+   "id": "yoshida-hiroshi",
+   "type": "person",
+   "who": "Yoshida Hiroshi",
+   "title": "",
+   "line": "Yoshida Hiroshi",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/yoshida-hiroshi.webp",
+   "url": "",
+   "note": "shin-hanga landscapes: water, boats, a mountain held in a few blocks of colour. he carved and printed his own work, and travelled to india and the american west. funatsu is one of the quieter fuji views.",
+   "added": "2026-09-07",
+   "x": -0.3124,
+   "y": -1.0129,
    "unplaced": true
   },
   {
@@ -2920,8 +3634,8 @@
    "url": "/writing/english-teacher",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.5971,
-   "y": -0.8758,
+   "x": -0.21,
+   "y": -1.039,
    "unplaced": true
   },
   {
@@ -2937,8 +3651,8 @@
    "url": "/writing/staying-human",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.3124,
-   "y": -1.0129,
+   "x": -0.1055,
+   "y": -1.0547,
    "unplaced": true
   }
  ],
@@ -3153,6 +3867,20 @@
    ]
   },
   {
+   "who": "María Blanchard",
+   "ids": [
+    "blanchard-fillette",
+    "maria-blanchard"
+   ]
+  },
+  {
+   "who": "Oleksandr Bohomazov",
+   "ids": [
+    "bohomazov-window",
+    "oleksandr-bohomazov"
+   ]
+  },
+  {
    "who": "Caspar David Friedrich",
    "ids": [
     "caspar-david-friedrich-the-monk-by-the-sea",
@@ -3167,6 +3895,13 @@
    ]
   },
   {
+   "who": "Charles Demuth",
+   "ids": [
+    "demuth-bermuda-masts",
+    "charles-demuth"
+   ]
+  },
+  {
    "who": "Utagawa Hiroshige",
    "ids": [
     "ejiri-number-19-from-the-series-fifty-three-stat",
@@ -3175,10 +3910,24 @@
    ]
   },
   {
+   "who": "Oleksandra Ekster",
+   "ids": [
+    "ekster-planes",
+    "oleksandra-ekster"
+   ]
+  },
+  {
    "who": "Odilon Redon",
    "ids": [
     "figure-portant-une-t-te-ail-e-la-chute-d-lcare-f",
     "redon-flowers"
+   ]
+  },
+  {
+   "who": "Gao Jianfu",
+   "ids": [
+    "gao-jianfu-landscape",
+    "gao-jianfu"
    ]
   },
   {
@@ -3197,6 +3946,13 @@
    ]
   },
   {
+   "who": "Huang Binhong",
+   "ids": [
+    "huang-binhong-landscape",
+    "huang-binhong"
+   ]
+  },
+  {
    "who": "J. M. W. Turner",
    "ids": [
     "j-m-w-turner-norham-castle-sunrise",
@@ -3211,6 +3967,55 @@
    ]
   },
   {
+   "who": "Bohumil Kubišta",
+   "ids": [
+    "kubista-sebastian",
+    "bohumil-kubista"
+   ]
+  },
+  {
+   "who": "Albert Marquet",
+   "ids": [
+    "marquet-quai-conti",
+    "albert-marquet"
+   ]
+  },
+  {
+   "who": "Paula Modersohn-Becker",
+   "ids": [
+    "modersohn-becker-milk-soup",
+    "paula-modersohn-becker"
+   ]
+  },
+  {
+   "who": "Niko Pirosmani",
+   "ids": [
+    "pirosmani-still-life",
+    "niko-pirosmani"
+   ]
+  },
+  {
+   "who": "Gino Rossi",
+   "ids": [
+    "rossi-sailor",
+    "gino-rossi"
+   ]
+  },
+  {
+   "who": "Florine Stettheimer",
+   "ids": [
+    "stettheimer-heat",
+    "florine-stettheimer"
+   ]
+  },
+  {
+   "who": "Władysław Strzemiński",
+   "ids": [
+    "strzeminski-afterimage-sun",
+    "wladyslaw-strzeminski"
+   ]
+  },
+  {
    "who": "Vincent van Gogh",
    "ids": [
     "the-starry-night",
@@ -3218,10 +4023,66 @@
    ]
   },
   {
+   "who": "Félix Vallotton",
+   "ids": [
+    "vallotton-woman-writing",
+    "felix-vallotton"
+   ]
+  },
+  {
+   "who": "Xu Beihong",
+   "ids": [
+    "xu-beihong-horse-1943",
+    "xu-beihong"
+   ]
+  },
+  {
+   "who": "Ludwig Hohlwein",
+   "ids": [
+    "hohlwein-zoo-munich",
+    "ludwig-hohlwein"
+   ]
+  },
+  {
+   "who": "Heorhiy Narbut",
+   "ids": [
+    "narbut-coat-of-arms",
+    "heorhiy-narbut"
+   ]
+  },
+  {
    "who": "Henri de Toulouse-Lautrec",
    "ids": [
     "poster-toulouse-lautrec-divan-japonais",
     "poster-toulouse-lautrec-moulin-rouge-la-goulue"
+   ]
+  },
+  {
+   "who": "Hashiguchi Goyō",
+   "ids": [
+    "goyo-woman-after-bath",
+    "hashiguchi-goyo"
+   ]
+  },
+  {
+   "who": "Ohara Koson",
+   "ids": [
+    "koson-crow-and-blossom",
+    "ohara-koson"
+   ]
+  },
+  {
+   "who": "Onchi Kōshirō",
+   "ids": [
+    "onchi-flowers",
+    "onchi-koshiro"
+   ]
+  },
+  {
+   "who": "Yoshida Hiroshi",
+   "ids": [
+    "yoshida-funatsu",
+    "yoshida-hiroshi"
    ]
   },
   {
@@ -3276,11 +4137,11 @@
    ]
   }
  ],
- "unplaced": 21,
+ "unplaced": 63,
  "forms": [
   {
    "form": "painting",
-   "n": 69
+   "n": 84
   },
   {
    "form": "object",
@@ -3292,11 +4153,11 @@
   },
   {
    "form": "poster",
-   "n": 6
+   "n": 8
   },
   {
    "form": "print",
-   "n": 5
+   "n": 9
   },
   {
    "form": "photograph",
@@ -3320,7 +4181,7 @@
   },
   {
    "form": "person",
-   "n": 7
+   "n": 28
   },
   {
    "form": "writing",
@@ -3349,11 +4210,23 @@
    "n": 3
   },
   {
+   "who": "Albert Marquet",
+   "n": 2
+  },
+  {
    "who": "Bashō",
    "n": 2
   },
   {
+   "who": "Bohumil Kubišta",
+   "n": 2
+  },
+  {
    "who": "Caspar David Friedrich",
+   "n": 2
+  },
+  {
+   "who": "Charles Demuth",
    "n": 2
   },
   {
@@ -3369,11 +4242,39 @@
    "n": 2
   },
   {
+   "who": "Félix Vallotton",
+   "n": 2
+  },
+  {
+   "who": "Florine Stettheimer",
+   "n": 2
+  },
+  {
+   "who": "Gao Jianfu",
+   "n": 2
+  },
+  {
+   "who": "Gino Rossi",
+   "n": 2
+  },
+  {
+   "who": "Hashiguchi Goyō",
+   "n": 2
+  },
+  {
    "who": "Henri de Toulouse-Lautrec",
    "n": 2
   },
   {
+   "who": "Heorhiy Narbut",
+   "n": 2
+  },
+  {
    "who": "Hilma af Klint",
+   "n": 2
+  },
+  {
+   "who": "Huang Binhong",
    "n": 2
   },
   {
@@ -3385,7 +4286,39 @@
    "n": 2
   },
   {
+   "who": "Ludwig Hohlwein",
+   "n": 2
+  },
+  {
+   "who": "María Blanchard",
+   "n": 2
+  },
+  {
+   "who": "Niko Pirosmani",
+   "n": 2
+  },
+  {
    "who": "Odilon Redon",
+   "n": 2
+  },
+  {
+   "who": "Ohara Koson",
+   "n": 2
+  },
+  {
+   "who": "Oleksandr Bohomazov",
+   "n": 2
+  },
+  {
+   "who": "Oleksandra Ekster",
+   "n": 2
+  },
+  {
+   "who": "Onchi Kōshirō",
+   "n": 2
+  },
+  {
+   "who": "Paula Modersohn-Becker",
    "n": 2
   },
   {
@@ -3402,6 +4335,18 @@
   },
   {
    "who": "Vincent van Gogh",
+   "n": 2
+  },
+  {
+   "who": "Władysław Strzemiński",
+   "n": 2
+  },
+  {
+   "who": "Xu Beihong",
+   "n": 2
+  },
+  {
+   "who": "Yoshida Hiroshi",
    "n": 2
   },
   {
@@ -3794,8 +4739,8 @@
   }
  ],
  "depth": {
-  "notes": 149,
-  "people": 115,
+  "notes": 191,
+  "people": 136,
   "thinnest": "the plain thing",
   "oneDeep": 0
  }
