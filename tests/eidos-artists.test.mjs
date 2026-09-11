@@ -61,6 +61,15 @@ const ARTISTS = [
   { name: "Thomas Eakins", work: "eakins-gross-clinic" },
   { name: "Kishida Ryūsei", work: "kishida-reiko-doll" },
   { name: "Joaquín Sorolla", work: "sorolla-house-garden" },
+  { name: "Mykhailo Boychuk", work: "boychuk-harvest" },
+  { name: "Kazimir Malevich", work: "malevich-morning-village" },
+  { name: "Marie Bashkirtseff", work: "bashkirtseff-meeting" },
+  { name: "Kyriak Kostandi", work: "kostandi-geese" },
+  { name: "Serhii Vasylkivsky", work: "vasylkivsky-sunset" },
+  { name: "Mykola Pymonenko", work: "pymonenko-harvest" },
+  { name: "Ivan Trush", work: "trush-little-pond" },
+  { name: "Oleksa Novakivskyi", work: "novakivskyi-levytskyi" },
+  { name: "Ivan Padalka", work: "padalka-tomatoes" },
 ];
 
 const LINK_ONLY = [
@@ -91,6 +100,24 @@ const LINK_ONLY = [
   "Richard Diebenkorn",
   "Nicolas de Staël",
   "Sanyu",
+  "Kateryna Bilokur",
+  "Maria Prymachenko",
+  "Tetyana Yablonska",
+  "Alla Horska",
+  "Anatolii Lymarev",
+  "Fedir Tetyanych",
+  "Vadym Sidur",
+  "Kostiantyn Zorkin",
+  "Valeria Troubina",
+  "Oleksandr Dubovyk",
+  "Viktor Zaretskyi",
+  "Halyna Zubchenko",
+  "Mykola Hlushchenko",
+  "Anatol Petrytskyi",
+  "Vasyl Yermilov",
+  "Tiberiy Silvashi",
+  "Lesia Khomenko",
+  "Nikita Kadan",
 ];
 
 const workDirs = ["paintings", "prints", "posters", "objects"];
@@ -169,6 +196,34 @@ test("xu hangs a painting, not only the photograph", () => {
   assert.ok(fs.existsSync(path.join(root, "public/images/vault/xu-beihong-horse-1943.webp")));
   const person = read("vault/people/xu-beihong.md");
   assert.match(person, /1943 horse/);
+});
+
+test("malevich hangs the village and the grinder, not the postcard square", () => {
+  const files = list("vault/paintings").filter((f) => f.startsWith("malevich-"));
+  assert.ok(files.includes("malevich-morning-village.md"));
+  assert.ok(files.includes("malevich-knife-grinder.md"));
+  for (const f of files) {
+    const text = read(`vault/paintings/${f}`).toLowerCase();
+    assert.doesNotMatch(text, /black square|чёрный квадрат|чорний квадрат/,
+      `${f} is the postcard square`);
+  }
+});
+
+test("estate and living ua names have no hosted canvas", () => {
+  const banned = [
+    "Kateryna Bilokur", "Maria Prymachenko", "Tetyana Yablonska", "Alla Horska",
+    "Anatolii Lymarev", "Fedir Tetyanych", "Vadym Sidur", "Kostiantyn Zorkin",
+    "Valeria Troubina", "Oleksandr Dubovyk", "Viktor Zaretskyi", "Halyna Zubchenko",
+    "Mykola Hlushchenko", "Anatol Petrytskyi", "Vasyl Yermilov", "Tiberiy Silvashi",
+    "Lesia Khomenko", "Nikita Kadan",
+  ];
+  for (const f of list("vault/paintings")) {
+    const text = read(`vault/paintings/${f}`);
+    for (const name of banned) {
+      assert.doesNotMatch(text, new RegExp(`^who: ${name}$`, "m"),
+        `${f} hosts a canvas for ${name}`);
+    }
+  }
 });
 
 test("a person without a picture does not ship a broken img", () => {
