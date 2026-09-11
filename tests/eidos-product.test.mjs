@@ -194,22 +194,98 @@ test("the private inbox is the working studio of the same product", () => {
   assert.doesNotMatch(html, /class="in-ground"/, "the old blurred artwork wallpaper survived");
 });
 
-test("discover queues only paintings, prints, and posters", () => {
+test("discover queues only distinct paintings, prints, and posters", async () => {
+  const { groupCandidateEditions } = await import("../src/lib/eidos-candidates.mjs");
   const source = read("src/pages/eidos/inbox.astro");
   const html = read("dist/eidos/inbox/index.html");
   const inbox = JSON.parse(read("public/inbox.json"));
   const payload = JSON.parse(html.match(/<script type="application\/json" id="in-data">([\s\S]*?)<\/script>/)?.[1] || "[]");
   const allowed = new Set(["painting", "print", "poster"]);
-  const expected = inbox.candidates.filter((candidate) => candidate.src && allowed.has(candidate.type || "painting")).length;
+  const expected = groupCandidateEditions(inbox.candidates.filter((candidate) => candidate.src && allowed.has(candidate.type || "painting"))).length;
 
   assert.equal(payload.length, expected);
   assert.ok(payload.length > 0, "the focused discovery queue is empty");
   assert.ok(payload.every((candidate) => allowed.has(candidate.type)), "a non-artwork entered Discover");
+  assert.ok(payload.every((candidate) => candidate.verdictIds?.includes(candidate.id)), "an edition lost its verdict aliases");
   assert.doesNotMatch(source, /fetch\("\/api\/eidos\/bookmarks"\)/, "private bookmarks still join the visual queue");
   assert.doesNotMatch(html, /id="throw"|id="say"|class="in-read"/, "non-visual intake or annotation is still visible");
   assert.match(html, /paintings and posters only/);
   assert.match(html, /id="session-trail"/);
   assert.match(source, /slice\(-5\)/);
+});
+
+test("discover treats editions of one artwork as one decision", async () => {
+  const { prepareCandidateQueue } = await import("../src/lib/eidos-candidates.mjs");
+  const candidates = [
+    { id: "commons-wave", who: "Katsushika Hokusai", title: "Under the Wave off Kanagawa", source: "https://commons.wikimedia.org/wiki/File:Tsunami_by_hokusai_19th_century.jpg" },
+    { id: "met-wave", who: "Katsushika Hokusai", title: "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave", source: "https://www.metmuseum.org/art/collection/search/56353" },
+    { id: "restored-wave", who: "", title: "The Great Wave off Kanagawa", source: "https://commons.wikimedia.org/wiki/File:Great_Wave_unrestored.jpg" },
+    { id: "moon", who: "Paul Klee", title: "Moonrise", source: "https://example.com/moon" },
+  ];
+
+  assert.deepEqual(
+    prepareCandidateQueue(candidates, new Set()).map((candidate) => candidate.id),
+    ["commons-wave", "moon"],
+    "alternate files and titles of the Wave survived as separate cards",
+  );
+  assert.deepEqual(
+    prepareCandidateQueue(candidates, new Set(["met-wave"])).map((candidate) => candidate.id),
+    ["moon"],
+    "a judged edition did not retire the whole work",
+  );
+  assert.deepEqual(
+    prepareCandidateQueue([
+      { id: "poster-a", who: "Perlin, B", title: "Americans will always fight for liberty." },
+      { id: "poster-b", who: "Bernard Perlin", title: "1778 - 1943 - Americans Will Always Fight for Liberty" },
+      { id: "poster-c", who: "Office for Emergency Management", title: '"Americans will always fight for liberty" - DPLA - 68755b0b6884516bdae83b49bab12' },
+    ], new Set()).map((candidate) => candidate.id),
+    ["poster-a"],
+    "catalogue dates and attribution variants split one distinctive work",
+  );
+});
+
+test("discover introduces every available artist before repeating one", async () => {
+  const { prepareCandidateQueue } = await import("../src/lib/eidos-candidates.mjs");
+  const queue = prepareCandidateQueue([
+    { id: "h1", who: "Hokusai", title: "one" },
+    { id: "h2", who: "Hokusai", title: "two" },
+    { id: "h3", who: "Hokusai", title: "three" },
+    { id: "k1", who: "Kandinsky", title: "four" },
+    { id: "m1", who: "Malevich", title: "five" },
+    { id: "k2", who: "Kandinsky", title: "six" },
+  ], new Set());
+
+  assert.deepEqual(queue.slice(0, 3).map((candidate) => candidate.who), ["Hokusai", "Kandinsky", "Malevich"]);
+  assert.deepEqual(queue.map((candidate) => candidate.id), ["h1", "k1", "m1", "h2", "k2", "h3"]);
+});
+
+test("the harvester stops feeding artists already overrepresented in the archive", async () => {
+  const { canOfferArtist } = await import("../src/lib/eidos-candidates.mjs");
+  const counts = new Map([["katsushika hokusai", 11], ["paul klee", 1]]);
+
+  assert.equal(canOfferArtist({ who: "Katsushika Hokusai" }, counts), false);
+  assert.equal(canOfferArtist({ who: "Paul Klee" }, counts), true);
+  assert.equal(canOfferArtist({ who: "Wassily Kandinsky" }, counts), true);
+  assert.equal(canOfferArtist({ who: "" }, counts), false, "anonymous results do not improve artist discovery");
+});
+
+test("the harvester deliberately looks beyond the nineteenth-century canon", () => {
+  const harvester = read("scripts/candidates.mjs");
+  for (const artist of ["Kandinsky", "Malevich", "Klee", "Mondrian", "Macke", "Delaunay", "Hartley", "Marc"]) {
+    assert.match(harvester, new RegExp(artist), `${artist} is absent from the discovery searches`);
+  }
+});
+
+test("the current harvester spends its searches on artworks the studio can show", () => {
+  const harvester = read("scripts/candidates.mjs");
+  assert.match(harvester, /const OFFERED_TYPES = new Set\(\["painting", "print", "poster"\]\)/);
+  assert.match(harvester, /if \(!OFFERED_TYPES\.has\(kind\)\) continue/);
+});
+
+test("a Commons uploader is never presented as the painter", async () => {
+  const { isCommonsUserCredit } = await import("../src/lib/eidos-candidates.mjs");
+  assert.equal(isCommonsUserCredit('<a href="//commons.wikimedia.org/wiki/User:Pugilist">Pugilist</a>'), true);
+  assert.equal(isCommonsUserCredit('<a href="https://en.wikipedia.org/wiki/Marsden_Hartley">Marsden Hartley</a>'), false);
 });
 
 test("the visual Studio has shelves, an absolute favorite, and a comparison ritual", () => {
@@ -290,10 +366,15 @@ test("the mobile workbench preserves generous controls", () => {
   assert.match(product, /\.ep-makers li \{[^}]*display: inline-flex;[^}]*gap:/);
 });
 
-test("the desktop studio keeps its verdict controls inside a short laptop viewport", () => {
+test("the desktop studio gives the artwork most of the available viewport", () => {
   const studio = read("src/styles/pages/eidos-studio.css");
-  assert.match(studio, /\.in-card \{[\s\S]*?min-height:\s*min\(31rem, calc\(100svh - 22rem\)\)/);
-  assert.match(studio, /\.in-art \{[\s\S]*?min-height:\s*min\(26rem, calc\(100svh - 27rem\)\)/);
+  const artRule = studio.match(/\.eidos-studio \.in-art \{([^}]*)\}/)?.[1] || "";
+  const imageRule = studio.match(/body \.eidos-studio \.in-center \.in-art img \{([^}]*)\}/)?.[1] || "";
+  assert.match(studio, /\.in-art \{[\s\S]*?min-height:\s*min\(68svh, 48rem\)/);
+  assert.match(artRule, /min-height:\s*min\(68svh, 48rem\)/);
+  assert.match(imageRule, /(?:^|;)\s*width:\s*auto/);
+  assert.match(imageRule, /(?:^|;)\s*height:\s*min\(68svh, 48rem\)/);
+  assert.match(studio, /\.in-stage\[data-orientation="portrait"\][^{]*\{[^}]*max-width:\s*54rem/);
 });
 
 test("the portrait tablet keeps the product map instead of collapsing to an exit", () => {

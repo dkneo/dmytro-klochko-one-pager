@@ -3,6 +3,7 @@ import EidosLayout from "../../layouts/EidosLayout.astro";
 import EidosHeader from "../../components/eidos/EidosHeader.astro";
 import "../../styles/pages/eidos-studio.css";
 import inbox from "../../../public/inbox.json";
+import { groupCandidateEditions } from "../../lib/eidos-candidates.mjs";
 
 // Discover is deliberately only paintings, prints and posters. The source
 // inbox still carries every other picture, word and link. Nothing is deleted;
@@ -20,7 +21,7 @@ import inbox from "../../../public/inbox.json";
 //   No ceremony. He judges until he stops; the line says where he is.
 
 const artworkTypes = new Set(["painting", "print", "poster"]);
-const candidates = (inbox.candidates || [])
+const rawCandidates = (inbox.candidates || [])
   .filter((c) => c.src && artworkTypes.has(c.type || "painting"))
   .map((c) => ({
     id: c.id,
@@ -35,6 +36,7 @@ const candidates = (inbox.candidates || [])
     source: c.source || "",
     licence: c.licence || "",
   }));
+const candidates = groupCandidateEditions(rawCandidates);
 const pictures = candidates.length;
 const shelfCount = (types) => candidates.filter((c) => types.includes(c.type)).length;
 const shelves = [
@@ -81,7 +83,7 @@ const description = "discover paintings and posters for the moodboard.";
           </div>
           <p class="in-shelf" id="shelf">
             <strong>paintings and posters only</strong>
-            <span>{pictures} works waiting</span>
+            <span>{pictures} distinct works archived</span>
             <small>earlier swipes and other media stay safely archived.</small>
           </p>
           <nav class="in-filters" aria-label="filter the visual queue">
@@ -409,6 +411,8 @@ const description = "discover paintings and posters for the moodboard.";
 
   <script is:inline type="application/json" id="in-data" set:html={JSON.stringify(candidates)} />
   <script>
+    import { prepareCandidateQueue } from "../../lib/eidos-candidates.mjs";
+
     (() => {
       const harvested = JSON.parse(document.getElementById("in-data").textContent);
       const $ = (id) => document.getElementById(id);
@@ -475,28 +479,16 @@ const description = "discover paintings and posters for the moodboard.";
           const r = await fetch("/api/eidos/judged");
           if (r.ok) judged = new Set((await r.json()).judged || []);
         } catch {}
-        const rest = harvested.filter((c) => !judged.has(c.id));
-        // Harvest order is a run of look-alikes: two hundred Met objects,
-        // then the Met's paintings, then the Commons ones. The deck is dealt
-        // so no card shares its kind, its museum or its maker with the card
-        // before it, and eras alternate. Seeded by the day, so a refresh does
-        // not reshuffle what he was in the middle of.
-        const era = (y) => { const n = Number((String(y || "").match(/\d{4}/) || [])[0]); return !n ? "?" : n < 1800 ? "old" : n < 1900 ? "19c" : n < 1946 ? "early20" : "modern"; };
-        const host = (c) => { try { return new URL(c.source || c.url || "").host; } catch { return ""; } };
+        // A daily shuffle prevents museum batches from becoming the
+        // experience. The queue then deals in rounds: one work by every
+        // available artist before a second by anyone. Alternate editions of
+        // a work share all of their verdict ids, so judging one retires them
+        // all without deleting any history.
         let seed = Number(new Date().toISOString().slice(0, 10).replace(/-/g, "")) % 2147483647;
         const rnd = () => (seed = (seed * 48271) % 2147483647) / 2147483647;
-        const pool = rest.slice().sort(() => rnd() - 0.5);
-        const dealt = [];
-        let prev = null;
-        while (pool.length) {
-          let pick = pool.findIndex((c) => !prev || (c.type !== prev.type && host(c) !== host(prev) && (c.who || "") !== (prev.who || "") && era(c.year) !== era(prev.year)));
-          if (pick < 0) pick = pool.findIndex((c) => !prev || (c.type !== prev.type && (c.who || "") !== (prev.who || "")));
-          if (pick < 0) pick = 0;
-          prev = pool.splice(pick, 1)[0];
-          dealt.push(prev);
-        }
-        deck = dealt;
-        if (!deck.length) return rest_("nothing visual waits. let the harvester bring more.");
+        const shuffled = harvested.slice().sort(() => rnd() - 0.5);
+        deck = prepareCandidateQueue(shuffled, judged);
+        if (!deck.length) return rest_("nothing visual waits. let the harvester bring more artists.");
         if (!(await doorOpen())) return shutOut(null);
         next();
       }
@@ -528,6 +520,8 @@ const description = "discover paintings and posters for the moodboard.";
         cur = pick >= 0 ? deck.splice(pick, 1)[0] : null;
         if (!cur) return rest_(deck.length ? "nothing else waits on this shelf. choose another." : "that is all of the visual queue. let the harvester bring more.");
         art.onload = () => {
+          const ratio = art.naturalWidth / art.naturalHeight;
+          $("stage").dataset.orientation = ratio < 0.82 ? "portrait" : ratio > 1.22 ? "landscape" : "square";
           art.classList.remove("is-loading"); $("art-miss").hidden = true;
           plateLoader.hidden = true;
         };

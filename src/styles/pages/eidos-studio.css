@@ -142,7 +142,7 @@
 .eidos-studio .in-url span { color: var(--ep-quiet); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; }
 .eidos-studio .in-throw input {
   box-sizing: border-box;
-  width: 100%;
+  width: auto;
   padding: 0.6rem 0.55rem;
   color: var(--ep-ink);
   background: var(--ep-paper-light);
@@ -190,7 +190,10 @@
   padding: 0 0.8rem 0.8rem 0;
   overflow: visible;
   touch-action: pan-y;
+  transition: max-width 220ms var(--ease), margin 220ms var(--ease);
 }
+.eidos-studio .in-stage[data-orientation="portrait"] { max-width: 54rem; margin-inline: auto; }
+.eidos-studio .in-stage[data-orientation="square"] { max-width: 68rem; margin-inline: auto; }
 .eidos-studio .in-next-edge {
   position: absolute;
   inset: 0.7rem 0 0 0.7rem;
@@ -203,7 +206,7 @@
   position: relative;
   z-index: 1;
   display: block;
-  min-height: min(31rem, calc(100svh - 22rem));
+  min-height: 0;
   padding: 1.05rem;
   color: var(--ep-ink);
   background: var(--ep-paper-light);
@@ -217,13 +220,13 @@
 .eidos-studio .in-card:active { cursor: grabbing; }
 .eidos-studio .in-card.is-flying { transition: transform 240ms cubic-bezier(0.2, 0, 0.2, 1), opacity 220ms var(--ease); }
 .eidos-studio .in-card.is-home { transition: transform 220ms cubic-bezier(0.18, 0.72, 0.18, 1); }
-.eidos-studio .in-leaf--it { display: grid; min-height: min(29rem, calc(100svh - 24rem)); grid-template-rows: 1fr auto; }
+.eidos-studio .in-leaf--it { display: grid; min-height: 0; grid-template-rows: 1fr auto; }
 .eidos-studio .in-art {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: min(26rem, calc(100svh - 27rem));
+  min-height: min(68svh, 48rem);
   background: color-mix(in srgb, var(--ep-paper) 60%, white);
 }
 .eidos-studio .in-plate-loader {
@@ -274,10 +277,9 @@
   position: relative;
   z-index: 1;
   display: block;
-  width: auto;
+  width: 100%;
   max-width: 100%;
-  height: auto;
-  max-height: min(38svh, 21rem);
+  height: min(68svh, 48rem);
   object-fit: contain;
   border-radius: 0;
   pointer-events: none;
@@ -468,6 +470,7 @@
   .eidos-studio .in-filters { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); gap: 0.25rem 0.75rem; }
   .eidos-studio .in-filters .in-label, .eidos-studio .in-filters small { grid-column: 1 / -1; }
   .eidos-studio .in-history { display: none; }
+  .eidos-studio .in-stage[data-orientation] { max-width: none; }
 }
 
 @media (max-width: 680px) {
@@ -487,6 +490,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .eidos-studio .in-stage { transition: none; }
   .eidos-studio .in-card.is-flying, .eidos-studio .in-card.is-home { transition: opacity 160ms var(--ease); }
   .eidos-studio .in-feedback { display: none; }
   .eidos-studio .in-link-loader { display: none; }
@@ -500,9 +504,11 @@
 body .eidos-studio .in-rail .in-count,
 body .eidos-studio .in-rail .in-shelf { color: var(--ep-quiet); }
 body .eidos-studio .in-center .in-stage { max-width: none; margin: 0; overflow: visible; }
+body .eidos-studio .in-center .in-stage[data-orientation="portrait"] { max-width: 54rem; margin-inline: auto; }
+body .eidos-studio .in-center .in-stage[data-orientation="square"] { max-width: 68rem; margin-inline: auto; }
 body .eidos-studio .in-center .in-card {
   display: block;
-  min-height: min(31rem, calc(100svh - 22rem));
+  min-height: 0;
   padding: 1.05rem;
   color: var(--ep-ink);
   background: var(--ep-paper-light);
@@ -510,8 +516,8 @@ body .eidos-studio .in-center .in-card {
   border-radius: var(--r-print);
   box-shadow: 0 22px 48px var(--ep-shadow);
 }
-body .eidos-studio .in-center .in-art { min-height: min(26rem, calc(100svh - 27rem)); background: color-mix(in srgb, var(--ep-paper) 60%, white); }
-body .eidos-studio .in-center .in-art img { width: auto; max-width: 100%; height: auto; max-height: min(38svh, 21rem); border-radius: 0; }
+body .eidos-studio .in-center .in-art { min-height: min(68svh, 48rem); background: color-mix(in srgb, var(--ep-paper) 60%, white); }
+body .eidos-studio .in-center .in-art img { width: auto; max-width: 100%; height: min(68svh, 48rem); border-radius: 0; }
 body .eidos-studio .in-center .in-read { min-height: 30rem; padding: 3rem clamp(1.5rem, 6vw, 5rem); }
 body .eidos-studio .in-center .in-title,
 body .eidos-studio .in-center .in-credit b { color: var(--ep-ink); }
@@ -540,6 +546,14 @@ body .eidos-studio .in-note-panel .in-say textarea {
   border-bottom: 1px solid var(--ep-rule);
   border-radius: 0;
   font-size: 1.08rem;
+}
+
+@media (max-width: 820px) {
+  body .eidos-studio .in-center .in-stage[data-orientation] { max-width: none; margin-inline: 0; }
+  body .eidos-studio .in-center .in-art,
+  body .eidos-studio .in-center .in-art img { max-height: 64svh; }
+  body .eidos-studio .in-center .in-art { min-height: 64svh; }
+  body .eidos-studio .in-center .in-art img { height: 64svh; }
 }
 body .eidos-studio .in-note-panel .in-say textarea:focus { border-color: var(--ep-raspberry); }
 body .eidos-studio .in-note-panel .in-file dt { color: var(--ep-quiet); }

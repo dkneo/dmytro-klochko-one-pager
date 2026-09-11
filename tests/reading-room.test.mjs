@@ -81,13 +81,9 @@ test("discover names its narrow queue without exposing non-visual intake", () =>
   assert.doesNotMatch(html, /id="throw"|id="url"|read and add/);
 });
 
-test("the deck is dealt so no two neighbours are alike", () => {
-  // the bundle renames locals, so the deal is read where it is written
+test("the visual deck introduces available artists before repeating one", () => {
   const src = read("src/pages/eidos/inbox.astro");
-  assert.match(src, /c\.type !== prev\.type/, "the deal does not separate kinds");
-  assert.match(src, /host\(c\) !== host\(prev\)/, "the deal does not separate museums");
-  assert.match(src, /era\(c\.year\) !== era\(prev\.year\)/, "the deal does not alternate eras");
-  // and the built page still ships a deck script at all
+  assert.match(src, /prepareCandidateQueue/, "the artist-balanced queue is not used");
   assert.ok(scripts("dist/eidos/inbox/index.html").length > 500, "the inbox ships no script");
 });
 
