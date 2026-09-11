@@ -32,18 +32,83 @@ const ARTISTS = [
   { name: "Xu Beihong", work: "xu-beihong-horse-1943" },
   { name: "Huang Binhong", work: "huang-binhong-landscape" },
   { name: "Gao Jianfu", work: "gao-jianfu-landscape" },
+  { name: "Oleksandr Murashko", work: "murashko-annunciation" },
+  { name: "Léon Spilliaert", work: "spilliaert-vertigo" },
+  { name: "Jacek Malczewski", work: "malczewski-melancholia" },
+  { name: "Olga Boznańska", work: "boznanska-chrysanthemums" },
+  { name: "Gwen John", work: "gwen-john-corner" },
+  { name: "Élisabeth Vigée Le Brun", work: "vigee-le-brun-straw-hat" },
+  { name: "Joseph Wright of Derby", work: "wright-air-pump" },
+  { name: "Sophie Taeuber-Arp", work: "taeuber-arp-kompozycja" },
+  { name: "Medardo Rosso", work: "rosso-enfant-soleil" },
+  { name: "Ignacio Zuloaga", work: "zuloaga-gregorio" },
+  { name: "Fedir Krychevsky", work: "krychevsky-life" },
+  { name: "Stanisław Wyspiański", work: "wyspianski-motherhood-1905" },
+  { name: "Henry Fuseli", work: "fuseli-nightmare" },
+  { name: "Käthe Kollwitz", work: "kollwitz-dead-child" },
+  { name: "Arnold Böcklin", work: "bocklin-toteninsel-iii" },
+  { name: "Giovanni Segantini", work: "segantini-ave-maria" },
+  { name: "Suzanne Valadon", work: "valadon-blue-room" },
+  { name: "Adélaïde Labille-Guiard", work: "labille-guiard-self-pupils" },
+  { name: "Anne Vallayer-Coster", work: "vallayer-coster-attributes" },
+  { name: "Angelica Kauffman", work: "kauffman-self-1784" },
+  { name: "Anne-Louis Girodet", work: "girodet-endymion" },
+  { name: "Théodore Chassériau", work: "chasseriau-esther" },
+  { name: "Gustave Moreau", work: "moreau-orpheus" },
+  { name: "James Tissot", work: "tissot-london-visitors" },
+  { name: "Walter Sickert", work: "sickert-ennui" },
+  { name: "Helene Schjerfbeck", work: "schjerfbeck-convalescent" },
+  { name: "Thomas Eakins", work: "eakins-gross-clinic" },
+  { name: "Kishida Ryūsei", work: "kishida-reiko-doll" },
+  { name: "Joaquín Sorolla", work: "sorolla-house-garden" },
 ];
 
-const workFiles = () => [
-  ...list("vault/paintings"),
-  ...list("vault/prints"),
-  ...list("vault/posters"),
-].map((f) => {
-  const file = ["paintings", "prints", "posters"]
-    .map((d) => path.join(root, "vault", d, f))
-    .find((p) => fs.existsSync(p));
-  return { id: f.replace(/\.md$/, ""), text: read(file.replace(root + "/", "")) };
-});
+const LINK_ONLY = [
+  "František Kupka",
+  "Giorgio de Chirico",
+  "Elene Akhvlediani",
+  "Lado Gudiashvili",
+  "Julie Mehretu",
+  "Amy Sillman",
+  "Simone Leigh",
+  "Ayoung Kim",
+  "Zhanna Kadyrova",
+  "Wilhelm Sasnal",
+  "Gala Porras-Kim",
+  "Vija Celmins",
+  "Ruth Asawa",
+  "Joan Mitchell",
+  "Cy Twombly",
+  "Brice Marden",
+  "Pierre Soulages",
+  "Zao Wou-Ki",
+  "Alice Neel",
+  "Toyen",
+  "Josef Sudek",
+  "Carol Rama",
+  "Alina Szapocznikow",
+  "Magdalena Abakanowicz",
+  "Richard Diebenkorn",
+  "Nicolas de Staël",
+  "Sanyu",
+];
+
+const workDirs = ["paintings", "prints", "posters", "objects"];
+
+const workFiles = () => {
+  const seen = new Set();
+  const out = [];
+  for (const d of workDirs) {
+    const dir = path.join(root, "vault", d);
+    if (!fs.existsSync(dir)) continue;
+    for (const f of list(`vault/${d}`)) {
+      if (seen.has(f)) continue;
+      seen.add(f);
+      out.push({ id: f.replace(/\.md$/, ""), text: read(`vault/${d}/${f}`) });
+    }
+  }
+  return out;
+};
 
 test("every niche modern has a people note and a paired work", () => {
   const people = list("vault/people").map((f) => read(`vault/people/${f}`));
@@ -63,7 +128,7 @@ test("unsat niche works do not carry a weather, so they cannot make a day", () =
   const today = JSON.parse(read("src/data/today.json"));
   const ids = new Set(ARTISTS.map((a) => a.work));
   for (const a of ARTISTS) {
-    const file = ["paintings", "prints", "posters"]
+    const file = workDirs
       .map((d) => `vault/${d}/${a.work}.md`)
       .find((p) => fs.existsSync(path.join(root, p)));
     const text = read(file);
@@ -74,6 +139,28 @@ test("unsat niche works do not carry a weather, so they cannot make a day", () =
     const src = chord.painting?.src || "";
     const stem = path.basename(src, path.extname(src));
     assert.ok(!ids.has(stem), `${stem} is still rotating on /today`);
+  }
+});
+
+test("link-only circuit names have a door out and no hosted face", () => {
+  const people = list("vault/people").map((f) => ({ file: f, text: read(`vault/people/${f}`) }));
+  for (const name of LINK_ONLY) {
+    const person = people.find((p) => p.text.includes(`name: ${name}`));
+    assert.ok(person, `no people note for ${name}`);
+    assert.match(person.text, /^note: \|-$/m, `${name} has no bio`);
+    assert.match(person.text, /^url: "https?:\/\//m, `${name} has no door out`);
+    assert.doesNotMatch(person.text, /^src:/m, `${name} shipped a face we do not have rights to`);
+  }
+});
+
+test("sorolla hangs gardens, not the beach posters", () => {
+  const sorolla = list("vault/paintings")
+    .filter((f) => f.startsWith("sorolla-"))
+    .map((f) => read(`vault/paintings/${f}`).toLowerCase());
+  assert.ok(sorolla.length >= 4, "sorolla is still one garden");
+  for (const text of sorolla) {
+    assert.doesNotMatch(text, /walk on the beach|niños en la playa|instantánea|sewing the sail/,
+      "a beach-poster sorolla got in");
   }
 });
 

@@ -5888,6 +5888,5052 @@
       },
       "sourceSha256": "f912759e875fcc9e44078ac6ae4f4beb6d0b019dad815d2680b5206110d5ad56",
       "outputSha256": "2cc535b68b46ccc5c77606c102c26f360f77e5acfe7d5c1d648a4cd73e0a30dd"
+    },
+    "/images/thumbs/vault/blanchard-bracelet.webp": {
+      "src": "/images/vault/blanchard-bracelet.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8cacb396805cdb8072a3db7b2416286f0ec5371d1e2c6be9d15d28dddcbdc142",
+      "outputSha256": "96319558e77cd3c4b52efb8d52f98fc369fb0989bb9011e5fa59b32f1cfcb7df"
+    },
+    "/images/thumbs/vault/blanchard-comulgante.webp": {
+      "src": "/images/vault/blanchard-comulgante.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "cd6fe7b2564ba9786c7045ba31a13fd95921db35bcedbacf48310fb0e3c88ff3",
+      "outputSha256": "a5ab4466950bb0f0ad68f8a15bd44a5367cafcfb7157fc3618d8dbeca9212000"
+    },
+    "/images/thumbs/vault/blanchard-cubist-still.webp": {
+      "src": "/images/vault/blanchard-cubist-still.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9bb20f2847c60842c0b465acacc281aa45e46c029d5d0d6b3c108d6ad411bc60",
+      "outputSha256": "a4674319bc0de284ce473982939b99fcd262bb272b6d5631b5352293f3fbff9c"
+    },
+    "/images/thumbs/vault/blanchard-guitar.webp": {
+      "src": "/images/vault/blanchard-guitar.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6335ebcdc06c44c624a49fd39d69239a30034f768779d6f83cb3f33361de4ae0",
+      "outputSha256": "7ed6f0d6ad0b68ba92ae76ba59d5a072f35836ba485f14ce3e6854144f24e60e"
+    },
+    "/images/thumbs/vault/bocklin-death-fiddler.webp": {
+      "src": "/images/vault/bocklin-death-fiddler.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ce15092f8ddf0e47aa3b77c939d1f1ad22c8d358fc8c4609b7685c838424c671",
+      "outputSha256": "20c42419d5144466e4c36d1aa24786038f5ca3a9094bd3be91db7fc3941d5b5e"
+    },
+    "/images/thumbs/vault/bocklin-odysseus.webp": {
+      "src": "/images/vault/bocklin-odysseus.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "edcb19371e4c6645918bf177ff36b0403750267c28fea9f394fbf2c87bf5d2c5",
+      "outputSha256": "3e6e8a41a8ed3387e2eb6b25b88b6d41781cb26b7968e32c2785461340e122b0"
+    },
+    "/images/thumbs/vault/bocklin-toteninsel-iii.webp": {
+      "src": "/images/vault/bocklin-toteninsel-iii.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3f28cc8d9a12f249db88f0baf08d367209be8f089d8416352ce6d415fd191956",
+      "outputSha256": "53fa68909c4dd82040f4dc3af6ba4d36b729826180e7289a0b9831ccf45cee53"
+    },
+    "/images/thumbs/vault/bocklin-villa-1865.webp": {
+      "src": "/images/vault/bocklin-villa-1865.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "dcd212f7e70a1cb791e77de364a2fe06d694c4bde5511f1f16486f5b52a73199",
+      "outputSha256": "3f2762da76c73aa5c231b547b0b6d245a9d0168569fa10398aa7a3111bc6f01b"
+    },
+    "/images/thumbs/vault/bocklin-villa-iii.webp": {
+      "src": "/images/vault/bocklin-villa-iii.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "62936f28518ed3cda80945b8be06a759a7e28e32acb7c1e1b22efb5183374142",
+      "outputSha256": "9577b337df2219f77af49da2f597d4e463f054f17d457e6b52b06a1fd85ff6b0"
+    },
+    "/images/thumbs/vault/boznanska-chrysanthemums.webp": {
+      "src": "/images/vault/boznanska-chrysanthemums.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4f05624eb366b8a063c858ac5b125eb261436b6a3e40314815d4325d6387a45c",
+      "outputSha256": "e0c8e3e1d551112b11942a32048c6d669e6bd471da57eadd65f943a14317f7d9"
+    },
+    "/images/thumbs/vault/boznanska-flowers-self.webp": {
+      "src": "/images/vault/boznanska-flowers-self.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d423df1f9d426e925105f12016f05a96c7d5493ffdf7f8432dfc676f24f0b6ef",
+      "outputSha256": "b25491caefee8a75d3a8654fdb565f39fb95e00d49271b19de4b9cac84c30da0"
+    },
+    "/images/thumbs/vault/boznanska-japonka.webp": {
+      "src": "/images/vault/boznanska-japonka.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "78b4ef4fca9c5fdcea3573430d0344a8874eed3debe6028e03ab2844126f70c3",
+      "outputSha256": "8780b7d30b331d92274fdd223fef9c4142e9ff9718898b65e118fe5dd9718229"
+    },
+    "/images/thumbs/vault/boznanska-mother-child.webp": {
+      "src": "/images/vault/boznanska-mother-child.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1c442cc09d2244d8c43529bc58444952465257eb5df802e3c11a585170492211",
+      "outputSha256": "0ac736d53752e1df4ee6e39823f1559e584d6220a555604b825e0a19bb9f0b84"
+    },
+    "/images/thumbs/vault/boznanska-radwan.webp": {
+      "src": "/images/vault/boznanska-radwan.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "768e665e86b73c593462bd8c84586dec0bab330de5a9cd0ef70f236823b9f3ce",
+      "outputSha256": "34084ea878d518138d06b740192f01fbe7284eff0b6f9194453441e9211e159a"
+    },
+    "/images/thumbs/vault/boznanska-still-life-vase.webp": {
+      "src": "/images/vault/boznanska-still-life-vase.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6563cde4eb576cba6b96f6ef7fc464323a1646b37347ff43d096357bda04d999",
+      "outputSha256": "038a7197d2161938a175418cd350f7733b8085bf3d5fc04922a6c1ca71d3d25f"
+    },
+    "/images/thumbs/vault/chasseriau-esther.webp": {
+      "src": "/images/vault/chasseriau-esther.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "33dc8f1f1a7a10187528c0b7f594a756249ff41c2bf5924cc34c90d9784309c9",
+      "outputSha256": "68c162844fa744163c266c0ad6ee3e7cbc90097d8c3a6629b0264a2017850aa1"
+    },
+    "/images/thumbs/vault/chasseriau-tepidarium.webp": {
+      "src": "/images/vault/chasseriau-tepidarium.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d21f11fd6e375aa5184ee81c0fe8431044f4b4493657a780a08051edd29739d6",
+      "outputSha256": "70cf2897e2e31f492ddccfd336714b80e2f3effe0b6997d659e279933cd2e3d6"
+    },
+    "/images/thumbs/vault/chasseriau-two-sisters.webp": {
+      "src": "/images/vault/chasseriau-two-sisters.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b92fe83469cd17bbd6808729e615afb8b1d56a83846a5c009cfe3ff2ccb3b232",
+      "outputSha256": "0378a6274a3cc59e2038fad1497b5a169f738ed095afc58feec2ae637870707b"
+    },
+    "/images/thumbs/vault/eakins-concert-singer.webp": {
+      "src": "/images/vault/eakins-concert-singer.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "873063270a2658d1c7637a02221fb0999e24d61a2b7195d0b7a33705e4427d30",
+      "outputSha256": "ede1f3d38916a8c4dd336b934c75916ba1e198d1420f704119668f6801193af9"
+    },
+    "/images/thumbs/vault/eakins-gross-clinic.webp": {
+      "src": "/images/vault/eakins-gross-clinic.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9c5d4e618cfc79e68e4bfb52a4a953817d5b6258b933c8766854c016c64570d8",
+      "outputSha256": "fcfb7071dbee06abfa1a967c8f071567ac235e65474fceba681ece2f2d5a2204"
+    },
+    "/images/thumbs/vault/eakins-schmitt.webp": {
+      "src": "/images/vault/eakins-schmitt.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6089382a901d0bac49edc7c56e1ce5ba8e6864e294e0b6e041147651edd515cd",
+      "outputSha256": "390f022bd9b699dd4296a6889cc2119c696fcfd185ca769f3befd8d3bca8bc51"
+    },
+    "/images/thumbs/vault/eakins-swimming.webp": {
+      "src": "/images/vault/eakins-swimming.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c685be246c58d3dbc4518349f699a9eee5245f796fb034c1434db6da8af0b8b1",
+      "outputSha256": "6603aa2ab05439d0e4e81613e278a7c12ff3c42559db71fbe4b2039bbbef382f"
+    },
+    "/images/thumbs/vault/fuseli-nightmare.webp": {
+      "src": "/images/vault/fuseli-nightmare.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b0a62b5274706167bdff34463f7157e7bd7d10923a899350991f1a14821cc695",
+      "outputSha256": "59fcefbffe6b279f8a4af13ca9c615cb647a2114b5f9cf6ef803293b44c729fb"
+    },
+    "/images/thumbs/vault/fuseli-thor.webp": {
+      "src": "/images/vault/fuseli-thor.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "398f5a823dc49650cef0315406b876b3f86c9e8c6b3ea1e18353fbd9a97dd6cd",
+      "outputSha256": "522e9108277426db3ad3cf2956bf5cd5a6809900444502ad6a7d32445bce4177"
+    },
+    "/images/thumbs/vault/fuseli-tiresias.webp": {
+      "src": "/images/vault/fuseli-tiresias.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7872dd1b9b99807473cf890f0305d31ccf1a7bcd3c92bde5446a8df139608d81",
+      "outputSha256": "30d4d16a8250a7e0d7b683520ddb555805112688735a36dc9d7ef58c694a08d9"
+    },
+    "/images/thumbs/vault/fuseli-titania-bottom.webp": {
+      "src": "/images/vault/fuseli-titania-bottom.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d13efa9e731b0d6706e9c7ee210dac47fdae03b1d8494914aae212bed47f9f20",
+      "outputSha256": "e8e5dbf864c3e1c30c27c4a066925f4e05f6092f37ba7c0b38a6835267e0eb14"
+    },
+    "/images/thumbs/vault/fuseli-titania-hires.webp": {
+      "src": "/images/vault/fuseli-titania-hires.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7892918f34c8a221ba5f47e419de0dc3f06b5821659711fcfe9084d38070f3a3",
+      "outputSha256": "89043fa2c9e5062a2c388653625ae1428eceb8abf331556aad2404c0af00b1b9"
+    },
+    "/images/thumbs/vault/girodet-atala.webp": {
+      "src": "/images/vault/girodet-atala.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7feaeee71e37b5bc8ee8d9d37a5bcb28ffcd658d618680b858ee649076f3c3e2",
+      "outputSha256": "fd457f831dcf1e59330c756a8292acde4044b7c37ec4bb61929ac354e0bbacce"
+    },
+    "/images/thumbs/vault/girodet-balzac.webp": {
+      "src": "/images/vault/girodet-balzac.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4690d5e3af1f91e1c3d2d57c74ba024c1d2f8b196623026c8f29a302e61c4639",
+      "outputSha256": "b03f03b6e6c416f3b384a857b832c5c18eea7bd3faaa01c87c85c3effc8e6776"
+    },
+    "/images/thumbs/vault/girodet-cairo.webp": {
+      "src": "/images/vault/girodet-cairo.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0b941b4fda9e0f37e85b526217416fc754a78a026a9d494b9fed42869ee53339",
+      "outputSha256": "aed006b11bcb355b262a23c898ff21e50fd4839352ee9ccf8993d099f4f0b8e4"
+    },
+    "/images/thumbs/vault/girodet-endymion.webp": {
+      "src": "/images/vault/girodet-endymion.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2eeac17e22f044093fd3f873abf33d1b89d5c730102d358721ccc8f4122b4f5a",
+      "outputSha256": "d7f061953d641de59c29d8a84ff44f8dc9eeab36cb92f5b76cf3299e4b106fb8"
+    },
+    "/images/thumbs/vault/girodet-larrey.webp": {
+      "src": "/images/vault/girodet-larrey.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f4a2ca6326971e1d5a68ae8f5b03c42ca9ea900201fe97d062bb2bce66ad5571",
+      "outputSha256": "f813324f724e07d479bf641b34247afe8a5d5a825b086466d26682c468d7542f"
+    },
+    "/images/thumbs/vault/girodet-odalisque.webp": {
+      "src": "/images/vault/girodet-odalisque.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "237afddfb93e366acb889af87894792bb4acc3d1c0611f611e821227ce4cb3a2",
+      "outputSha256": "da1778bdaad4a4a6e0ac18264e6b7ef64624bd1b17e1ede3ef2e3ebbe7361816"
+    },
+    "/images/thumbs/vault/gwen-john-cloak.webp": {
+      "src": "/images/vault/gwen-john-cloak.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ec73580a806e697b21ab1b222d46d63825bf4dd09a1214b749b16493af540965",
+      "outputSha256": "b6d504106a11b02eb4c86e7c8324f0bc6e6620c96b7a9a7d70ff06cd04c02c10"
+    },
+    "/images/thumbs/vault/gwen-john-convalescent.webp": {
+      "src": "/images/vault/gwen-john-convalescent.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9bcfeac1d40f3d2c882e47b72800f1038dddadf8806be7aee3f4929f435a9ecd",
+      "outputSha256": "bc34ce9009c3124bb70a09a5ada0d8e1c0f13b42768eb14de76111a56ada7ee7"
+    },
+    "/images/thumbs/vault/gwen-john-corner.webp": {
+      "src": "/images/vault/gwen-john-corner.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b19247e6a9206eb750c14e358d2c72c394a78f0aed3a734eda718912267417c7",
+      "outputSha256": "1c491ea836d3bf2ec5711d1a702a3d0f8d025c184208283f961bac2d14045e6c"
+    },
+    "/images/thumbs/vault/gwen-john-dorelia.webp": {
+      "src": "/images/vault/gwen-john-dorelia.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3b4b593c7289551d035b9573905acf34cfcfb582f8fb805d1b0cb72555cc595e",
+      "outputSha256": "d2acae23d9dc877d0f74207225fab4aa8219464a5996323029e1e0d7712ed84a"
+    },
+    "/images/thumbs/vault/gwen-john-reading.webp": {
+      "src": "/images/vault/gwen-john-reading.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c437da74feb2f770b84a4cc462708ae8956dd718b8bc50d034600ad0f191562e",
+      "outputSha256": "c9c87a7f18eada7f76db09f54fa9fe9bc6bf7297b39887646c6b4ee9756621e3"
+    },
+    "/images/thumbs/vault/kauffman-charcoal.webp": {
+      "src": "/images/vault/kauffman-charcoal.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1829075c184381808ebbe5f431918c839559f79f337a71aabfc4efd8db0e5933",
+      "outputSha256": "27f9989929516f0f4292d49ffe2ce8eaf888f375ae50282b465c8fadc2184c1b"
+    },
+    "/images/thumbs/vault/kauffman-cymon.webp": {
+      "src": "/images/vault/kauffman-cymon.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c623103d2d972913cd801848fdc61bc0bd1102ddcefac4f44dd929a6c20d97d4",
+      "outputSha256": "ff53e7538e36c3168e0de7e6421a0f79de41f720f7d58e54f9258488e3ad1b81"
+    },
+    "/images/thumbs/vault/kauffman-diana-nymphs.webp": {
+      "src": "/images/vault/kauffman-diana-nymphs.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "23b356fff90ba050ba4bc62a98253a2e5507260f4ed82d5ccc659139fe44b807",
+      "outputSha256": "fb24e610c2280afe3dae7c85c112ee5886aaa2eb6a159db6e79e55c039a2386d"
+    },
+    "/images/thumbs/vault/kauffman-gower-family.webp": {
+      "src": "/images/vault/kauffman-gower-family.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1090795583f0f2948ea31738a10ea14767f0e9d8e0192301712a68b74f48bfd8",
+      "outputSha256": "1c039cbf7a6d11a094b1566293a51d1d54835f3054b737568ba76d452caa103e"
+    },
+    "/images/thumbs/vault/kauffman-self-1784.webp": {
+      "src": "/images/vault/kauffman-self-1784.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1fea2de7b74960b65a5dcd3c9e92a551cc5ff43d9ec4d3318ac8801699964107",
+      "outputSha256": "358c855982660ae56465888d5d87db2e5741177c3d03e8ffaeddbf44bfc51d5c"
+    },
+    "/images/thumbs/vault/kauffman-sibyl.webp": {
+      "src": "/images/vault/kauffman-sibyl.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a108c421295749b3b004e8b410c6429b5fef0742c03b730d4f15e62c2fae69d7",
+      "outputSha256": "32a1bc15c76096bd2f70a339749412d9bc02b869f2329c40ca1ed86085a20e26"
+    },
+    "/images/thumbs/vault/kishida-pumpkin-woman.webp": {
+      "src": "/images/vault/kishida-pumpkin-woman.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "bb413ab3e9c845d1aa3de58c4bc5f8ec28a5be44ab858961e48338df50215bf1",
+      "outputSha256": "27f1c5966e52045c69c40da5b1dc54aeba756aa5fe85b9e92385000399acf40e"
+    },
+    "/images/thumbs/vault/kishida-reiko-doll.webp": {
+      "src": "/images/vault/kishida-reiko-doll.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f419d83aca8e2bcafd3d94de087f51ee662490cf3ff58a97b496938cbb5f3bcd",
+      "outputSha256": "142ed8d0a9962b3a3e525066c76a7b39039307d0f7ac8788a8e000402e3326e5"
+    },
+    "/images/thumbs/vault/kishida-reiko-five.webp": {
+      "src": "/images/vault/kishida-reiko-five.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "246ab166ed715d4eecfd48609f186792d5ea2b0403cb1d20ab21e8a3a20de979",
+      "outputSha256": "457c80e567948c8646fbec29c5062018a6b26040a4f4d479d0fe2aef212baf42"
+    },
+    "/images/thumbs/vault/kishida-reiko-smiling.webp": {
+      "src": "/images/vault/kishida-reiko-smiling.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3d8ac030560951d76c0f672cc4e8a5458d629aeacf9cce6e8c7cb816b87da65f",
+      "outputSha256": "f56dbd92b442a212b2acbc42c1839c18ccf5cc905f3b26167bc6cf60f33fb069"
+    },
+    "/images/thumbs/vault/krychevsky-life.webp": {
+      "src": "/images/vault/krychevsky-life.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6eab7e9d3ef8827dbc6ce94b86c718e9a463a928a02a6c930d6955f92ffc098d",
+      "outputSha256": "f1a1faf3a2c50c894043fc77c137f55a463dea4183f9209a4cf20a411146a5b9"
+    },
+    "/images/thumbs/vault/labille-guiard-madame-adelaide.webp": {
+      "src": "/images/vault/labille-guiard-madame-adelaide.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "075dcf1519f8ae9fcacaa27fb61f03f569fb8b976dc1c530418a80103fcbeb6b",
+      "outputSha256": "aba784097b1c1112579fafca91c891b7bfffbfeccfa498b1e47665fc81bb202a"
+    },
+    "/images/thumbs/vault/labille-guiard-madame-elisabeth.webp": {
+      "src": "/images/vault/labille-guiard-madame-elisabeth.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7fb289b41e92d560fd3056b9a193bd6518aac0e858e7d2a3871d0b306388c8ee",
+      "outputSha256": "b660e21891002da3bcac3b79645e1925c046ab6a68a1de1b56a49a0a61cfa5e2"
+    },
+    "/images/thumbs/vault/labille-guiard-portrait-woman-1787.webp": {
+      "src": "/images/vault/labille-guiard-portrait-woman-1787.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "51906af6dc5d2d54ee79627f34c31e7fb221fc4176feba71c4c76f598e0e4e4a",
+      "outputSha256": "81d6bb2dfd7123c6a9913719235775e0fde8bae8beb79245a733a9c81248274e"
+    },
+    "/images/thumbs/vault/labille-guiard-self-pupils.webp": {
+      "src": "/images/vault/labille-guiard-self-pupils.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "da4a5d833579725a94fe8858039e3d863247eb99665d6dd983c186df6762b7d5",
+      "outputSha256": "d8801b692faed635cffe9fe13dd5da6ca1b3882300a5e5a5c8047314cc5553ad"
+    },
+    "/images/thumbs/vault/malczewski-in-the-cloud.webp": {
+      "src": "/images/vault/malczewski-in-the-cloud.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f862e836efc3e5a8d548f9a8ccef2a30ec03dbf1353001b24ccee12aab1f9886",
+      "outputSha256": "5a49ee4f0a7d030a905d6c7d0840bcfcf9e9b3c94f51de709281c153554e22d9"
+    },
+    "/images/thumbs/vault/malczewski-jasienski.webp": {
+      "src": "/images/vault/malczewski-jasienski.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3bf6f08f291f7626bdaed2018517c29fb70407640a288baf86e9d43cb8ff7b39",
+      "outputSha256": "2eec2d09fdaabdd4e2277dd2992168af31305f2407e850999c43ad5369ac41bb"
+    },
+    "/images/thumbs/vault/malczewski-melancholia.webp": {
+      "src": "/images/vault/malczewski-melancholia.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e3b1cddd0430d3fc96b1f6f90771283aa2c7dee8a452089119be5a7df924ac17",
+      "outputSha256": "dcd9b74d57cd29a07b9f64e196d1c10ba9a6592a5c86c70c5851aa228c139477"
+    },
+    "/images/thumbs/vault/malczewski-reconciliation.webp": {
+      "src": "/images/vault/malczewski-reconciliation.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e06396311f2247f9c452011096470d60f19775ac7a4c2d57c332cdb9988a459a",
+      "outputSha256": "d811ecfe620a9800ca78e06c0ec15a60b861117804a4fbcd452a1436c4a7fa78"
+    },
+    "/images/thumbs/vault/malczewski-thanatos-ii.webp": {
+      "src": "/images/vault/malczewski-thanatos-ii.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "584268763181f7a7cdaacb9b3e45012c9c98fdaff4eefc8fc5e8791294092702",
+      "outputSha256": "014f185d105f6e0236cb745e7698e3eb9217febd6542d4e028239e520bdf8c37"
+    },
+    "/images/thumbs/vault/malczewski-thanatos.webp": {
+      "src": "/images/vault/malczewski-thanatos.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4da29b2b75e728c25201adf8e9b3a3096b81e3897eeb5d368af7f95d2e27bcf6",
+      "outputSha256": "8ce729477c7d1b440430e9e93b8f90c7240bd4281e8e8d3aef29afa738e0e30c"
+    },
+    "/images/thumbs/vault/malczewski-vicious-circle.webp": {
+      "src": "/images/vault/malczewski-vicious-circle.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e0b2c9226eb61b125fc69f2ea5d186c190006e179decd8880c0b9e3f638e7b12",
+      "outputSha256": "c83170b060342bb20a6376d7c455c39baafa26961865062b929f3773f96e3a1f"
+    },
+    "/images/thumbs/vault/modersohn-becker-girl-child.webp": {
+      "src": "/images/vault/modersohn-becker-girl-child.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a291e8875cd032e6f35daf2fefe0565e0443f380f6ed169c407b738986cdf5a0",
+      "outputSha256": "1ba371b5918b7607acbec7ffa26d1cbf5434214a5067eb9bd9f014737179ef7f"
+    },
+    "/images/thumbs/vault/modersohn-becker-poppies.webp": {
+      "src": "/images/vault/modersohn-becker-poppies.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "375fce029041846ae13fafeebdcb5462598a9c7addb9cf6695ef4ff96d659a1e",
+      "outputSha256": "696de4e11bb5cdae4d87d689eb1d40188d6869a6f1d2eaa39b1ded5910a4574d"
+    },
+    "/images/thumbs/vault/modersohn-becker-rilke.webp": {
+      "src": "/images/vault/modersohn-becker-rilke.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6abcec629a940430e97c9ea180f1e0dcd392e97d2cb5e2e43ead90ab4ff9d099",
+      "outputSha256": "fe19a17a5546037082f40fedd34144d8982791c895de2d71074ffa3f18c55841"
+    },
+    "/images/thumbs/vault/modersohn-becker-self-1906.webp": {
+      "src": "/images/vault/modersohn-becker-self-1906.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a016c2cccc4b3bfadb8209cb4155dc697b1cfd773fbeb145206b53fc40517648",
+      "outputSha256": "5ce91e8856e2a38719d3723574d2b6c65ca25bc384737cc3d532d3ad1cf8c7ce"
+    },
+    "/images/thumbs/vault/modersohn-becker-wedding.webp": {
+      "src": "/images/vault/modersohn-becker-wedding.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ec4f5f3362569a64fe4d1a268178dff3d876fa8fa7155f8b461a8e975ade2a7f",
+      "outputSha256": "2da5878d9a7f771af136652e11d74f0c1e7f08f1d0b2eb471d8934658925b6b9"
+    },
+    "/images/thumbs/vault/moreau-apparition.webp": {
+      "src": "/images/vault/moreau-apparition.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e8152d66f72dbda5210888ce532a06ee3af40a11bd37f79cb7b78a7b92d2765d",
+      "outputSha256": "bd6ca8fc564beb7bf77ae25951bd3130a300d2334fdec8ee7d334977189708df"
+    },
+    "/images/thumbs/vault/moreau-hesiod.webp": {
+      "src": "/images/vault/moreau-hesiod.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ba450e73f415517627f408f325f53d8816b192445704e81d5cf16f86d62047c0",
+      "outputSha256": "2982431f20d68cb0dfe3674f4c686f9ddf08a701401ed5195fd8c1de79142b83"
+    },
+    "/images/thumbs/vault/moreau-oedipus.webp": {
+      "src": "/images/vault/moreau-oedipus.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "97f1c5923a9be22793e2137475f24e5ca8db4bc28a3589fd38fd8645f04bcaa8",
+      "outputSha256": "f27ad4be09788555bf2f043068077169368a05a7c6a1222e4444f079ca05e74b"
+    },
+    "/images/thumbs/vault/moreau-orpheus.webp": {
+      "src": "/images/vault/moreau-orpheus.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "007c316c2510517743d99be357272bfa0b5d7a324dff522417caf64626f4e481",
+      "outputSha256": "7525711d11a5953e9dac3aa716241b66917e56c6ed0dd06b8549fa9cab99d0e7"
+    },
+    "/images/thumbs/vault/murashko-annunciation.webp": {
+      "src": "/images/vault/murashko-annunciation.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9a5d0c4ed6d63f03167952ea78558fc18099f3644514b6f12b11c75ae7928177",
+      "outputSha256": "63c36fedf127eeeabbcbd6d4baedcfa63fc97b0bd88128195812f3a173b95ce8"
+    },
+    "/images/thumbs/vault/murashko-burial-otaman.webp": {
+      "src": "/images/vault/murashko-burial-otaman.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3e5fb670e48e9cd0ac5f1a920f8f47e264b7c81e704f4d1b88d9fa51e16739e5",
+      "outputSha256": "fbed91a5939031a2ba8c66f6849ce8ac8f2ea0a2fab24eecc750e7647c566431"
+    },
+    "/images/thumbs/vault/murashko-carousel-sketch.webp": {
+      "src": "/images/vault/murashko-carousel-sketch.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "18dc806db2d186643e6dcedc3805c229df5075d0b2830359fbc30fa992a38d46",
+      "outputSha256": "9648b7e8bb8db21ee2898e2ab448b42b7463cd09ba40ce402b7495bc99845ebf"
+    },
+    "/images/thumbs/vault/murashko-girl-red-hat.webp": {
+      "src": "/images/vault/murashko-girl-red-hat.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "32dacb5f6cdee770e04a9bbcbf6c324b9ff1d1b6e63d95b6028d96de4c897d0a",
+      "outputSha256": "5449ff95a69214f3d7d2725779d4fce30ed463eac8d0c6d4af88423124426986"
+    },
+    "/images/thumbs/vault/pirosmani-beer-seller.webp": {
+      "src": "/images/vault/pirosmani-beer-seller.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "60111616f8f1be8dad1b0d0547a8a9c2e62777c0a17f8df9b9af54afe670c98b",
+      "outputSha256": "4043f25cb487cdab14c091d9c814e7bd9502421a9cf8de1678a21cd9fd02a924"
+    },
+    "/images/thumbs/vault/pirosmani-deer.webp": {
+      "src": "/images/vault/pirosmani-deer.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d32d758c6948ca3439a543b6b43176a69f36884099be4cd14a6a6cad7dae1cf8",
+      "outputSha256": "e783fc2de9ec54ba6618cee5d0023d0279f802f45043664f563c68cd91fbd52b"
+    },
+    "/images/thumbs/vault/pirosmani-feast-bank.webp": {
+      "src": "/images/vault/pirosmani-feast-bank.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "190ab4b08198744abf00b57287af5590b8e62064dde358458ac9e273652ddc7d",
+      "outputSha256": "c62eab1a04cbe1d3d4db50e5bec6e15df216a78a6392f917e4eebb6bb5960238"
+    },
+    "/images/thumbs/vault/pirosmani-fruit-seller.webp": {
+      "src": "/images/vault/pirosmani-fruit-seller.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b27cf0eb97ced76355f7111166cb65644cf29ebfd4ca3ddaeb5495f460357e68",
+      "outputSha256": "8c41f631414f1c8481974234e6a3daad0ace11e6c241b27539de857fcf16b72c"
+    },
+    "/images/thumbs/vault/pirosmani-roe-deer.webp": {
+      "src": "/images/vault/pirosmani-roe-deer.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "5e6cad6b1b9de36c7d88715d1598fc56a8e4868976ed699f808813e746ea89a2",
+      "outputSha256": "0644d1e9fbeb4a3263aff1e67b94a71ebcf71a22ccd88197070908e321180a19"
+    },
+    "/images/thumbs/vault/schjerfbeck-clothes-drying.webp": {
+      "src": "/images/vault/schjerfbeck-clothes-drying.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "79b5ed48b27c5fccb66bf8cc603b99387c2fd087b6ae63fd86da7e7e5137f63f",
+      "outputSha256": "dd301327153f16cffa20235786d98963f65d1c51722e43e1dacc925e95aa7a56"
+    },
+    "/images/thumbs/vault/schjerfbeck-convalescent.webp": {
+      "src": "/images/vault/schjerfbeck-convalescent.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8e4a63cfbc7680588c57b6e3019fd2e05519c62891ebacd455f1b29d2fe5927b",
+      "outputSha256": "a7de8fba875f744cfe56071d807056635a113c2d6d34644cab2fbd6c59fca441"
+    },
+    "/images/thumbs/vault/schjerfbeck-heirloom.webp": {
+      "src": "/images/vault/schjerfbeck-heirloom.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d7c98c6b7b7c91840dccfa6c29bb092ac751becc3b7bc58d6393c31f886566c5",
+      "outputSha256": "25ee7790b525aedcc29df7cd0c41c02ab6843f823c6957255440b5bfccdd91cb"
+    },
+    "/images/thumbs/vault/schjerfbeck-mother.webp": {
+      "src": "/images/vault/schjerfbeck-mother.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b1cbe2634fc913f39db22df2b6bef3916e0a58b19aa6a762f40d71f01667cecb",
+      "outputSha256": "f6eff75344f450764eaad88d93ec4e3c4fa6004d26daaab4baf8f68cc616c8b9"
+    },
+    "/images/thumbs/vault/schjerfbeck-red-haired.webp": {
+      "src": "/images/vault/schjerfbeck-red-haired.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "95f7928171e13d3c093718ac5b0d51b10743c5d5d9a41df49e405728f2b3ae90",
+      "outputSha256": "b513324a33711884001a9c12c1bef58566f9cdc6664cdafe924e5a6d2c9b4e1a"
+    },
+    "/images/thumbs/vault/schjerfbeck-self-1884.webp": {
+      "src": "/images/vault/schjerfbeck-self-1884.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d68ffadd6f8bee1a7d303d7b94a8c350e26a1aef8bbeddc1bb9b21b4e6caa27f",
+      "outputSha256": "bdbe79481d8654608399c1c85179b56c721e8859d4a499e77cc24f5690e2a10b"
+    },
+    "/images/thumbs/vault/segantini-ave-maria.webp": {
+      "src": "/images/vault/segantini-ave-maria.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "69a4f2a0dfdce066ef0b401dbff2da104de39685b5cfadb0f95021d6e7e719a5",
+      "outputSha256": "1e7abdb19461b50813a84010920912c53c720494c843cf66c3ea1e04842f12e2"
+    },
+    "/images/thumbs/vault/segantini-evil-mothers.webp": {
+      "src": "/images/vault/segantini-evil-mothers.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "53e0fbdee949379365f65fadf9159d0fbfb322c70936278e1ebdf837e84535e4",
+      "outputSha256": "bd03453fabeb06322bda04d17ba87353f7dbe7c99a4238b627a40fe04f7c1a05"
+    },
+    "/images/thumbs/vault/segantini-punishment-lust.webp": {
+      "src": "/images/vault/segantini-punishment-lust.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c0290ad05b652ec7f6503e620deb6b36f2bcda6933f7ad6d064cb63c35d27c77",
+      "outputSha256": "d66f1c976c89c53936e13c6d876378ff121950119ad387f6bb79d70bbcb5894b"
+    },
+    "/images/thumbs/vault/segantini-return-forest.webp": {
+      "src": "/images/vault/segantini-return-forest.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a288cd036d2af5b9a03a9067607f70606f31fc3b70fdf5c63900d67fb9bbe361",
+      "outputSha256": "581331f08734534a224dc1095ce56c452d45ef7aae22797e7ced7dce29db4b03"
+    },
+    "/images/thumbs/vault/segantini-sheepshearing.webp": {
+      "src": "/images/vault/segantini-sheepshearing.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f7a4fe0d5fcfec2a8b281a7373360102113e1f09e153853f03f7f8006fad5f5f",
+      "outputSha256": "0e74bf510abb424257c5a3ea70c5a456aa2f1a424632b4dd47a8c1e8600e460c"
+    },
+    "/images/thumbs/vault/segantini-spinning.webp": {
+      "src": "/images/vault/segantini-spinning.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2eceabe9a7836221a965be4d49a42428c3550a09c0502db3371ba324ee7b4f75",
+      "outputSha256": "411a9bbcd76838eb66e6600259f80f93334dec006b72f6ea230b9b6aa79b782b"
+    },
+    "/images/thumbs/vault/sickert-camden-dawn.webp": {
+      "src": "/images/vault/sickert-camden-dawn.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "79ff6d252429ef55229ee2b6b24e60536ea64cdc565fb7efd9b86c55e3a6626a",
+      "outputSha256": "02b2ca888aeb29361efbf78610d50614cdffad15257a2a33a49c5884d40b67fa"
+    },
+    "/images/thumbs/vault/sickert-ennui-study.webp": {
+      "src": "/images/vault/sickert-ennui-study.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "446a1c6a9fe6b679be2259903fb74146b2ad1b3adbdade1895d80a589c260b02",
+      "outputSha256": "abdc23ff00e0fe4174fc837abd4a37ed790367058775d3184670f8e3d12498a2"
+    },
+    "/images/thumbs/vault/sickert-ennui.webp": {
+      "src": "/images/vault/sickert-ennui.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "03aff4d0285e548f5999cab4b47f0328c4853488e5feab82b149e8c6bb008da7",
+      "outputSha256": "13a70260e8bc85cb3a65fac13daba0d4d2b8e61b3c0090814a1af208ce214308"
+    },
+    "/images/thumbs/vault/sickert-mornington.webp": {
+      "src": "/images/vault/sickert-mornington.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "156a1c21ce8a053545aa48d82630e59edea0c261aa13aa979d7fddfe1af9f3fa",
+      "outputSha256": "4abd754550315820f4df4ab91102d0003b8cce7c716ab7a2d2b54f89d313706c"
+    },
+    "/images/thumbs/vault/sorolla-alcazar.webp": {
+      "src": "/images/vault/sorolla-alcazar.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0fdceb6506186d138c99c3b64d50f43167f7b5b8ebe5b01b7bfaac05508fa823",
+      "outputSha256": "aef6de50d05894692973f79bcb90827aa3907e8a911c5692992422551492030e"
+    },
+    "/images/thumbs/vault/sorolla-house-garden.webp": {
+      "src": "/images/vault/sorolla-house-garden.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "18c673f9893872e47397847556bcfc33b0bd62d73ca978dea3608e8accd67ccb",
+      "outputSha256": "9781b8f4b7066a2d327b7ecd00dddc9b105e581212b74d61b550bb5e9ad15330"
+    },
+    "/images/thumbs/vault/sorolla-palace-pond.webp": {
+      "src": "/images/vault/sorolla-palace-pond.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "dfd2f978f8c1d58d7255707bd00785fb5d86492c0277f3cee2b871b9aa7d721a",
+      "outputSha256": "5dfe1d62148ca3fde4ed20f92f2c161c9ce26b52af0d7c296dfb0c846dc61427"
+    },
+    "/images/thumbs/vault/sorolla-patio.webp": {
+      "src": "/images/vault/sorolla-patio.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "feecfec1d02b466413628271bc4c27e81cf571da2092ddb13ed44be31a420f59",
+      "outputSha256": "2d36a3c4f70172b4bc8fe82bdfc16ee612514c2a9d477f9866e777fedbd0e20c"
+    },
+    "/images/thumbs/vault/sorolla-siesta-jardin.webp": {
+      "src": "/images/vault/sorolla-siesta-jardin.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c63f1fceb08a193aab3e00b0aeb282e04d1406bd3f3f0affb5f05d30d85bdf8e",
+      "outputSha256": "76ce1f1f2cbd9a94cbf6651ea875e1569ed31ba6392d3b9065b88b757a33b742"
+    },
+    "/images/thumbs/vault/spilliaert-absinthe.webp": {
+      "src": "/images/vault/spilliaert-absinthe.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7f41127610216b00632ebd3d55cfd5b934dcc62cab68024581d8a21545903243",
+      "outputSha256": "0294787243e74422cf100978d0ab5dabc28eb2575f42a7df8553ab3be5b5bc75"
+    },
+    "/images/thumbs/vault/spilliaert-pendus.webp": {
+      "src": "/images/vault/spilliaert-pendus.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d3a3afff1fae87386157f21d2ba4efb600a64f780aefd3ae3384fbbb69d2ba7b",
+      "outputSha256": "ae71c33671b4e03623e6b5c4a9f92b5f1f4bc1724e81bc57768d7cc54c73d2ee"
+    },
+    "/images/thumbs/vault/spilliaert-red-pencil.webp": {
+      "src": "/images/vault/spilliaert-red-pencil.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a4613bc5d377d8035b8d5c5ec134ff3046d8fd826279690f363a115e48ef3c7c",
+      "outputSha256": "85f0b4a3ba5ab1cbea72d370ce9730be17efdb4dea41db6ae37e32531ece39b5"
+    },
+    "/images/thumbs/vault/spilliaert-seawall.webp": {
+      "src": "/images/vault/spilliaert-seawall.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "87e26d32dbc8f0df5219030264dafb4f47bb2361e51d3f388733f364bb848a20",
+      "outputSha256": "8f9c6762f66cd1fcb64c99fa91062648014abfee299aa08f8faec1093afbbfa0"
+    },
+    "/images/thumbs/vault/spilliaert-silhouette.webp": {
+      "src": "/images/vault/spilliaert-silhouette.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "97f881f85cca48e68fdae50569117a398fb2f6e564aaf47bff41058ac88cf4ce",
+      "outputSha256": "48be0167d0d55b5e1032fdee781973c3c5a12f1508114563265649806d727050"
+    },
+    "/images/thumbs/vault/spilliaert-vertigo.webp": {
+      "src": "/images/vault/spilliaert-vertigo.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "dadc9bd4d81fc7cdc5e4da35cbf644159ff95f9349e2d173c393ca164f6e2b97",
+      "outputSha256": "1872a73244458b451decfa6f1f033d430cb1e7d6b8a08ec4b08b62441a36499e"
+    },
+    "/images/thumbs/vault/spilliaert-vissersvrouw.webp": {
+      "src": "/images/vault/spilliaert-vissersvrouw.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9dd1c62c8c531a8383242e2e0c0bdb5e21869c00b4f71f496306a6b25c8e2480",
+      "outputSha256": "c7ea8a0ab00cb90ed56e1f0efd907ae2830f6c6fbea23cf52b281c0fc2fb1a34"
+    },
+    "/images/thumbs/vault/taeuber-arp-animated-circle.webp": {
+      "src": "/images/vault/taeuber-arp-animated-circle.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ef6c9e86e4cbca9241761a5cb3e44990c2c8554894ae97b8f033d039507bf5e6",
+      "outputSha256": "250a971851ada0e05ae5aae20d7e1be31b89bf96b178241e153e5a5adf2d25b5"
+    },
+    "/images/thumbs/vault/taeuber-arp-composition-1930.webp": {
+      "src": "/images/vault/taeuber-arp-composition-1930.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "369e7c1394b83010b2b7b89c90ff2d7712a074b9cb3bd02baaad500b94b2196a",
+      "outputSha256": "648f83aa31f4d7a6e8ed6c9a6968d2e2cc9d8fb27586926c8910b55407a75029"
+    },
+    "/images/thumbs/vault/taeuber-arp-kompozycja.webp": {
+      "src": "/images/vault/taeuber-arp-kompozycja.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "20151459e111dc4ed1a09108a5dbcedf4574d2c607d23754478b2864bf7194a1",
+      "outputSha256": "510135f849501bd96b02a000ee123d36b3a0c525eee2750e85e602c43e18cd02"
+    },
+    "/images/thumbs/vault/taeuber-arp-kreisbild.webp": {
+      "src": "/images/vault/taeuber-arp-kreisbild.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a9231ddc859bc09bb4656cd76e7abb85a9de1ddd4a29e7336b8fc93df4df22cd",
+      "outputSha256": "053f867a893643ea9f5547b7459a53b595f28d696421c12ce448491721a29e5b"
+    },
+    "/images/thumbs/vault/tissot-calcutta.webp": {
+      "src": "/images/vault/tissot-calcutta.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "340be13d127c4493fa487e548f0f05fee4e181bb1fa2af68b26eec6138c773b9",
+      "outputSha256": "f5f75599d4cb58a8833791aaa79f29b7b9f837da1c00b5aeac883512df4f2e00"
+    },
+    "/images/thumbs/vault/tissot-holyday.webp": {
+      "src": "/images/vault/tissot-holyday.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c0b0a9ab2bbbe7cbd6b951b9870d2123e12d0e3611100b7ce08e1e4a217b98fc",
+      "outputSha256": "182425dd9855ceb147fa7e9d5f13e57588fcf3ed7fcf0440f798af7ccadfab9d"
+    },
+    "/images/thumbs/vault/tissot-london-visitors.webp": {
+      "src": "/images/vault/tissot-london-visitors.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "58d99216279a4c821bcd951ba2d8a03db6dfee1141f8dbc25bd94837d9514f80",
+      "outputSha256": "978c7b4fdbe84cf5591256afa7b836615e3cc7ccbb33846db5af4f17e0d993c6"
+    },
+    "/images/thumbs/vault/valadon-blue-room.webp": {
+      "src": "/images/vault/valadon-blue-room.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "efccbbb35edf20b5a5ab37bf65b02fe85b24e19f3348f3b4f0080ffc47350985",
+      "outputSha256": "c4f69eb10d748362d650780b9d222d7a2a78bd01691d500fd19b66eb4b42582e"
+    },
+    "/images/thumbs/vault/valadon-rose-blanche.webp": {
+      "src": "/images/vault/valadon-rose-blanche.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9e6b310fb965ee27960997c5f4467abe09cf2947ff40f78ec6f979fcd6b2f397",
+      "outputSha256": "c6f275098c66ac0262346fcc370d2d32217b8b5ef381346f17c37e672c2e3fd9"
+    },
+    "/images/thumbs/vault/vallayer-coster-attributes.webp": {
+      "src": "/images/vault/vallayer-coster-attributes.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "480857107d0f98c172f0835d0700d79bb0c8481b3594ebd61f1b9e24ba608941",
+      "outputSha256": "a36ea262330d703be98b9165821125392c047a150fc6b4ab6d71535108d9a20c"
+    },
+    "/images/thumbs/vault/vallayer-coster-brioche.webp": {
+      "src": "/images/vault/vallayer-coster-brioche.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b01c97db74dfb6ab0d685ad749e4891df65c353d1eb8b0adb8ce54b196197786",
+      "outputSha256": "474727da1d36db9d8f256c3590cb065c5f01909c1066e0e5d351cdfcbf203e79"
+    },
+    "/images/thumbs/vault/vallayer-coster-flowers.webp": {
+      "src": "/images/vault/vallayer-coster-flowers.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0fe8b9c8895623fa04830aa0108b670176e0e169a94e3d42548b8878771cffd2",
+      "outputSha256": "a392fdce3b776d5364feda64f5a4c54c9857557f99db36539925847340d15616"
+    },
+    "/images/thumbs/vault/vallayer-coster-ham.webp": {
+      "src": "/images/vault/vallayer-coster-ham.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2c09dd405db71afaebb69fb50459835c102f6b9252256c158c17642fa0419a02",
+      "outputSha256": "796c3ab981960ab650ccf21393ca1a3dbe5bfd8ba6e9fa69ddaba164ca751104"
+    },
+    "/images/thumbs/vault/vallayer-coster-mackerel.webp": {
+      "src": "/images/vault/vallayer-coster-mackerel.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2b7000e28119f2dc697a50507fc68bfa5f9933d19825ad3b14570b3200d810e2",
+      "outputSha256": "ef3e540d9f5b3fcf626d732f88c51a49ed8a3e247a2e88779fe4d66f60047ff5"
+    },
+    "/images/thumbs/vault/vallayer-coster-violinist.webp": {
+      "src": "/images/vault/vallayer-coster-violinist.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a04612c5afbe3e7db2127254ae513cb14bcd2ca7d7c44a60a6b230a0803a64d4",
+      "outputSha256": "ad9b7282e20c01d2ee52e67c6bab17cd0e67e9726d83d9a5406bd5512ad1aaca"
+    },
+    "/images/thumbs/vault/vallotton-baiser.webp": {
+      "src": "/images/vault/vallotton-baiser.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b6f547e778f94d82959319fdfa64282a706200b9079d0764c5537266f61f8960",
+      "outputSha256": "69ce9f60745eb7ef4bc1a72595af33c4d0994f16fa4682775eb117870ab4c6f0"
+    },
+    "/images/thumbs/vault/vallotton-chambre-rouge.webp": {
+      "src": "/images/vault/vallotton-chambre-rouge.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "53f2ee0e79c5a80d6ae5981edf69d6d313029104ca606bbdb062e44f20e1c971",
+      "outputSha256": "b51eecb002c6d6022b6e863f57d29ba535b7a8b0afff0be1535ae5fc96cce0a5"
+    },
+    "/images/thumbs/vault/vallotton-coiffant.webp": {
+      "src": "/images/vault/vallotton-coiffant.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "98631733a4281c23340a670dcd86f0c77e5a05ad72e0db7f9456006f9092b0aa",
+      "outputSha256": "77bb6db4abf1d7e324475e23c202785775f8938871502998a6085808da8cd0d0"
+    },
+    "/images/thumbs/vault/vigee-le-brun-gramont.webp": {
+      "src": "/images/vault/vigee-le-brun-gramont.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "997e8ac8b4c7969c51490e349169795c14ab9302cb46fa8e2fc5039f77042c0c",
+      "outputSha256": "a1b38d06f50bafa247ef7ee0e5d27247fc6ce41a270f7254a93f2006f9935379"
+    },
+    "/images/thumbs/vault/vigee-le-brun-hubert-robert.webp": {
+      "src": "/images/vault/vigee-le-brun-hubert-robert.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7182a60d780c2cd4216ae268e3a89940490539793c3422396c90cd559d833b0c",
+      "outputSha256": "f57e5059c891e4497963c2eec3dac887aceb0bb6d9d68212ecc787c1f31ce030"
+    },
+    "/images/thumbs/vault/vigee-le-brun-madame-grand.webp": {
+      "src": "/images/vault/vigee-le-brun-madame-grand.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b221ece1ca734461cef8856d9383387aadd4d12506b5f16080f50f8bae2c04d4",
+      "outputSha256": "6ef67f93e4a828b9c1e20428984f4aa96bef7b9676b26cd0e6ad2a0cc99ac2d1"
+    },
+    "/images/thumbs/vault/vigee-le-brun-mole-reymond.webp": {
+      "src": "/images/vault/vigee-le-brun-mole-reymond.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "57923627446d632031405747969a6bbfa6f846dd3b2ab3c344bdef1d397e7056",
+      "outputSha256": "c5413c2891f538a8f127142046d3584bc96b75a37566a94714a4ddc33a7efa3a"
+    },
+    "/images/thumbs/vault/vigee-le-brun-straw-hat.webp": {
+      "src": "/images/vault/vigee-le-brun-straw-hat.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f58542eb2065c3e9fd56656f5484ddabf6ac9de2a988adb3cee8cf53f05c47bd",
+      "outputSha256": "a2969f022fa9c6090e2f6005c6f0504d1c038cdda1e15c47f7db3870cbcb5211"
+    },
+    "/images/thumbs/vault/vigee-le-brun-vaudreuil.webp": {
+      "src": "/images/vault/vigee-le-brun-vaudreuil.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b69ad04740d1903bb5ed80b0407680f5735c6546fe960345f41b6e0c1f37add7",
+      "outputSha256": "acfeb4b27e2f6c539a70494801ef78e933452178cab8c634a80822f3b1ef557c"
+    },
+    "/images/thumbs/vault/vigee-le-brun-young-boy.webp": {
+      "src": "/images/vault/vigee-le-brun-young-boy.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c81801d4875ddde1a0d8823bd0d744f84a5ada8bcb600eef8a94ea166eac4f89",
+      "outputSha256": "8e648e7effb414d7e0715ea4e3073c6ea9b1d4ae6c1ba80dd9a4e12c732ff38c"
+    },
+    "/images/thumbs/vault/wright-air-pump.webp": {
+      "src": "/images/vault/wright-air-pump.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e22d20cdeac1fad773d16d8af803095be8ecd82c0543b31797a6966b19a814da",
+      "outputSha256": "26a90117c4f77ea683d4af5ed680977f8c66f1b3e8e6409a13efb7e9753511c8"
+    },
+    "/images/thumbs/vault/wright-alchemist.webp": {
+      "src": "/images/vault/wright-alchemist.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3b3625065729ad4596e9ed01c84a2d286683f30932a165398e69590b0bb56301",
+      "outputSha256": "244715ff609af98ec04d46b4e2745faecc218a9a93f5670775b201f8a889329f"
+    },
+    "/images/thumbs/vault/wright-iron-forge.webp": {
+      "src": "/images/vault/wright-iron-forge.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "aec587743a5b4056234e13be64ff5ada746b8e6da1db61e53286587508c84668",
+      "outputSha256": "a67d81ac412091986b452d8dad1501c8a4da18ebda0049c1159428cabe12b8e5"
+    },
+    "/images/thumbs/vault/wright-orrery.webp": {
+      "src": "/images/vault/wright-orrery.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2a7369680d21884ab081a3761484c8349b5d769eacec282f3c50106248005b8e",
+      "outputSha256": "8d03fed6861fcad5ae2e38276a274185c13fe1aafd353ba2f171096885b30090"
+    },
+    "/images/thumbs/vault/wright-vesuvius.webp": {
+      "src": "/images/vault/wright-vesuvius.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "273bac46b11f7b7c0ebf59e28e0d9c5b8acef2e032ad6c7dc6fc979bddbbd0cd",
+      "outputSha256": "bec240687b0964f546473322209b58ed240f236a3870b9c3f3ca852b37b5d6a3"
+    },
+    "/images/thumbs/vault/wyspianski-chocholy.webp": {
+      "src": "/images/vault/wyspianski-chocholy.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3502156663dcc5f8a85c497d70d783849af2eadb8c54bebc3bdcadd95c366c4d",
+      "outputSha256": "17a26772c461b894dfc51b6ba41804b8f336ef8ffaf209f93e12c0082bca472b"
+    },
+    "/images/thumbs/vault/wyspianski-kosciuszko.webp": {
+      "src": "/images/vault/wyspianski-kosciuszko.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8ef30cce53966e4bd8aeee72744f28ee04b791c2dcc8fd9a507a3b4e22e1b6fa",
+      "outputSha256": "1a9bcbd11c0d7adf59e045c5eebbb0b49171bf2d39cd3c87848dab11f2547c8a"
+    },
+    "/images/thumbs/vault/wyspianski-motherhood-1905.webp": {
+      "src": "/images/vault/wyspianski-motherhood-1905.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7457b34a57670db7b70cc76f3da2bb93a4a6f9180282d00075b1f931b74f0ae2",
+      "outputSha256": "d56574a5495cf300bae506ea64ebadb6af9209b72e06f81704e44094ef4ff030"
+    },
+    "/images/thumbs/vault/wyspianski-parisian.webp": {
+      "src": "/images/vault/wyspianski-parisian.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "fb38d836b079c7cbda6bd1ea406a1d15ea825b3fcee3b7069792fc9cb56e1591",
+      "outputSha256": "837bbed3f1ceadd2e55cbdc98c24043b509386d2bdb785c8a82133e5cfdba662"
+    },
+    "/images/thumbs/vault/wyspianski-planty-dawn.webp": {
+      "src": "/images/vault/wyspianski-planty-dawn.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ae1eb181e2f8a777bd696de0d1c48a3ac18edb59b3f57aedbdd63eea7f01ab74",
+      "outputSha256": "0a68c3a6455b9994bb9dc1da42ca670715f4cc96a19855f7661a79f8d06be540"
+    },
+    "/images/thumbs/vault/wyspianski-self-dying.webp": {
+      "src": "/images/vault/wyspianski-self-dying.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e1a7568dcdbb5d11beb58b5f06f5fedef165d1c0e175ae6f495aaf1c117b95d0",
+      "outputSha256": "de4e0dd8a52b3e6c876898226f68ae136042ff999245508ec62f24dd13ed8d23"
+    },
+    "/images/thumbs/vault/zuloaga-farmers.webp": {
+      "src": "/images/vault/zuloaga-farmers.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "85d95ac51782fee3d3279aeef3e227f24e064b1e6478cbcac1d25d1550fe22a8",
+      "outputSha256": "998d5b08909e1021a2c40fe5d4b44e275efc92f169fffbe54b5aecbdbe990000"
+    },
+    "/images/thumbs/vault/zuloaga-gregorio.webp": {
+      "src": "/images/vault/zuloaga-gregorio.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0a534f6b540177438d58c3356af3f0a6edd4e38eb4e0d28212c33b7e7ff7f87b",
+      "outputSha256": "1cd29c9f4934050f3e115b7675def0c930a6ad7e4cb4fbd1f41c8de4bac323ce"
+    },
+    "/images/thumbs/vault/zuloaga-hermit.webp": {
+      "src": "/images/vault/zuloaga-hermit.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a56d2f7b747c6f839917623d7b270b9d26f3567b06ae1606ab4fa96fc31b0d61",
+      "outputSha256": "2d2e5fc16bd09cba84d2859d9c45ba71bcccc0a4df2ddbb57a735b0e07c78c08"
+    },
+    "/images/thumbs/vault/zuloaga-segovia.webp": {
+      "src": "/images/vault/zuloaga-segovia.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7d7d70bee31ad9188c5082228fc9ad2bcbdfd8bfeb68f006565ac24e59b94156",
+      "outputSha256": "0a1d163d49afc73467cd1392a97a954e47162693afebc56a59be2864272b61ef"
+    },
+    "/images/thumbs/vault/zuloaga-torerillo.webp": {
+      "src": "/images/vault/zuloaga-torerillo.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "12a05d52833a6e81b3156c56f87aeaacf160736e631c52deedb11660fcd06297",
+      "outputSha256": "edb414a854dcc34a8c9d4624d7ed8e8a5c8abf9c634c061f66153cb70f131e50"
+    },
+    "/images/thumbs/vault/rosso-bookmaker.webp": {
+      "src": "/images/vault/rosso-bookmaker.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f9c1a09c43ca04af2f87fb88ba03b955819ee64f65a065e1286ca212ea9bd847",
+      "outputSha256": "a48cc0f8754399af043608b08877ff8240072f2a47a9fc0fbdb55bf2bb3dfbfe"
+    },
+    "/images/thumbs/vault/rosso-carne-altrui.webp": {
+      "src": "/images/vault/rosso-carne-altrui.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0da4c7fe84e1a65e3653329a467396d4d8df04a91afae94ecbccdd0d6031a0ba",
+      "outputSha256": "0feb2f3af43ea25152c3a8fc1b34b8204f251d75cc5f3bfb963c8b111188da18"
+    },
+    "/images/thumbs/vault/rosso-enfant-soleil.webp": {
+      "src": "/images/vault/rosso-enfant-soleil.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0b3d422bc165c5a1426e0f9a3d8c29b162854f8490ba3d774f3e048a8fc96389",
+      "outputSha256": "03f44c7ae7edf4ca9549d0ac10a2a135268bce576da591cb18544611aec47948"
+    },
+    "/images/thumbs/vault/kollwitz-arbeiterfrau.webp": {
+      "src": "/images/vault/kollwitz-arbeiterfrau.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "385526260f9c2778390c068c46b9a56e59d1d3cf5b1de8a37cd555ea148f69d2",
+      "outputSha256": "e790b6f2a1b2249ec27cb6e71f6896e8c78b50db5a407f533c06bd02081d11d8"
+    },
+    "/images/thumbs/vault/kollwitz-battlefield.webp": {
+      "src": "/images/vault/kollwitz-battlefield.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "577a402b83291a67ca54f4acfc1dbf0dca977833039c4e0f58d7e41a76e9bb43",
+      "outputSha256": "2ac39700f474d71353aee6db8a898e728b8a8f9824c60326502de39786a4120f"
+    },
+    "/images/thumbs/vault/kollwitz-dead-child.webp": {
+      "src": "/images/vault/kollwitz-dead-child.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "61c185f3b9e5b20ec0619ffd5e4b1f8053ccd328db317665805edd7e044e04b8",
+      "outputSha256": "80c7c37dc819bd28a064c32e8b46389438fd3bb01230a4ca51f8bd29c9a95061"
+    },
+    "/images/thumbs/vault/kollwitz-downtrodden.webp": {
+      "src": "/images/vault/kollwitz-downtrodden.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "810803c47b160c13163c09011495e5df1d2cc61987516730f85aca05fb7addc9",
+      "outputSha256": "55c30637d7e1fb2e2381aacfa4a27253e0da2b456bbb7b8264d831273e7ab8a1"
+    },
+    "/images/thumbs/vault/kollwitz-hospital.webp": {
+      "src": "/images/vault/kollwitz-hospital.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7fe917b53d252172134a68ccdc405c3715d75207c87022994a73f1767ffa9ce9",
+      "outputSha256": "e2c03b3b6b81e09068346140f5343141f3a2a7725a458de6a6dbec677d56200b"
+    },
+    "/images/thumbs/vault/kollwitz-prisoners.webp": {
+      "src": "/images/vault/kollwitz-prisoners.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7f8a29809c88155929b73766fbf42fe6b538399af0eb37e93ad7dfc726717141",
+      "outputSha256": "efc8dd9060bebb1c19a16cf273dde15232c564ccb31798d200f8178e2f787089"
+    },
+    "/images/thumbs/vault/onchi-lyric-12.webp": {
+      "src": "/images/vault/onchi-lyric-12.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0692af4c2fc3815a54cfa754f2d53423938aa42481ead7efc8fc2f3ce38ee570",
+      "outputSha256": "087b93066be4ea5d2a525cc538aa34c8abe70b6b1c815a4a0fecbb6c1a0dcdf5"
+    },
+    "/images/thumbs/vault/vallotton-guitare.webp": {
+      "src": "/images/vault/vallotton-guitare.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7dd9fea8427ec60316663ba594e738387b980ea2780e3bccff0158a48e1bf0f9",
+      "outputSha256": "688e4e7b3463b8c6ed63809e994e0008e95fd47cfd250a77291937f02ce64ecd"
+    },
+    "/images/thumbs/vault/yoshida-komagatake.webp": {
+      "src": "/images/vault/yoshida-komagatake.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1fd9240714b852cf0e5aa99df4e0bc63abd16e1d11b6f4a66dbb567b496665fa",
+      "outputSha256": "0a2ecb81ec46379f5a99cd56ac2121fca8cdae643c421a3e2565976e7ea2f3ed"
+    },
+    "/images/thumbs/vault/adelaide-labille-guiard.webp": {
+      "src": "/images/vault/adelaide-labille-guiard.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "da4a5d833579725a94fe8858039e3d863247eb99665d6dd983c186df6762b7d5",
+      "outputSha256": "d8801b692faed635cffe9fe13dd5da6ca1b3882300a5e5a5c8047314cc5553ad"
+    },
+    "/images/thumbs/vault/angelica-kauffman.webp": {
+      "src": "/images/vault/angelica-kauffman.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0259d9b697120bc169598db51711c5711d444d5b5fc15d391ccf438c3223a095",
+      "outputSha256": "9f4d1d7ccfc7f1aeba2eca0f4da9be4bc7c4ddf4e53a23c826a9f45eadb0d3e3"
+    },
+    "/images/thumbs/vault/anne-louis-girodet.webp": {
+      "src": "/images/vault/anne-louis-girodet.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6746ac8ac753f35f9fb9d187d7bfa57bb546aa8a3c23b6dcf368e00c631f48ea",
+      "outputSha256": "cda8f8f583b82a44b07072b84bf794ec1dfa0c36188bfc4e29581bfeb8eed7ef"
+    },
+    "/images/thumbs/vault/anne-vallayer-coster.webp": {
+      "src": "/images/vault/anne-vallayer-coster.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f76f34696c1782f1bd9ac6ff708caa8bf7b344019b8d0e54e6b2717164f43778",
+      "outputSha256": "d1b09823dd5b1994607a62075569a49eeb3344759b0e59bcce3a684090f766a3"
+    },
+    "/images/thumbs/vault/arnold-bocklin.webp": {
+      "src": "/images/vault/arnold-bocklin.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0e23238447174feb7f71a1ba95f6c2805e8f6b3a0af3726c27961313c20ab457",
+      "outputSha256": "1537e9a21e7a5a87d262ca8bb9af3fb65a41fd9df44a9aa1633596c24682ec59"
+    },
+    "/images/thumbs/vault/elisabeth-vigee-le-brun.webp": {
+      "src": "/images/vault/elisabeth-vigee-le-brun.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1d2673f0ed959514cc971d1d6397bf808d4cd57052da8d1dcfce04c92c26a9cb",
+      "outputSha256": "9329ead86d43065745a9633b0992219a08948dfe7ab76948d6aea3ae2f7f066f"
+    },
+    "/images/thumbs/vault/gwen-john.webp": {
+      "src": "/images/vault/gwen-john.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "37a6fa7d9bce77fc308de3b6ccf903969bd9a414b60d42612e6b096242dcbeda",
+      "outputSha256": "e6a6f1ce3713fbddf4260a3594d298b4bc43a67395d98c6fb0e816e0c435f6ea"
+    },
+    "/images/thumbs/vault/helene-schjerfbeck.webp": {
+      "src": "/images/vault/helene-schjerfbeck.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0a0be8b875e90e301de230e958c137603b5dac126a9b23493ac9938b75bdcd4f",
+      "outputSha256": "856e1a28b726200be752ba740a1088562e4cc4fb35eeab93a1342f3c49735829"
+    },
+    "/images/thumbs/vault/jacek-malczewski.webp": {
+      "src": "/images/vault/jacek-malczewski.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d44bc2804705d1cf9f7f713b0373c99e7fa6df160978c979b2254f383947d746",
+      "outputSha256": "4692a8f906a4b19e7f0082f38deedee0e6d815b006a6ce11738895d8f4ee91f0"
+    },
+    "/images/thumbs/vault/kishida-ryusei.webp": {
+      "src": "/images/vault/kishida-ryusei.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "26bea814a413dda1ead771f3470a436b745bfb7b51dc2d6e81715dac833edac9",
+      "outputSha256": "32788ea48b70e6f4d49315d8047df2a02db62e768d78ebb8731b176d3d86482c"
+    },
+    "/images/thumbs/vault/leon-spilliaert.webp": {
+      "src": "/images/vault/leon-spilliaert.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "64a2ed056219b414533f907f5617303cf836a2b9e47e3b00d3d38d1f87c651f6",
+      "outputSha256": "810c94e1c32a087331c677fbc9dca8f0f076c243a9a59478fd569c978782b4ad"
+    },
+    "/images/thumbs/vault/oleksandr-murashko.webp": {
+      "src": "/images/vault/oleksandr-murashko.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1b63231bc037a025c86d9d0dc40c209a5993eab27c6098b698e8c332285e62a8",
+      "outputSha256": "d47497b10d3712b65022551d0809de7acb6634cf2d4e7d467d2e48e7d0b3c3fa"
+    },
+    "/images/thumbs/vault/olga-boznanska.webp": {
+      "src": "/images/vault/olga-boznanska.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ea9e3a42022e181b5af8d3fff7c2b4ec6d86e6cea82d8e920598aa2e7958d80f",
+      "outputSha256": "30e10399f095de09d708d37636525c8b46246f41643a56740aa10c3be3c2dae7"
+    },
+    "/images/thumbs/vault/stanislaw-wyspianski.webp": {
+      "src": "/images/vault/stanislaw-wyspianski.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d8a93fe2e41f4a3e9529128460edf90bce82d3dd10ec6301c97134c1360d24ab",
+      "outputSha256": "a11b57c1f2274d3bb427cca0c2e51ad6a799be46f953a8c895ae0515ee0e410a"
+    },
+    "/images/thumbs/vault/thomas-eakins.webp": {
+      "src": "/images/vault/thomas-eakins.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4df3f4f090d2b753af20314fe065a7138ab411f4b12f91928b382131da4e5998",
+      "outputSha256": "9858da1406175469d169b9b3644c25fbe905e94d7ab59a9a546e70800043da22"
+    },
+    "/images/plates/vault/blanchard-bracelet.webp": {
+      "src": "/images/vault/blanchard-bracelet.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "8cacb396805cdb8072a3db7b2416286f0ec5371d1e2c6be9d15d28dddcbdc142",
+      "outputSha256": "60e0c4f105feedbc35d8d7fcbe52f3326a428962647f97df7a6e08454e62060c"
+    },
+    "/images/plates/vault/blanchard-comulgante.webp": {
+      "src": "/images/vault/blanchard-comulgante.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "cd6fe7b2564ba9786c7045ba31a13fd95921db35bcedbacf48310fb0e3c88ff3",
+      "outputSha256": "983a0c8ed9b62a94696f26d7e0e0a1f9ba03d665ef6d4b5168337d149fe0c9f1"
+    },
+    "/images/plates/vault/blanchard-cubist-still.webp": {
+      "src": "/images/vault/blanchard-cubist-still.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9bb20f2847c60842c0b465acacc281aa45e46c029d5d0d6b3c108d6ad411bc60",
+      "outputSha256": "273fbe1e9b1e69fb8d7ff3ccc86238bae22751ccd9d1b0cac02c887c7f5feae4"
+    },
+    "/images/plates/vault/blanchard-guitar.webp": {
+      "src": "/images/vault/blanchard-guitar.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "6335ebcdc06c44c624a49fd39d69239a30034f768779d6f83cb3f33361de4ae0",
+      "outputSha256": "7717f39605def26a3193be6b663e80e84bc4ea1b168439ee66df446eaa3f05f1"
+    },
+    "/images/plates/vault/bocklin-death-fiddler.webp": {
+      "src": "/images/vault/bocklin-death-fiddler.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ce15092f8ddf0e47aa3b77c939d1f1ad22c8d358fc8c4609b7685c838424c671",
+      "outputSha256": "65e41029231fa4ae6c6041bf0679a62b035a3334911594e3525c66d7a30aa238"
+    },
+    "/images/plates/vault/bocklin-odysseus.webp": {
+      "src": "/images/vault/bocklin-odysseus.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "edcb19371e4c6645918bf177ff36b0403750267c28fea9f394fbf2c87bf5d2c5",
+      "outputSha256": "c239805b6fcdfc7cc3ce4cef1d16a3a430c7e73ccb84afb52182632188e96a9d"
+    },
+    "/images/plates/vault/bocklin-toteninsel-iii.webp": {
+      "src": "/images/vault/bocklin-toteninsel-iii.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3f28cc8d9a12f249db88f0baf08d367209be8f089d8416352ce6d415fd191956",
+      "outputSha256": "f9e977ab18a97092bb86ac6ceca5838b46c96d9412f259c50f4ef614c57b6341"
+    },
+    "/images/plates/vault/bocklin-villa-1865.webp": {
+      "src": "/images/vault/bocklin-villa-1865.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "dcd212f7e70a1cb791e77de364a2fe06d694c4bde5511f1f16486f5b52a73199",
+      "outputSha256": "77b5ff6b7bd817ab4e0d8275bad3a447b9fd506f63539c75f9c9615b534f0afe"
+    },
+    "/images/plates/vault/bocklin-villa-iii.webp": {
+      "src": "/images/vault/bocklin-villa-iii.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "62936f28518ed3cda80945b8be06a759a7e28e32acb7c1e1b22efb5183374142",
+      "outputSha256": "d58d64f11e46c37560b9e953115e2c97ac07ded0de960286971637d79e3e7a74"
+    },
+    "/images/plates/vault/boznanska-chrysanthemums.webp": {
+      "src": "/images/vault/boznanska-chrysanthemums.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4f05624eb366b8a063c858ac5b125eb261436b6a3e40314815d4325d6387a45c",
+      "outputSha256": "06a76741ea2d26086b4b72c4505258827c5b6427c97d865e0a17d0a0ac295838"
+    },
+    "/images/plates/vault/boznanska-flowers-self.webp": {
+      "src": "/images/vault/boznanska-flowers-self.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d423df1f9d426e925105f12016f05a96c7d5493ffdf7f8432dfc676f24f0b6ef",
+      "outputSha256": "5e708a081590d6e14b34d84b85f7d748525b0cfd8c270d7e369c328329cf1490"
+    },
+    "/images/plates/vault/boznanska-japonka.webp": {
+      "src": "/images/vault/boznanska-japonka.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "78b4ef4fca9c5fdcea3573430d0344a8874eed3debe6028e03ab2844126f70c3",
+      "outputSha256": "4e1caa1b7ff7984112778669b5d13c0a6291b3f630b362c05f40b5acc2480812"
+    },
+    "/images/plates/vault/boznanska-mother-child.webp": {
+      "src": "/images/vault/boznanska-mother-child.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1c442cc09d2244d8c43529bc58444952465257eb5df802e3c11a585170492211",
+      "outputSha256": "0ccd9141ac8cff4854325b19c9dfe8ec86ae8a46024cc3404a522fa22a881b65"
+    },
+    "/images/plates/vault/boznanska-radwan.webp": {
+      "src": "/images/vault/boznanska-radwan.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "768e665e86b73c593462bd8c84586dec0bab330de5a9cd0ef70f236823b9f3ce",
+      "outputSha256": "021eca3ada6a8ecc7ce8976ea6805eb4d1df6a7685a6d2d2df7a2c7d9fcd15f7"
+    },
+    "/images/plates/vault/boznanska-still-life-vase.webp": {
+      "src": "/images/vault/boznanska-still-life-vase.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "6563cde4eb576cba6b96f6ef7fc464323a1646b37347ff43d096357bda04d999",
+      "outputSha256": "921b20fe4f9684c441b37d096b580bf8f5b9f4ddd9699d6ee76fde5854179592"
+    },
+    "/images/plates/vault/chasseriau-esther.webp": {
+      "src": "/images/vault/chasseriau-esther.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "33dc8f1f1a7a10187528c0b7f594a756249ff41c2bf5924cc34c90d9784309c9",
+      "outputSha256": "f2261c78536d23ee128a2359761894458b4abb6f222527a81f88f3dcb8daffce"
+    },
+    "/images/plates/vault/chasseriau-tepidarium.webp": {
+      "src": "/images/vault/chasseriau-tepidarium.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d21f11fd6e375aa5184ee81c0fe8431044f4b4493657a780a08051edd29739d6",
+      "outputSha256": "640c2c2b7aa25d1e33fa4f6c0c7084d0a355d9a0faee2f54a86dd973ded584dd"
+    },
+    "/images/plates/vault/chasseriau-two-sisters.webp": {
+      "src": "/images/vault/chasseriau-two-sisters.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b92fe83469cd17bbd6808729e615afb8b1d56a83846a5c009cfe3ff2ccb3b232",
+      "outputSha256": "6f30a9071041926b91e526e56a4676dce78f0296c955d7d69dd2ed31c1e1a685"
+    },
+    "/images/plates/vault/eakins-concert-singer.webp": {
+      "src": "/images/vault/eakins-concert-singer.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "873063270a2658d1c7637a02221fb0999e24d61a2b7195d0b7a33705e4427d30",
+      "outputSha256": "b13869a580b8908b955a366e700a21566f4da998ab9bdb7e8aef009b9de980b5"
+    },
+    "/images/plates/vault/eakins-gross-clinic.webp": {
+      "src": "/images/vault/eakins-gross-clinic.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9c5d4e618cfc79e68e4bfb52a4a953817d5b6258b933c8766854c016c64570d8",
+      "outputSha256": "d7afa32eea0c745230321acc8a112beac3a3f75d23bfc2a229356ce5538e51d6"
+    },
+    "/images/plates/vault/eakins-schmitt.webp": {
+      "src": "/images/vault/eakins-schmitt.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "6089382a901d0bac49edc7c56e1ce5ba8e6864e294e0b6e041147651edd515cd",
+      "outputSha256": "b01dda09b58d04f10684caed4f457443e6970ac1c250fcc9da002c55ce213b18"
+    },
+    "/images/plates/vault/eakins-swimming.webp": {
+      "src": "/images/vault/eakins-swimming.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c685be246c58d3dbc4518349f699a9eee5245f796fb034c1434db6da8af0b8b1",
+      "outputSha256": "74361bde5cd9a766e83fc6227d1f4fe37646549013cbf27e25489d9b9f2a34a8"
+    },
+    "/images/plates/vault/fuseli-nightmare.webp": {
+      "src": "/images/vault/fuseli-nightmare.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b0a62b5274706167bdff34463f7157e7bd7d10923a899350991f1a14821cc695",
+      "outputSha256": "fbad85a6618a33d9979982786e0e6f1549ac635224e21bf6b06bcd9c8923c98c"
+    },
+    "/images/plates/vault/fuseli-thor.webp": {
+      "src": "/images/vault/fuseli-thor.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "398f5a823dc49650cef0315406b876b3f86c9e8c6b3ea1e18353fbd9a97dd6cd",
+      "outputSha256": "b53f5f7750f05cb1b02514cf12b3e5072fbabbca6aaaed5a2fba1773f6659f83"
+    },
+    "/images/plates/vault/fuseli-tiresias.webp": {
+      "src": "/images/vault/fuseli-tiresias.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7872dd1b9b99807473cf890f0305d31ccf1a7bcd3c92bde5446a8df139608d81",
+      "outputSha256": "aa3b0d285f8102445a19bb63b0ca9a349ff954e35cb6fff3a701e927efd00d50"
+    },
+    "/images/plates/vault/fuseli-titania-bottom.webp": {
+      "src": "/images/vault/fuseli-titania-bottom.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d13efa9e731b0d6706e9c7ee210dac47fdae03b1d8494914aae212bed47f9f20",
+      "outputSha256": "868aaf83b8d8b49cd342dc1e1af48977a08c5f00b241f0511f7995a8f299d891"
+    },
+    "/images/plates/vault/fuseli-titania-hires.webp": {
+      "src": "/images/vault/fuseli-titania-hires.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7892918f34c8a221ba5f47e419de0dc3f06b5821659711fcfe9084d38070f3a3",
+      "outputSha256": "0050074166b3f64227e1409428364e3aa20de58822ff17d8ed54a0b213c71e08"
+    },
+    "/images/plates/vault/girodet-atala.webp": {
+      "src": "/images/vault/girodet-atala.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7feaeee71e37b5bc8ee8d9d37a5bcb28ffcd658d618680b858ee649076f3c3e2",
+      "outputSha256": "24d457aeb4b549231ef6da612055d7d9ed7076f45f1e9bf8769f2ce32c6d9bb8"
+    },
+    "/images/plates/vault/girodet-balzac.webp": {
+      "src": "/images/vault/girodet-balzac.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4690d5e3af1f91e1c3d2d57c74ba024c1d2f8b196623026c8f29a302e61c4639",
+      "outputSha256": "6577ec6bc05de418afa7376f40c4cc2e3dca3dd56a4053a4499efc2cef85befe"
+    },
+    "/images/plates/vault/girodet-cairo.webp": {
+      "src": "/images/vault/girodet-cairo.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0b941b4fda9e0f37e85b526217416fc754a78a026a9d494b9fed42869ee53339",
+      "outputSha256": "f73a28b9f1e9c6efcf96434a1052d0f04a70c444918187d8e709b167e344637b"
+    },
+    "/images/plates/vault/girodet-endymion.webp": {
+      "src": "/images/vault/girodet-endymion.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2eeac17e22f044093fd3f873abf33d1b89d5c730102d358721ccc8f4122b4f5a",
+      "outputSha256": "54e6586b8006617b721b41cc536e2cd385c1ec62df7fc46b54e67cc8a0f0ecd5"
+    },
+    "/images/plates/vault/girodet-larrey.webp": {
+      "src": "/images/vault/girodet-larrey.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f4a2ca6326971e1d5a68ae8f5b03c42ca9ea900201fe97d062bb2bce66ad5571",
+      "outputSha256": "ba0374904c74ec543bfa2d091a21e7fa36414558f9565411e4a0520f1dcbbdc5"
+    },
+    "/images/plates/vault/girodet-odalisque.webp": {
+      "src": "/images/vault/girodet-odalisque.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "237afddfb93e366acb889af87894792bb4acc3d1c0611f611e821227ce4cb3a2",
+      "outputSha256": "e5f6e07d463862045606d323a0b8509876ba5c3b17baa3fad3d054ed3bb8d83e"
+    },
+    "/images/plates/vault/gwen-john-cloak.webp": {
+      "src": "/images/vault/gwen-john-cloak.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ec73580a806e697b21ab1b222d46d63825bf4dd09a1214b749b16493af540965",
+      "outputSha256": "1426b4a711ef8a3eaae0ad6f5e582ffd28313520dfb14fb849ad8ffa475d6874"
+    },
+    "/images/plates/vault/gwen-john-convalescent.webp": {
+      "src": "/images/vault/gwen-john-convalescent.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9bcfeac1d40f3d2c882e47b72800f1038dddadf8806be7aee3f4929f435a9ecd",
+      "outputSha256": "1a9b13b7f05737d987137028c10c991e6ecc9c38fad6010907441c2eebaa3910"
+    },
+    "/images/plates/vault/gwen-john-corner.webp": {
+      "src": "/images/vault/gwen-john-corner.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b19247e6a9206eb750c14e358d2c72c394a78f0aed3a734eda718912267417c7",
+      "outputSha256": "fd7df14710a13c688fd1e16694cb574a2b9ecf1d27c9e58d0914198a9454e773"
+    },
+    "/images/plates/vault/gwen-john-dorelia.webp": {
+      "src": "/images/vault/gwen-john-dorelia.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3b4b593c7289551d035b9573905acf34cfcfb582f8fb805d1b0cb72555cc595e",
+      "outputSha256": "80588f6b2191141f15f0991804c53acb038abdb62cdb761d9dda81c989f47953"
+    },
+    "/images/plates/vault/gwen-john-reading.webp": {
+      "src": "/images/vault/gwen-john-reading.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c437da74feb2f770b84a4cc462708ae8956dd718b8bc50d034600ad0f191562e",
+      "outputSha256": "333f034056e12954ea7222bbfa7da3c3731a0fa574db6d6e304a91ec273ac26a"
+    },
+    "/images/plates/vault/kauffman-charcoal.webp": {
+      "src": "/images/vault/kauffman-charcoal.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1829075c184381808ebbe5f431918c839559f79f337a71aabfc4efd8db0e5933",
+      "outputSha256": "f9aec2aa8ad65e3e62a16223192d375ad732b27488ee31018d11170cb9012983"
+    },
+    "/images/plates/vault/kauffman-cymon.webp": {
+      "src": "/images/vault/kauffman-cymon.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c623103d2d972913cd801848fdc61bc0bd1102ddcefac4f44dd929a6c20d97d4",
+      "outputSha256": "2beb0eaf254e04ebef061da670383e661e9ae1b2b3e6add89751d8f50dd5d630"
+    },
+    "/images/plates/vault/kauffman-diana-nymphs.webp": {
+      "src": "/images/vault/kauffman-diana-nymphs.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "23b356fff90ba050ba4bc62a98253a2e5507260f4ed82d5ccc659139fe44b807",
+      "outputSha256": "9d032f92fca2dcca8f2d673602b383396257bf87dffcb6a6a4b704d71de9ee1b"
+    },
+    "/images/plates/vault/kauffman-gower-family.webp": {
+      "src": "/images/vault/kauffman-gower-family.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1090795583f0f2948ea31738a10ea14767f0e9d8e0192301712a68b74f48bfd8",
+      "outputSha256": "6e3e6a61975d5fac9193978e94d51d44d8bf6cb673bc2e76d52e1e69179d04f5"
+    },
+    "/images/plates/vault/kauffman-self-1784.webp": {
+      "src": "/images/vault/kauffman-self-1784.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1fea2de7b74960b65a5dcd3c9e92a551cc5ff43d9ec4d3318ac8801699964107",
+      "outputSha256": "156421f5f5545d577df10542117e930c2e5ee5f1c93afa73c511d1b055842de2"
+    },
+    "/images/plates/vault/kauffman-sibyl.webp": {
+      "src": "/images/vault/kauffman-sibyl.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a108c421295749b3b004e8b410c6429b5fef0742c03b730d4f15e62c2fae69d7",
+      "outputSha256": "3278449f1061e8fcd9efef7c5a97817076a3c4d8a0d73a24b06157adb2513232"
+    },
+    "/images/plates/vault/kishida-pumpkin-woman.webp": {
+      "src": "/images/vault/kishida-pumpkin-woman.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "bb413ab3e9c845d1aa3de58c4bc5f8ec28a5be44ab858961e48338df50215bf1",
+      "outputSha256": "5b4cbe0132a97b144b6002734ee379717f544882299038c9e96db55dc3e078ba"
+    },
+    "/images/plates/vault/kishida-reiko-doll.webp": {
+      "src": "/images/vault/kishida-reiko-doll.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f419d83aca8e2bcafd3d94de087f51ee662490cf3ff58a97b496938cbb5f3bcd",
+      "outputSha256": "f28e72a1386571793128f84bc96621928987246919895c91bbe7bdbf6ad55e67"
+    },
+    "/images/plates/vault/kishida-reiko-five.webp": {
+      "src": "/images/vault/kishida-reiko-five.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "246ab166ed715d4eecfd48609f186792d5ea2b0403cb1d20ab21e8a3a20de979",
+      "outputSha256": "9b852dfddbe6b3e0bd60e3006b79ab00c62a0f443cff5208d4bc0beaf58d6476"
+    },
+    "/images/plates/vault/kishida-reiko-smiling.webp": {
+      "src": "/images/vault/kishida-reiko-smiling.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3d8ac030560951d76c0f672cc4e8a5458d629aeacf9cce6e8c7cb816b87da65f",
+      "outputSha256": "4df56f7385c5a502ffd54f29b08fb9dd2448563f80e38d3e47bb9eb62856e2c2"
+    },
+    "/images/plates/vault/krychevsky-life.webp": {
+      "src": "/images/vault/krychevsky-life.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "6eab7e9d3ef8827dbc6ce94b86c718e9a463a928a02a6c930d6955f92ffc098d",
+      "outputSha256": "e5132c17fb3185ef36c8b5bde3493c33458c45b0b11f6ee4aba6d2614ea0f926"
+    },
+    "/images/plates/vault/labille-guiard-madame-adelaide.webp": {
+      "src": "/images/vault/labille-guiard-madame-adelaide.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "075dcf1519f8ae9fcacaa27fb61f03f569fb8b976dc1c530418a80103fcbeb6b",
+      "outputSha256": "1e491cd6c8b0fc812d94b2e2427ec4c8e1b9afdaf20df15c44715a2ca2902e84"
+    },
+    "/images/plates/vault/labille-guiard-madame-elisabeth.webp": {
+      "src": "/images/vault/labille-guiard-madame-elisabeth.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7fb289b41e92d560fd3056b9a193bd6518aac0e858e7d2a3871d0b306388c8ee",
+      "outputSha256": "b7a18eb4f59d0c48aa22951d573cf9bdfb2c63ce29fbad03661ac2924a0ff62e"
+    },
+    "/images/plates/vault/labille-guiard-portrait-woman-1787.webp": {
+      "src": "/images/vault/labille-guiard-portrait-woman-1787.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "51906af6dc5d2d54ee79627f34c31e7fb221fc4176feba71c4c76f598e0e4e4a",
+      "outputSha256": "6853fdbadc9fe517291b54d1a153fdecac490b8e202fd41d668a03cf5eab3cda"
+    },
+    "/images/plates/vault/labille-guiard-self-pupils.webp": {
+      "src": "/images/vault/labille-guiard-self-pupils.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "da4a5d833579725a94fe8858039e3d863247eb99665d6dd983c186df6762b7d5",
+      "outputSha256": "4f5984a7da91ef179217e529c9690ffea26dc8bfad3954863309f3fbe7cfbcfc"
+    },
+    "/images/plates/vault/malczewski-in-the-cloud.webp": {
+      "src": "/images/vault/malczewski-in-the-cloud.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f862e836efc3e5a8d548f9a8ccef2a30ec03dbf1353001b24ccee12aab1f9886",
+      "outputSha256": "6bfa85095ea83685de4f4dfd2907694a09f0a7f25d2ce4dcce155a160244c97f"
+    },
+    "/images/plates/vault/malczewski-jasienski.webp": {
+      "src": "/images/vault/malczewski-jasienski.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3bf6f08f291f7626bdaed2018517c29fb70407640a288baf86e9d43cb8ff7b39",
+      "outputSha256": "25446ef59f7959c289c2a47a1e75e324d9943667c904486bdd8ef1f572785077"
+    },
+    "/images/plates/vault/malczewski-melancholia.webp": {
+      "src": "/images/vault/malczewski-melancholia.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e3b1cddd0430d3fc96b1f6f90771283aa2c7dee8a452089119be5a7df924ac17",
+      "outputSha256": "c3e7ab14dfc263294d46366bd824cc6f3ee6aff8e1ae53de9f338d2c3d0ca72a"
+    },
+    "/images/plates/vault/malczewski-reconciliation.webp": {
+      "src": "/images/vault/malczewski-reconciliation.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e06396311f2247f9c452011096470d60f19775ac7a4c2d57c332cdb9988a459a",
+      "outputSha256": "835a84ab2aa7505206570696abf7b451049f106b88d5030a90b391e6d4e082e0"
+    },
+    "/images/plates/vault/malczewski-thanatos-ii.webp": {
+      "src": "/images/vault/malczewski-thanatos-ii.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "584268763181f7a7cdaacb9b3e45012c9c98fdaff4eefc8fc5e8791294092702",
+      "outputSha256": "0108f01128387ffc4eb6d538722e93c9793c6eecef904f4553d889a003618141"
+    },
+    "/images/plates/vault/malczewski-thanatos.webp": {
+      "src": "/images/vault/malczewski-thanatos.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4da29b2b75e728c25201adf8e9b3a3096b81e3897eeb5d368af7f95d2e27bcf6",
+      "outputSha256": "b83e74483b81bb82304368f6f6fc67a50565dc6554ccc309c4720dc89ac0d3bc"
+    },
+    "/images/plates/vault/malczewski-vicious-circle.webp": {
+      "src": "/images/vault/malczewski-vicious-circle.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e0b2c9226eb61b125fc69f2ea5d186c190006e179decd8880c0b9e3f638e7b12",
+      "outputSha256": "57a7cb11c8a0719871821825eeebf20bedf65dbce2661f2771f4792d2165b818"
+    },
+    "/images/plates/vault/modersohn-becker-girl-child.webp": {
+      "src": "/images/vault/modersohn-becker-girl-child.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a291e8875cd032e6f35daf2fefe0565e0443f380f6ed169c407b738986cdf5a0",
+      "outputSha256": "308105b7811762d9d3c0187d915a6f0b029415827ab20f548fab69f1c19c2a4c"
+    },
+    "/images/plates/vault/modersohn-becker-poppies.webp": {
+      "src": "/images/vault/modersohn-becker-poppies.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "375fce029041846ae13fafeebdcb5462598a9c7addb9cf6695ef4ff96d659a1e",
+      "outputSha256": "3d9a0e821417379a55fc40f2aa8e603de4f53bb9bdade23f365211c3583c2bef"
+    },
+    "/images/plates/vault/modersohn-becker-rilke.webp": {
+      "src": "/images/vault/modersohn-becker-rilke.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "6abcec629a940430e97c9ea180f1e0dcd392e97d2cb5e2e43ead90ab4ff9d099",
+      "outputSha256": "385ea3b32bf58ba8c698c49641b09044886ee3b8a59ee949d0967634300ec191"
+    },
+    "/images/plates/vault/modersohn-becker-self-1906.webp": {
+      "src": "/images/vault/modersohn-becker-self-1906.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a016c2cccc4b3bfadb8209cb4155dc697b1cfd773fbeb145206b53fc40517648",
+      "outputSha256": "a2f25258c7c390da657a8f30dc238e28eba98edc8c3a8b3ac85a9ebf2abc163b"
+    },
+    "/images/plates/vault/modersohn-becker-wedding.webp": {
+      "src": "/images/vault/modersohn-becker-wedding.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ec4f5f3362569a64fe4d1a268178dff3d876fa8fa7155f8b461a8e975ade2a7f",
+      "outputSha256": "d6532d1b3ecb028e26e7c5bbbdfe7accb5ae25752e96b16609a6ec5745383e2d"
+    },
+    "/images/plates/vault/moreau-apparition.webp": {
+      "src": "/images/vault/moreau-apparition.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e8152d66f72dbda5210888ce532a06ee3af40a11bd37f79cb7b78a7b92d2765d",
+      "outputSha256": "6cd88e0688bb97dd26d046e1f4ec85afc617707bb5bbe99d98b2fe94f132bad8"
+    },
+    "/images/plates/vault/moreau-hesiod.webp": {
+      "src": "/images/vault/moreau-hesiod.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ba450e73f415517627f408f325f53d8816b192445704e81d5cf16f86d62047c0",
+      "outputSha256": "8226b69d27fcab3faf89305fdb54d2030d6ec5b36c4903d567570532e9117623"
+    },
+    "/images/plates/vault/moreau-oedipus.webp": {
+      "src": "/images/vault/moreau-oedipus.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "97f1c5923a9be22793e2137475f24e5ca8db4bc28a3589fd38fd8645f04bcaa8",
+      "outputSha256": "1287a337770044477a84a2302656cb09b5566ad9697020c41dce5af109a02266"
+    },
+    "/images/plates/vault/moreau-orpheus.webp": {
+      "src": "/images/vault/moreau-orpheus.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "007c316c2510517743d99be357272bfa0b5d7a324dff522417caf64626f4e481",
+      "outputSha256": "e133f4def1cd3aa3d226af0dd57760a8b14c93af6918b29d98b17fa3421e6990"
+    },
+    "/images/plates/vault/murashko-annunciation.webp": {
+      "src": "/images/vault/murashko-annunciation.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9a5d0c4ed6d63f03167952ea78558fc18099f3644514b6f12b11c75ae7928177",
+      "outputSha256": "d6e7c64d0432170d9fe516b1abb4f55c4da6202013981afb6eccf04eb903c6aa"
+    },
+    "/images/plates/vault/murashko-burial-otaman.webp": {
+      "src": "/images/vault/murashko-burial-otaman.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3e5fb670e48e9cd0ac5f1a920f8f47e264b7c81e704f4d1b88d9fa51e16739e5",
+      "outputSha256": "5a11508177779e8d5478c9f625ba8bf63983bf9418a5a6c3f2d2d4d334778cee"
+    },
+    "/images/plates/vault/murashko-carousel-sketch.webp": {
+      "src": "/images/vault/murashko-carousel-sketch.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "18dc806db2d186643e6dcedc3805c229df5075d0b2830359fbc30fa992a38d46",
+      "outputSha256": "07578f53413dd6f50b2252510f8bbff483d2f14e1d7740de57975cfcad692592"
+    },
+    "/images/plates/vault/murashko-girl-red-hat.webp": {
+      "src": "/images/vault/murashko-girl-red-hat.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "32dacb5f6cdee770e04a9bbcbf6c324b9ff1d1b6e63d95b6028d96de4c897d0a",
+      "outputSha256": "743e3cc55fbf40813fb8942217a73d461afa8d10ce705c3249d93ddaac9bf56e"
+    },
+    "/images/plates/vault/pirosmani-beer-seller.webp": {
+      "src": "/images/vault/pirosmani-beer-seller.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "60111616f8f1be8dad1b0d0547a8a9c2e62777c0a17f8df9b9af54afe670c98b",
+      "outputSha256": "49f5aefe5e58fcc8cea10409e3749963982f962b0ac8e2c5a713c8b12213f501"
+    },
+    "/images/plates/vault/pirosmani-deer.webp": {
+      "src": "/images/vault/pirosmani-deer.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d32d758c6948ca3439a543b6b43176a69f36884099be4cd14a6a6cad7dae1cf8",
+      "outputSha256": "f9e341aebfb4df68f3e2a5f3ebe7b008c66071a5be260092b129802761de5967"
+    },
+    "/images/plates/vault/pirosmani-feast-bank.webp": {
+      "src": "/images/vault/pirosmani-feast-bank.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "190ab4b08198744abf00b57287af5590b8e62064dde358458ac9e273652ddc7d",
+      "outputSha256": "532a372b77ad156f2929cbf0c085e27b6e99f613f08294cda021fc6f2dac251f"
+    },
+    "/images/plates/vault/pirosmani-fruit-seller.webp": {
+      "src": "/images/vault/pirosmani-fruit-seller.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b27cf0eb97ced76355f7111166cb65644cf29ebfd4ca3ddaeb5495f460357e68",
+      "outputSha256": "e21292a9d6b00fa78b62c873752ec389e9c6b82adf0a98335a444973287a10aa"
+    },
+    "/images/plates/vault/pirosmani-roe-deer.webp": {
+      "src": "/images/vault/pirosmani-roe-deer.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "5e6cad6b1b9de36c7d88715d1598fc56a8e4868976ed699f808813e746ea89a2",
+      "outputSha256": "69172ff48bf21a43a8f04da8464938405514b459b138f435e5427b930a85311b"
+    },
+    "/images/plates/vault/schjerfbeck-clothes-drying.webp": {
+      "src": "/images/vault/schjerfbeck-clothes-drying.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "79b5ed48b27c5fccb66bf8cc603b99387c2fd087b6ae63fd86da7e7e5137f63f",
+      "outputSha256": "68be1c8e290faee43f7ae467c88a3782398094e2927435aceb71392f885f64c0"
+    },
+    "/images/plates/vault/schjerfbeck-convalescent.webp": {
+      "src": "/images/vault/schjerfbeck-convalescent.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "8e4a63cfbc7680588c57b6e3019fd2e05519c62891ebacd455f1b29d2fe5927b",
+      "outputSha256": "8277a58ea13d2fe2f64ee000e0297231a89e3fefc3b83783846a5560902b1333"
+    },
+    "/images/plates/vault/schjerfbeck-heirloom.webp": {
+      "src": "/images/vault/schjerfbeck-heirloom.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d7c98c6b7b7c91840dccfa6c29bb092ac751becc3b7bc58d6393c31f886566c5",
+      "outputSha256": "0b4cef7d6046a534e315fa62f626ac8008c5dcd335a363658c8d8e28b772ac00"
+    },
+    "/images/plates/vault/schjerfbeck-mother.webp": {
+      "src": "/images/vault/schjerfbeck-mother.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b1cbe2634fc913f39db22df2b6bef3916e0a58b19aa6a762f40d71f01667cecb",
+      "outputSha256": "7e858826d8391a52346dcb1e82f06ee0787592464b0775f943032b4bf9c68abc"
+    },
+    "/images/plates/vault/schjerfbeck-red-haired.webp": {
+      "src": "/images/vault/schjerfbeck-red-haired.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "95f7928171e13d3c093718ac5b0d51b10743c5d5d9a41df49e405728f2b3ae90",
+      "outputSha256": "16e36232eb3588a26d8d52b8060e8c08827d6d6f1cf2cbbe3e78750e13ce61cd"
+    },
+    "/images/plates/vault/schjerfbeck-self-1884.webp": {
+      "src": "/images/vault/schjerfbeck-self-1884.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d68ffadd6f8bee1a7d303d7b94a8c350e26a1aef8bbeddc1bb9b21b4e6caa27f",
+      "outputSha256": "4bdb7169e5247dd52984a37cd11846264e36d7b12e6bb34a0b73c1ef8c24639f"
+    },
+    "/images/plates/vault/segantini-ave-maria.webp": {
+      "src": "/images/vault/segantini-ave-maria.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "69a4f2a0dfdce066ef0b401dbff2da104de39685b5cfadb0f95021d6e7e719a5",
+      "outputSha256": "ede56e30332a5140f3e51aa720287f677348914fd86a99e68ce9675cdb3a8087"
+    },
+    "/images/plates/vault/segantini-evil-mothers.webp": {
+      "src": "/images/vault/segantini-evil-mothers.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "53e0fbdee949379365f65fadf9159d0fbfb322c70936278e1ebdf837e84535e4",
+      "outputSha256": "b57b74f730a64fb3b36f8031a0f683aae093ad841cae7445b76ad46fb96d065e"
+    },
+    "/images/plates/vault/segantini-punishment-lust.webp": {
+      "src": "/images/vault/segantini-punishment-lust.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c0290ad05b652ec7f6503e620deb6b36f2bcda6933f7ad6d064cb63c35d27c77",
+      "outputSha256": "31ec79bb3fa8095f395c2494c3b52b15a45228ff050a7809bc5dd65648ecb135"
+    },
+    "/images/plates/vault/segantini-return-forest.webp": {
+      "src": "/images/vault/segantini-return-forest.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a288cd036d2af5b9a03a9067607f70606f31fc3b70fdf5c63900d67fb9bbe361",
+      "outputSha256": "d221187d7f05be88b636c23933d3094039c9a3cfb98e870af2f61fbd74102a80"
+    },
+    "/images/plates/vault/segantini-sheepshearing.webp": {
+      "src": "/images/vault/segantini-sheepshearing.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f7a4fe0d5fcfec2a8b281a7373360102113e1f09e153853f03f7f8006fad5f5f",
+      "outputSha256": "095fff9ef8eac759731c76a032ff3ee5e5a26e3a90fd4dce9f94e9701e8ce982"
+    },
+    "/images/plates/vault/segantini-spinning.webp": {
+      "src": "/images/vault/segantini-spinning.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2eceabe9a7836221a965be4d49a42428c3550a09c0502db3371ba324ee7b4f75",
+      "outputSha256": "2460a7c641a8da0176ad5c1c13a3463172f557fd6b2396add23b877a5b21aaa5"
+    },
+    "/images/plates/vault/sickert-camden-dawn.webp": {
+      "src": "/images/vault/sickert-camden-dawn.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "79ff6d252429ef55229ee2b6b24e60536ea64cdc565fb7efd9b86c55e3a6626a",
+      "outputSha256": "ece8271849c2d04a9cd497f651bda7a3cc76a17ebf956cb2cf27d33a7319b55e"
+    },
+    "/images/plates/vault/sickert-ennui-study.webp": {
+      "src": "/images/vault/sickert-ennui-study.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "446a1c6a9fe6b679be2259903fb74146b2ad1b3adbdade1895d80a589c260b02",
+      "outputSha256": "1c20ac99ecb4013612d4281543fc59764bf5630df4d380018d7b76028f82d755"
+    },
+    "/images/plates/vault/sickert-ennui.webp": {
+      "src": "/images/vault/sickert-ennui.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "03aff4d0285e548f5999cab4b47f0328c4853488e5feab82b149e8c6bb008da7",
+      "outputSha256": "2748bfc3bc49dd2a1fcb15d0379686710eaa6abdfe833987a41691baaf2ad9d6"
+    },
+    "/images/plates/vault/sickert-mornington.webp": {
+      "src": "/images/vault/sickert-mornington.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "156a1c21ce8a053545aa48d82630e59edea0c261aa13aa979d7fddfe1af9f3fa",
+      "outputSha256": "dad03acc081a81b358a96ef2f270e1df2db17b5e45099e90a80c941e27175c45"
+    },
+    "/images/plates/vault/sorolla-alcazar.webp": {
+      "src": "/images/vault/sorolla-alcazar.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0fdceb6506186d138c99c3b64d50f43167f7b5b8ebe5b01b7bfaac05508fa823",
+      "outputSha256": "3f248c233db3b323af37cc38f280a338ee3322ab50a3a5bb79045c81279dc771"
+    },
+    "/images/plates/vault/sorolla-house-garden.webp": {
+      "src": "/images/vault/sorolla-house-garden.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "18c673f9893872e47397847556bcfc33b0bd62d73ca978dea3608e8accd67ccb",
+      "outputSha256": "0dcc02148e23ae6c02100cf00151f1b6377dd9227b3bc597e38264975f63d038"
+    },
+    "/images/plates/vault/sorolla-palace-pond.webp": {
+      "src": "/images/vault/sorolla-palace-pond.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "dfd2f978f8c1d58d7255707bd00785fb5d86492c0277f3cee2b871b9aa7d721a",
+      "outputSha256": "83d2e8fad48cfc6be0c7a315136af372411cd6a2d1ba536c0b6a700e88648c54"
+    },
+    "/images/plates/vault/sorolla-patio.webp": {
+      "src": "/images/vault/sorolla-patio.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "feecfec1d02b466413628271bc4c27e81cf571da2092ddb13ed44be31a420f59",
+      "outputSha256": "4d6e9a745baf93c77542c0782339441e2f02de6afb62b00eb1fa2bcee4126776"
+    },
+    "/images/plates/vault/sorolla-siesta-jardin.webp": {
+      "src": "/images/vault/sorolla-siesta-jardin.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c63f1fceb08a193aab3e00b0aeb282e04d1406bd3f3f0affb5f05d30d85bdf8e",
+      "outputSha256": "052b4d06220398b1e92059c6048f1eafa68c28697ea2861ac1c07605f878359d"
+    },
+    "/images/plates/vault/spilliaert-absinthe.webp": {
+      "src": "/images/vault/spilliaert-absinthe.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7f41127610216b00632ebd3d55cfd5b934dcc62cab68024581d8a21545903243",
+      "outputSha256": "8127c8f13f071fb7fa739ba4820c9415ada3dfb485a9c1321f14e634a1151d0c"
+    },
+    "/images/plates/vault/spilliaert-pendus.webp": {
+      "src": "/images/vault/spilliaert-pendus.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d3a3afff1fae87386157f21d2ba4efb600a64f780aefd3ae3384fbbb69d2ba7b",
+      "outputSha256": "1ae3688f335e67fba7a4ad557303384ff853841e33688ce572bcde2596be8db0"
+    },
+    "/images/plates/vault/spilliaert-red-pencil.webp": {
+      "src": "/images/vault/spilliaert-red-pencil.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a4613bc5d377d8035b8d5c5ec134ff3046d8fd826279690f363a115e48ef3c7c",
+      "outputSha256": "935d77d388a31667221dd526bd66b643aa2bfd7f62e6244e891c4e72994a1b6e"
+    },
+    "/images/plates/vault/spilliaert-seawall.webp": {
+      "src": "/images/vault/spilliaert-seawall.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "87e26d32dbc8f0df5219030264dafb4f47bb2361e51d3f388733f364bb848a20",
+      "outputSha256": "c27cb4e5dc8289b5221431fca25e5bf751e9b1335fbda02f135bda38423ad069"
+    },
+    "/images/plates/vault/spilliaert-silhouette.webp": {
+      "src": "/images/vault/spilliaert-silhouette.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "97f881f85cca48e68fdae50569117a398fb2f6e564aaf47bff41058ac88cf4ce",
+      "outputSha256": "30c6254b6e6e79c0096acf57490ad3b32c1a6b2556507a8a8985e3762e5e3cc8"
+    },
+    "/images/plates/vault/spilliaert-vertigo.webp": {
+      "src": "/images/vault/spilliaert-vertigo.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "dadc9bd4d81fc7cdc5e4da35cbf644159ff95f9349e2d173c393ca164f6e2b97",
+      "outputSha256": "fbc87458675b993f6885aa91e8ee50d4fa98e6f5742a6177827e78cd81c44dee"
+    },
+    "/images/plates/vault/spilliaert-vissersvrouw.webp": {
+      "src": "/images/vault/spilliaert-vissersvrouw.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9dd1c62c8c531a8383242e2e0c0bdb5e21869c00b4f71f496306a6b25c8e2480",
+      "outputSha256": "3bdb1dab636fa710f737003310e89b84501424934abb7d7beda6672f3a689565"
+    },
+    "/images/plates/vault/taeuber-arp-animated-circle.webp": {
+      "src": "/images/vault/taeuber-arp-animated-circle.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ef6c9e86e4cbca9241761a5cb3e44990c2c8554894ae97b8f033d039507bf5e6",
+      "outputSha256": "86a6571b79a5af344ac6a79175a96af9690c69b13b1c0c5fc4c0ba335ae8d843"
+    },
+    "/images/plates/vault/taeuber-arp-composition-1930.webp": {
+      "src": "/images/vault/taeuber-arp-composition-1930.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "369e7c1394b83010b2b7b89c90ff2d7712a074b9cb3bd02baaad500b94b2196a",
+      "outputSha256": "22a4e3cd2568342581bcdcd4185bd8ed1d7932696b12abdd45ffd41e2ea46a32"
+    },
+    "/images/plates/vault/taeuber-arp-kompozycja.webp": {
+      "src": "/images/vault/taeuber-arp-kompozycja.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "20151459e111dc4ed1a09108a5dbcedf4574d2c607d23754478b2864bf7194a1",
+      "outputSha256": "27aa0a1ddc7f5bc67125d114fbd3fc70f18817967392ae8dd0ad96a717509473"
+    },
+    "/images/plates/vault/taeuber-arp-kreisbild.webp": {
+      "src": "/images/vault/taeuber-arp-kreisbild.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a9231ddc859bc09bb4656cd76e7abb85a9de1ddd4a29e7336b8fc93df4df22cd",
+      "outputSha256": "c0c65ff9e8481aca5ecbe76816272747d014a9353628d445abc46a09424e61a2"
+    },
+    "/images/plates/vault/tissot-calcutta.webp": {
+      "src": "/images/vault/tissot-calcutta.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "340be13d127c4493fa487e548f0f05fee4e181bb1fa2af68b26eec6138c773b9",
+      "outputSha256": "8b98b742daff50c01ca1c14429c0241b0875f75e9a036ae6febcde6aee6b68c1"
+    },
+    "/images/plates/vault/tissot-holyday.webp": {
+      "src": "/images/vault/tissot-holyday.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c0b0a9ab2bbbe7cbd6b951b9870d2123e12d0e3611100b7ce08e1e4a217b98fc",
+      "outputSha256": "d76822b23a6bc2ef4f95a036ae5b5fd3b87420a8da421ffe15b48ba45a815e32"
+    },
+    "/images/plates/vault/tissot-london-visitors.webp": {
+      "src": "/images/vault/tissot-london-visitors.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "58d99216279a4c821bcd951ba2d8a03db6dfee1141f8dbc25bd94837d9514f80",
+      "outputSha256": "d8d461aa813537bae6b60ccedfc2a4db9333c9865cd344cad637007db5184895"
+    },
+    "/images/plates/vault/valadon-blue-room.webp": {
+      "src": "/images/vault/valadon-blue-room.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "efccbbb35edf20b5a5ab37bf65b02fe85b24e19f3348f3b4f0080ffc47350985",
+      "outputSha256": "088935323620dbf170a40ea476485985522de72333f7ab454bcafeabee08ce71"
+    },
+    "/images/plates/vault/valadon-rose-blanche.webp": {
+      "src": "/images/vault/valadon-rose-blanche.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9e6b310fb965ee27960997c5f4467abe09cf2947ff40f78ec6f979fcd6b2f397",
+      "outputSha256": "51641495adad3ce51cdfd449b21f0d3f002081553db844316a7407817fdbdcb5"
+    },
+    "/images/plates/vault/vallayer-coster-attributes.webp": {
+      "src": "/images/vault/vallayer-coster-attributes.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "480857107d0f98c172f0835d0700d79bb0c8481b3594ebd61f1b9e24ba608941",
+      "outputSha256": "66a0c5a5d0569308ac47653ece506115f6d93383dbddf42708cf412b70f2eb23"
+    },
+    "/images/plates/vault/vallayer-coster-brioche.webp": {
+      "src": "/images/vault/vallayer-coster-brioche.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b01c97db74dfb6ab0d685ad749e4891df65c353d1eb8b0adb8ce54b196197786",
+      "outputSha256": "5c9b1a92a0ca6b0b3b0e4510581537acc65aac51caaeff30f217565e54ec08aa"
+    },
+    "/images/plates/vault/vallayer-coster-flowers.webp": {
+      "src": "/images/vault/vallayer-coster-flowers.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0fe8b9c8895623fa04830aa0108b670176e0e169a94e3d42548b8878771cffd2",
+      "outputSha256": "38ebadf3677dc91f603a1d8cf657b87990a0d5c0bc285a8b9f017f2ec53d2333"
+    },
+    "/images/plates/vault/vallayer-coster-ham.webp": {
+      "src": "/images/vault/vallayer-coster-ham.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2c09dd405db71afaebb69fb50459835c102f6b9252256c158c17642fa0419a02",
+      "outputSha256": "4b8b408ec8c7a32b0222d75402bf39798755980e6d51169a4c5489e70e0cda88"
+    },
+    "/images/plates/vault/vallayer-coster-mackerel.webp": {
+      "src": "/images/vault/vallayer-coster-mackerel.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2b7000e28119f2dc697a50507fc68bfa5f9933d19825ad3b14570b3200d810e2",
+      "outputSha256": "ab58e6faac17b7108b424d3b481cdb672e73fb5df8a5bbce00fee3502b6cf2e8"
+    },
+    "/images/plates/vault/vallayer-coster-violinist.webp": {
+      "src": "/images/vault/vallayer-coster-violinist.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a04612c5afbe3e7db2127254ae513cb14bcd2ca7d7c44a60a6b230a0803a64d4",
+      "outputSha256": "8834b31f5807f65faffd810325675165ef5e20e53caf79389a128b56ba6095f7"
+    },
+    "/images/plates/vault/vallotton-baiser.webp": {
+      "src": "/images/vault/vallotton-baiser.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b6f547e778f94d82959319fdfa64282a706200b9079d0764c5537266f61f8960",
+      "outputSha256": "e27522a842615c8e56a5810c7390c1cddbc3af1b22373c7a10fe9d34a7f658cc"
+    },
+    "/images/plates/vault/vallotton-chambre-rouge.webp": {
+      "src": "/images/vault/vallotton-chambre-rouge.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "53f2ee0e79c5a80d6ae5981edf69d6d313029104ca606bbdb062e44f20e1c971",
+      "outputSha256": "26792d8634a319ae634ef508bfc46f2b68720c3f2c780ad5176b4876ddc96e2d"
+    },
+    "/images/plates/vault/vallotton-coiffant.webp": {
+      "src": "/images/vault/vallotton-coiffant.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "98631733a4281c23340a670dcd86f0c77e5a05ad72e0db7f9456006f9092b0aa",
+      "outputSha256": "1c76bfa2765ed6d2211f4685ecde0cb4f9968cbfb5ccbfb589201eba7fbee826"
+    },
+    "/images/plates/vault/vigee-le-brun-gramont.webp": {
+      "src": "/images/vault/vigee-le-brun-gramont.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "997e8ac8b4c7969c51490e349169795c14ab9302cb46fa8e2fc5039f77042c0c",
+      "outputSha256": "2e80f8b6c11ca3549a62939062aef71c2dc5a7006519def141821a34c0bb31fe"
+    },
+    "/images/plates/vault/vigee-le-brun-hubert-robert.webp": {
+      "src": "/images/vault/vigee-le-brun-hubert-robert.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7182a60d780c2cd4216ae268e3a89940490539793c3422396c90cd559d833b0c",
+      "outputSha256": "b7f08ac9799cc67aea1c9839358d47c86dcac778c07198bb3d391b110ee2aacc"
+    },
+    "/images/plates/vault/vigee-le-brun-madame-grand.webp": {
+      "src": "/images/vault/vigee-le-brun-madame-grand.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b221ece1ca734461cef8856d9383387aadd4d12506b5f16080f50f8bae2c04d4",
+      "outputSha256": "e7fe5fa4b00e12c03b42cd8e38919a32f878b5823000940bea6ecae2d8338905"
+    },
+    "/images/plates/vault/vigee-le-brun-mole-reymond.webp": {
+      "src": "/images/vault/vigee-le-brun-mole-reymond.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "57923627446d632031405747969a6bbfa6f846dd3b2ab3c344bdef1d397e7056",
+      "outputSha256": "35a24fe02bd8841e1ededfda1cc1933221d953cb62929b12ea08e45ddcd18c70"
+    },
+    "/images/plates/vault/vigee-le-brun-straw-hat.webp": {
+      "src": "/images/vault/vigee-le-brun-straw-hat.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f58542eb2065c3e9fd56656f5484ddabf6ac9de2a988adb3cee8cf53f05c47bd",
+      "outputSha256": "5203acecb3322360ef8ab0420b33cce3e351446a76879edb1e98284dcdcf015d"
+    },
+    "/images/plates/vault/vigee-le-brun-vaudreuil.webp": {
+      "src": "/images/vault/vigee-le-brun-vaudreuil.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b69ad04740d1903bb5ed80b0407680f5735c6546fe960345f41b6e0c1f37add7",
+      "outputSha256": "f5636e82302660d49caf496794435248367e7d12ae1dd0fe8c3edb63f15b8007"
+    },
+    "/images/plates/vault/vigee-le-brun-young-boy.webp": {
+      "src": "/images/vault/vigee-le-brun-young-boy.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c81801d4875ddde1a0d8823bd0d744f84a5ada8bcb600eef8a94ea166eac4f89",
+      "outputSha256": "ff039c45b2a4977c2242d11fb691856b09e8fdf23b8513f50acb92e809257b9a"
+    },
+    "/images/plates/vault/wright-air-pump.webp": {
+      "src": "/images/vault/wright-air-pump.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e22d20cdeac1fad773d16d8af803095be8ecd82c0543b31797a6966b19a814da",
+      "outputSha256": "d7fcb092af71851dc33cc951b0e01f4a74cd5bfd45ce5268e89ea8d4d06354da"
+    },
+    "/images/plates/vault/wright-alchemist.webp": {
+      "src": "/images/vault/wright-alchemist.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3b3625065729ad4596e9ed01c84a2d286683f30932a165398e69590b0bb56301",
+      "outputSha256": "879875535ddfc1751e41ae9869d4ea87a8d61561f67e1a9afef0731d029f4b7c"
+    },
+    "/images/plates/vault/wright-iron-forge.webp": {
+      "src": "/images/vault/wright-iron-forge.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "aec587743a5b4056234e13be64ff5ada746b8e6da1db61e53286587508c84668",
+      "outputSha256": "ba9ab4bb62c5b10a046437384cdbc04f0e192dd4b759f78253175d3c0fc16e0a"
+    },
+    "/images/plates/vault/wright-orrery.webp": {
+      "src": "/images/vault/wright-orrery.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2a7369680d21884ab081a3761484c8349b5d769eacec282f3c50106248005b8e",
+      "outputSha256": "657d6008247e159fc0f68eb8b9c0d8fb285188cf9ab18d80b20ccb175ca768f7"
+    },
+    "/images/plates/vault/wright-vesuvius.webp": {
+      "src": "/images/vault/wright-vesuvius.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "273bac46b11f7b7c0ebf59e28e0d9c5b8acef2e032ad6c7dc6fc979bddbbd0cd",
+      "outputSha256": "3d13d309ba6e344157b0bf2c94e9e99c6bc9b078afc7c340bde354b0876ad532"
+    },
+    "/images/plates/vault/wyspianski-chocholy.webp": {
+      "src": "/images/vault/wyspianski-chocholy.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3502156663dcc5f8a85c497d70d783849af2eadb8c54bebc3bdcadd95c366c4d",
+      "outputSha256": "4dc2629eea260ecb96a8d451842009c6e8f47df1bd17bb0d73e0b68d13ebdefe"
+    },
+    "/images/plates/vault/wyspianski-kosciuszko.webp": {
+      "src": "/images/vault/wyspianski-kosciuszko.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "8ef30cce53966e4bd8aeee72744f28ee04b791c2dcc8fd9a507a3b4e22e1b6fa",
+      "outputSha256": "039365c35dc4ca50a749b150f89648db62cc8313a4c1d7060359201aaa8b9ec1"
+    },
+    "/images/plates/vault/wyspianski-motherhood-1905.webp": {
+      "src": "/images/vault/wyspianski-motherhood-1905.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7457b34a57670db7b70cc76f3da2bb93a4a6f9180282d00075b1f931b74f0ae2",
+      "outputSha256": "b3fe458fdd18c25d893627cc889c12a10a66d3680e4190167cf6b6f3130e7301"
+    },
+    "/images/plates/vault/wyspianski-parisian.webp": {
+      "src": "/images/vault/wyspianski-parisian.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "fb38d836b079c7cbda6bd1ea406a1d15ea825b3fcee3b7069792fc9cb56e1591",
+      "outputSha256": "365ee88308fbb9d4f9c55e956f9e761d2f18d32f3763f9b88bc0a9c4cf4b3fd4"
+    },
+    "/images/plates/vault/wyspianski-planty-dawn.webp": {
+      "src": "/images/vault/wyspianski-planty-dawn.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ae1eb181e2f8a777bd696de0d1c48a3ac18edb59b3f57aedbdd63eea7f01ab74",
+      "outputSha256": "d29e9410ac86efec728c5f95b09cac8440ef6340246ee810acccc0a7cf51e88c"
+    },
+    "/images/plates/vault/wyspianski-self-dying.webp": {
+      "src": "/images/vault/wyspianski-self-dying.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e1a7568dcdbb5d11beb58b5f06f5fedef165d1c0e175ae6f495aaf1c117b95d0",
+      "outputSha256": "07db3430ac88ed98bec5959969a5679a1726d2c61c5303e286edc69d2172a353"
+    },
+    "/images/plates/vault/zuloaga-farmers.webp": {
+      "src": "/images/vault/zuloaga-farmers.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "85d95ac51782fee3d3279aeef3e227f24e064b1e6478cbcac1d25d1550fe22a8",
+      "outputSha256": "5ffc46172586d69aaa114ba383fb61db6ddceaa7d3594a4d1865e7d6b7c1aec2"
+    },
+    "/images/plates/vault/zuloaga-gregorio.webp": {
+      "src": "/images/vault/zuloaga-gregorio.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0a534f6b540177438d58c3356af3f0a6edd4e38eb4e0d28212c33b7e7ff7f87b",
+      "outputSha256": "5953771a5f8427d0365197e65d96c61ee99195e8261eeae3e7ba597ddddd0217"
+    },
+    "/images/plates/vault/zuloaga-hermit.webp": {
+      "src": "/images/vault/zuloaga-hermit.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a56d2f7b747c6f839917623d7b270b9d26f3567b06ae1606ab4fa96fc31b0d61",
+      "outputSha256": "0ff231b035494007bf72283b70915a69487dd046902df98db326dd91b1825ce7"
+    },
+    "/images/plates/vault/zuloaga-segovia.webp": {
+      "src": "/images/vault/zuloaga-segovia.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7d7d70bee31ad9188c5082228fc9ad2bcbdfd8bfeb68f006565ac24e59b94156",
+      "outputSha256": "a5bab1db355d0c1527c996b7ff78f5749f22d44b7421fa9bc290657320aa9c31"
+    },
+    "/images/plates/vault/zuloaga-torerillo.webp": {
+      "src": "/images/vault/zuloaga-torerillo.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "12a05d52833a6e81b3156c56f87aeaacf160736e631c52deedb11660fcd06297",
+      "outputSha256": "f1326ff88071f59cd813b379e3429bb4ddc3a77b5700a2f773a72c3d911a5cc2"
+    },
+    "/images/plates/vault/rosso-bookmaker.webp": {
+      "src": "/images/vault/rosso-bookmaker.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f9c1a09c43ca04af2f87fb88ba03b955819ee64f65a065e1286ca212ea9bd847",
+      "outputSha256": "da88781eae9d5fc1c3ae3a1162282c15f99cae8ff893bf4dcefd1c29a4c3baec"
+    },
+    "/images/plates/vault/rosso-carne-altrui.webp": {
+      "src": "/images/vault/rosso-carne-altrui.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0da4c7fe84e1a65e3653329a467396d4d8df04a91afae94ecbccdd0d6031a0ba",
+      "outputSha256": "fd2a85ab8333aa0a6b9886f33615ee06535284bfea7d72ca28fe030d58117486"
+    },
+    "/images/plates/vault/rosso-enfant-soleil.webp": {
+      "src": "/images/vault/rosso-enfant-soleil.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0b3d422bc165c5a1426e0f9a3d8c29b162854f8490ba3d774f3e048a8fc96389",
+      "outputSha256": "5c7cbdaac4aa61f48beadcfc4327b8450506c0785f449f20bb8a186a488732db"
+    },
+    "/images/plates/vault/kollwitz-arbeiterfrau.webp": {
+      "src": "/images/vault/kollwitz-arbeiterfrau.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "385526260f9c2778390c068c46b9a56e59d1d3cf5b1de8a37cd555ea148f69d2",
+      "outputSha256": "a59901cac7b05ffe834edc9a75c9fece691d729b6f89b154081d33191c179772"
+    },
+    "/images/plates/vault/kollwitz-battlefield.webp": {
+      "src": "/images/vault/kollwitz-battlefield.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "577a402b83291a67ca54f4acfc1dbf0dca977833039c4e0f58d7e41a76e9bb43",
+      "outputSha256": "4916cf08927d8ce92601e72614a342f02d27f39a35d62a9d82b6ea577301425c"
+    },
+    "/images/plates/vault/kollwitz-dead-child.webp": {
+      "src": "/images/vault/kollwitz-dead-child.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "61c185f3b9e5b20ec0619ffd5e4b1f8053ccd328db317665805edd7e044e04b8",
+      "outputSha256": "6a7a821889f227a0abc71295d9ff6d4ffaa69530e16c7e75a9273ec320f32d2c"
+    },
+    "/images/plates/vault/kollwitz-downtrodden.webp": {
+      "src": "/images/vault/kollwitz-downtrodden.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "810803c47b160c13163c09011495e5df1d2cc61987516730f85aca05fb7addc9",
+      "outputSha256": "a61fd83bd00648dd82e690672c0a448abe85961e86c08b985dd296886cce50a5"
+    },
+    "/images/plates/vault/kollwitz-hospital.webp": {
+      "src": "/images/vault/kollwitz-hospital.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7fe917b53d252172134a68ccdc405c3715d75207c87022994a73f1767ffa9ce9",
+      "outputSha256": "194117ef99e83baed32d3ba0563ed2e1ae2f087de9a274856c9e1d9f9e2cae75"
+    },
+    "/images/plates/vault/kollwitz-prisoners.webp": {
+      "src": "/images/vault/kollwitz-prisoners.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7f8a29809c88155929b73766fbf42fe6b538399af0eb37e93ad7dfc726717141",
+      "outputSha256": "88f526dffd943a60d3011f6a3dd88a4468fde56378e991f6b9a37bd70d328d1f"
+    },
+    "/images/plates/vault/onchi-lyric-12.webp": {
+      "src": "/images/vault/onchi-lyric-12.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0692af4c2fc3815a54cfa754f2d53423938aa42481ead7efc8fc2f3ce38ee570",
+      "outputSha256": "d1368591e74a193e31c07d14438b0c8dee234e90663814325172e066d7002cab"
+    },
+    "/images/plates/vault/vallotton-guitare.webp": {
+      "src": "/images/vault/vallotton-guitare.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7dd9fea8427ec60316663ba594e738387b980ea2780e3bccff0158a48e1bf0f9",
+      "outputSha256": "f7cd0f2887c0761f145928a19757a6ad142adfff0562c7b644ee61da2342f844"
+    },
+    "/images/plates/vault/yoshida-komagatake.webp": {
+      "src": "/images/vault/yoshida-komagatake.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1fd9240714b852cf0e5aa99df4e0bc63abd16e1d11b6f4a66dbb567b496665fa",
+      "outputSha256": "74c70f53cd6ab6e41fabc36d62f1ce6dd7bbe5899eab5dafba2a6aece8276e68"
+    },
+    "/images/plates/vault/adelaide-labille-guiard.webp": {
+      "src": "/images/vault/adelaide-labille-guiard.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "da4a5d833579725a94fe8858039e3d863247eb99665d6dd983c186df6762b7d5",
+      "outputSha256": "4f5984a7da91ef179217e529c9690ffea26dc8bfad3954863309f3fbe7cfbcfc"
+    },
+    "/images/plates/vault/angelica-kauffman.webp": {
+      "src": "/images/vault/angelica-kauffman.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0259d9b697120bc169598db51711c5711d444d5b5fc15d391ccf438c3223a095",
+      "outputSha256": "717b67039dead31a4be1de044a124b5df81febb37a689e8cffbb5adccf17ed6c"
+    },
+    "/images/plates/vault/anne-louis-girodet.webp": {
+      "src": "/images/vault/anne-louis-girodet.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "6746ac8ac753f35f9fb9d187d7bfa57bb546aa8a3c23b6dcf368e00c631f48ea",
+      "outputSha256": "d62900598421a5a9cd607ad461b42ed2fc9560bd55753792aee5bed042f16661"
+    },
+    "/images/plates/vault/anne-vallayer-coster.webp": {
+      "src": "/images/vault/anne-vallayer-coster.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f76f34696c1782f1bd9ac6ff708caa8bf7b344019b8d0e54e6b2717164f43778",
+      "outputSha256": "5c253345422abc088f6a60c68c7916399211a4af6af65bde794833c0f7b670b4"
+    },
+    "/images/plates/vault/arnold-bocklin.webp": {
+      "src": "/images/vault/arnold-bocklin.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0e23238447174feb7f71a1ba95f6c2805e8f6b3a0af3726c27961313c20ab457",
+      "outputSha256": "7483db93bc86e9808b52f67c5691044309182a209e9a3daef96a982f3bfa43d7"
+    },
+    "/images/plates/vault/elisabeth-vigee-le-brun.webp": {
+      "src": "/images/vault/elisabeth-vigee-le-brun.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1d2673f0ed959514cc971d1d6397bf808d4cd57052da8d1dcfce04c92c26a9cb",
+      "outputSha256": "c3d6187191134af607d186f2fd4bf0fdd39210f57ec371833de4028966d8664e"
+    },
+    "/images/plates/vault/gwen-john.webp": {
+      "src": "/images/vault/gwen-john.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "37a6fa7d9bce77fc308de3b6ccf903969bd9a414b60d42612e6b096242dcbeda",
+      "outputSha256": "974b8bb5d78f1ff4f669ec995e68b18a7cc2ed952a3797f889d866d34ad519ca"
+    },
+    "/images/plates/vault/helene-schjerfbeck.webp": {
+      "src": "/images/vault/helene-schjerfbeck.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0a0be8b875e90e301de230e958c137603b5dac126a9b23493ac9938b75bdcd4f",
+      "outputSha256": "815f6bf0037db02d258314c092c0ddcfa2854469dbaeca3fc9e0de9a86be0cb5"
+    },
+    "/images/plates/vault/jacek-malczewski.webp": {
+      "src": "/images/vault/jacek-malczewski.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d44bc2804705d1cf9f7f713b0373c99e7fa6df160978c979b2254f383947d746",
+      "outputSha256": "e3ad2fc8fb6f2015ba7ee9c32cbf06f7098f106d23d69cb86c86dcf9d44a387c"
+    },
+    "/images/plates/vault/kishida-ryusei.webp": {
+      "src": "/images/vault/kishida-ryusei.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "26bea814a413dda1ead771f3470a436b745bfb7b51dc2d6e81715dac833edac9",
+      "outputSha256": "33a1e0211ca802afce853eafc6830b06153296a1907618b5adfcd57708b8cf48"
+    },
+    "/images/plates/vault/leon-spilliaert.webp": {
+      "src": "/images/vault/leon-spilliaert.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "64a2ed056219b414533f907f5617303cf836a2b9e47e3b00d3d38d1f87c651f6",
+      "outputSha256": "bb237efde4a170cd12aabc6a4ba4620c06213b974354bf42505cec3221330ab7"
+    },
+    "/images/plates/vault/oleksandr-murashko.webp": {
+      "src": "/images/vault/oleksandr-murashko.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1b63231bc037a025c86d9d0dc40c209a5993eab27c6098b698e8c332285e62a8",
+      "outputSha256": "2383d92905b78f759261445a65a19c14b87cb2b02b265e3176d526c0698ebf14"
+    },
+    "/images/plates/vault/olga-boznanska.webp": {
+      "src": "/images/vault/olga-boznanska.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ea9e3a42022e181b5af8d3fff7c2b4ec6d86e6cea82d8e920598aa2e7958d80f",
+      "outputSha256": "097d67e2a8339e1e2f403eea39444922ff0a27ce9145a518bcd62d474ef04c7a"
+    },
+    "/images/plates/vault/stanislaw-wyspianski.webp": {
+      "src": "/images/vault/stanislaw-wyspianski.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d8a93fe2e41f4a3e9529128460edf90bce82d3dd10ec6301c97134c1360d24ab",
+      "outputSha256": "5143688e3487267eb9a7b2d927d788e53f7e7ecdd42b66070411f67b6486ba17"
+    },
+    "/images/plates/vault/thomas-eakins.webp": {
+      "src": "/images/vault/thomas-eakins.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4df3f4f090d2b753af20314fe065a7138ab411f4b12f91928b382131da4e5998",
+      "outputSha256": "b52a1bcc6a07f20302f5341968d342eb60009f796f9e8af26b19000f55df6d29"
     }
   }
 }
