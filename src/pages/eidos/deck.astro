@@ -1,29 +1,27 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import EidosLayout from "../../layouts/EidosLayout.astro";
+import EidosHeader from "../../components/eidos/EidosHeader.astro";
 import "../../styles/pages/eidos.css";
+import "../../styles/pages/eidos-deck.css";
 import works from "../../data/eidos.json";
 
 // Thirty-one paintings from the Met's open-access collection, all public
 // domain, chosen for range rather than fame: renaissance to impressionism,
-// woodblock to natural history. Each carries four numbers — how still it is,
-// how much it is about people, how ordered, how lit — and the portrait at
+// woodblock to natural history. Each carries four numbers: how still it is,
+// how much it is about people, how ordered, how lit. The portrait at
 // the end is only ever the average of the ones you kept.
 const title = "the deck · eidos";
 const description = "swipe through paintings, find out what your eye is actually after.";
 ---
 
-<Layout title={title} description={description} current="home" unlisted>
-  <section class="shell session" id="eidos" data-scene="fire" aria-labelledby="e1">
-    <div class="card">
-      <h1 class="card-title" id="e1">eidos</h1>
-    </div>
-
-    <p class="lede eidos-lede">
-      <em>eidos</em>, the greek for the form of a thing, the shape you
-      recognise it by. seventy-six paintings, one at a time: keep the ones
-      that stop you, pass the ones that don't. at the end you get a reading
-      of what your eye was actually after.
-    </p>
+<EidosLayout title={title} description={description}>
+  <div class="eidos-experiment" data-mode="dream">
+    <EidosHeader current="experiment" />
+  <section class="ed-shell" id="eidos" aria-labelledby="e1">
+    <header class="ed-intro">
+      <div><p class="ep-index">a 76-card experiment</p><h1 id="e1">what does your eye keep?</h1></div>
+      <p>paintings, one at a time. keep the ones that stop you, pass the ones that do not. the pattern at the end is calculated only from your choices.</p>
+    </header>
 
     <div class="eidos" data-stage="intro">
       {/* ── the deck ── */}
@@ -72,7 +70,8 @@ const description = "swipe through paintings, find out what your eye is actually
 
       {/* ── the way in ── */}
       <div class="eidos-intro">
-        <button class="eidos-start" type="button">start looking<span class="arw" aria-hidden="true">→</span></button>
+        <img src="/images/eidos/product/card-back.webp" width="1400" height="1750" alt="Faun and Gryphon beneath an open pink circle" />
+        <div><p>there is no right answer. hesitation is information too.</p><button class="eidos-start" type="button">start looking<span class="arw" aria-hidden="true">→</span></button></div>
       </div>
 
       {/* ── the reading ── */}
@@ -85,12 +84,18 @@ const description = "swipe through paintings, find out what your eye is actually
           <button class="eidos-restart" type="button">go again</button>
         </div>
       </div>
+
+      <div class="ed-feedback" data-deck-feedback aria-hidden="true">
+        <video id="deck-feedback-keep" muted playsinline preload="metadata"><source src="/images/eidos/product/swipe-keep-overlay.webm" type="video/webm" /><source src="/images/eidos/product/swipe-keep-overlay.mp4" type="video/mp4" /></video>
+        <video id="deck-feedback-pass" muted playsinline preload="metadata"><source src="/images/eidos/product/swipe-pass-overlay.webm" type="video/webm" /><source src="/images/eidos/product/swipe-pass-overlay.mp4" type="video/mp4" /></video>
+      </div>
     </div>
 
     <p class="credit eidos-credit">
       paintings from the metropolitan museum of art's open access collection,
       all public domain.
     </p>
+    <footer class="ep-footer"><a href="/eidos">portrait</a><span>the reading never leaves this page</span><a href="/eidos/map">atlas</a></footer>
   </section>
 
   <script is:inline>
@@ -107,6 +112,16 @@ const description = "swipe through paintings, find out what your eye is actually
       const cards = [...root.querySelectorAll(".eidos-card")];
       const countEl = root.querySelector(".eidos-count b");
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const playFeedback = (kind) => {
+        if (still) return;
+        const video = document.getElementById(`deck-feedback-${kind}`);
+        if (!video) return;
+        document.querySelectorAll("[data-deck-feedback] video").forEach((item) => { item.pause(); item.classList.remove("is-playing"); });
+        video.currentTime = 0;
+        video.classList.add("is-playing");
+        video.play().catch(() => video.classList.remove("is-playing"));
+      };
+      document.querySelectorAll("[data-deck-feedback] video").forEach((video) => video.addEventListener("ended", () => video.classList.remove("is-playing")));
 
       // Shuffled once per visit, so a second run is a different order.
       const order = cards.map((_, i) => i);
@@ -131,6 +146,14 @@ const description = "swipe through paintings, find out what your eye is actually
           const c = cards[order[at + k]];
           const img = c.querySelector("img");
           if (!img.src) { img.src = c.dataset.src; img.alt = c.dataset.artist; }
+          const fitMat = () => {
+            if (!img.naturalWidth || !img.naturalHeight) return;
+            const ratio = String(img.naturalWidth / img.naturalHeight);
+            c.style.setProperty("--art-ratio", ratio);
+            if (k === 0) root.style.setProperty("--top-art-ratio", ratio);
+          };
+          if (img.complete) fitMat();
+          else img.addEventListener("load", fitMat, { once: true });
           c.hidden = false;
           c.style.zIndex = String(50 - k);
           c.style.setProperty("--behind", String(k));
@@ -163,7 +186,7 @@ const description = "swipe through paintings, find out what your eye is actually
 
       // A card is not retired until its throw finishes, so without this guard
       // a held arrow key or a fast thumb counts the same painting several
-      // times over — which quietly poisons the reading at the end.
+      // times over, which quietly poisons the reading at the end.
       let throwing = false;
 
       const throwIt = (dir) => {
@@ -171,7 +194,8 @@ const description = "swipe through paintings, find out what your eye is actually
         if (!c || throwing) return;
         throwing = true;
         if (dir > 0) kept.push(c);
-        c.style.transition = still ? "none" : "transform 420ms cubic-bezier(0.2,0,0.2,1), opacity 420ms";
+        playFeedback(dir > 0 ? "keep" : "pass");
+        c.style.transition = still ? "none" : "transform 240ms cubic-bezier(0.2,0,0.2,1), opacity 220ms cubic-bezier(0.2,0,0.2,1)";
         c.style.transform = `translate3d(${dir * 140}%, ${dir > 0 ? -8 : 8}%, 0) rotate(${dir * 18}deg)`;
         c.style.opacity = "0";
         const done = () => {
@@ -179,14 +203,16 @@ const description = "swipe through paintings, find out what your eye is actually
           throwing = false;
           if (at >= order.length) finish(); else paint();
         };
-        still ? done() : setTimeout(done, 260);
+        still ? done() : setTimeout(done, 240);
       };
 
       root.querySelector(".eidos-start").addEventListener("click", () => {
         intro.hidden = true;
         deck.hidden = false;
         root.dataset.stage = "deck";
+        root.closest(".eidos-experiment").classList.add("is-deck-active");
         paint();
+        root.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "start" });
       });
 
       root.querySelector(".eidos-btn--keep").addEventListener("click", () => throwIt(1));
@@ -222,7 +248,7 @@ const description = "swipe through paintings, find out what your eye is actually
         c.style.setProperty("--keep", "0");
         c.style.setProperty("--pass", "0");
         if (Math.abs(dx) > 90) { throwIt(dx > 0 ? 1 : -1); return; }
-        c.style.transition = "transform 300ms cubic-bezier(0.2,0,0.2,1)";
+        c.style.transition = "transform 220ms cubic-bezier(0.2,0,0.2,1)";
         c.style.transform = "";
       });
 
@@ -240,11 +266,11 @@ const description = "swipe through paintings, find out what your eye is actually
 
         const say = {
           calm: [
-            "you want a picture to hold still. what you kept is quiet on purpose — rooms where nothing is about to happen, water that has already settled.",
+            "you want a picture to hold still. what you kept is quiet on purpose: rooms where nothing is about to happen, water that has already settled.",
             "you are not drawn to stillness. the ones you kept are mid-event: weather arriving, water breaking, something about to go wrong or has just gone.",
           ],
           human: [
-            "and you look for people. faces, hands, someone caught in the middle of their own life — the landscape only matters to you when a person is standing in it.",
+            "and you look for people. faces, hands, someone caught in the middle of their own life. the landscape only matters to you when a person is standing in it.",
             "and you would rather be left alone with the world. you kept weather, water, forests and objects; the paintings with people in them went past without stopping you.",
           ],
           order: [
@@ -252,7 +278,7 @@ const description = "swipe through paintings, find out what your eye is actually
             "your eye distrusts tidiness. you kept the loose ones, the gestural ones, the paintings that look like they happened rather than were planned.",
           ],
           light: [
-            "and you keep reaching for the light — the bright, the open, the sunlit.",
+            "and you keep reaching for the light: the bright, the open, the sunlit.",
             "and you keep reaching into the dark. the ones you kept are lit by a candle at most.",
           ],
         };
@@ -262,7 +288,7 @@ const description = "swipe through paintings, find out what your eye is actually
           lines.push(say[k][v > 0 ? 0 : 1]);
         }
         if (!lines.length) {
-          lines.push("your eye refuses a type. you kept a little of everything and nothing dominates — which is its own answer: you are led by the single picture in front of you, not by a taste you carry around.");
+          lines.push("your eye refuses a type. you kept a little of everything and nothing dominates. that is its own answer: you are led by the single picture in front of you, not by a taste you carry around.");
         }
 
         const names = {};
@@ -281,7 +307,7 @@ const description = "swipe through paintings, find out what your eye is actually
         read.innerHTML = "";
         if (!kept.length) {
           const p = document.createElement("p");
-          p.textContent = "thirty-one paintings and not one of them stopped you. either the set is wrong or you were never really looking — both are worth knowing.";
+          p.textContent = "thirty-one paintings and not one of them stopped you. either the set is wrong or you were never really looking. both are worth knowing.";
           read.appendChild(p);
         } else {
           for (const l of lines) {
@@ -292,7 +318,7 @@ const description = "swipe through paintings, find out what your eye is actually
           const p = document.createElement("p");
           p.className = "eidos-tally";
           p.textContent = `you kept ${kept.length} of ${order.length}` +
-            (top3.length ? ` — most often ${top3.join(", ")}.` : ".");
+            (top3.length ? ` · most often ${top3.join(", ")}.` : ".");
           read.appendChild(p);
         }
 
@@ -310,4 +336,5 @@ const description = "swipe through paintings, find out what your eye is actually
       }
     })();
   </script>
-</Layout>
+  </div>
+</EidosLayout>

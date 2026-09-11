@@ -40,13 +40,26 @@ function fullSize(c) {
   return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(file)}?width=1600`;
 }
 
+async function sourceImage(c) {
+  const commons = c.src.startsWith(INBOX) ? fullSize(c) : null;
+  if (commons) return commons;
+  const metId = String(c.source || "").match(/metmuseum\.org\/art\/collection\/search\/(\d+)/)?.[1];
+  if (!metId) return c.src;
+  const metadata = await fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${metId}`, {
+    headers: { "user-agent": UA },
+  });
+  if (!metadata.ok) throw new Error(`${metadata.status} fetching Met record ${metId}`);
+  const record = await metadata.json();
+  return record.primaryImage || c.src;
+}
+
 async function bringHome(c) {
-  const thumb = c.src.startsWith(INBOX) ? fullSize(c) : null;
-  if (c.src.startsWith("/") && !thumb) return c.src;    // already ours
+  const remote = await sourceImage(c);
+  if (c.src.startsWith("/") && remote === c.src) return c.src;    // already ours
   const out = join(KEPT_DIR, `${c.id}.webp`);
   const local = `/images/vault/${c.id}.webp`;
   if (existsSync(out)) return local;
-  const url = (thumb || c.src).split("?")[0] + (thumb ? "?width=1600" : "");
+  const url = remote;
   const r = await fetch(url, { headers: { "user-agent": UA } });
   if (!r.ok) throw new Error(`${r.status} fetching ${url}`);
   mkdirSync(KEPT_DIR, { recursive: true });
@@ -96,7 +109,7 @@ for (const [id, v] of Object.entries(placed)) {
 // proposed weather is only used because he saw it on the card and kept it
 // anyway, which is an answer.
 const inbox = JSON.parse(readFileSync("public/inbox.json", "utf8")).candidates || [];
-const kept = Object.entries(verdicts).filter(([, v]) => v.verdict === "keep");
+const kept = Object.entries(verdicts).filter(([, v]) => v.verdict === "keep" || v.verdict === "favorite");
 const born = [];
 for (const [id, v] of kept) {
   const c = inbox.find((x) => x.id === id);
@@ -112,7 +125,7 @@ for (const [id, v] of kept) {
     born.push(`  + ${id} → ${c.who}, ${c.type}`);
     if (!apply) continue;
     mkdirSync(file.slice(0, file.lastIndexOf("/")), { recursive: true });
-    writeFileSync(file, wordNote(c, { weather: v.weather || c.weather || "", added: new Date().toISOString().slice(0, 10) }));
+    writeFileSync(file, wordNote(c, { weather: v.weather || c.weather || "", added: new Date().toISOString().slice(0, 10), say: v.say }));
     continue;
   }
   const remote = !(c.src || "").startsWith("/");
@@ -132,6 +145,8 @@ for (const [id, v] of kept) {
     weather,
     src,
     added: new Date().toISOString().slice(0, 10),
+    say: v.say,
+    favorite: v.verdict === "favorite",
   }));
 }
 if (apply && born.some((b) => b.startsWith("  +"))) {
@@ -145,7 +160,7 @@ if (apply && born.some((b) => b.startsWith("  +"))) {
 const bookmarks = kv("eidos:bookmarks") || {};
 for (const [id, b] of Object.entries(bookmarks)) {
   const v = verdicts[id];
-  if (!v || v.verdict !== "keep") continue;
+  if (!v || (v.verdict !== "keep" && v.verdict !== "favorite")) continue;
   const file = `vault/bookmarks/${id}.md`;
   if (existsSync(file)) { born.push(`  = ${id}: already a note`); continue; }
   born.push(`  + ${id} → ${b.site || "link"}, ${b.title || b.url}${b.summary ? "" : " (no summary yet)"}`);
@@ -154,6 +169,7 @@ for (const [id, b] of Object.entries(bookmarks)) {
   writeFileSync(file, bookmarkNote(b, {
     weather: v.weather || b.weather || "",
     added: new Date().toISOString().slice(0, 10),
+    say: v.say,
   }));
 }
 

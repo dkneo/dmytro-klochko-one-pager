@@ -1,16 +1,13 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import "../../styles/pages/eidos.css";
+import EidosLayout from "../../layouts/EidosLayout.astro";
+import EidosHeader from "../../components/eidos/EidosHeader.astro";
+import "../../styles/pages/eidos-studio.css";
 import inbox from "../../../public/inbox.json";
+import { groupCandidateEditions } from "../../lib/eidos-candidates.mjs";
 
-// The inbox. Where he throws links, and where he judges.
-//
-// One surface for two kinds of thing: what the harvester brought (paintings,
-// posters, objects, buildings — candidates with a picture) and what he threw
-// in himself (links — bookmarks with a title, a site, a line). Both are
-// cards; both are judged with the same motion, right if it stays, left if
-// it goes. A kept candidate becomes a note through eidos-pull; a kept link
-// becomes a bookmark note the same way, and lands on /eidos under "read".
+// Discover is deliberately only paintings, prints and posters. The source
+// inbox still carries every other picture, word and link. Nothing is deleted;
+// those records wait for their own purpose-built surfaces.
 //
 // Three things carried over from the sitting it replaces:
 //
@@ -23,132 +20,167 @@ import inbox from "../../../public/inbox.json";
 //
 //   No ceremony. He judges until he stops; the line says where he is.
 
-const candidates = (inbox.candidates || []).map((c) => ({
-  id: c.id,
-  type: c.type || "painting",
-  who: c.who || "",
-  title: c.title || "",
-  year: c.year || "",
-  weather: c.weather || "",
-  src: c.src || "",
-  url: c.url || "",
-  site: c.site || "",
-  line: c.line || "",
-  // a word card shows where it is from and its english; the note itself
-  // stays in inbox.json for the pull and never ships to the browser
-  where: c.where || "",
-  english: c.english || "",
-  source: c.source || "",
-  licence: c.licence || "",
-}));
-const pictures = candidates.filter((c) => c.src).length;
-const words = candidates.filter((c) => ["poem", "quote", "song"].includes(c.type)).length;
-const reads = candidates.length - pictures - words;
+const artworkTypes = new Set(["painting", "print", "poster"]);
+const rawCandidates = (inbox.candidates || [])
+  .filter((c) => c.src && artworkTypes.has(c.type || "painting"))
+  .map((c) => ({
+    id: c.id,
+    type: c.type || "painting",
+    who: c.who || "",
+    title: c.title || "",
+    year: c.year || "",
+    weather: c.weather || "",
+    src: c.src || "",
+    url: c.url || "",
+    site: c.site || "",
+    source: c.source || "",
+    licence: c.licence || "",
+  }));
+const candidates = groupCandidateEditions(rawCandidates);
+const pictures = candidates.length;
+const shelfCount = (types) => candidates.filter((c) => types.includes(c.type)).length;
+const shelves = [
+  { id: "all", label: "all works", count: pictures },
+  { id: "paintings", label: "paintings", count: shelfCount(["painting"]) },
+  { id: "prints", label: "prints + posters", count: shelfCount(["print", "poster"]) },
+].filter((shelf) => shelf.id === "all" || shelf.count > 0);
 
-const title = "inbox · eidos";
-const description = "throw a link in; judge what waits. the door to the library.";
+const title = "discover · eidos";
+const description = "discover paintings and posters for the moodboard.";
 ---
 
-<Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted>
-  <section class="shell session eidos-inbox" data-scene="nightcourt" aria-labelledby="ib">
-    <div class="card">
-      <h1 class="card-title" id="ib">inbox</h1>
-    </div>
-
-    <p class="today-how" id="in-lede">
-      throw me a link. i read it once, keep what a card needs, and it waits
-      here with what the harvester brought — pictures, and now poems, quotes
-      and songs. right if it stays, left if it goes; what stays becomes part
-      of <a href="/eidos">the library</a>.
-    </p>
-
-    {/* ── the door ──────────────────────────────────────────────────── */}
-    <form class="in-gate" id="gate" method="POST" action="/names" hidden>
-      <input type="hidden" name="next" value="/eidos/inbox" />
-      <p>the inbox writes to the vault, so it needs the door first.</p>
-      <label>
-        <span>password</span>
-        <input type="password" name="password" autocomplete="current-password"
-               autocapitalize="none" autocorrect="off" spellcheck="false" required />
-      </label>
-      <button type="submit">come in</button>
-      <span class="in-gate-note" id="gate-note"></span>
-      <span class="in-gate-note">
-        or <a href="/names" target="_blank" rel="noreferrer">open the door in a tab</a> and reload this page.
-      </span>
-    </form>
-
-    {/* ── the deck ──────────────────────────────────────────────────── */}
-    <p class="in-shelf" id="shelf">
-      <span id="shelf-links"></span>
-      <span>{pictures} pictures, {words} words and {reads} reads waiting</span>
-    </p>
-
-    <div class="in-stage" id="stage">
-      <article class="in-card" id="card" hidden>
-        <div class="in-art" id="art-wrap">
-          <img id="art" alt="" decoding="async" />
-          <div class="in-art-miss" id="art-miss" hidden>
-            <p>the picture did not arrive</p>
-            <button type="button" id="art-retry" class="in-btn">reload picture <span aria-hidden="true">↻</span></button>
-          </div>
+<EidosLayout title={title} description={description}>
+  <div class="eidos-studio">
+    <EidosHeader current="discover" studio />
+    <section class="in-shell" aria-labelledby="ib">
+      <header class="in-intro">
+        <div>
+          <p class="ep-index">private discovery room</p>
+          <h1 id="ib">notice. decide. remember.</h1>
         </div>
-        <div class="in-read" id="read" hidden>
-          <p class="in-site" id="r-site"></p>
-          <h2 class="in-title" id="r-title"></h2>
-          <p class="in-desc" id="r-desc"></p>
-          <p class="in-tags" id="r-tags"></p>
-        </div>
-        <p class="in-credit">
-          <b id="c-title"></b>
-          <span id="c-who"></span>
-          <a id="c-source" href="#" target="_blank" rel="noreferrer">open ↗</a>
-        </p>
-        <span class="in-edge in-edge--in" aria-hidden="true">keep</span>
-        <span class="in-edge in-edge--out" aria-hidden="true">pass</span>
-      </article>
-      <p class="in-note" id="note-line" hidden></p>
-    </div>
+        <p id="in-lede">paintings and posters, one at a time. keep what pulls you closer and pass what does not.</p>
+      </header>
 
-    <div class="in-do" id="do">
-      <button type="button" id="pass" class="in-btn in-btn--pass">pass <kbd>←</kbd></button>
-      <button type="button" id="undo" class="in-btn in-btn--undo" disabled>undo</button>
-      <button type="button" id="keep" class="in-btn in-btn--keep"><kbd>→</kbd> keep</button>
-    </div>
-
-    <p class="in-count" id="count"></p>
-
-    {/* ── the composer, under the game ──────────────────────────────── */}
-    {/* One field with a light behind it. The glow is a blurred conic
-        gradient on a ::before, not a shadow — a shadow holds one colour and
-        this holds four — and it answers focus, never hover: a glow that
-        follows the pointer is decoration; one that wakes when the caret
-        lands says the field is listening. */}
-    <form class="in-throw" id="throw" autocomplete="off">
-      <div class="in-throw-surface">
-        <label class="in-url">
-          <span class="in-sr">a link</span>
-          <input type="url" name="url" id="url" placeholder="throw me a link" inputmode="url"
-                 autocapitalize="none" autocorrect="off" spellcheck="false" required />
-          <kbd class="in-tab" aria-hidden="true">↵</kbd>
+      <form class="in-gate" id="gate" method="POST" action="/names" hidden>
+        <span class="in-gate-mark" aria-hidden="true">G</span>
+        <input type="hidden" name="next" value="/eidos/inbox" />
+        <h2>the archive is private.</h2>
+        <p>open it to continue.</p>
+        <label>
+          <span>password</span>
+          <input type="password" name="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" required />
         </label>
-        <div class="in-tools">
-          <span class="in-tool in-tool--plus" aria-hidden="true">+</span>
-          <span class="in-tool-hint">i read it once and keep what a card needs</span>
-          <button type="submit" id="throw-go" class="in-send" aria-label="throw it in">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-        </div>
+        <button type="submit">open archive</button>
+        <span class="in-gate-note" id="gate-note"></span>
+        <span class="in-gate-note">or <a href="/names" target="_blank" rel="noreferrer">open the door in a tab</a> and reload.</span>
+      </form>
+
+      <div class="in-workbench" id="workbench">
+        <aside class="in-rail" aria-label="incoming queue">
+          <div>
+            <p class="in-label">incoming</p>
+            <p class="in-count" id="count"></p>
+          </div>
+          <p class="in-shelf" id="shelf">
+            <strong>paintings and posters only</strong>
+            <span>{pictures} distinct works archived</span>
+            <small>earlier swipes and other media stay safely archived.</small>
+            <small>links have <a href="/eidos/reads">the reading room</a>.</small>
+          </p>
+          <nav class="in-filters" aria-label="filter the visual queue">
+            <p class="in-label">show me</p>
+            {shelves.map((shelf) => (
+              <button type="button" data-queue-filter={shelf.id} aria-pressed={shelf.id === "all" ? "true" : "false"}>
+                <span>{shelf.label}</span><b>{shelf.count}</b>
+              </button>
+            ))}
+          </nav>
+          <figure class="in-faun-guide">
+            <img src="/images/eidos/product/faun-mark.webp" width="720" height="720" alt="the Faun, guide to discovery" />
+            <figcaption>faun notices</figcaption>
+          </figure>
+          <div class="in-history">
+            <p class="in-label">this sitting</p>
+            <ol id="session-trail"><li class="is-empty">nothing judged yet</li></ol>
+          </div>
+        </aside>
+
+        <section class="in-center" aria-label="current discovery card">
+          <div class="in-stage" id="stage">
+            <div class="in-next-edge" aria-hidden="true"></div>
+            <article class="in-card" id="card" hidden>
+              <div class="in-leaf in-leaf--it">
+                <div class="in-art" id="art-wrap">
+                  <div class="in-plate-loader" id="plate-loader" data-plate-loader hidden aria-hidden="true">
+                    <span class="in-register-ring in-register-ring--ink"></span>
+                    <span class="in-register-ring in-register-ring--pink"></span>
+                    <span class="in-register-ring in-register-ring--ochre"></span>
+                    <i></i>
+                    <small>registering plate</small>
+                  </div>
+                  <img id="art" alt="" decoding="async" />
+                  <div class="in-art-miss" id="art-miss" hidden>
+                    <p>the picture did not arrive</p>
+                    <button type="button" id="art-retry" class="in-btn">reload picture <span aria-hidden="true">↻</span></button>
+                  </div>
+                </div>
+                <p class="in-credit">
+                  <b id="c-title"></b>
+                  <span id="c-who"></span>
+                  <a id="c-source" href="#" target="_blank" rel="noreferrer">source ↗</a>
+                </p>
+              </div>
+              <span class="in-edge in-edge--in" aria-hidden="true">keep</span>
+              <span class="in-edge in-edge--out" aria-hidden="true">pass</span>
+              <span class="in-favorite-stamp" aria-hidden="true"><b>absolute</b><small>gryphon archives</small></span>
+            </article>
+            <p class="in-note" id="note-line" hidden></p>
+          </div>
+
+          <div class="in-do" id="do">
+            <button type="button" id="pass" class="in-btn in-btn--pass" aria-keyshortcuts="ArrowLeft h">pass <kbd>←</kbd></button>
+            <button type="button" id="undo" class="in-btn in-btn--undo" aria-keyshortcuts="u z Meta+z" disabled>undo <kbd>u</kbd></button>
+            <button type="button" id="keep" class="in-btn in-btn--keep" aria-keyshortcuts="ArrowRight l"><kbd>→</kbd> keep</button>
+            <button type="button" id="favorite" class="in-btn in-btn--favorite" aria-keyshortcuts="f"><span aria-hidden="true">✦</span> absolute favorite</button>
+            <button type="button" id="keys-open" class="in-btn in-btn--keys" aria-label="keyboard shortcuts" aria-keyshortcuts="?"><kbd>?</kbd></button>
+          </div>
+
+          <div class="in-feedback" data-studio-feedback aria-hidden="true">
+            <video id="feedback-keep" muted playsinline preload="metadata"><source src="/images/eidos/product/save-to-profile.webm" type="video/webm" /><source src="/images/eidos/product/save-to-profile.mp4" type="video/mp4" /></video>
+            <video id="feedback-pass" muted playsinline preload="metadata"><source src="/images/eidos/product/pass-card.webm" type="video/webm" /><source src="/images/eidos/product/pass-card.mp4" type="video/mp4" /></video>
+          </div>
+        </section>
       </div>
-      <p class="in-throw-note" id="throw-note" aria-live="polite">what you throw in waits here with the rest, and is judged the same way.</p>
-    </form>
 
-    <a class="onward onward--back" href="/eidos">
-      <span class="arw" aria-hidden="true">↖</span><span>back to the library</span>
-    </a>
-  </section>
+      <dialog class="in-keys" id="keys" aria-labelledby="keys-h">
+        <h2 id="keys-h">keys</h2>
+        <dl>
+          <div><dt><kbd>→</kbd> <kbd>l</kbd></dt><dd>keep</dd></div>
+          <div><dt><kbd>f</kbd></dt><dd>absolute favorite</dd></div>
+          <div><dt><kbd>←</kbd> <kbd>h</kbd></dt><dd>pass</dd></div>
+          <div><dt><kbd>u</kbd> <kbd>⌘z</kbd></dt><dd>undo the last verdict</dd></div>
+          <div><dt><kbd>o</kbd> <kbd>↵</kbd></dt><dd>open source</dd></div>
+          <div><dt><kbd>r</kbd></dt><dd>reload picture</dd></div>
+          <div><dt><kbd>?</kbd></dt><dd>this sheet</dd></div>
+        </dl>
+        <form method="dialog"><button type="submit" class="in-btn">close <kbd>esc</kbd></button></form>
+      </dialog>
 
-  <style>
+      <dialog class="in-comparison" id="comparison" aria-labelledby="comparison-title">
+        <p class="in-label">the gryphon asks</p>
+        <h2 id="comparison-title">which one stays with you?</h2>
+        <p>not the better work. the one you would miss.</p>
+        <div class="in-comparison-pair">
+          <button type="button" data-comparison-choice="0"><img alt="" /><span></span></button>
+          <button type="button" data-comparison-choice="1"><img alt="" /><span></span></button>
+        </div>
+        <button type="button" class="in-comparison-skip" id="comparison-skip">not now</button>
+      </dialog>
+    </section>
+    <footer class="ep-footer"><a href="/eidos">moodboard</a><span>private discovery room</span><a href="/eidos/map">atlas</a></footer>
+  </div>
+
+  <style media="not all">
     /* An author display rule beats the user agent's [hidden]; the sitting
        learned this the hard way when its door would not close. */
     [hidden] { display: none !important; }
@@ -170,7 +202,7 @@ const description = "throw a link in; judge what waits. the door to the library.
          effect — and fully lit when the caret lands */
       opacity: 0.58;
       pointer-events: none;
-      transition: opacity 380ms ease;
+      transition: opacity 240ms var(--ease);
     }
     .in-throw:focus-within::before { opacity: 0.9; }
     .in-throw-surface {
@@ -242,7 +274,7 @@ const description = "throw a link in; judge what waits. the door to the library.
     .in-gate input { font: inherit; color: var(--bone); background: transparent; border: 1px solid var(--rule); border-radius: var(--r-row); padding: 0.5rem 0.7rem; }
     .in-gate button { justify-self: start; font: inherit; font-size: var(--t-sm); cursor: pointer; color: var(--bone); background: transparent; border: 1px solid var(--hot); border-radius: 999px; padding: 0.5rem 1.1rem; }
     .in-gate-note { color: var(--dim); font-size: var(--t-sm); text-transform: none; letter-spacing: 0; }
-    .in-gate-note a { color: var(--bone); }
+    .in-gate-note a { color: var(--bone); text-decoration: underline 1px rgb(255 155 192 / 62%); text-underline-offset: 0.22em; }
 
     .in-stage {
       position: relative;
@@ -263,8 +295,8 @@ const description = "throw a link in; judge what waits. the door to the library.
       -webkit-user-select: none;
       will-change: transform;
     }
-    .in-card.is-flying { transition: transform 0.42s var(--ease-slick), opacity 0.42s var(--ease-slick); }
-    .in-card.is-home { transition: transform 0.45s var(--ease); }
+    .in-card.is-flying { transition: transform 240ms var(--ease-slick), opacity 220ms var(--ease); }
+    .in-card.is-home { transition: transform 220ms var(--ease); }
     .in-card:active { cursor: grabbing; }
     .in-art { position: relative; display: flex; align-items: center; justify-content: center; min-height: min(38svh, 340px); }
     .in-art img.is-loading { opacity: 0.18; transition: opacity var(--dur) var(--ease); }
@@ -315,10 +347,65 @@ const description = "throw a link in; judge what waits. the door to the library.
     .in-btn--keep:hover { border-color: var(--hot); }
     .in-btn--pass:hover { border-color: var(--dim); }
     .in-btn--undo { color: var(--dim); }
+    .in-btn--keys { padding-inline: 0.8rem; color: var(--dim); }
+    .in-btn--keys:hover { border-color: var(--bone); }
+    .in-keys {
+      margin: auto; padding: var(--sp-2) var(--sp-3);
+      width: min(100% - 2rem, 26rem);
+      background: color-mix(in oklab, var(--deck) 88%, black);
+      color: var(--bone); border: 1px solid var(--rule); border-radius: var(--r-panel);
+      box-shadow: 0 22px 60px var(--shadow-deep);
+    }
+    .in-keys::backdrop { background: rgb(0 0 0 / 55%); backdrop-filter: blur(6px); }
+    .in-keys h2 { margin: 0 0 var(--sp-2); font-family: var(--serif); font-weight: 400; font-size: var(--t-lede); }
+    .in-keys dl { margin: 0; display: grid; gap: 0.45rem; }
+    .in-keys dl div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--sp-tight); align-items: baseline; }
+    .in-keys dt, .in-keys dd { margin: 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.04em; }
+    .in-keys dd { color: var(--dim); }
+    .in-keys kbd { display: inline-block; min-width: 1.4em; padding: 0.1em 0.4em; border: 1px solid var(--rule); border-radius: var(--r-print); text-align: center; color: var(--bone); }
+    .in-keys form { margin-top: var(--sp-2); display: flex; justify-content: flex-end; }
     .in-btn:disabled { opacity: 0.35; cursor: default; }
+    /* ── two leaves ─────────────────────────────────────────────────
+       Wide, the card opens like a book: the thing on the left, him on the
+       right. Narrow, the right leaf comes under. */
+    .in-leaf--me { display: grid; gap: var(--sp-tight); padding: var(--sp-tight) var(--sp-hair) 0; }
+    .in-say { display: grid; gap: var(--sp-hair); }
+    .in-say-k { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+    .in-say textarea {
+      width: 100%; min-height: 7.5rem; resize: none;
+      padding: 0.7rem 0.8rem;
+      background: color-mix(in oklab, var(--deck) 70%, black);
+      border: 1px solid var(--rule); border-radius: var(--r-row);
+      color: var(--bone); font-family: var(--serif); font-size: var(--t-prose-sm); line-height: 1.5;
+      transition: border-color var(--dur) var(--ease);
+    }
+    .in-say textarea::placeholder { color: var(--dim); }
+    .in-say textarea:focus { outline: none; border-color: var(--hot); }
+    .in-say-hint { margin: 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--dim); }
+    .in-say-hint kbd { font-family: inherit; color: var(--bone); }
+    .in-file { display: grid; gap: 0.3rem; margin: var(--sp-hair) 0 0; }
+    .in-file div { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: var(--sp-tight); align-items: baseline; }
+    .in-file dt { margin: 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+    .in-file dd { margin: 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.04em; color: var(--bone); overflow-wrap: anywhere; }
+    @media (min-width: 60rem) {
+      .in-stage { max-width: 62rem; }
+      .in-card { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--sp-2); align-items: start; }
+      .in-leaf--me { padding: var(--sp-hair) var(--sp-hair) 0 0; align-self: stretch; grid-template-rows: auto 1fr auto auto; }
+      .in-say { grid-row: 1 / 3; grid-template-rows: auto 1fr; }
+      .in-say textarea { min-height: 100%; }
+    }
+    /* ── the ground ───────────────────────────────────────────────── */
+    .in-ground {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-repeat: repeat; background-position: center; background-size: 44vmin;
+      filter: blur(14px) saturate(0.7) brightness(0.42);
+      opacity: 0; transition: opacity 0.9s var(--ease);
+    }
+    .in-ground.is-lit { opacity: 1; }
     .in-count { margin-top: var(--sp-tight); text-align: center; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.08em; color: var(--dim); }
     @media (prefers-reduced-motion: reduce) {
-      .in-card.is-flying, .in-card.is-home { transition: opacity 0.3s ease; }
+      .in-ground { transition: none; }
+      .in-card.is-flying, .in-card.is-home { transition: opacity 160ms var(--ease); }
       .in-throw::before, .in-send, .in-tab { transition: none; }
     }
     @media (max-width: 600px) {
@@ -328,62 +415,84 @@ const description = "throw a link in; judge what waits. the door to the library.
 
   <script is:inline type="application/json" id="in-data" set:html={JSON.stringify(candidates)} />
   <script>
+    import { prepareCandidateQueue } from "../../lib/eidos-candidates.mjs";
+
     (() => {
       const harvested = JSON.parse(document.getElementById("in-data").textContent);
       const $ = (id) => document.getElementById(id);
-      const card = $("card"), art = $("art"), artWrap = $("art-wrap"), read = $("read"), noteLine = $("note-line");
+      const card = $("card"), art = $("art"), noteLine = $("note-line"), plateLoader = $("plate-loader");
       const edgeIn = document.querySelector(".in-edge--in");
       const edgeOut = document.querySelector(".in-edge--out");
-      const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-      let deck = [], cur = null, sat = 0, keptThis = [], last = null, busy = false;
-      let canSummarise = false;
+      const trail = $("session-trail");
+      let deck = [], cur = null, sat = 0, positiveThis = [], last = null, busy = false;
+      let activeFilter = "all", comparisonPair = [], comparisonShown = false;
+      const session = [];
+      const filterTypes = {
+        paintings: ["painting"],
+        prints: ["print", "poster"],
+        objects: ["object", "building"],
+        photography: ["photograph"],
+        people: ["person"],
+      };
+      const matchesFilter = (cand) => activeFilter === "all" || (filterTypes[activeFilter] || []).includes(cand.type);
+      const playFeedback = (kind) => {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const video = $(`feedback-${kind}`);
+        if (!video) return;
+        document.querySelectorAll("[data-studio-feedback] video").forEach((item) => { item.pause(); item.classList.remove("is-playing"); });
+        video.currentTime = 0;
+        video.classList.add("is-playing");
+        video.play().catch(() => video.classList.remove("is-playing"));
+      };
+      document.querySelectorAll("[data-studio-feedback] video").forEach((video) => video.addEventListener("ended", () => video.classList.remove("is-playing")));
+      const renderTrail = () => {
+        trail.replaceChildren();
+        const recent = session.slice(-5).reverse();
+        if (!recent.length) { const li = document.createElement("li"); li.className = "is-empty"; li.textContent = "nothing judged yet"; trail.append(li); return; }
+        recent.forEach((entry) => {
+          const li = document.createElement("li");
+          const mark = document.createElement("b"); mark.textContent = entry.verdict === "favorite" ? "✦" : entry.verdict === "keep" ? "+" : "−";
+          const label = document.createElement("span"); label.textContent = entry.cand.title || entry.cand.who || entry.cand.type;
+          li.append(mark, label); trail.append(li);
+        });
+      };
+      const record = (cand, verdict) => { session.push({ cand, verdict }); renderTrail(); };
 
+      const renderFilters = () => {
+        document.querySelectorAll("[data-queue-filter]").forEach((button) => {
+          const id = button.dataset.queueFilter;
+          const types = filterTypes[id];
+          const all = [...deck, ...(cur ? [cur] : [])];
+          const total = id === "all" ? all.length : all.filter((cand) => types.includes(cand.type)).length;
+          button.setAttribute("aria-pressed", String(id === activeFilter));
+          const n = button.querySelector("b"); if (n) n.textContent = String(total);
+        });
+      };
       const count = () => {
-        const left = deck.length + (cur ? 1 : 0);
-        $("count").textContent = left ? `${sat} judged${sat ? " today" : ""} · ${left} left` : "";
+        const all = [...deck, ...(cur ? [cur] : [])];
+        const left = all.filter(matchesFilter).length;
+        const suffix = activeFilter === "all" ? `${left} left` : `${left} here · ${all.length} total left`;
+        $("count").textContent = all.length ? `${sat} judged${sat ? " today" : ""} · ${suffix}` : "";
+        renderFilters();
       };
 
-      // ── the deck: his links first, then what the harvester brought ────
+      // ── the visual deck ─────────────────────────────────────────────
       async function build() {
         let judged = new Set();
         try {
           const r = await fetch("/api/eidos/judged");
           if (r.ok) judged = new Set((await r.json()).judged || []);
         } catch {}
-        let mine = [];
-        try {
-          const r = await fetch("/api/eidos/bookmarks");
-          if (r.ok) {
-            const d = await r.json();
-            canSummarise = Boolean(d.canSummarise);
-            mine = (d.bookmarks || []).filter((b) => !b.verdict).map((b) => ({ ...b, type: "bookmark", kind: "mine" }));
-          }
-        } catch {}
-        const rest = harvested.filter((c) => !judged.has(c.id));
-        // Harvest order is a run of look-alikes: two hundred Met objects,
-        // then the Met's paintings, then the Commons ones. The deck is dealt
-        // so no card shares its kind, its museum or its maker with the card
-        // before it, and eras alternate. Seeded by the day, so a refresh does
-        // not reshuffle what he was in the middle of.
-        const era = (y) => { const n = Number((String(y || "").match(/\d{4}/) || [])[0]); return !n ? "?" : n < 1800 ? "old" : n < 1900 ? "19c" : n < 1946 ? "early20" : "modern"; };
-        const host = (c) => { try { return new URL(c.source || c.url || "").host; } catch { return ""; } };
+        // A daily shuffle prevents museum batches from becoming the
+        // experience. The queue then deals in rounds: one work by every
+        // available artist before a second by anyone. Alternate editions of
+        // a work share all of their verdict ids, so judging one retires them
+        // all without deleting any history.
         let seed = Number(new Date().toISOString().slice(0, 10).replace(/-/g, "")) % 2147483647;
         const rnd = () => (seed = (seed * 48271) % 2147483647) / 2147483647;
-        const pool = rest.slice().sort(() => rnd() - 0.5);
-        const dealt = [];
-        let prev = null;
-        while (pool.length) {
-          let pick = pool.findIndex((c) => !prev || (c.type !== prev.type && host(c) !== host(prev) && (c.who || "") !== (prev.who || "") && era(c.year) !== era(prev.year)));
-          if (pick < 0) pick = pool.findIndex((c) => !prev || (c.type !== prev.type && (c.who || "") !== (prev.who || "")));
-          if (pick < 0) pick = 0;
-          prev = pool.splice(pick, 1)[0];
-          dealt.push(prev);
-        }
-        deck = [...mine, ...dealt];
-        $("shelf-links").textContent = mine.length
-          ? `${mine.length} link${mine.length === 1 ? "" : "s"} you threw in, unjudged · `
-          : "";
-        if (!deck.length) return rest_("nothing waits. throw a link in, or let the harvester bring more.");
+        const shuffled = harvested.slice().sort(() => rnd() - 0.5);
+        deck = prepareCandidateQueue(shuffled, judged);
+        if (!deck.length) return rest_("nothing visual waits. let the harvester bring more artists.");
         if (!(await doorOpen())) return shutOut(null);
         next();
       }
@@ -395,82 +504,41 @@ const description = "throw a link in; judge what waits. the door to the library.
         art.src = cur.src + (cur.src.includes("?") ? "&" : "?") + "r=" + Date.now();
       });
       function prefetch() { const n = deck[0]; if (n && n.src) { const i = new Image(); i.src = n.src; } }
-      const WORDS = new Set(["poem", "quote", "song"]);
       function show(c) {
-        const isRead = !c.src;
-        artWrap.hidden = isRead;
-        read.hidden = !isRead;
-        $("r-desc").classList.toggle("is-verse", WORDS.has(c.type));
-        if (WORDS.has(c.type)) {
-          $("r-site").textContent = c.type + (c.where ? " · " + c.where : "") + (c.year ? " · " + c.year : "");
-          $("r-title").textContent = c.type === "song" ? `${c.who} — ${c.title}` : c.who;
-          const text = c.type === "song" ? "" : (c.line || "") + (c.english ? "\n\n" + c.english : "");
-          $("r-desc").textContent = text;
-          $("r-desc").hidden = !text;
-          $("r-tags").hidden = true;
-          $("c-title").textContent = "";
-          $("c-who").textContent = "to judge";
-          $("c-source").href = c.source || "#";
-          $("c-source").hidden = !c.source;
-        } else if (isRead) {
-          $("c-source").hidden = false;
-          $("r-site").textContent = c.site || (c.url ? new URL(c.url).hostname.replace(/^www\./, "") : "");
-          $("r-title").textContent = c.title || c.url || "";
-          const desc = c.summary || c.description || c.line || c.excerpt || "";
-          $("r-desc").textContent = desc;
-          $("r-desc").hidden = !desc;
-          const tags = (c.tags || []).filter(Boolean);
-          $("r-tags").innerHTML = tags.map((t) => `<i>#</i>${esc(t)}`).join(" ");
-          $("r-tags").hidden = !tags.length;
-          $("c-title").textContent = c.who || "";
-          $("c-who").textContent = c.summary ? "summarised" : (c.kind === "mine" ? (canSummarise ? "" : "no summary: no key set") : "suggested");
-          $("c-source").href = c.url || c.source || "#";
-          if (!c.summary && c.url && !gated) summariseCard(c);
-        } else {
-          $("c-source").hidden = false;
-          // The caption and the picture used to change at different moments:
-          // the caption at once, the picture only when it had decoded. Slow or
-          // failed, the previous card's painting sat under the new card's name.
-          art.removeAttribute("src");
-          art.classList.add("is-loading");
-          $("art-miss").hidden = true;
-          delete art.dataset.failed;
-          art.src = c.src;
-          art.alt = `${c.title}, ${c.who}`;
-          $("c-title").textContent = c.title;
-          $("c-who").textContent = `${c.who}${c.year ? " · " + c.year : ""}${c.type && c.type !== "painting" ? " · " + c.type : ""}`;
-          $("c-source").href = c.source || "#";
-        }
-      }
-      // the summary a harvested link never had: asked for once, cached by the
-      // worker, written into the card if it is still the one showing
-      async function summariseCard(c) {
-        try {
-          const r = await fetch("/api/eidos/summary", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ url: c.url }) });
-          if (!r.ok) return;
-          const { summary, tags } = await r.json();
-          if (!summary) return;
-          c.summary = summary; c.tags = tags || [];
-          if (cur && cur.id === c.id) {
-            $("r-desc").textContent = summary; $("r-desc").hidden = false;
-            $("r-tags").innerHTML = (c.tags || []).map((t) => `<i>#</i>${esc(t)}`).join(" "); $("r-tags").hidden = !c.tags.length;
-            $("c-who").textContent = "summarised";
-          }
-        } catch {}
+        $("c-source").hidden = false;
+        // Clear the old picture before the new caption changes. The loader is
+        // the registration of a new plate, never a mascot over the artwork.
+        art.removeAttribute("src");
+        art.classList.add("is-loading");
+        plateLoader.hidden = false;
+        $("art-miss").hidden = true;
+        delete art.dataset.failed;
+        art.src = c.src;
+        art.alt = `${c.title}, ${c.who}`;
+        $("c-title").textContent = c.title;
+        $("c-who").textContent = `${c.who}${c.year ? " · " + c.year : ""}${c.type && c.type !== "painting" ? " · " + c.type : ""}`;
+        $("c-source").href = c.source || "#";
       }
       function next() {
-        cur = deck.shift() || null;
-        if (!cur) return rest_("that is all of them. throw a link in, or let the harvester bring more.");
-        art.onload = () => { art.classList.remove("is-loading"); $("art-miss").hidden = true; };
+        const pick = activeFilter === "all" ? 0 : deck.findIndex(matchesFilter);
+        cur = pick >= 0 ? deck.splice(pick, 1)[0] : null;
+        if (!cur) return rest_(deck.length ? "nothing else waits on this shelf. choose another." : "that is all of the visual queue. let the harvester bring more.");
+        art.onload = () => {
+          const ratio = art.naturalWidth / art.naturalHeight;
+          $("stage").dataset.orientation = ratio < 0.82 ? "portrait" : ratio > 1.22 ? "landscape" : "square";
+          art.classList.remove("is-loading"); $("art-miss").hidden = true;
+          plateLoader.hidden = true;
+        };
         art.onerror = () => {
           if (!cur || !art.getAttribute("src")) return;
           art.classList.remove("is-loading");
+          plateLoader.hidden = true;
           $("art-miss").hidden = false;
           $("art-miss").querySelector("p").textContent = `${cur.title} did not arrive from ${(() => { try { return new URL(cur.src, location.href).host.replace(/^www\./, ""); } catch { return "its source"; } })()}`;
         };
         show(cur);
         card.hidden = false;
-        card.classList.remove("is-flying", "is-home");
+        card.classList.remove("is-flying", "is-home", "is-favorite");
         card.style.transform = "";
         card.style.opacity = "";
         edgeIn.style.opacity = 0; edgeOut.style.opacity = 0;
@@ -486,12 +554,12 @@ const description = "throw a link in; judge what waits. the door to the library.
         noteLine.hidden = false;
         noteLine.textContent = "";
         const p = document.createElement("span");
-        p.textContent = text || `that is all of them. ${keptThis.length} kept; they appear in the library once they are taken in.`;
+        p.textContent = text || `that is all of them. ${positiveThis.length} kept; they appear in the library once they are taken in.`;
         noteLine.append(p);
-        if (keptThis.length) {
+        if (positiveThis.length) {
           const row = document.createElement("span");
           row.className = "in-kept";
-          for (const k of keptThis) {
+          for (const k of positiveThis) {
             if (k.src) { const im = document.createElement("img"); im.src = k.src; im.alt = k.title; row.append(im); }
             else { const i = document.createElement("i"); i.textContent = (k.site || "link").slice(0, 10); i.title = k.title || k.url; row.append(i); }
           }
@@ -499,6 +567,15 @@ const description = "throw a link in; judge what waits. the door to the library.
         }
         count();
       }
+
+      document.querySelectorAll("[data-queue-filter]").forEach((button) => button.addEventListener("click", () => {
+        if (busy || button.dataset.queueFilter === activeFilter) return;
+        if (cur) deck.unshift(cur);
+        cur = null;
+        activeFilter = button.dataset.queueFilter;
+        $("do").hidden = false;
+        next();
+      }));
 
       // ── the verdicts, spoken to the server ───────────────────────────
       let gated = false;
@@ -510,6 +587,10 @@ const description = "throw a link in; judge what waits. the door to the library.
             body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather || "" }),
           });
           if (r.status === 401) { shutOut({ cand, verdict, weather }); return false; }
+          if (!r.ok) {
+            noteLine.hidden = false;
+            noteLine.textContent = `that one did not reach the vault (the server said ${r.status}). undo brings it back; try again in a moment.`;
+          }
           return r.ok;
         } catch {
           noteLine.hidden = false;
@@ -522,6 +603,7 @@ const description = "throw a link in; judge what waits. the door to the library.
         if (gated) return;
         gated = true;
         $("gate").hidden = false;
+        $("workbench").hidden = true;
         $("do").hidden = true;
         $("stage").hidden = true;
         $("gate-note").textContent = pending.length
@@ -547,47 +629,42 @@ const description = "throw a link in; judge what waits. the door to the library.
           field.select(); return;
         }
         gated = false; field.value = "";
-        $("gate").hidden = true; $("do").hidden = false; $("stage").hidden = false; $("gate-note").textContent = "";
+        $("gate").hidden = true; $("workbench").hidden = false; $("do").hidden = false; $("stage").hidden = false; $("gate-note").textContent = "";
         for (const u of pending.splice(0)) await send(u.cand, u.verdict, u.weather);
         if (!cur) build();
       });
 
-      // ── the composer ─────────────────────────────────────────────────
-      const form = $("throw"), urlField = $("url"), go = $("throw-go"), tnote = $("throw-note");
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const url = urlField.value.trim();
-        if (!url) return;
-        go.disabled = true;
-        tnote.textContent = "reading it…";
-        try {
-          const r = await fetch("/api/eidos/bookmark", {
-            method: "POST", headers: { "content-type": "application/json" },
-            body: JSON.stringify({ url }),
-          });
-          if (r.status === 401) { tnote.textContent = "the door first."; shutOut(null); return; }
-          const d = await r.json();
-          if (!r.ok) { tnote.textContent = d.error || "could not read that one."; return; }
-          const b = { ...d.bookmark, type: "bookmark", kind: "mine" };
-          tnote.textContent = d.already
-            ? "already in the inbox."
-            : `kept: ${b.title}${d.summarised ? " · summarised" : canSummarise ? "" : " · no summary until a key is set"}`;
-          urlField.value = ""; noteField.value = "";
-          if (!d.already) {
-            // the new card goes to the front, so what he just threw is what he sees
-            if (cur) deck.unshift(cur);
-            deck.unshift(b);
-            $("do").hidden = false;
-            next();
-          }
-        } catch {
-          tnote.textContent = "could not reach the inbox. the connection, not you.";
-        } finally {
-          go.disabled = false;
-        }
-      });
+      // ── the judgments ───────────────────────────────────────────────
+      const comparison = $("comparison");
+      const comparisonButtons = [...comparison.querySelectorAll("[data-comparison-choice]")];
+      function maybeCompare() {
+        if (comparisonShown || comparison.open) return;
+        if (!(positiveThis.length >= 12)) return;
+        const latest = positiveThis[positiveThis.length - 1];
+        const earlier = positiveThis.slice(0, -1).reverse().find((cand) => cand.who !== latest.who) || positiveThis[0];
+        if (!earlier || earlier.id === latest.id) return;
+        comparisonPair = [earlier, latest];
+        comparisonButtons.forEach((button, index) => {
+          const cand = comparisonPair[index];
+          const image = button.querySelector("img");
+          image.src = cand.src; image.alt = cand.title || cand.who;
+          button.querySelector("span").textContent = [cand.title, cand.who].filter(Boolean).join(" · ");
+        });
+        comparisonShown = true;
+        comparison.showModal();
+      }
+      async function saveComparison(winner) {
+        if (!winner || comparisonPair.length !== 2) return;
+        await fetch("/api/eidos/pair", {
+          method: "POST", headers: { "content-type": "application/json" },
+          body: JSON.stringify({ weather: "overall", winner: winner.id, pair: comparisonPair.map((cand) => cand.id) }),
+        }).catch(() => {});
+        comparison.close();
+      }
+      comparisonButtons.forEach((button, index) => button.addEventListener("click", () => saveComparison(comparisonPair[index])));
+      $("comparison-skip").addEventListener("click", () => comparison.close());
+      comparison.addEventListener("click", (event) => { if (event.target === comparison) comparison.close(); });
 
-      // ── the two motions ──────────────────────────────────────────────
       function fly(dir) {
         card.classList.add("is-flying");
         card.style.transform = `translateX(${dir * 120}vw) rotate(${dir * 16}deg)`;
@@ -596,31 +673,71 @@ const description = "throw a link in; judge what waits. the door to the library.
       function pass() {
         if (!cur || busy) return;
         busy = true; const cand = cur; last = { cand, verdict: "pass" }; $("undo").disabled = false;
-        fly(-1); send(cand, "pass"); sat++; setTimeout(next, 300);
+        record(cand, "pass");
+        playFeedback("pass"); fly(-1); send(cand, "pass", ""); sat++; setTimeout(next, 240);
       }
       function keep() {
         if (!cur || busy) return;
         busy = true; const cand = cur; last = { cand, verdict: "keep" }; $("undo").disabled = false;
-        keptThis.push(cand); send(cand, "keep", cand.weather); sat++; fly(1); setTimeout(next, 300);
+        positiveThis.push(cand); record(cand, "keep");
+        playFeedback("keep"); send(cand, "keep", cand.weather); sat++; fly(1); setTimeout(() => { next(); maybeCompare(); }, 240);
       }
-      $("undo").addEventListener("click", () => {
-        if (!last) return;
-        if (last.verdict === "keep") keptThis = keptThis.filter((k) => k.id !== last.cand.id);
+      function favorite() {
+        if (!cur || busy) return;
+        busy = true; const cand = cur; last = { cand, verdict: "favorite" }; $("undo").disabled = false;
+        positiveThis.push(cand); record(cand, "favorite");
+        card.classList.add("is-favorite");
+        playFeedback("keep"); send(cand, "favorite", cand.weather); sat++;
+        setTimeout(() => { fly(1); setTimeout(() => { next(); maybeCompare(); }, 220); }, 360);
+      }
+      function undo() {
+        if (!last || busy) return;
+        if (last.verdict === "keep" || last.verdict === "favorite") positiveThis = positiveThis.filter((k) => k.id !== last.cand.id);
         if (cur) deck.unshift(cur);
         deck.unshift(last.cand);
+        session.pop(); renderTrail();
         sat = Math.max(0, sat - 1); last = null; $("undo").disabled = true; $("do").hidden = false; next();
-      });
+      }
+      function openSource() {
+        const href = cur && (cur.url || cur.source);
+        if (href && href !== "#") window.open(href, "_blank", "noopener,noreferrer");
+      }
+      $("undo").addEventListener("click", undo);
       $("pass").addEventListener("click", pass);
       $("keep").addEventListener("click", keep);
+      $("favorite").addEventListener("click", favorite);
+      const keys = $("keys");
+      const toggleKeys = () => (keys.open ? keys.close() : keys.showModal());
+      $("keys-open").addEventListener("click", toggleKeys);
+      // a click on the backdrop, outside the sheet's own box, closes it
+      keys.addEventListener("click", (e) => { if (e.target === keys) keys.close(); });
+      // The rules every keyboard-first tool agrees on: single letters do
+      // nothing while a field has focus; a held key does not fire twice; a
+      // chord with alt or ctrl belongs to the browser, except undo's own.
+      const KEYS = {
+        ArrowRight: keep, l: keep,
+        ArrowLeft: pass, h: pass,
+        f: favorite,
+        u: undo, z: undo,
+        o: openSource, Enter: openSource,
+        r: () => { if (cur && cur.src) $("art-retry").click(); },
+        "?": toggleKeys,
+      };
       document.addEventListener("keydown", (e) => {
         if (e.target && e.target.closest && e.target.closest("input,textarea,select")) return;
-        if (e.key === "ArrowLeft") pass();
-        if (e.key === "ArrowRight") keep();
+        if (keys.open) return; // the dialog answers esc itself; nothing else while it is up
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "z") { e.preventDefault(); undo(); return; }
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        const act = KEYS[e.key];
+        if (!act) return;
+        if (e.repeat && act !== undo) return;
+        e.preventDefault();
+        act();
       });
 
       // ── the hand on the card ─────────────────────────────────────────
       let x0 = 0, dx = 0, dragging = false;
-      const onDown = (e) => { if (!cur || busy || e.target.closest("a, button")) return; dragging = true; x0 = e.clientX; card.classList.remove("is-flying", "is-home"); card.setPointerCapture?.(e.pointerId); };
+      const onDown = (e) => { if (!cur || busy || e.target.closest("a, button, textarea, label")) return; dragging = true; x0 = e.clientX; card.classList.remove("is-flying", "is-home"); card.setPointerCapture?.(e.pointerId); };
       const onMove = (e) => {
         if (!dragging) return;
         dx = e.clientX - x0;
@@ -644,4 +761,4 @@ const description = "throw a link in; judge what waits. the door to the library.
       build();
     })();
   </script>
-</Layout>
+</EidosLayout>

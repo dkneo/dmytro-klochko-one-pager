@@ -4,6 +4,10 @@ who: J. M. W. Turner
 title: Norham Castle, Sunrise
 year: c. 1845
 collection: Tate, London
+collection_city: London
+collection_url: https://shop.tate.org.uk/jmw-turner-norham-castle-sunrise/turner033.html
+height_cm: 90.8
+width_cm: 121.9
 src: /images/today/turner.webp
 source: "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Norham_Castle,_Sunrise_-_WGA23182.jpg"
 licence: public domain

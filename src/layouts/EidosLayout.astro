@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+import "../styles/pages/eidos-product.css";
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = "/og-eidos.png",
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en" data-eidos-product>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f2e2c9" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/newsreader-400.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/zodiak-400.woff2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/eidos/product/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/eidos/product/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/images/eidos/product/apple-touch-icon-180.png" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+  </head>
+  <body class="eidos-body">
+    <a class="eidos-skip" href="#eidos-main">skip to content</a>
+    <main id="eidos-main" tabindex="-1">
+      <slot />
+    </main>
+  </body>
+</html>
+

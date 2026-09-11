@@ -3,6 +3,9 @@ type: painting
 who: Frederic Remington
 title: Scouts Climbing a Mountain
 year: 1891
+collection: "Museum of Fine Arts, Houston"
+collection_city: "Houston"
+collection_url: "https://emuseum.mfah.org/objects/45610"
 src: /images/vault/scouts-climbing-a-mountain.webp
 source: "https://commons.wikimedia.org/wiki/File:Frederic_Remington_-_Scouts_Climbing_a_Mountain_-_43.11_-_Museum_of_Fine_Arts.jpg"
 licence: public domain

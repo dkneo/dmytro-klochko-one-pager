@@ -71,8 +71,8 @@ test("a screenshot is not dressed as a photograph", () => {
 test("hover and chosen are different weights, and hover waits for a real pointer", () => {
   const css = dream();
   for (const [sel, weight] of [
-    [".log--journey li\\[data-easel\\]:hover", "--bone) 5.5%"],
-    [".log--journey li\\[data-easel\\].is-shown", "--hot) 9%"],
+    [".log--journey .log-bead\\[data-easel\\]:hover", "--bone) 5.5%"],
+    [".log--journey .log-bead\\[data-easel\\].is-shown", "--hot) 9%"],
     [".pr-row:hover", "--bone) 5.5%"],
   ]) {
     const rule = css.match(new RegExp(`${sel} \\{[^}]*\\}`))?.[0];
@@ -80,7 +80,7 @@ test("hover and chosen are different weights, and hover waits for a real pointer
     assert.ok(rule.includes(weight), `${sel} should light at ${weight}, got: ${rule}`);
   }
   // both hovers sit inside a real-pointer query
-  for (const sel of ["log--journey li[data-easel]:hover", "pr-row:hover"]) {
+  for (const sel of ["log--journey .log-bead[data-easel]:hover", "pr-row:hover"]) {
     const at = css.indexOf(sel);
     const before = css.slice(Math.max(0, at - 400), at);
     assert.match(before, /@media \(hover: hover\) and \(pointer: fine\)/,

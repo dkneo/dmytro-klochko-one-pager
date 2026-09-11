@@ -172,11 +172,24 @@ test("xu hangs a painting, not only the photograph", () => {
 });
 
 test("a person without a picture does not ship a broken img", () => {
-  const src = read("src/pages/eidos/index.astro");
-  assert.match(src, /it\.src\s*\n?\s*\? <img/, "the hall still always paints an img");
+  const map = JSON.parse(read("src/data/map.json"));
+  const person = map.items.find((item) => item.id === "oleksandr-bohomazov");
+  assert.ok(person, "bohomazov's people note never reached the map");
+  assert.equal(person.type, "person");
+  assert.ok(!person.src, "bohomazov unexpectedly has a picture");
+
+  // the moodboard is pictures only; people without a face stay off it.
+  // collection / field / reading still gate <img> on src so an empty
+  // face cannot ship as a broken image.
+  const surfaces = [
+    "src/pages/eidos/index.astro",
+    "src/components/eidos/EidosMoodboard.astro",
+    "src/components/eidos/EidosCollection.astro",
+    "src/components/eidos/EidosField.astro",
+    "src/components/eidos/EidosReading.astro",
+  ].map(read).join("\n");
+  assert.match(surfaces, /item\.src \?/, "a surface paints img without asking for src");
   const html = read("dist/eidos/index.html");
-  const card = html.match(/id="oleksandr-bohomazov"[\s\S]*?<\/button>/);
-  assert.ok(card, "bohomazov's card is missing from the library");
-  assert.doesNotMatch(card[0], /<img /, "bohomazov shipped an empty face");
-  assert.match(card[0], /class="lib-bare"/, "bohomazov has no text plate");
+  assert.doesNotMatch(html, /<img[^>]+src=["']\s*["']/, "an empty img src shipped");
+  assert.doesNotMatch(html, /id="oleksandr-bohomazov"[\s\S]*?<img /, "bohomazov shipped an empty face");
 });

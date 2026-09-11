@@ -3,6 +3,9 @@ type: painting
 who: Hendrick Dubbels
 title: A Smalschip with two Dutch East Indiamen coming to Anchor
 year: c. 1670
+collection: "Royal Museums Greenwich"
+collection_city: "London"
+collection_url: "https://www.rmg.co.uk/collections/objects/rmgc-object-12409"
 src: /images/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp
 source: "https://commons.wikimedia.org/wiki/File:A_Smalschip_with_two_Dutch_East_Indiamen_coming_to_Anchor_RMG_BHC0917.tiff"
 licence: public domain

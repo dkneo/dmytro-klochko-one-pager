@@ -1,0 +1,123 @@
+---
+interface Props { profile: any; dimensions: Record<string, { width: number; height: number }> }
+const { profile, dimensions } = Astro.props;
+const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+const first = 24;
+const wordTypes = new Set(["poem", "quote", "writing"]);
+const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u202F$1").replace(/(«)\s+/g, "$1\u202F");
+---
+<section class="ep-collection ep-section" id="collection" aria-labelledby="collection-title" data-collection>
+  <header class="ep-section-head ep-section-head--split">
+    <div>
+      <p class="ep-index">03 · collection</p>
+      <h2 id="collection-title">the evidence, all mixed together.</h2>
+    </div>
+    <p>pictures keep their shape. words keep their language. nothing is generated and every mark keeps its source.</p>
+  </header>
+  <div class="ep-collection-tools">
+    <div class="ep-form-filters" role="group" aria-label="filter by form">
+      <button type="button" class="is-active" data-form-filter="all" aria-pressed="true">everything</button>
+      {[...new Set(profile.collection.map((item: any) => item.type))].map((type: string) => (
+        <button type="button" data-form-filter={type} aria-pressed="false">{type === "person" ? "people" : `${type}s`}</button>
+      ))}
+    </div>
+    <button type="button" class="ep-surprise" data-surprise>surprise me <span aria-hidden="true">↝</span></button>
+  </div>
+  <div class="ep-grid" data-collection-grid>
+    {profile.collection.map((item: any, index: number) => (
+      <article class={`ep-piece ep-piece--${item.type}`} data-piece data-form={item.type} data-weather={item.weather || "unfiled"} data-id={item.id} hidden={index >= first}>
+        {item.src ? (
+          <button type="button" class="ep-piece-open" aria-label={`open ${glue(item.title || item.line)}`}>
+            <img src={plateFor(item.src)} alt={glue(item.title || item.line || item.type)} width={dimensions[item.id]?.width} height={dimensions[item.id]?.height} loading="lazy" decoding="async" />
+          </button>
+        ) : wordTypes.has(item.type) ? (
+          <button type="button" class="ep-piece-open ep-piece-words">
+            <span class="ep-piece-mark" aria-hidden="true">{item.type === "poem" ? "❞" : item.type === "quote" ? "“" : "¶"}</span>
+            <span>{glue(item.english || item.line || item.title)}</span>
+            {item.original && <i>{glue(item.original)}</i>}
+          </button>
+        ) : (
+          <button type="button" class="ep-piece-open ep-piece-record">
+            <span class="ep-piece-mark" aria-hidden="true">{item.type === "song" ? "♪" : "◉"}</span>
+            <span>{glue(item.line || item.title)}</span>
+          </button>
+        )}
+        <footer>
+          <span>{item.type}</span>
+          <b>{glue(item.line || item.title)}</b>
+          {item.who && <small>{item.who}{item.year ? ` · ${item.year}` : ""}{item.translator ? ` · ${item.translator}` : ""}</small>}
+        </footer>
+      </article>
+    ))}
+  </div>
+  <button type="button" class="ep-more" data-more>keep exploring <span>{first} / {profile.collection.length}</span></button>
+  <p class="ep-empty" data-empty hidden>nothing in this slice yet.</p>
+
+  <dialog class="ep-detail" data-detail>
+    <button type="button" class="ep-detail-close" aria-label="close">close</button>
+    <div data-detail-body></div>
+  </dialog>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-collection]");
+    if (!root) return;
+    const pieces = [...root.querySelectorAll("[data-piece]")];
+    const more = root.querySelector("[data-more]");
+    const empty = root.querySelector("[data-empty]");
+    const detail = root.querySelector("[data-detail]");
+    const detailBody = root.querySelector("[data-detail-body]");
+    let shown = 24;
+    let form = "all";
+    let weather = "all";
+
+    const matches = (piece) => (form === "all" || piece.dataset.form === form) && (weather === "all" || piece.dataset.weather === weather);
+    const paint = () => {
+      const eligible = pieces.filter(matches);
+      pieces.forEach((piece) => { piece.hidden = true; });
+      eligible.slice(0, shown).forEach((piece) => { piece.hidden = false; });
+      empty.hidden = eligible.length > 0;
+      more.hidden = eligible.length <= shown;
+      const count = more.querySelector("span");
+      if (count) count.textContent = `${Math.min(shown, eligible.length)} / ${eligible.length}`;
+    };
+    const setPressed = (selector, active) => {
+      document.querySelectorAll(selector).forEach((button) => {
+        const on = button === active;
+        button.classList.toggle("is-active", on);
+        button.setAttribute("aria-pressed", String(on));
+      });
+    };
+
+    root.querySelectorAll("[data-form-filter]").forEach((button) => button.addEventListener("click", () => {
+      form = button.dataset.formFilter;
+      shown = 24;
+      setPressed("[data-form-filter]", button);
+      paint();
+    }));
+    document.querySelectorAll("[data-weather-filter]").forEach((button) => button.addEventListener("click", () => {
+      weather = button.dataset.weatherFilter;
+      shown = 24;
+      setPressed("[data-weather-filter]", button);
+      paint();
+      root.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    }));
+    more.addEventListener("click", () => { shown += 24; paint(); });
+    root.querySelector("[data-surprise]").addEventListener("click", () => {
+      const eligible = pieces.filter(matches);
+      const piece = eligible[Math.floor(Math.random() * eligible.length)];
+      if (!piece) return;
+      shown = pieces.indexOf(piece) + 1;
+      paint();
+      piece.scrollIntoView({ behavior: "smooth", block: "center" });
+      piece.animate([{ transform: "rotate(-1deg)" }, { transform: "rotate(1deg)" }, { transform: "none" }], { duration: 420, easing: "cubic-bezier(.2,0,.2,1)" });
+    });
+    root.querySelectorAll(".ep-piece-open").forEach((button) => button.addEventListener("click", () => {
+      const piece = button.closest("[data-piece]");
+      detailBody.replaceChildren(piece.cloneNode(true));
+      detail.showModal();
+    }));
+    root.querySelector(".ep-detail-close").addEventListener("click", () => detail.close());
+  })();
+</script>

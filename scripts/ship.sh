@@ -30,3 +30,20 @@ for i in 1 2 3 4 5 6 7 8 9; do
 done
 echo "no deployment appeared within 3 minutes — run 'npx wrangler deploy' to publish the build that just passed"
 exit 2
+
+# ── knock on the doors ───────────────────────────────────────────────────
+# A door is a path the worker answers, not the asset layer. Each must say
+# 401 (password) or 200 (open), never 404: a 404 means the asset layer took
+# it and the worker never ran. This is how the 8 Sep 2026 outage would have
+# been caught at ship time instead of by him the next day.
+sleep 8
+bad=0
+for door in "/names 401" "/names/old 401" "/ask 401" "/scout 401" "/eidos/sit 301"; do
+  set -- $door
+  code=$(curl -s -o /dev/null -w '%{http_code}' -m 20 "https://dmklochko.com$1")
+  if [ "$code" != "$2" ]; then echo "  door $1 answered $code, wanted $2"; bad=1; fi
+done
+code=$(curl -s -o /dev/null -w '%{http_code}' -m 20 -X POST -H 'content-type: application/json' -d '{}' "https://dmklochko.com/api/eidos/verdict")
+if [ "$code" != "401" ]; then echo "  door /api/eidos/verdict answered $code, wanted 401"; bad=1; fi
+if [ "$bad" = 1 ]; then echo "shipped, but a door is wrong — check run_worker_first in wrangler.jsonc"; exit 3; fi
+echo "doors answer"

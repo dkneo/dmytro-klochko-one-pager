@@ -1,0 +1,65 @@
+---
+import EidosLayout from "../../layouts/EidosLayout.astro";
+import EidosHeader from "../../components/eidos/EidosHeader.astro";
+import map from "../../data/map.json";
+import "../../styles/pages/eidos-places.css";
+
+const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+const artworkKinds = new Set(["painting", "print", "poster"]);
+const works = map.items
+  .filter((item: any) => artworkKinds.has(item.type) && item.src && item.collectionCity && item.collection && !/^his own|google art project$/i.test(item.collection))
+  .sort((a: any, b: any) => a.collectionCity.localeCompare(b.collectionCity) || a.who.localeCompare(b.who));
+const cities = [...new Set(works.map((item: any) => item.collectionCity))].map((city) => ({
+  city,
+  works: works.filter((item: any) => item.collectionCity === city),
+}));
+---
+
+<EidosLayout title="map · eidos" description="the museums and cities holding works in dmytro's moodboard.">
+  <div class="eidos-places">
+    <EidosHeader current="places" />
+    <div class="epl-shell">
+      <header class="epl-intro">
+        <h1>works i can meet in person.</h1>
+        <div>
+          <p>{works.length} works in {cities.length} cities. a practical pilgrimage list, made from museum records.</p>
+          <small>“collection” names the institution holding a work. it is not a promise that the work is on view today. live display notes include the date they were checked.</small>
+        </div>
+      </header>
+
+      <div class="epl-cities">
+        {cities.map(({ city, works: cityWorks }) => (
+          <section class="epl-city" data-place-city={city} aria-labelledby={`place-${city.toLowerCase().replace(/\s+/g, "-")}`}>
+            <header>
+              <h2 id={`place-${city.toLowerCase().replace(/\s+/g, "-")}`}>{city}</h2>
+              <span>{cityWorks.length} {cityWorks.length === 1 ? "work" : "works"}</span>
+            </header>
+            <div class="epl-works">
+              {cityWorks.map((item: any) => (
+                <article class="epl-work" data-place-work data-kind={item.type}>
+                  <img src={plateFor(item.src)} alt={item.title || item.line} loading="lazy" decoding="async" />
+                  <div>
+                    <h3>{item.title || item.line}</h3>
+                    <p>{item.who}{item.year ? ` · ${item.year}` : ""}</p>
+                    {item.collectionUrl
+                      ? <a href={item.collectionUrl}>{item.collection} ↗</a>
+                      : <span>{item.collection}</span>}
+                    {item.heightCm && item.widthCm && <small>{item.heightCm} × {item.widthCm} cm</small>}
+                    {item.displayStatus && (
+                      <small class="epl-status">{item.displayStatus}{item.statusChecked ? ` · checked ${item.statusChecked}` : ""}</small>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <footer class="epl-footer">
+        <a href="/eidos#collection">back to the moodboard</a>
+        <span>faun notices · gryphon keeps the map</span>
+      </footer>
+    </div>
+  </div>
+</EidosLayout>

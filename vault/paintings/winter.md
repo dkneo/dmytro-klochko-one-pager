@@ -3,6 +3,9 @@ type: painting
 who: Frits Thaulow
 title: Winter
 year: 1886
+collection: "National Museum of Art, Architecture and Design"
+collection_city: "Oslo"
+collection_url: "https://www.nasjonalmuseet.no/en/collection/"
 src: /images/vault/winter.webp
 source: "https://commons.wikimedia.org/wiki/File:Frits_Thaulow_-_Winter_-_Google_Art_Project.jpg"
 licence: public domain

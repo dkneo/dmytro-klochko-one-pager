@@ -1,5 +1,5 @@
 {
- "built": "2026-09-08",
+ "built": "2026-09-11",
  "axes": {
   "x": {
    "from": "cold",
@@ -14,6 +14,26 @@
  },
  "items": [
   {
+   "id": "a-ship-in-a-rough-sea",
+   "type": "painting",
+   "who": "Cornelis Verbeeck",
+   "title": "A Ship in a Rough Sea",
+   "line": "A Ship in a Rough Sea",
+   "year": "1620s",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/a-ship-in-a-rough-sea.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "Royal Museums Greenwich",
+   "collectionCity": "London",
+   "collectionUrl": "https://www.rmg.co.uk/collections/objects/rmgc-object-12217",
+   "x": -0.2651,
+   "y": 0.9866,
+   "unplaced": false
+  },
+  {
    "id": "a-smalschip-with-two-dutch-east-indiamen-coming-",
    "type": "painting",
    "who": "Hendrick Dubbels",
@@ -26,8 +46,28 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.2468,
-   "y": 0.9619,
+   "collection": "Royal Museums Greenwich",
+   "collectionCity": "London",
+   "collectionUrl": "https://www.rmg.co.uk/collections/objects/rmgc-object-12409",
+   "x": -0.4034,
+   "y": 0.9972,
+   "unplaced": false
+  },
+  {
+   "id": "a-still-life-with-strawberries-in-a-bowl-and-rad",
+   "type": "painting",
+   "who": "William Hammer",
+   "title": "A Still Life with Strawberries, Radishes, Asparagus and Lettuce",
+   "line": "A Still Life with Strawberries, Radishes, Asparagus and Lettuce",
+   "year": "1848",
+   "where": "",
+   "weather": "the plain thing",
+   "src": "/images/vault/a-still-life-with-strawberries-in-a-bowl-and-rad.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "x": -0.058,
+   "y": -0.8895,
    "unplaced": false
   },
   {
@@ -77,6 +117,9 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
+   "collection": "Finnish National Gallery",
+   "collectionCity": "Helsinki",
+   "collectionUrl": "https://www.kansallisgalleria.fi/en/search?searchTerms=Annankatu%20on%20a%20Cold%20Winter%20Morning",
    "x": -0.8531,
    "y": -0.3753,
    "unplaced": false
@@ -111,7 +154,7 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0231,
+   "x": 0.024,
    "y": -1.0597,
    "unplaced": true
   },
@@ -128,8 +171,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0462,
-   "y": -1.059,
+   "x": 0.0479,
+   "y": -1.0589,
    "unplaced": true
   },
   {
@@ -145,8 +188,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.0693,
-   "y": -1.0577,
+   "x": 0.0718,
+   "y": -1.0576,
    "unplaced": true
   },
   {
@@ -162,8 +205,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0924,
-   "y": -1.056,
+   "x": 0.0957,
+   "y": -1.0557,
    "unplaced": true
   },
   {
@@ -179,8 +222,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1154,
-   "y": -1.0537,
+   "x": 0.1195,
+   "y": -1.0532,
    "unplaced": true
   },
   {
@@ -196,8 +239,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1384,
-   "y": -1.0509,
+   "x": 0.1433,
+   "y": -1.0503,
    "unplaced": true
   },
   {
@@ -213,8 +256,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1613,
-   "y": -1.0477,
+   "x": 0.167,
+   "y": -1.0468,
    "unplaced": true
   },
   {
@@ -230,8 +273,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1841,
-   "y": -1.0439,
+   "x": 0.1906,
+   "y": -1.0427,
    "unplaced": true
   },
   {
@@ -247,8 +290,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2068,
-   "y": -1.0396,
+   "x": 0.2141,
+   "y": -1.0381,
    "unplaced": true
   },
   {
@@ -264,8 +307,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.2294,
-   "y": -1.0349,
+   "x": 0.2375,
+   "y": -1.033,
    "unplaced": true
   },
   {
@@ -281,6 +324,9 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
+   "collection": "Städel Museum",
+   "collectionCity": "Frankfurt",
+   "collectionUrl": "https://sammlung.staedelmuseum.de/de/werk/ein-knabe-neckt-einen-hund-bei-kienspanlicht",
    "x": 0.1755,
    "y": -0.5839,
    "unplaced": false
@@ -298,8 +344,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2519,
-   "y": -1.0296,
+   "x": 0.2608,
+   "y": -1.0274,
    "unplaced": true
   },
   {
@@ -315,8 +361,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2743,
-   "y": -1.0239,
+   "x": 0.284,
+   "y": -1.0213,
    "unplaced": true
   },
   {
@@ -332,8 +378,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2966,
-   "y": -1.0177,
+   "x": 0.307,
+   "y": -1.0146,
    "unplaced": true
   },
   {
@@ -349,8 +395,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3187,
-   "y": -1.0109,
+   "x": 0.3298,
+   "y": -1.0074,
    "unplaced": true
   },
   {
@@ -366,8 +412,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3407,
-   "y": -1.0037,
+   "x": 0.3525,
+   "y": -0.9997,
    "unplaced": true
   },
   {
@@ -383,8 +429,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3625,
-   "y": -0.9961,
+   "x": 0.375,
+   "y": -0.9914,
    "unplaced": true
   },
   {
@@ -400,8 +446,13 @@
    "url": "",
    "note": "Kleist wrote that looking at it felt as though his eyelids had been cut away. Friedrich painted out the ships he had first put on the horizon, leaving nothing between the figure and the sky.",
    "added": "2026-08-15",
-   "x": -0.4118,
-   "y": 0.9798,
+   "collection": "Alte Nationalgalerie, Berlin",
+   "collectionCity": "Berlin",
+   "collectionUrl": "https://www.smb.museum/en/museums-institutions/alte-nationalgalerie/collection-research/conservation-care/caspar-david-friedrich-project/",
+   "heightCm": 110.6,
+   "widthCm": 171.4,
+   "x": -0.2281,
+   "y": 0.844,
    "unplaced": false
   },
   {
@@ -417,8 +468,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3842,
-   "y": -0.9879,
+   "x": 0.3973,
+   "y": -0.9827,
    "unplaced": true
   },
   {
@@ -434,8 +485,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4056,
-   "y": -0.9793,
+   "x": 0.4194,
+   "y": -0.9735,
    "unplaced": true
   },
   {
@@ -451,8 +502,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4269,
-   "y": -0.9702,
+   "x": 0.4413,
+   "y": -0.9638,
    "unplaced": true
   },
   {
@@ -468,8 +519,37 @@
    "url": "",
    "note": "From the pond he dug himself at Giverny and then spent thirty years painting. These late ones were made as his cataracts thickened, which is part of why the lilies stop having edges.",
    "added": "2026-08-15",
+   "collection": "The Nelson-Atkins Museum of Art",
+   "collectionCity": "Kansas City",
+   "collectionUrl": "https://art.nelson-atkins.org/objects/6650/water-lilies",
+   "displayStatus": "on view · Gallery 130",
+   "statusChecked": "2026-09-09",
+   "heightCm": 200.66,
+   "widthCm": 426.09,
    "x": 0.6744,
    "y": 0.3834,
+   "unplaced": false
+  },
+  {
+   "id": "dancers",
+   "type": "painting",
+   "who": "",
+   "title": "Dancers",
+   "line": "Dancers",
+   "year": "late 17th–early 18th century",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/dancers.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/45759",
+   "heightCm": 127.5,
+   "widthCm": 346.2,
+   "x": 0.1058,
+   "y": 0.2217,
    "unplaced": false
   },
   {
@@ -485,8 +565,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.448,
-   "y": -0.9607,
+   "x": 0.463,
+   "y": -0.9535,
    "unplaced": true
   },
   {
@@ -519,8 +599,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4688,
-   "y": -0.9507,
+   "x": 0.4844,
+   "y": -0.9428,
    "unplaced": true
   },
   {
@@ -536,8 +616,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4895,
-   "y": -0.9402,
+   "x": 0.5056,
+   "y": -0.9316,
    "unplaced": true
   },
   {
@@ -553,8 +633,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5098,
-   "y": -0.9293,
+   "x": 0.5265,
+   "y": -0.92,
    "unplaced": true
   },
   {
@@ -570,9 +650,31 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.53,
-   "y": -0.918,
+   "x": 0.5472,
+   "y": -0.9078,
    "unplaced": true
+  },
+  {
+   "id": "ejiri-number-19-from-the-series-fifty-three-stat",
+   "type": "painting",
+   "who": "Utagawa Hiroshige",
+   "title": "Ejiri, Number 19, from the series Fifty-Three Stations of the Tōkaidō Road (Tōkaidō gojūsan tsugi), also known as the Clerical Script Tōkaidō (Reisho Tōkaidō)",
+   "line": "Ejiri, Number 19, from the series Fifty-Three Stations of the Tōkaidō Road (Tōkaidō gojūsan tsugi), also known as the Clerical Script Tōkaidō (Reisho Tōkaidō)",
+   "year": "1847–52",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/37213",
+   "heightCm": 22.2,
+   "widthCm": 34.9,
+   "x": 0.7872,
+   "y": -0.0932,
+   "unplaced": false
   },
   {
    "id": "ekster-planes",
@@ -587,8 +689,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.5499,
-   "y": -0.9062,
+   "x": 0.5676,
+   "y": -0.8952,
    "unplaced": true
   },
   {
@@ -604,8 +706,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.1039,
-   "y": 0.2127,
+   "x": 0.3122,
+   "y": 0.1063,
    "unplaced": false
   },
   {
@@ -621,8 +723,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.2658,
-   "y": 0.0838,
+   "x": 0.2854,
+   "y": 0.3278,
    "unplaced": false
   },
   {
@@ -638,8 +740,11 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.2646,
-   "y": 0.8311,
+   "collection": "Hamburger Kunsthalle",
+   "collectionCity": "Hamburg",
+   "collectionUrl": "https://online-sammlung.hamburger-kunsthalle.de/en/objekt/HK-5161",
+   "x": -0.2234,
+   "y": 1.0731,
    "unplaced": false
   },
   {
@@ -655,8 +760,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5695,
-   "y": -0.894,
+   "x": 0.5877,
+   "y": -0.8822,
    "unplaced": true
   },
   {
@@ -672,8 +777,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5889,
-   "y": -0.8814,
+   "x": 0.6074,
+   "y": -0.8687,
    "unplaced": true
   },
   {
@@ -689,8 +794,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.608,
-   "y": -0.8683,
+   "x": 0.6269,
+   "y": -0.8547,
    "unplaced": true
   },
   {
@@ -706,8 +811,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6268,
-   "y": -0.8548,
+   "x": 0.6461,
+   "y": -0.8403,
    "unplaced": true
   },
   {
@@ -723,8 +828,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6453,
-   "y": -0.841,
+   "x": 0.6649,
+   "y": -0.8255,
    "unplaced": true
   },
   {
@@ -740,8 +845,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.6635,
-   "y": -0.8267,
+   "x": 0.6834,
+   "y": -0.8103,
    "unplaced": true
   },
   {
@@ -757,8 +862,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6814,
-   "y": -0.812,
+   "x": 0.7015,
+   "y": -0.7946,
    "unplaced": true
   },
   {
@@ -774,8 +879,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6989,
-   "y": -0.797,
+   "x": 0.7193,
+   "y": -0.7786,
    "unplaced": true
   },
   {
@@ -791,8 +896,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7161,
-   "y": -0.7815,
+   "x": 0.7367,
+   "y": -0.7621,
    "unplaced": true
   },
   {
@@ -808,8 +913,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.733,
-   "y": -0.7657,
+   "x": 0.7538,
+   "y": -0.7453,
    "unplaced": true
   },
   {
@@ -825,8 +930,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7495,
-   "y": -0.7495,
+   "x": 0.7704,
+   "y": -0.7281,
    "unplaced": true
   },
   {
@@ -842,8 +947,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7657,
-   "y": -0.733,
+   "x": 0.7867,
+   "y": -0.7105,
    "unplaced": true
   },
   {
@@ -859,8 +964,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7815,
-   "y": -0.7161,
+   "x": 0.8025,
+   "y": -0.6925,
    "unplaced": true
   },
   {
@@ -876,8 +981,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.797,
-   "y": -0.6989,
+   "x": 0.818,
+   "y": -0.6742,
    "unplaced": true
   },
   {
@@ -893,8 +998,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.812,
-   "y": -0.6814,
+   "x": 0.833,
+   "y": -0.6555,
    "unplaced": true
   },
   {
@@ -910,8 +1015,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8267,
-   "y": -0.6635,
+   "x": 0.8476,
+   "y": -0.6365,
    "unplaced": true
   },
   {
@@ -927,8 +1032,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.841,
-   "y": -0.6453,
+   "x": 0.8618,
+   "y": -0.6172,
    "unplaced": true
   },
   {
@@ -944,8 +1049,31 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
+   "collection": "Toledo Museum of Art",
+   "collectionCity": "Toledo",
+   "collectionUrl": "https://emuseum.toledomuseum.org/objects/58472",
    "x": -1.0112,
    "y": -0.3687,
+   "unplaced": false
+  },
+  {
+   "id": "haystacks",
+   "type": "painting",
+   "who": "Georges Seurat",
+   "title": "Haystacks",
+   "line": "Haystacks",
+   "year": "c. 1882",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/haystacks.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "National Gallery of Art",
+   "collectionCity": "Washington",
+   "collectionUrl": "https://www.nga.gov/artworks/164968-haystacks",
+   "x": 0.8982,
+   "y": 0.2712,
    "unplaced": false
   },
   {
@@ -961,212 +1089,53 @@
    "url": "",
    "note": "Painted in 1907, years before abstraction was credited to anyone else. She left instructions that the work not be shown until twenty years after her death, and it was not shown properly for forty.",
    "added": "2026-08-15",
-   "x": 0.296,
-   "y": 0.3234,
+   "collection": "Hilma af Klint Foundation, Stockholm",
+   "x": 0.0514,
+   "y": 0.1483,
    "unplaced": false
   },
   {
-   "id": "his-dock",
+   "id": "hoarfrost",
    "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "dock",
-   "line": "dock",
-   "year": "",
+   "who": "Théodore Rousseau",
+   "title": "Hoarfrost",
+   "line": "Hoarfrost",
+   "year": "1845",
    "where": "",
-   "weather": "",
-   "src": "/images/scenes/dock.webp",
+   "weather": "cold clarity",
+   "src": "/images/vault/hoarfrost.webp",
    "url": "",
-   "note": "the boy fishing. stands behind childhood.",
-   "added": "2026-08-18",
-   "x": 0.8548,
-   "y": -0.6268,
-   "unplaced": true
-  },
-  {
-   "id": "his-ember",
-   "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "ember",
-   "line": "ember",
-   "year": "",
-   "where": "",
-   "weather": "",
-   "src": "/images/scenes/ember.webp",
-   "url": "",
-   "note": "one of the ten skies the site runs on.",
-   "added": "2026-08-29",
-   "x": 0.8683,
-   "y": -0.608,
-   "unplaced": true
-  },
-  {
-   "id": "his-estuary",
-   "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "estuary",
-   "line": "estuary",
-   "year": "",
-   "where": "",
-   "weather": "",
-   "src": "/images/scenes/estuary.webp",
-   "url": "",
-   "note": "the estuary. stands behind taste.",
-   "added": "2026-08-18",
-   "x": 0.8814,
-   "y": -0.5889,
-   "unplaced": true
-  },
-  {
-   "id": "his-fields",
-   "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "fields",
-   "line": "fields",
-   "year": "",
-   "where": "",
-   "weather": "",
-   "src": "/images/scenes/fields.webp",
-   "url": "",
-   "note": "sunflowers. stands behind what came before.",
-   "added": "2026-08-18",
-   "x": 0.894,
-   "y": -0.5695,
-   "unplaced": true
-  },
-  {
-   "id": "his-fire",
-   "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "fire",
-   "line": "fire",
-   "year": "",
-   "where": "",
-   "weather": "",
-   "src": "/images/scenes/fire.webp",
-   "url": "",
-   "note": "the campfire. stands behind how he works.",
-   "added": "2026-08-18",
-   "x": 0.9062,
-   "y": -0.5499,
-   "unplaced": true
-  },
-  {
-   "id": "his-fuji",
-   "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "fuji",
-   "line": "fuji",
-   "year": "",
-   "where": "",
-   "weather": "",
-   "src": "/images/scenes/fuji.webp",
-   "url": "",
-   "note": "the fuji rafts. stands behind replika.",
-   "added": "2026-08-18",
-   "x": 0.918,
-   "y": -0.53,
-   "unplaced": true
-  },
-  {
-   "id": "his-lavender",
-   "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "lavender",
-   "line": "lavender",
-   "year": "",
-   "where": "",
-   "weather": "",
-   "src": "/images/scenes/lavender.webp",
-   "url": "",
-   "note": "the lavender walk. stands behind the camera.",
-   "added": "2026-08-18",
-   "x": 0.9293,
-   "y": -0.5098,
-   "unplaced": true
-  },
-  {
-   "id": "his-nightcourt",
-   "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "nightcourt",
-   "line": "nightcourt",
-   "year": "",
-   "where": "",
-   "weather": "",
-   "src": "/images/scenes/nightcourt.webp",
-   "url": "",
-   "note": "a dark courtyard. carries the reading pages.",
-   "added": "2026-08-18",
-   "x": 0.9402,
-   "y": -0.4895,
-   "unplaced": true
-  },
-  {
-   "id": "his-snow",
-   "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "snow",
-   "line": "snow",
-   "year": "",
-   "where": "",
-   "weather": "",
-   "src": "/images/scenes/snow.webp",
-   "url": "",
-   "note": "the snowlit village. stands behind saying hi.",
-   "added": "2026-08-18",
-   "x": 0.9507,
-   "y": -0.4688,
-   "unplaced": true
-  },
-  {
-   "id": "his-study",
-   "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "study",
-   "line": "study",
-   "year": "",
-   "where": "",
-   "weather": "",
-   "src": "/images/scenes/study.webp",
-   "url": "",
-   "note": "one of his own, taken down to night, for learning.",
-   "added": "2026-08-18",
-   "x": 0.9607,
-   "y": -0.448,
-   "unplaced": true
-  },
-  {
-   "id": "his-swim",
-   "type": "painting",
-   "who": "Dmytro Klochko",
-   "title": "swim",
-   "line": "swim",
-   "year": "",
-   "where": "",
-   "weather": "",
-   "src": "/images/scenes/swim.webp",
-   "url": "",
-   "note": "the swimmer under the orange sun. the opening screen.",
-   "added": "2026-08-18",
-   "x": 0.9702,
-   "y": -0.4269,
-   "unplaced": true
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Walters Art Museum",
+   "collectionCity": "Baltimore",
+   "collectionUrl": "https://art.thewalters.org/object/37.25/",
+   "x": -0.7932,
+   "y": -0.4814,
+   "unplaced": false
   },
   {
    "id": "hokusai-wave",
    "type": "painting",
    "who": "Katsushika Hokusai",
-   "title": "Under the Wave off Kanagawa",
-   "line": "Under the Wave off Kanagawa",
-   "year": "c. 1831",
+   "title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+   "line": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+   "year": "ca. 1830–32",
    "where": "",
    "weather": "vastness",
    "src": "/images/inbox/hokusai-wave.webp",
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.2129,
-   "y": 1.0679,
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/45434",
+   "displayStatus": "not on view",
+   "statusChecked": "2026-09-10",
+   "heightCm": 25.7,
+   "widthCm": 37.9,
+   "x": -0.4728,
+   "y": 0.9099,
    "unplaced": false
   },
   {
@@ -1182,6 +1151,9 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
+   "collection": "Whitney Museum of American Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://whitney.org/collection/works/5898",
    "x": 0.0235,
    "y": -0.611,
    "unplaced": false
@@ -1199,8 +1171,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.9793,
-   "y": -0.4056,
+   "x": 0.8755,
+   "y": -0.5976,
    "unplaced": true
   },
   {
@@ -1216,6 +1188,11 @@
    "url": "",
    "note": "Never exhibited. It was found in his studio after he died, one of a group he seems to have painted for himself, and the castle has almost finished dissolving into the light.",
    "added": "2026-08-15",
+   "collection": "Tate, London",
+   "collectionCity": "London",
+   "collectionUrl": "https://shop.tate.org.uk/jmw-turner-norham-castle-sunrise/turner033.html",
+   "heightCm": 90.8,
+   "widthCm": 121.9,
    "x": -0.445,
    "y": 0.5565,
    "unplaced": false
@@ -1233,8 +1210,15 @@
    "url": "",
    "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
    "added": "2026-08-15",
-   "x": 0.7864,
-   "y": -0.096,
+   "collection": "Yale Center for British Art",
+   "collectionCity": "New Haven",
+   "collectionUrl": "https://artsandculture.google.com/asset/staffa-fingal-s-cave-joseph-mallord-william-turner-1775%E2%80%931851-british/UwGUbiwJ5MsHvQ",
+   "displayStatus": "on view",
+   "statusChecked": "2026-09-09",
+   "heightCm": 90.8,
+   "widthCm": 121.3,
+   "x": 0.9791,
+   "y": -0.2221,
    "unplaced": false
   },
   {
@@ -1250,6 +1234,11 @@
    "url": "",
    "note": "Ruskin said Whistler was flinging a pot of paint in the public's face. Whistler sued him for libel, won, and was awarded one farthing in damages, which bankrupted him.",
    "added": "2026-08-15",
+   "collection": "Tate, London",
+   "collectionCity": "London",
+   "collectionUrl": "https://shop.tate.org.uk/james-mcneill-whistler-nocturne---old-battersea-bridge/whiwhi007.html",
+   "heightCm": 68.3,
+   "widthCm": 51.2,
    "x": 0.2113,
    "y": -0.7263,
    "unplaced": false
@@ -1267,8 +1256,15 @@
    "url": "",
    "note": "Chardin painted more or less the same handful of objects for forty years. Diderot said of him that this one understands the harmony of colours and reflections, and the rest of us paint things.",
    "added": "2026-08-15",
-   "x": -0.0525,
-   "y": -0.8961,
+   "collection": "The Phillips Collection, Washington",
+   "collectionCity": "Washington",
+   "collectionUrl": "https://www.phillipscollection.org/collection/bowl-plums",
+   "displayStatus": "on view · Sant Building, Gallery 223",
+   "statusChecked": "2026-09-09",
+   "heightCm": 44.45,
+   "widthCm": 56.2,
+   "x": -0.2144,
+   "y": -0.8988,
    "unplaced": false
   },
   {
@@ -1284,8 +1280,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9879,
-   "y": -0.3842,
+   "x": 0.8888,
+   "y": -0.5777,
    "unplaced": true
   },
   {
@@ -1301,8 +1297,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9961,
-   "y": -0.3625,
+   "x": 0.9016,
+   "y": -0.5574,
    "unplaced": true
   },
   {
@@ -1318,8 +1314,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0037,
-   "y": -0.3407,
+   "x": 0.914,
+   "y": -0.5369,
    "unplaced": true
   },
   {
@@ -1335,8 +1331,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0109,
-   "y": -0.3187,
+   "x": 0.9259,
+   "y": -0.5161,
    "unplaced": true
   },
   {
@@ -1352,8 +1348,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0177,
-   "y": -0.2966,
+   "x": 0.9373,
+   "y": -0.4951,
    "unplaced": true
   },
   {
@@ -1369,8 +1365,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0239,
-   "y": -0.2743,
+   "x": 0.9482,
+   "y": -0.4737,
    "unplaced": true
   },
   {
@@ -1386,8 +1382,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0296,
-   "y": -0.2519,
+   "x": 0.9587,
+   "y": -0.4522,
    "unplaced": true
   },
   {
@@ -1403,8 +1399,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0349,
-   "y": -0.2294,
+   "x": 0.9687,
+   "y": -0.4304,
    "unplaced": true
   },
   {
@@ -1420,8 +1416,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0396,
-   "y": -0.2068,
+   "x": 0.9782,
+   "y": -0.4084,
    "unplaced": true
   },
   {
@@ -1437,8 +1433,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0439,
-   "y": -0.1841,
+   "x": 0.9871,
+   "y": -0.3862,
    "unplaced": true
   },
   {
@@ -1454,8 +1450,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0477,
-   "y": -0.1613,
+   "x": 0.9956,
+   "y": -0.3638,
    "unplaced": true
   },
   {
@@ -1471,8 +1467,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0509,
-   "y": -0.1384,
+   "x": 1.0036,
+   "y": -0.3412,
    "unplaced": true
   },
   {
@@ -1488,8 +1484,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0537,
-   "y": -0.1154,
+   "x": 1.011,
+   "y": -0.3184,
    "unplaced": true
   },
   {
@@ -1505,8 +1501,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.056,
-   "y": -0.0924,
+   "x": 1.018,
+   "y": -0.2955,
    "unplaced": true
   },
   {
@@ -1522,8 +1518,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0577,
-   "y": -0.0693,
+   "x": 1.0244,
+   "y": -0.2724,
    "unplaced": true
   },
   {
@@ -1539,9 +1535,75 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.059,
-   "y": -0.0462,
+   "x": 1.0303,
+   "y": -0.2492,
    "unplaced": true
+  },
+  {
+   "id": "landscape-with-waterfall-and-a-mother-and-child",
+   "type": "painting",
+   "who": "Johann Peter Beer",
+   "title": "Landscape with Waterfall and a Mother and Child",
+   "line": "Landscape with Waterfall and a Mother and Child",
+   "year": "1800",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/landscape-with-waterfall-and-a-mother-and-child.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/376658",
+   "heightCm": 18.5,
+   "widthCm": 26.2,
+   "x": -0.1159,
+   "y": 0.9661,
+   "unplaced": false
+  },
+  {
+   "id": "landscape",
+   "type": "painting",
+   "who": "Franz von Hauslab the Younger",
+   "title": "Landscape",
+   "line": "Landscape",
+   "year": "19th century",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/landscape.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/335787",
+   "heightCm": 16,
+   "widthCm": 31.7,
+   "x": -0.4632,
+   "y": 1.0249,
+   "unplaced": false
+  },
+  {
+   "id": "love-in-death-for-good-words",
+   "type": "painting",
+   "who": "Frederick Walker",
+   "title": "Love in Death, for \\\"Good Words\\\"",
+   "line": "Love in Death, for \\\"Good Words\\",
+   "year": "March 1862",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/love-in-death-for-good-words.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/656829",
+   "heightCm": 20.4,
+   "widthCm": 15.3,
+   "x": -0.8101,
+   "y": -0.2837,
+   "unplaced": false
   },
   {
    "id": "lovers-and-beloveds-a-composite-of-scenes-from-p",
@@ -1556,8 +1618,11 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.0941,
-   "y": 0.0906,
+   "collection": "Cleveland Museum of Art",
+   "collectionCity": "Cleveland",
+   "collectionUrl": "https://www.clevelandart.org/art/1945.383",
+   "x": 0.4048,
+   "y": 0.2078,
    "unplaced": false
   },
   {
@@ -1573,8 +1638,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0597,
-   "y": -0.0231,
+   "x": 1.0357,
+   "y": -0.2259,
    "unplaced": true
   },
   {
@@ -1590,8 +1655,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.06,
-   "y": 0,
+   "x": 1.0405,
+   "y": -0.2024,
    "unplaced": true
   },
   {
@@ -1607,8 +1672,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0597,
-   "y": 0.0231,
+   "x": 1.0448,
+   "y": -0.1788,
    "unplaced": true
   },
   {
@@ -1624,8 +1689,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.059,
-   "y": 0.0462,
+   "x": 1.0486,
+   "y": -0.1552,
    "unplaced": true
   },
   {
@@ -1641,8 +1706,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0577,
-   "y": 0.0693,
+   "x": 1.0518,
+   "y": -0.1314,
    "unplaced": true
   },
   {
@@ -1658,8 +1723,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.056,
-   "y": 0.0924,
+   "x": 1.0545,
+   "y": -0.1076,
    "unplaced": true
   },
   {
@@ -1675,9 +1740,26 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0537,
-   "y": 0.1154,
+   "x": 1.0567,
+   "y": -0.0838,
    "unplaced": true
+  },
+  {
+   "id": "man-reading-by-lamplight",
+   "type": "painting",
+   "who": "Georg Friedrich Kersting",
+   "title": "Man reading by lamplight",
+   "line": "Man reading by lamplight",
+   "year": "1814",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/man-reading-by-lamplight.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "x": 0.1226,
+   "y": -0.4812,
+   "unplaced": false
   },
   {
    "id": "marquet-quai-conti",
@@ -1692,8 +1774,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0509,
-   "y": 0.1384,
+   "x": 1.0583,
+   "y": -0.0599,
    "unplaced": true
   },
   {
@@ -1709,8 +1791,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0477,
-   "y": 0.1613,
+   "x": 1.0594,
+   "y": -0.0359,
    "unplaced": true
   },
   {
@@ -1726,8 +1808,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0439,
-   "y": 0.1841,
+   "x": 1.0599,
+   "y": -0.012,
    "unplaced": true
   },
   {
@@ -1743,8 +1825,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0396,
-   "y": 0.2068,
+   "x": 1.0599,
+   "y": 0.012,
    "unplaced": true
   },
   {
@@ -1760,8 +1842,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0349,
-   "y": 0.2294,
+   "x": 1.0594,
+   "y": 0.0359,
    "unplaced": true
   },
   {
@@ -1777,8 +1859,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0296,
-   "y": 0.2519,
+   "x": 1.0583,
+   "y": 0.0599,
    "unplaced": true
   },
   {
@@ -1794,8 +1876,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0239,
-   "y": 0.2743,
+   "x": 1.0567,
+   "y": 0.0838,
    "unplaced": true
   },
   {
@@ -1811,8 +1893,11 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.8006,
-   "y": -0.488,
+   "collection": "Musée d’Orsay",
+   "collectionCity": "Paris",
+   "collectionUrl": "https://www.musee-orsay.fr/en/artworks/la-pie-1297",
+   "x": -1.017,
+   "y": -0.5165,
    "unplaced": false
   },
   {
@@ -1845,8 +1930,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0177,
-   "y": 0.2966,
+   "x": 1.0545,
+   "y": 0.1076,
    "unplaced": true
   },
   {
@@ -1862,8 +1947,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0109,
-   "y": 0.3187,
+   "x": 1.0518,
+   "y": 0.1314,
    "unplaced": true
   },
   {
@@ -1879,8 +1964,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0037,
-   "y": 0.3407,
+   "x": 1.0486,
+   "y": 0.1552,
    "unplaced": true
   },
   {
@@ -1896,9 +1981,31 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9961,
-   "y": 0.3625,
+   "x": 1.0448,
+   "y": 0.1788,
    "unplaced": true
+  },
+  {
+   "id": "morning-after-the-snow-at-koishikawa-in-edo-kois",
+   "type": "painting",
+   "who": "Katsushika Hokusai",
+   "title": "Morning after the Snow at Koishikawa in Edo (Koishikawa yuki no ashita),  from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+   "line": "Morning after the Snow at Koishikawa in Edo (Koishikawa yuki no ashita),  from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+   "year": "ca. 1830–32",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/55288",
+   "heightCm": 25.7,
+   "widthCm": 38.3,
+   "x": -0.7193,
+   "y": -0.4342,
+   "unplaced": false
   },
   {
    "id": "mountains-mont-sainte-victoire-seen-from-the-bib",
@@ -1913,8 +2020,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.3964,
-   "y": 0.8203,
+   "x": -0.2369,
+   "y": 0.8004,
    "unplaced": false
   },
   {
@@ -1930,8 +2037,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9879,
-   "y": 0.3842,
+   "x": 1.0405,
+   "y": 0.2024,
    "unplaced": true
   },
   {
@@ -1947,8 +2054,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9793,
-   "y": 0.4056,
+   "x": 1.0357,
+   "y": 0.2259,
    "unplaced": true
   },
   {
@@ -1964,8 +2071,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9702,
-   "y": 0.4269,
+   "x": 1.0303,
+   "y": 0.2492,
    "unplaced": true
   },
   {
@@ -1981,8 +2088,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9607,
-   "y": 0.448,
+   "x": 1.0244,
+   "y": 0.2724,
    "unplaced": true
   },
   {
@@ -1998,8 +2105,55 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.1266,
-   "y": 0.8946,
+   "collection": "Canadian War Museum",
+   "collectionCity": "Ottawa",
+   "collectionUrl": "https://www.warmuseum.ca/collections/artifact/1013592",
+   "x": -0.1433,
+   "y": 1.0346,
+   "unplaced": false
+  },
+  {
+   "id": "nocturne",
+   "type": "painting",
+   "who": "John La Farge",
+   "title": "Nocturne",
+   "line": "Nocturne",
+   "year": "ca. 1885",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/nocturne.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/11380",
+   "heightCm": 21,
+   "widthCm": 17.8,
+   "x": -0.0053,
+   "y": -0.7099,
+   "unplaced": false
+  },
+  {
+   "id": "orchard",
+   "type": "painting",
+   "who": "Charles Jacque",
+   "title": "Orchard",
+   "line": "Orchard",
+   "year": "1865",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/orchard.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/830009",
+   "heightCm": 13,
+   "widthCm": 16.5,
+   "x": 0.8148,
+   "y": 0.4764,
    "unplaced": false
   },
   {
@@ -2015,8 +2169,11 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.2088,
-   "y": -0.4935,
+   "collection": "Museo de Arte de Lima",
+   "collectionCity": "Lima",
+   "collectionUrl": "https://mali.pe/",
+   "x": 0.3138,
+   "y": -0.6745,
    "unplaced": false
   },
   {
@@ -2032,8 +2189,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9507,
-   "y": 0.4688,
+   "x": 1.018,
+   "y": 0.2955,
    "unplaced": true
   },
   {
@@ -2049,8 +2206,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9402,
-   "y": 0.4895,
+   "x": 1.011,
+   "y": 0.3184,
    "unplaced": true
   },
   {
@@ -2066,8 +2223,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9293,
-   "y": 0.5098,
+   "x": 1.0036,
+   "y": 0.3412,
    "unplaced": true
   },
   {
@@ -2083,8 +2240,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.918,
-   "y": 0.53,
+   "x": 0.9956,
+   "y": 0.3638,
    "unplaced": true
   },
   {
@@ -2100,8 +2257,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9062,
-   "y": 0.5499,
+   "x": 0.9871,
+   "y": 0.3862,
    "unplaced": true
   },
   {
@@ -2117,8 +2274,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.894,
-   "y": 0.5695,
+   "x": 0.9782,
+   "y": 0.4084,
    "unplaced": true
   },
   {
@@ -2134,8 +2291,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.2047,
-   "y": -0.8752,
+   "x": -0.0487,
+   "y": -1.0345,
    "unplaced": false
   },
   {
@@ -2151,6 +2308,9 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
+   "collection": "Los Angeles County Museum of Art",
+   "collectionCity": "Los Angeles",
+   "collectionUrl": "https://collections.lacma.org/node/199472",
    "x": -0.3988,
    "y": 0.4191,
    "unplaced": false
@@ -2168,8 +2328,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.8814,
-   "y": 0.5889,
+   "x": 0.9687,
+   "y": 0.4304,
    "unplaced": true
   },
   {
@@ -2185,8 +2345,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8683,
-   "y": 0.608,
+   "x": 0.9587,
+   "y": 0.4522,
    "unplaced": true
   },
   {
@@ -2202,8 +2362,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8548,
-   "y": 0.6268,
+   "x": 0.9482,
+   "y": 0.4737,
    "unplaced": true
   },
   {
@@ -2219,8 +2379,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.841,
-   "y": 0.6453,
+   "x": 0.9373,
+   "y": 0.4951,
    "unplaced": true
   },
   {
@@ -2236,8 +2396,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8267,
-   "y": 0.6635,
+   "x": 0.9259,
+   "y": 0.5161,
    "unplaced": true
   },
   {
@@ -2253,8 +2413,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.812,
-   "y": 0.6814,
+   "x": 0.914,
+   "y": 0.5369,
    "unplaced": true
   },
   {
@@ -2270,8 +2430,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.797,
-   "y": 0.6989,
+   "x": 0.9016,
+   "y": 0.5574,
    "unplaced": true
   },
   {
@@ -2287,8 +2447,33 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.9565,
-   "y": -0.2327,
+   "collection": "Museum of Fine Arts, Houston",
+   "collectionCity": "Houston",
+   "collectionUrl": "https://emuseum.mfah.org/objects/45610",
+   "x": 0.9533,
+   "y": 0.0119,
+   "unplaced": false
+  },
+  {
+   "id": "sea-bass-from-fish-from-american-waters-series-n",
+   "type": "painting",
+   "who": "Allen & Ginter",
+   "title": "Sea Bass, from Fish from American Waters series (N39) for Allen & Ginter Cigarettes",
+   "line": "Sea Bass, from Fish from American Waters series (N39) for Allen & Ginter Cigarettes",
+   "year": "1889",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/sea-bass-from-fish-from-american-waters-series-n.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/420174",
+   "heightCm": 7.3,
+   "widthCm": 8.3,
+   "x": -0.476,
+   "y": 0.901,
    "unplaced": false
   },
   {
@@ -2321,8 +2506,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7815,
-   "y": 0.7161,
+   "x": 0.8888,
+   "y": 0.5777,
    "unplaced": true
   },
   {
@@ -2338,8 +2523,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7657,
-   "y": 0.733,
+   "x": 0.8755,
+   "y": 0.5976,
    "unplaced": true
   },
   {
@@ -2355,8 +2540,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7495,
-   "y": 0.7495,
+   "x": 0.8618,
+   "y": 0.6172,
    "unplaced": true
   },
   {
@@ -2372,8 +2557,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.733,
-   "y": 0.7657,
+   "x": 0.8476,
+   "y": 0.6365,
    "unplaced": true
   },
   {
@@ -2389,8 +2574,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7161,
-   "y": 0.7815,
+   "x": 0.833,
+   "y": 0.6555,
    "unplaced": true
   },
   {
@@ -2406,8 +2591,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6989,
-   "y": 0.797,
+   "x": 0.818,
+   "y": 0.6742,
    "unplaced": true
   },
   {
@@ -2423,8 +2608,11 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.8682,
-   "y": 0.0169,
+   "collection": "Yale Center for British Art",
+   "collectionCity": "New Haven",
+   "collectionUrl": "https://collections.britishart.yale.edu/catalog/tms:1670827",
+   "x": 0.8073,
+   "y": -0.2517,
    "unplaced": false
   },
   {
@@ -2440,8 +2628,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6814,
-   "y": 0.812,
+   "x": 0.8025,
+   "y": 0.6925,
    "unplaced": true
   },
   {
@@ -2457,8 +2645,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6635,
-   "y": 0.8267,
+   "x": 0.7867,
+   "y": 0.7105,
    "unplaced": true
   },
   {
@@ -2474,8 +2662,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6453,
-   "y": 0.841,
+   "x": 0.7704,
+   "y": 0.7281,
    "unplaced": true
   },
   {
@@ -2491,9 +2679,31 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6268,
-   "y": 0.8548,
+   "x": 0.7538,
+   "y": 0.7453,
    "unplaced": true
+  },
+  {
+   "id": "snow-in-picardie-la-neige-en-picardie",
+   "type": "painting",
+   "who": "Dr. Paul Gachet",
+   "title": "Snow in Picardie (La Neige en Picardie)",
+   "line": "Snow in Picardie (La Neige en Picardie)",
+   "year": "1894",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/snow-in-picardie-la-neige-en-picardie.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/399615",
+   "heightCm": 12,
+   "widthCm": 15,
+   "x": -0.9528,
+   "y": -0.2475,
+   "unplaced": false
   },
   {
    "id": "sorolla-alcazar",
@@ -2508,8 +2718,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.608,
-   "y": 0.8683,
+   "x": 0.7367,
+   "y": 0.7621,
    "unplaced": true
   },
   {
@@ -2525,8 +2735,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5889,
-   "y": 0.8814,
+   "x": 0.7193,
+   "y": 0.7786,
    "unplaced": true
   },
   {
@@ -2542,8 +2752,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5695,
-   "y": 0.894,
+   "x": 0.7015,
+   "y": 0.7946,
    "unplaced": true
   },
   {
@@ -2559,8 +2769,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5499,
-   "y": 0.9062,
+   "x": 0.6834,
+   "y": 0.8103,
    "unplaced": true
   },
   {
@@ -2576,8 +2786,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.53,
-   "y": 0.918,
+   "x": 0.6649,
+   "y": 0.8255,
    "unplaced": true
   },
   {
@@ -2593,8 +2803,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5098,
-   "y": 0.9293,
+   "x": 0.6461,
+   "y": 0.8403,
    "unplaced": true
   },
   {
@@ -2610,8 +2820,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4895,
-   "y": 0.9402,
+   "x": 0.6269,
+   "y": 0.8547,
    "unplaced": true
   },
   {
@@ -2627,8 +2837,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4688,
-   "y": 0.9507,
+   "x": 0.6074,
+   "y": 0.8687,
    "unplaced": true
   },
   {
@@ -2644,8 +2854,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.448,
-   "y": 0.9607,
+   "x": 0.5877,
+   "y": 0.8822,
    "unplaced": true
   },
   {
@@ -2661,8 +2871,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4269,
-   "y": 0.9702,
+   "x": 0.5676,
+   "y": 0.8952,
    "unplaced": true
   },
   {
@@ -2678,8 +2888,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4056,
-   "y": 0.9793,
+   "x": 0.5472,
+   "y": 0.9078,
    "unplaced": true
   },
   {
@@ -2695,8 +2905,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3842,
-   "y": 0.9879,
+   "x": 0.5265,
+   "y": 0.92,
    "unplaced": true
   },
   {
@@ -2712,9 +2922,31 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.3625,
-   "y": 0.9961,
+   "x": 0.5056,
+   "y": 0.9316,
    "unplaced": true
+  },
+  {
+   "id": "stormy-sea",
+   "type": "painting",
+   "who": "Eduard Hildebrandt",
+   "title": "Stormy Sea",
+   "line": "Stormy Sea",
+   "year": "1851",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/stormy-sea.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/335360",
+   "heightCm": 13.6,
+   "widthCm": 18.9,
+   "x": 1.0841,
+   "y": -0.1045,
+   "unplaced": false
   },
   {
    "id": "strzeminski-afterimage-sun",
@@ -2729,9 +2961,87 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.3407,
-   "y": 1.0037,
+   "x": 0.4844,
+   "y": 0.9428,
    "unplaced": true
+  },
+  {
+   "id": "summer-landscape-with-figures-bringing-in-the-ha",
+   "type": "painting",
+   "who": "Jan Brueghel the Elder",
+   "title": "Summer landscape with figures bringing in the harvest",
+   "line": "Summer landscape with figures bringing in the harvest",
+   "year": "c. 1610",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/summer-landscape-with-figures-bringing-in-the-ha.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "x": 0.6041,
+   "y": 0.3117,
+   "unplaced": false
+  },
+  {
+   "id": "swans-in-central-park",
+   "type": "painting",
+   "who": "George Bellows",
+   "title": "Swans in Central Park",
+   "line": "Swans in Central Park",
+   "year": "1906",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/swans-in-central-park.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/495297",
+   "displayStatus": "not on view",
+   "statusChecked": "2026-09-10",
+   "heightCm": 46.7,
+   "widthCm": 54.3,
+   "x": 0.0558,
+   "y": 0.2734,
+   "unplaced": false
+  },
+  {
+   "id": "swans-in-reeds",
+   "type": "painting",
+   "who": "Bruno Liljefors",
+   "title": "Swans in Reeds",
+   "line": "Swans in Reeds",
+   "year": "1907",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/swans-in-reeds.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "Thiel Gallery",
+   "collectionCity": "Stockholm",
+   "collectionUrl": "https://www.thielskagalleriet.se/",
+   "x": 0.2296,
+   "y": 0.0411,
+   "unplaced": false
+  },
+  {
+   "id": "swimmers-in-the-river-cave-of-the-seafarers-cave",
+   "type": "painting",
+   "who": "Daderot",
+   "title": "Swimmers in the River, Cave of the Seafarers (Cave 212), Kizil",
+   "line": "Swimmers in the River, Cave of the Seafarers (Cave 212), Kizil",
+   "year": "2014",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/swimmers-in-the-river-cave-of-the-seafarers-cave.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "x": 0.9649,
+   "y": 0.3454,
+   "unplaced": false
   },
   {
    "id": "taeuber-arp-animated-circle",
@@ -2746,8 +3056,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3187,
-   "y": 1.0109,
+   "x": 0.463,
+   "y": 0.9535,
    "unplaced": true
   },
   {
@@ -2763,8 +3073,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2966,
-   "y": 1.0177,
+   "x": 0.4413,
+   "y": 0.9638,
    "unplaced": true
   },
   {
@@ -2780,8 +3090,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2743,
-   "y": 1.0239,
+   "x": 0.4194,
+   "y": 0.9735,
    "unplaced": true
   },
   {
@@ -2797,9 +3107,33 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2519,
-   "y": 1.0296,
+   "x": 0.3973,
+   "y": 0.9827,
    "unplaced": true
+  },
+  {
+   "id": "the-dancing-class",
+   "type": "painting",
+   "who": "Edgar Degas",
+   "title": "The Dancing Class",
+   "line": "The Dancing Class",
+   "year": "ca. 1870",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/the-dancing-class.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/436141",
+   "displayStatus": "on view · gallery 815",
+   "statusChecked": "2026-09-10",
+   "heightCm": 19.7,
+   "widthCm": 27,
+   "x": 0.3147,
+   "y": 0.3367,
+   "unplaced": false
   },
   {
    "id": "the-fog-warning",
@@ -2814,6 +3148,9 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
+   "collection": "Museum of Fine Arts, Boston",
+   "collectionCity": "Boston",
+   "collectionUrl": "https://www.mfa.org/collections/object/the-fog-warning-31042",
    "x": -0.6046,
    "y": 0.4095,
    "unplaced": false
@@ -2831,8 +3168,53 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.8827,
-   "y": -0.2611,
+   "collection": "The National Gallery",
+   "collectionCity": "London",
+   "collectionUrl": "https://www.nationalgallery.org.uk/paintings/camille-pissarro-the-louvre-under-snow",
+   "x": -0.8874,
+   "y": -0.5587,
+   "unplaced": false
+  },
+  {
+   "id": "the-remains-of-a-shipwreck",
+   "type": "painting",
+   "who": "Joseph Vernet",
+   "title": "The Remains of a Shipwreck",
+   "line": "The Remains of a Shipwreck",
+   "year": "ca. 1750–1800",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/the-remains-of-a-shipwreck.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/812171",
+   "heightCm": 35.3,
+   "widthCm": 52.8,
+   "x": 0.7726,
+   "y": -0.0046,
+   "unplaced": false
+  },
+  {
+   "id": "the-rescue",
+   "type": "painting",
+   "who": "Bjarne Ness",
+   "title": "The Rescue",
+   "line": "The Rescue",
+   "year": "1926",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/the-rescue.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "Trondheim Kunstmuseum",
+   "collectionCity": "Trondheim",
+   "collectionUrl": "https://trondheimkunstmuseum.no/",
+   "x": 0.8598,
+   "y": -0.2753,
    "unplaced": false
   },
   {
@@ -2848,6 +3230,9 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
+   "collection": "Yale Center for British Art",
+   "collectionCity": "New Haven",
+   "collectionUrl": "https://collections.britishart.yale.edu/catalog/tms:10034",
    "x": -0.3001,
    "y": 0.4828,
    "unplaced": false
@@ -2865,8 +3250,31 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.4052,
-   "y": 1.0809,
+   "collection": "The Museum of Modern Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.moma.org/collection/works/79802",
+   "x": -0.1699,
+   "y": 0.8369,
+   "unplaced": false
+  },
+  {
+   "id": "the-yellow-house-the-street",
+   "type": "painting",
+   "who": "Vincent van Gogh",
+   "title": "The yellow house ('The street')",
+   "line": "The yellow house ('The street')",
+   "year": "1888",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/the-yellow-house-the-street.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "Van Gogh Museum",
+   "collectionCity": "Amsterdam",
+   "collectionUrl": "https://www.vangoghmuseum.nl/en/collection/s0032V1962",
+   "x": 0.0688,
+   "y": -0.4731,
    "unplaced": false
   },
   {
@@ -2882,8 +3290,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2294,
-   "y": 1.0349,
+   "x": 0.375,
+   "y": 0.9914,
    "unplaced": true
   },
   {
@@ -2899,8 +3307,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2068,
-   "y": 1.0396,
+   "x": 0.3525,
+   "y": 0.9997,
    "unplaced": true
   },
   {
@@ -2916,8 +3324,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1841,
-   "y": 1.0439,
+   "x": 0.3298,
+   "y": 1.0074,
    "unplaced": true
   },
   {
@@ -2933,8 +3341,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.3652,
-   "y": 0.8011,
+   "x": -0.2659,
+   "y": 1.1064,
    "unplaced": false
   },
   {
@@ -2950,8 +3358,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1613,
-   "y": 1.0477,
+   "x": 0.307,
+   "y": 1.0146,
    "unplaced": true
   },
   {
@@ -2967,8 +3375,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1384,
-   "y": 1.0509,
+   "x": 0.284,
+   "y": 1.0213,
    "unplaced": true
   },
   {
@@ -2984,8 +3392,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1154,
-   "y": 1.0537,
+   "x": 0.2608,
+   "y": 1.0274,
    "unplaced": true
   },
   {
@@ -3001,8 +3409,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0924,
-   "y": 1.056,
+   "x": 0.2375,
+   "y": 1.033,
    "unplaced": true
   },
   {
@@ -3018,8 +3426,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0693,
-   "y": 1.0577,
+   "x": 0.2141,
+   "y": 1.0381,
    "unplaced": true
   },
   {
@@ -3035,8 +3443,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0462,
-   "y": 1.059,
+   "x": 0.1906,
+   "y": 1.0427,
    "unplaced": true
   },
   {
@@ -3052,8 +3460,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0231,
-   "y": 1.0597,
+   "x": 0.167,
+   "y": 1.0468,
    "unplaced": true
   },
   {
@@ -3069,8 +3477,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0,
-   "y": 1.06,
+   "x": 0.1433,
+   "y": 1.0503,
    "unplaced": true
   },
   {
@@ -3086,8 +3494,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.0231,
-   "y": 1.0597,
+   "x": 0.1195,
+   "y": 1.0532,
    "unplaced": true
   },
   {
@@ -3103,8 +3511,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.0462,
-   "y": 1.059,
+   "x": 0.0957,
+   "y": 1.0557,
    "unplaced": true
   },
   {
@@ -3120,8 +3528,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.0693,
-   "y": 1.0577,
+   "x": 0.0718,
+   "y": 1.0576,
    "unplaced": true
   },
   {
@@ -3137,9 +3545,29 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.0924,
-   "y": 1.056,
+   "x": 0.0479,
+   "y": 1.0589,
    "unplaced": true
+  },
+  {
+   "id": "vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv",
+   "type": "painting",
+   "who": "Johan Christian Dahl",
+   "title": "Vesuvs udbrud 1820 Eruption of the Volcano Vesuvius",
+   "line": "Vesuvs udbrud 1820 Eruption of the Volcano Vesuvius",
+   "year": "1821",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "Statens Museum for Kunst",
+   "collectionCity": "Copenhagen",
+   "collectionUrl": "https://open.smk.dk/en/artwork/image/KMS6803",
+   "x": 0.986,
+   "y": 0.0209,
+   "unplaced": false
   },
   {
    "id": "view-of-sugarloaf-mountain-from-the-silvestre-ro",
@@ -3154,8 +3582,11 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.1744,
-   "y": 1.0668,
+   "collection": "Pinacoteca de São Paulo",
+   "collectionCity": "São Paulo",
+   "collectionUrl": "https://pinacoteca.org.br/",
+   "x": -0.4,
+   "y": 0.8162,
    "unplaced": false
   },
   {
@@ -3171,8 +3602,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.1154,
-   "y": 1.0537,
+   "x": 0.024,
+   "y": 1.0597,
    "unplaced": true
   },
   {
@@ -3188,8 +3619,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.1384,
-   "y": 1.0509,
+   "x": 0,
+   "y": 1.06,
    "unplaced": true
   },
   {
@@ -3205,8 +3636,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.1613,
-   "y": 1.0477,
+   "x": -0.024,
+   "y": 1.0597,
    "unplaced": true
   },
   {
@@ -3222,8 +3653,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.1841,
-   "y": 1.0439,
+   "x": -0.0479,
+   "y": 1.0589,
    "unplaced": true
   },
   {
@@ -3239,8 +3670,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.2068,
-   "y": 1.0396,
+   "x": -0.0718,
+   "y": 1.0576,
    "unplaced": true
   },
   {
@@ -3256,8 +3687,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.2294,
-   "y": 1.0349,
+   "x": -0.0957,
+   "y": 1.0557,
    "unplaced": true
   },
   {
@@ -3273,8 +3704,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.2519,
-   "y": 1.0296,
+   "x": -0.1195,
+   "y": 1.0532,
    "unplaced": true
   },
   {
@@ -3290,8 +3721,35 @@
    "url": "",
    "note": "Painted in his own flat at Strandgade 30, which he painted again and again for a decade. No furniture to speak of, no story, nobody home: an empty room and the light crossing it.",
    "added": "2026-08-15",
-   "x": -1.0467,
-   "y": -0.4882,
+   "collection": "Ordrupgaard, Copenhagen",
+   "collectionCity": "Copenhagen",
+   "collectionUrl": "https://hammershoi.smk.dk/artwork/sunbeams-or-sunshine-dust-motes-dancing-in-the-sunbeams/",
+   "heightCm": 71,
+   "widthCm": 61,
+   "x": -0.7691,
+   "y": -0.2876,
+   "unplaced": false
+  },
+  {
+   "id": "vill-giature-from-croquis-d-t-published-in-le-ch",
+   "type": "painting",
+   "who": "Honoré Daumier",
+   "title": "Villégiature, from Croquis d'Été, published in Le Charivari, August 22, 1856",
+   "line": "Villégiature, from Croquis d'Été, published in Le Charivari, August 22, 1856",
+   "year": "August 22, 1856",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/vill-giature-from-croquis-d-t-published-in-le-ch.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/646811",
+   "heightCm": 26.7,
+   "widthCm": 25.9,
+   "x": 0.6305,
+   "y": 0.4337,
    "unplaced": false
   },
   {
@@ -3307,8 +3765,57 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": -0.0185,
-   "y": -0.6915,
+   "collection": "Toledo Museum of Art",
+   "collectionCity": "Toledo",
+   "collectionUrl": "https://emuseum.toledomuseum.org/objects/58425/the-clarac-gallery",
+   "x": 0.1085,
+   "y": -0.7768,
+   "unplaced": false
+  },
+  {
+   "id": "waterfall-on-a-cold-cliff",
+   "type": "painting",
+   "who": "Lu Hui",
+   "title": "Waterfall on a Cold Cliff",
+   "line": "Waterfall on a Cold Cliff",
+   "year": "",
+   "where": "",
+   "weather": "vastness",
+   "src": "/images/vault/waterfall-on-a-cold-cliff.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/737748",
+   "heightCm": 181.6,
+   "widthCm": 45.7,
+   "x": -0.115,
+   "y": 0.9479,
+   "unplaced": false
+  },
+  {
+   "id": "waves-breaking-on-rocks-from-scrapbook",
+   "type": "painting",
+   "who": "John Singer Sargent",
+   "title": "Waves Breaking on Rocks (from scrapbook)",
+   "line": "Waves Breaking on Rocks (from scrapbook)",
+   "year": "ca. 1875",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/waves-breaking-on-rocks-from-scrapbook.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/12467",
+   "displayStatus": "not on view",
+   "statusChecked": "2026-09-10",
+   "heightCm": 10.2,
+   "widthCm": 16.5,
+   "x": 0.7179,
+   "y": -0.1479,
    "unplaced": false
   },
   {
@@ -3324,8 +3831,11 @@
    "url": "",
    "note": "",
    "added": "2026-08-26",
-   "x": 0.3229,
-   "y": -0.5961,
+   "collection": "Tate",
+   "collectionCity": "London",
+   "collectionUrl": "https://www.tate.org.uk/art/artworks/whistler-nocturne-blue-and-silver-chelsea-t01571",
+   "x": 0.2292,
+   "y": -0.4806,
    "unplaced": false
   },
   {
@@ -3341,8 +3851,11 @@
    "url": "",
    "note": "",
    "added": "2026-09-02",
-   "x": -0.7171,
-   "y": -0.3758,
+   "collection": "National Museum of Art, Architecture and Design",
+   "collectionCity": "Oslo",
+   "collectionUrl": "https://www.nasjonalmuseet.no/en/collection/",
+   "x": -1.0752,
+   "y": -0.4512,
    "unplaced": false
   },
   {
@@ -3358,8 +3871,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.2743,
-   "y": 1.0239,
+   "x": -0.1433,
+   "y": 1.0503,
    "unplaced": true
   },
   {
@@ -3375,8 +3888,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.2966,
-   "y": 1.0177,
+   "x": -0.167,
+   "y": 1.0468,
    "unplaced": true
   },
   {
@@ -3392,8 +3905,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.3187,
-   "y": 1.0109,
+   "x": -0.1906,
+   "y": 1.0427,
    "unplaced": true
   },
   {
@@ -3409,8 +3922,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.3407,
-   "y": 1.0037,
+   "x": -0.2141,
+   "y": 1.0381,
    "unplaced": true
   },
   {
@@ -3426,8 +3939,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.3625,
-   "y": 0.9961,
+   "x": -0.2375,
+   "y": 1.033,
    "unplaced": true
   },
   {
@@ -3443,8 +3956,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.3842,
-   "y": 0.9879,
+   "x": -0.2608,
+   "y": 1.0274,
    "unplaced": true
   },
   {
@@ -3460,8 +3973,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.4056,
-   "y": 0.9793,
+   "x": -0.284,
+   "y": 1.0213,
    "unplaced": true
   },
   {
@@ -3477,8 +3990,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.4269,
-   "y": 0.9702,
+   "x": -0.307,
+   "y": 1.0146,
    "unplaced": true
   },
   {
@@ -3494,8 +4007,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.448,
-   "y": 0.9607,
+   "x": -0.3298,
+   "y": 1.0074,
    "unplaced": true
   },
   {
@@ -3511,8 +4024,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.4688,
-   "y": 0.9507,
+   "x": -0.3525,
+   "y": 0.9997,
    "unplaced": true
   },
   {
@@ -3528,8 +4041,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.4895,
-   "y": 0.9402,
+   "x": -0.375,
+   "y": 0.9914,
    "unplaced": true
   },
   {
@@ -3545,8 +4058,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.5098,
-   "y": 0.9293,
+   "x": -0.3973,
+   "y": 0.9827,
    "unplaced": true
   },
   {
@@ -3562,8 +4075,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.53,
-   "y": 0.918,
+   "x": -0.4194,
+   "y": 0.9735,
    "unplaced": true
   },
   {
@@ -3579,8 +4092,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.5499,
-   "y": 0.9062,
+   "x": -0.4413,
+   "y": 0.9638,
    "unplaced": true
   },
   {
@@ -3596,8 +4109,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.5695,
-   "y": 0.894,
+   "x": -0.463,
+   "y": 0.9535,
    "unplaced": true
   },
   {
@@ -3613,8 +4126,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.5889,
-   "y": 0.8814,
+   "x": -0.4844,
+   "y": 0.9428,
    "unplaced": true
   },
   {
@@ -3630,9 +4143,33 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.608,
-   "y": 0.8683,
+   "x": -0.5056,
+   "y": 0.9316,
    "unplaced": true
+  },
+  {
+   "id": "明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn",
+   "type": "painting",
+   "who": "Liu Shiru",
+   "title": "Flowering Plum in Moonlight and Snow",
+   "line": "Flowering Plum in Moonlight and Snow",
+   "year": "16th century",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/36084",
+   "displayStatus": "not on view",
+   "statusChecked": "2026-09-10",
+   "heightCm": 152.4,
+   "widthCm": 89.7,
+   "x": -0.7324,
+   "y": -0.4674,
+   "unplaced": false
   },
   {
    "id": "botanical-dish-with-white-sunflower",
@@ -3647,8 +4184,130 @@
    "url": "",
    "note": "",
    "added": "2026-09-02",
-   "x": -1.0154,
-   "y": -0.2757,
+   "x": -0.9198,
+   "y": -0.2418,
+   "unplaced": false
+  },
+  {
+   "id": "bowl-emulating-chinese-stoneware",
+   "type": "object",
+   "who": "",
+   "title": "Bowl Emulating Chinese Stoneware",
+   "line": "Bowl Emulating Chinese Stoneware",
+   "year": "9th century",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/bowl-emulating-chinese-stoneware.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/451715",
+   "displayStatus": "on view · gallery 451",
+   "statusChecked": "2026-09-10",
+   "x": -0.9954,
+   "y": -0.5363,
+   "unplaced": false
+  },
+  {
+   "id": "courtesan-by-a-lantern-fire-from-the-series-five",
+   "type": "object",
+   "who": "Totoya Hokkei",
+   "title": "Courtesan by a Lantern, “Fire,” from the series Five Elements for the Bunsai Poetry Group, a Guide to the Yoshiwara Pleasure Quarters",
+   "line": "Courtesan by a Lantern, “Fire,” from the series Five Elements for the Bunsai Poetry Group, a Guide to the Yoshiwara Pleasure Quarters",
+   "year": "ca. 1820",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/courtesan-by-a-lantern-fire-from-the-series-five.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/54817",
+   "heightCm": 20,
+   "widthCm": 18.3,
+   "x": -0.0428,
+   "y": -0.5956,
+   "unplaced": false
+  },
+  {
+   "id": "design-for-a-porcelain-platter",
+   "type": "object",
+   "who": "Leroux",
+   "title": "Design for a Porcelain Platter",
+   "line": "Design for a Porcelain Platter",
+   "year": "1777",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/design-for-a-porcelain-platter.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "x": -0.7323,
+   "y": -0.3328,
+   "unplaced": false
+  },
+  {
+   "id": "felsenhuhn",
+   "type": "object",
+   "who": "Wiener Werkstätte",
+   "title": "Felsenhuhn",
+   "line": "Felsenhuhn",
+   "year": "1910–1912",
+   "where": "",
+   "weather": "the plain thing",
+   "src": "/images/vault/felsenhuhn.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "x": -0.0583,
+   "y": -0.785,
+   "unplaced": false
+  },
+  {
+   "id": "first-day-of-autumn-risshu",
+   "type": "object",
+   "who": "Suzuki Harunobu",
+   "title": "First Day of Autumn (Risshu)",
+   "line": "First Day of Autumn (Risshu)",
+   "year": "ca. 1865",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/first-day-of-autumn-risshu.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/45073",
+   "heightCm": 27.9,
+   "widthCm": 20.3,
+   "x": 0.2324,
+   "y": -0.7578,
+   "unplaced": false
+  },
+  {
+   "id": "le-rempailleur-de-chaises",
+   "type": "object",
+   "who": "Louis Vert",
+   "title": "Le rempailleur de chaises.",
+   "line": "Le rempailleur de chaises.",
+   "year": "ca. 1900",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/le-rempailleur-de-chaises.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/941599",
+   "heightCm": 8.6,
+   "widthCm": 9.8,
+   "x": 0.1305,
+   "y": -0.4611,
    "unplaced": false
   },
   {
@@ -3664,8 +4323,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.6268,
-   "y": 0.8548,
+   "x": -0.5265,
+   "y": 0.92,
    "unplaced": true
   },
   {
@@ -3681,8 +4340,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.6453,
-   "y": 0.841,
+   "x": -0.5472,
+   "y": 0.9078,
    "unplaced": true
   },
   {
@@ -3698,9 +4357,92 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.6635,
-   "y": 0.8267,
+   "x": -0.5676,
+   "y": 0.8952,
    "unplaced": true
+  },
+  {
+   "id": "stained-glass-panel-with-saint-roch-the-van-merl",
+   "type": "object",
+   "who": "",
+   "title": "Stained Glass Panel with Saint Roch, the van Merle Family Arms and a Donor",
+   "line": "Stained Glass Panel with Saint Roch, the van Merle Family Arms and a Donor",
+   "year": "16th century",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/stained-glass-panel-with-saint-roch-the-van-merl.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/463582",
+   "displayStatus": "on view · gallery 306",
+   "statusChecked": "2026-09-10",
+   "heightCm": 210.5,
+   "widthCm": 74.5,
+   "x": 0.0497,
+   "y": -0.7588,
+   "unplaced": false
+  },
+  {
+   "id": "the-second-ichikawa-monnosuke-as-a-samurai-stand",
+   "type": "object",
+   "who": "Katsukawa Shun'ei 勝川春英",
+   "title": "The Second Ichikawa Monnosuke as a Samurai Standing by a Wooden Bench",
+   "line": "The Second Ichikawa Monnosuke as a Samurai Standing by a Wooden Bench",
+   "year": "ca. 1794?",
+   "where": "",
+   "weather": "the plain thing",
+   "src": "/images/vault/the-second-ichikawa-monnosuke-as-a-samurai-stand.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/36780",
+   "heightCm": 31.3,
+   "widthCm": 14,
+   "x": -0.2596,
+   "y": -0.9896,
+   "unplaced": false
+  },
+  {
+   "id": "interior-main-residence-spiral-staircase-detail-",
+   "type": "building",
+   "who": "",
+   "title": "Interior main residence spiral staircase detail view, downward. - Sam and Alfred",
+   "line": "Interior main residence spiral staircase detail view, downward. - Sam and Alfred",
+   "year": "1999",
+   "where": "",
+   "weather": "weight and grace",
+   "src": "/images/vault/interior-main-residence-spiral-staircase-detail-.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "x": 0.0388,
+   "y": 0.1677,
+   "unplaced": false
+  },
+  {
+   "id": "americans-will-always-fight-for-liberty",
+   "type": "poster",
+   "who": "Perlin, B",
+   "title": "Americans will always fight for liberty.",
+   "line": "Americans will always fight for liberty.",
+   "year": "",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/americans-will-always-fight-for-liberty.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "Missouri Historical Society",
+   "collectionCity": "St. Louis",
+   "collectionUrl": "https://mohistory.org/collections",
+   "x": 1.016,
+   "y": -0.2439,
+   "unplaced": false
   },
   {
    "id": "hohlwein-zoo-munich",
@@ -3715,8 +4457,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.6814,
-   "y": 0.812,
+   "x": -0.5877,
+   "y": 0.8822,
    "unplaced": true
   },
   {
@@ -3732,9 +4474,142 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.6989,
-   "y": 0.797,
+   "x": -0.6074,
+   "y": 0.8687,
    "unplaced": true
+  },
+  {
+   "id": "poster-cheret-folies-bergere",
+   "type": "poster",
+   "who": "Jules Chéret",
+   "title": "Folies Bergère",
+   "line": "Folies Bergère",
+   "year": "1893",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/poster-cheret-folies-bergere.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "x": 0.9244,
+   "y": 0.0377,
+   "unplaced": false
+  },
+  {
+   "id": "poster-steinlen-tournee-du-chat-noir",
+   "type": "poster",
+   "who": "Théophile Steinlen",
+   "title": "Tournée du Chat Noir",
+   "line": "Tournée du Chat Noir",
+   "year": "1896",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/poster-steinlen-tournee-du-chat-noir.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "Museu Nacional d’Art de Catalunya",
+   "collectionCity": "Barcelona",
+   "collectionUrl": "https://www.museunacional.cat/en/colleccio/tournee-du-chat-noir/theophile-alexandre-steinlen/213721-000",
+   "x": 0.325,
+   "y": -0.6196,
+   "unplaced": false
+  },
+  {
+   "id": "poster-toulouse-lautrec-divan-japonais",
+   "type": "poster",
+   "who": "Henri de Toulouse-Lautrec",
+   "title": "Divan Japonais",
+   "line": "Divan Japonais",
+   "year": "1893",
+   "where": "",
+   "weather": "the dark and the lamp",
+   "src": "/images/vault/poster-toulouse-lautrec-divan-japonais.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "x": -0.0432,
+   "y": -0.5979,
+   "unplaced": false
+  },
+  {
+   "id": "poster-toulouse-lautrec-moulin-rouge-la-goulue",
+   "type": "poster",
+   "who": "Henri de Toulouse-Lautrec",
+   "title": "Moulin Rouge: La Goulue",
+   "line": "Moulin Rouge: La Goulue",
+   "year": "1891",
+   "where": "",
+   "weather": "nerve",
+   "src": "/images/vault/poster-toulouse-lautrec-moulin-rouge-la-goulue.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "x": 0.8094,
+   "y": -0.2587,
+   "unplaced": false
+  },
+  {
+   "id": "summer-lccn2015648021",
+   "type": "poster",
+   "who": "Stanlaws, Penrhyn",
+   "title": "Summer",
+   "line": "Summer",
+   "year": "1907",
+   "where": "",
+   "weather": "invincible summer",
+   "src": "/images/vault/summer-lccn2015648021.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "Library of Congress",
+   "collectionCity": "Washington",
+   "collectionUrl": "https://www.loc.gov/pictures/item/2015648021/",
+   "x": 0.8259,
+   "y": 0.1859,
+   "unplaced": false
+  },
+  {
+   "id": "fujikawa-sanchu-yamanaka-no-sato-miyajiyama",
+   "type": "print",
+   "who": "Utagawa Hiroshige",
+   "title": "Fujikawa; Sanchu Yamanaka no Sato Miyajiyama",
+   "line": "Fujikawa; Sanchu Yamanaka no Sato Miyajiyama",
+   "year": "1855",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/fujikawa-sanchu-yamanaka-no-sato-miyajiyama.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/55123",
+   "heightCm": 36.7,
+   "widthCm": 24.8,
+   "x": -1.0741,
+   "y": -0.3462,
+   "unplaced": false
+  },
+  {
+   "id": "gasshukoku-suishi-teitoku-k-j-gaki-oral-statemen",
+   "type": "print",
+   "who": "",
+   "title": "Gasshukoku suishi teitoku kōjōgaki (Oral statement by the American Navy admiral)",
+   "line": "Gasshukoku suishi teitoku kōjōgaki (Oral statement by the American Navy admiral)",
+   "year": "c. 1854",
+   "where": "",
+   "weather": "the plain thing",
+   "src": "/images/vault/gasshukoku-suishi-teitoku-k-j-gaki-oral-statemen.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "Library of Congress",
+   "collectionCity": "Washington",
+   "collectionUrl": "https://www.loc.gov/pictures/",
+   "x": 0.0846,
+   "y": -0.9096,
+   "unplaced": false
   },
   {
    "id": "goyo-woman-after-bath",
@@ -3749,8 +4624,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.7161,
-   "y": 0.7815,
+   "x": -0.6269,
+   "y": 0.8547,
    "unplaced": true
   },
   {
@@ -3766,8 +4641,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.733,
-   "y": 0.7657,
+   "x": -0.6461,
+   "y": 0.8403,
    "unplaced": true
   },
   {
@@ -3783,8 +4658,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.7495,
-   "y": 0.7495,
+   "x": -0.6649,
+   "y": 0.8255,
    "unplaced": true
   },
   {
@@ -3800,8 +4675,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.7657,
-   "y": 0.733,
+   "x": -0.6834,
+   "y": 0.8103,
    "unplaced": true
   },
   {
@@ -3817,8 +4692,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.7815,
-   "y": 0.7161,
+   "x": -0.7015,
+   "y": 0.7946,
    "unplaced": true
   },
   {
@@ -3834,8 +4709,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.797,
-   "y": 0.6989,
+   "x": -0.7193,
+   "y": 0.7786,
    "unplaced": true
   },
   {
@@ -3851,8 +4726,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.812,
-   "y": 0.6814,
+   "x": -0.7367,
+   "y": 0.7621,
    "unplaced": true
   },
   {
@@ -3868,9 +4743,53 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.8267,
-   "y": 0.6635,
+   "x": -0.7538,
+   "y": 0.7453,
    "unplaced": true
+  },
+  {
+   "id": "mallard-and-snow-covered-reeds",
+   "type": "print",
+   "who": "Utagawa Hiroshige",
+   "title": "Mallard and Snow-covered Reeds",
+   "line": "Mallard and Snow-covered Reeds",
+   "year": "ca. 1843",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/mallard-and-snow-covered-reeds.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/56000",
+   "heightCm": 25.1,
+   "widthCm": 37.1,
+   "x": -0.8496,
+   "y": -0.5531,
+   "unplaced": false
+  },
+  {
+   "id": "night-rain-at-gankir",
+   "type": "print",
+   "who": "Utagawa Yoshitora",
+   "title": "Night Rain at Gankirō",
+   "line": "Night Rain at Gankirō",
+   "year": "1st month, 1861",
+   "where": "",
+   "weather": "dissolution",
+   "src": "/images/vault/night-rain-at-gankir.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/73477",
+   "heightCm": 36.5,
+   "widthCm": 25.4,
+   "x": -0.5725,
+   "y": 0.6578,
+   "unplaced": false
   },
   {
    "id": "onchi-flowers",
@@ -3885,8 +4804,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.841,
-   "y": 0.6453,
+   "x": -0.7704,
+   "y": 0.7281,
    "unplaced": true
   },
   {
@@ -3902,9 +4821,31 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.8548,
-   "y": 0.6268,
+   "x": -0.7867,
+   "y": 0.7105,
    "unplaced": true
+  },
+  {
+   "id": "seaside-village-in-winter-from-hokusai-s-album-o",
+   "type": "print",
+   "who": "Katsushika Hokusai",
+   "title": "Seaside Village in Winter, from Hokusai’s Album of Realistic Pictures (Hokusai shashin gafu)",
+   "line": "Seaside Village in Winter, from Hokusai’s Album of Realistic Pictures (Hokusai shashin gafu)",
+   "year": "1814",
+   "where": "",
+   "weather": "cold clarity",
+   "src": "/images/vault/seaside-village-in-winter-from-hokusai-s-album-o.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-10",
+   "collection": "The Metropolitan Museum of Art",
+   "collectionCity": "New York",
+   "collectionUrl": "https://www.metmuseum.org/art/collection/search/37193",
+   "heightCm": 20.3,
+   "widthCm": 31.8,
+   "x": -0.8118,
+   "y": -0.2602,
+   "unplaced": false
   },
   {
    "id": "vallotton-guitare",
@@ -3919,8 +4860,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.8683,
-   "y": 0.608,
+   "x": -0.8025,
+   "y": 0.6925,
    "unplaced": true
   },
   {
@@ -3936,8 +4877,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.8814,
-   "y": 0.5889,
+   "x": -0.818,
+   "y": 0.6742,
    "unplaced": true
   },
   {
@@ -3953,8 +4894,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.894,
-   "y": 0.5695,
+   "x": -0.833,
+   "y": 0.6555,
    "unplaced": true
   },
   {
@@ -3973,8 +4914,8 @@
    "original": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
    "translator": "translated for this page, not a published version",
    "lang": "greek",
-   "x": 0.0894,
-   "y": -0.467,
+   "x": 0.1189,
+   "y": -0.7781,
    "unplaced": false
   },
   {
@@ -3993,8 +4934,8 @@
    "original": "馬をさへ\nながむる雪の\n朝哉",
    "translator": "translated for this page, not a published version",
    "lang": "japanese",
-   "x": -0.8894,
-   "y": -0.5588,
+   "x": -1.0628,
+   "y": -0.4756,
    "unplaced": false
   },
   {
@@ -4013,8 +4954,8 @@
    "original": "古池や\n蛙飛びこむ\n水の音",
    "translator": "translated for this page, not a published version",
    "lang": "japanese",
-   "x": -0.0666,
-   "y": -1.0393,
+   "x": -0.1739,
+   "y": -0.7742,
    "unplaced": false
   },
   {
@@ -4033,8 +4974,8 @@
    "original": "身にしむや\n亡妻の櫛を\n閨に踏む",
    "translator": "translated for this page, not a published version",
    "lang": "japanese",
-   "x": 0.403,
-   "y": 0.2236,
+   "x": 0.3891,
+   "y": 0.1355,
    "unplaced": false
   },
   {
@@ -4053,8 +4994,8 @@
    "original": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
    "translator": "translated for this page, not a published version",
    "lang": "greek",
-   "x": 0.8112,
-   "y": -0.2537,
+   "x": 1.0461,
+   "y": -0.0224,
    "unplaced": false
   },
   {
@@ -4071,8 +5012,8 @@
    "note": "Published four years after her death, from the fascicles she sewed and kept in a drawer. The 1890 text, as her first editors printed it.",
    "added": "2026-09-02",
    "lang": "english",
-   "x": -0.7596,
-   "y": -0.2964,
+   "x": -0.7314,
+   "y": -0.4654,
    "unplaced": false
   },
   {
@@ -4089,8 +5030,8 @@
    "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote.",
    "added": "2026-08-15",
    "lang": "english",
-   "x": 0.81,
-   "y": 0.22,
+   "x": 0.9446,
+   "y": 0.4127,
    "unplaced": false
   },
   {
@@ -4109,8 +5050,8 @@
    "original": "O poeta é um fingidor.\nFinge tão completamente\nQue chega a fingir que é dor\nA dor que deveras sente.",
    "translator": "translated for this page, not a published version",
    "lang": "french",
-   "x": -0.5618,
-   "y": 0.6627,
+   "x": -0.5318,
+   "y": 0.3673,
    "unplaced": false
   },
   {
@@ -4127,8 +5068,8 @@
    "note": "Written the summer he was ordained. Not published until 1918, twenty-nine years after he died; he had shown it to almost no one.",
    "added": "2026-09-02",
    "lang": "english",
-   "x": -0.129,
-   "y": -0.7826,
+   "x": -0.0358,
+   "y": -1.0692,
    "unplaced": false
   },
   {
@@ -4147,8 +5088,8 @@
    "original": "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。",
    "translator": "translated for this page, not a published version",
    "lang": "chinese",
-   "x": 0.1406,
-   "y": -0.7791,
+   "x": 0.21,
+   "y": -0.4727,
    "unplaced": false
   },
   {
@@ -4167,8 +5108,8 @@
    "original": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
    "translator": "translated for this page, not a published version",
    "lang": "german",
-   "x": 0.1602,
-   "y": 0.3506,
+   "x": 0.2635,
+   "y": 0.3546,
    "unplaced": false
   },
   {
@@ -4187,8 +5128,8 @@
    "original": "Herr: es ist Zeit. Der Sommer war sehr groß.\nLeg deinen Schatten auf die Sonnenuhren,\nund auf den Fluren laß die Winde los.\n\nBefiehl den letzten Früchten voll zu sein;\ngieb ihnen noch zwei südlichere Tage,\ndränge sie zur Vollendung hin und jage\ndie letzte Süße in den schweren Wein.\n\nWer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
    "translator": "translated for this page, not a published version",
    "lang": "german",
-   "x": -0.4269,
-   "y": 0.3676,
+   "x": -0.3995,
+   "y": 0.6632,
    "unplaced": false
   },
   {
@@ -4207,8 +5148,8 @@
    "original": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
    "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929",
    "lang": "chinese",
-   "x": -0.4796,
-   "y": 0.9119,
+   "x": -0.4753,
+   "y": 1.0007,
    "unplaced": false
   },
   {
@@ -4225,9 +5166,26 @@
    "note": "First printed as \"Aedh Wishes for the Cloths of Heaven\", one of three named voices Yeats later folded into a single \"he\".",
    "added": "2026-09-02",
    "lang": "english",
-   "x": 0.2419,
-   "y": 0.042,
+   "x": 0.1399,
+   "y": 0.0566,
    "unplaced": false
+  },
+  {
+   "id": "beethoven-moonlight-sonata",
+   "type": "song",
+   "who": "Ludwig van Beethoven",
+   "title": "Piano Sonata No. 14, Op. 27 No. 2",
+   "line": "Piano Sonata No. 14, Op. 27 No. 2",
+   "year": "1801",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "",
+   "note": "The Adagio sostenuto. Published 1801. No weather yet.",
+   "added": "2026-09-10",
+   "x": -0.8476,
+   "y": 0.6365,
+   "unplaced": true
   },
   {
    "id": "bill-evans-peace-piece",
@@ -4242,8 +5200,8 @@
    "url": "",
    "note": "One left-hand figure, held for seven minutes, improvised in a single take at the end of a session.",
    "added": "2026-08-15",
-   "x": -0.2717,
-   "y": -0.9634,
+   "x": 0.0657,
+   "y": -0.8493,
    "unplaced": false
   },
   {
@@ -4259,8 +5217,8 @@
    "url": "",
    "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his.",
    "added": "2026-08-15",
-   "x": 0.2843,
-   "y": -0.5205,
+   "x": -0.0376,
+   "y": -0.6646,
    "unplaced": false
   },
   {
@@ -4276,8 +5234,8 @@
    "url": "",
    "note": "From a soundtrack to a documentary about the Apollo missions, made for the parts where nothing happens.",
    "added": "2026-08-15",
-   "x": -0.3293,
-   "y": 0.6122,
+   "x": -0.6636,
+   "y": 0.5396,
    "unplaced": false
   },
   {
@@ -4293,8 +5251,8 @@
    "url": "",
    "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds.",
    "added": "2026-08-15",
-   "x": 0.7937,
-   "y": 0.4792,
+   "x": 0.5979,
+   "y": 0.3118,
    "unplaced": false
   },
   {
@@ -4310,8 +5268,8 @@
    "url": "",
    "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia.",
    "added": "2026-08-15",
-   "x": 0.3717,
-   "y": 0.2911,
+   "x": 0.4048,
+   "y": 0.2068,
    "unplaced": false
   },
   {
@@ -4327,8 +5285,8 @@
    "url": "",
    "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician.",
    "added": "2026-08-15",
-   "x": -1.0813,
-   "y": -0.4317,
+   "x": -1.0102,
+   "y": -0.2722,
    "unplaced": false
   },
   {
@@ -4344,8 +5302,8 @@
    "url": "",
    "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything.",
    "added": "2026-08-15",
-   "x": 1.0835,
-   "y": -0.1402,
+   "x": 0.7394,
+   "y": -0.0411,
    "unplaced": false
   },
   {
@@ -4361,8 +5319,8 @@
    "url": "",
    "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it.",
    "added": "2026-08-15",
-   "x": -0.1216,
-   "y": 0.9078,
+   "x": -0.1758,
+   "y": 0.8321,
    "unplaced": false
   },
   {
@@ -4379,8 +5337,8 @@
    "note": "",
    "added": "2026-09-02",
    "lang": "english",
-   "x": 0.0363,
-   "y": 0.219,
+   "x": 0.0769,
+   "y": 0.3008,
    "unplaced": false
   },
   {
@@ -4398,8 +5356,8 @@
    "added": "2026-08-15",
    "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
    "lang": "french",
-   "x": 0.6308,
-   "y": 0.2549,
+   "x": 0.9187,
+   "y": 0.2348,
    "unplaced": false
   },
   {
@@ -4417,8 +5375,8 @@
    "added": "2026-08-15",
    "english": "To be ignorant of what happened before you were born is to remain a child forever.",
    "lang": "latin",
-   "x": -0.2799,
-   "y": 1.1082,
+   "x": -0.1844,
+   "y": 1.0742,
    "unplaced": false
   },
   {
@@ -4436,8 +5394,8 @@
    "added": "2026-08-15",
    "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
    "lang": "spanish",
-   "x": -0.0398,
-   "y": -0.6574,
+   "x": 0.3228,
+   "y": -0.6444,
    "unplaced": false
   },
   {
@@ -4454,8 +5412,8 @@
    "note": "",
    "added": "2026-08-17",
    "lang": "english",
-   "x": 0.8268,
-   "y": 0.0261,
+   "x": 0.9028,
+   "y": -0.2791,
    "unplaced": false
   },
   {
@@ -4472,8 +5430,8 @@
    "note": "",
    "added": "2026-09-02",
    "lang": "english",
-   "x": 0.0807,
-   "y": -0.9542,
+   "x": -0.2848,
+   "y": -0.9134,
    "unplaced": false
   },
   {
@@ -4491,8 +5449,8 @@
    "added": "2026-08-15",
    "english": "A drop hollows the stone; a ring is worn away by use.",
    "lang": "latin",
-   "x": -0.2594,
-   "y": -0.8392,
+   "x": 0.0733,
+   "y": -0.9757,
    "unplaced": false
   },
   {
@@ -4509,8 +5467,8 @@
    "note": "",
    "added": "2026-08-17",
    "lang": "english",
-   "x": 0.8461,
-   "y": -0.2722,
+   "x": 1.0173,
+   "y": 0.003,
    "unplaced": false
   },
   {
@@ -4528,8 +5486,8 @@
    "added": "2026-08-15",
    "english": "The wind is rising… we must try to live.",
    "lang": "french",
-   "x": -0.6558,
-   "y": 0.4704,
+   "x": -0.3114,
+   "y": 0.4544,
    "unplaced": false
   },
   {
@@ -4547,8 +5505,8 @@
    "added": "2026-09-02",
    "english": "have patience with everything unresolved in your heart, and try to love the questions themselves.",
    "lang": "german",
-   "x": -0.3281,
-   "y": 0.4292,
+   "x": -0.5207,
+   "y": 0.6752,
    "unplaced": false
   },
   {
@@ -4566,8 +5524,8 @@
    "added": "2026-08-15",
    "english": "It is not because things are difficult that we do not dare; it is because we do not dare that they are difficult.",
    "lang": "latin",
-   "x": 1.0321,
-   "y": -0.0086,
+   "x": 0.7285,
+   "y": -0.1797,
    "unplaced": false
   },
   {
@@ -4585,8 +5543,8 @@
    "added": "2026-09-02",
    "english": "It is not that we have little time, but that we lose much of it.",
    "lang": "latin",
-   "x": 0.7215,
-   "y": -0.1617,
+   "x": 1.0835,
+   "y": -0.14,
    "unplaced": false
   },
   {
@@ -4604,8 +5562,8 @@
    "added": "2026-08-15",
    "english": "Attention is the rarest and purest form of generosity.",
    "lang": "french",
-   "x": -0.7354,
-   "y": -0.4727,
+   "x": -0.9068,
+   "y": -0.559,
    "unplaced": false
   },
   {
@@ -4622,8 +5580,8 @@
    "note": "",
    "added": "2026-08-17",
    "lang": "english",
-   "x": 0.986,
-   "y": -0.2609,
+   "x": 0.883,
+   "y": 0.0384,
    "unplaced": false
   },
   {
@@ -4641,8 +5599,8 @@
    "added": "2026-08-15",
    "english": "Perhaps one day it will be a pleasure to remember even this.",
    "lang": "english",
-   "x": 0.3533,
-   "y": 0.0897,
+   "x": 0.2637,
+   "y": 0.0454,
    "unplaced": false
   },
   {
@@ -4660,8 +5618,8 @@
    "added": "2026-09-02",
    "english": "Absolutely unmixed attention is prayer.",
    "lang": "french",
-   "x": -0.9122,
-   "y": -0.2412,
+   "x": -0.738,
+   "y": -0.3232,
    "unplaced": false
   },
   {
@@ -4681,8 +5639,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.9062,
-   "y": 0.5499,
+   "x": -0.8618,
+   "y": 0.6172,
    "unplaced": true
   },
   {
@@ -4701,8 +5659,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.918,
-   "y": 0.53,
+   "x": -0.8755,
+   "y": 0.5976,
    "unplaced": true
   },
   {
@@ -4721,8 +5679,8 @@
    "tags": [
     "components"
    ],
-   "x": -0.9293,
-   "y": 0.5098,
+   "x": -0.8888,
+   "y": 0.5777,
    "unplaced": true
   },
   {
@@ -4741,8 +5699,8 @@
    "tags": [
     "components"
    ],
-   "x": -0.9402,
-   "y": 0.4895,
+   "x": -0.9016,
+   "y": 0.5574,
    "unplaced": true
   },
   {
@@ -4761,8 +5719,8 @@
    "tags": [
     "craft"
    ],
-   "x": -0.9507,
-   "y": 0.4688,
+   "x": -0.914,
+   "y": 0.5369,
    "unplaced": true
   },
   {
@@ -4782,8 +5740,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.9607,
-   "y": 0.448,
+   "x": -0.9259,
+   "y": 0.5161,
    "unplaced": true
   },
   {
@@ -4803,8 +5761,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.9702,
-   "y": 0.4269,
+   "x": -0.9373,
+   "y": 0.4951,
    "unplaced": true
   },
   {
@@ -4823,8 +5781,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.9793,
-   "y": 0.4056,
+   "x": -0.9482,
+   "y": 0.4737,
    "unplaced": true
   },
   {
@@ -4843,8 +5801,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.9879,
-   "y": 0.3842,
+   "x": -0.9587,
+   "y": 0.4522,
    "unplaced": true
   },
   {
@@ -4864,8 +5822,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.9961,
-   "y": 0.3625,
+   "x": -0.9687,
+   "y": 0.4304,
    "unplaced": true
   },
   {
@@ -4886,8 +5844,8 @@
     "motion",
     "agents"
    ],
-   "x": -1.0037,
-   "y": 0.3407,
+   "x": -0.9782,
+   "y": 0.4084,
    "unplaced": true
   },
   {
@@ -4903,8 +5861,8 @@
    "url": "",
    "note": "admitted to the académie the same day as vigée le brun, and painted herself teaching. the two pupils in the met picture are not furniture; they look back. she stayed in paris through the revolution and painted the women the court had left behind.",
    "added": "2026-09-08",
-   "x": -1.0109,
-   "y": 0.3187,
+   "x": -0.9871,
+   "y": 0.3862,
    "unplaced": true
   },
   {
@@ -4920,8 +5878,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0177,
-   "y": 0.2966,
+   "x": -0.9956,
+   "y": 0.3638,
    "unplaced": true
   },
   {
@@ -4937,8 +5895,8 @@
    "url": "",
    "note": "fauve at the start, then harbours and quays in a quieter key, the same view painted until the weather changed. friends with matisse; worked from windows more than from the street. the water does most of the work.",
    "added": "2026-09-07",
-   "x": -1.0239,
-   "y": 0.2743,
+   "x": -1.0036,
+   "y": 0.3412,
    "unplaced": true
   },
   {
@@ -4954,8 +5912,8 @@
    "url": "https://en.wikipedia.org/wiki/Alice_Neel",
    "note": "portraits that sit too close: the chair, the flesh, the look back. she died in 1984; the paintings stay with the estate.",
    "added": "2026-09-08",
-   "x": -1.0296,
-   "y": 0.2519,
+   "x": -1.011,
+   "y": 0.3184,
    "unplaced": true
   },
   {
@@ -4971,8 +5929,8 @@
    "url": "https://en.wikipedia.org/wiki/Alina_Szapocznikow",
    "note": "polish sculptor of lamps that are mouths, tumors that are objects, the body as something you can cast and switch on. she died in 1973; the works stay under copyright.",
    "added": "2026-09-08",
-   "x": -1.0349,
-   "y": 0.2294,
+   "x": -1.018,
+   "y": 0.2955,
    "unplaced": true
   },
   {
@@ -4988,8 +5946,8 @@
    "url": "https://en.wikipedia.org/wiki/Amy_Sillman",
    "note": "painter who treats drawing as thinking out loud. figures arrive and get painted over until the room is both cartoon and oil. living; no studio shot belongs here.",
    "added": "2026-09-08",
-   "x": -1.0396,
-   "y": 0.2068,
+   "x": -1.0244,
+   "y": 0.2724,
    "unplaced": true
   },
   {
@@ -5005,8 +5963,8 @@
    "url": "",
    "note": "swiss-born, roman-trained, a founding royal academician in london. history painting when women were told to stay with portraits. the self-portraits hold a charcoal and look slightly past you.",
    "added": "2026-09-08",
-   "x": -1.0439,
-   "y": 0.1841,
+   "x": -1.0303,
+   "y": 0.2492,
    "unplaced": true
   },
   {
@@ -5022,8 +5980,8 @@
    "url": "",
    "note": "david's pupil who turned the neoclassical machine toward moonlight. endymion asleep, atala buried, cairo in revolt: the same pale heat. he painted chateaubriand and then went back to myth.",
    "added": "2026-09-08",
-   "x": -1.0477,
-   "y": 0.1613,
+   "x": -1.0357,
+   "y": 0.2259,
    "unplaced": true
   },
   {
@@ -5039,8 +5997,8 @@
    "url": "",
    "note": "still life as a serious genre when the académie still treated it as lesser. lobster, glass, a dead pheasant, a spray of flowers: one table, looked at until it holds. marie-antoinette sat for her once; the tables are the ones that stay.",
    "added": "2026-09-08",
-   "x": -1.0509,
-   "y": 0.1384,
+   "x": -1.0405,
+   "y": 0.2024,
    "unplaced": true
   },
   {
@@ -5056,8 +6014,8 @@
    "url": "",
    "note": "basel, rome, florence. villas by the sea before the island of the dead became a poster. odysseus against polyphemus; a self-portrait with death at the fiddle. the villas are the ones that stay.",
    "added": "2026-09-08",
-   "x": -1.0537,
-   "y": 0.1154,
+   "x": -1.0448,
+   "y": 0.1788,
    "unplaced": true
   },
   {
@@ -5073,8 +6031,8 @@
    "url": "http://ayoungkim.com/wp/",
    "note": "seoul. speculative video where delivery routes, petra, and a fictional mineral share one clock. living; nothing from the studio is ours to host.",
    "added": "2026-09-08",
-   "x": -1.056,
-   "y": 0.0924,
+   "x": -1.0486,
+   "y": 0.1552,
    "unplaced": true
   },
   {
@@ -5090,8 +6048,8 @@
    "url": "",
    "note": "prague cubist who wanted the picture to have the structure of a crystal. painted saint sebastian the year before he went to war. died of the flu in 1918, at thirty-four.",
    "added": "2026-09-07",
-   "x": -1.0577,
-   "y": 0.0693,
+   "x": -1.0518,
+   "y": 0.1314,
    "unplaced": true
   },
   {
@@ -5107,8 +6065,8 @@
    "url": "https://en.wikipedia.org/wiki/Brice_Marden",
    "note": "oil and wax as a plane, then the long vines. he died in 2023; nothing from the studio is ours to host.",
    "added": "2026-09-08",
-   "x": -1.059,
-   "y": 0.0462,
+   "x": -1.0545,
+   "y": 0.1076,
    "unplaced": true
   },
   {
@@ -5124,8 +6082,8 @@
    "url": "https://en.wikipedia.org/wiki/Carol_Rama",
    "note": "turin. bodies, bicycle inner tubes, a room assembled from what a workshop discards. she died in 2015; the pictures stay with the archive.",
    "added": "2026-09-08",
-   "x": -1.0597,
-   "y": 0.0231,
+   "x": -1.0567,
+   "y": 0.0838,
    "unplaced": true
   },
   {
@@ -5141,8 +6099,8 @@
    "url": "",
    "note": "a precisionist who treated factories and hulls as if they were still lifes. summers in provincetown and bermuda, winters in lancaster, and a long friendship with william carlos williams. he died at fifty-one; the pictures stayed sharp.",
    "added": "2026-09-07",
-   "x": -1.06,
-   "y": 0,
+   "x": -1.0583,
+   "y": 0.0599,
    "unplaced": true
   },
   {
@@ -5158,8 +6116,8 @@
    "url": "https://en.wikipedia.org/wiki/Cy_Twombly",
    "note": "scribbled rooms, later in rome: a name written as if it were a plant. he died in 2011; the pictures stay with the foundation.",
    "added": "2026-09-08",
-   "x": -1.0597,
-   "y": -0.0231,
+   "x": -1.0594,
+   "y": 0.0359,
    "unplaced": true
   },
   {
@@ -5175,8 +6133,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.059,
-   "y": -0.0462,
+   "x": -1.0599,
+   "y": 0.012,
    "unplaced": true
   },
   {
@@ -5192,8 +6150,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0577,
-   "y": -0.0693,
+   "x": -1.0599,
+   "y": -0.012,
    "unplaced": true
   },
   {
@@ -5209,8 +6167,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.056,
-   "y": -0.0924,
+   "x": -1.0594,
+   "y": -0.0359,
    "unplaced": true
   },
   {
@@ -5226,8 +6184,8 @@
    "url": "https://en.wikipedia.org/wiki/Elene_Akhvlediani",
    "note": "tbilisi painter of the city as a tight stack of roofs and balconies. paris in the twenties, then home. living work stays under copyright; commons had no early file large enough and clean enough to host.",
    "added": "2026-09-08",
-   "x": -1.0537,
-   "y": -0.1154,
+   "x": -1.0583,
+   "y": -0.0599,
    "unplaced": true
   },
   {
@@ -5243,8 +6201,8 @@
    "url": "",
    "note": "the painter of the last french court who could make a face look like a thought. self-portraits first, then the women who sat for her in straw hats and cashmere. she left france in 1789 and painted the same attention in rome, naples, vienna and st petersburg.",
    "added": "2026-09-08",
-   "x": -1.0509,
-   "y": -0.1384,
+   "x": -1.0567,
+   "y": -0.0838,
    "unplaced": true
   },
   {
@@ -5260,8 +6218,8 @@
    "url": "",
    "note": "the first rector of the ukrainian academy of arts. life is a triptych: love, life, death, three panels in folk dress that read as one weather. he stayed in kyiv through the thirties; the pictures stayed clearer than the years.",
    "added": "2026-09-08",
-   "x": -1.0477,
-   "y": -0.1613,
+   "x": -1.0545,
+   "y": -0.1076,
    "unplaced": true
   },
   {
@@ -5277,8 +6235,8 @@
    "url": "",
    "note": "nabi painter and woodcutter; interiors where two people share a room and almost nothing else. born in lausanne, naturalised french, and late in life he painted sunsets as flat bands of heat. the interiors are the ones that stay.",
    "added": "2026-09-07",
-   "x": -1.0439,
-   "y": -0.1841,
+   "x": -1.0518,
+   "y": -0.1314,
    "unplaced": true
   },
   {
@@ -5294,8 +6252,8 @@
    "url": "",
    "note": "painted the new york salon she kept: pink rooms, families standing as if on a stage, heat you can feel in the colour. she showed little in her lifetime; after she died her sisters gave the pictures away rather than sell them.",
    "added": "2026-09-07",
-   "x": -1.0396,
-   "y": -0.2068,
+   "x": -1.0486,
+   "y": -0.1552,
    "unplaced": true
   },
   {
@@ -5311,8 +6269,8 @@
    "url": "https://en.wikipedia.org/wiki/Franti%C5%A1ek_Kupka",
    "note": "bohemia, then paris. amorpha and the disks of newton: colour as motion before it had a school. commons had no early canvas large enough and marked public domain, so the card is a name.",
    "added": "2026-09-08",
-   "x": -1.0349,
-   "y": -0.2294,
+   "x": -1.0448,
+   "y": -0.1788,
    "unplaced": true
   },
   {
@@ -5328,8 +6286,8 @@
    "url": "https://en.wikipedia.org/wiki/Gala_Porras-Kim",
    "note": "work about what a museum keeps and cannot name: dust, a missing provenance, an object that still has a ritual job. living; no studio image belongs here.",
    "added": "2026-09-08",
-   "x": -1.0296,
-   "y": -0.2519,
+   "x": -1.0405,
+   "y": -0.2024,
    "unplaced": true
   },
   {
@@ -5345,8 +6303,8 @@
    "url": "",
    "note": "lingnan school; ink that had looked at paris and still came home as a mountain. taught in guangzhou, painted through the war. the 1926 landscape is the one commons will give us clean.",
    "added": "2026-09-07",
-   "x": -1.0239,
-   "y": -0.2743,
+   "x": -1.0357,
+   "y": -0.2259,
    "unplaced": true
   },
   {
@@ -5362,8 +6320,8 @@
    "url": "",
    "note": "venetian modernist who went to paris, came back, and painted breton and burano figures as if they were cut from wood. interned during the war; the last years were in a hospital. the sailor is enough.",
    "added": "2026-09-07",
-   "x": -1.0177,
-   "y": -0.2966,
+   "x": -1.0303,
+   "y": -0.2492,
    "unplaced": true
   },
   {
@@ -5379,8 +6337,8 @@
    "url": "https://www.moma.org/artists/1106",
    "note": "the early metaphysical squares: a tower, a glove, a train. later he painted something else. he died in 1978; commons had no early canvas both public domain and large enough, so the card is a name and a door out.",
    "added": "2026-09-08",
-   "x": -1.0109,
-   "y": -0.3187,
+   "x": -1.0244,
+   "y": -0.2724,
    "unplaced": true
   },
   {
@@ -5396,8 +6354,8 @@
    "url": "",
    "note": "italian divisionist of the alps: sheep, spinning, a boat crossing with an ave maria. the bad mothers hang in the air like weather. he died at forty-one in the engadine.",
    "added": "2026-09-08",
-   "x": -1.0037,
-   "y": -0.3407,
+   "x": -1.018,
+   "y": -0.2955,
    "unplaced": true
   },
   {
@@ -5413,8 +6371,8 @@
    "url": "",
    "note": "orpheus carried, hesiod listening, oedipus facing the sphinx. the myth pictures that are not jewellery. he taught at the académie; the quieter canvases are the ones kept here.",
    "added": "2026-09-08",
-   "x": -0.9961,
-   "y": -0.3625,
+   "x": -1.011,
+   "y": -0.3184,
    "unplaced": true
   },
   {
@@ -5430,8 +6388,8 @@
    "url": "",
    "note": "slade, then paris, then a room in meudon. a corner with a wicker chair, a girl reading at a window, convalescents who sit still. augustus's sister; the quieter painter.",
    "added": "2026-09-08",
-   "x": -0.9879,
-   "y": -0.3842,
+   "x": -1.0036,
+   "y": -0.3412,
    "unplaced": true
   },
   {
@@ -5447,8 +6405,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.9793,
-   "y": -0.4056,
+   "x": -0.9956,
+   "y": -0.3638,
    "unplaced": true
   },
   {
@@ -5464,8 +6422,8 @@
    "url": "",
    "note": "a handful of shin-hanga beauties, each block cut as if it were the only print he would ever make. trained as a painter, then twelve sheets, then he died at forty-one. yokugo no onna is the one that holds still.",
    "added": "2026-09-07",
-   "x": -0.9702,
-   "y": -0.4269,
+   "x": -0.9871,
+   "y": -0.3862,
    "unplaced": true
   },
   {
@@ -5481,8 +6439,8 @@
    "url": "",
    "note": "helsinki, then a quieter finland. the convalescent, then self-portraits that thin the face until it is almost only paint. she kept looking at her own head for fifty years.",
    "added": "2026-09-08",
-   "x": -0.9607,
-   "y": -0.448,
+   "x": -0.9782,
+   "y": -0.4084,
    "unplaced": true
   },
   {
@@ -5498,8 +6456,8 @@
    "url": "",
    "note": "zurich then london. nightmares, titania, thor against the serpent: the royal academy's unquiet member. he taught and he painted sleep as a weight sitting on a chest.",
    "added": "2026-09-08",
-   "x": -0.9507,
-   "y": -0.4688,
+   "x": -0.9687,
+   "y": -0.4304,
    "unplaced": true
   },
   {
@@ -5515,8 +6473,8 @@
    "url": "",
    "note": "the graphic hand of the short-lived ukrainian state: coats of arms, banknotes, an alphabet. studied in st petersburg, came home in 1917, and drew a country that lasted two years. he died at thirty-four, of typhus.",
    "added": "2026-09-07",
-   "x": -0.9402,
-   "y": -0.4895,
+   "x": -0.9587,
+   "y": -0.4522,
    "unplaced": true
   },
   {
@@ -5532,8 +6490,8 @@
    "url": "",
    "note": "late landscapes so dense the ink becomes night, then a path appears. he wrote about the old brush methods and then used them until they were almost new. the 1930s scrolls are the ones that dissolve.",
    "added": "2026-09-07",
-   "x": -0.9293,
-   "y": -0.5098,
+   "x": -0.9482,
+   "y": -0.4737,
    "unplaced": true
   },
   {
@@ -5549,8 +6507,8 @@
    "url": "https://en.wikipedia.org/wiki/Ignacio_Zuloaga",
    "note": "eibar, paris, then spain again. dwarfs, women of sepúlveda, a face that is almost a landscape. commons was thin on large unframed files, so the card may stay mostly a name.",
    "added": "2026-09-08",
-   "x": -0.918,
-   "y": -0.53,
+   "x": -0.9373,
+   "y": -0.4951,
    "unplaced": true
   },
   {
@@ -5566,8 +6524,8 @@
    "url": "",
    "note": "polish symbolist who put thanatos in the doorway and himself in a white dress. melancholia is a field of figures that will not resolve. kraków, then the same face painted until it became a country.",
    "added": "2026-09-08",
-   "x": -0.9062,
-   "y": -0.5499,
+   "x": -0.9259,
+   "y": -0.5161,
    "unplaced": true
   },
   {
@@ -5583,8 +6541,8 @@
    "url": "",
    "note": "nantes, paris, then london. shipboard galleries and visitors on the steps of the national gallery. the social pictures, not the costume posters. he went back to france and painted less of that world.",
    "added": "2026-09-08",
-   "x": -0.894,
-   "y": -0.5695,
+   "x": -0.914,
+   "y": -0.5369,
    "unplaced": true
   },
   {
@@ -5600,8 +6558,8 @@
    "url": "https://en.wikipedia.org/wiki/Joan_Mitchell",
    "note": "second-wave new york painting, then vétheuil: trees and the river as a kind of weather. she died in 1992; the canvases stay with the foundation.",
    "added": "2026-09-08",
-   "x": -0.8814,
-   "y": -0.5889,
+   "x": -0.9016,
+   "y": -0.5574,
    "unplaced": true
   },
   {
@@ -5617,8 +6575,8 @@
    "url": "",
    "note": "valencia, madrid, then the hispanic society in new york. the gardens and the vision of spain, not the beach posters. alcázar, the house patio, a nap in the garden.",
    "added": "2026-09-08",
-   "x": -0.8683,
-   "y": -0.608,
+   "x": -0.8888,
+   "y": -0.5777,
    "unplaced": true
   },
   {
@@ -5634,8 +6592,8 @@
    "url": "https://en.wikipedia.org/wiki/Josef_Sudek",
    "note": "prague photographer of the window, the garden, a glass of water in the light that just made it through. he died in 1976; the prints stay with the estate.",
    "added": "2026-09-08",
-   "x": -0.8548,
-   "y": -0.6268,
+   "x": -0.8755,
+   "y": -0.5976,
    "unplaced": true
   },
   {
@@ -5651,8 +6609,8 @@
    "url": "",
    "note": "the midlands enlightenment painted as candle and moon. an air pump, an orrery, a forge, an alchemist finding phosphorus. science as a room with one light.",
    "added": "2026-09-08",
-   "x": -0.841,
-   "y": -0.6453,
+   "x": -0.8618,
+   "y": -0.6172,
    "unplaced": true
   },
   {
@@ -5668,8 +6626,8 @@
    "url": "https://en.wikipedia.org/wiki/Julie_Mehretu",
    "note": "addis, then detroit, then new york. layered maps that look like weather systems over a city plan. living; the studio pictures stay with her. the card is a name and a door out.",
    "added": "2026-09-08",
-   "x": -0.8267,
-   "y": -0.6635,
+   "x": -0.8476,
+   "y": -0.6365,
    "unplaced": true
   },
   {
@@ -5685,8 +6643,8 @@
    "url": "",
    "note": "königsberg, berlin, the print as a form of attention. mothers, the dead, her own face until it was only line. she lost a son in 1914 and kept looking at grief until it became public.",
    "added": "2026-09-08",
-   "x": -0.812,
-   "y": -0.6814,
+   "x": -0.833,
+   "y": -0.6555,
    "unplaced": true
   },
   {
@@ -5702,8 +6660,8 @@
    "url": "",
    "note": "tokyo western-style painter who made his daughter reiko sit until the face was almost northern renaissance. pumpkins, a woollen shawl, a smile that does not perform. he died at thirty-eight.",
    "added": "2026-09-08",
-   "x": -0.797,
-   "y": -0.6989,
+   "x": -0.818,
+   "y": -0.6742,
    "unplaced": true
   },
   {
@@ -5719,8 +6677,8 @@
    "url": "https://en.wikipedia.org/wiki/Lado_Gudiashvili",
    "note": "tbilisi, then montparnasse, then tbilisi again. figures that lean as if the room were a fresco. he died in 1980; the studio pictures are not ours to host. the name sits here until a clean early file exists.",
    "added": "2026-09-08",
-   "x": -0.7815,
-   "y": -0.7161,
+   "x": -0.8025,
+   "y": -0.6925,
    "unplaced": true
   },
   {
@@ -5736,8 +6694,8 @@
    "url": "",
    "note": "ostend at night: a digue, a lamp, a silhouette that is almost only ink. self-portraits with a red pencil and then with masks. he walked the sea wall until the town became a single edge.",
    "added": "2026-09-08",
-   "x": -0.7657,
-   "y": -0.733,
+   "x": -0.7867,
+   "y": -0.7105,
    "unplaced": true
   },
   {
@@ -5753,8 +6711,8 @@
    "url": "",
    "note": "munich poster designer; flat colour, a single animal or a single coat, the type sitting still beside it. trained as an architect. the zoo poster is the one that reads from across a street.",
    "added": "2026-09-07",
-   "x": -0.7495,
-   "y": -0.7495,
+   "x": -0.7704,
+   "y": -0.7281,
    "unplaced": true
   },
   {
@@ -5770,8 +6728,8 @@
    "url": "https://en.wikipedia.org/wiki/Magdalena_Abakanowicz",
    "note": "abakans: woven volumes that stand in a room like a forest of coats. later, crowds of headless figures. she died in 2017; the works stay with the estate.",
    "added": "2026-09-08",
-   "x": -0.733,
-   "y": -0.7657,
+   "x": -0.7538,
+   "y": -0.7453,
    "unplaced": true
   },
   {
@@ -5787,8 +6745,8 @@
    "url": "",
    "note": "santander, madrid, paris; cubism first, then children sitting in rooms that have no extra furniture. born with a spinal condition; she painted seated figures as if she knew the weight of sitting. died in paris at fifty.",
    "added": "2026-09-07",
-   "x": -0.7161,
-   "y": -0.7815,
+   "x": -0.7367,
+   "y": -0.7621,
    "unplaced": true
   },
   {
@@ -5804,8 +6762,8 @@
    "url": "",
    "note": "turin, milan, then paris. wax and plaster that look as if light had modelled them: a child in the sun, a bookmaker, carne altrui. sculpture as atmosphere.",
    "added": "2026-09-08",
-   "x": -0.6989,
-   "y": -0.797,
+   "x": -0.7193,
+   "y": -0.7786,
    "unplaced": true
   },
   {
@@ -5821,8 +6779,8 @@
    "url": "https://en.wikipedia.org/wiki/Nicolas_de_Sta%C3%ABl",
    "note": "thick colour as a wall, then the sicilian light flattened into slabs. he died in 1955, which puts him on the edge of public domain in some rooms and not in others, so the card is a name until a clean file is ours to host.",
    "added": "2026-09-08",
-   "x": -0.6814,
-   "y": -0.812,
+   "x": -0.7015,
+   "y": -0.7946,
    "unplaced": true
   },
   {
@@ -5838,8 +6796,8 @@
    "url": "",
    "note": "self-taught, painted on oilcloth for taverns in tbilisi: animals, feasts, a deer looking back. he sold them for meals. the still lifes are as plain as a table after the guests have gone.",
    "added": "2026-09-07",
-   "x": -0.6635,
-   "y": -0.8267,
+   "x": -0.6834,
+   "y": -0.8103,
    "unplaced": true
   },
   {
@@ -5855,8 +6813,8 @@
    "url": "",
    "note": "kacho-e for the export market: a crow, a blossom, almost no ground. also signed shōson. the birds are the ones that stay.",
    "added": "2026-09-07",
-   "x": -0.6453,
-   "y": -0.841,
+   "x": -0.6649,
+   "y": -0.8255,
    "unplaced": true
   },
   {
@@ -5872,8 +6830,8 @@
    "url": "",
    "note": "kyiv cubo-futurist; he wrote that colour and line have their own tempo, then painted the city as if it were vibrating. taught at the kyiv art institute after the war. died of tuberculosis at fifty.",
    "added": "2026-09-07",
-   "x": -0.6268,
-   "y": -0.8548,
+   "x": -0.6461,
+   "y": -0.8403,
    "unplaced": true
   },
   {
@@ -5889,8 +6847,8 @@
    "url": "",
    "note": "kyiv painter who brought a paris light home: red hats, an annunciation in a peasant room, a carousel sketched as heat. taught at the ukrainian academy. shot in 1919 on the way back from his studio.",
    "added": "2026-09-08",
-   "x": -0.608,
-   "y": -0.8683,
+   "x": -0.6269,
+   "y": -0.8547,
    "unplaced": true
   },
   {
@@ -5906,8 +6864,8 @@
    "url": "",
    "note": "kyiv, paris, moscow: cubo-futurist canvases and then costumes that treated the stage as a plane of colour. she taught, designed for tairov, and left for paris in 1924. the planes keep moving after the figures have gone.",
    "added": "2026-09-07",
-   "x": -0.5889,
-   "y": -0.8814,
+   "x": -0.6074,
+   "y": -0.8687,
    "unplaced": true
   },
   {
@@ -5923,8 +6881,8 @@
    "url": "",
    "note": "kraków then munich then paris; girls and chrysanthemums in rooms that have almost no furniture. the faces sit in grey-green air. she painted herself with a palette and then with flowers and then almost without a room at all.",
    "added": "2026-09-08",
-   "x": -0.5695,
-   "y": -0.894,
+   "x": -0.5877,
+   "y": -0.8822,
    "unplaced": true
   },
   {
@@ -5940,8 +6898,8 @@
    "url": "",
    "note": "the abstract end of sōsaku-hanga: flowers that are almost only colour, lyric prints numbered like poems. he led the first thursday society and printed through the war. the late flowers are the ones that feel like weather.",
    "added": "2026-09-07",
-   "x": -0.5499,
-   "y": -0.9062,
+   "x": -0.5676,
+   "y": -0.8952,
    "unplaced": true
   },
   {
@@ -5957,8 +6915,8 @@
    "url": "",
    "note": "worpswede, then paris, then a handful of years in which she painted herself as a person rather than a type. first german woman to paint a nude self-portrait. she died at thirty-one, after the birth of her daughter.",
    "added": "2026-09-07",
-   "x": -0.53,
-   "y": -0.918,
+   "x": -0.5472,
+   "y": -0.9078,
    "unplaced": true
   },
   {
@@ -5974,8 +6932,8 @@
    "url": "https://en.wikipedia.org/wiki/Pierre_Soulages",
    "note": "outrenoir: black as a place light comes back from, not a colour you fill in. he died in 2022; the estate holds the pictures.",
    "added": "2026-09-08",
-   "x": -0.5098,
-   "y": -0.9293,
+   "x": -0.5265,
+   "y": -0.92,
    "unplaced": true
   },
   {
@@ -5991,8 +6949,8 @@
    "url": "https://en.wikipedia.org/wiki/Richard_Diebenkorn",
    "note": "ocean park: planes of berkeley light, a balcony as geometry. he died in 1993; the paintings stay with the foundation.",
    "added": "2026-09-08",
-   "x": -0.4895,
-   "y": -0.9402,
+   "x": -0.5056,
+   "y": -0.9316,
    "unplaced": true
   },
   {
@@ -6008,8 +6966,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.4688,
-   "y": -0.9507,
+   "x": -0.4844,
+   "y": -0.9428,
    "unplaced": true
   },
   {
@@ -6025,8 +6983,8 @@
    "url": "https://en.wikipedia.org/wiki/Ruth_Asawa",
    "note": "san francisco. looped wire that hangs as a volume you can see through. she died in 2013; the estate holds the photographs, so the card is a name.",
    "added": "2026-09-08",
-   "x": -0.448,
-   "y": -0.9607,
+   "x": -0.463,
+   "y": -0.9535,
    "unplaced": true
   },
   {
@@ -6042,8 +7000,8 @@
    "url": "https://en.wikipedia.org/wiki/Sanyu_(painter)",
    "note": "sichuan, then paris. pink nudes and animals on an empty ground; the line does most of the work. auction rooms have been loud about him. we do not host the pictures.",
    "added": "2026-09-08",
-   "x": -0.4269,
-   "y": -0.9702,
+   "x": -0.4413,
+   "y": -0.9638,
    "unplaced": true
   },
   {
@@ -6059,8 +7017,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.4056,
-   "y": -0.9793,
+   "x": -0.4194,
+   "y": -0.9735,
    "unplaced": true
   },
   {
@@ -6076,8 +7034,8 @@
    "url": "https://en.wikipedia.org/wiki/Simone_Leigh",
    "note": "sculpture in ceramic and bronze: cowrie, raffia, a head that is also a building. the 2022 venice pavilion. living; the works stay with her and the museums.",
    "added": "2026-09-08",
-   "x": -0.3842,
-   "y": -0.9879,
+   "x": -0.3973,
+   "y": -0.9827,
    "unplaced": true
   },
   {
@@ -6093,8 +7051,8 @@
    "url": "",
    "note": "zurich dada, then strasbourg, then paris. vertical-horizontal compositions, circle pictures, marionettes. she danced and she designed and she painted planes that do not illustrate.",
    "added": "2026-09-08",
-   "x": -0.3625,
-   "y": -0.9961,
+   "x": -0.375,
+   "y": -0.9914,
    "unplaced": true
   },
   {
@@ -6110,8 +7068,8 @@
    "url": "",
    "note": "kraków pastels: planty at dawn, chochoły in the park at night, motherhood as a heap of colour. playwright and stained-glass designer; the pastels are the ones that stay. he died at thirty-eight.",
    "added": "2026-09-08",
-   "x": -0.3407,
-   "y": -1.0037,
+   "x": -0.3525,
+   "y": -0.9997,
    "unplaced": true
   },
   {
@@ -6127,8 +7085,8 @@
    "url": "",
    "note": "model first, then painter. the blue room is a woman on a couch who is not performing. still lifes, her mother, a family that includes uttrillo. montmartre without the poster version of montmartre.",
    "added": "2026-09-08",
-   "x": -0.3187,
-   "y": -1.0109,
+   "x": -0.3298,
+   "y": -1.0074,
    "unplaced": true
   },
   {
@@ -6144,8 +7102,8 @@
    "url": "",
    "note": "inge's pupil who went toward delacroix without becoming him. esther at her toilet, two sisters, a tepidarium. he died at thirty-seven; the portraits hold.",
    "added": "2026-09-08",
-   "x": -0.2966,
-   "y": -1.0177,
+   "x": -0.307,
+   "y": -1.0146,
    "unplaced": true
   },
   {
@@ -6161,8 +7119,8 @@
    "url": "",
    "note": "philadelphia. max schmitt on the schuylkill, the gross clinic, a concert singer, swimming. he taught at the pennsylvania academy and was asked to leave; the pictures stayed exact.",
    "added": "2026-09-08",
-   "x": -0.2743,
-   "y": -1.0239,
+   "x": -0.284,
+   "y": -1.0213,
    "unplaced": true
   },
   {
@@ -6178,8 +7136,8 @@
    "url": "https://en.wikipedia.org/wiki/Toyen",
    "note": "prague surrealist, then paris. marie čermínová, who signed toyen and painted sleep as a desert with a few exact objects in it. died 1980; the pictures stay under copyright.",
    "added": "2026-09-08",
-   "x": -0.2519,
-   "y": -1.0296,
+   "x": -0.2608,
+   "y": -1.0274,
    "unplaced": true
   },
   {
@@ -6195,8 +7153,8 @@
    "url": "https://en.wikipedia.org/wiki/Vija_Celmins",
    "note": "oceans, spiderwebs, the night sky, painted until they almost look like photographs and then do not. living; the pictures stay with her.",
    "added": "2026-09-08",
-   "x": -0.2294,
-   "y": -1.0349,
+   "x": -0.2375,
+   "y": -1.033,
    "unplaced": true
   },
   {
@@ -6212,8 +7170,8 @@
    "url": "",
    "note": "dieppe, camden town, music halls. ennui as two people in a room who have run out of sentences. the nudes are rooms first. he taught a generation of english painters to look at ordinary light.",
    "added": "2026-09-08",
-   "x": -0.2068,
-   "y": -1.0396,
+   "x": -0.2141,
+   "y": -1.0381,
    "unplaced": true
   },
   {
@@ -6229,8 +7187,8 @@
    "url": "https://en.wikipedia.org/wiki/Wilhelm_Sasnal",
    "note": "kraków painter of the newspaper image made still: a factory, a face, a field. living; the canvases are not ours to host.",
    "added": "2026-09-08",
-   "x": -0.1841,
-   "y": -1.0439,
+   "x": -0.1906,
+   "y": -1.0427,
    "unplaced": true
   },
   {
@@ -6246,8 +7204,8 @@
    "url": "",
    "note": "unism: pictures that refuse a centre, afterimages of the sun, a theory written down as well as painted. studied in moscow, built the a.r. group in łódź with katarzyna kobro, his wife. the late sun pictures are almost nothing and almost too much.",
    "added": "2026-09-07",
-   "x": -0.1613,
-   "y": -1.0477,
+   "x": -0.167,
+   "y": -1.0468,
    "unplaced": true
   },
   {
@@ -6263,8 +7221,8 @@
    "url": "",
    "note": "trained in paris, then painted ink horses that move as if the paper were weather. taught in beijing and helped set the academic line for the new republic. the horses are what people remember; the portraits are quieter.",
    "added": "2026-09-07",
-   "x": -0.1384,
-   "y": -1.0509,
+   "x": -0.1433,
+   "y": -1.0503,
    "unplaced": true
   },
   {
@@ -6280,8 +7238,8 @@
    "url": "",
    "note": "shin-hanga landscapes: water, boats, a mountain held in a few blocks of colour. he carved and printed his own work, and travelled to india and the american west. funatsu is one of the quieter fuji views.",
    "added": "2026-09-07",
-   "x": -0.1154,
-   "y": -1.0537,
+   "x": -0.1195,
+   "y": -1.0532,
    "unplaced": true
   },
   {
@@ -6297,8 +7255,8 @@
    "url": "https://en.wikipedia.org/wiki/Zao_Wou-Ki",
    "note": "beijing, then paris. ink becoming oil becoming weather, without becoming a landscape poster. he died in 2013; the canvases stay with the estate.",
    "added": "2026-09-08",
-   "x": -0.0924,
-   "y": -1.056,
+   "x": -0.0957,
+   "y": -1.0557,
    "unplaced": true
   },
   {
@@ -6314,8 +7272,8 @@
    "url": "https://en.wikipedia.org/wiki/Zhanna_Kadyrova",
    "note": "kyiv sculptor of tiles, paving stone, the stuff a city is made of after it has been used. living; the works stay under copyright.",
    "added": "2026-09-08",
-   "x": -0.0693,
-   "y": -1.0577,
+   "x": -0.0718,
+   "y": -1.0576,
    "unplaced": true
   },
   {
@@ -6331,8 +7289,8 @@
    "url": "/writing/english-teacher",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.0462,
-   "y": -1.059,
+   "x": -0.0479,
+   "y": -1.0589,
    "unplaced": true
   },
   {
@@ -6348,7 +7306,7 @@
    "url": "/writing/staying-human",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.0231,
+   "x": -0.024,
    "y": -1.0597,
    "unplaced": true
   }
@@ -6359,11 +7317,11 @@
    "x": -0.9,
    "y": -0.4,
    "why": "winter light and precision, aimed at something small",
-   "count": 12,
+   "count": 22,
    "forms": [
     {
      "form": "painting",
-     "n": 6
+     "n": 11
     },
     {
      "form": "poem",
@@ -6384,11 +7342,11 @@
    "x": -0.1,
    "y": -0.92,
    "why": "one object, looked at until it stops being ordinary",
-   "count": 7,
+   "count": 11,
    "forms": [
     {
      "form": "painting",
-     "n": 2
+     "n": 3
     },
     {
      "form": "poem",
@@ -6409,11 +7367,11 @@
    "x": 0.14,
    "y": -0.62,
    "why": "one light on, company at a distance",
-   "count": 10,
+   "count": 19,
    "forms": [
     {
      "form": "painting",
-     "n": 6
+     "n": 9
     },
     {
      "form": "poem",
@@ -6434,11 +7392,11 @@
    "x": 0.9,
    "y": -0.12,
    "why": "ambition with its nerve showing, and the cost of it",
-   "count": 11,
+   "count": 20,
    "forms": [
     {
      "form": "painting",
-     "n": 4
+     "n": 10
     },
     {
      "form": "poem",
@@ -6459,11 +7417,11 @@
    "x": 0.78,
    "y": 0.34,
    "why": "heat held against the dark",
-   "count": 5,
+   "count": 11,
    "forms": [
     {
      "form": "painting",
-     "n": 2
+     "n": 7
     },
     {
      "form": "poem",
@@ -6484,11 +7442,11 @@
    "x": 0.22,
    "y": 0.2,
    "why": "gravity, falling, and being held anyway",
-   "count": 11,
+   "count": 16,
    "forms": [
     {
      "form": "painting",
-     "n": 5
+     "n": 9
     },
     {
      "form": "poem",
@@ -6509,7 +7467,7 @@
    "x": -0.48,
    "y": 0.52,
    "why": "edges going, fog, the moment a shape stops being one",
-   "count": 11,
+   "count": 12,
    "forms": [
     {
      "form": "painting",
@@ -6534,11 +7492,11 @@
    "x": -0.3,
    "y": 0.95,
    "why": "the scale that puts you in your place",
-   "count": 12,
+   "count": 17,
    "forms": [
     {
      "form": "painting",
-     "n": 9
+     "n": 14
     },
     {
      "form": "poem",
@@ -6645,6 +7603,14 @@
    ]
   },
   {
+   "who": "Utagawa Hiroshige",
+   "ids": [
+    "ejiri-number-19-from-the-series-fifty-three-stat",
+    "fujikawa-sanchu-yamanaka-no-sato-miyajiyama",
+    "mallard-and-snow-covered-reeds"
+   ]
+  },
+  {
    "who": "Oleksandra Ekster",
    "ids": [
     "ekster-planes",
@@ -6704,6 +7670,14 @@
    "ids": [
     "hammershoi-courtyard",
     "vilhelm-hammersh-i-dust-motes-dancing-in-the-sunbeams"
+   ]
+  },
+  {
+   "who": "Katsushika Hokusai",
+   "ids": [
+    "hokusai-wave",
+    "morning-after-the-snow-at-koishikawa-in-edo-kois",
+    "seaside-village-in-winter-from-hokusai-s-album-o"
    ]
   },
   {
@@ -6927,6 +7901,13 @@
    ]
   },
   {
+   "who": "Vincent van Gogh",
+   "ids": [
+    "the-starry-night",
+    "the-yellow-house-the-street"
+   ]
+  },
+  {
    "who": "James Tissot",
    "ids": [
     "tissot-calcutta",
@@ -7044,6 +8025,13 @@
    ]
   },
   {
+   "who": "Henri de Toulouse-Lautrec",
+   "ids": [
+    "poster-toulouse-lautrec-divan-japonais",
+    "poster-toulouse-lautrec-moulin-rouge-la-goulue"
+   ]
+  },
+  {
    "who": "Hashiguchi Goyō",
    "ids": [
     "goyo-woman-after-bath",
@@ -7137,27 +8125,27 @@
    ]
   }
  ],
- "unplaced": 288,
+ "unplaced": 278,
  "forms": [
   {
    "form": "painting",
-   "n": 213
+   "n": 231
   },
   {
    "form": "object",
-   "n": 4
+   "n": 12
   },
   {
    "form": "building",
-   "n": 0
+   "n": 1
   },
   {
    "form": "poster",
-   "n": 2
+   "n": 8
   },
   {
    "form": "print",
-   "n": 13
+   "n": 18
   },
   {
    "form": "photograph",
@@ -7169,7 +8157,7 @@
   },
   {
    "form": "song",
-   "n": 8
+   "n": 9
   },
   {
    "form": "quote",
@@ -7193,10 +8181,6 @@
   }
  ],
  "people": [
-  {
-   "who": "Dmytro Klochko",
-   "n": 13
-  },
   {
    "who": "emil kowalski",
    "n": 10
@@ -7326,6 +8310,10 @@
    "n": 4
   },
   {
+   "who": "Katsushika Hokusai",
+   "n": 3
+  },
+  {
    "who": "Onchi Kōshirō",
    "n": 3
   },
@@ -7335,6 +8323,10 @@
   },
   {
    "who": "Suzanne Valadon",
+   "n": 3
+  },
+  {
+   "who": "Utagawa Hiroshige",
    "n": 3
   },
   {
@@ -7366,6 +8358,10 @@
    "n": 2
   },
   {
+   "who": "Dmytro Klochko",
+   "n": 2
+  },
+  {
    "who": "Emily Dickinson",
    "n": 2
   },
@@ -7387,6 +8383,10 @@
   },
   {
    "who": "Hashiguchi Goyō",
+   "n": 2
+  },
+  {
+   "who": "Henri de Toulouse-Lautrec",
    "n": 2
   },
   {
@@ -7442,6 +8442,10 @@
    "n": 2
   },
   {
+   "who": "Vincent van Gogh",
+   "n": 2
+  },
+  {
    "who": "Władysław Strzemiński",
    "n": 2
   },
@@ -7470,6 +8474,10 @@
    "n": 1
   },
   {
+   "who": "Allen & Ginter",
+   "n": 1
+  },
+  {
    "who": "Amy Sillman",
    "n": 1
   },
@@ -7494,11 +8502,19 @@
    "n": 1
   },
   {
+   "who": "Bjarne Ness",
+   "n": 1
+  },
+  {
    "who": "Brian Eno",
    "n": 1
   },
   {
    "who": "Brice Marden",
+   "n": 1
+  },
+  {
+   "who": "Bruno Liljefors",
    "n": 1
   },
   {
@@ -7515,6 +8531,10 @@
   },
   {
    "who": "Carol Rama",
+   "n": 1
+  },
+  {
+   "who": "Charles Jacque",
    "n": 1
   },
   {
@@ -7542,7 +8562,15 @@
    "n": 1
   },
   {
+   "who": "Cornelis Verbeeck",
+   "n": 1
+  },
+  {
    "who": "Cy Twombly",
+   "n": 1
+  },
+  {
+   "who": "Daderot",
    "n": 1
   },
   {
@@ -7558,7 +8586,19 @@
    "n": 1
   },
   {
+   "who": "Dr. Paul Gachet",
+   "n": 1
+  },
+  {
+   "who": "Edgar Degas",
+   "n": 1
+  },
+  {
    "who": "Édouard Vuillard",
+   "n": 1
+  },
+  {
+   "who": "Eduard Hildebrandt",
    "n": 1
   },
   {
@@ -7586,7 +8626,15 @@
    "n": 1
   },
   {
+   "who": "Franz von Hauslab the Younger",
+   "n": 1
+  },
+  {
    "who": "Frederic Remington",
+   "n": 1
+  },
+  {
+   "who": "Frederick Walker",
    "n": 1
   },
   {
@@ -7595,6 +8643,18 @@
   },
   {
    "who": "Gala Porras-Kim",
+   "n": 1
+  },
+  {
+   "who": "Georg Friedrich Kersting",
+   "n": 1
+  },
+  {
+   "who": "George Bellows",
+   "n": 1
+  },
+  {
+   "who": "Georges Seurat",
    "n": 1
   },
   {
@@ -7618,6 +8678,14 @@
    "n": 1
   },
   {
+   "who": "Honoré Daumier",
+   "n": 1
+  },
+  {
+   "who": "Jan Brueghel the Elder",
+   "n": 1
+  },
+  {
    "who": "Jean-Baptiste-Siméon Chardin",
    "n": 1
   },
@@ -7626,7 +8694,15 @@
    "n": 1
   },
   {
+   "who": "Johan Christian Dahl",
+   "n": 1
+  },
+  {
    "who": "Johann Conrad Seekatz",
+   "n": 1
+  },
+  {
+   "who": "Johann Peter Beer",
    "n": 1
   },
   {
@@ -7635,6 +8711,14 @@
   },
   {
    "who": "John F. Kennedy",
+   "n": 1
+  },
+  {
+   "who": "John La Farge",
+   "n": 1
+  },
+  {
+   "who": "John Singer Sargent",
    "n": 1
   },
   {
@@ -7650,11 +8734,19 @@
    "n": 1
   },
   {
+   "who": "Joseph Vernet",
+   "n": 1
+  },
+  {
+   "who": "Jules Chéret",
+   "n": 1
+  },
+  {
    "who": "Julie Mehretu",
    "n": 1
   },
   {
-   "who": "Katsushika Hokusai",
+   "who": "Katsukawa Shun'ei 勝川春英",
    "n": 1
   },
   {
@@ -7662,7 +8754,27 @@
    "n": 1
   },
   {
+   "who": "Leroux",
+   "n": 1
+  },
+  {
    "who": "Li Bai",
+   "n": 1
+  },
+  {
+   "who": "Liu Shiru",
+   "n": 1
+  },
+  {
+   "who": "Louis Vert",
+   "n": 1
+  },
+  {
+   "who": "Lu Hui",
+   "n": 1
+  },
+  {
+   "who": "Ludwig van Beethoven",
    "n": 1
   },
   {
@@ -7710,6 +8822,10 @@
    "n": 1
   },
   {
+   "who": "Perlin, B",
+   "n": 1
+  },
+  {
    "who": "Pierre Soulages",
    "n": 1
   },
@@ -7742,6 +8858,10 @@
    "n": 1
   },
   {
+   "who": "Stanlaws, Penrhyn",
+   "n": 1
+  },
+  {
    "who": "Stepmars",
    "n": 1
   },
@@ -7750,11 +8870,31 @@
    "n": 1
   },
   {
+   "who": "Suzuki Harunobu",
+   "n": 1
+  },
+  {
+   "who": "Théodore Rousseau",
+   "n": 1
+  },
+  {
+   "who": "Théophile Steinlen",
+   "n": 1
+  },
+  {
    "who": "Tom Thomson",
    "n": 1
   },
   {
+   "who": "Totoya Hokkei",
+   "n": 1
+  },
+  {
    "who": "Toyen",
+   "n": 1
+  },
+  {
+   "who": "Utagawa Yoshitora",
    "n": 1
   },
   {
@@ -7763,10 +8903,6 @@
   },
   {
    "who": "Vija Celmins",
-   "n": 1
-  },
-  {
-   "who": "Vincent van Gogh",
    "n": 1
   },
   {
@@ -7782,7 +8918,15 @@
    "n": 1
   },
   {
+   "who": "Wiener Werkstätte",
+   "n": 1
+  },
+  {
    "who": "Wilhelm Sasnal",
+   "n": 1
+  },
+  {
+   "who": "William Hammer",
    "n": 1
   },
   {
@@ -7807,9 +8951,9 @@
   }
  ],
  "depth": {
-  "notes": 367,
-  "people": 153,
-  "thinnest": "invincible summer",
+  "notes": 406,
+  "people": 192,
+  "thinnest": "the plain thing",
   "oneDeep": 0
  }
 }

@@ -77,36 +77,23 @@ test("the learning page carries its three subjects and the queue", () => {
   assert.ok(exists("public/images/learning-terminal.webp"), "artefact shot missing");
 });
 
-test("the inbox takes a link and judges what waits", () => {
+test("the studio judges pictures while the private link pipeline waits", () => {
   const html = read("dist/eidos/inbox/index.html");
   const css = bundledCss("dist/eidos/inbox/index.html");
 
-  // every candidate rides along: pictures with a source and a licence, reads
-  // with a url. Both are judged with the same two buttons.
+  // Only visual candidates ride along for now. Links and words remain in the
+  // source queue and worker, but they do not compete with images in Studio.
   const data = JSON.parse(html.match(/id="in-data"[^>]*>([^<]*)</)[1]);
   assert.ok(data.length >= 20, `expected 20+ candidates, found ${data.length}`);
   for (const c of data) {
     assert.ok(c.id, `candidate without id: ${JSON.stringify(c)}`);
-    if (c.src) {
-      assert.ok(c.source, `${c.id} has no source url`);
-      assert.ok(c.licence, `${c.id} has no licence`);
-    } else {
-      // a card with no picture is a link — or a word: a poem, quote or song
-      // carrying its text or its title, which the deck learned to show
-      const isWord = ["poem", "quote", "song"].includes(c.type) && !!(c.line || c.title);
-      if (!isWord) assert.match(c.url || "", /^https?:\/\//, `${c.id} is neither a picture, a link nor a word`);
-    }
+    assert.ok(c.src, `${c.id} has no picture`);
+    assert.ok(c.source, `${c.id} has no source url`);
+    assert.ok(c.licence, `${c.id} has no licence`);
   }
   assert.ok(data.some((c) => c.type === "poster"), "the posters reached the inbox");
-  assert.ok(data.some((c) => c.type === "bookmark"), "the reads reached the inbox");
-
-  // the composer: a url field and one verb. It answers focus, not hover —
-  // a glow that follows the pointer is decoration; one that lights when the
-  // caret lands says the field is live.
-  assert.match(html, /<form class="in-throw" id="throw"/);
-  assert.match(html, /<input type="url" name="url" id="url"/);
-  assert.match(css, /\.in-throw(?:\[[^\]]*\])?:focus-within/);
-  assert.doesNotMatch(css, /\.in-throw(?:\[[^\]]*\])?:hover\s*\{[^}]*box-shadow/);
+  assert.ok(data.every((c) => !["bookmark", "poem", "quote", "song"].includes(c.type)), "a non-visual entered Studio");
+  assert.doesNotMatch(html, /id="throw"|id="url"/);
 
   // two buttons, and the door posts back here
   assert.match(html, /id="keep"/);
@@ -127,13 +114,13 @@ test("the inbox takes a link and judges what waits", () => {
   const ownSheet = html.match(/href="(\/_astro\/inbox\.[^"]+\.css)"/)?.[1];
   assert.ok(ownSheet, "the inbox has no stylesheet of its own to check");
   const own = read(path.join("dist", ownSheet));
-  assert.match(own, /in-throw/, "the sheet found is not the inbox's");
+  assert.match(own, /in-card/, "the sheet found is not the inbox's");
   const literals = [...own.matchAll(/border-radius:\s*([^;}]+)/g)].map((m) => m[1].trim())
     .filter((v) => !/var\(|999px|50%|inherit|^0$/.test(v));
   assert.deepEqual(literals, [], `the inbox invents radii: ${literals.join(", ")}`);
 });
 
-test("the orbit reads one stable mapper without duplicating its payload onto home", async () => {
+test("the atlas owns the geometry without duplicating its payload onto home", async () => {
   const { toMarks } = await import("../src/scripts/eidos-marks.mjs");
   const map = JSON.parse(read("src/data/map.json"));
   const { marks, threads } = toMarks(map);
@@ -150,14 +137,9 @@ test("the orbit reads one stable mapper without duplicating its payload onto hom
   // The dedicated page owns the geometry. Home no longer ships a second,
   // smaller copy that asks the same content to explain itself twice.
   //
-  // The orbit chooses its input — it shows taste, so the craft links stay on
-  // /learning — but it must still get its geometry from this one mapper and
-  // never grow a second copy of the maths. So the comparison feeds the
-  // mapper what the page feeds it, and any drift in the mapper still fails.
-  const orbit = JSON.parse(read("dist/eidos/orbit/index.html").match(/id="eo-data"[^>]*>([^<]*)</)[1]);
-  const taste = toMarks({ ...map, items: map.items.filter((it) => it.type !== "link") });
-  assert.deepEqual(orbit.marks, taste.marks);
-  assert.ok(!orbit.marks.some((m) => m.t === "link"), "craft links belong on /learning");
+  // The duplicate 3D orbit is retired. Keeping its old static payload would
+  // still make every build ship Three.js for a route the worker redirects.
+  assert.ok(!exists("dist/eidos/orbit/index.html"), "the retired orbit still ships a page and its 3D bundle");
   assert.doesNotMatch(read("dist/index.html"), /id="me-orbit-data"/);
 
   // the thumbnails they point at have to exist
@@ -166,58 +148,18 @@ test("the orbit reads one stable mapper without duplicating its payload onto hom
   }
 });
 
-test("the library shelves every mark, in two rooms and a shelf", () => {
+test("the product moodboard carries every chosen artwork and parks every word", () => {
   const html = read("dist/eidos/index.html");
+  const words = read("dist/eidos/words/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-
-  // Pictures hang, words are read, what he has read is its own shelf, and
-  // nothing is silently dropped: every shelved mark is exactly one of them.
-  // Links are the deliberate exception — craft articles, kept on /learning.
-  const cards = [...html.matchAll(/class="lib-card lib-card--(\w+)"/g)].length;
-  const said = [...html.matchAll(/class="lib-said lib-said--(\w+)"/g)].length;
-  const kept = [...html.matchAll(/class="lib-bm"/g)].length;
-  const shelved = map.items.filter((it) => it.type !== "link").length;
-  assert.equal(cards + said + kept, shelved,
-    `library shows ${cards} hung + ${said} read + ${kept} kept of ${shelved} shelved marks`);
-  assert.ok(cards > 0 && said > 0, "a library needs both a hall and a reading room");
-
-  // The page must not overstate itself: every number is counted from what
-  // it shows. The portrait's paragraph and its counts both say the total.
-  const dd = (name) => Number(html.match(new RegExp(`<dt[^>]*>${name}<\\/dt>\\s*<dd[^>]*>(\\d+)<\\/dd>`))?.[1]);
-  const claimed = dd("things");
-  assert.equal(claimed, shelved, "the portrait counts what is not there");
-  const lede = Number(html.match(/(\d+) real things i love/)[1]);
-  assert.equal(lede, shelved, "the paragraph counts what is not there");
-  const unfiledDd = dd("unfiled");
-  const unfiledSays = html.match(/(\d+) things that have never been told/);
-  if (unfiledSays) assert.equal(unfiledDd, Number(unfiledSays[1]), "the ring disagrees with itself");
-  assert.ok(!/lib-card--link|lib-said--link/.test(html), "craft links belong on /learning");
-
-  // the rooms, in order, and the weathers inside them cold to warm
-  const at = (id) => html.indexOf(`id="${id}"`);
-  assert.ok(at("pictures") > 0 && at("words") > at("pictures") && at("read") > at("words"),
-    "pictures, then words, then read");
-  const weathersInOrder = map.weathers.slice().sort((a, b) => a.x - b.x).map((w) => w.name.replace(/\W+/g, "-"));
-  const runs = [...html.matchAll(/class="lib-run" id="w-([\w-]+)"/g)].map((m) => m[1]);
-  assert.ok(runs.length >= 6, `expected most weathers to hang pictures, found ${runs.length}`);
-  assert.deepEqual(runs, weathersInOrder.filter((w) => runs.includes(w)), "the hall runs cold to warm");
-
-  // a poem shows its own language above the english and names its translator
-  assert.match(html, /class="lib-orig"/, "no poem shows its original");
-  assert.match(html, /translated for this page, not a published version/, "a house translation is labelled as one");
-
-  // each weather label carries its paint chips from the real palette
-  const pal = JSON.parse(read("src/data/palettes.json"));
-  for (const w of map.weathers) {
-    const p = pal.palettes.find((x) => x.weather === w.name);
-    if (p && runs.includes(w.name.replace(/\W+/g, "-"))) assert.ok(html.includes(`background:${p.stops[0]}`), `${w.name} lost its paint chips`);
-  }
-
-  // reading is public, teaching stays behind doors
-  assert.ok(html.includes("/eidos/inbox"), "the door to the inbox is named");
-  assert.match(html, /class="lib-toc-door"[^>]*>/, "the inbox is a visible door in the room index, not a mention in running text");
+  const visual = map.items.filter((it) => ["painting", "print", "poster"].includes(it.type) && it.src && !it.id.startsWith("his-"));
+  const verbal = map.items.filter((it) => it.type !== "link" && !it.src);
+  const pieces = [...html.matchAll(/<figure class="ep-visual[^>]+data-id="([^"]+)"/g)];
+  assert.equal(pieces.length, visual.length, `product shows ${pieces.length} of ${visual.length} visual marks`);
+  assert.equal(new Set(pieces.map((match) => match[1])).size, visual.length, "a visual mark appears twice");
+  assert.equal([...words.matchAll(/data-word-piece/g)].length, verbal.length, "the word room lost a mark");
+  assert.doesNotMatch(html, /ep-piece-words|ep-piece-record/, "words leaked into the moodboard");
   assert.ok(!html.includes("api/eidos/verdict"), "the library itself never writes");
-  // and it shares as itself
   assert.match(html, /property="og:image" content="[^"]*og-eidos\.png/);
   assert.match(html, /property="og:title" content="eidos/);
 });
@@ -288,3 +230,34 @@ function bundled(page, html) {
     .map((m) => read(path.join("dist", m[1])))
     .join("\n");
 }
+
+// ── a wrong address gets a page, not a blank ─────────────────────────────
+test("the 404 is a page in the site's voice with doors out", () => {
+  const html = read("dist/404.html");
+  assert.match(html, /<title>nothing here · dmytro klochko<\/title>/);
+  assert.match(html, /<meta name="robots" content="noindex, follow"/, "the 404 is indexable");
+  for (const door of ['href="/"', 'href="/press"', 'href="/learning"', 'href="/eidos"']) {
+    assert.ok(html.includes(door), `the 404 has no door ${door}`);
+  }
+});
+
+test("every route carries the four security headers; nothing forbids framing the embed", () => {
+  const headers = read("public/_headers");
+  const all = headers.match(/^\/\*\n([\s\S]*?)\n\n/m)?.[1] ?? "";
+  for (const h of ["X-Content-Type-Options: nosniff", "Referrer-Policy: strict-origin-when-cross-origin", "Permissions-Policy:", "Strict-Transport-Security: max-age="]) {
+    assert.ok(all.includes(h), `/* lacks ${h}`);
+  }
+  assert.doesNotMatch(headers, /X-Frame-Options|frame-ancestors/, "the embed could not be framed");
+});
+
+// ── the worker sees its own doors ────────────────────────────────────────
+test("every path the worker owns runs the worker first", () => {
+  const cfg = read("wrangler.jsonc").replace(/^\s*\/\/.*$/gm, "");
+  const list = JSON.parse(cfg.match(/"run_worker_first":\s*(\[[\s\S]*?\])/)[1]);
+  const covers = (p) => list.some((g) => g === p || (g.endsWith("/*") && p.startsWith(g.slice(0, -1))) || (g.endsWith("*") && p.startsWith(g.slice(0, -1))));
+  for (const p of ["/names", "/names/old", "/names/ii", "/ask", "/ask/x", "/api/ask/x", "/scout", "/scout/x", "/api/eidos/verdict", "/api/eidos/bookmark", "/api/curate/queue", "/eidos/sit", "/curate"]) {
+    assert.ok(covers(p), `the asset layer would answer ${p} before the worker`);
+  }
+  // and a 404 page exists, which is exactly why the list matters
+  assert.ok(fs.existsSync("dist/404.html"));
+});

@@ -3,6 +3,9 @@ type: painting
 who: Claude Monet
 title: The Magpie
 year: 1868–69
+collection: "Musée d’Orsay"
+collection_city: "Paris"
+collection_url: "https://www.musee-orsay.fr/en/artworks/la-pie-1297"
 src: /images/inbox/monet-magpie.webp
 source: "https://commons.wikimedia.org/wiki/File%3AClaude_Monet_-_The_Magpie_-_Google_Art_Project.jpg"
 licence: Public domain
