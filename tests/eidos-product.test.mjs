@@ -96,6 +96,20 @@ test("the product opens as one visual moodboard with plain doors", () => {
   assert.doesNotMatch(html, /\b(?:01|02|03) ·/);
 });
 
+test("the Faun is the product mark and visibly guides discovery", () => {
+  const header = read("src/components/eidos/EidosHeader.astro");
+  const studio = read("src/pages/eidos/inbox.astro");
+  const css = read("src/styles/pages/eidos-product.css") + read("src/styles/pages/eidos-studio.css");
+
+  assert.match(header, /class="ep-faun-mark"[^>]*src="\/images\/eidos\/product\/faun-mark\.webp"/);
+  assert.doesNotMatch(header, /<i aria-hidden="true"><\/i>/, "the half-moon still occupies the wordmark");
+  assert.match(studio, /class="in-faun-guide"/);
+  assert.match(studio, /src="\/images\/eidos\/product\/faun-mark\.webp"/);
+  assert.match(css, /\.ep-faun-mark\s*\{/);
+  assert.match(css, /\.in-faun-guide\s*\{/);
+  assert.ok(fs.existsSync(path.join(root, "public/images/eidos/product/faun-mark.webp")), "the Faun crop is missing");
+});
+
 test("the moodboard is one readable chromatic salon", () => {
   const page = read("src/pages/eidos/index.astro");
   const moodboard = read("src/components/eidos/EidosMoodboard.astro");

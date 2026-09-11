@@ -7,7 +7,8 @@ const { current = "moodboard", studio = false } = Astro.props;
 ---
 <header class="ep-header">
   <a class="ep-wordmark" href="/eidos" aria-label="Eidos home">
-    <span>eidos</span><i aria-hidden="true"></i>
+    <span>eidos</span>
+    <img class="ep-faun-mark" src="/images/eidos/product/faun-mark.webp" width="720" height="720" alt="" aria-hidden="true" />
   </a>
   <nav class="ep-nav" aria-label={studio ? "discover" : "Eidos"}>
     <a href="/eidos#collection" aria-current={current === "moodboard" ? "page" : undefined}>moodboard</a>

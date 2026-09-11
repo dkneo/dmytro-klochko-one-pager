@@ -107,13 +107,12 @@ html[data-eidos-product] body {
   text-decoration: none;
 }
 
-.ep-wordmark i {
-  width: 1.55rem;
-  height: 1.55rem;
-  border: 2px solid var(--ep-pink);
-  border-right-color: transparent;
-  border-radius: 50%;
-  transform: rotate(-18deg);
+.ep-faun-mark {
+  display: block;
+  width: 2.15rem;
+  height: 2.15rem;
+  object-fit: cover;
+  mix-blend-mode: multiply;
 }
 
 .ep-nav {
