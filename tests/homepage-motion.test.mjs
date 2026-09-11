@@ -109,8 +109,9 @@ test("proof arrives before the homepage asks readers to trust its operating styl
   assert.match(page, /my sense of urgency is outstanding/i);
   assert.match(page, /natural aptitude for <b>taste<\/b>/i);
   assert.match(page, /<b>clairvoyant<\/b>/i);
-  assert.match(page, /the agent i wish existed/i);
-  assert.match(page, /help people become more\s+themselves/i);
+  // the hero says who the spinoff is for and the one question it is built around
+  assert.match(page, /<b>ai for artists, athletes\s+and troublemakers<\/b>/i);
+  assert.match(page, /what would it take to help an exceptional\s+person reach their true potential\?/i);
 });
 
 test("the homepage moves through three authored acts without changing sky mid-thought", () => {
