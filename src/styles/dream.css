@@ -1859,7 +1859,7 @@ html[data-motion="paused"] .scenes .firelight {
 @media (min-width: 861px) {
   [data-mode="dream"] .cv-job--lead {
       display: grid;
-      grid-template-columns: minmax(0, 6fr) minmax(19rem, 4fr);
+      grid-template-columns: minmax(0, 5fr) minmax(27rem, 6fr);
       grid-template-areas:
         "name showcase"
         "role showcase"
@@ -1938,12 +1938,10 @@ html[data-motion="paused"] .scenes .firelight {
   display: grid;
   place-items: center;
   width: 100%;
-  /* the film's own ratio: a phone, 540 by 1172. The screen stands at the
-     width of a hand-held device and no wider, centred in its column, so it
-     reads as the thing itself rather than a banner stretched to fill. */
-  aspect-ratio: 540 / 1172;
-  width: min(100%, 17rem);
-  margin-inline: auto;
+  /* the film's own ratio. It was 16/10 around a 16:9 encode, which is
+     exactly the letterbox that showed as two dark bands, and a hairline
+     border drew a frame around them. */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: var(--r-panel);
   box-shadow: 0 24px 58px var(--shadow-deep);
@@ -1969,17 +1967,15 @@ html[data-motion="paused"] .scenes .firelight {
 
   [data-mode="dream"] .cv-job--lead > .reg-line { order: 2; }
 
-  /* The 16:9 film used to ride sticky at the top while the words scrolled
-     under it, which worked at two hundred pixels tall. A phone-shaped screen
-     is three times that: pinned, it covered the text it was meant to sit
-     beside. On a phone it comes after the words, unpinned, no taller than
-     half the viewport. */
-  [data-mode="dream"] .cv-job--lead > .cv-spread { order: 3; }
   [data-mode="dream"] .cv-job--lead > .replika-showcase {
-      order: 4;
-      margin: var(--sp-2) 0 var(--sp-3);
+      order: 3;
+      position: sticky;
+      z-index: 4;
+      top: 0.65rem;
+      margin: var(--sp-1) 0 var(--sp-3);
     }
-  [data-mode="dream"] .replika-stage-screen { width: auto; height: min(22rem, 46svh); }
+
+  [data-mode="dream"] .cv-job--lead > .cv-spread { order: 4; }
 
   [data-mode="dream"] .cv-job--lead > .cv-job--lead-more { order: 5; }
 
