@@ -70,6 +70,16 @@ const ARTISTS = [
   { name: "Ivan Trush", work: "trush-little-pond" },
   { name: "Oleksa Novakivskyi", work: "novakivskyi-levytskyi" },
   { name: "Ivan Padalka", work: "padalka-tomatoes" },
+  { name: "Józef Mehoffer", work: "mehoffer-strange-garden" },
+  { name: "Stanisław Ignacy Witkiewicz", work: "witkacy-zielinska" },
+  { name: "Władysław Ślewiński", work: "slewinski-combing" },
+  { name: "Konrad Krzyżanowski", work: "krzyzanowski-clouds-finland" },
+  { name: "Leon Chwistek", work: "chwistek-fencing" },
+  { name: "David Kakabadze", work: "kakabadze-abstraction" },
+  { name: "Shalva Kikodze", work: "kikodze-khevsureti" },
+  { name: "Gigo Gabashvili", work: "gabashvili-market" },
+  { name: "Aleksandre Tsimakuridze", work: "tsimakuridze-kvishkheti" },
+  { name: "Henryk Hryniewski", work: "hryniewski-old-soldier" },
 ];
 
 const LINK_ONLY = [
@@ -118,6 +128,24 @@ const LINK_ONLY = [
   "Tiberiy Silvashi",
   "Lesia Khomenko",
   "Nikita Kadan",
+  "Katarzyna Kobro",
+  "Roman Opałka",
+  "Tadeusz Kantor",
+  "Zdzisław Beksiński",
+  "Tymon Niesiołowski",
+  "Henryk Stażewski",
+  "Maria Jarema",
+  "Jonasz Stern",
+  "Jerzy Nowosielski",
+  "Wojciech Fangor",
+  "Andrzej Wróblewski",
+  "Ketevan Magalashvili",
+  "Petre Otskheli",
+  "Irakli Parjiani",
+  "Dimitri Shevardnadze",
+  "Félix Varlamishvili",
+  "Thea Djordjadze",
+  "Andro Wekua",
 ];
 
 const workDirs = ["paintings", "prints", "posters", "objects"];
@@ -230,6 +258,39 @@ test("ua framing: troubina is paris commune, malevich is kyiv-linked, boychuk is
   const saint = read("vault/paintings/boychuk-saint-john.md").toLowerCase();
   assert.match(saint, /surviving/, "saint john is not labelled as surviving");
   assert.match(saint, /not a reconstruction/, "saint john lost the mosaic caveat");
+});
+
+test("estate and living pl/ge names have no hosted canvas", () => {
+  const banned = [
+    "Katarzyna Kobro", "Roman Opałka", "Tadeusz Kantor", "Zdzisław Beksiński",
+    "Tymon Niesiołowski", "Henryk Stażewski", "Maria Jarema", "Jonasz Stern",
+    "Jerzy Nowosielski", "Wojciech Fangor", "Andrzej Wróblewski",
+    "Ketevan Magalashvili", "Petre Otskheli", "Irakli Parjiani",
+    "Dimitri Shevardnadze", "Félix Varlamishvili", "Thea Djordjadze", "Andro Wekua",
+  ];
+  for (const f of list("vault/paintings")) {
+    const text = read(`vault/paintings/${f}`);
+    for (const name of banned) {
+      assert.doesNotMatch(text, new RegExp(`^who: ${name}$`, "m"),
+        `${f} hosts a canvas for ${name}`);
+    }
+  }
+});
+
+test("the polish pack skips matejko battles and lempicka memes", () => {
+  const people = list("vault/people").map((f) => read(`vault/people/${f}`)).join("\n");
+  const works = list("vault/paintings").map((f) => read(`vault/paintings/${f}`)).join("\n");
+  assert.doesNotMatch(people, /Jan Matejko|Tamara (de )?Łempicka|Tamara de Lempicka/);
+  assert.doesNotMatch(works, /Matejko|Łempicka|Lempicka/);
+});
+
+test("mehoffer hangs the garden and the glass", () => {
+  assert.ok(fs.existsSync(path.join(root, "vault/paintings/mehoffer-strange-garden.md")));
+  assert.ok(fs.existsSync(path.join(root, "public/images/vault/mehoffer-strange-garden.webp")));
+  assert.ok(fs.existsSync(path.join(root, "vault/paintings/mehoffer-caritas.md")));
+  const garden = read("vault/paintings/mehoffer-strange-garden.md");
+  assert.match(garden, /^who: Józef Mehoffer$/m);
+  assert.doesNotMatch(garden, /^weather:/m);
 });
 
 test("estate and living ua names have no hosted canvas", () => {
