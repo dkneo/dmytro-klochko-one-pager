@@ -558,3 +558,16 @@ field, a held key never fires twice, ctrl/alt chords go to the browser. The page
 picture's own tile, lit only once that picture has loaded, dark for words
 and links. tests/reading-room.test.mjs and tests/vault-note.test.mjs pin all
 of this.
+
+## The reading room (/eidos/reads)
+
+Discover (/eidos/inbox) is pictures only, by the moodboard rebuild's own
+decision, and its tests forbid a url input or a line field there. The goal's
+"throw links in, swipe, summarise, notes in my words" lives instead in
+`src/pages/eidos/reads.astro`: the composer (POST /api/eidos/bookmark), the
+queue of harvest reads plus his own KV bookmarks (GET /api/eidos/bookmarks,
+behind the door), the read card, the line (`#say`, travels as `say`), the
+same key map as discover, and the "read & learned" shelf built from vault
+links and kept bookmarks in map.json. tests/reads-room.test.mjs pins all of
+it. Do not move intake back into discover; do not remove the reading room
+without moving those four things somewhere else first.
