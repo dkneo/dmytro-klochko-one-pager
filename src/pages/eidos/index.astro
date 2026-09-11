@@ -1,450 +1,103 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import "../../styles/pages/eidos.css";
-import EidosPortrait from "../../components/EidosPortrait.astro";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
+import EidosLayout from "../../layouts/EidosLayout.astro";
+import EidosHeader from "../../components/eidos/EidosHeader.astro";
+import EidosHero from "../../components/eidos/EidosHero.astro";
+import EidosMoodboard from "../../components/eidos/EidosMoodboard.astro";
+import { buildProfile } from "../../lib/eidos-view.mjs";
 import map from "../../data/map.json";
 import palettes from "../../data/palettes.json";
-import inbox from "../../../public/inbox.json";
 
-// The library. Everything he loves, and what it says about him.
-//
-// It opens with the portrait — one paragraph and a strip of eight weathers,
-// every word and bar computed from the vault — and then hangs the pictures
-// and sets the words in two rooms of their own. They used to share a room
-// per weather, a wall stacked over a column, and the page read as eight
-// short walls interrupted by eight short columns: neither the pictures nor
-// the poems had a run long enough to become a place. Now the pictures are
-// one hall, the words one reading room, and the weathers are the labels
-// inside each rather than the walls between them.
-//
-// The rules the map set still hold: every mark is a real thing, attributed;
-// what has no weather is shown, not hidden; reading is public and every
-// write is behind the /names door.
-
-const { items, weathers, forms } = map;
-const candidates = (inbox.candidates || []).length;
-
-const FORM_MARK: Record<string, string> = { painting: "▣", object: "◈", building: "⌂", poster: "▤", poem: "❞", song: "♪", quote: "“", link: "↗", person: "◉", writing: "¶", bookmark: "⌁", print: "▥", photograph: "◫" };
-const PLURAL: Record<string, string> = { person: "people", writing: "writing" };
+const profile = buildProfile(map, palettes);
+const artworkKinds = new Set(["painting", "print", "poster"]);
+const artwork = profile.collection.filter((item: any) =>
+  item.src && artworkKinds.has(item.type) && !item.id.startsWith("his-")
+);
 const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
-// Every plate says its size in the markup, so the wall is laid out before a
-// single picture arrives and nothing jumps as they land. Read once, at build.
-const plateDims = new Map<string, { w: number; h: number }>();
-for (const it of items) {
-  if (!it.src) continue;
-  const plate = plateFor(it.src);
-  const file = path.join(process.cwd(), "public", plate);
+const dimensions: Record<string, { width: number; height: number }> = {};
+const dominantColors: Record<string, { hex: string; key: number }> = {};
+const moodColor = (data: Buffer, channels: number) => {
+  let red = 0, green = 0, blue = 0, weight = 0;
+  for (let index = 0; index < data.length; index += channels) {
+    const [r, g, b, alpha = 255] = [data[index], data[index + 1], data[index + 2], channels > 3 ? data[index + 3] : 255];
+    if (alpha < 128) continue;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    const lightness = (max + min) / 510;
+    if (lightness < 0.035 || lightness > 0.965) continue;
+    const saturation = max === 0 ? 0 : (max - min) / max;
+    const pixelWeight = 0.35 + Math.pow(saturation, 0.7);
+    red += r * pixelWeight;
+    green += g * pixelWeight;
+    blue += b * pixelWeight;
+    weight += pixelWeight;
+  }
+  return weight ? [red, green, blue].map((value) => Math.round(value / weight)) : [128, 128, 128];
+};
+const colorKey = (red: number, green: number, blue: number) => {
+  const [r, g, b] = [red, green, blue].map((value) => value / 255);
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const lightness = (max + min) / 2;
+  const delta = max - min;
+  if (delta < 0.08) return Math.round(lightness * 100);
+  let hue = max === r ? ((g - b) / delta) % 6 : max === g ? (b - r) / delta + 2 : (r - g) / delta + 4;
+  hue = Math.round(hue * 60); if (hue < 0) hue += 360;
+  const saturation = delta / (1 - Math.abs(2 * lightness - 1));
+  const rotatedHue = (hue + 30) % 360;
+  return 1000 + rotatedHue * 1000 + Math.round(lightness * 90 + saturation * 10);
+};
+for (const item of artwork) {
   try {
-    const m = await sharp(file).metadata();
-    if (m.width && m.height) plateDims.set(plate, { w: m.width, h: m.height });
+    const image = sharp(path.join(process.cwd(), "public", plateFor(item.src)));
+    const [metadata, sample] = await Promise.all([
+      image.metadata(),
+      image.clone().resize({ width: 48, height: 48, fit: "inside" }).ensureAlpha().raw().toBuffer({ resolveWithObject: true }),
+    ]);
+    if (metadata.width && metadata.height) dimensions[item.id] = { width: metadata.width, height: metadata.height };
+    const [r, g, b] = moodColor(sample.data, sample.info.channels);
+    dominantColors[item.id] = {
+      hex: `#${[r, g, b].map((value) => value.toString(16).padStart(2, "0")).join("")}`,
+      key: colorKey(r, g, b),
+    };
   } catch {}
 }
-const dim = (src: string) => plateDims.get(plateFor(src));
+const visuals = artwork.slice().sort((a: any, b: any) =>
+  (dominantColors[a.id]?.key ?? Number.MAX_SAFE_INTEGER) - (dominantColors[b.id]?.key ?? Number.MAX_SAFE_INTEGER)
+  || String(a.title || a.line).localeCompare(String(b.title || b.line))
+);
 
-// Pictures hang; words are read; what he has read is its own shelf.
-const HANGS = new Set(["painting", "object", "building", "poster", "print", "photograph", "person"]);
-const READS = new Set(["bookmark"]);
-const shelved = items.filter((it) => it.type !== "link");
-const isHung = (it: any) => HANGS.has(it.type);
-const isRead = (it: any) => READS.has(it.type);
-const isWord = (it: any) => !isHung(it) && !isRead(it);
-
-const order = weathers.slice().sort((a, b) => a.x - b.x);
-const stopsFor = (name: string) => (palettes.palettes.find((p) => p.weather === name) || { stops: [] }).stops;
-const slug = (name: string) => name.replace(/\W+/g, "-");
-const inWeather = (w: any, pred: (it: any) => boolean) => shelved.filter((it) => it.weather === w.name && !it.unplaced && pred(it));
-const unfiled = (pred: (it: any) => boolean) => shelved.filter((it) => (!it.weather || it.unplaced) && pred(it));
-
-const hall = order.map((w) => ({ ...w, slug: slug(w.name), stops: stopsFor(w.name), marks: inWeather(w, isHung) })).filter((r) => r.marks.length);
-// within a room the words come in kind order — poems, then quotes, then
-// songs — so the column reads as three short runs rather than a shuffle
-const KIND_ORDER: Record<string, number> = { poem: 0, quote: 1, song: 2, writing: 3, bookmark: 4 };
-const byKind = (a: any, b: any) => (KIND_ORDER[a.type] ?? 9) - (KIND_ORDER[b.type] ?? 9);
-const room = order.map((w) => ({ ...w, slug: slug(w.name), stops: stopsFor(w.name), marks: inWeather(w, isWord).slice().sort(byKind) })).filter((r) => r.marks.length);
-const readShelf = shelved.filter(isRead);
-const ringArt = unfiled(isHung), ringWords = unfiled(isWord);
-const hung = shelved.filter(isHung).length, said = shelved.filter(isWord).length;
-
-const title = "eidos · what dmytro klochko loves";
-const description =
-  "the library of what dmytro klochko loves: paintings, posters, poems, songs, lines and people, filed under eight weathers of his own. every mark a real thing, attributed.";
-// French sets a space before ! ? ; : and around guillemets; on a measure that
-// space becomes a line break and the mark drops alone to the next line. A
-// narrow no-break space keeps the mark with its word.
-const glue = (t: string) => String(t ?? "").replace(/\s+([!?;:»])/g, "\u202F$1").replace(/(«)\s+/g, "$1\u202F");
-
+const title = "eidos · dmytro's endless moodboard";
+const description = "a living moodboard of paintings, prints and posters loved by dmytro klochko.";
+const ogVersion = createHash("sha1")
+  .update(readFileSync(path.join(process.cwd(), "public", "og-eidos.png")))
+  .digest("hex")
+  .slice(0, 10);
 ---
 
-<Layout title={title} description={description} current="home" scenes={["nightcourt"]} unlisted
-        ogTitle="eidos · what dmytro klochko loves"
-        ogDescription={`${shelved.length} real things, filed under eight weathers he made up. paintings, poems, songs, lines, people. every one attributed.`}
-        ogImage={`/og-eidos.png?v=${map.built}`}>
-  <section class="shell session eidos-lib" data-scene="nightcourt" aria-labelledby="el">
-    <div class="lib-intro">
-      <div class="lib-intro-copy">
-        <div class="card">
-          <h1 class="card-title" id="el">eidos</h1>
-        </div>
+<EidosLayout title={title} description={description} ogImage={`/og-eidos.png?v=${ogVersion}`}>
+  <div class="eidos-product">
+    <EidosHeader current="moodboard" />
+    <EidosHero />
+    <EidosMoodboard items={visuals} dimensions={dimensions} colors={dominantColors} />
 
-        <p class="today-how">
-          <em>eidos</em>, the greek for the form of a thing, the shape you know it by.
-        </p>
-
-        <EidosPortrait />
-
-        {/* The portrait travels. One iframe puts the same component — same
-            numbers, same strip, same plates — on anyone else's page. */}
-        <details class="lib-embed">
-          <summary>embed this portrait <span class="arw" aria-hidden="true">↘</span></summary>
-          <p>one frame, kept current by the vault. paste it where you like.</p>
-          <pre><code id="embed-code">&lt;iframe src="https://dmklochko.com/eidos/embed" width="100%" height="960" style="max-width:42rem;border:0;border-radius:6px" title="eidos · what dmytro klochko loves" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
-          <button type="button" id="embed-copy">copy</button>
-        </details>
-      </div>
-
-      {/* Small, and his hands rather than his face: a page about what he
-          loves opens on rings, painted nails and a white vest — taste,
-          worn. 560px wide, so it stays small enough to be sharp. */}
-      <figure class="lib-portrait">
-        <span class="lib-portrait-frame">
-          <img src="/images/hi-2.webp" width="560" height="499" alt="his hands, rings and painted nails, over a white vest" loading="eager" fetchpriority="high" decoding="async" />
-        </span>
-      </figure>
-    </div>
-
-    {/* ── ways of looking, and the doors ─────────────────────────────── */}
-    <p class="lib-views">
-      other ways to look: <a href="/eidos/map">the sketch</a> ·{" "}
-      <a href="/eidos/orbit">the orbit</a> · it grows through{" "}
-      <a href="/eidos/inbox">the inbox</a>, {candidates} waiting.
-    </p>
-
-    {/* ── filters and the way through ────────────────────────────────── */}
-    <div class="em-controls" role="group" aria-label="filter the library">
-      <button class="em-chip is-on" data-filter="all" type="button">everything</button>
-      {forms.filter((f) => f.n && f.form !== "link").map((f) => (
-        <button class="em-chip" data-filter={f.form} type="button">
-          <i aria-hidden="true">{FORM_MARK[f.form]}</i>{PLURAL[f.form] || f.form + "s"}<b>{f.n}</b>
-        </button>
-      ))}
-      <span class="lib-hint">press anything to see it whole</span>
-    </div>
-
-    <nav class="lib-toc" aria-label="the rooms">
-      <a href="#pictures">pictures <b>{hung}</b></a>
-      <a href="#words">words <b>{said}</b></a>
-      <a href="#read">read <b>{readShelf.length}</b></a>
-      {(ringArt.length + ringWords.length) > 0 && <a href="#the-ring" class="lib-toc-ring">unfiled <b>{ringArt.length + ringWords.length}</b></a>}
-      {/* The door, where the eye already is. It was named twice in running
-          text and found by nobody. */}
-      <a href="/eidos/inbox" class="lib-toc-door">inbox <b>{candidates}</b><span class="arw" aria-hidden="true">↗</span></a>
-    </nav>
-
-    {/* ── the hall: pictures, weather by weather ─────────────────────── */}
-    <section class="lib-hall" id="pictures" aria-labelledby="h-pictures">
-      <header class="lib-door">
-        <h2 id="h-pictures">pictures</h2>
-        <p>paintings, posters, objects and the people on the wall. each at its own proportions; nothing cropped to fit a tile.</p>
-      </header>
-
-      {hall.map((r) => (
-        <div class="lib-run" id={`w-${r.slug}`} aria-label={r.name}>
-          <h3 class="lib-weather">
-            <span class="lib-chips" aria-hidden="true">{r.stops.map((c) => <i style={`background:${c}`} />)}</span>
-            {r.name}<small>{r.why}</small>
-          </h3>
-          <div class="lib-wall">
-            {r.marks.map((it) => (
-              <button class={`lib-card lib-card--${it.type}`} type="button" id={it.id}
-                      data-id={it.id} data-form={it.type}
-                      aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                {it.src
-                  ? <img src={plateFor(it.src)} alt="" width={dim(it.src)?.w} height={dim(it.src)?.h} loading="lazy" decoding="async" />
-                  : <span class="lib-bare" aria-hidden="true"><b>{it.line || it.title}</b></span>}
-                <span class="lib-label">
-                  <b>{it.line || it.title}</b>
-                  {it.type !== "person" && it.who && (<span>{it.who}{it.year ? " · " + it.year : ""}</span>)}
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
-      ))}
-    </section>
-
-    {/* ── the reading room: words, weather by weather ────────────────── */}
-    <section class="lib-reading" id="words" aria-labelledby="h-words">
-      <header class="lib-door">
-        <h2 id="h-words">words</h2>
-        <p>english first, the original tongue beneath it; a long poem shows its opening here and opens whole when pressed. lines with their source; songs by name; every translation says who made it.</p>
-      </header>
-
-      {room.map((r) => (
-        <div class="lib-run lib-run--words" id={`w-${r.slug}-words`} aria-label={r.name}>
-          <h3 class="lib-weather">
-            <span class="lib-chips" aria-hidden="true">{r.stops.map((c) => <i style={`background:${c}`} />)}</span>
-            {r.name}<small>{r.why}</small>
-          </h3>
-          <ul class="lib-words">
-            {r.marks.map((it: any) => (
-              <li>
-                <button class={`lib-said lib-said--${it.type}`} type="button" id={it.id}
-                        data-id={it.id} data-form={it.type}
-                        aria-label={`${it.type}: ${glue(it.line || it.title)}${it.who ? " by " + it.who : ""}`}>
-                  <span class="lib-mark" aria-hidden="true">{FORM_MARK[it.type]}</span>
-                  {/* english first, always; the original second, italic and quieter */}
-                  {it.type === "poem" && (it.line || "").split("\n").filter((l: string) => l.trim()).length > 8 ? (
-                    <span class="lib-line is-excerpt">{glue((it.line || "").split("\n").filter((l: string) => l.trim()).slice(0, 4).join("\n"))}<i class="lib-more" aria-hidden="true"> …</i></span>
-                  ) : it.type === "poem" && it.original ? (
-                    <span class="lib-line">{glue(it.line)}<span class="lib-orig">{glue(it.original)}</span></span>
-                  ) : it.type === "quote" && it.english ? (
-                    <span class="lib-line">{glue(it.english)}<span class="lib-orig">{glue(it.line)}</span></span>
-                  ) : (
-                    <span class="lib-line">{glue(it.line || it.title)}</span>
-                  )}
-                  <span class="lib-by">
-                    {it.who}{it.year ? " · " + it.year : ""}{it.where ? " · " + it.where : ""}
-                    {it.type === "poem" && (it.line || "").split("\n").filter((l: string) => l.trim()).length > 8 ? <em> · {(it.line || "").split("\n").filter((l: string) => l.trim()).length} lines, whole when pressed</em> : null}
-                    {it.type === "poem" && it.translator ? <em> · {it.translator}</em> : null}
-                  </span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </section>
-
-    {/* ── read: what he threw into the inbox and kept ────────────────── */}
-    <section class="lib-read" id="read" aria-labelledby="h-read">
-      <header class="lib-door">
-        <h2 id="h-read">read</h2>
+    <section class="ep-make-yours" aria-labelledby="make-yours-title">
+      <div>
+        <h2 id="make-yours-title">this is mine. yours would look different.</h2>
         <p>
-          links thrown into <a href="/eidos/inbox">the inbox</a> and kept, with what was worth remembering about each.
-          study — the craft articles — lives next door on <a href="/learning">learning</a>.
+          keep what stops you. leave what does not. over time, your own moodboard
+          becomes a portrait without needing to explain you.
         </p>
-      </header>
-      {readShelf.length ? (
-        <ul class="lib-shelf">
-          {readShelf.map((it: any) => (
-            <li>
-              <a class="lib-bm" href={it.url} target="_blank" rel="noreferrer" data-id={it.id} data-form="bookmark">
-                <span class="lib-bm-site">{it.site || (it.url ? new URL(it.url).hostname.replace(/^www\./, "") : "")}</span>
-                <b class="lib-bm-title">{it.line || it.title}</b>
-                {it.summary && <span class="lib-bm-sum">{it.summary}</span>}
-                {it.tags && it.tags.length ? <span class="lib-bm-tags">{it.tags.map((t: string) => <i>#{t}</i>)}</span> : null}
-              </a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p class="lib-empty">nothing kept yet. the first link you keep in the inbox lands here, with its note.</p>
-      )}
+        <a class="ep-action ep-action--solid" href="/eidos/inbox">discover yours</a>
+      </div>
+      <img src="/images/eidos/product/card-back.webp" width="1400" height="1750" alt="Faun and Gryphon waiting beneath an open pink circle" loading="lazy" decoding="async" />
     </section>
 
-    {/* ── the ring: filed nowhere yet ────────────────────────────────── */}
-    {(ringArt.length + ringWords.length) > 0 && (
-      <section class="lib-room lib-room--ring" id="the-ring" aria-labelledby="h-ring">
-        <header class="lib-door">
-          <h2 id="h-ring">unfiled</h2>
-          <p>{ringArt.length + ringWords.length} things that have never been told how they feel. they join a weather when <a href="/eidos/map">the sketch</a> places them.</p>
-        </header>
-        <div class="lib-body">
-          {ringArt.length > 0 && (
-            <div class="lib-wall lib-wall--ring">
-              {ringArt.map((it) => (
-                <button class={`lib-card lib-card--${it.type}`} type="button" id={it.id} data-id={it.id} data-form={it.type}
-                        aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                  {it.src
-                    ? <img src={plateFor(it.src)} alt="" width={dim(it.src)?.w} height={dim(it.src)?.h} loading="lazy" decoding="async" />
-                    : <span class="lib-bare" aria-hidden="true"><b>{it.line || it.title}</b></span>}
-                  <span class="lib-label"><b>{it.line || it.title}</b>{it.type !== "person" && it.who && (<span>{it.who}{it.year ? " · " + it.year : ""}</span>)}</span>
-                </button>
-              ))}
-            </div>
-          )}
-          {ringWords.length > 0 && (
-            <ul class="lib-words">
-              {ringWords.map((it: any) => (
-                <li>
-                  <button class={`lib-said lib-said--${it.type}`} type="button" id={it.id} data-id={it.id} data-form={it.type}
-                          aria-label={`${it.type}: ${it.line || it.title}${it.who ? " by " + it.who : ""}`}>
-                    <span class="lib-mark" aria-hidden="true">{FORM_MARK[it.type]}</span>
-                    <span class="lib-line">{it.line || it.title}</span>
-                    <span class="lib-by">{it.who}{it.year ? " · " + it.year : ""}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </section>
-    )}
-
-    {/* ── what a card says when it is pressed ────────────────────────── */}
-    <aside class="em-detail lib-detail" id="detail" hidden aria-live="polite">
-      <button class="em-close" type="button" aria-label="close">close</button>
-      <div class="em-detail-body"></div>
-    </aside>
-
-    <a class="onward onward--back" href="/">
-      <span class="arw" aria-hidden="true">↖</span><span>back to the main page</span>
-    </a>
-  </section>
-
-  <style>
-    /* The hall and the reading room are the two long runs; the weather is a
-       label inside each, not a wall between them. Scoped here because they
-       are this page's shape; the card and word styles are the library's,
-       shared in dream.css. */
-    .lib-hall, .lib-reading, .lib-read { margin-top: var(--sp-5); scroll-margin-top: 4.5rem; }
-    .lib-run { margin-top: var(--sp-4); scroll-margin-top: 4.5rem; }
-    .lib-run:first-of-type { margin-top: var(--sp-3); }
-    .lib-weather {
-      display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.75rem;
-      margin: 0 0 var(--sp-2);
-      font-family: var(--display); font-weight: 300; font-size: var(--dream-display-card);
-      line-height: 1.1; color: var(--bone);
-    }
-    .lib-weather .lib-chips { align-self: center; }
-    .lib-weather small {
-      flex-basis: 100%;
-      font-family: var(--serif); font-size: var(--t-md); line-height: 1.5; color: var(--dim);
-      max-width: 52ch;
-    }
-    .lib-toc b { font-weight: 400; margin-left: 0.35em; opacity: 0.7; }
-    .lib-toc-door {
-      margin-left: auto;
-      display: inline-flex; align-items: center; gap: 0.35em;
-      white-space: nowrap; flex-shrink: 0;
-      min-height: 24px;
-      padding: 0.2rem 0.75rem;
-      border: 1px solid rgb(255 155 192 / 45%);
-      border-radius: 999px;
-      color: var(--hot) !important;
-      transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
-    }
-    .lib-toc-door:hover { background: var(--hot); color: var(--void) !important; border-color: var(--hot); }
-    .lib-toc-door b { opacity: 0.85; }
-    .lib-more { font-style: normal; color: var(--dim); }
-
-    /* the embed snippet: a quiet disclosure under the portrait */
-    .lib-embed { margin: var(--sp-2) 0 0; font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--dim); }
-    .lib-embed summary { cursor: pointer; color: var(--quiet); list-style: none; display: inline-flex; gap: 0.35em; align-items: center; min-height: 24px; }
-    .lib-embed summary::-webkit-details-marker { display: none; }
-    .lib-embed summary:hover { color: var(--hot); }
-    .lib-embed p { margin: var(--sp-1) 0; font-family: var(--serif); font-size: var(--t-prose-sm); letter-spacing: 0; color: var(--quiet); }
-    .lib-embed pre { margin: 0; padding: var(--sp-tight) var(--sp-2); background: rgb(6 9 18 / 55%); border: 1px solid rgb(236 230 217 / 12%); border-radius: var(--r-panel); white-space: pre-wrap; word-break: break-all; color: var(--bone); }
-    .lib-embed button { margin-top: var(--sp-1); min-height: 24px; padding: 0.3rem 0.85rem; font: inherit; color: var(--hot); background: none; border: 1px solid rgb(255 155 192 / 45%); border-radius: 999px; cursor: pointer; }
-    .lib-embed button:hover { background: var(--hot); color: var(--void); border-color: var(--hot); }
-
-    /* the small hero, in the press page's frame language */
-    .lib-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, 17.5rem); gap: clamp(var(--sp-4), 5vw, 5.5rem); align-items: start; }
-    .lib-intro-copy { min-width: 0; }
-    .lib-portrait { margin: 0.4rem 0 0; transform: rotate(1.15deg); transform-origin: 52% 50%; filter: drop-shadow(0 1.5rem 2.5rem var(--shadow-deep)); transition: transform 420ms var(--ease), filter 420ms var(--ease); }
-    .lib-portrait-frame { display: block; padding: var(--mat-snapshot); background: var(--mat); border-radius: var(--r-print); }
-    .lib-portrait img { display: block; width: 100%; height: auto; border-radius: 1px; }
-    @media (hover: hover) and (pointer: fine) { .lib-portrait:hover { transform: rotate(0.2deg) translateY(-0.3rem); filter: drop-shadow(0 1.8rem 3rem var(--shadow-deep)); } }
-    @media (max-width: 860px) { .lib-intro { grid-template-columns: 1fr; gap: var(--sp-3); } .lib-portrait { width: min(100%, 17.5rem); } }
-    @media (prefers-reduced-motion: reduce) { .lib-portrait { transition: none; } }
-    .lib-by em { font-style: normal; opacity: 0.8; }
-    /* Poems are whole, so their heights vary by a factor of five. In a grid a
-       sixteen-line Dickinson beside a three-line Bashō left a column of air
-       under the haiku; in columns the words pack and the room fills. */
-    .lib-run--words .lib-words {
-      display: block;
-      columns: 3 20rem;
-      column-gap: var(--sp-4);
-    }
-    .lib-run--words .lib-words li {
-      break-inside: avoid;
-      margin: 0 0 var(--sp-3);
-    }
-
-    /* the read shelf: typographic cards for links */
-    .lib-shelf { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: var(--sp-2); }
-    .lib-bm {
-      display: grid; gap: 0.3rem; padding: var(--sp-2);
-      border: 1px solid var(--rule); border-radius: var(--r-panel);
-      background: color-mix(in srgb, var(--deck) 60%, transparent);
-      color: inherit; text-decoration: none;
-      transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
-    }
-    .lib-bm:hover, .lib-bm:focus-visible { border-color: rgb(255 155 192 / 45%); transform: translateY(-2px); }
-    .lib-bm-site { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
-    .lib-bm-title { font-family: var(--serif); font-weight: 400; font-size: var(--t-lg); line-height: 1.3; color: var(--bone); }
-    .lib-bm-sum { font-family: var(--serif); font-size: var(--t-md); line-height: 1.5; color: var(--quiet); }
-    .lib-bm-tags { font-family: var(--mono); font-size: var(--t-xs); letter-spacing: 0.06em; color: var(--dim); display: flex; flex-wrap: wrap; gap: 0.2rem 0.7rem; }
-    .lib-bm-tags i { font-style: normal; }
-    .lib-empty { margin: 0; max-width: 52ch; font-family: var(--serif); font-size: var(--t-md); line-height: 1.6; color: var(--dim); }
-    @media (prefers-reduced-motion: reduce) { .lib-bm { transition: none; } }
-  </style>
-
-  <script is:inline type="application/json" id="lib-data"
-          set:html={JSON.stringify(items.map(({ id, type, weather, line, title, who, year, where, note, src, url, source, ...rest }: any) =>
-            ({ id, type, weather, line, title, who, year, where, note, src, url, source,
-               english: rest.english, original: rest.original, translator: rest.translator, summary: rest.summary, tags: rest.tags, site: rest.site })))} />
-
-  <script>
-    (() => {
-      const items = JSON.parse(document.getElementById("lib-data").textContent);
-      const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-
-      // ── the embed snippet, copied ───────────────────────────────────
-      const copyBtn = document.getElementById("embed-copy");
-      if (copyBtn) copyBtn.addEventListener("click", async () => {
-        try { await navigator.clipboard.writeText(document.getElementById("embed-code").textContent); copyBtn.textContent = "copied ✓"; }
-        catch { copyBtn.textContent = "select and copy"; }
-        setTimeout(() => { copyBtn.textContent = "copy"; }, 1800);
-      });
-
-      // ── filtering by kind, across every room ────────────────────────
-      const chips = [...document.querySelectorAll(".em-chip")];
-      chips.forEach((c) => c.addEventListener("click", () => {
-        chips.forEach((x) => x.classList.toggle("is-on", x === c));
-        const f = c.dataset.filter;
-        for (const el of document.querySelectorAll(".lib-card, .lib-said, .lib-bm")) {
-          const item = el.closest("li") || el;
-          item.hidden = f !== "all" && el.dataset.form !== f;
-        }
-        for (const group of document.querySelectorAll(".lib-wall, .lib-words, .lib-shelf")) {
-          group.hidden = ![...group.querySelectorAll(".lib-card, .lib-said, .lib-bm")].some((x) => !(x.closest("li") || x).hidden);
-        }
-        for (const run of document.querySelectorAll(".lib-run")) {
-          run.hidden = ![...run.querySelectorAll(".lib-wall, .lib-words")].some((g) => !g.hidden);
-        }
-        for (const sec of document.querySelectorAll(".lib-hall, .lib-reading, .lib-room--ring")) {
-          sec.hidden = ![...sec.querySelectorAll(".lib-run, .lib-wall, .lib-words")].some((g) => !g.hidden);
-        }
-      }));
-
-      // ── a card, pressed ──────────────────────────────────────────────
-      const detail = document.getElementById("detail");
-      const body = detail.querySelector(".em-detail-body");
-      document.querySelectorAll(".lib-card, .lib-said").forEach((card) => card.addEventListener("click", () => {
-        const it = items.find((x) => x.id === card.dataset.id);
-        if (!it) return;
-        // the panel reads like the room: english first, the original beneath
-        const line = it.line || it.title;
-        const second = it.type === "poem" ? (it.original || "") : (it.type === "quote" ? (it.english || "") : "");
-        body.innerHTML =
-          (it.src ? `<img src="${esc(it.src)}" alt="">` : "") +
-          `<p class="em-d-kind">${esc(it.type)}${it.weather ? " · " + esc(it.weather) : " · unfiled"}</p>` +
-          `<p class="em-d-line">${esc(line)}</p>` +
-          (second ? `<p class="em-d-note">${esc(second)}</p>` : "") +
-          (it.who ? `<p class="em-d-who">${esc(it.who)}${it.year ? ", " + esc(it.year) : ""}${it.where ? " · " + esc(it.where) : ""}${it.translator ? " · " + esc(it.translator) : ""}</p>` : "") +
-          (it.note ? `<p class="em-d-note">${esc(it.note)}</p>` : "") +
-          ((it.url || it.source) ? `<p class="em-d-go"><a href="${esc(it.url || it.source)}" target="_blank" rel="noreferrer">${it.url ? "open it" : "source"}<span class="arw">↗</span></a></p>` : "");
-        detail.hidden = false;
-      }));
-      detail.querySelector(".em-close").onclick = () => { detail.hidden = true; };
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape") detail.hidden = true; });
-
-      // a link straight to a mark opens it
-      const target = location.hash.slice(1);
-      if (target) document.getElementById(target)?.click?.();
-    })();
-  </script>
-</Layout>
+    <footer class="ep-footer">
+      <a href="/">dmytro klochko <span aria-hidden="true">↗</span></a>
+      <a href="/eidos/words">words, elsewhere</a>
+      <a href="#eidos-main">back to top ↑</a>
+    </footer>
+  </div>
+</EidosLayout>

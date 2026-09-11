@@ -1,0 +1,24 @@
+---
+interface Props { profile: any }
+const { profile } = Astro.props;
+---
+<section class="ep-traces ep-section" aria-labelledby="traces-title">
+  <header class="ep-section-head">
+    <p class="ep-index">04 · traces</p>
+    <h2 id="traces-title">what the archive can say for certain.</h2>
+  </header>
+  <dl class="ep-trace-grid">
+    <div><dt>things kept</dt><dd>{profile.collection.length}</dd></div>
+    <div><dt>visual works</dt><dd>{profile.visualCount}</dd></div>
+    <div><dt>languages</dt><dd>{profile.languages.length}</dd></div>
+    {profile.yearSpan && <div><dt>years crossed</dt><dd>{profile.yearSpan[0]} to {profile.yearSpan[1]}</dd></div>}
+    <div><dt>recurring makers</dt><dd>{profile.recurringMakers.length}</dd></div>
+    <div><dt>still unfiled</dt><dd>{profile.unfiledCount}</dd></div>
+  </dl>
+  <div class="ep-makers">
+    <p class="ep-index">the names that recur</p>
+    <ol>
+      {profile.recurringMakers.slice(0, 12).map((maker: any) => <li><span>{maker.name}</span><b>{maker.count}</b></li>)}
+    </ol>
+  </div>
+</section>

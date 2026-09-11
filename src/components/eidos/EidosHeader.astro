@@ -1,0 +1,24 @@
+---
+interface Props {
+  current?: "moodboard" | "atlas" | "experiment" | "play" | "discover" | "studio" | "places" | "reads";
+  studio?: boolean;
+}
+const { current = "moodboard", studio = false } = Astro.props;
+---
+<header class="ep-header">
+  <a class="ep-wordmark" href="/eidos" aria-label="Eidos home">
+    <span>eidos</span>
+    <img class="ep-faun-mark" src="/images/eidos/product/faun-mark.webp" width="720" height="720" alt="" aria-hidden="true" />
+  </a>
+  <nav class="ep-nav" aria-label={studio ? "discover" : "Eidos"}>
+    <a href="/eidos#collection" aria-current={current === "moodboard" ? "page" : undefined}>moodboard</a>
+    <a href="/eidos/inbox" aria-current={current === "discover" || current === "studio" ? "page" : undefined}>discover</a>
+    <a href="/eidos/reads" aria-current={current === "reads" ? "page" : undefined}>reads</a>
+    <a href="/eidos/places" aria-current={current === "places" ? "page" : undefined}>map</a>
+  </nav>
+  <a class="ep-parent" href="/">
+    <span class="ep-parent-name">dmytro klochko</span>
+    <span class="ep-parent-mobile">site</span>
+    <span class="ep-parent-arrow" aria-hidden="true">↗</span>
+  </a>
+</header>

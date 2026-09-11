@@ -151,13 +151,12 @@ as fixed scenes. The homepage is a deliberate three-act progression:
 method, and **estuary** opens the personal, contact and closing chapters into
 morning. A sky changes only at one of those act boundaries, never between two
 sections that form one thought. Other URLs claim one painting of their own.
-Sections carry `data-scene`; an IntersectionObserver with a centred band
-(−42% top and bottom) hands the sky to the section nearest mid-viewport, and
-scene layers crossfade over 900ms. The painting is alive rather than static:
-it breathes (scale 1.04 → 1.1 over 70s, alternating) and parallaxes against
-scroll (−4vh over the first viewport) and cursor (eased, −14px/−9px),
-compositor transforms and opacity only. Idle preloading warms the remaining
-scenes after first paint.
+Sections carry `data-scene`; each new act blends in across a 24vh band around
+the reading line, so the sky changes spatially rather than snapping at a
+section edge. The three homepage paintings do not move alike: fire breathes
+over 48s with the deepest scroll and cursor response, ember drifts over 88s,
+and the estuary is almost held at 132s. Only compositor transforms and opacity
+move. Idle preloading warms the remaining scenes after first paint.
 
 ### Readability — Smoked Glass
 
@@ -239,10 +238,19 @@ media, 8.7MB against 1.2MB for every other picture on the page, and more
 photographs of the company's models than of him in the section about what
 he did. The stage now carries the brand film alone, at the 16:9 of its own
 encode so nothing letterboxes, with no border, no caption and no picker.
+On desktop it holds the right rail while the story and receipts pass beside
+it. On phones it holds briefly at the top of its own entry, then releases at
+the end; the three receipts become one transparent horizontal proof strip.
 The stills are gone: cropping three of them to a shared ratio to get one
 baseline took a face off the portrait, and the cream mat that suits his own
 snapshots made advertising look like holiday prints. The hero carries a fourth, small Times
 Radio studio loop in the front corner of its existing print pile.
+
+The long homepage carries two forms of the same local map. At 1200px and up,
+the left-edge dot rail stays visible. Below that, a thumb-edge compass appears
+after the opening frame, names the current chapter as `02 / 07 · experience`,
+and opens the complete seven-stop list. Both are driven by the same reading
+line and close back into the page after a destination is chosen.
 
 ### Named Rules (dream)
 
@@ -393,42 +401,39 @@ prose links exempt.
 
 ## eidos
 
-The library is the one page built to be shared on its own, and the one
-place the homepage lets another page speak: `src/components/EidosPortrait.astro`
-renders whole at the top of `/eidos` and compact as the homepage's `#eidos`
-chapter, from the same data, so the two cannot disagree.
+Eidos is shaped as a product before it becomes one. It has one public journey
+and one private working surface, all computed from the same vault. Faun
+notices; Gryphon remembers.
 
-**The portrait.** One paragraph in the serif italic at `--t-lede` (`--t-lg`
-when compact), lowercase, no dashes, every clause computed from the vault:
-the total, the fullest and thinnest weather (in `--hot`), how many of the
-pictures are his, who recurs, how many languages the words come in. Under it
-the eight weathers as a strip of bars, each `flex`-grown by its count and
-painted with the five stops of its own palette (`--r-print` corners, 14px
-tall, 10px compact), a wrapped legend row in mono beneath (hidden when
-compact — the bars carry titles), a row of plates at their own proportions
-(84px tall, 64px compact, wrapping rather than clipping), and the counts in
-the display face at `--dream-fact`.
+**The material.** Warm paper `#f2e2c9`, near-black ink `#292723`, raspberry
+`#a8425d`, olive `#777443`, salmon `#dc6a63`, and the existing bright pink as
+the live mark. Display type is large, close and lightly italic where it asks a
+question. Mono labels the machinery. Texture stays in the paper and the
+printed character art, never in fake interface chrome.
 
-**The hall and the reading room.** Pictures hang weather by weather, cold to
-warm, as one continuous hall; words are set weather by weather in one
-reading room. The weather is a label inside a room (display face at
-`--dream-display-card`, paint chips before it, the weather's `why` in serif
-after it), never a wall between rooms. A poem sets its original above the
-english (`.lib-orig` / `.lib-eng`, the english at `--t-md` in `--quiet`) and
-names its translator in the byline; a quote in another tongue does the
-reverse. **Read** is a shelf of typographic cards (`--r-panel`, `--deck` at
-60%) for links kept from the inbox: site in mono caps, title in serif,
-summary in `--quiet`, tags in mono.
+**The public journey.** `/eidos` opens as a living portrait, then moves through
+three evidence-backed observations, eight weathers, one mixed collection and
+the traces the collection leaves. Paintings, poems, songs, people and objects
+share the same room so the page reads as taste rather than storage. Media keeps
+its natural proportions. Filters hide and reveal; they never reorder the
+personality into separate catalogues.
 
-**The inbox.** A composer that looks like the thing you type into: one long
-url field in the serif at `--t-prose`, one short note field, one verb in a
-`--hot` pill. It answers `:focus-within` with a 4px `--hot` halo at 10% —
-focus, never hover; the glow says the field is live. Below it the deck: a
-`--deck` card with `--r-panel` corners that carries either a picture
-(contained, `--r-print`) or a link set in type (site, title at `--t-lede`,
-summary, tags), judged right or left. The rest state lists what was kept.
-No radius on the page is a number; the page's own stylesheet is checked for
-it.
+**The atlas and experiment.** `/eidos/map` is the only map. It makes proximity
+and weather legible, while private instruments stay collapsed. `/eidos/deck`
+is the public way in: one uncropped painting at a time, a fast left or right
+decision, then a reading calculated only from what the visitor kept.
+
+**The private studio.** `/eidos/inbox` is a three-part workbench: queue and
+recent judgements, the current uncropped card, then a field note. Notes recover
+from local drafts. Save, pass and open-next films confirm an action without
+holding it up. The link reader uses the same circle loader and returns the new
+card to the front.
+
+**Responsive and motion rules.** The four product doors remain visible at every
+width. Desktop uses one header row, tablet and phone use two. The hero requests
+one film source for the current width, never both. Repeated decisions finish in
+240ms or less, pointer-only lifts require a fine pointer, and reduced motion
+removes travel while preserving quiet state feedback.
 
 ## Footer
 

@@ -528,7 +528,7 @@ svg.pin {
   list-style: none;
 }
 
-.log li {
+.log .log-bead {
   display: grid;
   grid-template-columns: 3.5rem 1fr;
   gap: 1rem;
@@ -539,7 +539,7 @@ svg.pin {
   line-height: 1.6;
 }
 
-.log li::before {
+.log .log-bead::before {
   counter-increment: log;
   color: var(--dim);
   content: counter(log, decimal-leading-zero);
@@ -968,7 +968,7 @@ body::after {
 /* The log is a list again. Numbers in the photo captions point back at the
    lines; threading the pictures through the rows was never the ask and it
    wrecked the grid. */
-.log li p {
+.log .log-bead p {
   margin: 0;
 }
 

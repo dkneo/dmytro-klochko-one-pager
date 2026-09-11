@@ -61,6 +61,7 @@
         "who": "Magnus von Wright",
         "title": "Annankatu on a Cold Winter Morning",
         "year": "1868",
+        "where": "Finnish National Gallery",
         "source": "https://commons.wikimedia.org/wiki/File:Magnus_von_Wright_-_Annankatu_on_a_Cold_Winter_Morning_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "skyDim": 0,
@@ -96,6 +97,7 @@
         "who": "Vilhelm Hammershøi",
         "title": "Interior of Courtyard, Strandgade 30",
         "year": "1899",
+        "where": "Toledo Museum of Art",
         "source": "https://commons.wikimedia.org/wiki/File%3AVilhelm_Hammersh%C3%B8i_-_Interior_of_Courtyard%2C_Strandgade_30_-_Google_Art_Project.jpg",
         "licence": "Public domain",
         "skyDim": 0,
@@ -132,15 +134,16 @@
         "moreLabel": "more on bashō"
       },
       "painting": {
-        "src": "/images/inbox/monet-magpie.webp",
-        "who": "Claude Monet",
-        "title": "The Magpie",
-        "year": "1868–69",
-        "source": "https://commons.wikimedia.org/wiki/File%3AClaude_Monet_-_The_Magpie_-_Google_Art_Project.jpg",
-        "licence": "Public domain",
+        "src": "/images/vault/hoarfrost.webp",
+        "who": "Théodore Rousseau",
+        "title": "Hoarfrost",
+        "year": "1845",
+        "where": "The Walters Art Museum",
+        "source": "https://commons.wikimedia.org/wiki/File:Th%C3%A9odore_Rousseau_-_Hoarfrost_-_Walters_3725.jpg",
+        "licence": "public domain",
         "skyDim": 0,
-        "w": 1000,
-        "h": 678
+        "w": 1600,
+        "h": 1032
       },
       "song": {
         "who": "Erik Satie",
@@ -167,10 +170,165 @@
         "note": "Published four years after her death, from the fascicles she sewed and kept in a drawer. The 1890 text, as her first editors printed it."
       },
       "painting": {
+        "src": "/images/vault/love-in-death-for-good-words.webp",
+        "who": "Frederick Walker",
+        "title": "Love in Death, for \"Good Words\"",
+        "year": "March 1862",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/656829",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 2080
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
+      }
+    },
+    {
+      "id": "cold-clarity-4",
+      "weather": "cold clarity",
+      "quote": {
+        "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
+        "english": "Attention is the rarest and purest form of generosity.",
+        "who": "Simone Weil",
+        "where": "letter to Joë Bousquet, 1942"
+      },
+      "poem": {
+        "text": "馬をさへ\nながむる雪の\n朝哉",
+        "roman": "uma wo sae / nagamuru yuki no / ashita kana",
+        "english": "even the horse\nholds my eye — snow\non the morning road",
+        "who": "Bashō",
+        "where": "1684",
+        "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
+        "translator": "translated for this page, not a published version",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
+      },
+      "painting": {
+        "src": "/images/inbox/monet-magpie.webp",
+        "who": "Claude Monet",
+        "title": "The Magpie",
+        "year": "1868–69",
+        "where": "Musée d’Orsay",
+        "source": "https://commons.wikimedia.org/wiki/File%3AClaude_Monet_-_The_Magpie_-_Google_Art_Project.jpg",
+        "licence": "Public domain",
+        "skyDim": 0,
+        "w": 1000,
+        "h": 678
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
+      }
+    },
+    {
+      "id": "cold-clarity-5",
+      "weather": "cold clarity",
+      "quote": {
+        "text": "L'attention absolument sans mélange est prière.",
+        "english": "Absolutely unmixed attention is prayer.",
+        "who": "Simone Weil",
+        "where": "La Pesanteur et la Grâce, 1947"
+      },
+      "poem": {
+        "text": "There's a certain slant of light,\nOn winter afternoons,\nThat oppresses, like the weight\nOf cathedral tunes.\n\nHeavenly hurt it gives us;\nWe can find no scar,\nBut internal difference\nWhere the meanings are.\n\nNone may teach it anything,\n'T is the seal, despair,—\nAn imperial affliction\nSent us of the air.\n\nWhen it comes, the landscape listens,\nShadows hold their breath;\nWhen it goes, 't is like the distance\nOn the look of death.",
+        "who": "Emily Dickinson",
+        "where": "Poems, 1890",
+        "note": "Published four years after her death, from the fascicles she sewed and kept in a drawer. The 1890 text, as her first editors printed it."
+      },
+      "painting": {
+        "src": "/images/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp",
+        "who": "Katsushika Hokusai",
+        "title": "Morning after the Snow at Koishikawa in Edo (Koishikawa yuki no ashita),  from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+        "year": "ca. 1830–32",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/55288",
+        "licence": "cc0",
+        "skyDim": 0.06,
+        "w": 1600,
+        "h": 1098
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
+      }
+    },
+    {
+      "id": "cold-clarity-6",
+      "weather": "cold clarity",
+      "quote": {
+        "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
+        "english": "Attention is the rarest and purest form of generosity.",
+        "who": "Simone Weil",
+        "where": "letter to Joë Bousquet, 1942"
+      },
+      "poem": {
+        "text": "馬をさへ\nながむる雪の\n朝哉",
+        "roman": "uma wo sae / nagamuru yuki no / ashita kana",
+        "english": "even the horse\nholds my eye — snow\non the morning road",
+        "who": "Bashō",
+        "where": "1684",
+        "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
+        "translator": "translated for this page, not a published version",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
+      },
+      "painting": {
+        "src": "/images/vault/snow-in-picardie-la-neige-en-picardie.webp",
+        "who": "Dr. Paul Gachet",
+        "title": "Snow in Picardie (La Neige en Picardie)",
+        "year": "1894",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/399615",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1323
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
+      }
+    },
+    {
+      "id": "cold-clarity-7",
+      "weather": "cold clarity",
+      "quote": {
+        "text": "L'attention absolument sans mélange est prière.",
+        "english": "Absolutely unmixed attention is prayer.",
+        "who": "Simone Weil",
+        "where": "La Pesanteur et la Grâce, 1947"
+      },
+      "poem": {
+        "text": "There's a certain slant of light,\nOn winter afternoons,\nThat oppresses, like the weight\nOf cathedral tunes.\n\nHeavenly hurt it gives us;\nWe can find no scar,\nBut internal difference\nWhere the meanings are.\n\nNone may teach it anything,\n'T is the seal, despair,—\nAn imperial affliction\nSent us of the air.\n\nWhen it comes, the landscape listens,\nShadows hold their breath;\nWhen it goes, 't is like the distance\nOn the look of death.",
+        "who": "Emily Dickinson",
+        "where": "Poems, 1890",
+        "note": "Published four years after her death, from the fascicles she sewed and kept in a drawer. The 1890 text, as her first editors printed it."
+      },
+      "painting": {
         "src": "/images/vault/the-louvre-under-snow.webp",
         "who": "Camille Pissarro",
         "title": "The Louvre under Snow",
         "year": "1902",
+        "where": "The National Gallery",
         "source": "https://commons.wikimedia.org/wiki/File:Pissarro_-_The_Louvre_Under_Snow_1902.jpg",
         "licence": "public domain",
         "skyDim": 0,
@@ -187,7 +345,7 @@
       }
     },
     {
-      "id": "cold-clarity-4",
+      "id": "cold-clarity-8",
       "weather": "cold clarity",
       "quote": {
         "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
@@ -229,7 +387,7 @@
       }
     },
     {
-      "id": "cold-clarity-5",
+      "id": "cold-clarity-9",
       "weather": "cold clarity",
       "quote": {
         "text": "L'attention absolument sans mélange est prière.",
@@ -248,11 +406,53 @@
         "who": "Frits Thaulow",
         "title": "Winter",
         "year": "1886",
+        "where": "National Museum of Art, Architecture and Design",
         "source": "https://commons.wikimedia.org/wiki/File:Frits_Thaulow_-_Winter_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "skyDim": 0,
         "w": 1600,
         "h": 1003
+      },
+      "song": {
+        "who": "Erik Satie",
+        "title": "Gymnopédie No. 1",
+        "year": "1888",
+        "youtube": "https://www.youtube.com/results?search_query=Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "spotify": "https://open.spotify.com/search/Erik%20Satie%20Gymnop%C3%A9die%20No.%201",
+        "note": "Three pieces written when he was twenty-two and playing piano in a Montmartre cabaret. Nobody could place them; he called himself a phonometrician rather than a musician."
+      }
+    },
+    {
+      "id": "cold-clarity-10",
+      "weather": "cold clarity",
+      "quote": {
+        "text": "L’attention est la forme la plus rare et la plus pure de la générosité.",
+        "english": "Attention is the rarest and purest form of generosity.",
+        "who": "Simone Weil",
+        "where": "letter to Joë Bousquet, 1942"
+      },
+      "poem": {
+        "text": "馬をさへ\nながむる雪の\n朝哉",
+        "roman": "uma wo sae / nagamuru yuki no / ashita kana",
+        "english": "even the horse\nholds my eye — snow\non the morning road",
+        "who": "Bashō",
+        "where": "1684",
+        "note": "Written on the road in his first travel journal, the one he set out on expecting to die of exposure. He noticed a horse instead.",
+        "translator": "translated for this page, not a published version",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
+      },
+      "painting": {
+        "src": "/images/vault/明_劉世儒_月下雪梅圖_軸-flowering_plum_in_moonlight_and_sn.webp",
+        "who": "Liu Shiru",
+        "title": "Flowering Plum in Moonlight and Snow",
+        "year": "16th century",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://commons.wikimedia.org/wiki/File:%E6%98%8E_%E5%8A%89%E4%B8%96%E5%84%92_%E6%9C%88%E4%B8%8B%E9%9B%AA%E6%A2%85%E5%9C%96_%E8%BB%B8-Flowering_Plum_in_Moonlight_and_Snow_MET_59_117_d1.jpg",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1422,
+        "h": 2200
       },
       "song": {
         "who": "Erik Satie",
@@ -361,6 +561,7 @@
         "who": "anonymous",
         "title": "River Village at Dusk",
         "year": "18th century",
+        "where": "Los Angeles County Museum of Art",
         "source": "https://commons.wikimedia.org/wiki/File:River_Village_at_Dusk_LACMA_M.2000.15.25.jpg",
         "licence": "public domain",
         "skyDim": 0.04,
@@ -435,6 +636,7 @@
         "who": "Winslow Homer",
         "title": "The Fog Warning",
         "year": "1885",
+        "where": "Museum of Fine Arts, Boston",
         "source": "https://commons.wikimedia.org/wiki/File:Winslow_Homer_-_The_Fog_Warning_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "skyDim": 0,
@@ -472,6 +674,7 @@
         "who": "William Henry Barnard",
         "title": "The River at Dusk, Oxford",
         "year": "1792",
+        "where": "Yale Center for British Art",
         "source": "https://commons.wikimedia.org/wiki/File:William_Henry_Barnard_-_The_River_at_Dusk,_Oxford_-_B1977.14.5642_-_Yale_Center_for_British_Art.jpg",
         "licence": "cc0",
         "skyDim": 0,
@@ -542,13 +745,191 @@
         "who": "Claude Monet",
         "title": "Water Lilies",
         "year": "c. 1915",
-        "where": "Google Art Project",
+        "where": "The Nelson-Atkins Museum of Art",
         "source": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_Google_Art_Project_(431238).jpg",
         "licence": "public domain",
         "note": "From the pond he dug himself at Giverny and then spent thirty years painting. These late ones were made as his cataracts thickened, which is part of why the lilies stop having edges.",
         "skyDim": 0,
         "w": 1500,
         "h": 693
+      },
+      "song": {
+        "who": "Nina Simone",
+        "title": "Feeling Good",
+        "year": "1965",
+        "youtube": "https://www.youtube.com/results?search_query=Nina%20Simone%20Feeling%20Good",
+        "spotify": "https://open.spotify.com/search/Nina%20Simone%20Feeling%20Good",
+        "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds."
+      }
+    },
+    {
+      "id": "invincible-summer-2",
+      "weather": "invincible summer",
+      "quote": {
+        "text": "Au milieu de l’hiver, j’apprenais enfin qu’il y avait en moi un été invincible.",
+        "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
+        "who": "Albert Camus",
+        "where": "Retour à Tipasa, 1952"
+      },
+      "poem": {
+        "text": "To make a prairie it takes a clover and one bee,\nOne clover, and a bee,\nAnd revery.\nThe revery alone will do,\nIf bees are few.",
+        "who": "Emily Dickinson",
+        "where": "c. 1879",
+        "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote."
+      },
+      "painting": {
+        "src": "/images/vault/haystacks.webp",
+        "who": "Georges Seurat",
+        "title": "Haystacks",
+        "year": "c. 1882",
+        "where": "National Gallery of Art",
+        "source": "https://commons.wikimedia.org/wiki/File:Haystacks_C17507.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1003
+      },
+      "song": {
+        "who": "Nina Simone",
+        "title": "Feeling Good",
+        "year": "1965",
+        "youtube": "https://www.youtube.com/results?search_query=Nina%20Simone%20Feeling%20Good",
+        "spotify": "https://open.spotify.com/search/Nina%20Simone%20Feeling%20Good",
+        "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds."
+      }
+    },
+    {
+      "id": "invincible-summer-3",
+      "weather": "invincible summer",
+      "quote": {
+        "text": "Au milieu de l’hiver, j’apprenais enfin qu’il y avait en moi un été invincible.",
+        "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
+        "who": "Albert Camus",
+        "where": "Retour à Tipasa, 1952"
+      },
+      "poem": {
+        "text": "To make a prairie it takes a clover and one bee,\nOne clover, and a bee,\nAnd revery.\nThe revery alone will do,\nIf bees are few.",
+        "who": "Emily Dickinson",
+        "where": "c. 1879",
+        "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote."
+      },
+      "painting": {
+        "src": "/images/vault/orchard.webp",
+        "who": "Charles Jacque",
+        "title": "Orchard",
+        "year": "1865",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/830009",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1150
+      },
+      "song": {
+        "who": "Nina Simone",
+        "title": "Feeling Good",
+        "year": "1965",
+        "youtube": "https://www.youtube.com/results?search_query=Nina%20Simone%20Feeling%20Good",
+        "spotify": "https://open.spotify.com/search/Nina%20Simone%20Feeling%20Good",
+        "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds."
+      }
+    },
+    {
+      "id": "invincible-summer-4",
+      "weather": "invincible summer",
+      "quote": {
+        "text": "Au milieu de l’hiver, j’apprenais enfin qu’il y avait en moi un été invincible.",
+        "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
+        "who": "Albert Camus",
+        "where": "Retour à Tipasa, 1952"
+      },
+      "poem": {
+        "text": "To make a prairie it takes a clover and one bee,\nOne clover, and a bee,\nAnd revery.\nThe revery alone will do,\nIf bees are few.",
+        "who": "Emily Dickinson",
+        "where": "c. 1879",
+        "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote."
+      },
+      "painting": {
+        "src": "/images/vault/summer-landscape-with-figures-bringing-in-the-ha.webp",
+        "who": "Jan Brueghel the Elder",
+        "title": "Summer landscape with figures bringing in the harvest",
+        "year": "c. 1610",
+        "source": "https://commons.wikimedia.org/wiki/File:Joos_de_Momper_-_Summer_landscape_with_figures_bringing_in_the_harvest.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1249
+      },
+      "song": {
+        "who": "Nina Simone",
+        "title": "Feeling Good",
+        "year": "1965",
+        "youtube": "https://www.youtube.com/results?search_query=Nina%20Simone%20Feeling%20Good",
+        "spotify": "https://open.spotify.com/search/Nina%20Simone%20Feeling%20Good",
+        "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds."
+      }
+    },
+    {
+      "id": "invincible-summer-5",
+      "weather": "invincible summer",
+      "quote": {
+        "text": "Au milieu de l’hiver, j’apprenais enfin qu’il y avait en moi un été invincible.",
+        "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
+        "who": "Albert Camus",
+        "where": "Retour à Tipasa, 1952"
+      },
+      "poem": {
+        "text": "To make a prairie it takes a clover and one bee,\nOne clover, and a bee,\nAnd revery.\nThe revery alone will do,\nIf bees are few.",
+        "who": "Emily Dickinson",
+        "where": "c. 1879",
+        "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote."
+      },
+      "painting": {
+        "src": "/images/vault/swimmers-in-the-river-cave-of-the-seafarers-cave.webp",
+        "who": "Daderot",
+        "title": "Swimmers in the River, Cave of the Seafarers (Cave 212), Kizil",
+        "year": "2014",
+        "source": "https://commons.wikimedia.org/wiki/File:Swimmers_in_the_River,_Cave_of_the_Seafarers_(Cave_212),_Kizil,_c._6th-7th_century_AD,_wall_painting_-_Ethnological_Museum,_Berlin_-_DSC01688.JPG",
+        "licence": "cc0",
+        "skyDim": 0.1,
+        "w": 1600,
+        "h": 1302
+      },
+      "song": {
+        "who": "Nina Simone",
+        "title": "Feeling Good",
+        "year": "1965",
+        "youtube": "https://www.youtube.com/results?search_query=Nina%20Simone%20Feeling%20Good",
+        "spotify": "https://open.spotify.com/search/Nina%20Simone%20Feeling%20Good",
+        "note": "Written for a musical nobody remembers. She opens it alone, with no band at all, for forty seconds."
+      }
+    },
+    {
+      "id": "invincible-summer-6",
+      "weather": "invincible summer",
+      "quote": {
+        "text": "Au milieu de l’hiver, j’apprenais enfin qu’il y avait en moi un été invincible.",
+        "english": "In the midst of winter, I finally learned that there was within me an invincible summer.",
+        "who": "Albert Camus",
+        "where": "Retour à Tipasa, 1952"
+      },
+      "poem": {
+        "text": "To make a prairie it takes a clover and one bee,\nOne clover, and a bee,\nAnd revery.\nThe revery alone will do,\nIf bees are few.",
+        "who": "Emily Dickinson",
+        "where": "c. 1879",
+        "note": "Found among her papers after her death, unpublished in her lifetime, like almost everything she wrote."
+      },
+      "painting": {
+        "src": "/images/vault/vill-giature-from-croquis-d-t-published-in-le-ch.webp",
+        "who": "Honoré Daumier",
+        "title": "Villégiature, from Croquis d'Été, published in Le Charivari, August 22, 1856",
+        "year": "August 22, 1856",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/646811",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1194
       },
       "song": {
         "who": "Nina Simone",
@@ -614,17 +995,16 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/today/turner-staffa.webp",
-        "who": "J. M. W. Turner",
-        "title": "Staffa, Fingal's Cave",
-        "year": "1831–32",
-        "where": "Yale Center for British Art",
-        "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg",
-        "licence": "public domain",
-        "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
+        "src": "/images/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp",
+        "who": "Utagawa Hiroshige",
+        "title": "Ejiri, Number 19, from the series Fifty-Three Stations of the Tōkaidō Road (Tōkaidō gojūsan tsugi), also known as the Clerical Script Tōkaidō (Reisho Tōkaidō)",
+        "year": "1847–52",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/37213",
+        "licence": "cc0",
         "skyDim": 0,
-        "w": 1000,
-        "h": 740
+        "w": 1600,
+        "h": 1053
       },
       "song": {
         "who": "Seatbelts",
@@ -653,15 +1033,17 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/vault/scouts-climbing-a-mountain.webp",
-        "who": "Frederic Remington",
-        "title": "Scouts Climbing a Mountain",
-        "year": "1891",
-        "source": "https://commons.wikimedia.org/wiki/File:Frederic_Remington_-_Scouts_Climbing_a_Mountain_-_43.11_-_Museum_of_Fine_Arts.jpg",
+        "src": "/images/today/turner-staffa.webp",
+        "who": "J. M. W. Turner",
+        "title": "Staffa, Fingal's Cave",
+        "year": "1831–32",
+        "where": "Yale Center for British Art",
+        "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_Staffa,_Fingal%27s_Cave_-_Google_Art_Project.jpg",
         "licence": "public domain",
+        "note": "Turner took the steamer to Staffa in bad weather, and by his own account the\ncrossing was rough enough that most of the passengers gave up. He stayed on\ndeck. It was the first of his paintings to be sold in America.",
         "skyDim": 0,
-        "w": 1498,
-        "h": 3200
+        "w": 1000,
+        "h": 740
       },
       "song": {
         "who": "Seatbelts",
@@ -690,15 +1072,16 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/vault/shipwreck.webp",
-        "who": "Francis Danby",
-        "title": "Shipwreck",
-        "year": "c. 1850",
-        "source": "https://commons.wikimedia.org/wiki/File:Francis_Danby_-_Shipwreck_-_Google_Art_Project.jpg",
+        "src": "/images/vault/scouts-climbing-a-mountain.webp",
+        "who": "Frederic Remington",
+        "title": "Scouts Climbing a Mountain",
+        "year": "1891",
+        "where": "Museum of Fine Arts, Houston",
+        "source": "https://commons.wikimedia.org/wiki/File:Frederic_Remington_-_Scouts_Climbing_a_Mountain_-_43.11_-_Museum_of_Fine_Arts.jpg",
         "licence": "public domain",
         "skyDim": 0,
-        "w": 1600,
-        "h": 1235
+        "w": 1498,
+        "h": 3200
       },
       "song": {
         "who": "Seatbelts",
@@ -727,15 +1110,206 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/vault/der-seesturm-the-storm-at-sea.webp",
-        "who": "Joos de Momper the Younger",
-        "title": "Der Seesturm (The Storm at Sea)",
-        "year": "c. 1610–20",
-        "source": "https://commons.wikimedia.org/wiki/File:Momper,_Joos_de_(II)_Storm_ar_sea_038b.jpg",
+        "src": "/images/vault/shipwreck.webp",
+        "who": "Francis Danby",
+        "title": "Shipwreck",
+        "year": "c. 1850",
+        "where": "Yale Center for British Art",
+        "source": "https://commons.wikimedia.org/wiki/File:Francis_Danby_-_Shipwreck_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "skyDim": 0,
-        "w": 1585,
-        "h": 1150
+        "w": 1600,
+        "h": 1235
+      },
+      "song": {
+        "who": "Seatbelts",
+        "title": "Tank!",
+        "year": "1998",
+        "youtube": "https://www.youtube.com/results?search_query=Seatbelts%20Tank%21",
+        "spotify": "https://open.spotify.com/search/Seatbelts%20Tank%21",
+        "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything."
+      }
+    },
+    {
+      "id": "nerve-5",
+      "weather": "nerve",
+      "quote": {
+        "text": "We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard.",
+        "english": "We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard.",
+        "who": "John F. Kennedy",
+        "where": "Rice University, Houston, 12 September 1962"
+      },
+      "poem": {
+        "text": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
+        "english": "Honour to those who in their lives\nset out to guard some Thermopylae.\nNever stirring from their duty;\njust and straight in all their dealings,\nbut with pity too, and mercy;\ngenerous when they are rich, and when\nthey are poor, generous again in small ways,\nhelping still as much as they can;\nalways speaking the truth,\nbut without hatred for those who lie.\n\nAnd more honour is due to them\nwhen they foresee (and many do foresee)\nthat Ephialtes will appear in the end,\nand the Medes will get through after all.",
+        "who": "C. P. Cavafy",
+        "where": "Thermopylae, printed in Alexandrian Art, 1927",
+        "note": "Thermopylae is the pass the Spartans held knowing they would lose it, and Ephialtes is the man who showed the Persians the way around. Cavafy's point is that the traitor arriving does not cancel the holding.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/stormy-sea.webp",
+        "who": "Eduard Hildebrandt",
+        "title": "Stormy Sea",
+        "year": "1851",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/335360",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1158
+      },
+      "song": {
+        "who": "Seatbelts",
+        "title": "Tank!",
+        "year": "1998",
+        "youtube": "https://www.youtube.com/results?search_query=Seatbelts%20Tank%21",
+        "spotify": "https://open.spotify.com/search/Seatbelts%20Tank%21",
+        "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything."
+      }
+    },
+    {
+      "id": "nerve-6",
+      "weather": "nerve",
+      "quote": {
+        "text": "Actually startups take off because the founders make them take off.",
+        "english": "Actually startups take off because the founders make them take off.",
+        "who": "Paul Graham",
+        "where": "Do Things that Don't Scale, 2013"
+      },
+      "poem": {
+        "text": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
+        "english": "Honour to those who in their lives\nset out to guard some Thermopylae.\nNever stirring from their duty;\njust and straight in all their dealings,\nbut with pity too, and mercy;\ngenerous when they are rich, and when\nthey are poor, generous again in small ways,\nhelping still as much as they can;\nalways speaking the truth,\nbut without hatred for those who lie.\n\nAnd more honour is due to them\nwhen they foresee (and many do foresee)\nthat Ephialtes will appear in the end,\nand the Medes will get through after all.",
+        "who": "C. P. Cavafy",
+        "where": "Thermopylae, printed in Alexandrian Art, 1927",
+        "note": "Thermopylae is the pass the Spartans held knowing they would lose it, and Ephialtes is the man who showed the Persians the way around. Cavafy's point is that the traitor arriving does not cancel the holding.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/the-remains-of-a-shipwreck.webp",
+        "who": "Joseph Vernet",
+        "title": "The Remains of a Shipwreck",
+        "year": "ca. 1750–1800",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/812171",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1083
+      },
+      "song": {
+        "who": "Seatbelts",
+        "title": "Tank!",
+        "year": "1998",
+        "youtube": "https://www.youtube.com/results?search_query=Seatbelts%20Tank%21",
+        "spotify": "https://open.spotify.com/search/Seatbelts%20Tank%21",
+        "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything."
+      }
+    },
+    {
+      "id": "nerve-7",
+      "weather": "nerve",
+      "quote": {
+        "text": "Non quia difficilia sunt non audemus, sed quia non audemus difficilia sunt.",
+        "english": "It is not because things are difficult that we do not dare; it is because we do not dare that they are difficult.",
+        "who": "Seneca",
+        "where": "Epistulae Morales, 104.26"
+      },
+      "poem": {
+        "text": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
+        "english": "Honour to those who in their lives\nset out to guard some Thermopylae.\nNever stirring from their duty;\njust and straight in all their dealings,\nbut with pity too, and mercy;\ngenerous when they are rich, and when\nthey are poor, generous again in small ways,\nhelping still as much as they can;\nalways speaking the truth,\nbut without hatred for those who lie.\n\nAnd more honour is due to them\nwhen they foresee (and many do foresee)\nthat Ephialtes will appear in the end,\nand the Medes will get through after all.",
+        "who": "C. P. Cavafy",
+        "where": "Thermopylae, printed in Alexandrian Art, 1927",
+        "note": "Thermopylae is the pass the Spartans held knowing they would lose it, and Ephialtes is the man who showed the Persians the way around. Cavafy's point is that the traitor arriving does not cancel the holding.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/the-rescue.webp",
+        "who": "Bjarne Ness",
+        "title": "The Rescue",
+        "year": "1926",
+        "where": "Trondheim Kunstmuseum",
+        "source": "https://commons.wikimedia.org/wiki/File:Bjarne_Ness_-_The_Rescue_-_TKM-1651-1980_-_Trondheim_kunstmuseum.jpg",
+        "licence": "public domain",
+        "skyDim": 0.1,
+        "w": 1600,
+        "h": 1194
+      },
+      "song": {
+        "who": "Seatbelts",
+        "title": "Tank!",
+        "year": "1998",
+        "youtube": "https://www.youtube.com/results?search_query=Seatbelts%20Tank%21",
+        "spotify": "https://open.spotify.com/search/Seatbelts%20Tank%21",
+        "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything."
+      }
+    },
+    {
+      "id": "nerve-8",
+      "weather": "nerve",
+      "quote": {
+        "text": "Non exiguum temporis habemus, sed multum perdidimus.",
+        "english": "It is not that we have little time, but that we lose much of it.",
+        "who": "Seneca",
+        "where": "De Brevitate Vitae, I.3"
+      },
+      "poem": {
+        "text": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
+        "english": "Honour to those who in their lives\nset out to guard some Thermopylae.\nNever stirring from their duty;\njust and straight in all their dealings,\nbut with pity too, and mercy;\ngenerous when they are rich, and when\nthey are poor, generous again in small ways,\nhelping still as much as they can;\nalways speaking the truth,\nbut without hatred for those who lie.\n\nAnd more honour is due to them\nwhen they foresee (and many do foresee)\nthat Ephialtes will appear in the end,\nand the Medes will get through after all.",
+        "who": "C. P. Cavafy",
+        "where": "Thermopylae, printed in Alexandrian Art, 1927",
+        "note": "Thermopylae is the pass the Spartans held knowing they would lose it, and Ephialtes is the man who showed the Persians the way around. Cavafy's point is that the traitor arriving does not cancel the holding.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp",
+        "who": "Johan Christian Dahl",
+        "title": "Vesuvs udbrud 1820 Eruption of the Volcano Vesuvius",
+        "year": "1821",
+        "where": "Statens Museum for Kunst",
+        "source": "https://commons.wikimedia.org/wiki/File:Vesuvs_udbrud_1820.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1121
+      },
+      "song": {
+        "who": "Seatbelts",
+        "title": "Tank!",
+        "year": "1998",
+        "youtube": "https://www.youtube.com/results?search_query=Seatbelts%20Tank%21",
+        "spotify": "https://open.spotify.com/search/Seatbelts%20Tank%21",
+        "note": "Yoko Kanno wrote a big-band opening for a cartoon about broke bounty hunters, and it swings harder than most things written for anything."
+      }
+    },
+    {
+      "id": "nerve-9",
+      "weather": "nerve",
+      "quote": {
+        "text": "We're always thinking about new markets we could enter, but it's only by saying no that you can concentrate on the things that are really important.",
+        "english": "We're always thinking about new markets we could enter, but it's only by saying no that you can concentrate on the things that are really important.",
+        "who": "Steve Jobs",
+        "where": "BusinessWeek, 12 October 2004"
+      },
+      "poem": {
+        "text": "Τιμὴ σ' ἐκείνους ὅπου στὴν ζωὴ των\nὥρισαν καὶ φυλάγουν Θερμοπύλες.\nΠοτὲ ἀπὸ τὸ χρέος μὴ κινοῦντες·\nδίκαιοι κ' ἴσιοι σ' ὅλες των τὲς πράξεις,\nἀλλὰ μὲ λύπη κιόλας κ' εὐσπλαχνία·\nγενναῖοι ὁσάκις εἶναι πλούσιοι, κι ὅταν\nεἶναι πτωχοί, πάλ' εἰς μικρὸν γενναῖοι,\nπάλι συντρέχοντες ὅσο μποροῦνε·\nπάντοτε τὴν ἀλήθεια ὁμιλοῦντες,\nπλὴν χωρὶς μῖσος γιὰ τοὺς ψευδομένους.\n\nΚαὶ περισσότερη τιμὴ τοὺς πρέπει\nὅταν προβλέπουν (καὶ πολλοὶ προβλέπουν)\nπῶς ὁ Ἐφιάλτης θὰ φανεῖ στὸ τέλος,\nκ' οἱ Μῆδοι ἐπὶ τέλους θὰ διαβοῦνε.",
+        "english": "Honour to those who in their lives\nset out to guard some Thermopylae.\nNever stirring from their duty;\njust and straight in all their dealings,\nbut with pity too, and mercy;\ngenerous when they are rich, and when\nthey are poor, generous again in small ways,\nhelping still as much as they can;\nalways speaking the truth,\nbut without hatred for those who lie.\n\nAnd more honour is due to them\nwhen they foresee (and many do foresee)\nthat Ephialtes will appear in the end,\nand the Medes will get through after all.",
+        "who": "C. P. Cavafy",
+        "where": "Thermopylae, printed in Alexandrian Art, 1927",
+        "note": "Thermopylae is the pass the Spartans held knowing they would lose it, and Ephialtes is the man who showed the Persians the way around. Cavafy's point is that the traitor arriving does not cancel the holding.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/waves-breaking-on-rocks-from-scrapbook.webp",
+        "who": "John Singer Sargent",
+        "title": "Waves Breaking on Rocks (from scrapbook)",
+        "year": "ca. 1875",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://commons.wikimedia.org/wiki/File:Waves_Breaking_on_Rocks_(from_scrapbook)_MET_ap50.130.154q.jpg",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1581,
+        "h": 1008
       },
       "song": {
         "who": "Seatbelts",
@@ -768,6 +1342,7 @@
         "who": "Johann Conrad Seekatz",
         "title": "Boy Teasing a Dog: Nightscene Lit by Pinewood Torch",
         "year": "c. 1760",
+        "where": "Städel Museum",
         "source": "https://commons.wikimedia.org/wiki/File:Boy_Teasing_a_Dog-_Nightscene_Lit_by_Pinewood_Torch_(SM_583).png",
         "licence": "pdm-owner",
         "skyDim": 0,
@@ -805,6 +1380,7 @@
         "who": "Edward Hopper",
         "title": "Summer Interior",
         "year": "1909",
+        "where": "Whitney Museum of American Art",
         "source": "https://commons.wikimedia.org/wiki/File%3ASummer_Interior%2C_by_Edward_Hopper.jpg",
         "licence": "Public domain",
         "skyDim": 0,
@@ -877,15 +1453,15 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/vault/paris-nocturne-the-singer.webp",
-        "who": "Carlos Baca-Flor",
-        "title": "Paris Nocturne. The Singer",
-        "year": "c. 1900",
-        "source": "https://commons.wikimedia.org/wiki/File:Carlos_Baca-Flor_-_Paris_Nocturne._The_Singer_-_Google_Art_Project.jpg",
+        "src": "/images/vault/man-reading-by-lamplight.webp",
+        "who": "Georg Friedrich Kersting",
+        "title": "Man reading by lamplight",
+        "year": "1814",
+        "source": "https://commons.wikimedia.org/wiki/File:Kersting_-_Lesender_Mann_beim_Lampenlicht.jpg",
         "licence": "public domain",
         "skyDim": 0,
         "w": 1600,
-        "h": 2047
+        "h": 2135
       },
       "song": {
         "who": "Chet Baker",
@@ -914,15 +1490,16 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/inbox/vuillard-clarac.webp",
-        "who": "Édouard Vuillard",
-        "title": "La Salle Clarac",
-        "year": "1922",
-        "source": "https://commons.wikimedia.org/wiki/File%3AEdouard_Vuillard_-_La_Salle_Clarac_-_Google_Art_Project.jpg",
-        "licence": "Public domain",
+        "src": "/images/vault/nocturne.webp",
+        "who": "John La Farge",
+        "title": "Nocturne",
+        "year": "ca. 1885",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/11380",
+        "licence": "cc0",
         "skyDim": 0,
-        "w": 1000,
-        "h": 836
+        "w": 1600,
+        "h": 1926
       },
       "song": {
         "who": "Chet Baker",
@@ -951,10 +1528,125 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
+        "src": "/images/vault/paris-nocturne-the-singer.webp",
+        "who": "Carlos Baca-Flor",
+        "title": "Paris Nocturne. The Singer",
+        "year": "c. 1900",
+        "where": "Museo de Arte de Lima",
+        "source": "https://commons.wikimedia.org/wiki/File:Carlos_Baca-Flor_-_Paris_Nocturne._The_Singer_-_Google_Art_Project.jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 2047
+      },
+      "song": {
+        "who": "Chet Baker",
+        "title": "Almost Blue",
+        "year": "1987",
+        "youtube": "https://www.youtube.com/results?search_query=Chet%20Baker%20Almost%20Blue",
+        "spotify": "https://open.spotify.com/search/Chet%20Baker%20Almost%20Blue",
+        "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his."
+      }
+    },
+    {
+      "id": "the-dark-and-the-lamp-6",
+      "weather": "the dark and the lamp",
+      "quote": {
+        "text": "Que otros se jacten de las páginas que han escrito; a mí me enorgullecen las que he leído.",
+        "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
+        "who": "Jorge Luis Borges",
+        "where": "Un lector, 1969"
+      },
+      "poem": {
+        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
+        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
+        "who": "attributed to Sappho",
+        "where": "fragment 168B",
+        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/the-yellow-house-the-street.webp",
+        "who": "Vincent van Gogh",
+        "title": "The yellow house ('The street')",
+        "year": "1888",
+        "where": "Van Gogh Museum",
+        "source": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_yellow_house_(%27The_street%27).jpg",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1241
+      },
+      "song": {
+        "who": "Chet Baker",
+        "title": "Almost Blue",
+        "year": "1987",
+        "youtube": "https://www.youtube.com/results?search_query=Chet%20Baker%20Almost%20Blue",
+        "spotify": "https://open.spotify.com/search/Chet%20Baker%20Almost%20Blue",
+        "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his."
+      }
+    },
+    {
+      "id": "the-dark-and-the-lamp-7",
+      "weather": "the dark and the lamp",
+      "quote": {
+        "text": "Que otros se jacten de las páginas que han escrito; a mí me enorgullecen las que he leído.",
+        "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
+        "who": "Jorge Luis Borges",
+        "where": "Un lector, 1969"
+      },
+      "poem": {
+        "text": "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。",
+        "english": "Before my bed, the bright moon's light —\nI take it for frost on the ground.\nI lift my head to look at the moon,\nlower it, and think of home.",
+        "who": "Li Bai",
+        "where": "Tang dynasty, 8th century",
+        "note": "Twenty characters. The first poem most children in China learn by heart, and still the one they can say at eighty.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/inbox/vuillard-clarac.webp",
+        "who": "Édouard Vuillard",
+        "title": "La Salle Clarac",
+        "year": "1922",
+        "where": "Toledo Museum of Art",
+        "source": "https://commons.wikimedia.org/wiki/File%3AEdouard_Vuillard_-_La_Salle_Clarac_-_Google_Art_Project.jpg",
+        "licence": "Public domain",
+        "skyDim": 0,
+        "w": 1000,
+        "h": 836
+      },
+      "song": {
+        "who": "Chet Baker",
+        "title": "Almost Blue",
+        "year": "1987",
+        "youtube": "https://www.youtube.com/results?search_query=Chet%20Baker%20Almost%20Blue",
+        "spotify": "https://open.spotify.com/search/Chet%20Baker%20Almost%20Blue",
+        "note": "Elvis Costello wrote it about a Chet Baker song. Baker then recorded it, near the end, and it sounds like it was always his."
+      }
+    },
+    {
+      "id": "the-dark-and-the-lamp-8",
+      "weather": "the dark and the lamp",
+      "quote": {
+        "text": "Que otros se jacten de las páginas que han escrito; a mí me enorgullecen las que he leído.",
+        "english": "Let others boast of the pages they have written; I am proud of the ones I have read.",
+        "who": "Jorge Luis Borges",
+        "where": "Un lector, 1969"
+      },
+      "poem": {
+        "text": "Δέδυκε μὲν ἀ σελάννα\nκαὶ Πληΐαδες, μέσαι δέ\nνύκτες, πάρα δ’ ἔρχετ’ ὤρα,\nἔγω δὲ μόνα κατεύδω.",
+        "english": "The moon has set,\nand the Pleiades. It is midnight.\nThe hour goes by.\nAnd I lie down alone.",
+        "who": "attributed to Sappho",
+        "where": "fragment 168B",
+        "note": "Given to Sappho since the Renaissance, though most scholars now think it is a folk song by someone whose name is gone. Four lines outlived their author entirely.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
         "src": "/images/vault/whistler-nocturne-grey.webp",
         "who": "James McNeill Whistler",
         "title": "Nocturne: Blue and Silver — Chelsea",
         "year": "1871",
+        "where": "Tate",
         "source": "https://commons.wikimedia.org/wiki/File:James_Abbott_McNeill_Whistler_-_Nocturne-_Blue_and_Silver_-_Chelsea_-_Google_Art_Project.jpg",
         "licence": "Public domain",
         "skyDim": 0,
@@ -991,17 +1683,15 @@
         "moreLabel": "more on bashō"
       },
       "painting": {
-        "src": "/images/today/chardin.webp",
-        "who": "Jean-Baptiste-Siméon Chardin",
-        "title": "A Bowl of Plums",
-        "year": "c. 1728",
-        "where": "The Phillips Collection, Washington",
-        "source": "https://commons.wikimedia.org/wiki/File:Jean-Baptiste_Simeon_Chardin_-_A_Bowl_of_Plums_-_Google_Art_Project.jpg",
+        "src": "/images/vault/a-still-life-with-strawberries-in-a-bowl-and-rad.webp",
+        "who": "William Hammer",
+        "title": "A Still Life with Strawberries, Radishes, Asparagus and Lettuce",
+        "year": "1848",
+        "source": "https://commons.wikimedia.org/wiki/File:William_Hammer_-_A_still_life_with_strawberries_in_a_bowl_and_radishes,_asparagus_and_a_head_of_lettuce_resting_on_a_wooden_table_(1848).jpg",
         "licence": "public domain",
-        "note": "Chardin painted more or less the same handful of objects for forty years. Diderot said of him that this one understands the harmony of colours and reflections, and the rest of us paint things.",
         "skyDim": 0,
-        "w": 1500,
-        "h": 1195
+        "w": 1600,
+        "h": 1162
       },
       "song": {
         "who": "Bill Evans",
@@ -1026,6 +1716,48 @@
         "who": "Gerard Manley Hopkins",
         "where": "written 1877, published in Poems, 1918",
         "note": "Written the summer he was ordained. Not published until 1918, twenty-nine years after he died; he had shown it to almost no one."
+      },
+      "painting": {
+        "src": "/images/today/chardin.webp",
+        "who": "Jean-Baptiste-Siméon Chardin",
+        "title": "A Bowl of Plums",
+        "year": "c. 1728",
+        "where": "The Phillips Collection, Washington",
+        "source": "https://commons.wikimedia.org/wiki/File:Jean-Baptiste_Simeon_Chardin_-_A_Bowl_of_Plums_-_Google_Art_Project.jpg",
+        "licence": "public domain",
+        "note": "Chardin painted more or less the same handful of objects for forty years. Diderot said of him that this one understands the harmony of colours and reflections, and the rest of us paint things.",
+        "skyDim": 0,
+        "w": 1500,
+        "h": 1195
+      },
+      "song": {
+        "who": "Bill Evans",
+        "title": "Peace Piece",
+        "year": "1958",
+        "youtube": "https://www.youtube.com/results?search_query=Bill%20Evans%20Peace%20Piece",
+        "spotify": "https://open.spotify.com/search/Bill%20Evans%20Peace%20Piece",
+        "note": "One left-hand figure, held for seven minutes, improvised in a single take at the end of a session."
+      }
+    },
+    {
+      "id": "the-plain-thing-2",
+      "weather": "the plain thing",
+      "quote": {
+        "text": "Nothing is more abstract than reality.",
+        "english": "Nothing is more abstract than reality.",
+        "who": "Giorgio Morandi",
+        "where": "in conversation with Edouard Roditi, 1958"
+      },
+      "poem": {
+        "text": "古池や\n蛙飛びこむ\n水の音",
+        "roman": "furu ike ya / kawazu tobikomu / mizu no oto",
+        "english": "the old pond —\na frog jumps in,\nthe sound of water",
+        "who": "Bashō",
+        "where": "1686",
+        "note": "The most famous poem in Japanese. His students argued for years about the first line; he kept the plainest one.",
+        "translator": "translated for this page, not a published version",
+        "more": "/basho",
+        "moreLabel": "more on bashō"
       },
       "painting": {
         "src": "/images/vault/redon-flowers.webp",
@@ -1065,10 +1797,49 @@
         "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
       },
       "painting": {
+        "src": "/images/vault/a-ship-in-a-rough-sea.webp",
+        "who": "Cornelis Verbeeck",
+        "title": "A Ship in a Rough Sea",
+        "year": "1620s",
+        "where": "Royal Museums Greenwich",
+        "source": "https://commons.wikimedia.org/wiki/File:A_Ship_in_a_Rough_Sea_RMG_BHC0725.tiff",
+        "licence": "public domain",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1242
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-1",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
         "src": "/images/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp",
         "who": "Hendrick Dubbels",
         "title": "A Smalschip with two Dutch East Indiamen coming to Anchor",
         "year": "c. 1670",
+        "where": "Royal Museums Greenwich",
         "source": "https://commons.wikimedia.org/wiki/File:A_Smalschip_with_two_Dutch_East_Indiamen_coming_to_Anchor_RMG_BHC0917.tiff",
         "licence": "public domain",
         "skyDim": 0,
@@ -1085,7 +1856,7 @@
       }
     },
     {
-      "id": "vastness-1",
+      "id": "vastness-2",
       "weather": "vastness",
       "quote": {
         "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
@@ -1124,7 +1895,7 @@
       }
     },
     {
-      "id": "vastness-2",
+      "id": "vastness-3",
       "weather": "vastness",
       "quote": {
         "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
@@ -1145,6 +1916,7 @@
         "who": "Caspar David Friedrich",
         "title": "Wanderer above the Sea of Fog",
         "year": "c. 1818",
+        "where": "Hamburger Kunsthalle",
         "source": "https://commons.wikimedia.org/wiki/File%3ACaspar_David_Friedrich_-_Der_Wanderer_%C3%BCber_dem_Nebelmeer.jpg",
         "licence": "Public domain",
         "skyDim": 0,
@@ -1161,7 +1933,7 @@
       }
     },
     {
-      "id": "vastness-3",
+      "id": "vastness-4",
       "weather": "vastness",
       "quote": {
         "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
@@ -1180,8 +1952,9 @@
       "painting": {
         "src": "/images/inbox/hokusai-wave.webp",
         "who": "Katsushika Hokusai",
-        "title": "Under the Wave off Kanagawa",
-        "year": "c. 1831",
+        "title": "Under the Wave off Kanagawa (Kanagawa oki nami ura), also known as The Great Wave, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei)",
+        "year": "ca. 1830–32",
+        "where": "The Metropolitan Museum of Art",
         "source": "https://commons.wikimedia.org/wiki/File%3ATsunami_by_hokusai_19th_century.jpg",
         "licence": "Public domain",
         "skyDim": 0.06,
@@ -1198,7 +1971,83 @@
       }
     },
     {
-      "id": "vastness-4",
+      "id": "vastness-5",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/landscape-with-waterfall-and-a-mother-and-child.webp",
+        "who": "Johann Peter Beer",
+        "title": "Landscape with Waterfall and a Mother and Child",
+        "year": "1800",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/376658",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1124
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-6",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/landscape.webp",
+        "who": "Franz von Hauslab the Younger",
+        "title": "Landscape",
+        "year": "19th century",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/335787",
+        "licence": "cc0",
+        "skyDim": 0.02,
+        "w": 1600,
+        "h": 821
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-7",
       "weather": "vastness",
       "quote": {
         "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
@@ -1235,7 +2084,7 @@
       }
     },
     {
-      "id": "vastness-5",
+      "id": "vastness-8",
       "weather": "vastness",
       "quote": {
         "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
@@ -1256,6 +2105,7 @@
         "who": "Maurice Galbraith Cullen",
         "title": "No Man's Land",
         "year": "1920",
+        "where": "Canadian War Museum",
         "source": "https://commons.wikimedia.org/wiki/File:Maurice_Galbraith_Cullen_-_No_Man%27s_Land.jpg",
         "licence": "public domain",
         "skyDim": 0,
@@ -1272,7 +2122,45 @@
       }
     },
     {
-      "id": "vastness-6",
+      "id": "vastness-9",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/sea-bass-from-fish-from-american-waters-series-n.webp",
+        "who": "Allen & Ginter",
+        "title": "Sea Bass, from Fish from American Waters series (N39) for Allen & Ginter Cigarettes",
+        "year": "1889",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/420174",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1461
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-10",
       "weather": "vastness",
       "quote": {
         "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
@@ -1293,6 +2181,7 @@
         "who": "Vincent van Gogh",
         "title": "The Starry Night",
         "year": "1889",
+        "where": "The Museum of Modern Art",
         "source": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "skyDim": 0,
@@ -1309,7 +2198,7 @@
       }
     },
     {
-      "id": "vastness-7",
+      "id": "vastness-11",
       "weather": "vastness",
       "quote": {
         "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
@@ -1346,7 +2235,7 @@
       }
     },
     {
-      "id": "vastness-8",
+      "id": "vastness-12",
       "weather": "vastness",
       "quote": {
         "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
@@ -1367,11 +2256,49 @@
         "who": "Charles Landseer",
         "title": "View of Sugarloaf Mountain from the Silvestre Road",
         "year": "c. 1827",
+        "where": "Pinacoteca de São Paulo",
         "source": "https://commons.wikimedia.org/wiki/File:Charles_Landseer_-_View_of_Sugarloaf_Mountain_from_the_Silvestre_Road_-_Google_Art_Project.jpg",
         "licence": "public domain",
         "skyDim": 0,
         "w": 1600,
         "h": 1017
+      },
+      "song": {
+        "who": "Vangelis",
+        "title": "Blade Runner Blues",
+        "year": "1982",
+        "youtube": "https://www.youtube.com/results?search_query=Vangelis%20Blade%20Runner%20Blues",
+        "spotify": "https://open.spotify.com/search/Vangelis%20Blade%20Runner%20Blues",
+        "note": "Recorded live to picture, improvised while the film ran, which is why it breathes with the city rather than under it."
+      }
+    },
+    {
+      "id": "vastness-13",
+      "weather": "vastness",
+      "quote": {
+        "text": "Nescire autem quid ante quam natus sis acciderit, id est semper esse puerum.",
+        "english": "To be ignorant of what happened before you were born is to remain a child forever.",
+        "who": "Cicero",
+        "where": "Orator, 120"
+      },
+      "poem": {
+        "text": "空山不見人，但聞人語響。\n返景入深林，復照青苔上。",
+        "english": "There seems to be no one on the empty mountain…\nAnd yet I think I hear a voice,\nWhere sunlight, entering a grove,\nShines back to me from the green moss.",
+        "who": "Wang Wei",
+        "where": "Deer Park, 8th century",
+        "note": "Twenty characters that have been translated into English more than a hundred times, no two alike. Nobody agrees where the light is coming from.",
+        "translator": "Witter Bynner & Kiang Kang-hu, The Jade Mountain, 1929"
+      },
+      "painting": {
+        "src": "/images/vault/waterfall-on-a-cold-cliff.webp",
+        "who": "Lu Hui",
+        "title": "Waterfall on a Cold Cliff",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/737748",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1308,
+        "h": 4000
       },
       "song": {
         "who": "Vangelis",
@@ -1437,15 +2364,16 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/vault/figure-of-a-lady-laura.webp",
-        "who": "Tom Thomson",
-        "title": "Figure of a Lady, Laura",
-        "year": "Autumn 1915",
-        "source": "https://commons.wikimedia.org/wiki/File:Thomson,_Figure_of_a_Lady,_Laura_-_fall_1915_-_MM_1983.18.jpg",
-        "licence": "public domain",
+        "src": "/images/vault/dancers.webp",
+        "who": "",
+        "title": "Dancers",
+        "year": "late 17th–early 18th century",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/45759",
+        "licence": "cc0",
         "skyDim": 0,
-        "w": 1600,
-        "h": 1312
+        "w": 960,
+        "h": 365
       },
       "song": {
         "who": "Arvo Pärt",
@@ -1472,15 +2400,15 @@
         "note": "First printed as \"Aedh Wishes for the Cloths of Heaven\", one of three named voices Yeats later folded into a single \"he\"."
       },
       "painting": {
-        "src": "/images/vault/figure-portant-une-t-te-ail-e-la-chute-d-lcare-f.webp",
-        "who": "Odilon Redon",
-        "title": "Figure portant une tête ailée (La chute d'Icare)",
-        "year": "1876",
-        "source": "https://commons.wikimedia.org/wiki/File:Figure_portant_une_t%C3%AAte_ail%C3%A9e_(La_chute_d%27lcare)_-_Figure_bearing_a_winged_head_(The_fall_of_Icarus),_c._1876,_Odilon_Redon.jpg",
+        "src": "/images/vault/figure-of-a-lady-laura.webp",
+        "who": "Tom Thomson",
+        "title": "Figure of a Lady, Laura",
+        "year": "Autumn 1915",
+        "source": "https://commons.wikimedia.org/wiki/File:Thomson,_Figure_of_a_Lady,_Laura_-_fall_1915_-_MM_1983.18.jpg",
         "licence": "public domain",
         "skyDim": 0,
         "w": 1600,
-        "h": 1715
+        "h": 1312
       },
       "song": {
         "who": "Arvo Pärt",
@@ -1509,17 +2437,15 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
-        "src": "/images/today/afklint.webp",
-        "who": "Hilma af Klint",
-        "title": "The Ten Largest, No. 7, Adulthood",
-        "year": "1907",
-        "where": "Hilma af Klint Foundation, Stockholm",
-        "source": "https://commons.wikimedia.org/wiki/File:Hilma_af_Klint_-_The_Ten_Largest_No._7_-_Adulthood_-_1907.jpg",
+        "src": "/images/vault/figure-portant-une-t-te-ail-e-la-chute-d-lcare-f.webp",
+        "who": "Odilon Redon",
+        "title": "Figure portant une tête ailée (La chute d'Icare)",
+        "year": "1876",
+        "source": "https://commons.wikimedia.org/wiki/File:Figure_portant_une_t%C3%AAte_ail%C3%A9e_(La_chute_d%27lcare)_-_Figure_bearing_a_winged_head_(The_fall_of_Icarus),_c._1876,_Odilon_Redon.jpg",
         "licence": "public domain",
-        "note": "Painted in 1907, years before abstraction was credited to anyone else. She left instructions that the work not be shown until twenty years after her death, and it was not shown properly for forty.",
-        "skyDim": 0.1,
-        "w": 1131,
-        "h": 1500
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1715
       },
       "song": {
         "who": "Arvo Pärt",
@@ -1548,15 +2474,165 @@
         "translator": "translated for this page, not a published version"
       },
       "painting": {
+        "src": "/images/today/afklint.webp",
+        "who": "Hilma af Klint",
+        "title": "The Ten Largest, No. 7, Adulthood",
+        "year": "1907",
+        "where": "Hilma af Klint Foundation, Stockholm",
+        "source": "https://commons.wikimedia.org/wiki/File:Hilma_af_Klint_-_The_Ten_Largest_No._7_-_Adulthood_-_1907.jpg",
+        "licence": "public domain",
+        "note": "Painted in 1907, years before abstraction was credited to anyone else. She left instructions that the work not be shown until twenty years after her death, and it was not shown properly for forty.",
+        "skyDim": 0.1,
+        "w": 1131,
+        "h": 1500
+      },
+      "song": {
+        "who": "Arvo Pärt",
+        "title": "Spiegel im Spiegel",
+        "year": "1978",
+        "youtube": "https://www.youtube.com/results?search_query=Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "spotify": "https://open.spotify.com/search/Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia."
+      }
+    },
+    {
+      "id": "weight-and-grace-5",
+      "weather": "weight and grace",
+      "quote": {
+        "text": "Forsan et haec olim meminisse iuvabit.",
+        "english": "Perhaps one day it will be a pleasure to remember even this.",
+        "who": "Virgil",
+        "where": "Aeneid, I.203"
+      },
+      "poem": {
+        "text": "Had I the heavens' embroidered cloths,\nEnwrought with golden and silver light,\nThe blue and the dim and the dark cloths\nOf night and light and the half-light,\nI would spread the cloths under your feet:\nBut I am poor, and have only my dreams;\nI have spread my dreams under your feet;\nTread softly because you tread on my dreams.",
+        "who": "W. B. Yeats",
+        "where": "The Wind Among the Reeds, 1899",
+        "note": "First printed as \"Aedh Wishes for the Cloths of Heaven\", one of three named voices Yeats later folded into a single \"he\"."
+      },
+      "painting": {
         "src": "/images/vault/lovers-and-beloveds-a-composite-of-scenes-from-p.webp",
         "who": "Chitarman II",
         "title": "Lovers and Beloveds",
         "year": "c. 1735",
+        "where": "Cleveland Museum of Art",
         "source": "https://commons.wikimedia.org/wiki/File:%27Lovers_and_beloveds,_A_composite_of_scenes_from_Persian,_Urdu,_and_Sanskrit_literature%27,_painting_by_Chitarman_II,_ca_1735.png",
         "licence": "public domain",
         "skyDim": 0,
         "w": 1600,
         "h": 2205
+      },
+      "song": {
+        "who": "Arvo Pärt",
+        "title": "Spiegel im Spiegel",
+        "year": "1978",
+        "youtube": "https://www.youtube.com/results?search_query=Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "spotify": "https://open.spotify.com/search/Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia."
+      }
+    },
+    {
+      "id": "weight-and-grace-6",
+      "weather": "weight and grace",
+      "quote": {
+        "text": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+        "english": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+        "who": "Agnes Martin",
+        "where": "Beauty Is the Mystery of Life, 1989"
+      },
+      "poem": {
+        "text": "身にしむや\n亡妻の櫛を\n閨に踏む",
+        "english": "a chill through me —\nin the bedroom, underfoot,\nmy dead wife's comb",
+        "who": "Yosa Buson",
+        "where": "18th century",
+        "note": "His wife outlived him by many years; the grief is imagined, which is the point of the comb. He was a painter too, and it is a painter's poem: one object, the whole house around it.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/swans-in-central-park.webp",
+        "who": "George Bellows",
+        "title": "Swans in Central Park",
+        "year": "1906",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://commons.wikimedia.org/wiki/File:Swans_in_Central_Park_MET_DP248155.jpg",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1373
+      },
+      "song": {
+        "who": "Arvo Pärt",
+        "title": "Spiegel im Spiegel",
+        "year": "1978",
+        "youtube": "https://www.youtube.com/results?search_query=Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "spotify": "https://open.spotify.com/search/Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia."
+      }
+    },
+    {
+      "id": "weight-and-grace-7",
+      "weather": "weight and grace",
+      "quote": {
+        "text": "Forsan et haec olim meminisse iuvabit.",
+        "english": "Perhaps one day it will be a pleasure to remember even this.",
+        "who": "Virgil",
+        "where": "Aeneid, I.203"
+      },
+      "poem": {
+        "text": "Wer jetzt kein Haus hat, baut sich keines mehr.\nWer jetzt allein ist, wird es lange bleiben,\nwird wachen, lesen, lange Briefe schreiben\nund wird in den Alleen hin und her\nunruhig wandern, wenn die Blätter treiben.",
+        "english": "Whoever has no house now will not build one.\nWhoever is alone now will stay alone:\nwill sit up, read, write long letters,\nand wander the avenues, back and forth,\nrestless, as the leaves drift down.",
+        "who": "Rainer Maria Rilke",
+        "where": "Herbsttag, 1902",
+        "note": "Written in Paris in a single September day, at twenty-six, while he was working as Rodin's secretary and learning to look at things.",
+        "translator": "translated for this page, not a published version"
+      },
+      "painting": {
+        "src": "/images/vault/swans-in-reeds.webp",
+        "who": "Bruno Liljefors",
+        "title": "Swans in Reeds",
+        "year": "1907",
+        "where": "Thiel Gallery",
+        "source": "https://commons.wikimedia.org/wiki/File:Bruno_Liljefors_Swans_in_Reeds_Thielska_270.tif",
+        "licence": "public domain",
+        "skyDim": 0.04,
+        "w": 1600,
+        "h": 1299
+      },
+      "song": {
+        "who": "Arvo Pärt",
+        "title": "Spiegel im Spiegel",
+        "year": "1978",
+        "youtube": "https://www.youtube.com/results?search_query=Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "spotify": "https://open.spotify.com/search/Arvo%20P%C3%A4rt%20Spiegel%20im%20Spiegel",
+        "note": "Mirror in the mirror: a piano triad and a violin line that never hurries, written just before he left Estonia."
+      }
+    },
+    {
+      "id": "weight-and-grace-8",
+      "weather": "weight and grace",
+      "quote": {
+        "text": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+        "english": "Beauty is the mystery of life. It is not in the eye, it is in the mind.",
+        "who": "Agnes Martin",
+        "where": "Beauty Is the Mystery of Life, 1989"
+      },
+      "poem": {
+        "text": "Had I the heavens' embroidered cloths,\nEnwrought with golden and silver light,\nThe blue and the dim and the dark cloths\nOf night and light and the half-light,\nI would spread the cloths under your feet:\nBut I am poor, and have only my dreams;\nI have spread my dreams under your feet;\nTread softly because you tread on my dreams.",
+        "who": "W. B. Yeats",
+        "where": "The Wind Among the Reeds, 1899",
+        "note": "First printed as \"Aedh Wishes for the Cloths of Heaven\", one of three named voices Yeats later folded into a single \"he\"."
+      },
+      "painting": {
+        "src": "/images/vault/the-dancing-class.webp",
+        "who": "Edgar Degas",
+        "title": "The Dancing Class",
+        "year": "ca. 1870",
+        "where": "The Metropolitan Museum of Art",
+        "source": "https://www.metmuseum.org/art/collection/search/436141",
+        "licence": "cc0",
+        "skyDim": 0,
+        "w": 1600,
+        "h": 1195
       },
       "song": {
         "who": "Arvo Pärt",

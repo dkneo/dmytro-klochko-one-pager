@@ -3,6 +3,9 @@ type: painting
 who: Winslow Homer
 title: The Fog Warning
 year: 1885
+collection: "Museum of Fine Arts, Boston"
+collection_city: "Boston"
+collection_url: "https://www.mfa.org/collections/object/the-fog-warning-31042"
 src: /images/vault/the-fog-warning.webp
 source: "https://commons.wikimedia.org/wiki/File:Winslow_Homer_-_The_Fog_Warning_-_Google_Art_Project.jpg"
 licence: public domain

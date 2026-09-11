@@ -288,11 +288,37 @@ const also = [
 
 <Layout title={title} description={description} current="home" scenes={["fire", "ember", "estuary"]}>
   <nav class="chapter-rail" aria-label="on this page">
+    <details class="chapter-compass">
+      <summary>
+        <span data-chapter-count>01 / {String(chapters.length).padStart(2, "0")}</span>
+        <span aria-hidden="true">·</span>
+        <b data-chapter-label>{chapters[0].label}</b>
+        <i aria-hidden="true" />
+      </summary>
+      <div class="chapter-compass-list">
+        {
+          chapters.map((chapter, index) => (
+            <a
+              href={`#${chapter.id}`}
+              data-chapter={chapter.id}
+              data-chapter-name={chapter.label}
+              aria-current={index === 0 ? "location" : undefined}
+            >
+              <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
+              <span>{chapter.label}</span>
+            </a>
+          ))
+        }
+      </div>
+    </details>
+
+    <div class="chapter-rail-list">
     {
       chapters.map((chapter, index) => (
         <a
           href={`#${chapter.id}`}
           data-chapter={chapter.id}
+          data-chapter-name={chapter.label}
           aria-current={index === 0 ? "location" : undefined}
         >
           <i aria-hidden="true" />
@@ -300,6 +326,7 @@ const also = [
         </a>
       ))
     }
+    </div>
   </nav>
 
   <script>
@@ -329,10 +356,10 @@ const also = [
 
         <div class="prose">
           <p>
-            currently: building a replika spinoff {"{"}in stealth{"}"}. a truly novel and beautiful{" "}
-            <b>agentic ai with real eq</b>, brought to everyone: to help people come back to who
-            they really are, unleash their potential to the fullest, and flourish. meanwhile
-            i shepherd <a href="https://replika.com" target="_blank" rel="noreferrer">replika</a> itself and ship updates daily.
+            currently: building a replika spinoff {"{"}in stealth{"}"}: <b>ai for artists, athletes
+            and troublemakers</b>, around one question: what would it take to help an exceptional
+            person reach their true potential? meanwhile,
+            i shepherd <a href="https://replika.com" target="_blank" rel="noreferrer">replika</a> and ship updates daily.
           </p>
         </div>
 
@@ -621,10 +648,11 @@ const also = [
     </div>
 
     <div class="bay journey-bay">
-      <ol class="log log--journey">
+      <div class="log log--journey" role="group" aria-label="the journey">
         {
           journey.map((j) => (
-            <li
+            <div
+              class="log-bead"
               role="button"
               tabindex="0"
               aria-expanded="false"
@@ -658,10 +686,10 @@ const also = [
                 {"video" in j && j.video ? "peek" : "photo"}
                 <b class="cv-chev" aria-hidden="true" />
               </span>
-            </li>
+            </div>
           ))
         }
-      </ol>
+      </div>
 
       <figure class="easel" id="journey-preview" aria-hidden="true">
         <span class="cell">
@@ -739,7 +767,7 @@ const also = [
       const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
       const wide = matchMedia("(hover: hover) and (min-width: 861px)");
       const easelOn = () => wide.matches;
-      const beads = [...bay.querySelectorAll(".log--journey li")];
+      const beads = [...bay.querySelectorAll(".log--journey .log-bead")];
       let active = null;
       let layerIndex = 0;
       let swapToken = 0;
@@ -902,8 +930,7 @@ const also = [
         saying what he loves, under a wall of eight people already saying it.
         One sentence and a button, and the whole thing lives at /eidos. */}
     <p class="me-door-line">
-      eight of the people; the paintings, poems, songs and lines are next door.
-      <a class="me-door" href="/eidos">what i love, filed by feeling<span class="arw" aria-hidden="true">↗</span></a>
+      <a class="me-door" href="/eidos">more of what i love<span class="arw" aria-hidden="true">↗</span></a>
     </p>
 
   </section>

@@ -1,0 +1,30 @@
+---
+import EidosLayout from "../../layouts/EidosLayout.astro";
+import EidosHeader from "../../components/eidos/EidosHeader.astro";
+import { buildProfile } from "../../lib/eidos-view.mjs";
+import map from "../../data/map.json";
+import palettes from "../../data/palettes.json";
+
+const words = buildProfile(map, palettes).collection.filter((item: any) => !item.src);
+const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u202F$1").replace(/(«)\s+/g, "$1\u202F");
+---
+<EidosLayout title="words · eidos" description="poems, songs, quotes and writing kept outside the visual moodboard.">
+  <div class="eidos-product ep-words-page">
+    <EidosHeader />
+    <header class="ep-words-intro">
+      <h1>the words are resting here.</h1>
+      <p>poems, songs, quotes and writing, kept intact while the visual moodboard takes the main room.</p>
+    </header>
+    <section class="ep-words-grid" aria-label="words kept by dmytro">
+      {words.map((item: any) => (
+        <article class={`ep-word ep-word--${item.type}`} data-word-piece>
+          <span>{item.type}</span>
+          <blockquote>{glue(item.english || item.line || item.title)}</blockquote>
+          {item.original && <p lang={item.lang}>{glue(item.original)}</p>}
+          <footer>{item.who}{item.year ? ` · ${item.year}` : ""}{item.translator ? ` · ${item.translator}` : ""}</footer>
+        </article>
+      ))}
+    </section>
+    <footer class="ep-footer"><a href="/eidos">back to the moodboard</a><span>{words.length} pieces, parked for later</span><a href="#eidos-main">back to top ↑</a></footer>
+  </div>
+</EidosLayout>

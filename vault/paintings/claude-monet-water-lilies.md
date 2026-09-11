@@ -3,7 +3,13 @@ type: painting
 who: Claude Monet
 title: Water Lilies
 year: c. 1915
-collection: Google Art Project
+collection: The Nelson-Atkins Museum of Art
+collection_city: Kansas City
+collection_url: https://art.nelson-atkins.org/objects/6650/water-lilies
+display_status: on view · Gallery 130
+status_checked: 2026-09-09
+height_cm: 200.66
+width_cm: 426.09
 src: /images/today/monet.webp
 source: "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lilies_-_Google_Art_Project_(431238).jpg"
 licence: public domain

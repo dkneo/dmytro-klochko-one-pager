@@ -3,6 +3,9 @@ type: painting
 who: James McNeill Whistler
 title: Nocturne: Blue and Silver — Chelsea
 year: 1871
+collection: "Tate"
+collection_city: "London"
+collection_url: "https://www.tate.org.uk/art/artworks/whistler-nocturne-blue-and-silver-chelsea-t01571"
 src: /images/vault/whistler-nocturne-grey.webp
 source: "https://commons.wikimedia.org/wiki/File:James_Abbott_McNeill_Whistler_-_Nocturne-_Blue_and_Silver_-_Chelsea_-_Google_Art_Project.jpg"
 licence: Public domain

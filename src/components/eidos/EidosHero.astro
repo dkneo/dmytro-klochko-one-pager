@@ -1,0 +1,42 @@
+<section class="ep-hero" aria-labelledby="eidos-title">
+  <div class="ep-hero-copy">
+    <h1 id="eidos-title">a beautiful, endless moodboard of things i love.</h1>
+    <p class="ep-hero-lede">
+      paintings, prints and posters. open one, wander, or help me
+      choose what joins next.
+    </p>
+    <div class="ep-hero-actions">
+      <a class="ep-action ep-action--solid" href="#collection">start looking</a>
+      <a class="ep-action" href="/eidos/inbox">discover something</a>
+    </div>
+  </div>
+  <figure class="ep-hero-art" data-eidos-ambient>
+    <picture class="ep-hero-poster">
+      <source media="(max-width: 680px)" srcset="/images/eidos/product/hero-mobile-poster.webp" />
+      <img src="/images/eidos/product/hero-desktop-poster.webp" width="1920" height="1080" alt="a graphite Faun beside an olive and salmon Gryphon, held by an open pink circle" fetchpriority="high" decoding="async" />
+    </picture>
+    <video class="ep-hero-video" muted autoplay loop playsinline preload="metadata" poster="/images/eidos/product/hero-desktop-poster.webp" aria-hidden="true">
+      <source media="(max-width: 680px)" src="/images/eidos/product/hero-ambient-mobile.webm" type="video/webm" />
+      <source media="(max-width: 680px)" src="/images/eidos/product/hero-ambient-mobile.mp4" type="video/mp4" />
+      <source media="(min-width: 681px)" src="/images/eidos/product/hero-ambient-desktop.webm" type="video/webm" />
+      <source media="(min-width: 681px)" src="/images/eidos/product/hero-ambient-desktop.mp4" type="video/mp4" />
+    </video>
+    <figcaption><i>temet nosce</i> · faun notices · gryphon remembers</figcaption>
+  </figure>
+</section>
+
+<script is:inline>
+  (() => {
+    const video = document.querySelector("[data-eidos-ambient] video");
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const saver = navigator.connection?.saveData;
+    if (reduced || saver) {
+      if (video) {
+        video.pause();
+        video.hidden = true;
+      }
+      return;
+    }
+    video?.addEventListener("playing", () => video.closest("[data-eidos-ambient]")?.classList.add("is-moving"), { once: true });
+  })();
+</script>

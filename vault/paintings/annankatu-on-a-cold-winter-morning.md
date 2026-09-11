@@ -3,6 +3,9 @@ type: painting
 who: Magnus von Wright
 title: Annankatu on a Cold Winter Morning
 year: 1868
+collection: "Finnish National Gallery"
+collection_city: "Helsinki"
+collection_url: "https://www.kansallisgalleria.fi/en/search?searchTerms=Annankatu%20on%20a%20Cold%20Winter%20Morning"
 src: /images/vault/annankatu-on-a-cold-winter-morning.webp
 source: "https://commons.wikimedia.org/wiki/File:Magnus_von_Wright_-_Annankatu_on_a_Cold_Winter_Morning_-_Google_Art_Project.jpg"
 licence: public domain

@@ -4,22 +4,22 @@ import path from "node:path";
 import test from "node:test";
 import sharp from "sharp";
 
-// The portrait renders twice from one component — whole on /eidos, compact
-// on the homepage — so the two can never disagree about what he loves.
+// The product is now the visual wall itself. The analytical portrait was an
+// explanation placed in front of the thing people actually came to see.
 
 const root = path.resolve(import.meta.dirname, "..");
 const read = (f) => fs.readFileSync(path.join(root, f), "utf8");
 
-test("the portrait lives on the library; the homepage carries one door to it", () => {
+test("the visual moodboard lives in the library; the homepage carries one door to it", () => {
   const home = read("dist/index.html");
   const lib = read("dist/eidos/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-  const shelved = map.items.filter((it) => it.type !== "link").length;
+  const visual = map.items.filter((it) => ["painting", "print", "poster"].includes(it.type) && it.src && !it.id.startsWith("his-")).length;
 
-  assert.match(lib, /class="eidos-portrait/, "the library has no portrait");
-  assert.equal(Number(lib.match(/(\d+) real things i love/)[1]), shelved, "the library miscounts");
-  const bars = lib.match(/<ol class="ep-strip"[\s\S]*?<\/ol>/)[0].match(/<li[ >]/g).length;
-  assert.equal(bars, map.weathers.length, `strip has ${bars} bars`);
+  assert.match(lib, /data-visual-moodboard/, "the library has no visual wall");
+  const pieces = [...lib.matchAll(/<figure class="ep-visual/g)].length;
+  assert.equal(pieces, visual, "the library miscounts its visual work");
+  assert.doesNotMatch(lib, /ep-reading|data-weather-filter/, "analysis still blocks the pictures");
 
   // The homepage used to carry a compact copy under its own chapter: a second
   // place saying what he loves, right under a wall of eight people already
@@ -31,18 +31,12 @@ test("the portrait lives on the library; the homepage carries one door to it", (
   assert.doesNotMatch(read("src/pages/index.astro"), /me-orbit|orbitData|eidos-mini/);
 });
 
-test("the strip is sized by what each weather holds, and painted with its own palette", () => {
+test("the weather taxonomy remains in the vault, not in the main experience", () => {
   const html = read("dist/eidos/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-  const pal = JSON.parse(read("src/data/palettes.json"));
-  const shelved = map.items.filter((it) => it.type !== "link");
-  const strip = html.match(/<ol class="ep-strip"[\s\S]*?<\/ol>/)[0];
-  for (const w of map.weathers) {
-    const n = shelved.filter((i) => i.weather === w.name).length;
-    assert.ok(strip.includes(`--w:${n};`), `${w.name} bar is not sized ${n}`);
-    const p = pal.palettes.find((x) => x.weather === w.name);
-    if (p) assert.ok(strip.includes(p.stops[0]), `${w.name} bar is not its own paint`);
-  }
+  assert.equal(map.weathers.length, 8, "the private taxonomy disappeared from its data");
+  assert.doesNotMatch(html, /data-weather-filter|eight ways a thing can feel/);
+  assert.ok(fs.existsSync(path.join(root, "dist/eidos/words/index.html")), "the displaced words were lost");
 });
 
 test("the library shares as itself, with a card made from its own data", async () => {

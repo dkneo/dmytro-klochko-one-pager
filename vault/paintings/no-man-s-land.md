@@ -3,6 +3,9 @@ type: painting
 who: Maurice Galbraith Cullen
 title: No Man's Land
 year: 1920
+collection: "Canadian War Museum"
+collection_city: "Ottawa"
+collection_url: "https://www.warmuseum.ca/collections/artifact/1013592"
 src: /images/vault/no-man-s-land.webp
 source: "https://commons.wikimedia.org/wiki/File:Maurice_Galbraith_Cullen_-_No_Man%27s_Land.jpg"
 licence: public domain

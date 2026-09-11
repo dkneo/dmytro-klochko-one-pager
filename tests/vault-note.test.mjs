@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { paintingNote } from "../scripts/lib/vault-note.mjs";
+import { paintingNote, wordNote, bookmarkNote } from "../scripts/lib/vault-note.mjs";
 
 // The same parser vault-build and map-build read notes with. Copied rather
 // than imported because vault-build runs its whole build on import; if the
@@ -90,6 +90,14 @@ test("a kept print, poster or photograph keeps its own kind", async () => {
   }
 });
 
+test("an absolute favorite stays marked when it becomes a vault note", () => {
+  const note = paintingNote(
+    { type: "painting", who: "x", title: "y" },
+    { weather: "nerve", src: "/images/vault/favorite.webp", added: "2026-09-09", favorite: true },
+  );
+  assert.match(note, /^favorite: true$/m);
+});
+
 test("a kept word is filed as the note it arrived as, dated, and joined to its room", async () => {
   const { wordNote } = await import("../scripts/lib/vault-note.mjs");
   const raw = "---\ntype: quote\nwho: Horace\nwhere: Odes 1.11\nadded: {{added}}\nenglish: |-\n  Seize the day.\n---\n\ncarpe diem.\n\nwho: [[Horace]]\n";
@@ -105,4 +113,31 @@ test("a kept word is filed as the note it arrived as, dated, and joined to its r
   const made = wordNote({ type: "poem", who: "x", line: "one\ntwo", where: "y" }, { weather: "", added: "2026-09-03" });
   assert.match(made, /^type: poem$/m); assert.match(made, /^one\ntwo$/m); assert.match(made, /^who: \[\[x\]\]$/m);
   assert.throws(() => wordNote({ type: "painting", who: "x" }, { weather: "", added: "2026-09-03" }));
+});
+
+// ── his line opens the note ─────────────────────────────────────────────
+test("a line said on the card is the first thing in the note", () => {
+  const painting = paintingNote(
+    { type: "painting", who: "Vilhelm Hammershøi", title: "Interior", year: "1899" },
+    { weather: "cold clarity", src: "/images/vault/x.webp", added: "2026-09-08", say: "the light does the whole room's work." },
+  );
+  const pBody = painting.split("---")[2];
+  assert.ok(pBody.indexOf("the light does the whole room's work.") < pBody.indexOf("weather: [[cold clarity]]"), "the line is not above the trail");
+  assert.match(painting, /!\[\[x\.webp\]\]\n\nthe light does/, "the line does not follow the picture");
+
+  const word = wordNote(
+    { type: "quote", who: "Simone Weil", line: "Attention is the rarest and purest form of generosity." },
+    { weather: "cold clarity", added: "2026-09-08", say: "the one sentence i would keep if i could keep one." },
+  );
+  assert.match(word, /generosity\.\n\nthe one sentence i would keep[\s\S]*\n\nweather: \[\[cold clarity\]\] · who: \[\[Simone Weil\]\]/, "the line is not between the words and the trail");
+
+  const book = bookmarkNote(
+    { url: "https://example.com/essay", title: "An essay", summary: "two plain sentences." },
+    { weather: "", added: "2026-09-08", say: "read twice." },
+  );
+  assert.match(book, /---\n\nread twice\.\n\ntwo plain sentences\./, "his line does not come before the summary");
+
+  // no line, no change
+  const plain = paintingNote({ type: "painting", who: "A", title: "B" }, { weather: "nerve", src: "/images/vault/y.webp", added: "2026-09-08" });
+  assert.match(plain, /!\[\[y\.webp\]\]\n\nweather: \[\[nerve\]\]/, "an empty line left a gap");
 });

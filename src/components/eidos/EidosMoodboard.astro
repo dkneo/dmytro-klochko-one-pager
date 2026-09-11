@@ -1,0 +1,79 @@
+---
+interface Props {
+  items: any[];
+  dimensions: Record<string, { width: number; height: number }>;
+  colors: Record<string, { hex: string; key: number }>;
+}
+const { items, dimensions, colors } = Astro.props;
+const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u202F$1").replace(/(«)\s+/g, "$1\u202F");
+---
+<section class="ep-moodboard" id="collection" aria-labelledby="collection-title" data-visual-moodboard>
+  <header class="ep-moodboard-head">
+    <h2 id="collection-title">things that stop me.</h2>
+    <div>
+      <p>{items.length} paintings, prints and posters, flowing by color. every one chosen, every one credited.</p>
+      <a class="ep-mood-map" href="/eidos/places">map the collection ↗</a>
+    </div>
+  </header>
+
+  <div class="ep-mood-grid">
+    {items.map((item: any, index: number) => (
+      <figure
+        class={`ep-visual ep-visual--${index % 7}`}
+        data-visual-piece
+        data-id={item.id}
+        data-kind={item.type}
+        data-color-key={colors[item.id]?.key ?? 999}
+        style={`--piece-color:${colors[item.id]?.hex || "transparent"}`}
+      >
+        <button type="button" class="ep-visual-open" aria-label={`open ${glue(item.title || item.line)}`}>
+          <img
+            src={plateFor(item.src)}
+            alt={glue(item.title || item.line || item.type)}
+            width={dimensions[item.id]?.width}
+            height={dimensions[item.id]?.height}
+            loading={index < 8 ? "eager" : "lazy"}
+            decoding="async"
+          />
+        </button>
+        <figcaption>
+          <span><i aria-hidden="true"></i>{item.type}</span>
+          <b>{glue(item.line || item.title)}</b>
+          {item.who && <small>{item.who}{item.year ? ` · ${item.year}` : ""}</small>}
+          {item.collection && !/^his own|google art project$/i.test(item.collection) && (
+            item.collectionUrl
+              ? <a class="ep-visual-location" href={item.collectionUrl}>{item.collection}{item.collectionCity && !item.collection.includes(item.collectionCity) ? `, ${item.collectionCity}` : ""} ↗</a>
+              : <small class="ep-visual-location">{item.collection}</small>
+          )}
+          {item.displayStatus && <small class="ep-visual-status">{item.displayStatus}</small>}
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+
+  <dialog class="ep-detail" data-mood-detail>
+    <button type="button" class="ep-detail-close" aria-label="close image">close</button>
+    <div data-detail-body></div>
+  </dialog>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-visual-moodboard]");
+    if (!root) return;
+    const detail = root.querySelector("[data-mood-detail]");
+    const body = root.querySelector("[data-detail-body]");
+    root.querySelectorAll(".ep-visual-open").forEach((button) => button.addEventListener("click", () => {
+      const piece = button.closest("[data-visual-piece]");
+      const clone = piece.cloneNode(true);
+      clone.querySelector(".ep-visual-open").disabled = true;
+      body.replaceChildren(clone);
+      detail.showModal();
+    }));
+    root.querySelector(".ep-detail-close")?.addEventListener("click", () => detail.close());
+    detail?.addEventListener("click", (event) => {
+      if (event.target === detail) detail.close();
+    });
+  })();
+</script>

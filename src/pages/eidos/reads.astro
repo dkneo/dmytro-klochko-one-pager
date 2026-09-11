@@ -1,0 +1,442 @@
+---
+import EidosLayout from "../../layouts/EidosLayout.astro";
+import EidosHeader from "../../components/eidos/EidosHeader.astro";
+import "../../styles/pages/eidos-studio.css";
+import inbox from "../../../public/inbox.json";
+import map from "../../data/map.json";
+
+// The reading room. Discover is pictures only, by design; its own comment
+// says the other records "wait for their own purpose-built surfaces". This
+// is the one for links: the place he throws a url, the queue where each is
+// read once and judged, the line in his own words that travels with the
+// verdict, and the shelf of what stayed. A keep becomes a vault note with
+// his line first, then what the page said, then the wikilink trail.
+const reads = (inbox.candidates || [])
+  .filter((c: any) => c.type === "bookmark" && c.url)
+  .map((c: any) => ({
+    id: c.id, type: "bookmark", who: c.who || "", title: c.title || c.url, url: c.url,
+    site: c.site || "", weather: c.weather || "", line: c.line || "", source: c.source || c.url,
+  }));
+const kept = (map.items || [])
+  .filter((i: any) => (i.type === "link" || i.type === "bookmark") && i.url)
+  .sort((a: any, b: any) => String(b.added || "").localeCompare(String(a.added || "")))
+  .map((i: any) => ({ id: i.id, title: i.title || i.line || i.url, who: i.who || "", url: i.url, added: i.added || "", said: i.summary || i.note || "" }));
+const substacks = reads.filter((r: any) => /substack\.com/.test(r.url)).length;
+const title = "reads · eidos";
+const description = "links thrown in, read once, judged, and kept as notes in his own words.";
+---
+
+<EidosLayout title={title} description={description}>
+  <div class="eidos-studio eidos-reads">
+    <EidosHeader current="reads" studio />
+    <section class="in-shell" aria-labelledby="rd">
+      <header class="in-intro">
+        <div>
+          <p class="ep-index">private reading room</p>
+          <h1 id="rd">throw. read. keep.</h1>
+        </div>
+        <p id="in-lede">links, essays and substacks. a line in your own words travels with the verdict and opens the note.</p>
+      </header>
+
+      <form class="in-gate" id="gate" method="POST" action="/names" hidden>
+        <span class="in-gate-mark" aria-hidden="true">G</span>
+        <input type="hidden" name="next" value="/eidos/reads" />
+        <h2>the archive is private.</h2>
+        <p>open it to continue.</p>
+        <label>
+          <span>password</span>
+          <input type="password" name="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" required />
+        </label>
+        <button type="submit">open archive</button>
+        <span class="in-gate-note" id="gate-note"></span>
+        <span class="in-gate-note">or <a href="/names" target="_blank" rel="noreferrer">open the door in a tab</a> and reload.</span>
+      </form>
+
+      <div class="in-workbench" id="workbench">
+        <aside class="in-rail" aria-label="reads waiting">
+          <div>
+            <p class="in-label">waiting</p>
+            <p class="in-count" id="count"></p>
+          </div>
+          <p class="in-shelf" id="shelf">
+            <strong>links only</strong>
+            <span>{reads.length} from the harvest, {substacks} of them substacks</span>
+            <small>what you throw in joins them, behind the door.</small>
+          </p>
+          {/* The composer. The studio stylesheet already knew this shape;
+              only the markup had gone. A url, one button, one honest note. */}
+          <details class="in-add" open>
+            <summary>throw a link <span aria-hidden="true">+</span></summary>
+            <form class="in-throw" id="throw" autocomplete="off">
+              <label class="in-url">
+                <span>a link</span>
+                <input type="url" id="url" name="url" placeholder="https://…" inputmode="url" autocapitalize="none" autocorrect="off" spellcheck="false" required />
+              </label>
+              <button type="submit" id="throw-go">keep it waiting <kbd>↵</kbd></button>
+              <p class="in-throw-note" id="throw-note" aria-live="polite">read once; what a card needs is kept, the rest is not.</p>
+            </form>
+          </details>
+          <div class="in-history">
+            <p class="in-label">this sitting</p>
+            <ol id="session-trail"><li class="is-empty">nothing judged yet</li></ol>
+          </div>
+        </aside>
+
+        <section class="in-center" aria-label="current read">
+          <div class="in-stage" id="stage">
+            <article class="in-card" id="card" hidden>
+              <div class="in-leaf in-leaf--it">
+                {/* a link is words, so its card is set in type, not framed as a picture */}
+                <div class="in-read" id="read">
+                  <p class="in-site" id="r-site"></p>
+                  <h2 class="in-title" id="r-title"></h2>
+                  <p class="in-desc" id="r-desc"></p>
+                  <p class="in-tags" id="r-tags" hidden></p>
+                </div>
+                <p class="in-credit">
+                  <b id="c-title"></b>
+                  <span id="c-who"></span>
+                  <a id="c-source" href="#" target="_blank" rel="noreferrer">open ↗</a>
+                </p>
+              </div>
+              <span class="in-edge in-edge--in" aria-hidden="true">keep</span>
+              <span class="in-edge in-edge--out" aria-hidden="true">pass</span>
+            </article>
+            <p class="in-note" id="note-line" hidden></p>
+          </div>
+
+          {/* His line. Optional; empty, the swipe is the swipe there always
+              was. Filled, it is the first paragraph of the note. */}
+          <label class="in-say" id="say-wrap">
+            <span class="in-say-k">in your words</span>
+            <input type="text" id="say" maxlength="600" placeholder="a line about it, before it goes either way" autocomplete="off" />
+            <small class="in-say-hint"><kbd>n</kbd> here · <kbd>⌘↵</kbd> keep with the line · <kbd>esc</kbd> back</small>
+          </label>
+
+          <div class="in-do" id="do">
+            <button type="button" id="pass" class="in-btn in-btn--pass" aria-keyshortcuts="ArrowLeft h">pass <kbd>←</kbd></button>
+            <button type="button" id="undo" class="in-btn in-btn--undo" aria-keyshortcuts="u z Meta+z" disabled>undo <kbd>u</kbd></button>
+            <button type="button" id="keep" class="in-btn in-btn--keep" aria-keyshortcuts="ArrowRight l"><kbd>→</kbd> keep</button>
+            <button type="button" id="keys-open" class="in-btn in-btn--keys" aria-label="keyboard shortcuts" aria-keyshortcuts="?"><kbd>?</kbd></button>
+          </div>
+        </section>
+      </div>
+
+      {/* Read and learned: the shelf of what stayed. Vault links and kept
+          bookmarks, newest first. Empty, it says what will land here. */}
+      <section class="rd-kept" aria-labelledby="kept-h">
+        <p class="in-label">read &amp; learned</p>
+        <h2 id="kept-h">what stayed.</h2>
+        {kept.length ? (
+          <ol class="rd-kept-list">
+            {kept.map((k: any) => (
+              <li data-kept-read={k.id}>
+                <a href={k.url} target="_blank" rel="noreferrer">{k.title}<span class="arw" aria-hidden="true">↗</span></a>
+                <span class="rd-who">{k.who}{k.added ? ` · ${k.added}` : ""}</span>
+                {k.said && <p>{k.said}</p>}
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <p class="rd-empty">the first kept read lands here, with your line above the summary.</p>
+        )}
+        <p class="rd-how">a keep becomes a note in the vault: your line first, then what the page said, then the trail of links. {kept.length} so far.</p>
+      </section>
+
+      <dialog class="in-keys" id="keys" aria-labelledby="keys-h">
+        <h2 id="keys-h">keys</h2>
+        <dl>
+          <div><dt><kbd>→</kbd> <kbd>l</kbd></dt><dd>keep</dd></div>
+          <div><dt><kbd>←</kbd> <kbd>h</kbd></dt><dd>pass</dd></div>
+          <div><dt><kbd>u</kbd> <kbd>⌘z</kbd></dt><dd>undo the last verdict</dd></div>
+          <div><dt><kbd>n</kbd></dt><dd>write a line about it</dd></div>
+          <div><dt><kbd>⌘↵</kbd></dt><dd>keep, from inside the line</dd></div>
+          <div><dt><kbd>o</kbd> <kbd>↵</kbd></dt><dd>open the page in a new tab</dd></div>
+          <div><dt><kbd>/</kbd></dt><dd>throw a link</dd></div>
+          <div><dt><kbd>?</kbd></dt><dd>this sheet</dd></div>
+          <div><dt><kbd>esc</kbd></dt><dd>out of any field, or close this</dd></div>
+        </dl>
+        <form method="dialog"><button type="submit" class="in-btn">close <kbd>esc</kbd></button></form>
+      </dialog>
+    </section>
+    <footer class="ep-footer"><a href="/eidos">moodboard</a><span>private reading room</span><a href="/eidos/inbox">discover</a></footer>
+  </div>
+
+  <style>
+    /* the line field, in the studio's own voice: mono label, paper field */
+    .eidos-reads .in-say { display: grid; gap: 0.35rem; width: min(100%, 44rem); margin: 1rem auto 0; }
+    .eidos-reads .in-say-k { color: var(--ep-quiet); font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .eidos-reads .in-say input {
+      box-sizing: border-box; width: 100%; padding: 0.7rem 0.8rem;
+      color: var(--ep-ink); background: var(--ep-paper-light);
+      border: 1px solid var(--ep-rule); border-radius: var(--r-print);
+      font-family: var(--serif); font-size: 1.02rem; line-height: 1.4;
+    }
+    .eidos-reads .in-say input::placeholder { color: var(--ep-quiet); }
+    .eidos-reads .in-say input:focus { outline: none; border-color: var(--ep-raspberry); }
+    .eidos-reads .in-say-hint { color: var(--ep-quiet); font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.04em; }
+    .eidos-reads .in-say-hint kbd { color: var(--ep-ink); font-family: inherit; }
+    .eidos-reads .in-throw button kbd { color: inherit; opacity: 0.7; font-family: inherit; margin-left: 0.3rem; }
+    /* the shelf of what stayed */
+    .eidos-reads .rd-kept { width: min(var(--ep-max, 78rem), calc(100% - 4rem)); margin: 3.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--ep-rule); }
+    .eidos-reads .rd-kept h2 { margin: 0.2rem 0 1.2rem; font-family: var(--display, "Zodiak", var(--serif)); font-weight: 300; font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1.05; }
+    .eidos-reads .rd-kept-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ep-rule); border-left: 1px solid var(--ep-rule); }
+    .eidos-reads .rd-kept-list li { display: grid; align-content: start; gap: 0.35rem; padding: 1rem; background: var(--ep-paper-light); min-width: 0; border-right: 1px solid var(--ep-rule); border-bottom: 1px solid var(--ep-rule); }
+    .eidos-reads .rd-kept-list a { color: var(--ep-ink); font-family: var(--display, "Zodiak", var(--serif)); font-size: 1.15rem; line-height: 1.2; text-decoration: none; overflow-wrap: anywhere; }
+    .eidos-reads .rd-kept-list a:hover { color: var(--ep-raspberry); }
+    .eidos-reads .rd-kept-list .arw { margin-left: 0.25em; font-size: 0.8em; }
+    .eidos-reads .rd-who { color: var(--ep-quiet); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em; }
+    .eidos-reads .rd-kept-list p { margin: 0; color: var(--ep-quiet); font-size: 0.92rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+    .eidos-reads .rd-empty { margin: 0; padding: 1.4rem; border: 1px dashed var(--ep-rule); color: var(--ep-quiet); font-size: 1rem; }
+    .eidos-reads .rd-how { margin: 1rem 0 0; color: var(--ep-quiet); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.04em; line-height: 1.6; max-width: 60ch; }
+    @media (max-width: 760px) {
+      .eidos-reads .rd-kept { width: calc(100% - 2rem); }
+    }
+  </style>
+
+  <script is:inline type="application/json" id="in-data" set:html={JSON.stringify(reads)} />
+  <script>
+    (() => {
+      const harvested = JSON.parse(document.getElementById("in-data").textContent);
+      const $ = (id) => document.getElementById(id);
+      const card = $("card"), noteLine = $("note-line"), say = $("say"), trail = $("session-trail");
+      const edgeIn = document.querySelector(".in-edge--in");
+      const edgeOut = document.querySelector(".in-edge--out");
+      const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+      let deck = [], cur = null, sat = 0, keptThis = [], last = null, busy = false, canSummarise = false;
+      const session = [];
+      const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } };
+
+      const renderTrail = () => {
+        trail.replaceChildren();
+        const recent = session.slice(-5).reverse();
+        if (!recent.length) { const li = document.createElement("li"); li.className = "is-empty"; li.textContent = "nothing judged yet"; trail.append(li); return; }
+        for (const entry of recent) {
+          const li = document.createElement("li");
+          const mark = document.createElement("b"); mark.textContent = entry.verdict === "keep" ? "+" : "−";
+          const label = document.createElement("span"); label.textContent = entry.cand.title || entry.cand.site || entry.cand.url;
+          li.append(mark, label); trail.append(li);
+        }
+      };
+      const record = (cand, verdict) => { session.push({ cand, verdict }); renderTrail(); };
+      const count = () => {
+        const left = deck.length + (cur ? 1 : 0);
+        $("count").textContent = left ? `${sat} judged${sat ? " today" : ""} · ${left} left` : "";
+      };
+
+      // ── the queue: harvest first, then whatever he threw in ─────────
+      async function build() {
+        let judged = new Set();
+        try { const r = await fetch("/api/eidos/judged"); if (r.ok) judged = new Set((await r.json()).judged || []); } catch {}
+        let mine = [];
+        try {
+          // his own links live in KV behind the door; a 401 here just means the
+          // harvest deals alone until the gate is answered
+          const r = await fetch("/api/eidos/bookmarks");
+          if (r.ok) { const j = await r.json(); canSummarise = Boolean(j.canSummarise); mine = (j.bookmarks || []).filter((b) => !b.verdict).map(asCard); }
+        } catch {}
+        let seed = Number(new Date().toISOString().slice(0, 10).replace(/-/g, "")) % 2147483647;
+        const rnd = () => (seed = (seed * 48271) % 2147483647) / 2147483647;
+        const harvest = harvested.filter((c) => !judged.has(c.id)).sort(() => rnd() - 0.5);
+        deck = [...mine, ...harvest];
+        if (!(await doorOpen())) return shutOut(null);
+        if (!deck.length) return rest_("nothing waits. throw a link in, or let the harvester bring more.");
+        next();
+      }
+      const asCard = (b) => ({
+        id: b.id, type: "bookmark", kind: "mine", who: b.who || "", title: b.title || b.url, url: b.url, site: b.site || host(b.url),
+        weather: b.weather || "", line: b.summary || b.description || "", summary: b.summary || "", tags: b.tags || [], source: b.url,
+      });
+
+      function show(c) {
+        $("r-site").textContent = c.site || host(c.url);
+        $("r-title").textContent = c.title || c.url || "";
+        const desc = c.summary || c.line || c.description || "";
+        $("r-desc").textContent = desc; $("r-desc").hidden = !desc;
+        const tags = (c.tags || []).filter(Boolean);
+        $("r-tags").innerHTML = tags.map((t) => `<i>#</i>${esc(t)}`).join(" "); $("r-tags").hidden = !tags.length;
+        $("c-title").textContent = c.who || "";
+        $("c-who").textContent = c.summary ? "summarised" : (c.kind === "mine" ? (canSummarise ? "reading…" : "no summary: no key set") : "suggested");
+        $("c-source").href = c.url || c.source || "#";
+        say.value = "";
+        if (!c.summary && c.kind === "mine" && canSummarise && !gated) summariseCard(c);
+      }
+      // the summary a thrown link never had: asked once, cached by the worker,
+      // written into the card only if it is still the one showing
+      async function summariseCard(c) {
+        try {
+          const r = await fetch("/api/eidos/summary", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ url: c.url }) });
+          if (!r.ok) return;
+          const { summary, tags } = await r.json();
+          if (!summary) return;
+          c.summary = summary; c.tags = tags || [];
+          if (cur && cur.id === c.id) show(c);
+        } catch {}
+      }
+      function next() {
+        cur = deck.shift() || null;
+        if (!cur) return rest_();
+        show(cur);
+        card.hidden = false;
+        card.classList.remove("is-flying", "is-home");
+        card.style.transform = ""; card.style.opacity = "";
+        edgeIn.style.opacity = 0; edgeOut.style.opacity = 0;
+        noteLine.hidden = true; busy = false;
+        count();
+      }
+      function rest_(text) {
+        cur = null; card.hidden = true; $("do").hidden = true; $("say-wrap").hidden = true;
+        noteLine.hidden = false;
+        noteLine.textContent = text || `that is all of them. ${keptThis.length} kept; each becomes a note once it is pulled into the vault.`;
+        count();
+      }
+
+      // ── the verdicts, with his line ─────────────────────────────────
+      let gated = false;
+      const pending = [];
+      async function send(cand, verdict, weather, line) {
+        try {
+          const r = await fetch("/api/eidos/verdict", {
+            method: "POST", headers: { "content-type": "application/json" },
+            body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather || "", say: line || "" }),
+          });
+          if (r.status === 401) { shutOut({ cand, verdict, weather, say: line }); return false; }
+          if (!r.ok) { noteLine.hidden = false; noteLine.textContent = `that one did not reach the vault (the server said ${r.status}). undo brings it back.`; }
+          return r.ok;
+        } catch {
+          noteLine.hidden = false; noteLine.textContent = "that one did not reach the vault. the connection, not you."; return false;
+        }
+      }
+      function shutOut(unsaved) {
+        if (unsaved) pending.push(unsaved);
+        if (gated) return;
+        gated = true;
+        $("gate").hidden = false; $("workbench").hidden = true; $("do").hidden = true; $("say-wrap").hidden = true;
+        $("gate-note").textContent = pending.length ? `${pending.length} judgement${pending.length > 1 ? "s" : ""} waiting to be saved.` : "";
+        $("gate").scrollIntoView({ block: "center", behavior: "instant" });
+      }
+      async function doorOpen() {
+        try { const r = await fetch("/api/eidos/verdict", { method: "POST", headers: { "content-type": "application/json" }, body: "{}" }); return r.status !== 401; }
+        catch { return true; }
+      }
+      $("gate").addEventListener("submit", async (e) => {
+        const field = e.target.querySelector('input[type="password"]');
+        if (!field || !field.value.trim()) return;
+        e.preventDefault();
+        $("gate-note").textContent = "trying…";
+        const body = new URLSearchParams({ password: field.value.trim() });
+        let reached = true;
+        try { const r = await fetch("/names", { method: "POST", body, redirect: "follow" }); reached = r.status < 500; } catch { reached = false; }
+        if (!(await doorOpen())) { $("gate-note").textContent = reached ? "that is not it. the same password as /names." : "could not reach the door."; field.select(); return; }
+        gated = false; field.value = "";
+        $("gate").hidden = true; $("workbench").hidden = false; $("do").hidden = false; $("say-wrap").hidden = false; $("gate-note").textContent = "";
+        for (const u of pending.splice(0)) await send(u.cand, u.verdict, u.weather, u.say);
+        if (!cur) build();
+      });
+
+      // ── throw a link ────────────────────────────────────────────────
+      $("throw").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const url = $("url").value.trim();
+        if (!/^https?:\/\//.test(url)) { $("throw-note").textContent = "a link starts with https://"; return; }
+        $("throw-note").textContent = "reading it once…";
+        $("throw-go").disabled = true;
+        try {
+          const r = await fetch("/api/eidos/bookmark", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ url }) });
+          if (r.status === 401) { $("throw-note").textContent = "the door first."; shutOut(null); return; }
+          if (!r.ok) { $("throw-note").textContent = `did not take (the server said ${r.status}).`; return; }
+          const j = await r.json();
+          const c = asCard(j.bookmark || { id: j.id, url });
+          deck.unshift(c);
+          if (!cur) { $("do").hidden = false; $("say-wrap").hidden = false; next(); } else count();
+          $("url").value = "";
+          $("throw-note").textContent = `saved: ${c.title}. it is next in the queue${j.summarised ? ", summarised" : ""}.`;
+        } catch {
+          $("throw-note").textContent = "did not reach the vault. the connection, not you.";
+        } finally {
+          $("throw-go").disabled = false;
+        }
+      });
+
+      // ── the two motions ─────────────────────────────────────────────
+      function fly(dir) { card.classList.add("is-flying"); card.style.transform = `translateX(${dir * 120}vw) rotate(${dir * 16}deg)`; card.style.opacity = "0"; }
+      function pass() {
+        if (!cur || busy) return;
+        busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "pass", say: line }; $("undo").disabled = false;
+        record(cand, "pass"); fly(-1); send(cand, "pass", "", line); sat++; setTimeout(next, 240);
+      }
+      function keep() {
+        if (!cur || busy) return;
+        busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "keep", say: line }; $("undo").disabled = false;
+        keptThis.push(cand); record(cand, "keep"); send(cand, "keep", cand.weather, line); sat++; fly(1); setTimeout(next, 240);
+      }
+      function undo() {
+        if (!last || busy) return;
+        if (last.verdict === "keep") keptThis = keptThis.filter((k) => k.id !== last.cand.id);
+        if (cur) deck.unshift(cur);
+        deck.unshift(last.cand);
+        session.pop(); renderTrail();
+        const line = last.say || "";
+        sat = Math.max(0, sat - 1); last = null; $("undo").disabled = true; $("do").hidden = false; $("say-wrap").hidden = false; next();
+        say.value = line;
+      }
+      function openSource() { const href = cur && (cur.url || cur.source); if (href && href !== "#") window.open(href, "_blank", "noopener,noreferrer"); }
+      $("undo").addEventListener("click", undo);
+      $("pass").addEventListener("click", pass);
+      $("keep").addEventListener("click", keep);
+      const keys = $("keys");
+      const toggleKeys = () => (keys.open ? keys.close() : keys.showModal());
+      $("keys-open").addEventListener("click", toggleKeys);
+      keys.addEventListener("click", (e) => { if (e.target === keys) keys.close(); });
+      say.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") { say.blur(); e.preventDefault(); }
+        if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); say.blur(); keep(); }
+      });
+      $("url").addEventListener("keydown", (e) => { if (e.key === "Escape") { $("url").blur(); e.preventDefault(); } });
+      const KEYS = {
+        ArrowRight: keep, l: keep,
+        ArrowLeft: pass, h: pass,
+        u: undo, z: undo,
+        n: () => { if (cur) say.focus(); },
+        "/": () => $("url").focus(),
+        o: openSource, Enter: openSource,
+        "?": toggleKeys,
+      };
+      document.addEventListener("keydown", (e) => {
+        if (e.target && e.target.closest && e.target.closest("input,textarea,select")) return;
+        if (keys.open) return;
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "z") { e.preventDefault(); undo(); return; }
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        const act = KEYS[e.key];
+        if (!act) return;
+        if (e.repeat && act !== undo) return;
+        e.preventDefault();
+        act();
+      });
+
+      // ── the hand on the card ────────────────────────────────────────
+      let x0 = 0, dx = 0, dragging = false;
+      const onDown = (e) => { if (!cur || busy || e.target.closest("a, button, input, label")) return; dragging = true; x0 = e.clientX; card.classList.remove("is-flying", "is-home"); card.setPointerCapture?.(e.pointerId); };
+      const onMove = (e) => {
+        if (!dragging) return;
+        dx = e.clientX - x0;
+        card.style.transform = `translateX(${dx}px) rotate(${dx / 22}deg)`;
+        edgeIn.style.opacity = Math.min(1, Math.max(0, dx / 90));
+        edgeOut.style.opacity = Math.min(1, Math.max(0, -dx / 90));
+      };
+      const onUp = () => {
+        if (!dragging) return;
+        dragging = false;
+        if (dx > 110) keep(); else if (dx < -110) pass();
+        else { card.classList.add("is-home"); card.style.transform = ""; edgeIn.style.opacity = 0; edgeOut.style.opacity = 0; }
+        dx = 0;
+      };
+      card.addEventListener("pointerdown", onDown);
+      card.addEventListener("pointermove", onMove);
+      card.addEventListener("pointerup", onUp);
+      card.addEventListener("pointercancel", onUp);
+
+      build();
+    })();
+  </script>
+</EidosLayout>

@@ -1,0 +1,31 @@
+---
+interface Props { profile: any; dimensions: Record<string, { width: number; height: number }> }
+const { profile, dimensions } = Astro.props;
+const byId = new Map(profile.collection.map((item: any) => [item.id, item]));
+const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+---
+<section class="ep-reading ep-section" id="portrait" aria-labelledby="portrait-title">
+  <header class="ep-section-head">
+    <p class="ep-index">01 · portrait</p>
+    <h2 id="portrait-title">the shape left by looking.</h2>
+    <p>not a score and not a diagnosis. just the patterns that are visible in what i have actually kept.</p>
+  </header>
+  <div class="ep-reading-grid">
+    {profile.observations.map((observation: any, index: number) => (
+      <article class="ep-observation" data-evidence={observation.evidence.join(" ")}>
+        <span class="ep-observation-number">0{index + 1}</span>
+        <p>{observation.text.toLowerCase()}</p>
+        <ul aria-label="evidence">
+          {observation.evidence.slice(0, 4).map((id: string) => {
+            const item: any = byId.get(id);
+            return item ? (
+              <li>
+                {item.src ? <img src={plateFor(item.src)} alt="" width={dimensions[item.id]?.width} height={dimensions[item.id]?.height} loading="lazy" decoding="async" /> : <span>{item.line || item.title}</span>}
+              </li>
+            ) : null;
+          })}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>

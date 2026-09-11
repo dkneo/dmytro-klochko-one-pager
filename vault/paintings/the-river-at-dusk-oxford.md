@@ -3,6 +3,9 @@ type: painting
 who: William Henry Barnard
 title: The River at Dusk, Oxford
 year: 1792
+collection: "Yale Center for British Art"
+collection_city: "New Haven"
+collection_url: "https://collections.britishart.yale.edu/catalog/tms:10034"
 src: /images/vault/the-river-at-dusk-oxford.webp
 source: "https://commons.wikimedia.org/wiki/File:William_Henry_Barnard_-_The_River_at_Dusk,_Oxford_-_B1977.14.5642_-_Yale_Center_for_British_Art.jpg"
 licence: cc0

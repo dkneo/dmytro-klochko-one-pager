@@ -541,3 +541,33 @@ arrive at 4–5 MB each. Before shipping a lookbook change, run
 two pages reference down to 1400 px webp and rewrites width/height in the
 HTML so tests/lookbook.test.mjs stays true. Orphans are left alone because
 other branches may still want them. Dry run without --apply.
+
+## The line on the card
+
+The inbox card has two leaves: the thing on the left, him on the right. The
+right leaf is a textarea (`#say`) whose text travels with the verdict as
+`say` and is stored in `eidos:verdicts` next to `verdict`, `weather`,
+`at` (trimmed, 600 chars). `scripts/eidos-pull.mjs` hands it to every note
+builder in `scripts/lib/vault-note.mjs`, which writes it as the first body
+paragraph — above the summariser's sentences, above the wikilink trail. His
+words open the note; the machine's follow. Keys inside the field: esc leaves
+it, ⌘↵ keeps with the line. Outside a field: → l keep, ← h pass, u z ⌘z
+undo, n line, o ↵ open source, r reload picture, / throw a link, ? the
+sheet (a native dialog). One map (`KEYS`); letters never fire inside a
+field, a held key never fires twice, ctrl/alt chords go to the browser. The page ground (`#ground`) takes the current
+picture's own tile, lit only once that picture has loaded, dark for words
+and links. tests/reading-room.test.mjs and tests/vault-note.test.mjs pin all
+of this.
+
+## The reading room (/eidos/reads)
+
+Discover (/eidos/inbox) is pictures only, by the moodboard rebuild's own
+decision, and its tests forbid a url input or a line field there. The goal's
+"throw links in, swipe, summarise, notes in my words" lives instead in
+`src/pages/eidos/reads.astro`: the composer (POST /api/eidos/bookmark), the
+queue of harvest reads plus his own KV bookmarks (GET /api/eidos/bookmarks,
+behind the door), the read card, the line (`#say`, travels as `say`), the
+same key map as discover, and the "read & learned" shelf built from vault
+links and kept bookmarks in map.json. tests/reads-room.test.mjs pins all of
+it. Do not move intake back into discover; do not remove the reading room
+without moving those four things somewhere else first.
