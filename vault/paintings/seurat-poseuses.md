@@ -13,4 +13,4 @@ added: 2026-09-11
 
 who: [[Georges Seurat]]
 
-barnes foundation. public domain. not the grande jatte postcard.
+barnes foundation. public domain. not the island postcard.

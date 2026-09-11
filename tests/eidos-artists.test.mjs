@@ -450,7 +450,11 @@ test("estate and living fr/it names have no hosted canvas", () => {
 test("the france pack skips waterlilies, starry night and the ballerina postcard", () => {
   const works = list("vault/paintings")
     .filter((f) => /^(caillebotte|puvis|denis|serusier|roussel|maillol|bernard|daubigny|millet|daumier|soutine|delaunay|seurat)-/.test(f))
-    .map((f) => read(`vault/paintings/${f}`)).join("\n");
+    .map((f) => {
+      const text = read(`vault/paintings/${f}`);
+      const title = (/^title: (.*)$/m.exec(text) || [])[1] || "";
+      return `${f}\n${title}`;
+    }).join("\n");
   assert.doesNotMatch(works, /Water Lilies|Nymphéas|Starry Night|Nuit étoilée|Little Dancer|Petite danseuse|Grande Jatte|La Grande Jatte/i);
   const millet = list("vault/paintings").filter((f) => f.startsWith("millet-")).map((f) => read(`vault/paintings/${f}`)).join("\n");
   assert.doesNotMatch(millet, /Angelus|Angélus/);

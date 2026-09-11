@@ -13,4 +13,4 @@ added: 2026-09-11
 
 who: [[Jean-François Millet]]
 
-des glaneuses. musée d'orsay. google art project. public domain. not the angelus postcard.
+des glaneuses. musée d'orsay. google art project. public domain.

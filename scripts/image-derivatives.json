@@ -301,6 +301,36 @@
       "sourceSha256": "fb79be8ec887120928a566fb65f46efb94d28dbf87f63fee0dd02702193ff6b0",
       "outputSha256": "283eeb7c37f05956621dde5ac414b699aae8bddc6f33c075c21b26f3c8eb67fd"
     },
+    "/images/thumbs/vault/bernard-meadow.webp": {
+      "src": "/images/vault/bernard-meadow.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "886562fd48220f2b909fc63b3280d652d51b97a8393dba8f7900d8223f56229f",
+      "outputSha256": "425a22102556ede9736a45392a8dbe8cfc1b38ea4255a719c3c21a7313cf329e"
+    },
+    "/images/thumbs/vault/bernard-two-breton.webp": {
+      "src": "/images/vault/bernard-two-breton.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "68e1ddb63b293951fe916725eac6b9d0625105026517321fa459bb15813822ff",
+      "outputSha256": "cfa34e4d1a1e76c48182ee0fa5a2e989a6f285b3d2f864b48e4054cb3e6467b5"
+    },
     "/images/thumbs/vault/blanchard-bracelet.webp": {
       "src": "/images/vault/blanchard-bracelet.webp",
       "recipe": {
@@ -375,6 +405,36 @@
       },
       "sourceSha256": "6335ebcdc06c44c624a49fd39d69239a30034f768779d6f83cb3f33361de4ae0",
       "outputSha256": "7ed6f0d6ad0b68ba92ae76ba59d5a072f35836ba485f14ce3e6854144f24e60e"
+    },
+    "/images/thumbs/vault/boccioni-city-rises.webp": {
+      "src": "/images/vault/boccioni-city-rises.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d07fce7cdf805ad4a9132ada7dc956e45d199f5d4bdae7ffb596cdcac6501fa7",
+      "outputSha256": "647be0d3e2db7511b1fec0633307cdc328bf8899b023f2c6979bfaa15f2baa82"
+    },
+    "/images/thumbs/vault/boccioni-street.webp": {
+      "src": "/images/vault/boccioni-street.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a94e3d898681f27311b8a91768e8c87806d01dc61377b1ce70b57d3c68c25712",
+      "outputSha256": "e3b4fe56273a831626c729b9a206337a4c6ce10739e9eb4ae9056871620b1b47"
     },
     "/images/thumbs/vault/bocklin-death-fiddler.webp": {
       "src": "/images/vault/bocklin-death-fiddler.webp",
@@ -616,6 +676,51 @@
       "sourceSha256": "6563cde4eb576cba6b96f6ef7fc464323a1646b37347ff43d096357bda04d999",
       "outputSha256": "038a7197d2161938a175418cd350f7733b8085bf3d5fc04922a6c1ca71d3d25f"
     },
+    "/images/thumbs/vault/caillebotte-floor-scrapers.webp": {
+      "src": "/images/vault/caillebotte-floor-scrapers.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f96fde9e5e2f7b78f84625871b149137100e0532f16c329b9879e0fa3bc8bd87",
+      "outputSha256": "dee9183ca53a94fa39ed0698ddfa6faac6d25cc456063931c5632df88d30c774"
+    },
+    "/images/thumbs/vault/caillebotte-pont-europe.webp": {
+      "src": "/images/vault/caillebotte-pont-europe.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f142af0059fda138414efb37cb6cd9a9d20807e348a6e54dc68f76a7df243f4f",
+      "outputSha256": "961ba201a20e417f3d8f35de5b07478e5b3f01402bed0fcebbbe36748dfbe42b"
+    },
+    "/images/thumbs/vault/caillebotte-rainy-day.webp": {
+      "src": "/images/vault/caillebotte-rainy-day.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "665baed148ed31c54a62004ff7c635d13a7f3753f9e820811a058872559480eb",
+      "outputSha256": "002dc9131ca517377e8acf0803846d9ff57a42e99bc095d2623fceb9e81decac"
+    },
     "/images/thumbs/today/friedrich.webp": {
       "src": "/images/today/friedrich.webp",
       "recipe": {
@@ -796,6 +901,111 @@
       "sourceSha256": "7d9b02e8e90cfbd3f71c195e26280be4771ad048dedd3ef5519416211052a58b",
       "outputSha256": "1bb1fa01a4a8c25e7670d624b96258d2ab268e806eaa1d7adb9b7fcf5fb8234c"
     },
+    "/images/thumbs/vault/daubigny-harvest.webp": {
+      "src": "/images/vault/daubigny-harvest.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b315c409918a1d13b618eee0879505b4a26b86cb303471fd0a496e9efdcb15cb",
+      "outputSha256": "783947c1c078e86d7b314f11e0fc3a97a55f175dad78537e06340e9c30630886"
+    },
+    "/images/thumbs/vault/daubigny-oise.webp": {
+      "src": "/images/vault/daubigny-oise.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "93764e6d95e2c3293cd01f5ad729d5068487537580fd83b04b42a6263cd0cd24",
+      "outputSha256": "691c15801d9441bd65055bfb48b5cce4ef741abefbd37cebe616d84f5f8e7057"
+    },
+    "/images/thumbs/vault/daumier-laundress.webp": {
+      "src": "/images/vault/daumier-laundress.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a23f28dc35015687b3f8da347af8833d2c930e65b7c240088786a596ceeb0f9e",
+      "outputSha256": "8b8fb097036c75a11b131cba5e260654c5d3a8a5b7eae819c094637864509ac9"
+    },
+    "/images/thumbs/vault/daumier-third-class.webp": {
+      "src": "/images/vault/daumier-third-class.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b2eeeecb5c171982f99cd0f9b4322375dea39ad77d01586082c1cf516626c0e6",
+      "outputSha256": "6f3a17556195c9c1d541f9a5cc701f12ad8fc8d0f0eedc38c3243091a503a9d1"
+    },
+    "/images/thumbs/vault/delaunay-circular-moon.webp": {
+      "src": "/images/vault/delaunay-circular-moon.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7ffd8ad985c5ceda18755f5b6b187336e1b96dcb24e5c3f22abb6d8ba4e6ddaa",
+      "outputSha256": "d0d1e6b2eaf8375c3d001b514a29f0a8d3723b3bd289ced20e050753a487b906"
+    },
+    "/images/thumbs/vault/delaunay-ville-paris.webp": {
+      "src": "/images/vault/delaunay-ville-paris.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d70e4135721ffe71d2170c9028c0d58df08d13fae4547daff98765b7ed3cb6cb",
+      "outputSha256": "c915a17369450c2bd7daf27d859e7eb9ad6a099e31cc424a1f00713d15897d0e"
+    },
+    "/images/thumbs/vault/delaunay-windows.webp": {
+      "src": "/images/vault/delaunay-windows.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e66d480e3a06ae7b719b35bea6d45c5f4c1c112a5540c3d429d76acac5ec0abf",
+      "outputSha256": "89402dd5a46f5102830f7875ae8b641a89339bd906be1356c5045741b8c687fa"
+    },
     "/images/thumbs/vault/demuth-bermuda-masts.webp": {
       "src": "/images/vault/demuth-bermuda-masts.webp",
       "recipe": {
@@ -810,6 +1020,51 @@
       },
       "sourceSha256": "a418d988e37d8c1ae50acaed942a7bc91a9dfc3d31d5283a0fa19793327aaa53",
       "outputSha256": "3a1b5f78469d60c47c8141ad9ef1b0dd49f03106d2c80df5cb9ddc1486f8a7ba"
+    },
+    "/images/thumbs/vault/denis-homage-cezanne.webp": {
+      "src": "/images/vault/denis-homage-cezanne.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "deb4ccdcaf6931a75f9f82716ddc718a6162aefb015f0a93f48ff2aac4845905",
+      "outputSha256": "cec5c23466ae331d7b43c4171099b7c1205634136f05b1b5a5fe03a1e09652d8"
+    },
+    "/images/thumbs/vault/denis-wave.webp": {
+      "src": "/images/vault/denis-wave.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6fd745297be48c6253cd65c524b94225cbb9c515ace5bf7ccbb9b0175ab15a42",
+      "outputSha256": "31e98fd5b7d75405a3e500441df102b24f4d02652b5ade8e297bfa233234bfac"
+    },
+    "/images/thumbs/vault/denis-wheat.webp": {
+      "src": "/images/vault/denis-wheat.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9d2dabc97ed2cc3f3852e2778c652aceb9c02b40f4e3944011198500f1139e10",
+      "outputSha256": "e1e3be22c9b48291f38d28abe37dce9bde7e96e7640996b782b369e4d4b1464b"
     },
     "/images/thumbs/vault/der-seesturm-the-storm-at-sea.webp": {
       "src": "/images/vault/der-seesturm-the-storm-at-sea.webp",
@@ -2206,6 +2461,36 @@
       "sourceSha256": "424b648c191202cc124a330cca91c6e234a5a1f1270829f578a8898c39a0304b",
       "outputSha256": "afd6f2c54da1a3bf5d699fa3374f985cb61b9758a177253da9b9a24bfa2a02bb"
     },
+    "/images/thumbs/vault/maillol-two-nudes.webp": {
+      "src": "/images/vault/maillol-two-nudes.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0aa456a260c81c4097213f63963509a004f8ac5e6d9bef321ac20fdb5513d33a",
+      "outputSha256": "86b0b31a074793301d2629389f72a343cc2412f698053bff049876997d755ee2"
+    },
+    "/images/thumbs/vault/maillol-wave.webp": {
+      "src": "/images/vault/maillol-wave.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ae4c3e304c36cf67201114035d53aa132987ded3db8ae05df21fc1f2ec7625ad",
+      "outputSha256": "ea0674a6784d7ea2a8b366e70788b29e1ccab37ab92bf34cfdb5449be76fdec5"
+    },
     "/images/thumbs/vault/malczewski-in-the-cloud.webp": {
       "src": "/images/vault/malczewski-in-the-cloud.webp",
       "recipe": {
@@ -2475,6 +2760,51 @@
       },
       "sourceSha256": "0f5e9ca9184e6d8123ff8e120206d64eeac753ff5487b13b37855aaae2a0aa0a",
       "outputSha256": "2a70ea4f4a83c553241c9b2f8d2ed2d4f29c069b21d1e13badb9a4b5d4539e71"
+    },
+    "/images/thumbs/vault/millet-gleaners.webp": {
+      "src": "/images/vault/millet-gleaners.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c0c37a3db4a0f2cd83f2a47009cb4b383ebaf1e4d3c5011303d2d5401dab4fe6",
+      "outputSha256": "d427af9a0aa49d76cac081485db92869a269f502b884b8e41403205ff7b11a4f"
+    },
+    "/images/thumbs/vault/millet-hoe.webp": {
+      "src": "/images/vault/millet-hoe.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a66c6613b1a1d370848f328037bf652307003411fbf59a02668395e1d00a02e7",
+      "outputSha256": "b9904943269a8315c971b95bcd529ccac6b182f9039b381c1c033ea2cd7480a4"
+    },
+    "/images/thumbs/vault/millet-shepherdess.webp": {
+      "src": "/images/vault/millet-shepherdess.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8ac15e81c14cf7356857ae500ba2f16860b033eac069c36a95d763a0b7e7c04f",
+      "outputSha256": "8043a924602255840007ce440d568d483ab3a3c94fd571e6b9e28550262167d7"
     },
     "/images/thumbs/vault/modersohn-becker-girl-child.webp": {
       "src": "/images/vault/modersohn-becker-girl-child.webp",
@@ -3046,6 +3376,51 @@
       "sourceSha256": "3007d67448c01aad8af65c45ee9acb2a22618475a733c5ee7d3879dd74674b88",
       "outputSha256": "8bc3321f3f5b110d82479808b9272b29be9b8026327310b140ceb41274f6d822"
     },
+    "/images/thumbs/vault/puvis-girls-seaside.webp": {
+      "src": "/images/vault/puvis-girls-seaside.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f19f593bf18990dcd53cdb297c4d898f7b76fa97fe8b0b8c33c441ee9a5f1fa9",
+      "outputSha256": "1acfb53292187742b19f5dfd7d62a2220f52c4e3b355f8de43d1f9f78cf55321"
+    },
+    "/images/thumbs/vault/puvis-poor-fisherman.webp": {
+      "src": "/images/vault/puvis-poor-fisherman.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b4b94a8ff8a5cad3b88cf2190a84316f0643e22db0233c555ef9d97413edf725",
+      "outputSha256": "ef8cfd6c349f33342e5a1bd7a481d803c1952a526ab797ad30c242f628b16984"
+    },
+    "/images/thumbs/vault/puvis-sacred-grove.webp": {
+      "src": "/images/vault/puvis-sacred-grove.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9f64b80a39a2fe8871e4ff22711cf430e051323a7e9b0ab19874309da5a949ba",
+      "outputSha256": "0ec6396f27b82de5c2ee0ea273e0188a360b60b3cc7904276a201ebecd41f72a"
+    },
     "/images/thumbs/vault/pymonenko-harvest.webp": {
       "src": "/images/vault/pymonenko-harvest.webp",
       "recipe": {
@@ -3135,6 +3510,96 @@
       },
       "sourceSha256": "69e16c70e3ce5f355c7403d7df30a18e95a74140cd3f04c1c2501a179b3ea20b",
       "outputSha256": "608269cb107f428117dda353f2c2520baa74084796becfbeecfe8442a320dadb"
+    },
+    "/images/thumbs/vault/roussel-conversation.webp": {
+      "src": "/images/vault/roussel-conversation.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c09e78a0a5104f4bb35749e95498f49c81efe8ca151a0784d9fbaa15de2dd31f",
+      "outputSha256": "40e21600209d722b2cd1e41d7c17ab8008b71dd24963a315c438915ca2e7bfb4"
+    },
+    "/images/thumbs/vault/roussel-myth.webp": {
+      "src": "/images/vault/roussel-myth.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0263d755910569f8ed99db7dfa9b57acbd7c91e085341a60eefff6927d4acd29",
+      "outputSha256": "2416fa541386aa7057d6727c49e57575c8c361048e7f62d973b994206d086da4"
+    },
+    "/images/thumbs/vault/roussel-women-shade.webp": {
+      "src": "/images/vault/roussel-women-shade.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "04bfc81b52d48ff28e7378b8ff4bfcb70582761a5095482075ce2beca4869c81",
+      "outputSha256": "8aaf2fe08b16b8366fa15828666eeb90a544ee2ac0b0df3a119054cf88f4dac5"
+    },
+    "/images/thumbs/vault/russolo-lightning.webp": {
+      "src": "/images/vault/russolo-lightning.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "48e00060348959078bbd9ffed8585cc13e62d121abc3c00cc30ebd2740dae014",
+      "outputSha256": "0541a3d75448def5a2d3269c230ad15914fbb56d82d804b9ac4ffb50e466f9c5"
+    },
+    "/images/thumbs/vault/russolo-perfume.webp": {
+      "src": "/images/vault/russolo-perfume.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "eaeab243b79c14fcc6acf512a979f12762a561c31ecf70d6e09024f3eab97412",
+      "outputSha256": "f20b71b696a070457b9e4bc89325ca41e7378005aa08c191408a57e25ce36173"
+    },
+    "/images/thumbs/vault/russolo-synthesis.webp": {
+      "src": "/images/vault/russolo-synthesis.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9998d8110e720510ee8cce82d1ce9d2612a54b929020351fd03e7b11227286ce",
+      "outputSha256": "4cb5f189e95ae667f6576dc8917d982f2b1c03ee4bac10c4425426c2010340ac"
     },
     "/images/thumbs/vault/schjerfbeck-clothes-drying.webp": {
       "src": "/images/vault/schjerfbeck-clothes-drying.webp",
@@ -3406,6 +3871,36 @@
       "sourceSha256": "2eceabe9a7836221a965be4d49a42428c3550a09c0502db3371ba324ee7b4f75",
       "outputSha256": "411a9bbcd76838eb66e6600259f80f93334dec006b72f6ea230b9b6aa79b782b"
     },
+    "/images/thumbs/vault/serusier-talisman.webp": {
+      "src": "/images/vault/serusier-talisman.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "cc9a85890763996527b45fc4060a8211e371b7f52e8363b426ee17d26b885fca",
+      "outputSha256": "69dc9d71e2c4b622cc44d88ded8764265ecf5b9c544ef7d6501ccc92b43b6670"
+    },
+    "/images/thumbs/vault/seurat-poseuses.webp": {
+      "src": "/images/vault/seurat-poseuses.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "cecc452a2113b006816bc659098459814ffa3889b933ae34da035eb987130fbf",
+      "outputSha256": "3ccd7b27eb8af18b088996a8178e461fe8eb23e19a283df1a90f963fdb6d4d5c"
+    },
     "/images/thumbs/vault/shipwreck.webp": {
       "src": "/images/vault/shipwreck.webp",
       "recipe": {
@@ -3615,6 +4110,36 @@
       },
       "sourceSha256": "c63f1fceb08a193aab3e00b0aeb282e04d1406bd3f3f0affb5f05d30d85bdf8e",
       "outputSha256": "76ce1f1f2cbd9a94cbf6651ea875e1569ed31ba6392d3b9065b88b757a33b742"
+    },
+    "/images/thumbs/vault/soutine-carcass.webp": {
+      "src": "/images/vault/soutine-carcass.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "318c3751d99e5c27cc91e4b242ae9c25b998be1168faef0df53f0e656f2b268a",
+      "outputSha256": "9bd742d9f17944284ea51823623574cacf849995c3e34e70214165b4842157c6"
+    },
+    "/images/thumbs/vault/soutine-ceret.webp": {
+      "src": "/images/vault/soutine-ceret.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "a1dbd2e2b690076368d1263b6c17be91dd51fd9d2abafdf66c4c804b4312fbf7",
+      "outputSha256": "7ec067e95fe99179540516ec9e40890ba60ed935e17fe4c82adbc26d7e9fab66"
     },
     "/images/thumbs/vault/spilliaert-absinthe.webp": {
       "src": "/images/vault/spilliaert-absinthe.webp",
@@ -5011,6 +5536,21 @@
       "sourceSha256": "be7c4342c8a38109a7c7fc1c84386949dddd327e76af2c813c6f572a4847fe36",
       "outputSha256": "f0ae5f4af874903a1f091cec2e59c75f40758d8f7c174eaebe47857ffe6ff5f4"
     },
+    "/images/thumbs/vault/boccioni-unique-forms.webp": {
+      "src": "/images/vault/boccioni-unique-forms.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "00d2c35c7607dcd29a5f9bae72a7c6433792b8835ce34a8e967b72229524faf4",
+      "outputSha256": "6f7dbea18ffb0e520ac6de6f1a1141d17cfeed13ca056d9860cfeb46c457b40c"
+    },
     "/images/thumbs/vault/botanical-dish-with-white-sunflower.webp": {
       "src": "/images/vault/botanical-dish-with-white-sunflower.webp",
       "recipe": {
@@ -5746,6 +6286,21 @@
       "sourceSha256": "a0ccc4cbf042c5d134e2d8642315aa35c99b1081e932bd717f227fecf7005d6d",
       "outputSha256": "f619a3a38ecaa1f79eeb10cf26059ad5d30174ce5b330cf86db23871a61c3194"
     },
+    "/images/thumbs/vault/chaim-soutine.webp": {
+      "src": "/images/vault/chaim-soutine.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2a1f2d7fcd4184652bd93c768ec2bdfce52802ab434d2f11744e2c7210d6d223",
+      "outputSha256": "fa89bc21c8c62e3ae174a025831dd9d1f7fbb5a922c3ae096099341bdebb70f0"
+    },
     "/images/thumbs/vault/charles-demuth.webp": {
       "src": "/images/vault/charles-demuth.webp",
       "recipe": {
@@ -6361,6 +6916,21 @@
       "sourceSha256": "387d63288fe606981da08d60715c6819bd9d7e297bb587b09c5faefb9018bb50",
       "outputSha256": "acabec99f4d80ed46f2aad5645cf8a7952614e6103f7dad6e667aebfdc5a0ff7"
     },
+    "/images/thumbs/vault/pierre-puvis-de-chavannes.webp": {
+      "src": "/images/vault/pierre-puvis-de-chavannes.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "16f5c180a05760fa5ecce5a56d9f2026776087184c378e6cc8ab313a2be78546",
+      "outputSha256": "66292ccef9562f85a56b68428fbda5a87700b20c46f047aad4bd8d552841ecb5"
+    },
     "/images/thumbs/wall/w08.webp": {
       "src": "/images/wall/w08.webp",
       "recipe": {
@@ -6851,6 +7421,34 @@
       "sourceSha256": "fb79be8ec887120928a566fb65f46efb94d28dbf87f63fee0dd02702193ff6b0",
       "outputSha256": "319af4c0bcff09bb7e5a6c02e97495d1dc3184419514d86b6b61023515a3d143"
     },
+    "/images/plates/vault/bernard-meadow.webp": {
+      "src": "/images/vault/bernard-meadow.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "886562fd48220f2b909fc63b3280d652d51b97a8393dba8f7900d8223f56229f",
+      "outputSha256": "960fc96db85378caf4eaba08e3621914f9daaf2634d106be584aef6e1715044e"
+    },
+    "/images/plates/vault/bernard-two-breton.webp": {
+      "src": "/images/vault/bernard-two-breton.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "68e1ddb63b293951fe916725eac6b9d0625105026517321fa459bb15813822ff",
+      "outputSha256": "756a55b670f1baf27ad6d578159f6d4c07c16692ba94587163166a85ee6a7ea5"
+    },
     "/images/plates/vault/blanchard-bracelet.webp": {
       "src": "/images/vault/blanchard-bracelet.webp",
       "recipe": {
@@ -6920,6 +7518,34 @@
       },
       "sourceSha256": "6335ebcdc06c44c624a49fd39d69239a30034f768779d6f83cb3f33361de4ae0",
       "outputSha256": "7717f39605def26a3193be6b663e80e84bc4ea1b168439ee66df446eaa3f05f1"
+    },
+    "/images/plates/vault/boccioni-city-rises.webp": {
+      "src": "/images/vault/boccioni-city-rises.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d07fce7cdf805ad4a9132ada7dc956e45d199f5d4bdae7ffb596cdcac6501fa7",
+      "outputSha256": "c2c1d98a12dfe28ce14ceeaa2a64bce3ed79a4d10b2408ca4b642a81559d085b"
+    },
+    "/images/plates/vault/boccioni-street.webp": {
+      "src": "/images/vault/boccioni-street.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a94e3d898681f27311b8a91768e8c87806d01dc61377b1ce70b57d3c68c25712",
+      "outputSha256": "000b13f5c6de4cc7a272527064463b93b8db162bb3508d804fae5f82ee750c3f"
     },
     "/images/plates/vault/bocklin-death-fiddler.webp": {
       "src": "/images/vault/bocklin-death-fiddler.webp",
@@ -7145,6 +7771,48 @@
       "sourceSha256": "6563cde4eb576cba6b96f6ef7fc464323a1646b37347ff43d096357bda04d999",
       "outputSha256": "921b20fe4f9684c441b37d096b580bf8f5b9f4ddd9699d6ee76fde5854179592"
     },
+    "/images/plates/vault/caillebotte-floor-scrapers.webp": {
+      "src": "/images/vault/caillebotte-floor-scrapers.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f96fde9e5e2f7b78f84625871b149137100e0532f16c329b9879e0fa3bc8bd87",
+      "outputSha256": "7116c3087302e69c923f45def5e973021ec798a4638e48c1638bdf3bd1e14405"
+    },
+    "/images/plates/vault/caillebotte-pont-europe.webp": {
+      "src": "/images/vault/caillebotte-pont-europe.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f142af0059fda138414efb37cb6cd9a9d20807e348a6e54dc68f76a7df243f4f",
+      "outputSha256": "238e15ee3b1ab08b0849d33da2baab8496dcca7c249863f739af522c402caf9c"
+    },
+    "/images/plates/vault/caillebotte-rainy-day.webp": {
+      "src": "/images/vault/caillebotte-rainy-day.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "665baed148ed31c54a62004ff7c635d13a7f3753f9e820811a058872559480eb",
+      "outputSha256": "f56a557523bc5596c7571db2f408dc1b818d81238e5071a1dc856673126a0cef"
+    },
     "/images/plates/today/friedrich.webp": {
       "src": "/images/today/friedrich.webp",
       "recipe": {
@@ -7313,6 +7981,104 @@
       "sourceSha256": "7d9b02e8e90cfbd3f71c195e26280be4771ad048dedd3ef5519416211052a58b",
       "outputSha256": "8d973daddf89aa2d2ab3b2f362ec0ac77b15ecbc30db57ee111848f184594f67"
     },
+    "/images/plates/vault/daubigny-harvest.webp": {
+      "src": "/images/vault/daubigny-harvest.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b315c409918a1d13b618eee0879505b4a26b86cb303471fd0a496e9efdcb15cb",
+      "outputSha256": "6f982ce26949517f3eb1613155a3877a48b9ad570a45dc4d0ff0aa347912d5d4"
+    },
+    "/images/plates/vault/daubigny-oise.webp": {
+      "src": "/images/vault/daubigny-oise.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "93764e6d95e2c3293cd01f5ad729d5068487537580fd83b04b42a6263cd0cd24",
+      "outputSha256": "55b04eab9d1ca74b6b8ce8683f5ad14e9d4523b5e6d9076406cf71363d6450b6"
+    },
+    "/images/plates/vault/daumier-laundress.webp": {
+      "src": "/images/vault/daumier-laundress.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a23f28dc35015687b3f8da347af8833d2c930e65b7c240088786a596ceeb0f9e",
+      "outputSha256": "8016bd6d082cebe314a639a066b099efde93ad2a2e9aaa143b57401493f913c4"
+    },
+    "/images/plates/vault/daumier-third-class.webp": {
+      "src": "/images/vault/daumier-third-class.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b2eeeecb5c171982f99cd0f9b4322375dea39ad77d01586082c1cf516626c0e6",
+      "outputSha256": "b0da446d83cacda5f3ebd448518a7cc0b603047f6049a93c2ccb173573ea9abd"
+    },
+    "/images/plates/vault/delaunay-circular-moon.webp": {
+      "src": "/images/vault/delaunay-circular-moon.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7ffd8ad985c5ceda18755f5b6b187336e1b96dcb24e5c3f22abb6d8ba4e6ddaa",
+      "outputSha256": "86832d342a0afe4be28a87f010bba27e325c580219b315af8ae0cbfc490cfeb2"
+    },
+    "/images/plates/vault/delaunay-ville-paris.webp": {
+      "src": "/images/vault/delaunay-ville-paris.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d70e4135721ffe71d2170c9028c0d58df08d13fae4547daff98765b7ed3cb6cb",
+      "outputSha256": "9070baf7dd63774b9edbcf3e7a7c9bca04657d4468ea108955adcf643bc8c773"
+    },
+    "/images/plates/vault/delaunay-windows.webp": {
+      "src": "/images/vault/delaunay-windows.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e66d480e3a06ae7b719b35bea6d45c5f4c1c112a5540c3d429d76acac5ec0abf",
+      "outputSha256": "ae3c0257ababa03be332f6941871b1680a45c488c9cac3d7e9eef5819fd3c70a"
+    },
     "/images/plates/vault/demuth-bermuda-masts.webp": {
       "src": "/images/vault/demuth-bermuda-masts.webp",
       "recipe": {
@@ -7326,6 +8092,48 @@
       },
       "sourceSha256": "a418d988e37d8c1ae50acaed942a7bc91a9dfc3d31d5283a0fa19793327aaa53",
       "outputSha256": "b23868bfa6797a488fa54a6d3482bff3b723b072f00d94c577f10962961c27c4"
+    },
+    "/images/plates/vault/denis-homage-cezanne.webp": {
+      "src": "/images/vault/denis-homage-cezanne.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "deb4ccdcaf6931a75f9f82716ddc718a6162aefb015f0a93f48ff2aac4845905",
+      "outputSha256": "cdc7a1199358a867b1804d23e5f03d4e0a5ba835a157611d95c11d628dde7bf1"
+    },
+    "/images/plates/vault/denis-wave.webp": {
+      "src": "/images/vault/denis-wave.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "6fd745297be48c6253cd65c524b94225cbb9c515ace5bf7ccbb9b0175ab15a42",
+      "outputSha256": "0ae35819d8e483071aeb53f27db1ffd143cff229a6ae15aea20d7258612ea847"
+    },
+    "/images/plates/vault/denis-wheat.webp": {
+      "src": "/images/vault/denis-wheat.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9d2dabc97ed2cc3f3852e2778c652aceb9c02b40f4e3944011198500f1139e10",
+      "outputSha256": "e512943c6e85d90f70067adc0595737d70a592452b21ba0cc56ca93451068fc5"
     },
     "/images/plates/vault/der-seesturm-the-storm-at-sea.webp": {
       "src": "/images/vault/der-seesturm-the-storm-at-sea.webp",
@@ -8629,6 +9437,34 @@
       "sourceSha256": "424b648c191202cc124a330cca91c6e234a5a1f1270829f578a8898c39a0304b",
       "outputSha256": "6d88a95b5eea6b24ef3f4d5a37ebbba0c1ccb797d1f32fb8194514d2a5a62a5a"
     },
+    "/images/plates/vault/maillol-two-nudes.webp": {
+      "src": "/images/vault/maillol-two-nudes.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0aa456a260c81c4097213f63963509a004f8ac5e6d9bef321ac20fdb5513d33a",
+      "outputSha256": "a1c620dd70b74ef93e733d6fe824ebbf4e403a8999a6b3752ee696f2a08b6bf4"
+    },
+    "/images/plates/vault/maillol-wave.webp": {
+      "src": "/images/vault/maillol-wave.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ae4c3e304c36cf67201114035d53aa132987ded3db8ae05df21fc1f2ec7625ad",
+      "outputSha256": "04e43308909e6ae14008040a83548b6d343b11312ab2ad9d049d77468671cd0c"
+    },
     "/images/plates/vault/malczewski-in-the-cloud.webp": {
       "src": "/images/vault/malczewski-in-the-cloud.webp",
       "recipe": {
@@ -8880,6 +9716,48 @@
       },
       "sourceSha256": "0f5e9ca9184e6d8123ff8e120206d64eeac753ff5487b13b37855aaae2a0aa0a",
       "outputSha256": "e23d28f2c3aca5c87108be887b7bb80b6d572a390214d81af6d498016abc2fec"
+    },
+    "/images/plates/vault/millet-gleaners.webp": {
+      "src": "/images/vault/millet-gleaners.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c0c37a3db4a0f2cd83f2a47009cb4b383ebaf1e4d3c5011303d2d5401dab4fe6",
+      "outputSha256": "cde2040b0aa32381fdd42534002f2f0f3e9784d523e0142925977261ca584da6"
+    },
+    "/images/plates/vault/millet-hoe.webp": {
+      "src": "/images/vault/millet-hoe.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a66c6613b1a1d370848f328037bf652307003411fbf59a02668395e1d00a02e7",
+      "outputSha256": "20bd9d9aa63fe93917d3cb74eb9ff01488cf2090257e18ebcaac1d6264f5d3ba"
+    },
+    "/images/plates/vault/millet-shepherdess.webp": {
+      "src": "/images/vault/millet-shepherdess.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "8ac15e81c14cf7356857ae500ba2f16860b033eac069c36a95d763a0b7e7c04f",
+      "outputSha256": "39c8719c8311c91420172779647411b2a15cc1179bf271b139a9a15f0d8fd232"
     },
     "/images/plates/vault/modersohn-becker-girl-child.webp": {
       "src": "/images/vault/modersohn-becker-girl-child.webp",
@@ -9413,6 +10291,48 @@
       "sourceSha256": "3007d67448c01aad8af65c45ee9acb2a22618475a733c5ee7d3879dd74674b88",
       "outputSha256": "8c1bc29517411f0c04543649b6dcd4ee0d1f5c191361d26ad27891b6c9b4a19d"
     },
+    "/images/plates/vault/puvis-girls-seaside.webp": {
+      "src": "/images/vault/puvis-girls-seaside.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f19f593bf18990dcd53cdb297c4d898f7b76fa97fe8b0b8c33c441ee9a5f1fa9",
+      "outputSha256": "1215302048d2bb5e0096638dd916f0be6d25f6dc3f06d855b2eac608e15a6607"
+    },
+    "/images/plates/vault/puvis-poor-fisherman.webp": {
+      "src": "/images/vault/puvis-poor-fisherman.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b4b94a8ff8a5cad3b88cf2190a84316f0643e22db0233c555ef9d97413edf725",
+      "outputSha256": "0ddcf8919e75fa7670285d33d60a5870f4326fe99e4c0c4ff1b8f57d36c903bb"
+    },
+    "/images/plates/vault/puvis-sacred-grove.webp": {
+      "src": "/images/vault/puvis-sacred-grove.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9f64b80a39a2fe8871e4ff22711cf430e051323a7e9b0ab19874309da5a949ba",
+      "outputSha256": "bf3911e508fa2ab309a53c57e5cd30d41daf4b3518e7f6a24d2482023945b481"
+    },
     "/images/plates/vault/pymonenko-harvest.webp": {
       "src": "/images/vault/pymonenko-harvest.webp",
       "recipe": {
@@ -9496,6 +10416,90 @@
       },
       "sourceSha256": "69e16c70e3ce5f355c7403d7df30a18e95a74140cd3f04c1c2501a179b3ea20b",
       "outputSha256": "1125879b4c03a628977b47f3e5105d98dc8051153aaf11b380a1c0fcd590cb11"
+    },
+    "/images/plates/vault/roussel-conversation.webp": {
+      "src": "/images/vault/roussel-conversation.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c09e78a0a5104f4bb35749e95498f49c81efe8ca151a0784d9fbaa15de2dd31f",
+      "outputSha256": "55caa6370b0114e6ce7964cc8d852eb18009805b7c99c883f4519ea5ddfd73f3"
+    },
+    "/images/plates/vault/roussel-myth.webp": {
+      "src": "/images/vault/roussel-myth.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0263d755910569f8ed99db7dfa9b57acbd7c91e085341a60eefff6927d4acd29",
+      "outputSha256": "3d8a11b9b4c8cc656cdaacc275e66145d66ada0351cdcbe64b4f1aa6e5bd573c"
+    },
+    "/images/plates/vault/roussel-women-shade.webp": {
+      "src": "/images/vault/roussel-women-shade.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "04bfc81b52d48ff28e7378b8ff4bfcb70582761a5095482075ce2beca4869c81",
+      "outputSha256": "da1005e234b5522bd2dbb59d26b9c841b45e8522944de193d7247f9c1fbcb201"
+    },
+    "/images/plates/vault/russolo-lightning.webp": {
+      "src": "/images/vault/russolo-lightning.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "48e00060348959078bbd9ffed8585cc13e62d121abc3c00cc30ebd2740dae014",
+      "outputSha256": "a725a0d937bd25fcfa762b75f729ecd834946fed4f4e2debb6424bc9d0a1346c"
+    },
+    "/images/plates/vault/russolo-perfume.webp": {
+      "src": "/images/vault/russolo-perfume.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "eaeab243b79c14fcc6acf512a979f12762a561c31ecf70d6e09024f3eab97412",
+      "outputSha256": "983b1fa49609ac7ccb4de839b3320821db6d46faac8c122affbbd4274aa22842"
+    },
+    "/images/plates/vault/russolo-synthesis.webp": {
+      "src": "/images/vault/russolo-synthesis.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9998d8110e720510ee8cce82d1ce9d2612a54b929020351fd03e7b11227286ce",
+      "outputSha256": "18db61156480cfbf7c5d20030c2023f3faf6996c442ac1c08b4d0bcbdbcc7036"
     },
     "/images/plates/vault/schjerfbeck-clothes-drying.webp": {
       "src": "/images/vault/schjerfbeck-clothes-drying.webp",
@@ -9749,6 +10753,34 @@
       "sourceSha256": "2eceabe9a7836221a965be4d49a42428c3550a09c0502db3371ba324ee7b4f75",
       "outputSha256": "2460a7c641a8da0176ad5c1c13a3463172f557fd6b2396add23b877a5b21aaa5"
     },
+    "/images/plates/vault/serusier-talisman.webp": {
+      "src": "/images/vault/serusier-talisman.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "cc9a85890763996527b45fc4060a8211e371b7f52e8363b426ee17d26b885fca",
+      "outputSha256": "1415ca258da8b6b09fcd1ecfa780fd5a9045d4f7c40384925d4bf80d03e4e308"
+    },
+    "/images/plates/vault/seurat-poseuses.webp": {
+      "src": "/images/vault/seurat-poseuses.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "cecc452a2113b006816bc659098459814ffa3889b933ae34da035eb987130fbf",
+      "outputSha256": "11d8d13734212036a653442870d751b6986d5845ecc4e12f4007d688cdc8d1fb"
+    },
     "/images/plates/vault/shipwreck.webp": {
       "src": "/images/vault/shipwreck.webp",
       "recipe": {
@@ -9944,6 +10976,34 @@
       },
       "sourceSha256": "c63f1fceb08a193aab3e00b0aeb282e04d1406bd3f3f0affb5f05d30d85bdf8e",
       "outputSha256": "052b4d06220398b1e92059c6048f1eafa68c28697ea2861ac1c07605f878359d"
+    },
+    "/images/plates/vault/soutine-carcass.webp": {
+      "src": "/images/vault/soutine-carcass.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "318c3751d99e5c27cc91e4b242ae9c25b998be1168faef0df53f0e656f2b268a",
+      "outputSha256": "c52a1c3b87b3239eee1a9a028c41dcddb22a4a801c4f1916f675063897c098ee"
+    },
+    "/images/plates/vault/soutine-ceret.webp": {
+      "src": "/images/vault/soutine-ceret.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "a1dbd2e2b690076368d1263b6c17be91dd51fd9d2abafdf66c4c804b4312fbf7",
+      "outputSha256": "6918d9145b651865d3c9d567ea71de4899813915736bca245e845d44c68cf8f4"
     },
     "/images/plates/vault/spilliaert-absinthe.webp": {
       "src": "/images/vault/spilliaert-absinthe.webp",
@@ -11247,6 +12307,20 @@
       "sourceSha256": "be7c4342c8a38109a7c7fc1c84386949dddd327e76af2c813c6f572a4847fe36",
       "outputSha256": "df7d9b39a9211b5e27aec77e15f903e9a591c124af0ca23ffc025ccf41ab0d8e"
     },
+    "/images/plates/vault/boccioni-unique-forms.webp": {
+      "src": "/images/vault/boccioni-unique-forms.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "00d2c35c7607dcd29a5f9bae72a7c6433792b8835ce34a8e967b72229524faf4",
+      "outputSha256": "ed4822ef036fc731692570bba6145f3fee3c0f1f013df530dffda7f261189f00"
+    },
     "/images/plates/vault/botanical-dish-with-white-sunflower.webp": {
       "src": "/images/vault/botanical-dish-with-white-sunflower.webp",
       "recipe": {
@@ -11933,6 +13007,20 @@
       "sourceSha256": "a0ccc4cbf042c5d134e2d8642315aa35c99b1081e932bd717f227fecf7005d6d",
       "outputSha256": "ecb429988a31ed5d718f9d62181b712456a41c3a2609f57874e1fb2a410580df"
     },
+    "/images/plates/vault/chaim-soutine.webp": {
+      "src": "/images/vault/chaim-soutine.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2a1f2d7fcd4184652bd93c768ec2bdfce52802ab434d2f11744e2c7210d6d223",
+      "outputSha256": "9ef03274d89216f39c783e990326debbb1c57365665f2e23dcaefef048967f74"
+    },
     "/images/plates/vault/charles-demuth.webp": {
       "src": "/images/vault/charles-demuth.webp",
       "recipe": {
@@ -12506,6 +13594,20 @@
       },
       "sourceSha256": "387d63288fe606981da08d60715c6819bd9d7e297bb587b09c5faefb9018bb50",
       "outputSha256": "d092a963756974eaa75695efd090a7b9beff0fec85f8e79495a81680c96fc964"
+    },
+    "/images/plates/vault/pierre-puvis-de-chavannes.webp": {
+      "src": "/images/vault/pierre-puvis-de-chavannes.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "16f5c180a05760fa5ecce5a56d9f2026776087184c378e6cc8ab313a2be78546",
+      "outputSha256": "7d0e4d2870096a62eeb2b2e75b9b33739efb292ba09481204c482ca067bcd8f3"
     },
     "/images/plates/wall/w08.webp": {
       "src": "/images/wall/w08.webp",
