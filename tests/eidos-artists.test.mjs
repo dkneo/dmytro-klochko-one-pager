@@ -99,6 +99,21 @@ const ARTISTS = [
   { name: "Max Liebermann", work: "liebermann-wannsee" },
   { name: "Kurt Schwitters", work: "schwitters-merz-50" },
   { name: "Willi Baumeister", work: "baumeister-tori" },
+  { name: "Gustave Caillebotte", work: "caillebotte-rainy-day" },
+  { name: "Pierre Puvis de Chavannes", work: "puvis-poor-fisherman" },
+  { name: "Maurice Denis", work: "denis-homage-cezanne" },
+  { name: "Paul Sérusier", work: "serusier-talisman" },
+  { name: "Ker-Xavier Roussel", work: "roussel-women-shade" },
+  { name: "Aristide Maillol", work: "maillol-wave" },
+  { name: "Émile Bernard", work: "bernard-two-breton" },
+  { name: "Charles-François Daubigny", work: "daubigny-harvest" },
+  { name: "Jean-François Millet", work: "millet-gleaners" },
+  { name: "Honoré Daumier", work: "daumier-third-class" },
+  { name: "Chaïm Soutine", work: "soutine-carcass" },
+  { name: "Robert Delaunay", work: "delaunay-circular-moon" },
+  { name: "Georges Seurat", work: "seurat-poseuses" },
+  { name: "Umberto Boccioni", work: "boccioni-city-rises" },
+  { name: "Luigi Russolo", work: "russolo-perfume" },
 ];
 
 const LINK_ONLY = [
@@ -178,6 +193,27 @@ const LINK_ONLY = [
   "Hannah Höch",
   "Lyonel Feininger",
   "Jeanne Mammen",
+  "Balthus",
+  "Amédée Ozenfant",
+  "Sonia Delaunay",
+  "Marie Laurencin",
+  "Jean Hélion",
+  "Pierre Bonnard",
+  "Giorgio Morandi",
+  "Mario Sironi",
+  "Carlo Carrà",
+  "Gino Severini",
+  "Giacomo Balla",
+  "Lucio Fontana",
+  "Alberto Burri",
+  "Felice Casorati",
+  "Antonio Donghi",
+  "Filippo de Pisis",
+  "Arturo Martini",
+  "Marino Marini",
+  "Piero Manzoni",
+  "Fortunato Depero",
+  "Afro Basaldella",
 ];
 
 const workDirs = ["paintings", "prints", "posters", "objects"];
@@ -391,6 +427,86 @@ test("marc hangs deer, not the blue horse postcard", () => {
     const text = read(`vault/paintings/${f}`).toLowerCase();
     assert.doesNotMatch(text, /blue horse|blaues pferd/,
       `${f} is the postcard horse`);
+  }
+});
+
+test("estate and living fr/it names have no hosted canvas", () => {
+  const banned = [
+    "Balthus", "Amédée Ozenfant", "Sonia Delaunay", "Marie Laurencin", "Jean Hélion",
+    "Pierre Bonnard", "Giorgio Morandi", "Mario Sironi", "Carlo Carrà",
+    "Gino Severini", "Giacomo Balla", "Lucio Fontana", "Alberto Burri",
+    "Felice Casorati", "Antonio Donghi", "Filippo de Pisis", "Arturo Martini",
+    "Marino Marini", "Piero Manzoni", "Fortunato Depero", "Afro Basaldella",
+  ];
+  for (const f of list("vault/paintings")) {
+    const text = read(`vault/paintings/${f}`);
+    for (const name of banned) {
+      assert.doesNotMatch(text, new RegExp(`^who: ${name}$`, "m"),
+        `${f} hosts a canvas for ${name}`);
+    }
+  }
+});
+
+test("the france pack skips waterlilies, starry night and the ballerina postcard", () => {
+  const works = list("vault/paintings")
+    .filter((f) => /^(caillebotte|puvis|denis|serusier|roussel|maillol|bernard|daubigny|millet|daumier|soutine|delaunay|seurat)-/.test(f))
+    .map((f) => read(`vault/paintings/${f}`)).join("\n");
+  assert.doesNotMatch(works, /Water Lilies|Nymphéas|Starry Night|Nuit étoilée|Little Dancer|Petite danseuse|Grande Jatte|La Grande Jatte/i);
+  const millet = list("vault/paintings").filter((f) => f.startsWith("millet-")).map((f) => read(`vault/paintings/${f}`)).join("\n");
+  assert.doesNotMatch(millet, /Angelus|Angélus/);
+});
+
+test("caillebotte hangs the wet street, the scrapers and the bridge", () => {
+  assert.ok(fs.existsSync(path.join(root, "vault/paintings/caillebotte-rainy-day.md")));
+  assert.ok(fs.existsSync(path.join(root, "public/images/vault/caillebotte-rainy-day.webp")));
+  assert.ok(fs.existsSync(path.join(root, "vault/paintings/caillebotte-floor-scrapers.md")));
+  assert.ok(fs.existsSync(path.join(root, "vault/paintings/caillebotte-pont-europe.md")));
+  const rain = read("vault/paintings/caillebotte-rainy-day.md");
+  assert.match(rain, /^who: Gustave Caillebotte$/m);
+  assert.doesNotMatch(rain, /^weather:/m);
+});
+
+test("serusier hangs the talisman and seurat hangs poseuses, not the island", () => {
+  assert.ok(fs.existsSync(path.join(root, "vault/paintings/serusier-talisman.md")));
+  assert.ok(fs.existsSync(path.join(root, "public/images/vault/serusier-talisman.webp")));
+  const poseuses = read("vault/paintings/seurat-poseuses.md");
+  assert.match(poseuses, /^who: Georges Seurat$/m);
+  assert.match(poseuses, /Poseuses/);
+  assert.doesNotMatch(poseuses, /Grande Jatte|Sunday/);
+  assert.doesNotMatch(poseuses, /^weather:/m);
+});
+
+test("balthus names the gaze and hosts nothing", () => {
+  const text = read("vault/people/balthus.md").toLowerCase();
+  assert.match(text, /gaze|looking/, "balthus lost the caution");
+  assert.match(text, /girl/, "balthus lost the subject");
+  assert.match(text, /2001/, "balthus lost the estate date");
+  assert.doesNotMatch(text, /^src:/m);
+  for (const f of list("vault/paintings")) {
+    assert.doesNotMatch(read(`vault/paintings/${f}`), /^who: Balthus$/m, `${f} hosts a balthus canvas`);
+  }
+});
+
+test("sonia names the ukraine birth and sironi names the commissions", () => {
+  const sonia = read("vault/people/sonia-delaunay.md").toLowerCase();
+  assert.match(sonia, /hradyzk|ukraine/, "sonia lost the ua birth");
+  assert.match(sonia, /ua room/, "sonia lost the cross-link");
+
+  const sironi = read("vault/people/mario-sironi.md").toLowerCase();
+  assert.match(sironi, /fascist/, "sironi lost the commission clause");
+  const sironiLines = sironi.split("\n").filter((l) => /fascist/.test(l));
+  assert.ok(sironiLines.length <= 2, "sironi centered the regime");
+
+  const carra = read("vault/people/carlo-carra.md").toLowerCase();
+  assert.match(carra, /regime/, "carrà lost the entanglement clause");
+});
+
+test("morandi is a person on the doctrine, not a new still life", () => {
+  const person = read("vault/people/giorgio-morandi.md").toLowerCase();
+  assert.match(person, /doctrine/, "morandi lost the doctrine line");
+  assert.doesNotMatch(person, /^src:/m);
+  for (const f of list("vault/paintings")) {
+    assert.doesNotMatch(read(`vault/paintings/${f}`), /^who: Giorgio Morandi$/m, `${f} hosts a morandi canvas`);
   }
 });
 
