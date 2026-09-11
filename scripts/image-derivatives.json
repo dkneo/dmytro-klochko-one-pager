@@ -10934,6 +10934,847 @@
       },
       "sourceSha256": "4df3f4f090d2b753af20314fe065a7138ab411f4b12f91928b382131da4e5998",
       "outputSha256": "b52a1bcc6a07f20302f5341968d342eb60009f796f9e8af26b19000f55df6d29"
+    },
+    "/images/thumbs/vault/bashkirtseff-meeting.webp": {
+      "src": "/images/vault/bashkirtseff-meeting.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "6dc3df8c48686fc288360a0fb53c4299c5ddefa3c45eae870bff49bebd3daba9",
+      "outputSha256": "c125aff2972c2ff6e82e4f6745a0956f300a3727da9b24d3b503437d4589fa70"
+    },
+    "/images/thumbs/vault/bashkirtseff-studio.webp": {
+      "src": "/images/vault/bashkirtseff-studio.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "62448f67f55833bb7f0ac96d414f5541c5f5c8f0dbf18527d6c7434cefbd1b47",
+      "outputSha256": "17b648eb8edcf1aca437c9091db59d975842c356c91600620f1e523b5b829693"
+    },
+    "/images/thumbs/vault/bashkirtseff-umbrella.webp": {
+      "src": "/images/vault/bashkirtseff-umbrella.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d0213db1436e2566458f718d3b7eeac66b2c100fc7c1a6a310038d1b44d68203",
+      "outputSha256": "fd465a8d21270e1e164ba8ed89f10990d95ad190a244c294c28e77d7c25054f4"
+    },
+    "/images/thumbs/vault/boychuk-harvest.webp": {
+      "src": "/images/vault/boychuk-harvest.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b4e747b3bd9d379e9cc93d3b389146ba3c9d198e501ed6efe19ce57cb29096a9",
+      "outputSha256": "d0e3ec5c837e12e7b96aaa0fa7f29e7c97706dc983070e161ca2ff35c338033a"
+    },
+    "/images/thumbs/vault/boychuk-saint-john.webp": {
+      "src": "/images/vault/boychuk-saint-john.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "cae3b178ba42e5ac7cea81a199d618eb44a9bbcee190d77873e5d79b6f735b79",
+      "outputSha256": "9799249c928740c4d142fcffa1e1221415028738f2e03d95b577bbc74c64c05c"
+    },
+    "/images/thumbs/vault/boychuk-ukrainian-woman.webp": {
+      "src": "/images/vault/boychuk-ukrainian-woman.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "17d82f429b01a5a5a971270515dc35362acb57725d460548d1af6fbacbe62daa",
+      "outputSha256": "78d67f9f9b057c3345d1d35737cca787beaf1fd0b6def35d003d6c94d48b5684"
+    },
+    "/images/thumbs/vault/kostandi-geese.webp": {
+      "src": "/images/vault/kostandi-geese.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "fe2de9a1471ca9c8f6daa7956fce61e7bd36ba6789b5c931007c9ba2c8623d05",
+      "outputSha256": "9a1dbd6044be575209e03dc6d4fa90ce3ab12dee079794d79b16e0c79247d59d"
+    },
+    "/images/thumbs/vault/kostandi-landscape.webp": {
+      "src": "/images/vault/kostandi-landscape.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ccd4a8c6c4ffe946378b1c2c2d6687e63799881c950ebe9aab4c89db16016846",
+      "outputSha256": "2e0019c584de0a95e4c5dd3e751b600383c940aafb9a283271e23eb86b5a6184"
+    },
+    "/images/thumbs/vault/kostandi-out-into-the-world.webp": {
+      "src": "/images/vault/kostandi-out-into-the-world.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "70c021f15914b1e548b8038238333ff0f074a81176e509dd6986397a60063c19",
+      "outputSha256": "c1440d634b09f6babf8c1b97e96c39cc8cb2602158313bedfd077f7d3e80e4ba"
+    },
+    "/images/thumbs/vault/malevich-knife-grinder.webp": {
+      "src": "/images/vault/malevich-knife-grinder.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "23e97305e6b6140b637e67f7cb057b3ec140e11ad395c78181f6b46daaf76c32",
+      "outputSha256": "3d0d19e9d4a00125ebcfd50594c480144a88d36d4cad3ced41a414b9ee9a984a"
+    },
+    "/images/thumbs/vault/malevich-morning-village.webp": {
+      "src": "/images/vault/malevich-morning-village.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "5eb3413fd0b859284e72cf8b9117533994f8a41358b39bb5a6495e8b8946622b",
+      "outputSha256": "703ad367df80388aad33b9c6ae1a3be65a2e8239b8e9f17b7dabf8bfeec96dfc"
+    },
+    "/images/thumbs/vault/malevich-sportsmen.webp": {
+      "src": "/images/vault/malevich-sportsmen.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9d328ba07c9af7e36f0a46304042e66a1a540ddfc13f6051715aa93a1ae4eb6c",
+      "outputSha256": "264e0802236f494bda225b37fac8aae63ea8b10ee5e90730efca34c9c4d9bf26"
+    },
+    "/images/thumbs/vault/novakivskyi-after-rain.webp": {
+      "src": "/images/vault/novakivskyi-after-rain.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "26fb70b2ca0e4f04a0ea20eb301d24ab6d9dc55dc8a2f36d1f6e78ff4d8ec312",
+      "outputSha256": "ab4c647c223763d77e7559ece42ca14576074a3f31dc28202748885438910043"
+    },
+    "/images/thumbs/vault/novakivskyi-levytskyi.webp": {
+      "src": "/images/vault/novakivskyi-levytskyi.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3455aeed976c8d32cdcf9118f6ba38177f597c93e77ddcb2d85191d48132f0c9",
+      "outputSha256": "9023aab3716e4fe4fb46b46c963f82e873a1e2e0eba8ac19418a69efa4e6128c"
+    },
+    "/images/thumbs/vault/padalka-the-word.webp": {
+      "src": "/images/vault/padalka-the-word.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0d31298439a7aa6f16b0fc53dce82d4b1324ab5378eb886709f4014dcf0596c3",
+      "outputSha256": "a5809f2c9e82aff7cc502ba59cdf6115bbb981ba27ad75558647d72cacc26953"
+    },
+    "/images/thumbs/vault/padalka-tomatoes.webp": {
+      "src": "/images/vault/padalka-tomatoes.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b47af5a4309fbf2d2f010e42d346de15e12e2293e18919d4e2b387dda60cd8f7",
+      "outputSha256": "a84d1cdbcb26fa99ab31de0a8a12898ffafd4589748b51024bb8239025c10f6a"
+    },
+    "/images/thumbs/vault/pymonenko-harvest.webp": {
+      "src": "/images/vault/pymonenko-harvest.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "5a2b76294ca5aa564894b94f4ebd5a5fdfcfb84ca9c6422894adfb3ac434e213",
+      "outputSha256": "6632b87b81dfa0a734cb2036db41920c861d65a5e213d47e662b4917de1a20a5"
+    },
+    "/images/thumbs/vault/pymonenko-haymaking.webp": {
+      "src": "/images/vault/pymonenko-haymaking.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "69c724269a44421bae2e7d7a1fc2f1bca794666c61c86466f2f030a0ec24282a",
+      "outputSha256": "f80d0edd85c7b2b4be7b1b13735858f5c14def5dce357dc8ee9609c139d34d6e"
+    },
+    "/images/thumbs/vault/pymonenko-victim.webp": {
+      "src": "/images/vault/pymonenko-victim.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "447730083d403770318770283cf833f852630a429b536d898c8252b4fa2ce892",
+      "outputSha256": "8bbd391b8699839b17eb146db1055f3a4b901e6a77e9bc55fac39199362cecb4"
+    },
+    "/images/thumbs/vault/trush-little-pond.webp": {
+      "src": "/images/vault/trush-little-pond.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "249d82f98c1c913ecb0eb017766ebc4de004f40e735723ff138185030fff32a4",
+      "outputSha256": "d153c651dad9c22536a54237f1861e8c0ca85f03de1d35551f78c8a44c981118"
+    },
+    "/images/thumbs/vault/trush-venice.webp": {
+      "src": "/images/vault/trush-venice.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0984b0961dcfa4678e85276bc32be65aa1a2b078e2f3b96b7aab7cdf7bdc4fb9",
+      "outputSha256": "bbffc0517d042c56680d398f58c7bbbe1d58287d7bf1c5d585405def49c2c639"
+    },
+    "/images/thumbs/vault/vasylkivsky-peasant.webp": {
+      "src": "/images/vault/vasylkivsky-peasant.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "20b13cf022c0c8dc2ef93950da92cd473ebc9eab96b61b8b2502a74bdfbca465",
+      "outputSha256": "2b854c9c00dae76bdedc566ccf5b959b3ae45ef6b6b37bd7ad31c50bbac6a7c8"
+    },
+    "/images/thumbs/vault/vasylkivsky-sunset.webp": {
+      "src": "/images/vault/vasylkivsky-sunset.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4d91954606a1ae892036d4e7738d78857acbb21546d52b2d1785018ea7b818c2",
+      "outputSha256": "d946c33f010f005e99acd6f1bbdfa9ac846a226a7a1bc54a03f07b835718ea95"
+    },
+    "/images/thumbs/vault/vasylkivsky-zaporozhets.webp": {
+      "src": "/images/vault/vasylkivsky-zaporozhets.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "278c34e9183dc2348994b760129ae4d316e218b6bfe0a7b5859b212edcc9c3fb",
+      "outputSha256": "d036697c97030034f05446338f5bb4dcca1c459d9555ae21fd9632f5d791b5bb"
+    },
+    "/images/thumbs/vault/ivan-trush.webp": {
+      "src": "/images/vault/ivan-trush.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1f296f35d58e6fe64e39c481ae2896097e4ef9c6b4c42fd05548a973ce19077d",
+      "outputSha256": "d99e54479be1c8e25c2fb6e305a8155b58c02323785b597ae9fe8317558137b2"
+    },
+    "/images/thumbs/vault/kazimir-malevich.webp": {
+      "src": "/images/vault/kazimir-malevich.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "994f56e31715df4353c2145d041614255a314877114c82eacb1afae965fb03b8",
+      "outputSha256": "14ba04952e5b1086d247529856bb987409585d9b04b7da2926cf10b753b2fce1"
+    },
+    "/images/thumbs/vault/marie-bashkirtseff.webp": {
+      "src": "/images/vault/marie-bashkirtseff.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "44e8dd874c7064dbaba18ef50db280bd974504f07dd09fe7baec35b7f6199e22",
+      "outputSha256": "12ea12d19a986841bf0f41314f5563ffbebe4e22f429660241dd6ac2f3d41c1f"
+    },
+    "/images/thumbs/vault/mykola-pymonenko.webp": {
+      "src": "/images/vault/mykola-pymonenko.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "fb009872a65b205854c4630117c72177ce283863ebebb11e34ac9b314b8cf968",
+      "outputSha256": "b70072196a97e4d73bdfa70050fd4ff1def37767f6a664bcaee01f44626d9915"
+    },
+    "/images/thumbs/vault/serhii-vasylkivsky.webp": {
+      "src": "/images/vault/serhii-vasylkivsky.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e235b1c03c2d7eebddf098be116ffe9f35521ff6ac0c23f454ad012d702b2dbf",
+      "outputSha256": "80d1cc2d2d93df781b3dee76e613acb1b2e6d608c0db10a0a5db539fe12187d1"
+    },
+    "/images/plates/vault/bashkirtseff-meeting.webp": {
+      "src": "/images/vault/bashkirtseff-meeting.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "6dc3df8c48686fc288360a0fb53c4299c5ddefa3c45eae870bff49bebd3daba9",
+      "outputSha256": "0f6aa07c425cbdc64d3bfd72ba680176b14a3da3f07576c87df56da68ea5b6e7"
+    },
+    "/images/plates/vault/bashkirtseff-studio.webp": {
+      "src": "/images/vault/bashkirtseff-studio.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "62448f67f55833bb7f0ac96d414f5541c5f5c8f0dbf18527d6c7434cefbd1b47",
+      "outputSha256": "f94a80cb8f3a254ca2d9f66a3452306462ef46f10fffa426d1e8162341678c56"
+    },
+    "/images/plates/vault/bashkirtseff-umbrella.webp": {
+      "src": "/images/vault/bashkirtseff-umbrella.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d0213db1436e2566458f718d3b7eeac66b2c100fc7c1a6a310038d1b44d68203",
+      "outputSha256": "a7dc9ddb900cedfcc964a00b9d79bbefb1f863cd14881b1e050831b84e53501c"
+    },
+    "/images/plates/vault/boychuk-harvest.webp": {
+      "src": "/images/vault/boychuk-harvest.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b4e747b3bd9d379e9cc93d3b389146ba3c9d198e501ed6efe19ce57cb29096a9",
+      "outputSha256": "f1a34d91cd5f1481311c3a784f590ea26833bf09e4a77980fdd11e888425929a"
+    },
+    "/images/plates/vault/boychuk-saint-john.webp": {
+      "src": "/images/vault/boychuk-saint-john.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "cae3b178ba42e5ac7cea81a199d618eb44a9bbcee190d77873e5d79b6f735b79",
+      "outputSha256": "91c099d92bc937f14d4ca3d47023e51e691ca210c957ea5f1d6a8d7b5f71e3d7"
+    },
+    "/images/plates/vault/boychuk-ukrainian-woman.webp": {
+      "src": "/images/vault/boychuk-ukrainian-woman.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "17d82f429b01a5a5a971270515dc35362acb57725d460548d1af6fbacbe62daa",
+      "outputSha256": "058d79f9fb96c8208c6c87c8e8ae8ead52314ef5b59ceffc512449b0ed1c8b44"
+    },
+    "/images/plates/vault/kostandi-geese.webp": {
+      "src": "/images/vault/kostandi-geese.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "fe2de9a1471ca9c8f6daa7956fce61e7bd36ba6789b5c931007c9ba2c8623d05",
+      "outputSha256": "4388cc03e27b8d1db0f333a010dffe1b59469ba1e6ccad2cc7f10314b588cc8d"
+    },
+    "/images/plates/vault/kostandi-landscape.webp": {
+      "src": "/images/vault/kostandi-landscape.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ccd4a8c6c4ffe946378b1c2c2d6687e63799881c950ebe9aab4c89db16016846",
+      "outputSha256": "70a411fa70145ce61e23226ef644dfc6e8aa2385ee61dab3b25843c9576ca8b0"
+    },
+    "/images/plates/vault/kostandi-out-into-the-world.webp": {
+      "src": "/images/vault/kostandi-out-into-the-world.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "70c021f15914b1e548b8038238333ff0f074a81176e509dd6986397a60063c19",
+      "outputSha256": "aa2925a2ecdc0663db5c9afcc973bb046647add4f84305776164099a18274120"
+    },
+    "/images/plates/vault/malevich-knife-grinder.webp": {
+      "src": "/images/vault/malevich-knife-grinder.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "23e97305e6b6140b637e67f7cb057b3ec140e11ad395c78181f6b46daaf76c32",
+      "outputSha256": "2e294a2484267deebf622bab4d76e6eaa5e972d0d8fe259262ae31c6e8503f4f"
+    },
+    "/images/plates/vault/malevich-morning-village.webp": {
+      "src": "/images/vault/malevich-morning-village.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "5eb3413fd0b859284e72cf8b9117533994f8a41358b39bb5a6495e8b8946622b",
+      "outputSha256": "970a071815ddf94114f61ca00d4df7bc2efcc807e607ef24ae283642c51ff5d3"
+    },
+    "/images/plates/vault/malevich-sportsmen.webp": {
+      "src": "/images/vault/malevich-sportsmen.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9d328ba07c9af7e36f0a46304042e66a1a540ddfc13f6051715aa93a1ae4eb6c",
+      "outputSha256": "b240b6396c607148d4534b7298ccb6d9f1aa6c1ffc1d70b74c30f7998780f19a"
+    },
+    "/images/plates/vault/novakivskyi-after-rain.webp": {
+      "src": "/images/vault/novakivskyi-after-rain.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "26fb70b2ca0e4f04a0ea20eb301d24ab6d9dc55dc8a2f36d1f6e78ff4d8ec312",
+      "outputSha256": "5d79d344438fc4647a566b4e5323824dc807e80906bc67394a4c2a8d7c15eb64"
+    },
+    "/images/plates/vault/novakivskyi-levytskyi.webp": {
+      "src": "/images/vault/novakivskyi-levytskyi.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3455aeed976c8d32cdcf9118f6ba38177f597c93e77ddcb2d85191d48132f0c9",
+      "outputSha256": "7e1d0d234c50c383e38bc7063bba138c931ff8acf28dc25085ecc3b0fb4aba75"
+    },
+    "/images/plates/vault/padalka-the-word.webp": {
+      "src": "/images/vault/padalka-the-word.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0d31298439a7aa6f16b0fc53dce82d4b1324ab5378eb886709f4014dcf0596c3",
+      "outputSha256": "9078bbc9e7e6b354a10f0968ea10d629f502477ac5e6ed097f53d032b74ecbb9"
+    },
+    "/images/plates/vault/padalka-tomatoes.webp": {
+      "src": "/images/vault/padalka-tomatoes.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b47af5a4309fbf2d2f010e42d346de15e12e2293e18919d4e2b387dda60cd8f7",
+      "outputSha256": "3f547a7d3877d33be71821294d2749e1faa159d217f2d82202734e6409b6c4ae"
+    },
+    "/images/plates/vault/pymonenko-harvest.webp": {
+      "src": "/images/vault/pymonenko-harvest.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "5a2b76294ca5aa564894b94f4ebd5a5fdfcfb84ca9c6422894adfb3ac434e213",
+      "outputSha256": "194da234ca4d7a0e3c05873c54de4d4f5879a60b6d7be711d7cc1ee77486653e"
+    },
+    "/images/plates/vault/pymonenko-haymaking.webp": {
+      "src": "/images/vault/pymonenko-haymaking.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "69c724269a44421bae2e7d7a1fc2f1bca794666c61c86466f2f030a0ec24282a",
+      "outputSha256": "705f87888f22a574fd890d39c2b3ad0d97527c977d05cb4977753334cade1fdf"
+    },
+    "/images/plates/vault/pymonenko-victim.webp": {
+      "src": "/images/vault/pymonenko-victim.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "447730083d403770318770283cf833f852630a429b536d898c8252b4fa2ce892",
+      "outputSha256": "20ff18d5bfb44c1558007422bf2e05549bb6b58ffb09aa87064440b26bb9fb5c"
+    },
+    "/images/plates/vault/trush-little-pond.webp": {
+      "src": "/images/vault/trush-little-pond.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "249d82f98c1c913ecb0eb017766ebc4de004f40e735723ff138185030fff32a4",
+      "outputSha256": "46d2d995cb159234b9fa7e1194e4f74ef9fb131192901f418d4f9496a4619fab"
+    },
+    "/images/plates/vault/trush-venice.webp": {
+      "src": "/images/vault/trush-venice.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0984b0961dcfa4678e85276bc32be65aa1a2b078e2f3b96b7aab7cdf7bdc4fb9",
+      "outputSha256": "ec29a7ed308ebe7aff6886cb8f5c88e98514be00c82bbc5306258a9407936778"
+    },
+    "/images/plates/vault/vasylkivsky-peasant.webp": {
+      "src": "/images/vault/vasylkivsky-peasant.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "20b13cf022c0c8dc2ef93950da92cd473ebc9eab96b61b8b2502a74bdfbca465",
+      "outputSha256": "1421d6c778bb839d2e60ef77bf8b98bf8788ed78ee8735096b68c36429ecf7e7"
+    },
+    "/images/plates/vault/vasylkivsky-sunset.webp": {
+      "src": "/images/vault/vasylkivsky-sunset.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4d91954606a1ae892036d4e7738d78857acbb21546d52b2d1785018ea7b818c2",
+      "outputSha256": "e6e608b600686762d15cb526e8d92ec042c647d39f7563f8fe16e4fd0c2e4126"
+    },
+    "/images/plates/vault/vasylkivsky-zaporozhets.webp": {
+      "src": "/images/vault/vasylkivsky-zaporozhets.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "278c34e9183dc2348994b760129ae4d316e218b6bfe0a7b5859b212edcc9c3fb",
+      "outputSha256": "31a1f1d816c20ac507194ab67c2f4dea192a8663ca36cae489e67a1eeb2b41d7"
+    },
+    "/images/plates/vault/ivan-trush.webp": {
+      "src": "/images/vault/ivan-trush.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1f296f35d58e6fe64e39c481ae2896097e4ef9c6b4c42fd05548a973ce19077d",
+      "outputSha256": "83e2d71bec136dc3ac97994d22b85de6b304aeecc9d36f616c37cdbed8ae016f"
+    },
+    "/images/plates/vault/kazimir-malevich.webp": {
+      "src": "/images/vault/kazimir-malevich.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "994f56e31715df4353c2145d041614255a314877114c82eacb1afae965fb03b8",
+      "outputSha256": "c278dd42c19d067289fe9e64a7b3e5844cf5de81f72047a9e2a492a64b742094"
+    },
+    "/images/plates/vault/marie-bashkirtseff.webp": {
+      "src": "/images/vault/marie-bashkirtseff.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "44e8dd874c7064dbaba18ef50db280bd974504f07dd09fe7baec35b7f6199e22",
+      "outputSha256": "838cc12164385fa49a4e0745e4c5defe106c339da08859e5680bc5773a744ca6"
+    },
+    "/images/plates/vault/mykola-pymonenko.webp": {
+      "src": "/images/vault/mykola-pymonenko.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "fb009872a65b205854c4630117c72177ce283863ebebb11e34ac9b314b8cf968",
+      "outputSha256": "07c21703880c18958a985d4eb0f9d4557fd5d1e742b8c1cfc78da5caf026d4b5"
+    },
+    "/images/plates/vault/serhii-vasylkivsky.webp": {
+      "src": "/images/vault/serhii-vasylkivsky.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e235b1c03c2d7eebddf098be116ffe9f35521ff6ac0c23f454ad012d702b2dbf",
+      "outputSha256": "504398814240368783e80e9c479aaf457ca0aacbf6d8179008293bb7404ae3b2"
     }
   }
 }
