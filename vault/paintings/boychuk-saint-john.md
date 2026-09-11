@@ -13,4 +13,4 @@ added: 2026-09-11
 
 who: [[Mykhailo Boychuk]]
 
-mosaic. commons dates it 1910. public domain.
+surviving mosaic, 1910, private collection. public domain. not a reconstruction of a destroyed wall.

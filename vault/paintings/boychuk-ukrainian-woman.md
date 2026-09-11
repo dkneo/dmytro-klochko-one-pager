@@ -13,4 +13,4 @@ added: 2026-09-11
 
 who: [[Mykhailo Boychuk]]
 
-українка. public domain. gilt frame cropped.
+українка, surviving easel work. public domain. gilt frame cropped. not a rebuilt fresco.

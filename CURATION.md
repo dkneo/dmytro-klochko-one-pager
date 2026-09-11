@@ -111,8 +111,11 @@ Agnes Martin, Hilma af Klint, Hammershøi, Kawase Hasui, Morandi, Bonnard.
   foundation, our own copy served from our own origin, and never hotlinking.
   A takedown then arrives as an email rather than a letter.
 - **The Ukrainian room** is people notes first. Dead painters with a
-  commons-clean file hang; Boychuk is thin because the frescoes were
-  destroyed. Living and estate-held names (Silvashi, Khomenko, Kadan,
+  commons-clean file hang. Boychuk and Padalka are thin because the
+  frescoes were scraped: that absence is the record, not a licence to
+  hang reconstructions. Troubina is Paris Commune / Holosiy, not
+  Silvashi. Malevich is here for the kyiv years, not as a nationality
+  claim. Living and estate-held names (Silvashi, Khomenko, Kadan,
   Prymachenko, Bilokur, and the rest of that generation) are doors, not
   plates. No contemporary canvas is hosted.
 
