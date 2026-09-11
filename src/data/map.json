@@ -125,6 +125,57 @@
    "unplaced": false
   },
   {
+   "id": "bashkirtseff-meeting",
+   "type": "painting",
+   "who": "Marie Bashkirtseff",
+   "title": "The Meeting",
+   "line": "The Meeting",
+   "year": "1884",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/bashkirtseff-meeting.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0,
+   "y": -1.06,
+   "unplaced": true
+  },
+  {
+   "id": "bashkirtseff-studio",
+   "type": "painting",
+   "who": "Marie Bashkirtseff",
+   "title": "In the Studio",
+   "line": "In the Studio",
+   "year": "1881",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/bashkirtseff-studio.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.0202,
+   "y": -1.0598,
+   "unplaced": true
+  },
+  {
+   "id": "bashkirtseff-umbrella",
+   "type": "painting",
+   "who": "Marie Bashkirtseff",
+   "title": "The Umbrella",
+   "line": "The Umbrella",
+   "year": "1883",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/bashkirtseff-umbrella.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.0405,
+   "y": -1.0592,
+   "unplaced": true
+  },
+  {
    "id": "blanchard-bracelet",
    "type": "painting",
    "who": "María Blanchard",
@@ -137,8 +188,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0,
-   "y": -1.06,
+   "x": 0.0607,
+   "y": -1.0583,
    "unplaced": true
   },
   {
@@ -154,8 +205,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.024,
-   "y": -1.0597,
+   "x": 0.0809,
+   "y": -1.0569,
    "unplaced": true
   },
   {
@@ -171,8 +222,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0479,
-   "y": -1.0589,
+   "x": 0.1011,
+   "y": -1.0552,
    "unplaced": true
   },
   {
@@ -188,8 +239,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.0718,
-   "y": -1.0576,
+   "x": 0.1212,
+   "y": -1.053,
    "unplaced": true
   },
   {
@@ -205,8 +256,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0957,
-   "y": -1.0557,
+   "x": 0.1413,
+   "y": -1.0505,
    "unplaced": true
   },
   {
@@ -222,8 +273,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1195,
-   "y": -1.0532,
+   "x": 0.1613,
+   "y": -1.0477,
    "unplaced": true
   },
   {
@@ -239,8 +290,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1433,
-   "y": -1.0503,
+   "x": 0.1813,
+   "y": -1.0444,
    "unplaced": true
   },
   {
@@ -256,8 +307,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.167,
-   "y": -1.0468,
+   "x": 0.2012,
+   "y": -1.0407,
    "unplaced": true
   },
   {
@@ -273,8 +324,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1906,
-   "y": -1.0427,
+   "x": 0.221,
+   "y": -1.0367,
    "unplaced": true
   },
   {
@@ -290,8 +341,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2141,
-   "y": -1.0381,
+   "x": 0.2408,
+   "y": -1.0323,
    "unplaced": true
   },
   {
@@ -307,8 +358,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.2375,
-   "y": -1.033,
+   "x": 0.2605,
+   "y": -1.0275,
    "unplaced": true
   },
   {
@@ -332,6 +383,57 @@
    "unplaced": false
   },
   {
+   "id": "boychuk-harvest",
+   "type": "painting",
+   "who": "Mykhailo Boychuk",
+   "title": "Harvest",
+   "line": "Harvest",
+   "year": "1910",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/boychuk-harvest.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.28,
+   "y": -1.0223,
+   "unplaced": true
+  },
+  {
+   "id": "boychuk-saint-john",
+   "type": "painting",
+   "who": "Mykhailo Boychuk",
+   "title": "Saint John",
+   "line": "Saint John",
+   "year": "1910",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/boychuk-saint-john.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.2995,
+   "y": -1.0168,
+   "unplaced": true
+  },
+  {
+   "id": "boychuk-ukrainian-woman",
+   "type": "painting",
+   "who": "Mykhailo Boychuk",
+   "title": "Ukrainian Woman",
+   "line": "Ukrainian Woman",
+   "year": "1910s",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/boychuk-ukrainian-woman.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.3189,
+   "y": -1.0109,
+   "unplaced": true
+  },
+  {
    "id": "boznanska-chrysanthemums",
    "type": "painting",
    "who": "Olga Boznańska",
@@ -344,8 +446,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2608,
-   "y": -1.0274,
+   "x": 0.3381,
+   "y": -1.0046,
    "unplaced": true
   },
   {
@@ -361,8 +463,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.284,
-   "y": -1.0213,
+   "x": 0.3573,
+   "y": -0.998,
    "unplaced": true
   },
   {
@@ -378,8 +480,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.307,
-   "y": -1.0146,
+   "x": 0.3762,
+   "y": -0.991,
    "unplaced": true
   },
   {
@@ -395,8 +497,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3298,
-   "y": -1.0074,
+   "x": 0.3951,
+   "y": -0.9836,
    "unplaced": true
   },
   {
@@ -412,8 +514,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3525,
-   "y": -0.9997,
+   "x": 0.4138,
+   "y": -0.9759,
    "unplaced": true
   },
   {
@@ -429,8 +531,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.375,
-   "y": -0.9914,
+   "x": 0.4324,
+   "y": -0.9678,
    "unplaced": true
   },
   {
@@ -468,8 +570,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3973,
-   "y": -0.9827,
+   "x": 0.4508,
+   "y": -0.9594,
    "unplaced": true
   },
   {
@@ -485,8 +587,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4194,
-   "y": -0.9735,
+   "x": 0.469,
+   "y": -0.9506,
    "unplaced": true
   },
   {
@@ -502,8 +604,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4413,
-   "y": -0.9638,
+   "x": 0.4871,
+   "y": -0.9415,
    "unplaced": true
   },
   {
@@ -565,8 +667,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.463,
-   "y": -0.9535,
+   "x": 0.505,
+   "y": -0.932,
    "unplaced": true
   },
   {
@@ -599,8 +701,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4844,
-   "y": -0.9428,
+   "x": 0.5227,
+   "y": -0.9222,
    "unplaced": true
   },
   {
@@ -616,8 +718,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5056,
-   "y": -0.9316,
+   "x": 0.5402,
+   "y": -0.912,
    "unplaced": true
   },
   {
@@ -633,8 +735,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5265,
-   "y": -0.92,
+   "x": 0.5575,
+   "y": -0.9015,
    "unplaced": true
   },
   {
@@ -650,8 +752,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5472,
-   "y": -0.9078,
+   "x": 0.5746,
+   "y": -0.8907,
    "unplaced": true
   },
   {
@@ -689,8 +791,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.5676,
-   "y": -0.8952,
+   "x": 0.5915,
+   "y": -0.8796,
    "unplaced": true
   },
   {
@@ -760,8 +862,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5877,
-   "y": -0.8822,
+   "x": 0.6082,
+   "y": -0.8681,
    "unplaced": true
   },
   {
@@ -777,8 +879,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6074,
-   "y": -0.8687,
+   "x": 0.6247,
+   "y": -0.8564,
    "unplaced": true
   },
   {
@@ -794,8 +896,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6269,
-   "y": -0.8547,
+   "x": 0.6409,
+   "y": -0.8443,
    "unplaced": true
   },
   {
@@ -811,8 +913,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6461,
-   "y": -0.8403,
+   "x": 0.6569,
+   "y": -0.8319,
    "unplaced": true
   },
   {
@@ -828,8 +930,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6649,
-   "y": -0.8255,
+   "x": 0.6727,
+   "y": -0.8192,
    "unplaced": true
   },
   {
@@ -845,8 +947,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.6834,
-   "y": -0.8103,
+   "x": 0.6882,
+   "y": -0.8062,
    "unplaced": true
   },
   {
@@ -862,8 +964,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7015,
-   "y": -0.7946,
+   "x": 0.7035,
+   "y": -0.7929,
    "unplaced": true
   },
   {
@@ -879,8 +981,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7193,
-   "y": -0.7786,
+   "x": 0.7185,
+   "y": -0.7793,
    "unplaced": true
   },
   {
@@ -896,8 +998,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7367,
-   "y": -0.7621,
+   "x": 0.7333,
+   "y": -0.7655,
    "unplaced": true
   },
   {
@@ -913,8 +1015,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7538,
-   "y": -0.7453,
+   "x": 0.7477,
+   "y": -0.7513,
    "unplaced": true
   },
   {
@@ -930,8 +1032,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7704,
-   "y": -0.7281,
+   "x": 0.762,
+   "y": -0.7369,
    "unplaced": true
   },
   {
@@ -947,8 +1049,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7867,
-   "y": -0.7105,
+   "x": 0.7759,
+   "y": -0.7222,
    "unplaced": true
   },
   {
@@ -964,8 +1066,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8025,
-   "y": -0.6925,
+   "x": 0.7895,
+   "y": -0.7073,
    "unplaced": true
   },
   {
@@ -981,8 +1083,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.818,
-   "y": -0.6742,
+   "x": 0.8029,
+   "y": -0.6921,
    "unplaced": true
   },
   {
@@ -998,8 +1100,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.833,
-   "y": -0.6555,
+   "x": 0.816,
+   "y": -0.6766,
    "unplaced": true
   },
   {
@@ -1015,8 +1117,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8476,
-   "y": -0.6365,
+   "x": 0.8287,
+   "y": -0.6609,
    "unplaced": true
   },
   {
@@ -1032,8 +1134,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8618,
-   "y": -0.6172,
+   "x": 0.8412,
+   "y": -0.645,
    "unplaced": true
   },
   {
@@ -1171,8 +1273,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.8755,
-   "y": -0.5976,
+   "x": 0.8534,
+   "y": -0.6288,
    "unplaced": true
   },
   {
@@ -1280,8 +1382,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8888,
-   "y": -0.5777,
+   "x": 0.8652,
+   "y": -0.6124,
    "unplaced": true
   },
   {
@@ -1297,8 +1399,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9016,
-   "y": -0.5574,
+   "x": 0.8768,
+   "y": -0.5957,
    "unplaced": true
   },
   {
@@ -1314,8 +1416,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.914,
-   "y": -0.5369,
+   "x": 0.888,
+   "y": -0.5789,
    "unplaced": true
   },
   {
@@ -1331,8 +1433,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9259,
-   "y": -0.5161,
+   "x": 0.8989,
+   "y": -0.5618,
    "unplaced": true
   },
   {
@@ -1348,8 +1450,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9373,
-   "y": -0.4951,
+   "x": 0.9094,
+   "y": -0.5445,
    "unplaced": true
   },
   {
@@ -1365,8 +1467,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9482,
-   "y": -0.4737,
+   "x": 0.9197,
+   "y": -0.5271,
    "unplaced": true
   },
   {
@@ -1382,8 +1484,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9587,
-   "y": -0.4522,
+   "x": 0.9296,
+   "y": -0.5094,
    "unplaced": true
   },
   {
@@ -1399,8 +1501,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9687,
-   "y": -0.4304,
+   "x": 0.9391,
+   "y": -0.4916,
    "unplaced": true
   },
   {
@@ -1416,8 +1518,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9782,
-   "y": -0.4084,
+   "x": 0.9483,
+   "y": -0.4735,
    "unplaced": true
   },
   {
@@ -1433,8 +1535,59 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9871,
-   "y": -0.3862,
+   "x": 0.9572,
+   "y": -0.4554,
+   "unplaced": true
+  },
+  {
+   "id": "kostandi-geese",
+   "type": "painting",
+   "who": "Kyriak Kostandi",
+   "title": "Geese",
+   "line": "Geese",
+   "year": "1913",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kostandi-geese.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.9657,
+   "y": -0.437,
+   "unplaced": true
+  },
+  {
+   "id": "kostandi-landscape",
+   "type": "painting",
+   "who": "Kyriak Kostandi",
+   "title": "Landscape",
+   "line": "Landscape",
+   "year": "1897",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kostandi-landscape.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.9739,
+   "y": -0.4185,
+   "unplaced": true
+  },
+  {
+   "id": "kostandi-out-into-the-world",
+   "type": "painting",
+   "who": "Kyriak Kostandi",
+   "title": "Out into the World",
+   "line": "Out into the World",
+   "year": "1885",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kostandi-out-into-the-world.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.9817,
+   "y": -0.3998,
    "unplaced": true
   },
   {
@@ -1450,8 +1603,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9956,
-   "y": -0.3638,
+   "x": 0.9892,
+   "y": -0.381,
    "unplaced": true
   },
   {
@@ -1467,8 +1620,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0036,
-   "y": -0.3412,
+   "x": 0.9963,
+   "y": -0.362,
    "unplaced": true
   },
   {
@@ -1484,8 +1637,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.011,
-   "y": -0.3184,
+   "x": 1.003,
+   "y": -0.3429,
    "unplaced": true
   },
   {
@@ -1501,8 +1654,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.018,
-   "y": -0.2955,
+   "x": 1.0094,
+   "y": -0.3237,
    "unplaced": true
   },
   {
@@ -1518,8 +1671,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0244,
-   "y": -0.2724,
+   "x": 1.0154,
+   "y": -0.3044,
    "unplaced": true
   },
   {
@@ -1535,8 +1688,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0303,
-   "y": -0.2492,
+   "x": 1.021,
+   "y": -0.2849,
    "unplaced": true
   },
   {
@@ -1638,8 +1791,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0357,
-   "y": -0.2259,
+   "x": 1.0262,
+   "y": -0.2654,
    "unplaced": true
   },
   {
@@ -1655,8 +1808,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0405,
-   "y": -0.2024,
+   "x": 1.0311,
+   "y": -0.2457,
    "unplaced": true
   },
   {
@@ -1672,8 +1825,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0448,
-   "y": -0.1788,
+   "x": 1.0356,
+   "y": -0.226,
    "unplaced": true
   },
   {
@@ -1689,8 +1842,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0486,
-   "y": -0.1552,
+   "x": 1.0398,
+   "y": -0.2062,
    "unplaced": true
   },
   {
@@ -1706,8 +1859,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0518,
-   "y": -0.1314,
+   "x": 1.0435,
+   "y": -0.1863,
    "unplaced": true
   },
   {
@@ -1723,8 +1876,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0545,
-   "y": -0.1076,
+   "x": 1.0469,
+   "y": -0.1663,
    "unplaced": true
   },
   {
@@ -1740,8 +1893,59 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0567,
-   "y": -0.0838,
+   "x": 1.0499,
+   "y": -0.1463,
+   "unplaced": true
+  },
+  {
+   "id": "malevich-knife-grinder",
+   "type": "painting",
+   "who": "Kazimir Malevich",
+   "title": "The Knife Grinder (Principle of Glittering)",
+   "line": "The Knife Grinder (Principle of Glittering)",
+   "year": "1913",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/malevich-knife-grinder.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 1.0525,
+   "y": -0.1262,
+   "unplaced": true
+  },
+  {
+   "id": "malevich-morning-village",
+   "type": "painting",
+   "who": "Kazimir Malevich",
+   "title": "Morning in the Village after Snowstorm",
+   "line": "Morning in the Village after Snowstorm",
+   "year": "1912",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/malevich-morning-village.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 1.0547,
+   "y": -0.1061,
+   "unplaced": true
+  },
+  {
+   "id": "malevich-sportsmen",
+   "type": "painting",
+   "who": "Kazimir Malevich",
+   "title": "Sportsmen",
+   "line": "Sportsmen",
+   "year": "1928–30",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/malevich-sportsmen.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 1.0565,
+   "y": -0.0859,
    "unplaced": true
   },
   {
@@ -1774,8 +1978,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0583,
-   "y": -0.0599,
+   "x": 1.058,
+   "y": -0.0657,
    "unplaced": true
   },
   {
@@ -1791,8 +1995,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0594,
-   "y": -0.0359,
+   "x": 1.059,
+   "y": -0.0455,
    "unplaced": true
   },
   {
@@ -1808,8 +2012,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 1.0599,
-   "y": -0.012,
+   "x": 1.0597,
+   "y": -0.0253,
    "unplaced": true
   },
   {
@@ -1825,8 +2029,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0599,
-   "y": 0.012,
+   "x": 1.06,
+   "y": -0.0051,
    "unplaced": true
   },
   {
@@ -1842,8 +2046,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0594,
-   "y": 0.0359,
+   "x": 1.0599,
+   "y": 0.0152,
    "unplaced": true
   },
   {
@@ -1859,8 +2063,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0583,
-   "y": 0.0599,
+   "x": 1.0594,
+   "y": 0.0354,
    "unplaced": true
   },
   {
@@ -1876,8 +2080,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0567,
-   "y": 0.0838,
+   "x": 1.0585,
+   "y": 0.0556,
    "unplaced": true
   },
   {
@@ -1930,8 +2134,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0545,
-   "y": 0.1076,
+   "x": 1.0573,
+   "y": 0.0758,
    "unplaced": true
   },
   {
@@ -1947,8 +2151,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0518,
-   "y": 0.1314,
+   "x": 1.0556,
+   "y": 0.096,
    "unplaced": true
   },
   {
@@ -1964,8 +2168,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0486,
-   "y": 0.1552,
+   "x": 1.0536,
+   "y": 0.1162,
    "unplaced": true
   },
   {
@@ -1981,8 +2185,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0448,
-   "y": 0.1788,
+   "x": 1.0512,
+   "y": 0.1363,
    "unplaced": true
   },
   {
@@ -2037,8 +2241,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0405,
-   "y": 0.2024,
+   "x": 1.0484,
+   "y": 0.1563,
    "unplaced": true
   },
   {
@@ -2054,8 +2258,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0357,
-   "y": 0.2259,
+   "x": 1.0452,
+   "y": 0.1763,
    "unplaced": true
   },
   {
@@ -2071,8 +2275,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0303,
-   "y": 0.2492,
+   "x": 1.0417,
+   "y": 0.1962,
    "unplaced": true
   },
   {
@@ -2088,8 +2292,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0244,
-   "y": 0.2724,
+   "x": 1.0377,
+   "y": 0.2161,
    "unplaced": true
   },
   {
@@ -2135,6 +2339,40 @@
    "unplaced": false
   },
   {
+   "id": "novakivskyi-after-rain",
+   "type": "painting",
+   "who": "Oleksa Novakivskyi",
+   "title": "Sunset after Rain",
+   "line": "Sunset after Rain",
+   "year": "1911",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/novakivskyi-after-rain.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 1.0334,
+   "y": 0.2359,
+   "unplaced": true
+  },
+  {
+   "id": "novakivskyi-levytskyi",
+   "type": "painting",
+   "who": "Oleksa Novakivskyi",
+   "title": "Portrait of Dmytro Levytskyi",
+   "line": "Portrait of Dmytro Levytskyi",
+   "year": "1933",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/novakivskyi-levytskyi.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 1.0287,
+   "y": 0.2556,
+   "unplaced": true
+  },
+  {
    "id": "orchard",
    "type": "painting",
    "who": "Charles Jacque",
@@ -2155,6 +2393,40 @@
    "x": 0.8148,
    "y": 0.4764,
    "unplaced": false
+  },
+  {
+   "id": "padalka-the-word",
+   "type": "painting",
+   "who": "Ivan Padalka",
+   "title": "The Tale of Igor's Campaign",
+   "line": "The Tale of Igor's Campaign",
+   "year": "1928",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/padalka-the-word.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 1.0237,
+   "y": 0.2752,
+   "unplaced": true
+  },
+  {
+   "id": "padalka-tomatoes",
+   "type": "painting",
+   "who": "Ivan Padalka",
+   "title": "Gathering Tomatoes",
+   "line": "Gathering Tomatoes",
+   "year": "1932",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/padalka-tomatoes.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 1.0182,
+   "y": 0.2947,
+   "unplaced": true
   },
   {
    "id": "paris-nocturne-the-singer",
@@ -2189,8 +2461,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.018,
-   "y": 0.2955,
+   "x": 1.0124,
+   "y": 0.3141,
    "unplaced": true
   },
   {
@@ -2206,8 +2478,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.011,
-   "y": 0.3184,
+   "x": 1.0062,
+   "y": 0.3333,
    "unplaced": true
   },
   {
@@ -2223,8 +2495,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 1.0036,
-   "y": 0.3412,
+   "x": 0.9997,
+   "y": 0.3525,
    "unplaced": true
   },
   {
@@ -2240,8 +2512,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9956,
-   "y": 0.3638,
+   "x": 0.9928,
+   "y": 0.3715,
    "unplaced": true
   },
   {
@@ -2257,8 +2529,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9871,
-   "y": 0.3862,
+   "x": 0.9855,
+   "y": 0.3904,
    "unplaced": true
   },
   {
@@ -2274,8 +2546,59 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.9782,
-   "y": 0.4084,
+   "x": 0.9779,
+   "y": 0.4091,
+   "unplaced": true
+  },
+  {
+   "id": "pymonenko-harvest",
+   "type": "painting",
+   "who": "Mykola Pymonenko",
+   "title": "Harvest in Ukraine",
+   "line": "Harvest in Ukraine",
+   "year": "1896",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/pymonenko-harvest.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.9699,
+   "y": 0.4277,
+   "unplaced": true
+  },
+  {
+   "id": "pymonenko-haymaking",
+   "type": "painting",
+   "who": "Mykola Pymonenko",
+   "title": "Haymaking",
+   "line": "Haymaking",
+   "year": "c. 1900",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/pymonenko-haymaking.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.9615,
+   "y": 0.4462,
+   "unplaced": true
+  },
+  {
+   "id": "pymonenko-victim",
+   "type": "painting",
+   "who": "Mykola Pymonenko",
+   "title": "Victim of Fanaticism",
+   "line": "Victim of Fanaticism",
+   "year": "1899",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/pymonenko-victim.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.9528,
+   "y": 0.4645,
    "unplaced": true
   },
   {
@@ -2328,8 +2651,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.9687,
-   "y": 0.4304,
+   "x": 0.9438,
+   "y": 0.4826,
    "unplaced": true
   },
   {
@@ -2345,8 +2668,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9587,
-   "y": 0.4522,
+   "x": 0.9344,
+   "y": 0.5005,
    "unplaced": true
   },
   {
@@ -2362,8 +2685,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9482,
-   "y": 0.4737,
+   "x": 0.9247,
+   "y": 0.5183,
    "unplaced": true
   },
   {
@@ -2379,8 +2702,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9373,
-   "y": 0.4951,
+   "x": 0.9146,
+   "y": 0.5358,
    "unplaced": true
   },
   {
@@ -2396,8 +2719,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9259,
-   "y": 0.5161,
+   "x": 0.9042,
+   "y": 0.5532,
    "unplaced": true
   },
   {
@@ -2413,8 +2736,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.914,
-   "y": 0.5369,
+   "x": 0.8935,
+   "y": 0.5704,
    "unplaced": true
   },
   {
@@ -2430,8 +2753,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.9016,
-   "y": 0.5574,
+   "x": 0.8824,
+   "y": 0.5873,
    "unplaced": true
   },
   {
@@ -2506,8 +2829,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8888,
-   "y": 0.5777,
+   "x": 0.871,
+   "y": 0.6041,
    "unplaced": true
   },
   {
@@ -2523,8 +2846,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8755,
-   "y": 0.5976,
+   "x": 0.8593,
+   "y": 0.6206,
    "unplaced": true
   },
   {
@@ -2540,8 +2863,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8618,
-   "y": 0.6172,
+   "x": 0.8473,
+   "y": 0.6369,
    "unplaced": true
   },
   {
@@ -2557,8 +2880,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8476,
-   "y": 0.6365,
+   "x": 0.835,
+   "y": 0.653,
    "unplaced": true
   },
   {
@@ -2574,8 +2897,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.833,
-   "y": 0.6555,
+   "x": 0.8224,
+   "y": 0.6688,
    "unplaced": true
   },
   {
@@ -2591,8 +2914,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.818,
-   "y": 0.6742,
+   "x": 0.8095,
+   "y": 0.6844,
    "unplaced": true
   },
   {
@@ -2628,8 +2951,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.8025,
-   "y": 0.6925,
+   "x": 0.7963,
+   "y": 0.6997,
    "unplaced": true
   },
   {
@@ -2645,8 +2968,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7867,
-   "y": 0.7105,
+   "x": 0.7827,
+   "y": 0.7148,
    "unplaced": true
   },
   {
@@ -2662,8 +2985,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7704,
-   "y": 0.7281,
+   "x": 0.769,
+   "y": 0.7296,
    "unplaced": true
   },
   {
@@ -2679,8 +3002,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7538,
-   "y": 0.7453,
+   "x": 0.7549,
+   "y": 0.7441,
    "unplaced": true
   },
   {
@@ -2718,8 +3041,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7367,
-   "y": 0.7621,
+   "x": 0.7405,
+   "y": 0.7584,
    "unplaced": true
   },
   {
@@ -2735,8 +3058,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7193,
-   "y": 0.7786,
+   "x": 0.7259,
+   "y": 0.7724,
    "unplaced": true
   },
   {
@@ -2752,8 +3075,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.7015,
-   "y": 0.7946,
+   "x": 0.711,
+   "y": 0.7862,
    "unplaced": true
   },
   {
@@ -2769,8 +3092,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6834,
-   "y": 0.8103,
+   "x": 0.6959,
+   "y": 0.7996,
    "unplaced": true
   },
   {
@@ -2786,8 +3109,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6649,
-   "y": 0.8255,
+   "x": 0.6805,
+   "y": 0.8127,
    "unplaced": true
   },
   {
@@ -2803,8 +3126,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6461,
-   "y": 0.8403,
+   "x": 0.6648,
+   "y": 0.8256,
    "unplaced": true
   },
   {
@@ -2820,8 +3143,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6269,
-   "y": 0.8547,
+   "x": 0.649,
+   "y": 0.8381,
    "unplaced": true
   },
   {
@@ -2837,8 +3160,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.6074,
-   "y": 0.8687,
+   "x": 0.6328,
+   "y": 0.8504,
    "unplaced": true
   },
   {
@@ -2854,8 +3177,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5877,
-   "y": 0.8822,
+   "x": 0.6165,
+   "y": 0.8623,
    "unplaced": true
   },
   {
@@ -2871,8 +3194,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5676,
-   "y": 0.8952,
+   "x": 0.5999,
+   "y": 0.8739,
    "unplaced": true
   },
   {
@@ -2888,8 +3211,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5472,
-   "y": 0.9078,
+   "x": 0.5831,
+   "y": 0.8852,
    "unplaced": true
   },
   {
@@ -2905,8 +3228,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.5265,
-   "y": 0.92,
+   "x": 0.5661,
+   "y": 0.8962,
    "unplaced": true
   },
   {
@@ -2922,8 +3245,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.5056,
-   "y": 0.9316,
+   "x": 0.5489,
+   "y": 0.9068,
    "unplaced": true
   },
   {
@@ -2961,8 +3284,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.4844,
-   "y": 0.9428,
+   "x": 0.5315,
+   "y": 0.9171,
    "unplaced": true
   },
   {
@@ -3056,8 +3379,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.463,
-   "y": 0.9535,
+   "x": 0.5138,
+   "y": 0.9271,
    "unplaced": true
   },
   {
@@ -3073,8 +3396,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4413,
-   "y": 0.9638,
+   "x": 0.4961,
+   "y": 0.9368,
    "unplaced": true
   },
   {
@@ -3090,8 +3413,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.4194,
-   "y": 0.9735,
+   "x": 0.4781,
+   "y": 0.9461,
    "unplaced": true
   },
   {
@@ -3107,8 +3430,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3973,
-   "y": 0.9827,
+   "x": 0.4599,
+   "y": 0.955,
    "unplaced": true
   },
   {
@@ -3290,8 +3613,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.375,
-   "y": 0.9914,
+   "x": 0.4416,
+   "y": 0.9636,
    "unplaced": true
   },
   {
@@ -3307,8 +3630,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3525,
-   "y": 0.9997,
+   "x": 0.4231,
+   "y": 0.9719,
    "unplaced": true
   },
   {
@@ -3324,8 +3647,42 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.3298,
-   "y": 1.0074,
+   "x": 0.4045,
+   "y": 0.9798,
+   "unplaced": true
+  },
+  {
+   "id": "trush-little-pond",
+   "type": "painting",
+   "who": "Ivan Trush",
+   "title": "Little Pond",
+   "line": "Little Pond",
+   "year": "c. 1900",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/trush-little-pond.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.3857,
+   "y": 0.9873,
+   "unplaced": true
+  },
+  {
+   "id": "trush-venice",
+   "type": "painting",
+   "who": "Ivan Trush",
+   "title": "Venice (San Giorgio Maggiore)",
+   "line": "Venice (San Giorgio Maggiore)",
+   "year": "1908",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/trush-venice.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.3668,
+   "y": 0.9945,
    "unplaced": true
   },
   {
@@ -3358,8 +3715,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.307,
-   "y": 1.0146,
+   "x": 0.3477,
+   "y": 1.0013,
    "unplaced": true
   },
   {
@@ -3375,8 +3732,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.284,
-   "y": 1.0213,
+   "x": 0.3285,
+   "y": 1.0078,
    "unplaced": true
   },
   {
@@ -3392,8 +3749,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2608,
-   "y": 1.0274,
+   "x": 0.3092,
+   "y": 1.0139,
    "unplaced": true
   },
   {
@@ -3409,8 +3766,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2375,
-   "y": 1.033,
+   "x": 0.2898,
+   "y": 1.0196,
    "unplaced": true
   },
   {
@@ -3426,8 +3783,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.2141,
-   "y": 1.0381,
+   "x": 0.2703,
+   "y": 1.025,
    "unplaced": true
   },
   {
@@ -3443,8 +3800,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1906,
-   "y": 1.0427,
+   "x": 0.2506,
+   "y": 1.0299,
    "unplaced": true
   },
   {
@@ -3460,8 +3817,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.167,
-   "y": 1.0468,
+   "x": 0.2309,
+   "y": 1.0345,
    "unplaced": true
   },
   {
@@ -3477,8 +3834,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1433,
-   "y": 1.0503,
+   "x": 0.2111,
+   "y": 1.0388,
    "unplaced": true
   },
   {
@@ -3494,8 +3851,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.1195,
-   "y": 1.0532,
+   "x": 0.1913,
+   "y": 1.0426,
    "unplaced": true
   },
   {
@@ -3511,8 +3868,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0957,
-   "y": 1.0557,
+   "x": 0.1713,
+   "y": 1.0461,
    "unplaced": true
   },
   {
@@ -3528,8 +3885,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.0718,
-   "y": 1.0576,
+   "x": 0.1513,
+   "y": 1.0491,
    "unplaced": true
   },
   {
@@ -3545,8 +3902,59 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": 0.0479,
-   "y": 1.0589,
+   "x": 0.1312,
+   "y": 1.0518,
+   "unplaced": true
+  },
+  {
+   "id": "vasylkivsky-peasant",
+   "type": "painting",
+   "who": "Serhii Vasylkivsky",
+   "title": "Ukrainian Peasant",
+   "line": "Ukrainian Peasant",
+   "year": "before 1917",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vasylkivsky-peasant.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.1111,
+   "y": 1.0542,
+   "unplaced": true
+  },
+  {
+   "id": "vasylkivsky-sunset",
+   "type": "painting",
+   "who": "Serhii Vasylkivsky",
+   "title": "Sunset over the Lake",
+   "line": "Sunset over the Lake",
+   "year": "c. 1900",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vasylkivsky-sunset.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.091,
+   "y": 1.0561,
+   "unplaced": true
+  },
+  {
+   "id": "vasylkivsky-zaporozhets",
+   "type": "painting",
+   "who": "Serhii Vasylkivsky",
+   "title": "Zaporozhian",
+   "line": "Zaporozhian",
+   "year": "c. 1890",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/vasylkivsky-zaporozhets.webp",
+   "url": "",
+   "note": "",
+   "added": "2026-09-11",
+   "x": 0.0708,
+   "y": 1.0576,
    "unplaced": true
   },
   {
@@ -3602,8 +4010,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0.024,
-   "y": 1.0597,
+   "x": 0.0506,
+   "y": 1.0588,
    "unplaced": true
   },
   {
@@ -3619,8 +4027,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": 0,
-   "y": 1.06,
+   "x": 0.0304,
+   "y": 1.0596,
    "unplaced": true
   },
   {
@@ -3636,8 +4044,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.024,
-   "y": 1.0597,
+   "x": 0.0101,
+   "y": 1.06,
    "unplaced": true
   },
   {
@@ -3653,8 +4061,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.0479,
-   "y": 1.0589,
+   "x": -0.0101,
+   "y": 1.06,
    "unplaced": true
   },
   {
@@ -3670,8 +4078,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.0718,
-   "y": 1.0576,
+   "x": -0.0304,
+   "y": 1.0596,
    "unplaced": true
   },
   {
@@ -3687,8 +4095,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.0957,
-   "y": 1.0557,
+   "x": -0.0506,
+   "y": 1.0588,
    "unplaced": true
   },
   {
@@ -3704,8 +4112,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.1195,
-   "y": 1.0532,
+   "x": -0.0708,
+   "y": 1.0576,
    "unplaced": true
   },
   {
@@ -3871,8 +4279,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.1433,
-   "y": 1.0503,
+   "x": -0.091,
+   "y": 1.0561,
    "unplaced": true
   },
   {
@@ -3888,8 +4296,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.167,
-   "y": 1.0468,
+   "x": -0.1111,
+   "y": 1.0542,
    "unplaced": true
   },
   {
@@ -3905,8 +4313,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.1906,
-   "y": 1.0427,
+   "x": -0.1312,
+   "y": 1.0518,
    "unplaced": true
   },
   {
@@ -3922,8 +4330,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.2141,
-   "y": 1.0381,
+   "x": -0.1513,
+   "y": 1.0491,
    "unplaced": true
   },
   {
@@ -3939,8 +4347,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.2375,
-   "y": 1.033,
+   "x": -0.1713,
+   "y": 1.0461,
    "unplaced": true
   },
   {
@@ -3956,8 +4364,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.2608,
-   "y": 1.0274,
+   "x": -0.1913,
+   "y": 1.0426,
    "unplaced": true
   },
   {
@@ -3973,8 +4381,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.284,
-   "y": 1.0213,
+   "x": -0.2111,
+   "y": 1.0388,
    "unplaced": true
   },
   {
@@ -3990,8 +4398,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.307,
-   "y": 1.0146,
+   "x": -0.2309,
+   "y": 1.0345,
    "unplaced": true
   },
   {
@@ -4007,8 +4415,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.3298,
-   "y": 1.0074,
+   "x": -0.2506,
+   "y": 1.0299,
    "unplaced": true
   },
   {
@@ -4024,8 +4432,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.3525,
-   "y": 0.9997,
+   "x": -0.2703,
+   "y": 1.025,
    "unplaced": true
   },
   {
@@ -4041,8 +4449,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.375,
-   "y": 0.9914,
+   "x": -0.2898,
+   "y": 1.0196,
    "unplaced": true
   },
   {
@@ -4058,8 +4466,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.3973,
-   "y": 0.9827,
+   "x": -0.3092,
+   "y": 1.0139,
    "unplaced": true
   },
   {
@@ -4075,8 +4483,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.4194,
-   "y": 0.9735,
+   "x": -0.3285,
+   "y": 1.0078,
    "unplaced": true
   },
   {
@@ -4092,8 +4500,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.4413,
-   "y": 0.9638,
+   "x": -0.3477,
+   "y": 1.0013,
    "unplaced": true
   },
   {
@@ -4109,8 +4517,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.463,
-   "y": 0.9535,
+   "x": -0.3668,
+   "y": 0.9945,
    "unplaced": true
   },
   {
@@ -4126,8 +4534,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.4844,
-   "y": 0.9428,
+   "x": -0.3857,
+   "y": 0.9873,
    "unplaced": true
   },
   {
@@ -4143,8 +4551,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.5056,
-   "y": 0.9316,
+   "x": -0.4045,
+   "y": 0.9798,
    "unplaced": true
   },
   {
@@ -4323,8 +4731,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.5265,
-   "y": 0.92,
+   "x": -0.4231,
+   "y": 0.9719,
    "unplaced": true
   },
   {
@@ -4340,8 +4748,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.5472,
-   "y": 0.9078,
+   "x": -0.4416,
+   "y": 0.9636,
    "unplaced": true
   },
   {
@@ -4357,8 +4765,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.5676,
-   "y": 0.8952,
+   "x": -0.4599,
+   "y": 0.955,
    "unplaced": true
   },
   {
@@ -4457,8 +4865,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.5877,
-   "y": 0.8822,
+   "x": -0.4781,
+   "y": 0.9461,
    "unplaced": true
   },
   {
@@ -4474,8 +4882,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.6074,
-   "y": 0.8687,
+   "x": -0.4961,
+   "y": 0.9368,
    "unplaced": true
   },
   {
@@ -4624,8 +5032,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.6269,
-   "y": 0.8547,
+   "x": -0.5138,
+   "y": 0.9271,
    "unplaced": true
   },
   {
@@ -4641,8 +5049,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.6461,
-   "y": 0.8403,
+   "x": -0.5315,
+   "y": 0.9171,
    "unplaced": true
   },
   {
@@ -4658,8 +5066,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.6649,
-   "y": 0.8255,
+   "x": -0.5489,
+   "y": 0.9068,
    "unplaced": true
   },
   {
@@ -4675,8 +5083,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.6834,
-   "y": 0.8103,
+   "x": -0.5661,
+   "y": 0.8962,
    "unplaced": true
   },
   {
@@ -4692,8 +5100,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.7015,
-   "y": 0.7946,
+   "x": -0.5831,
+   "y": 0.8852,
    "unplaced": true
   },
   {
@@ -4709,8 +5117,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.7193,
-   "y": 0.7786,
+   "x": -0.5999,
+   "y": 0.8739,
    "unplaced": true
   },
   {
@@ -4726,8 +5134,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.7367,
-   "y": 0.7621,
+   "x": -0.6165,
+   "y": 0.8623,
    "unplaced": true
   },
   {
@@ -4743,8 +5151,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.7538,
-   "y": 0.7453,
+   "x": -0.6328,
+   "y": 0.8504,
    "unplaced": true
   },
   {
@@ -4804,8 +5212,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.7704,
-   "y": 0.7281,
+   "x": -0.649,
+   "y": 0.8381,
    "unplaced": true
   },
   {
@@ -4821,8 +5229,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.7867,
-   "y": 0.7105,
+   "x": -0.6648,
+   "y": 0.8256,
    "unplaced": true
   },
   {
@@ -4860,8 +5268,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.8025,
-   "y": 0.6925,
+   "x": -0.6805,
+   "y": 0.8127,
    "unplaced": true
   },
   {
@@ -4877,8 +5285,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-07",
-   "x": -0.818,
-   "y": 0.6742,
+   "x": -0.6959,
+   "y": 0.7996,
    "unplaced": true
   },
   {
@@ -4894,8 +5302,8 @@
    "url": "",
    "note": "",
    "added": "2026-09-08",
-   "x": -0.833,
-   "y": 0.6555,
+   "x": -0.711,
+   "y": 0.7862,
    "unplaced": true
   },
   {
@@ -5183,8 +5591,8 @@
    "url": "",
    "note": "The Adagio sostenuto. Published 1801. No weather yet.",
    "added": "2026-09-10",
-   "x": -0.8476,
-   "y": 0.6365,
+   "x": -0.7259,
+   "y": 0.7724,
    "unplaced": true
   },
   {
@@ -5639,8 +6047,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.8618,
-   "y": 0.6172,
+   "x": -0.7405,
+   "y": 0.7584,
    "unplaced": true
   },
   {
@@ -5659,8 +6067,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.8755,
-   "y": 0.5976,
+   "x": -0.7549,
+   "y": 0.7441,
    "unplaced": true
   },
   {
@@ -5679,8 +6087,8 @@
    "tags": [
     "components"
    ],
-   "x": -0.8888,
-   "y": 0.5777,
+   "x": -0.769,
+   "y": 0.7296,
    "unplaced": true
   },
   {
@@ -5699,8 +6107,8 @@
    "tags": [
     "components"
    ],
-   "x": -0.9016,
-   "y": 0.5574,
+   "x": -0.7827,
+   "y": 0.7148,
    "unplaced": true
   },
   {
@@ -5719,8 +6127,8 @@
    "tags": [
     "craft"
    ],
-   "x": -0.914,
-   "y": 0.5369,
+   "x": -0.7963,
+   "y": 0.6997,
    "unplaced": true
   },
   {
@@ -5740,8 +6148,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.9259,
-   "y": 0.5161,
+   "x": -0.8095,
+   "y": 0.6844,
    "unplaced": true
   },
   {
@@ -5761,8 +6169,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.9373,
-   "y": 0.4951,
+   "x": -0.8224,
+   "y": 0.6688,
    "unplaced": true
   },
   {
@@ -5781,8 +6189,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.9482,
-   "y": 0.4737,
+   "x": -0.835,
+   "y": 0.653,
    "unplaced": true
   },
   {
@@ -5801,8 +6209,8 @@
    "tags": [
     "taste"
    ],
-   "x": -0.9587,
-   "y": 0.4522,
+   "x": -0.8473,
+   "y": 0.6369,
    "unplaced": true
   },
   {
@@ -5822,8 +6230,8 @@
    "tags": [
     "motion"
    ],
-   "x": -0.9687,
-   "y": 0.4304,
+   "x": -0.8593,
+   "y": 0.6206,
    "unplaced": true
   },
   {
@@ -5844,8 +6252,8 @@
     "motion",
     "agents"
    ],
-   "x": -0.9782,
-   "y": 0.4084,
+   "x": -0.871,
+   "y": 0.6041,
    "unplaced": true
   },
   {
@@ -5861,8 +6269,8 @@
    "url": "",
    "note": "admitted to the académie the same day as vigée le brun, and painted herself teaching. the two pupils in the met picture are not furniture; they look back. she stayed in paris through the revolution and painted the women the court had left behind.",
    "added": "2026-09-08",
-   "x": -0.9871,
-   "y": 0.3862,
+   "x": -0.8824,
+   "y": 0.5873,
    "unplaced": true
   },
   {
@@ -5878,8 +6286,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.9956,
-   "y": 0.3638,
+   "x": -0.8935,
+   "y": 0.5704,
    "unplaced": true
   },
   {
@@ -5895,8 +6303,8 @@
    "url": "",
    "note": "fauve at the start, then harbours and quays in a quieter key, the same view painted until the weather changed. friends with matisse; worked from windows more than from the street. the water does most of the work.",
    "added": "2026-09-07",
-   "x": -1.0036,
-   "y": 0.3412,
+   "x": -0.9042,
+   "y": 0.5532,
    "unplaced": true
   },
   {
@@ -5912,8 +6320,8 @@
    "url": "https://en.wikipedia.org/wiki/Alice_Neel",
    "note": "portraits that sit too close: the chair, the flesh, the look back. she died in 1984; the paintings stay with the estate.",
    "added": "2026-09-08",
-   "x": -1.011,
-   "y": 0.3184,
+   "x": -0.9146,
+   "y": 0.5358,
    "unplaced": true
   },
   {
@@ -5929,8 +6337,25 @@
    "url": "https://en.wikipedia.org/wiki/Alina_Szapocznikow",
    "note": "polish sculptor of lamps that are mouths, tumors that are objects, the body as something you can cast and switch on. she died in 1973; the works stay under copyright.",
    "added": "2026-09-08",
-   "x": -1.018,
-   "y": 0.2955,
+   "x": -0.9247,
+   "y": 0.5183,
+   "unplaced": true
+  },
+  {
+   "id": "alla-horska",
+   "type": "person",
+   "who": "Alla Horska",
+   "title": "",
+   "line": "Alla Horska",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Alla_Horska",
+   "note": "sixtier, mosaic, a shevchenko that would not soften. murdered in vasylkiv in 1970. the works stay under copyright; the name is the door.",
+   "added": "2026-09-11",
+   "x": -0.9344,
+   "y": 0.5005,
    "unplaced": true
   },
   {
@@ -5946,8 +6371,42 @@
    "url": "https://en.wikipedia.org/wiki/Amy_Sillman",
    "note": "painter who treats drawing as thinking out loud. figures arrive and get painted over until the room is both cartoon and oil. living; no studio shot belongs here.",
    "added": "2026-09-08",
-   "x": -1.0244,
-   "y": 0.2724,
+   "x": -0.9438,
+   "y": 0.4826,
+   "unplaced": true
+  },
+  {
+   "id": "anatol-petrytskyi",
+   "type": "person",
+   "who": "Anatol Petrytskyi",
+   "title": "",
+   "line": "Anatol Petrytskyi",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Anatol_Petrytsky",
+   "note": "costume, harbour, a constructivist stage. kharkiv and kyiv. he died in 1964; the designs stay under copyright, so the card is a name and a door out.",
+   "added": "2026-09-11",
+   "x": -0.9528,
+   "y": 0.4645,
+   "unplaced": true
+  },
+  {
+   "id": "anatolii-lymarev",
+   "type": "person",
+   "who": "Anatolii Lymarev",
+   "title": "",
+   "line": "Anatolii Lymarev",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://uk.wikipedia.org/wiki/%D0%9B%D0%B8%D0%BC%D0%B0%D1%80%D1%94%D0%B2_%D0%90%D0%BD%D0%B0%D1%82%D0%BE%D0%BB%D1%96%D0%B9_%D0%93%D1%80%D0%B8%D0%B3%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D1%87",
+   "note": "from amvrosiivka, then kyiv. landscapes that keep walking toward the sun, a donetsk steppe the official rooms would not hang. first solo show was after he died, in 1988. the pictures stay with the family.",
+   "added": "2026-09-11",
+   "x": -0.9615,
+   "y": 0.4462,
    "unplaced": true
   },
   {
@@ -5963,8 +6422,8 @@
    "url": "",
    "note": "swiss-born, roman-trained, a founding royal academician in london. history painting when women were told to stay with portraits. the self-portraits hold a charcoal and look slightly past you.",
    "added": "2026-09-08",
-   "x": -1.0303,
-   "y": 0.2492,
+   "x": -0.9699,
+   "y": 0.4277,
    "unplaced": true
   },
   {
@@ -5980,8 +6439,8 @@
    "url": "",
    "note": "david's pupil who turned the neoclassical machine toward moonlight. endymion asleep, atala buried, cairo in revolt: the same pale heat. he painted chateaubriand and then went back to myth.",
    "added": "2026-09-08",
-   "x": -1.0357,
-   "y": 0.2259,
+   "x": -0.9779,
+   "y": 0.4091,
    "unplaced": true
   },
   {
@@ -5997,8 +6456,8 @@
    "url": "",
    "note": "still life as a serious genre when the académie still treated it as lesser. lobster, glass, a dead pheasant, a spray of flowers: one table, looked at until it holds. marie-antoinette sat for her once; the tables are the ones that stay.",
    "added": "2026-09-08",
-   "x": -1.0405,
-   "y": 0.2024,
+   "x": -0.9855,
+   "y": 0.3904,
    "unplaced": true
   },
   {
@@ -6014,8 +6473,8 @@
    "url": "",
    "note": "basel, rome, florence. villas by the sea before the island of the dead became a poster. odysseus against polyphemus; a self-portrait with death at the fiddle. the villas are the ones that stay.",
    "added": "2026-09-08",
-   "x": -1.0448,
-   "y": 0.1788,
+   "x": -0.9928,
+   "y": 0.3715,
    "unplaced": true
   },
   {
@@ -6031,8 +6490,8 @@
    "url": "http://ayoungkim.com/wp/",
    "note": "seoul. speculative video where delivery routes, petra, and a fictional mineral share one clock. living; nothing from the studio is ours to host.",
    "added": "2026-09-08",
-   "x": -1.0486,
-   "y": 0.1552,
+   "x": -0.9997,
+   "y": 0.3525,
    "unplaced": true
   },
   {
@@ -6048,8 +6507,8 @@
    "url": "",
    "note": "prague cubist who wanted the picture to have the structure of a crystal. painted saint sebastian the year before he went to war. died of the flu in 1918, at thirty-four.",
    "added": "2026-09-07",
-   "x": -1.0518,
-   "y": 0.1314,
+   "x": -1.0062,
+   "y": 0.3333,
    "unplaced": true
   },
   {
@@ -6065,8 +6524,8 @@
    "url": "https://en.wikipedia.org/wiki/Brice_Marden",
    "note": "oil and wax as a plane, then the long vines. he died in 2023; nothing from the studio is ours to host.",
    "added": "2026-09-08",
-   "x": -1.0545,
-   "y": 0.1076,
+   "x": -1.0124,
+   "y": 0.3141,
    "unplaced": true
   },
   {
@@ -6082,8 +6541,8 @@
    "url": "https://en.wikipedia.org/wiki/Carol_Rama",
    "note": "turin. bodies, bicycle inner tubes, a room assembled from what a workshop discards. she died in 2015; the pictures stay with the archive.",
    "added": "2026-09-08",
-   "x": -1.0567,
-   "y": 0.0838,
+   "x": -1.0182,
+   "y": 0.2947,
    "unplaced": true
   },
   {
@@ -6099,8 +6558,8 @@
    "url": "",
    "note": "a precisionist who treated factories and hulls as if they were still lifes. summers in provincetown and bermuda, winters in lancaster, and a long friendship with william carlos williams. he died at fifty-one; the pictures stayed sharp.",
    "added": "2026-09-07",
-   "x": -1.0583,
-   "y": 0.0599,
+   "x": -1.0237,
+   "y": 0.2752,
    "unplaced": true
   },
   {
@@ -6116,8 +6575,8 @@
    "url": "https://en.wikipedia.org/wiki/Cy_Twombly",
    "note": "scribbled rooms, later in rome: a name written as if it were a plant. he died in 2011; the pictures stay with the foundation.",
    "added": "2026-09-08",
-   "x": -1.0594,
-   "y": 0.0359,
+   "x": -1.0287,
+   "y": 0.2556,
    "unplaced": true
   },
   {
@@ -6133,8 +6592,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0599,
-   "y": 0.012,
+   "x": -1.0334,
+   "y": 0.2359,
    "unplaced": true
   },
   {
@@ -6150,8 +6609,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0599,
-   "y": -0.012,
+   "x": -1.0377,
+   "y": 0.2161,
    "unplaced": true
   },
   {
@@ -6167,8 +6626,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -1.0594,
-   "y": -0.0359,
+   "x": -1.0417,
+   "y": 0.1962,
    "unplaced": true
   },
   {
@@ -6184,8 +6643,8 @@
    "url": "https://en.wikipedia.org/wiki/Elene_Akhvlediani",
    "note": "tbilisi painter of the city as a tight stack of roofs and balconies. paris in the twenties, then home. living work stays under copyright; commons had no early file large enough and clean enough to host.",
    "added": "2026-09-08",
-   "x": -1.0583,
-   "y": -0.0599,
+   "x": -1.0452,
+   "y": 0.1763,
    "unplaced": true
   },
   {
@@ -6201,8 +6660,8 @@
    "url": "",
    "note": "the painter of the last french court who could make a face look like a thought. self-portraits first, then the women who sat for her in straw hats and cashmere. she left france in 1789 and painted the same attention in rome, naples, vienna and st petersburg.",
    "added": "2026-09-08",
-   "x": -1.0567,
-   "y": -0.0838,
+   "x": -1.0484,
+   "y": 0.1563,
    "unplaced": true
   },
   {
@@ -6218,8 +6677,25 @@
    "url": "",
    "note": "the first rector of the ukrainian academy of arts. life is a triptych: love, life, death, three panels in folk dress that read as one weather. he stayed in kyiv through the thirties; the pictures stayed clearer than the years.",
    "added": "2026-09-08",
-   "x": -1.0545,
-   "y": -0.1076,
+   "x": -1.0512,
+   "y": 0.1363,
+   "unplaced": true
+  },
+  {
+   "id": "fedir-tetyanych",
+   "type": "person",
+   "who": "Fedir Tetyanych",
+   "title": "",
+   "line": "Fedir Tetyanych",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Fedir_Tetianych",
+   "note": "fripulia: foil, a man-and-infinity suit, kyiv courtyards turned into cosmos. he died in 2007; the objects stay with the estate.",
+   "added": "2026-09-11",
+   "x": -1.0536,
+   "y": 0.1162,
    "unplaced": true
   },
   {
@@ -6235,8 +6711,8 @@
    "url": "",
    "note": "nabi painter and woodcutter; interiors where two people share a room and almost nothing else. born in lausanne, naturalised french, and late in life he painted sunsets as flat bands of heat. the interiors are the ones that stay.",
    "added": "2026-09-07",
-   "x": -1.0518,
-   "y": -0.1314,
+   "x": -1.0556,
+   "y": 0.096,
    "unplaced": true
   },
   {
@@ -6252,8 +6728,8 @@
    "url": "",
    "note": "painted the new york salon she kept: pink rooms, families standing as if on a stage, heat you can feel in the colour. she showed little in her lifetime; after she died her sisters gave the pictures away rather than sell them.",
    "added": "2026-09-07",
-   "x": -1.0486,
-   "y": -0.1552,
+   "x": -1.0573,
+   "y": 0.0758,
    "unplaced": true
   },
   {
@@ -6269,8 +6745,8 @@
    "url": "https://en.wikipedia.org/wiki/Franti%C5%A1ek_Kupka",
    "note": "bohemia, then paris. amorpha and the disks of newton: colour as motion before it had a school. commons had no early canvas large enough and marked public domain, so the card is a name.",
    "added": "2026-09-08",
-   "x": -1.0448,
-   "y": -0.1788,
+   "x": -1.0585,
+   "y": 0.0556,
    "unplaced": true
   },
   {
@@ -6286,8 +6762,8 @@
    "url": "https://en.wikipedia.org/wiki/Gala_Porras-Kim",
    "note": "work about what a museum keeps and cannot name: dust, a missing provenance, an object that still has a ritual job. living; no studio image belongs here.",
    "added": "2026-09-08",
-   "x": -1.0405,
-   "y": -0.2024,
+   "x": -1.0594,
+   "y": 0.0354,
    "unplaced": true
   },
   {
@@ -6303,8 +6779,8 @@
    "url": "",
    "note": "lingnan school; ink that had looked at paris and still came home as a mountain. taught in guangzhou, painted through the war. the 1926 landscape is the one commons will give us clean.",
    "added": "2026-09-07",
-   "x": -1.0357,
-   "y": -0.2259,
+   "x": -1.0599,
+   "y": 0.0152,
    "unplaced": true
   },
   {
@@ -6320,8 +6796,8 @@
    "url": "",
    "note": "venetian modernist who went to paris, came back, and painted breton and burano figures as if they were cut from wood. interned during the war; the last years were in a hospital. the sailor is enough.",
    "added": "2026-09-07",
-   "x": -1.0303,
-   "y": -0.2492,
+   "x": -1.06,
+   "y": -0.0051,
    "unplaced": true
   },
   {
@@ -6337,8 +6813,8 @@
    "url": "https://www.moma.org/artists/1106",
    "note": "the early metaphysical squares: a tower, a glove, a train. later he painted something else. he died in 1978; commons had no early canvas both public domain and large enough, so the card is a name and a door out.",
    "added": "2026-09-08",
-   "x": -1.0244,
-   "y": -0.2724,
+   "x": -1.0597,
+   "y": -0.0253,
    "unplaced": true
   },
   {
@@ -6354,8 +6830,8 @@
    "url": "",
    "note": "italian divisionist of the alps: sheep, spinning, a boat crossing with an ave maria. the bad mothers hang in the air like weather. he died at forty-one in the engadine.",
    "added": "2026-09-08",
-   "x": -1.018,
-   "y": -0.2955,
+   "x": -1.059,
+   "y": -0.0455,
    "unplaced": true
   },
   {
@@ -6371,8 +6847,8 @@
    "url": "",
    "note": "orpheus carried, hesiod listening, oedipus facing the sphinx. the myth pictures that are not jewellery. he taught at the académie; the quieter canvases are the ones kept here.",
    "added": "2026-09-08",
-   "x": -1.011,
-   "y": -0.3184,
+   "x": -1.058,
+   "y": -0.0657,
    "unplaced": true
   },
   {
@@ -6388,8 +6864,8 @@
    "url": "",
    "note": "slade, then paris, then a room in meudon. a corner with a wicker chair, a girl reading at a window, convalescents who sit still. augustus's sister; the quieter painter.",
    "added": "2026-09-08",
-   "x": -1.0036,
-   "y": -0.3412,
+   "x": -1.0565,
+   "y": -0.0859,
    "unplaced": true
   },
   {
@@ -6405,8 +6881,25 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.9956,
-   "y": -0.3638,
+   "x": -1.0547,
+   "y": -0.1061,
+   "unplaced": true
+  },
+  {
+   "id": "halyna-zubchenko",
+   "type": "person",
+   "who": "Halyna Zubchenko",
+   "title": "",
+   "line": "Halyna Zubchenko",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Halyna_Zubchenko",
+   "note": "monumental mosaics, the carpathians as a wall. she died in 2000; the mosaics are in the cities, the files are not ours.",
+   "added": "2026-09-11",
+   "x": -1.0525,
+   "y": -0.1262,
    "unplaced": true
   },
   {
@@ -6422,8 +6915,8 @@
    "url": "",
    "note": "a handful of shin-hanga beauties, each block cut as if it were the only print he would ever make. trained as a painter, then twelve sheets, then he died at forty-one. yokugo no onna is the one that holds still.",
    "added": "2026-09-07",
-   "x": -0.9871,
-   "y": -0.3862,
+   "x": -1.0499,
+   "y": -0.1463,
    "unplaced": true
   },
   {
@@ -6439,8 +6932,8 @@
    "url": "",
    "note": "helsinki, then a quieter finland. the convalescent, then self-portraits that thin the face until it is almost only paint. she kept looking at her own head for fifty years.",
    "added": "2026-09-08",
-   "x": -0.9782,
-   "y": -0.4084,
+   "x": -1.0469,
+   "y": -0.1663,
    "unplaced": true
   },
   {
@@ -6456,8 +6949,8 @@
    "url": "",
    "note": "zurich then london. nightmares, titania, thor against the serpent: the royal academy's unquiet member. he taught and he painted sleep as a weight sitting on a chest.",
    "added": "2026-09-08",
-   "x": -0.9687,
-   "y": -0.4304,
+   "x": -1.0435,
+   "y": -0.1863,
    "unplaced": true
   },
   {
@@ -6473,8 +6966,8 @@
    "url": "",
    "note": "the graphic hand of the short-lived ukrainian state: coats of arms, banknotes, an alphabet. studied in st petersburg, came home in 1917, and drew a country that lasted two years. he died at thirty-four, of typhus.",
    "added": "2026-09-07",
-   "x": -0.9587,
-   "y": -0.4522,
+   "x": -1.0398,
+   "y": -0.2062,
    "unplaced": true
   },
   {
@@ -6490,8 +6983,8 @@
    "url": "",
    "note": "late landscapes so dense the ink becomes night, then a path appears. he wrote about the old brush methods and then used them until they were almost new. the 1930s scrolls are the ones that dissolve.",
    "added": "2026-09-07",
-   "x": -0.9482,
-   "y": -0.4737,
+   "x": -1.0356,
+   "y": -0.226,
    "unplaced": true
   },
   {
@@ -6507,8 +7000,42 @@
    "url": "https://en.wikipedia.org/wiki/Ignacio_Zuloaga",
    "note": "eibar, paris, then spain again. dwarfs, women of sepúlveda, a face that is almost a landscape. commons was thin on large unframed files, so the card may stay mostly a name.",
    "added": "2026-09-08",
-   "x": -0.9373,
-   "y": -0.4951,
+   "x": -1.0311,
+   "y": -0.2457,
+   "unplaced": true
+  },
+  {
+   "id": "ivan-padalka",
+   "type": "person",
+   "who": "Ivan Padalka",
+   "title": "",
+   "line": "Ivan Padalka",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Ivan_Padalka",
+   "note": "boychuk's circle: tempera, a harvest of tomatoes, the igor tale drawn as a battle. taught in kyiv and kharkiv. arrested in 1936, shot in 1937, the same week as the teacher.",
+   "added": "2026-09-11",
+   "x": -1.0262,
+   "y": -0.2654,
+   "unplaced": true
+  },
+  {
+   "id": "ivan-trush",
+   "type": "person",
+   "who": "Ivan Trush",
+   "title": "",
+   "line": "Ivan Trush",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/ivan-trush.webp",
+   "url": "",
+   "note": "lviv impressionist of ponds and late light. painted franko and shevchenko, and venice once, then came home to the smaller water. organised the first public shows in galicia.",
+   "added": "2026-09-11",
+   "x": -1.021,
+   "y": -0.2849,
    "unplaced": true
   },
   {
@@ -6524,8 +7051,8 @@
    "url": "",
    "note": "polish symbolist who put thanatos in the doorway and himself in a white dress. melancholia is a field of figures that will not resolve. kraków, then the same face painted until it became a country.",
    "added": "2026-09-08",
-   "x": -0.9259,
-   "y": -0.5161,
+   "x": -1.0154,
+   "y": -0.3044,
    "unplaced": true
   },
   {
@@ -6541,8 +7068,8 @@
    "url": "",
    "note": "nantes, paris, then london. shipboard galleries and visitors on the steps of the national gallery. the social pictures, not the costume posters. he went back to france and painted less of that world.",
    "added": "2026-09-08",
-   "x": -0.914,
-   "y": -0.5369,
+   "x": -1.0094,
+   "y": -0.3237,
    "unplaced": true
   },
   {
@@ -6558,8 +7085,8 @@
    "url": "https://en.wikipedia.org/wiki/Joan_Mitchell",
    "note": "second-wave new york painting, then vétheuil: trees and the river as a kind of weather. she died in 1992; the canvases stay with the foundation.",
    "added": "2026-09-08",
-   "x": -0.9016,
-   "y": -0.5574,
+   "x": -1.003,
+   "y": -0.3429,
    "unplaced": true
   },
   {
@@ -6575,8 +7102,8 @@
    "url": "",
    "note": "valencia, madrid, then the hispanic society in new york. the gardens and the vision of spain, not the beach posters. alcázar, the house patio, a nap in the garden.",
    "added": "2026-09-08",
-   "x": -0.8888,
-   "y": -0.5777,
+   "x": -0.9963,
+   "y": -0.362,
    "unplaced": true
   },
   {
@@ -6592,8 +7119,8 @@
    "url": "https://en.wikipedia.org/wiki/Josef_Sudek",
    "note": "prague photographer of the window, the garden, a glass of water in the light that just made it through. he died in 1976; the prints stay with the estate.",
    "added": "2026-09-08",
-   "x": -0.8755,
-   "y": -0.5976,
+   "x": -0.9892,
+   "y": -0.381,
    "unplaced": true
   },
   {
@@ -6609,8 +7136,8 @@
    "url": "",
    "note": "the midlands enlightenment painted as candle and moon. an air pump, an orrery, a forge, an alchemist finding phosphorus. science as a room with one light.",
    "added": "2026-09-08",
-   "x": -0.8618,
-   "y": -0.6172,
+   "x": -0.9817,
+   "y": -0.3998,
    "unplaced": true
   },
   {
@@ -6626,8 +7153,25 @@
    "url": "https://en.wikipedia.org/wiki/Julie_Mehretu",
    "note": "addis, then detroit, then new york. layered maps that look like weather systems over a city plan. living; the studio pictures stay with her. the card is a name and a door out.",
    "added": "2026-09-08",
-   "x": -0.8476,
-   "y": -0.6365,
+   "x": -0.9739,
+   "y": -0.4185,
+   "unplaced": true
+  },
+  {
+   "id": "kateryna-bilokur",
+   "type": "person",
+   "who": "Kateryna Bilokur",
+   "title": "",
+   "line": "Kateryna Bilokur",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Kateryna_Bilokur",
+   "note": "flowers painted as if they were the only architecture in the village. bohdanivka, then a late fame that arrived from paris. she died in 1961; the canvases stay with the estate.",
+   "added": "2026-09-11",
+   "x": -0.9657,
+   "y": -0.437,
    "unplaced": true
   },
   {
@@ -6643,8 +7187,25 @@
    "url": "",
    "note": "königsberg, berlin, the print as a form of attention. mothers, the dead, her own face until it was only line. she lost a son in 1914 and kept looking at grief until it became public.",
    "added": "2026-09-08",
-   "x": -0.833,
-   "y": -0.6555,
+   "x": -0.9572,
+   "y": -0.4554,
+   "unplaced": true
+  },
+  {
+   "id": "kazimir-malevich",
+   "type": "person",
+   "who": "Kazimir Malevich",
+   "title": "",
+   "line": "Kazimir Malevich",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/kazimir-malevich.webp",
+   "url": "",
+   "note": "born near kyiv to a polish family; later rooms filed him as russian. he taught at the kyiv art institute in 1928-30, and the suprematist planes were argued in that city as much as in vitebsk. black square is the postcard; the village after snow is the work.",
+   "added": "2026-09-11",
+   "x": -0.9483,
+   "y": -0.4735,
    "unplaced": true
   },
   {
@@ -6660,8 +7221,42 @@
    "url": "",
    "note": "tokyo western-style painter who made his daughter reiko sit until the face was almost northern renaissance. pumpkins, a woollen shawl, a smile that does not perform. he died at thirty-eight.",
    "added": "2026-09-08",
-   "x": -0.818,
-   "y": -0.6742,
+   "x": -0.9391,
+   "y": -0.4916,
+   "unplaced": true
+  },
+  {
+   "id": "kostiantyn-zorkin",
+   "type": "person",
+   "who": "Kostiantyn Zorkin",
+   "title": "",
+   "line": "Kostiantyn Zorkin",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://uk.wikipedia.org/wiki/%D0%9A%D0%BE%D1%81%D1%82%D1%8F%D0%BD%D1%82%D0%B8%D0%BD_%D0%97%D0%BE%D1%80%D0%BA%D1%96%D0%BD",
+   "note": "kharkiv. ink, wood, puppets, a sign language made by hand. living; the studio pictures stay with him.",
+   "added": "2026-09-11",
+   "x": -0.9296,
+   "y": -0.5094,
+   "unplaced": true
+  },
+  {
+   "id": "kyriak-kostandi",
+   "type": "person",
+   "who": "Kyriak Kostandi",
+   "title": "",
+   "line": "Kyriak Kostandi",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Kyriak_Kostandi",
+   "note": "odesa painter of the south light: geese on a path, a meadow, someone walking out into the world. taught at the odesa art school. the black sea is in the pictures even when you cannot see it.",
+   "added": "2026-09-11",
+   "x": -0.9197,
+   "y": -0.5271,
    "unplaced": true
   },
   {
@@ -6677,8 +7272,8 @@
    "url": "https://en.wikipedia.org/wiki/Lado_Gudiashvili",
    "note": "tbilisi, then montparnasse, then tbilisi again. figures that lean as if the room were a fresco. he died in 1980; the studio pictures are not ours to host. the name sits here until a clean early file exists.",
    "added": "2026-09-08",
-   "x": -0.8025,
-   "y": -0.6925,
+   "x": -0.9094,
+   "y": -0.5445,
    "unplaced": true
   },
   {
@@ -6694,8 +7289,25 @@
    "url": "",
    "note": "ostend at night: a digue, a lamp, a silhouette that is almost only ink. self-portraits with a red pencil and then with masks. he walked the sea wall until the town became a single edge.",
    "added": "2026-09-08",
-   "x": -0.7867,
-   "y": -0.7105,
+   "x": -0.8989,
+   "y": -0.5618,
+   "unplaced": true
+  },
+  {
+   "id": "lesia-khomenko",
+   "type": "person",
+   "who": "Lesia Khomenko",
+   "title": "",
+   "line": "Lesia Khomenko",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://www.lesiakhomenko.com/about",
+   "note": "kyiv, then new york. painting that treats a figure as a problem to take apart. r.e.p., hudrada. living; the works stay under copyright.",
+   "added": "2026-09-11",
+   "x": -0.888,
+   "y": -0.5789,
    "unplaced": true
   },
   {
@@ -6711,8 +7323,8 @@
    "url": "",
    "note": "munich poster designer; flat colour, a single animal or a single coat, the type sitting still beside it. trained as an architect. the zoo poster is the one that reads from across a street.",
    "added": "2026-09-07",
-   "x": -0.7704,
-   "y": -0.7281,
+   "x": -0.8768,
+   "y": -0.5957,
    "unplaced": true
   },
   {
@@ -6728,8 +7340,8 @@
    "url": "https://en.wikipedia.org/wiki/Magdalena_Abakanowicz",
    "note": "abakans: woven volumes that stand in a room like a forest of coats. later, crowds of headless figures. she died in 2017; the works stay with the estate.",
    "added": "2026-09-08",
-   "x": -0.7538,
-   "y": -0.7453,
+   "x": -0.8652,
+   "y": -0.6124,
    "unplaced": true
   },
   {
@@ -6745,8 +7357,42 @@
    "url": "",
    "note": "santander, madrid, paris; cubism first, then children sitting in rooms that have no extra furniture. born with a spinal condition; she painted seated figures as if she knew the weight of sitting. died in paris at fifty.",
    "added": "2026-09-07",
-   "x": -0.7367,
-   "y": -0.7621,
+   "x": -0.8534,
+   "y": -0.6288,
+   "unplaced": true
+  },
+  {
+   "id": "maria-prymachenko",
+   "type": "person",
+   "who": "Maria Prymachenko",
+   "title": "",
+   "line": "Maria Prymachenko",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Maria_Prymachenko",
+   "note": "ivankiv. animals that should not exist and do. a village house, then the whole country quoting her. she died in 1997; nothing here is ours to host.",
+   "added": "2026-09-11",
+   "x": -0.8412,
+   "y": -0.645,
+   "unplaced": true
+  },
+  {
+   "id": "marie-bashkirtseff",
+   "type": "person",
+   "who": "Marie Bashkirtseff",
+   "title": "",
+   "line": "Marie Bashkirtseff",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/marie-bashkirtseff.webp",
+   "url": "",
+   "note": "from havrontsi, then nice, then the académie julian. she painted schoolboys in a paris street and died at twenty-five, of tuberculosis, the same year the salon hung the meeting. the journal is louder than the pictures; the pictures hold.",
+   "added": "2026-09-11",
+   "x": -0.8287,
+   "y": -0.6609,
    "unplaced": true
   },
   {
@@ -6762,8 +7408,59 @@
    "url": "",
    "note": "turin, milan, then paris. wax and plaster that look as if light had modelled them: a child in the sun, a bookmaker, carne altrui. sculpture as atmosphere.",
    "added": "2026-09-08",
-   "x": -0.7193,
-   "y": -0.7786,
+   "x": -0.816,
+   "y": -0.6766,
+   "unplaced": true
+  },
+  {
+   "id": "mykhailo-boychuk",
+   "type": "person",
+   "who": "Mykhailo Boychuk",
+   "title": "",
+   "line": "Mykhailo Boychuk",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Mykhailo_Boychuk",
+   "note": "taught a neo-byzantine school in kyiv: fresco, tempera, a wall that remembers an icon. arrested in 1936 and shot in 1937 with the circle that took his name. the frescoes were scraped; a few panels and photographs remain.",
+   "added": "2026-09-11",
+   "x": -0.8029,
+   "y": -0.6921,
+   "unplaced": true
+  },
+  {
+   "id": "mykola-hlushchenko",
+   "type": "person",
+   "who": "Mykola Hlushchenko",
+   "title": "",
+   "line": "Mykola Hlushchenko",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Mykola_Hlushchenko",
+   "note": "paris landscapes, then kyiv. he died in 1977; the pictures stay with the museums.",
+   "added": "2026-09-11",
+   "x": -0.7895,
+   "y": -0.7073,
+   "unplaced": true
+  },
+  {
+   "id": "mykola-pymonenko",
+   "type": "person",
+   "who": "Mykola Pymonenko",
+   "title": "",
+   "line": "Mykola Pymonenko",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/mykola-pymonenko.webp",
+   "url": "",
+   "note": "kyiv genre painter: harvest, haymaking, a village jealousy. the drawing school on volodymyrska was his first room. he died at fifty, still looking at the same fields.",
+   "added": "2026-09-11",
+   "x": -0.7759,
+   "y": -0.7222,
    "unplaced": true
   },
   {
@@ -6779,8 +7476,25 @@
    "url": "https://en.wikipedia.org/wiki/Nicolas_de_Sta%C3%ABl",
    "note": "thick colour as a wall, then the sicilian light flattened into slabs. he died in 1955, which puts him on the edge of public domain in some rooms and not in others, so the card is a name until a clean file is ours to host.",
    "added": "2026-09-08",
-   "x": -0.7015,
-   "y": -0.7946,
+   "x": -0.762,
+   "y": -0.7369,
+   "unplaced": true
+  },
+  {
+   "id": "nikita-kadan",
+   "type": "person",
+   "who": "Nikita Kadan",
+   "title": "",
+   "line": "Nikita Kadan",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://kadist.org/people/nikita-kadan/",
+   "note": "kyiv. monument, a pedestal, the soviet leftover looked at until it confesses. r.e.p., hudrada. living; the works stay with him and the museums.",
+   "added": "2026-09-11",
+   "x": -0.7477,
+   "y": -0.7513,
    "unplaced": true
   },
   {
@@ -6796,8 +7510,8 @@
    "url": "",
    "note": "self-taught, painted on oilcloth for taverns in tbilisi: animals, feasts, a deer looking back. he sold them for meals. the still lifes are as plain as a table after the guests have gone.",
    "added": "2026-09-07",
-   "x": -0.6834,
-   "y": -0.8103,
+   "x": -0.7333,
+   "y": -0.7655,
    "unplaced": true
   },
   {
@@ -6813,8 +7527,25 @@
    "url": "",
    "note": "kacho-e for the export market: a crow, a blossom, almost no ground. also signed shōson. the birds are the ones that stay.",
    "added": "2026-09-07",
-   "x": -0.6649,
-   "y": -0.8255,
+   "x": -0.7185,
+   "y": -0.7793,
+   "unplaced": true
+  },
+  {
+   "id": "oleksa-novakivskyi",
+   "type": "person",
+   "who": "Oleksa Novakivskyi",
+   "title": "",
+   "line": "Oleksa Novakivskyi",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Oleksa_Novakivskyi",
+   "note": "kraków-trained, then lviv. portraits that burn at the edge, a sunset after rain, the carpathians treated as a mood not a view. he opened a school in lviv and kept it through the twenties.",
+   "added": "2026-09-11",
+   "x": -0.7035,
+   "y": -0.7929,
    "unplaced": true
   },
   {
@@ -6830,8 +7561,25 @@
    "url": "",
    "note": "kyiv cubo-futurist; he wrote that colour and line have their own tempo, then painted the city as if it were vibrating. taught at the kyiv art institute after the war. died of tuberculosis at fifty.",
    "added": "2026-09-07",
-   "x": -0.6461,
-   "y": -0.8403,
+   "x": -0.6882,
+   "y": -0.8062,
+   "unplaced": true
+  },
+  {
+   "id": "oleksandr-dubovyk",
+   "type": "person",
+   "who": "Oleksandr Dubovyk",
+   "title": "",
+   "line": "Oleksandr Dubovyk",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://uk.wikipedia.org/wiki/%D0%94%D1%83%D0%B1%D0%BE%D0%B2%D0%B8%D0%BA_%D0%9E%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80_%D0%9C%D0%B8%D1%85%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D0%B8%D1%87",
+   "note": "kyiv, still at the easel at ninety-five. signs, a white bouquet, the unofficial rooms of the sixties. living; nothing here is ours to host.",
+   "added": "2026-09-11",
+   "x": -0.6727,
+   "y": -0.8192,
    "unplaced": true
   },
   {
@@ -6847,8 +7595,8 @@
    "url": "",
    "note": "kyiv painter who brought a paris light home: red hats, an annunciation in a peasant room, a carousel sketched as heat. taught at the ukrainian academy. shot in 1919 on the way back from his studio.",
    "added": "2026-09-08",
-   "x": -0.6269,
-   "y": -0.8547,
+   "x": -0.6569,
+   "y": -0.8319,
    "unplaced": true
   },
   {
@@ -6864,8 +7612,8 @@
    "url": "",
    "note": "kyiv, paris, moscow: cubo-futurist canvases and then costumes that treated the stage as a plane of colour. she taught, designed for tairov, and left for paris in 1924. the planes keep moving after the figures have gone.",
    "added": "2026-09-07",
-   "x": -0.6074,
-   "y": -0.8687,
+   "x": -0.6409,
+   "y": -0.8443,
    "unplaced": true
   },
   {
@@ -6881,8 +7629,8 @@
    "url": "",
    "note": "kraków then munich then paris; girls and chrysanthemums in rooms that have almost no furniture. the faces sit in grey-green air. she painted herself with a palette and then with flowers and then almost without a room at all.",
    "added": "2026-09-08",
-   "x": -0.5877,
-   "y": -0.8822,
+   "x": -0.6247,
+   "y": -0.8564,
    "unplaced": true
   },
   {
@@ -6898,8 +7646,8 @@
    "url": "",
    "note": "the abstract end of sōsaku-hanga: flowers that are almost only colour, lyric prints numbered like poems. he led the first thursday society and printed through the war. the late flowers are the ones that feel like weather.",
    "added": "2026-09-07",
-   "x": -0.5676,
-   "y": -0.8952,
+   "x": -0.6082,
+   "y": -0.8681,
    "unplaced": true
   },
   {
@@ -6915,8 +7663,8 @@
    "url": "",
    "note": "worpswede, then paris, then a handful of years in which she painted herself as a person rather than a type. first german woman to paint a nude self-portrait. she died at thirty-one, after the birth of her daughter.",
    "added": "2026-09-07",
-   "x": -0.5472,
-   "y": -0.9078,
+   "x": -0.5915,
+   "y": -0.8796,
    "unplaced": true
   },
   {
@@ -6932,8 +7680,8 @@
    "url": "https://en.wikipedia.org/wiki/Pierre_Soulages",
    "note": "outrenoir: black as a place light comes back from, not a colour you fill in. he died in 2022; the estate holds the pictures.",
    "added": "2026-09-08",
-   "x": -0.5265,
-   "y": -0.92,
+   "x": -0.5746,
+   "y": -0.8907,
    "unplaced": true
   },
   {
@@ -6949,8 +7697,8 @@
    "url": "https://en.wikipedia.org/wiki/Richard_Diebenkorn",
    "note": "ocean park: planes of berkeley light, a balcony as geometry. he died in 1993; the paintings stay with the foundation.",
    "added": "2026-09-08",
-   "x": -0.5056,
-   "y": -0.9316,
+   "x": -0.5575,
+   "y": -0.9015,
    "unplaced": true
   },
   {
@@ -6966,8 +7714,8 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.4844,
-   "y": -0.9428,
+   "x": -0.5402,
+   "y": -0.912,
    "unplaced": true
   },
   {
@@ -6983,8 +7731,8 @@
    "url": "https://en.wikipedia.org/wiki/Ruth_Asawa",
    "note": "san francisco. looped wire that hangs as a volume you can see through. she died in 2013; the estate holds the photographs, so the card is a name.",
    "added": "2026-09-08",
-   "x": -0.463,
-   "y": -0.9535,
+   "x": -0.5227,
+   "y": -0.9222,
    "unplaced": true
   },
   {
@@ -7000,8 +7748,8 @@
    "url": "https://en.wikipedia.org/wiki/Sanyu_(painter)",
    "note": "sichuan, then paris. pink nudes and animals on an empty ground; the line does most of the work. auction rooms have been loud about him. we do not host the pictures.",
    "added": "2026-09-08",
-   "x": -0.4413,
-   "y": -0.9638,
+   "x": -0.505,
+   "y": -0.932,
    "unplaced": true
   },
   {
@@ -7017,8 +7765,25 @@
    "url": "",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.4194,
-   "y": -0.9735,
+   "x": -0.4871,
+   "y": -0.9415,
+   "unplaced": true
+  },
+  {
+   "id": "serhii-vasylkivsky",
+   "type": "person",
+   "who": "Serhii Vasylkivsky",
+   "title": "",
+   "line": "Serhii Vasylkivsky",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "/images/vault/serhii-vasylkivsky.webp",
+   "url": "",
+   "note": "kharkiv landscape hand: a cossack on the steppe, a peasant in a coat, a lake taking the last sun. he painted the country as if it were already a memory of itself.",
+   "added": "2026-09-11",
+   "x": -0.469,
+   "y": -0.9506,
    "unplaced": true
   },
   {
@@ -7034,8 +7799,8 @@
    "url": "https://en.wikipedia.org/wiki/Simone_Leigh",
    "note": "sculpture in ceramic and bronze: cowrie, raffia, a head that is also a building. the 2022 venice pavilion. living; the works stay with her and the museums.",
    "added": "2026-09-08",
-   "x": -0.3973,
-   "y": -0.9827,
+   "x": -0.4508,
+   "y": -0.9594,
    "unplaced": true
   },
   {
@@ -7051,8 +7816,8 @@
    "url": "",
    "note": "zurich dada, then strasbourg, then paris. vertical-horizontal compositions, circle pictures, marionettes. she danced and she designed and she painted planes that do not illustrate.",
    "added": "2026-09-08",
-   "x": -0.375,
-   "y": -0.9914,
+   "x": -0.4324,
+   "y": -0.9678,
    "unplaced": true
   },
   {
@@ -7068,8 +7833,8 @@
    "url": "",
    "note": "kraków pastels: planty at dawn, chochoły in the park at night, motherhood as a heap of colour. playwright and stained-glass designer; the pastels are the ones that stay. he died at thirty-eight.",
    "added": "2026-09-08",
-   "x": -0.3525,
-   "y": -0.9997,
+   "x": -0.4138,
+   "y": -0.9759,
    "unplaced": true
   },
   {
@@ -7085,8 +7850,25 @@
    "url": "",
    "note": "model first, then painter. the blue room is a woman on a couch who is not performing. still lifes, her mother, a family that includes uttrillo. montmartre without the poster version of montmartre.",
    "added": "2026-09-08",
-   "x": -0.3298,
-   "y": -1.0074,
+   "x": -0.3951,
+   "y": -0.9836,
+   "unplaced": true
+  },
+  {
+   "id": "tetyana-yablonska",
+   "type": "person",
+   "who": "Tetyana Yablonska",
+   "title": "",
+   "line": "Tetyana Yablonska",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Tetyana_Yablonska",
+   "note": "bread, linen, a field of women. the official rooms made her famous and then she painted quieter. she died in 2005; the estate holds the pictures.",
+   "added": "2026-09-11",
+   "x": -0.3762,
+   "y": -0.991,
    "unplaced": true
   },
   {
@@ -7102,8 +7884,8 @@
    "url": "",
    "note": "inge's pupil who went toward delacroix without becoming him. esther at her toilet, two sisters, a tepidarium. he died at thirty-seven; the portraits hold.",
    "added": "2026-09-08",
-   "x": -0.307,
-   "y": -1.0146,
+   "x": -0.3573,
+   "y": -0.998,
    "unplaced": true
   },
   {
@@ -7119,8 +7901,25 @@
    "url": "",
    "note": "philadelphia. max schmitt on the schuylkill, the gross clinic, a concert singer, swimming. he taught at the pennsylvania academy and was asked to leave; the pictures stayed exact.",
    "added": "2026-09-08",
-   "x": -0.284,
-   "y": -1.0213,
+   "x": -0.3381,
+   "y": -1.0046,
+   "unplaced": true
+  },
+  {
+   "id": "tiberiy-silvashi",
+   "type": "person",
+   "who": "Tiberiy Silvashi",
+   "title": "",
+   "line": "Tiberiy Silvashi",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://uk.wikipedia.org/wiki/%D0%A1%D1%96%D0%BB%D1%8C%D0%B2%D0%B0%D1%88%D1%96_%D0%A2%D1%96%D0%B1%D0%B5%D1%80%D1%96%D0%B9_%D0%99%D0%BE%D1%81%D0%B8%D0%BF%D0%BE%D0%B2%D0%B8%D1%87",
+   "note": "kyiv colour-field. paint as weather, not as a picture of weather. living; the studio pictures stay with him.",
+   "added": "2026-09-11",
+   "x": -0.3189,
+   "y": -1.0109,
    "unplaced": true
   },
   {
@@ -7136,8 +7935,59 @@
    "url": "https://en.wikipedia.org/wiki/Toyen",
    "note": "prague surrealist, then paris. marie čermínová, who signed toyen and painted sleep as a desert with a few exact objects in it. died 1980; the pictures stay under copyright.",
    "added": "2026-09-08",
-   "x": -0.2608,
-   "y": -1.0274,
+   "x": -0.2995,
+   "y": -1.0168,
+   "unplaced": true
+  },
+  {
+   "id": "vadym-sidur",
+   "type": "person",
+   "who": "Vadym Sidur",
+   "title": "",
+   "line": "Vadym Sidur",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Vadim_Sidur",
+   "note": "born in dnipro, carved in moscow: war, a scream in bronze, monuments the city did not want. he died in 1986; the sculptures stay with the museum that bears his name.",
+   "added": "2026-09-11",
+   "x": -0.28,
+   "y": -1.0223,
+   "unplaced": true
+  },
+  {
+   "id": "valeria-troubina",
+   "type": "person",
+   "who": "Valeria Troubina",
+   "title": "",
+   "line": "Valeria Troubina",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://secondaryarchive.org/artists/valeria-troubina/",
+   "note": "luhansk, then the paris commune squat on mykhailivska, then berkeley. new wave painting, not silvashi's field. living; the canvases stay with her.",
+   "added": "2026-09-11",
+   "x": -0.2605,
+   "y": -1.0275,
+   "unplaced": true
+  },
+  {
+   "id": "vasyl-yermilov",
+   "type": "person",
+   "who": "Vasyl Yermilov",
+   "title": "",
+   "line": "Vasyl Yermilov",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Vasyl_Yermilov",
+   "note": "kharkiv constructivist: a loaf of bread as architecture, covers for авангард. he died in 1968; the early files on commons are not clean enough to host.",
+   "added": "2026-09-11",
+   "x": -0.2408,
+   "y": -1.0323,
    "unplaced": true
   },
   {
@@ -7153,8 +8003,25 @@
    "url": "https://en.wikipedia.org/wiki/Vija_Celmins",
    "note": "oceans, spiderwebs, the night sky, painted until they almost look like photographs and then do not. living; the pictures stay with her.",
    "added": "2026-09-08",
-   "x": -0.2375,
-   "y": -1.033,
+   "x": -0.221,
+   "y": -1.0367,
+   "unplaced": true
+  },
+  {
+   "id": "viktor-zaretskyi",
+   "type": "person",
+   "who": "Viktor Zaretskyi",
+   "title": "",
+   "line": "Viktor Zaretskyi",
+   "year": "",
+   "where": "",
+   "weather": "",
+   "src": "",
+   "url": "https://en.wikipedia.org/wiki/Viktor_Zaretsky",
+   "note": "klimt in kyiv, and horska's husband. decorative and then not. he died in 1990; the estate holds the gold.",
+   "added": "2026-09-11",
+   "x": -0.2012,
+   "y": -1.0407,
    "unplaced": true
   },
   {
@@ -7170,8 +8037,8 @@
    "url": "",
    "note": "dieppe, camden town, music halls. ennui as two people in a room who have run out of sentences. the nudes are rooms first. he taught a generation of english painters to look at ordinary light.",
    "added": "2026-09-08",
-   "x": -0.2141,
-   "y": -1.0381,
+   "x": -0.1813,
+   "y": -1.0444,
    "unplaced": true
   },
   {
@@ -7187,8 +8054,8 @@
    "url": "https://en.wikipedia.org/wiki/Wilhelm_Sasnal",
    "note": "kraków painter of the newspaper image made still: a factory, a face, a field. living; the canvases are not ours to host.",
    "added": "2026-09-08",
-   "x": -0.1906,
-   "y": -1.0427,
+   "x": -0.1613,
+   "y": -1.0477,
    "unplaced": true
   },
   {
@@ -7204,8 +8071,8 @@
    "url": "",
    "note": "unism: pictures that refuse a centre, afterimages of the sun, a theory written down as well as painted. studied in moscow, built the a.r. group in łódź with katarzyna kobro, his wife. the late sun pictures are almost nothing and almost too much.",
    "added": "2026-09-07",
-   "x": -0.167,
-   "y": -1.0468,
+   "x": -0.1413,
+   "y": -1.0505,
    "unplaced": true
   },
   {
@@ -7221,8 +8088,8 @@
    "url": "",
    "note": "trained in paris, then painted ink horses that move as if the paper were weather. taught in beijing and helped set the academic line for the new republic. the horses are what people remember; the portraits are quieter.",
    "added": "2026-09-07",
-   "x": -0.1433,
-   "y": -1.0503,
+   "x": -0.1212,
+   "y": -1.053,
    "unplaced": true
   },
   {
@@ -7238,8 +8105,8 @@
    "url": "",
    "note": "shin-hanga landscapes: water, boats, a mountain held in a few blocks of colour. he carved and printed his own work, and travelled to india and the american west. funatsu is one of the quieter fuji views.",
    "added": "2026-09-07",
-   "x": -0.1195,
-   "y": -1.0532,
+   "x": -0.1011,
+   "y": -1.0552,
    "unplaced": true
   },
   {
@@ -7255,8 +8122,8 @@
    "url": "https://en.wikipedia.org/wiki/Zao_Wou-Ki",
    "note": "beijing, then paris. ink becoming oil becoming weather, without becoming a landscape poster. he died in 2013; the canvases stay with the estate.",
    "added": "2026-09-08",
-   "x": -0.0957,
-   "y": -1.0557,
+   "x": -0.0809,
+   "y": -1.0569,
    "unplaced": true
   },
   {
@@ -7272,8 +8139,8 @@
    "url": "https://en.wikipedia.org/wiki/Zhanna_Kadyrova",
    "note": "kyiv sculptor of tiles, paving stone, the stuff a city is made of after it has been used. living; the works stay under copyright.",
    "added": "2026-09-08",
-   "x": -0.0718,
-   "y": -1.0576,
+   "x": -0.0607,
+   "y": -1.0583,
    "unplaced": true
   },
   {
@@ -7289,8 +8156,8 @@
    "url": "/writing/english-teacher",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.0479,
-   "y": -1.0589,
+   "x": -0.0405,
+   "y": -1.0592,
    "unplaced": true
   },
   {
@@ -7306,8 +8173,8 @@
    "url": "/writing/staying-human",
    "note": "",
    "added": "2026-08-18",
-   "x": -0.024,
-   "y": -1.0597,
+   "x": -0.0202,
+   "y": -1.0598,
    "unplaced": true
   }
  ],
@@ -7522,6 +8389,15 @@
    ]
   },
   {
+   "who": "Marie Bashkirtseff",
+   "ids": [
+    "bashkirtseff-meeting",
+    "bashkirtseff-studio",
+    "bashkirtseff-umbrella",
+    "marie-bashkirtseff"
+   ]
+  },
+  {
    "who": "María Blanchard",
    "ids": [
     "blanchard-bracelet",
@@ -7548,6 +8424,15 @@
    "ids": [
     "bohomazov-window",
     "oleksandr-bohomazov"
+   ]
+  },
+  {
+   "who": "Mykhailo Boychuk",
+   "ids": [
+    "boychuk-harvest",
+    "boychuk-saint-john",
+    "boychuk-ukrainian-woman",
+    "mykhailo-boychuk"
    ]
   },
   {
@@ -7724,6 +8609,15 @@
    ]
   },
   {
+   "who": "Kyriak Kostandi",
+   "ids": [
+    "kostandi-geese",
+    "kostandi-landscape",
+    "kostandi-out-into-the-world",
+    "kyriak-kostandi"
+   ]
+  },
+  {
    "who": "Fedir Krychevsky",
    "ids": [
     "krychevsky-life",
@@ -7758,6 +8652,15 @@
     "malczewski-thanatos",
     "malczewski-vicious-circle",
     "jacek-malczewski"
+   ]
+  },
+  {
+   "who": "Kazimir Malevich",
+   "ids": [
+    "malevich-knife-grinder",
+    "malevich-morning-village",
+    "malevich-sportsmen",
+    "kazimir-malevich"
    ]
   },
   {
@@ -7800,6 +8703,22 @@
    ]
   },
   {
+   "who": "Oleksa Novakivskyi",
+   "ids": [
+    "novakivskyi-after-rain",
+    "novakivskyi-levytskyi",
+    "oleksa-novakivskyi"
+   ]
+  },
+  {
+   "who": "Ivan Padalka",
+   "ids": [
+    "padalka-the-word",
+    "padalka-tomatoes",
+    "ivan-padalka"
+   ]
+  },
+  {
    "who": "Niko Pirosmani",
    "ids": [
     "pirosmani-beer-seller",
@@ -7809,6 +8728,15 @@
     "pirosmani-roe-deer",
     "pirosmani-still-life",
     "niko-pirosmani"
+   ]
+  },
+  {
+   "who": "Mykola Pymonenko",
+   "ids": [
+    "pymonenko-harvest",
+    "pymonenko-haymaking",
+    "pymonenko-victim",
+    "mykola-pymonenko"
    ]
   },
   {
@@ -7917,6 +8845,14 @@
    ]
   },
   {
+   "who": "Ivan Trush",
+   "ids": [
+    "trush-little-pond",
+    "trush-venice",
+    "ivan-trush"
+   ]
+  },
+  {
    "who": "Suzanne Valadon",
    "ids": [
     "valadon-blue-room",
@@ -7945,6 +8881,15 @@
     "vallotton-woman-writing",
     "vallotton-guitare",
     "felix-vallotton"
+   ]
+  },
+  {
+   "who": "Serhii Vasylkivsky",
+   "ids": [
+    "vasylkivsky-peasant",
+    "vasylkivsky-sunset",
+    "vasylkivsky-zaporozhets",
+    "serhii-vasylkivsky"
    ]
   },
   {
@@ -8125,11 +9070,11 @@
    ]
   }
  ],
- "unplaced": 278,
+ "unplaced": 329,
  "forms": [
   {
    "form": "painting",
-   "n": 231
+   "n": 255
   },
   {
    "form": "object",
@@ -8169,7 +9114,7 @@
   },
   {
    "form": "person",
-   "n": 84
+   "n": 111
   },
   {
    "form": "writing",
@@ -8302,7 +9247,31 @@
    "n": 4
   },
   {
+   "who": "Kazimir Malevich",
+   "n": 4
+  },
+  {
+   "who": "Kyriak Kostandi",
+   "n": 4
+  },
+  {
+   "who": "Marie Bashkirtseff",
+   "n": 4
+  },
+  {
    "who": "Medardo Rosso",
+   "n": 4
+  },
+  {
+   "who": "Mykhailo Boychuk",
+   "n": 4
+  },
+  {
+   "who": "Mykola Pymonenko",
+   "n": 4
+  },
+  {
+   "who": "Serhii Vasylkivsky",
    "n": 4
   },
   {
@@ -8310,7 +9279,19 @@
    "n": 4
   },
   {
+   "who": "Ivan Padalka",
+   "n": 3
+  },
+  {
+   "who": "Ivan Trush",
+   "n": 3
+  },
+  {
    "who": "Katsushika Hokusai",
+   "n": 3
+  },
+  {
+   "who": "Oleksa Novakivskyi",
    "n": 3
   },
   {
@@ -8474,11 +9455,23 @@
    "n": 1
   },
   {
+   "who": "Alla Horska",
+   "n": 1
+  },
+  {
    "who": "Allen & Ginter",
    "n": 1
   },
   {
    "who": "Amy Sillman",
+   "n": 1
+  },
+  {
+   "who": "Anatol Petrytskyi",
+   "n": 1
+  },
+  {
+   "who": "Anatolii Lymarev",
    "n": 1
   },
   {
@@ -8614,6 +9607,10 @@
    "n": 1
   },
   {
+   "who": "Fedir Tetyanych",
+   "n": 1
+  },
+  {
    "who": "Fernando Pessoa",
    "n": 1
   },
@@ -8671,6 +9668,10 @@
   },
   {
    "who": "hajime sorayama",
+   "n": 1
+  },
+  {
+   "who": "Halyna Zubchenko",
    "n": 1
   },
   {
@@ -8746,7 +9747,15 @@
    "n": 1
   },
   {
+   "who": "Kateryna Bilokur",
+   "n": 1
+  },
+  {
    "who": "Katsukawa Shun'ei 勝川春英",
+   "n": 1
+  },
+  {
+   "who": "Kostiantyn Zorkin",
    "n": 1
   },
   {
@@ -8755,6 +9764,10 @@
   },
   {
    "who": "Leroux",
+   "n": 1
+  },
+  {
+   "who": "Lesia Khomenko",
    "n": 1
   },
   {
@@ -8786,6 +9799,10 @@
    "n": 1
   },
   {
+   "who": "Maria Prymachenko",
+   "n": 1
+  },
+  {
    "who": "Maurice Galbraith Cullen",
    "n": 1
   },
@@ -8794,11 +9811,23 @@
    "n": 1
   },
   {
+   "who": "Mykola Hlushchenko",
+   "n": 1
+  },
+  {
    "who": "Nicolas de Staël",
    "n": 1
   },
   {
+   "who": "Nikita Kadan",
+   "n": 1
+  },
+  {
    "who": "Nina Simone",
+   "n": 1
+  },
+  {
+   "who": "Oleksandr Dubovyk",
    "n": 1
   },
   {
@@ -8874,11 +9903,19 @@
    "n": 1
   },
   {
+   "who": "Tetyana Yablonska",
+   "n": 1
+  },
+  {
    "who": "Théodore Rousseau",
    "n": 1
   },
   {
    "who": "Théophile Steinlen",
+   "n": 1
+  },
+  {
+   "who": "Tiberiy Silvashi",
    "n": 1
   },
   {
@@ -8898,11 +9935,27 @@
    "n": 1
   },
   {
+   "who": "Vadym Sidur",
+   "n": 1
+  },
+  {
+   "who": "Valeria Troubina",
+   "n": 1
+  },
+  {
    "who": "Vangelis",
    "n": 1
   },
   {
+   "who": "Vasyl Yermilov",
+   "n": 1
+  },
+  {
    "who": "Vija Celmins",
+   "n": 1
+  },
+  {
+   "who": "Viktor Zaretskyi",
    "n": 1
   },
   {
@@ -8951,8 +10004,8 @@
   }
  ],
  "depth": {
-  "notes": 406,
-  "people": 192,
+  "notes": 457,
+  "people": 219,
   "thinnest": "the plain thing",
   "oneDeep": 0
  }
