@@ -95,9 +95,13 @@ const description = "discover paintings and posters for the moodboard.";
               </button>
             ))}
           </nav>
-          <figure class="in-faun-guide">
-            <img src="/images/eidos/product/faun-mark.webp" width="720" height="720" alt="the Faun, guide to discovery" />
-            <figcaption>faun notices</figcaption>
+          <figure class="in-faun-guide" data-faun-guide data-state="idle">
+            <span class="in-faun-stack">
+              <img class="in-faun-key" src="/images/eidos/product/faun-mark.webp" width="720" height="720" alt="the Faun, guide to discovery" />
+              <img class="in-faun-echo" src="/images/eidos/product/faun-mark.webp" width="720" height="720" alt="" aria-hidden="true" />
+              <i class="in-faun-signal" aria-hidden="true"></i>
+            </span>
+            <figcaption><b>faun</b><span>notices</span></figcaption>
           </figure>
           <div class="in-history">
             <p class="in-label">this sitting</p>
@@ -112,11 +116,10 @@ const description = "discover paintings and posters for the moodboard.";
               <div class="in-leaf in-leaf--it">
                 <div class="in-art" id="art-wrap">
                   <div class="in-plate-loader" id="plate-loader" data-plate-loader hidden aria-hidden="true">
-                    <span class="in-register-ring in-register-ring--ink"></span>
-                    <span class="in-register-ring in-register-ring--pink"></span>
-                    <span class="in-register-ring in-register-ring--ochre"></span>
-                    <i></i>
-                    <small>registering plate</small>
+                    <img class="in-loader-faun in-loader-faun--pink" src="/images/eidos/product/faun-mark.webp" width="720" height="720" alt="" />
+                    <img class="in-loader-faun in-loader-faun--ink" src="/images/eidos/product/faun-mark.webp" width="720" height="720" alt="" />
+                    <i class="in-loader-proof"></i>
+                    <small>finding next work</small>
                   </div>
                   <img id="art" alt="" decoding="async" />
                   <div class="in-art-miss" id="art-miss" hidden>
@@ -145,10 +148,6 @@ const description = "discover paintings and posters for the moodboard.";
             <button type="button" id="keys-open" class="in-btn in-btn--keys" aria-label="keyboard shortcuts" aria-keyshortcuts="?"><kbd>?</kbd></button>
           </div>
 
-          <div class="in-feedback" data-studio-feedback aria-hidden="true">
-            <video id="feedback-keep" muted playsinline preload="metadata"><source src="/images/eidos/product/save-to-profile.webm" type="video/webm" /><source src="/images/eidos/product/save-to-profile.mp4" type="video/mp4" /></video>
-            <video id="feedback-pass" muted playsinline preload="metadata"><source src="/images/eidos/product/pass-card.webm" type="video/webm" /><source src="/images/eidos/product/pass-card.mp4" type="video/mp4" /></video>
-          </div>
         </section>
       </div>
 
@@ -421,11 +420,14 @@ const description = "discover paintings and posters for the moodboard.";
       const harvested = JSON.parse(document.getElementById("in-data").textContent);
       const $ = (id) => document.getElementById(id);
       const card = $("card"), art = $("art"), noteLine = $("note-line"), plateLoader = $("plate-loader");
+      const faunGuide = document.querySelector("[data-faun-guide]");
       const edgeIn = document.querySelector(".in-edge--in");
       const edgeOut = document.querySelector(".in-edge--out");
       const trail = $("session-trail");
+      const LOADER_DELAY = 700;
       let deck = [], cur = null, sat = 0, positiveThis = [], last = null, busy = false;
       let activeFilter = "all", comparisonPair = [], comparisonShown = false;
+      let loaderTimer = 0, faunTimer = 0;
       const session = [];
       const filterTypes = {
         paintings: ["painting"],
@@ -435,16 +437,36 @@ const description = "discover paintings and posters for the moodboard.";
         people: ["person"],
       };
       const matchesFilter = (cand) => activeFilter === "all" || (filterTypes[activeFilter] || []).includes(cand.type);
-      const playFeedback = (kind) => {
-        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        const video = $(`feedback-${kind}`);
-        if (!video) return;
-        document.querySelectorAll("[data-studio-feedback] video").forEach((item) => { item.pause(); item.classList.remove("is-playing"); });
-        video.currentTime = 0;
-        video.classList.add("is-playing");
-        video.play().catch(() => video.classList.remove("is-playing"));
-      };
-      document.querySelectorAll("[data-studio-feedback] video").forEach((video) => video.addEventListener("ended", () => video.classList.remove("is-playing")));
+      function setPlateLoading(loading) {
+        clearTimeout(loaderTimer);
+        if (!loading) {
+          plateLoader.hidden = true;
+          plateLoader.classList.remove("is-active");
+          return;
+        }
+        plateLoader.hidden = true;
+        plateLoader.classList.remove("is-active");
+        loaderTimer = window.setTimeout(() => {
+          if (!art.classList.contains("is-loading")) return;
+          plateLoader.hidden = false;
+          void plateLoader.offsetWidth;
+          plateLoader.classList.add("is-active");
+        }, LOADER_DELAY);
+      }
+      function setFaunPreview(direction) {
+        if (!faunGuide) return;
+        if (direction > 0) faunGuide.dataset.preview = "keep";
+        else if (direction < 0) faunGuide.dataset.preview = "pass";
+        else delete faunGuide.dataset.preview;
+      }
+      function reactFaun(verdict, origin) {
+        if (origin === "keyboard") return;
+        if (!faunGuide) return;
+        clearTimeout(faunTimer);
+        delete faunGuide.dataset.preview;
+        faunGuide.dataset.state = verdict;
+        faunTimer = window.setTimeout(() => { faunGuide.dataset.state = "idle"; }, verdict === "favorite" ? 420 : 220);
+      }
       const renderTrail = () => {
         trail.replaceChildren();
         const recent = session.slice(-5).reverse();
@@ -500,17 +522,18 @@ const description = "discover paintings and posters for the moodboard.";
         if (!cur || !cur.src) return;
         $("art-miss").hidden = true;
         art.classList.add("is-loading");
+        setPlateLoading(true);
         art.removeAttribute("src");
         art.src = cur.src + (cur.src.includes("?") ? "&" : "?") + "r=" + Date.now();
       });
       function prefetch() { const n = deck[0]; if (n && n.src) { const i = new Image(); i.src = n.src; } }
       function show(c) {
         $("c-source").hidden = false;
-        // Clear the old picture before the new caption changes. The loader is
-        // the registration of a new plate, never a mascot over the artwork.
+        // Clear the old picture before the new caption changes. The Faun only
+        // appears if the next work takes long enough to need an explanation.
         art.removeAttribute("src");
         art.classList.add("is-loading");
-        plateLoader.hidden = false;
+        setPlateLoading(true);
         $("art-miss").hidden = true;
         delete art.dataset.failed;
         art.src = c.src;
@@ -527,12 +550,12 @@ const description = "discover paintings and posters for the moodboard.";
           const ratio = art.naturalWidth / art.naturalHeight;
           $("stage").dataset.orientation = ratio < 0.82 ? "portrait" : ratio > 1.22 ? "landscape" : "square";
           art.classList.remove("is-loading"); $("art-miss").hidden = true;
-          plateLoader.hidden = true;
+          setPlateLoading(false);
         };
         art.onerror = () => {
           if (!cur || !art.getAttribute("src")) return;
           art.classList.remove("is-loading");
-          plateLoader.hidden = true;
+          setPlateLoading(false);
           $("art-miss").hidden = false;
           $("art-miss").querySelector("p").textContent = `${cur.title} did not arrive from ${(() => { try { return new URL(cur.src, location.href).host.replace(/^www\./, ""); } catch { return "its source"; } })()}`;
         };
@@ -665,30 +688,32 @@ const description = "discover paintings and posters for the moodboard.";
       $("comparison-skip").addEventListener("click", () => comparison.close());
       comparison.addEventListener("click", (event) => { if (event.target === comparison) comparison.close(); });
 
-      function fly(dir) {
-        card.classList.add("is-flying");
+      const decisionDelay = (origin) => origin === "keyboard" ? 0 : 240;
+      function fly(dir, origin) {
+        if (origin !== "keyboard") card.classList.add("is-flying");
         card.style.transform = `translateX(${dir * 120}vw) rotate(${dir * 16}deg)`;
         card.style.opacity = "0";
       }
-      function pass() {
+      function pass(origin = "button") {
         if (!cur || busy) return;
         busy = true; const cand = cur; last = { cand, verdict: "pass" }; $("undo").disabled = false;
         record(cand, "pass");
-        playFeedback("pass"); fly(-1); send(cand, "pass", ""); sat++; setTimeout(next, 240);
+        reactFaun("pass", origin); fly(-1, origin); send(cand, "pass", ""); sat++; setTimeout(next, decisionDelay(origin));
       }
-      function keep() {
+      function keep(origin = "button") {
         if (!cur || busy) return;
         busy = true; const cand = cur; last = { cand, verdict: "keep" }; $("undo").disabled = false;
         positiveThis.push(cand); record(cand, "keep");
-        playFeedback("keep"); send(cand, "keep", cand.weather); sat++; fly(1); setTimeout(() => { next(); maybeCompare(); }, 240);
+        reactFaun("keep", origin); send(cand, "keep", cand.weather); sat++; fly(1, origin); setTimeout(() => { next(); maybeCompare(); }, decisionDelay(origin));
       }
-      function favorite() {
+      function favorite(origin = "button") {
         if (!cur || busy) return;
         busy = true; const cand = cur; last = { cand, verdict: "favorite" }; $("undo").disabled = false;
         positiveThis.push(cand); record(cand, "favorite");
-        card.classList.add("is-favorite");
-        playFeedback("keep"); send(cand, "favorite", cand.weather); sat++;
-        setTimeout(() => { fly(1); setTimeout(() => { next(); maybeCompare(); }, 220); }, 360);
+        if (origin !== "keyboard") card.classList.add("is-favorite");
+        reactFaun("favorite", origin); send(cand, "favorite", cand.weather); sat++;
+        const favoriteDelay = origin === "keyboard" ? 0 : 360;
+        setTimeout(() => { fly(1, origin); setTimeout(() => { next(); maybeCompare(); }, decisionDelay(origin)); }, favoriteDelay);
       }
       function undo() {
         if (!last || busy) return;
@@ -703,9 +728,9 @@ const description = "discover paintings and posters for the moodboard.";
         if (href && href !== "#") window.open(href, "_blank", "noopener,noreferrer");
       }
       $("undo").addEventListener("click", undo);
-      $("pass").addEventListener("click", pass);
-      $("keep").addEventListener("click", keep);
-      $("favorite").addEventListener("click", favorite);
+      $("pass").addEventListener("click", (event) => pass(event.detail === 0 ? "keyboard" : "button"));
+      $("keep").addEventListener("click", (event) => keep(event.detail === 0 ? "keyboard" : "button"));
+      $("favorite").addEventListener("click", (event) => favorite(event.detail === 0 ? "keyboard" : "button"));
       const keys = $("keys");
       const toggleKeys = () => (keys.open ? keys.close() : keys.showModal());
       $("keys-open").addEventListener("click", toggleKeys);
@@ -715,9 +740,9 @@ const description = "discover paintings and posters for the moodboard.";
       // nothing while a field has focus; a held key does not fire twice; a
       // chord with alt or ctrl belongs to the browser, except undo's own.
       const KEYS = {
-        ArrowRight: keep, l: keep,
-        ArrowLeft: pass, h: pass,
-        f: favorite,
+        ArrowRight: () => keep("keyboard"), l: () => keep("keyboard"),
+        ArrowLeft: () => pass("keyboard"), h: () => pass("keyboard"),
+        f: () => favorite("keyboard"),
         u: undo, z: undo,
         o: openSource, Enter: openSource,
         r: () => { if (cur && cur.src) $("art-retry").click(); },
@@ -744,19 +769,33 @@ const description = "discover paintings and posters for the moodboard.";
         card.style.transform = `translateX(${dx}px) rotate(${dx / 22}deg)`;
         edgeIn.style.opacity = Math.min(1, Math.max(0, dx / 90));
         edgeOut.style.opacity = Math.min(1, Math.max(0, -dx / 90));
+        setFaunPreview(dx > 24 ? 1 : dx < -24 ? -1 : 0);
+      };
+      const settleCard = () => {
+        card.classList.add("is-home");
+        card.style.transform = "";
+        edgeIn.style.opacity = 0;
+        edgeOut.style.opacity = 0;
+        setFaunPreview(0);
+        dx = 0;
       };
       const onUp = () => {
         if (!dragging) return;
         dragging = false;
-        if (dx > 110) keep();
-        else if (dx < -110) pass();
-        else { card.classList.add("is-home"); card.style.transform = ""; edgeIn.style.opacity = 0; edgeOut.style.opacity = 0; }
-        dx = 0;
+        if (dx > 110) keep("pointer");
+        else if (dx < -110) pass("pointer");
+        else settleCard();
+        if (busy) { setFaunPreview(0); dx = 0; }
+      };
+      const onCancel = () => {
+        if (!dragging) return;
+        dragging = false;
+        settleCard();
       };
       card.addEventListener("pointerdown", onDown);
       card.addEventListener("pointermove", onMove);
       card.addEventListener("pointerup", onUp);
-      card.addEventListener("pointercancel", onUp);
+      card.addEventListener("pointercancel", onCancel);
 
       build();
     })();

@@ -187,20 +187,21 @@ test("an opened artwork does not leave an inert nested opener in the detail view
   assert.match(source, /clone\.querySelector\("\.ep-visual-open"\)\.disabled = true/);
 });
 
-test("the hero is static first and motion is an enhancement", () => {
-  const html = read("dist/eidos/index.html");
+test("the hero is a precise door, not a looping film", () => {
+  const hero = read("src/components/eidos/EidosHero.astro");
 
-  assert.match(html, /hero-desktop-poster\.webp/);
-  assert.match(html, /hero-mobile-poster\.webp/);
-  assert.match(html, /hero-ambient-desktop\.webm/);
-  assert.match(html, /hero-ambient-desktop\.mp4/);
-  assert.match(html, /hero-ambient-mobile\.webm/);
-  assert.match(html, /hero-ambient-mobile\.mp4/);
-  assert.match(html, /data-eidos-ambient/);
+  assert.match(hero, /hero-desktop-poster\.webp/);
+  assert.match(hero, /hero-mobile-poster\.webp/);
+  assert.match(hero, /href="#collection"[^>]*>open moodboard</);
+  assert.match(hero, /href="\/eidos\/inbox"[^>]*>discover paintings</);
+  assert.match(hero, /data-eidos-hero/);
+  assert.match(hero, /data-hero-faun/);
+  assert.doesNotMatch(hero, /<video|autoplay|\bloop\b|hero-ambient-/);
 });
 
 test("the private inbox is the working studio of the same product", () => {
   const html = read("dist/eidos/inbox/index.html");
+  const css = read("src/styles/pages/eidos-studio.css");
 
   assert.match(html, /class="eidos-studio"/);
   assert.match(html, /class="ep-header/);
@@ -209,6 +210,7 @@ test("the private inbox is the working studio of the same product", () => {
   assert.match(html, /class="in-center"/);
   assert.doesNotMatch(html, /class="in-note-panel"/);
   assert.doesNotMatch(html, /class="in-ground"/, "the old blurred artwork wallpaper survived");
+  assert.match(css, /body \.eidos-studio \.in-rail \.in-shelf a \{[^}]*color:\s*inherit/);
 });
 
 test("discover queues only distinct paintings, prints, and posters", async () => {
@@ -323,17 +325,45 @@ test("the visual Studio has shelves, an absolute favorite, and a comparison ritu
   assert.match(source, /send\(cand, "favorite", cand\.weather\)/);
 });
 
-test("the studio keeps reaction clips but loads a plate without a mascot overlay", () => {
-  const html = read("dist/eidos/inbox/index.html");
+test("the studio uses one finite Faun loader and no reaction films", () => {
+  const source = read("src/pages/eidos/inbox.astro");
   const css = read("src/styles/pages/eidos-studio.css");
 
-  assert.match(html, /save-to-profile\.webm/);
-  assert.match(html, /pass-card\.webm/);
-  assert.match(html, /data-studio-feedback/);
-  assert.doesNotMatch(html, /open-next-card|loader-circle/);
-  assert.match(html, /data-plate-loader/);
-  assert.match(css, /@keyframes plate-register/);
+  assert.match(source, /data-plate-loader/);
+  assert.match(source, /class="in-loader-faun/);
+  assert.match(source, /const LOADER_DELAY = 700/);
+  assert.match(source, /data-faun-guide/);
+  assert.doesNotMatch(source, /<video|playFeedback|data-studio-feedback|save-to-profile|pass-card/);
+  assert.doesNotMatch(css, /in-register-ring|plate-register[^}]*infinite/);
+  assert.match(css, /@keyframes faun-register/);
+  assert.doesNotMatch(css, /animation:[^;}]*infinite/);
   assert.match(css, /prefers-reduced-motion: reduce[\s\S]*?\.in-plate-loader/);
+});
+
+test("Faun reacts to direct manipulation without slowing keyboard decisions", () => {
+  const source = read("src/pages/eidos/inbox.astro");
+  const css = read("src/styles/pages/eidos-studio.css");
+
+  assert.match(source, /function setFaunPreview\(direction\)/);
+  assert.match(source, /function reactFaun\(verdict, origin\)/);
+  assert.match(source, /if \(origin === "keyboard"\) return/);
+  assert.match(source, /const decisionDelay = \(origin\) => origin === "keyboard" \? 0 : 240/);
+  assert.match(source, /fly\(-1, origin\)/);
+  assert.match(source, /fly\(1, origin\)/);
+  assert.match(source, /keep\("keyboard"\)|pass\("keyboard"\)|favorite\("keyboard"\)/);
+  assert.match(css, /\.in-faun-guide\[data-state="keep"\]/);
+  assert.match(css, /\.in-faun-guide\[data-state="pass"\]/);
+  assert.match(css, /\.in-faun-guide\[data-state="favorite"\]/);
+  assert.doesNotMatch(css, /\.in-faun-guide[^}]*transition:[^;}]*(?:3[0-9]{2}|[4-9][0-9]{2})ms/);
+});
+
+test("a cancelled drag always returns the artwork home", () => {
+  const source = read("src/pages/eidos/inbox.astro");
+
+  assert.match(source, /const settleCard = \(\) =>/);
+  assert.match(source, /const onCancel = \(\) =>/);
+  assert.match(source, /pointercancel", onCancel/);
+  assert.doesNotMatch(source, /pointercancel", onUp/);
 });
 
 test("the atlas is the product's one map and keeps private tools secondary", () => {
@@ -361,7 +391,7 @@ test("the public experiment belongs to the product and explains itself", () => {
   assert.doesNotMatch(html, /—/, "the product voice slipped into em dashes");
 });
 
-test("the mobile product keeps its doors visible without loading two hero films", () => {
+test("the mobile product keeps its doors visible without loading a hero film", () => {
   const header = read("src/components/eidos/EidosHeader.astro");
   const hero = read("src/components/eidos/EidosHero.astro");
   const css = read("src/styles/pages/eidos-product.css");
@@ -369,8 +399,8 @@ test("the mobile product keeps its doors visible without loading two hero films"
 
   assert.match(header, /ep-parent-mobile[^>]*>site</);
   assert.match(tablet, /\.ep-nav \{[\s\S]*?display: flex;/);
-  assert.equal((hero.match(/class="ep-hero-video"/g) || []).length, 1);
-  assert.match(hero, /media="\(max-width: 680px\)"[^>]*hero-ambient-mobile\.webm/);
+  assert.doesNotMatch(hero, /<video|hero-ambient-/);
+  assert.match(hero, /media="\(max-width: 680px\)"[^>]*hero-mobile-poster\.webp/);
 });
 
 test("the mobile workbench preserves generous controls", () => {
@@ -386,9 +416,10 @@ test("the mobile workbench preserves generous controls", () => {
 test("the desktop studio gives the artwork most of the available viewport", () => {
   const studio = read("src/styles/pages/eidos-studio.css");
   const artRule = studio.match(/\.eidos-studio \.in-art \{([^}]*)\}/)?.[1] || "";
-  const imageRule = studio.match(/body \.eidos-studio \.in-center \.in-art img \{([^}]*)\}/)?.[1] || "";
+  const imageRule = studio.match(/body \.eidos-studio \.in-center \.in-art > img \{([^}]*)\}/)?.[1] || "";
   assert.match(studio, /\.in-art \{[\s\S]*?min-height:\s*min\(68svh, 48rem\)/);
   assert.match(artRule, /min-height:\s*min\(68svh, 48rem\)/);
+  assert.doesNotMatch(studio, /\.in-art img \{/, "artwork sizing leaked into the tiny Faun loader");
   assert.match(imageRule, /(?:^|;)\s*width:\s*auto/);
   assert.match(imageRule, /(?:^|;)\s*height:\s*min\(68svh, 48rem\)/);
   assert.match(studio, /\.in-stage\[data-orientation="portrait"\][^{]*\{[^}]*max-width:\s*54rem/);

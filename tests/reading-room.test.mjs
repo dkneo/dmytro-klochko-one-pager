@@ -163,7 +163,7 @@ test("the inbox answers the keyboard the way keyboard-first tools do", () => {
   assert.match(html, /<dialog class="in-keys" id="keys"/, "no shortcuts sheet");
   assert.match(html, /<form method="dialog"[^>]*>/, "the sheet has no native close");
   // one map, and the three rules
-  assert.match(src, /const KEYS = \{[\s\S]*ArrowRight: keep, l: keep,[\s\S]*ArrowLeft: pass, h: pass,[\s\S]*"\?": toggleKeys,/, "the key map is incomplete");
+  assert.match(src, /const KEYS = \{[\s\S]*ArrowRight: \(\) => keep\("keyboard"\), l: \(\) => keep\("keyboard"\),[\s\S]*ArrowLeft: \(\) => pass\("keyboard"\), h: \(\) => pass\("keyboard"\),[\s\S]*f: \(\) => favorite\("keyboard"\),[\s\S]*"\?": toggleKeys,/, "the key map is incomplete or has lost its input origin");
   assert.match(src, /closest\("input,textarea,select"\)\) return;/, "letters fire inside fields");
   assert.match(src, /if \(e\.repeat && act !== undo\) return;/, "a held arrow fires twice");
   assert.match(src, /if \(e\.metaKey \|\| e\.ctrlKey \|\| e\.altKey\) return;/, "browser chords are swallowed");

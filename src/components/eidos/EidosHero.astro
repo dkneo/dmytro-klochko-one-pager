@@ -6,37 +6,54 @@
       choose what joins next.
     </p>
     <div class="ep-hero-actions">
-      <a class="ep-action ep-action--solid" href="#collection">start looking</a>
-      <a class="ep-action" href="/eidos/inbox">discover something</a>
+      <a class="ep-action ep-action--solid" href="#collection">open moodboard</a>
+      <a class="ep-action" href="/eidos/inbox">discover paintings</a>
     </div>
   </div>
-  <figure class="ep-hero-art" data-eidos-ambient>
+  <figure class="ep-hero-art" data-eidos-hero>
     <picture class="ep-hero-poster">
       <source media="(max-width: 680px)" srcset="/images/eidos/product/hero-mobile-poster.webp" />
       <img src="/images/eidos/product/hero-desktop-poster.webp" width="1920" height="1080" alt="a graphite Faun beside an olive and salmon Gryphon, held by an open pink circle" fetchpriority="high" decoding="async" />
     </picture>
-    <video class="ep-hero-video" muted autoplay loop playsinline preload="metadata" poster="/images/eidos/product/hero-desktop-poster.webp" aria-hidden="true">
-      <source media="(max-width: 680px)" src="/images/eidos/product/hero-ambient-mobile.webm" type="video/webm" />
-      <source media="(max-width: 680px)" src="/images/eidos/product/hero-ambient-mobile.mp4" type="video/mp4" />
-      <source media="(min-width: 681px)" src="/images/eidos/product/hero-ambient-desktop.webm" type="video/webm" />
-      <source media="(min-width: 681px)" src="/images/eidos/product/hero-ambient-desktop.mp4" type="video/mp4" />
-    </video>
-    <figcaption><i>temet nosce</i> · faun notices · gryphon remembers</figcaption>
+    <span class="ep-hero-note ep-hero-note--faun" data-hero-faun aria-hidden="true"><i></i><b>faun notices</b></span>
+    <span class="ep-hero-note ep-hero-note--gryphon" aria-hidden="true"><i></i><b>gryphon remembers</b></span>
+    <figcaption><i>temet nosce</i> · know yourself</figcaption>
   </figure>
 </section>
 
 <script is:inline>
   (() => {
-    const video = document.querySelector("[data-eidos-ambient] video");
+    const hero = document.querySelector("[data-eidos-hero]");
+    if (!hero) return;
+
+    const reveal = () => hero.classList.add("is-seen");
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting) return;
+      reveal();
+      observer.disconnect();
+    }, { threshold: 0.42 });
+    observer.observe(hero);
+
+    const direct = matchMedia("(hover: hover) and (pointer: fine)").matches;
     const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const saver = navigator.connection?.saveData;
-    if (reduced || saver) {
-      if (video) {
-        video.pause();
-        video.hidden = true;
-      }
-      return;
-    }
-    video?.addEventListener("playing", () => video.closest("[data-eidos-ambient]")?.classList.add("is-moving"), { once: true });
+    if (!direct || reduced) return reveal();
+
+    let frame = 0;
+    hero.addEventListener("pointermove", (event) => {
+      const bounds = hero.getBoundingClientRect();
+      const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+      const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        hero.classList.remove("is-settling");
+        hero.style.setProperty("--hero-x", x.toFixed(3));
+        hero.style.setProperty("--hero-y", y.toFixed(3));
+      });
+    });
+    hero.addEventListener("pointerleave", () => {
+      hero.classList.add("is-settling");
+      hero.style.setProperty("--hero-x", "0");
+      hero.style.setProperty("--hero-y", "0");
+    });
   })();
 </script>
