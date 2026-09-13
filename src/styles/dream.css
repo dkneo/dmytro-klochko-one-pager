@@ -49,11 +49,6 @@
   grid-template-columns: 1fr;
 }
 
-[data-mode="dream"] #now .joi-col,
-[data-mode="dream"] #before .joi-col {
-  display: none;
-}
-
 /* Upbringing reads as a life, not a numbered list. The beads carry the
    chronology on their own; stems between them looked like form dividers. */
 
@@ -386,7 +381,7 @@ html.is-shook .scenes {
     }
 }
 
-/* The vinyl keeps spinning, in dusk and pink. */
+/* The footer shader keeps its dusk and pink ink in dream mode. */
 
 [data-mode="dream"] .ascii {
   --ink-void: #262b44;
@@ -1898,15 +1893,8 @@ html[data-motion="paused"] .scenes .firelight {
   font-weight: 300;
 }
 
-/* The shader is hidden in dream, as it is on the main page, so the spread
-   is a single column here. */
-
 [data-mode="dream"] .cv-spread {
   grid-template-columns: 1fr;
-}
-
-[data-mode="dream"] .cv-spread .joi-col {
-  display: none;
 }
 
 [data-mode="dream"] .cv-job--lead .reg-line {
@@ -2369,43 +2357,6 @@ html[data-motion="paused"] .scenes .firelight {
     }
 }
 
-/* The way out, sitting in the footer row between the copyright and the way
-   back up. Small enough to belong to that line, a target rather than a link
-   because it is the only thing down there that asks for nothing. */
-
-[data-mode="dream"] .dance-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55em;
-  padding: 0.3rem 0.85rem;
-  border: 1px solid rgb(255 155 192 / 40%);
-  border-radius: 999px;
-  color: var(--hot);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  text-decoration: none;
-  transition:
-    background var(--dur) var(--ease),
-    border-color var(--dur) var(--ease),
-    color var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .dance-cta .arw {
-  transition: transform var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .dance-cta:hover {
-  background: rgb(255 155 192 / 12%);
-  border-color: var(--hot);
-  color: var(--bone);
-}
-
-[data-mode="dream"] .dance-cta:hover .arw {
-  transform: translateX(0.25em);
-}
-
 /* The poem keeps its own line breaks; that is most of what a poem is. */
 
 [data-mode="dream"] .chord-verse {
@@ -2636,62 +2587,6 @@ html[data-motion="paused"] .scenes .firelight {
 [data-mode="dream"] .menu-drop a:hover {
   background: rgb(236 230 217 / 6%);
   color: var(--hot);
-}
-
-/* ── the signoff, and what it hides ─────────────────────────────────────── */
-
-[data-mode="dream"] .signoff-btn {
-  padding: 0;
-  background: none;
-  border: 0;
-  color: inherit;
-  font: inherit;
-  letter-spacing: var(--ls-wide);
-  cursor: pointer;
-  transition: color var(--dur) var(--ease);
-}
-
-[data-mode="dream"] .signoff-btn:hover { color: var(--hot); }
-
-[data-mode="dream"] .bebop-pop {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: grid;
-  place-content: center;
-  gap: var(--sp-3);
-  justify-items: center;
-  background: rgb(8 10 20 / 92%);
-  backdrop-filter: blur(6px);
-  animation: cv-unfold 0.3s var(--ease) both;
-}
-
-[data-mode="dream"] .bebop-pop[hidden] { display: none; }
-
-/* A real width, not a max: the popup centres its grid, so width:100% on the
-   figure had nothing to resolve against and the canvas collapsed. */
-
-[data-mode="dream"] .bebop-pop .ascii--bebop {
-  display: block;
-  width: min(92vw, 46rem);
-}
-
-[data-mode="dream"] .bebop-close {
-  padding: 0.4rem 1.1rem;
-  background: none;
-  border: 1px solid rgb(255 155 192 / 40%);
-  border-radius: 999px;
-  color: var(--hot);
-  font-family: var(--mono);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-[data-mode="dream"] .bebop-close:hover {
-  background: rgb(255 155 192 / 12%);
-  color: var(--bone);
 }
 
 /* Wide enough for the words, and the menu is only ever the overflow. */
@@ -2979,7 +2874,6 @@ html[data-motion="paused"] .scenes .firelight {
    attempt did. Transform only, so it runs on the compositor. */
 
 [data-mode="dream"] button:active,
-[data-mode="dream"] .dance-cta:active,
 [data-mode="dream"] .cv-job > summary:active .cv-more {
   scale: 0.97;
 }
@@ -2990,9 +2884,7 @@ html[data-motion="paused"] .scenes .firelight {
 [data-mode="dream"] .bit-share button,
 [data-mode="dream"] .cur-btn,
 [data-mode="dream"] .chord-next,
-[data-mode="dream"] .chord-back,
-[data-mode="dream"] .bebop-close,
-[data-mode="dream"] .dance-cta {
+[data-mode="dream"] .chord-back {
   transition:
     background var(--dur) var(--ease),
     border-color var(--dur) var(--ease),
@@ -3178,8 +3070,7 @@ html[data-motion="paused"] .scenes .firelight {
 [data-mode="dream"] .piece-up a,
 [data-mode="dream"] .onward,
 [data-mode="dream"] .research a,
-[data-mode="dream"] .to-top,
-[data-mode="dream"] .signoff-btn {
+[data-mode="dream"] .to-top {
   display: inline-flex;
   align-items: center;
   min-height: 24px;

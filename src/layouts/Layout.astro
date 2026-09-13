@@ -2,7 +2,6 @@
 import { execSync } from "node:child_process";
 import "../styles/global.css";
 import "../styles/dream.css";
-import AsciiShader from "../components/AsciiShader.astro";
 
 interface Props {
   title: string;
@@ -137,8 +136,8 @@ const isHomepage = Astro.url.pathname === "/";
     </div>
 
     <!-- The dream sky: an orange moon and a slow field of stars, after
-         katherine bradford's Swimmers Under Orange Moon, which hangs on the
-         taste page and lends this whole mode its palette. -->
+         katherine bradford's Swimmers Under Orange Moon, whose palette lends
+         this whole mode its light. -->
     <div class="dream-sky" aria-hidden="true">
       <span class="moon"></span>
       <i></i><i></i>
@@ -150,22 +149,18 @@ const isHomepage = Astro.url.pathname === "/";
       {!isHomepage && <a class="masthead" href="/">dmytro klochko</a>}
       {current !== "home" && <span class="crumb">/ {current.replace("-", " ")}</span>}
       {/* Say hi stays out in the open because it is the one thing a stranger
-          might want before they have read anything. The rest goes behind the
-          fold: nobody should be offered "learning" before they know who this
-          is. Native details, so it opens without javascript and answers the
-          keyboard on its own. */}
+          might want before they have read anything. Press is the only other
+          foyer door in the header. Native details, so the narrow menu opens
+          without javascript and answers the keyboard on its own. */}
       <nav class="site-nav" aria-label="elsewhere">
-        {/* Wide screens have the room, and hiding two short words behind a
-            click costs discovery for nothing. Below 861 they fold. */}
+        {/* Wide screens have the room. Below 861 the press door folds. */}
         <span class="nav-wide">
-          <a class="dance-link" href="/learning" aria-current={current === "learning" ? "page" : undefined}>learning</a>
           <a class="dance-link" href="/press" aria-current={current === "press" ? "page" : undefined}>press</a>
         </span>
         <a class="dance-link" href="/#contact">dm me</a>
         <details class="menu">
           <summary aria-label="more pages"><i></i><i></i><i></i></summary>
           <div class="menu-drop">
-            <a href="/learning" aria-current={current === "learning" ? "page" : undefined}>learning</a>
             <a href="/press" aria-current={current === "press" ? "page" : undefined}>press</a>
           </div>
         </details>
@@ -177,23 +172,7 @@ const isHomepage = Astro.url.pathname === "/";
     </main>
 
     <footer class="site-footer">
-      <p class="signoff"><button class="signoff-btn" type="button">SEE YOU SPACE COWBOY&hellip;</button></p>
-
-      {/* Five clicks. It is the line the whole site is named after, so the
-          thing it summons is the shader that used to open bebop mode. */}
-      <div class="bebop-pop" hidden>
-        <AsciiShader
-          class="ascii--bebop"
-          src="/ascii/bebop-sheet.jpg"
-          frames={28}
-          cols={92}
-          fps={11}
-          black={0.1}
-          white={0.99}
-          gamma={1.15}
-        />
-        <button class="bebop-close" type="button">close</button>
-      </div>
+      <p class="signoff">SEE YOU SPACE COWBOY&hellip;</p>
       {/* The greats' footers say one true thing and stop: Paco's motto and a
           year, Rauno's colophon. Ours repeated the header's three links and then
           the copyright; a reader arriving here has the contact list in view
@@ -210,24 +189,6 @@ const isHomepage = Astro.url.pathname === "/";
     <script>
       import { setupMotionControl } from "../scripts/motion-control.js";
       setupMotionControl();
-    </script>
-
-    <script is:inline>
-      (() => {
-        const btn = document.querySelector(".signoff-btn");
-        const pop = document.querySelector(".bebop-pop");
-        if (!btn || !pop) return;
-        let hits = 0, last = 0;
-        btn.addEventListener("click", () => {
-          const now = Date.now();
-          hits = now - last > 1200 ? 1 : hits + 1;
-          last = now;
-          if (hits >= 5) { hits = 0; pop.hidden = false; document.body.classList.add("is-bebop"); }
-        });
-        const shut = () => { pop.hidden = true; document.body.classList.remove("is-bebop"); };
-        pop.querySelector(".bebop-close").addEventListener("click", shut);
-        addEventListener("keydown", (e) => { if (e.key === "Escape") shut(); });
-      })();
     </script>
 
     <!--

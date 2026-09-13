@@ -6,9 +6,11 @@ For any agent picking this repo up. Read this first, then `CHECKLIST.md`
 The site belongs to **Dmytro Klochko**, CEO of Replika. Audience is VCs,
 scouts and tech-Twitter. Everything on it is either true or removed.
 
-The **foyer** is what public nav and the sitemap offer: `/`, `/learning`,
-`/press`, `/#contact`. Extra rooms stay in the repo, reachable by url,
-unlinked and noindex. Do not put writing or eidos in the header.
+The **foyer** is the public surface: `/`, `/learning`, `/press`, `/#contact`.
+The global header offers press and contact; learning remains directly reachable
+and indexed without occupying the header. Extra rooms stay in the repo,
+reachable by url, unlinked and noindex. Do not put writing or eidos in the
+header.
 
 ---
 
@@ -174,7 +176,6 @@ candidates.mjs     Wikimedia       → public/inbox.json        --apply to write
 eidos-pull.mjs     KV              → vault markdown           --apply to write
 ask-pull.mjs       KV              → prints Stella's requests; moves status
 press-logos.mjs    Commons         → src/data/press-logos.json
-pond-assets.mjs    Commons         → public/images/pond/
 ```
 
 Every script that writes is **dry-run by default** and needs `--apply`. Keep
@@ -203,8 +204,8 @@ eight short walls interrupted by eight short columns never read as a place.
 disagree about what he loves. `tests/eidos-portrait.test.mjs` holds them to
 the same numbers.
 
-Views: `/eidos/map` (the sketch), `/eidos/orbit` (the shape). `/eidos/deck`
-is legacy, unlinked.
+Views: `/eidos/map` (the sketch), `/eidos/orbit` (the retired shape, redirected
+to the sketch).
 
 `/eidos/inbox` **replaced `/eidos/sit`** (the worker 301s the old address).
 One surface, two kinds of card: what the harvester brought (pictures) and
@@ -404,13 +405,9 @@ The **foyer** is what public nav and the sitemap offer:
 | url | what |
 |---|---|
 | `/today` | a daily chord: painting, poem, quote, song, by "weather" |
-| `/eidos` | the taste library; `/eidos/deck` is the swipe deck |
-| `/hokku` | write a haiku, reviewed by rule |
+| `/eidos` | the taste library |
 | `/basho` | a hosted essay |
-| `/pond` | the stillness toy |
-| `/taste` | the playlist remnant |
 | `/writing` | two skyeng-year pieces |
-| `/dance` | the dance loop |
 | `/curate`, `/vault`, `/map` | curation tooling |
 | `/names` | **gated** — the naming folio + the app brief |
 | `/ask` | **gated, separate password** — the request desk |
@@ -427,10 +424,6 @@ vastness, weight and grace. Everything is filed by feeling, not by kind.
 - `ANTHROPIC_API_KEY` unset, so "ask the map" on `/eidos` returns 503.
 - Cloudflare Access unconfigured, so `/curate` is unreachable; 23 candidates
   wait in `public/inbox.json`.
-- `/pond` shipped: pale paper as decided (Hoji's belly wash cut out hollow on
-  dark), 60s of stillness makes night fall and the frog jump in. `?still=N`
-  shortens the minute for demos. Linked from the bashō figure on `/hokku`.
-  Both are hidden rooms.
 
 ---
 
@@ -467,7 +460,6 @@ Name the file for where it belongs and the pickup needs no explanation:
 ```
 scene-ember.jpg        → public/images/scenes/ember.webp
 press-logo-nature.svg  → the press wordmarks
-pond-frog.png          → the pond game
 wall-kurosawa.jpg      → the wall on the main page
 names-folio.html       → KV names:folio
 note-anything.md       → just read it

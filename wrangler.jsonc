@@ -23,6 +23,18 @@
       "/scout", "/scout/*",
       "/api/*",
       "/eidos/sit", "/eidos/sit/",
+      "/lookbook/archive", "/lookbook/archive/*",
+      "/eidos/embed", "/eidos/embed/*",
+      "/eidos/deck", "/eidos/deck/*",
+      "/taste", "/taste/*",
+      "/archive", "/archive/*",
+      "/at-work", "/at-work/*",
+      "/feed", "/feed/*",
+      "/modus-operandi", "/modus-operandi/*",
+      "/hokku", "/hokku/*",
+      "/pond", "/pond/*",
+      "/lab/shader", "/lab/shader/*",
+      "/dance", "/dance/*",
       "/curate", "/curate/*"
     ]
   },

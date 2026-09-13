@@ -1,38 +1,27 @@
 // A sitemap built from what actually shipped, so it cannot list a page that
 // does not exist or miss one that does.
 //
-// Left out on purpose: the four redirect stubs (they carry noindex and a
-// canonical pointing elsewhere); /names, which is behind a password; and the
-// hidden rooms. Those rooms stay on disk and stay reachable by url. They are
-// not the foyer, so they are not advertised.
+// Left out on purpose: /names, which is behind a password, and the hidden
+// rooms. Those rooms stay on disk and stay reachable by url. They are not the
+// foyer, so they are not advertised.
 import { readdirSync, statSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
 const SITE = "https://dmklochko.com";
 const SKIP = new Set([
-  "/archive/",
-  "/at-work/",
-  "/feed/",
-  "/modus-operandi/",
   "/names/",
   "/writing/",
   "/writing/staying-human",
   "/writing/english-teacher",
   "/eidos/",
-  "/eidos/deck/",
   "/eidos/map/",
   "/eidos/orbit/",
   "/eidos/inbox/",
   "/today/",
-  "/taste/",
   "/basho",
-  "/hokku/",
-  "/pond/",
-  "/dance/",
   "/curate/",
   "/vault/",
   "/map/",
-  "/lab/shader",
   "/ask/",
 ]);
 

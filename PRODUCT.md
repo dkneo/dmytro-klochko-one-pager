@@ -14,7 +14,7 @@ Primary audience is a narrow, high-status crowd: VCs and scouts, "cool twitter" 
 
 A personal foyer that represents Dmytro as a person beyond his job title. It exists to make a specific, high-status audience react with "woah, he's SO cool actually" — combining a genuine art-and-technology polymath identity (poet, ex-child-prodigy, filmmaker, founder) with real professional credibility (CEO of Replika) so the impression lands as both distinctive and legitimate.
 
-The public map is small on purpose: homepage, learning, press, say hi. Extra rooms (writing, eidos, today, taste, basho, hokku, pond, dance, and the studio tooling) stay in the repo as hidden rooms. They are reachable by url and kept out of public nav and the sitemap.
+The public map is small on purpose: homepage, learning, press, say hi. Learning remains directly reachable and indexed without occupying the global header. Extra rooms (writing, eidos, today, basho, and the studio tooling) stay in the repo as hidden rooms. They are reachable by url and kept out of public nav and the sitemap.
 
 ## Positioning
 

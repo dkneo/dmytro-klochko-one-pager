@@ -377,20 +377,6 @@ test("the atlas is the product's one map and keeps private tools secondary", () 
   assert.doesNotMatch(html, /data-scene="nightcourt"/);
 });
 
-test("the public experiment belongs to the product and explains itself", () => {
-  const html = read("dist/eidos/deck/index.html");
-  assert.match(html, /data-eidos-product/);
-  assert.match(html, /class="eidos-experiment"/);
-  assert.match(html, /what does your eye keep\?/);
-  assert.match(html, /76-card experiment/);
-  assert.doesNotMatch(html, /the greek for the form of a thing/);
-  assert.match(html, /data-deck-feedback/);
-  assert.match(html, /swipe-keep-overlay\.(?:webm|mp4)/);
-  assert.match(html, /swipe-pass-overlay\.(?:webm|mp4)/);
-  assert.match(html, /classList\.add\("is-deck-active"\)/, "starting the deck does not make room for the card");
-  assert.doesNotMatch(html, /—/, "the product voice slipped into em dashes");
-});
-
 test("the mobile product keeps its doors visible without loading a hero film", () => {
   const header = read("src/components/eidos/EidosHeader.astro");
   const hero = read("src/components/eidos/EidosHero.astro");
@@ -436,11 +422,9 @@ test("the portrait tablet keeps the product map instead of collapsing to an exit
 test("frequent product gestures stay quick, interruptible and respectful", () => {
   const product = read("src/styles/pages/eidos-product.css");
   const studio = read("src/styles/pages/eidos-studio.css");
-  const deck = read("src/pages/eidos/deck.astro");
 
   assert.match(product, /@media \(hover: hover\) and \(pointer: fine\)/, "pointer-only flourishes are not gated");
   assert.match(product, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(studio, /is-flying \{ transition: transform 2[0-9]{2}ms cubic-bezier/);
   assert.doesNotMatch(studio, /is-(?:flying|home)[^{]*\{[^}]*transition:[^;}]*(?:3[1-9][0-9]|[4-9][0-9]{2})ms/);
-  assert.doesNotMatch(deck, /transform (?:3[1-9][0-9]|[4-9][0-9]{2})ms/);
 });

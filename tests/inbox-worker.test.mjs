@@ -49,6 +49,31 @@ test("the duplicate orbit walks to the atlas", async () => {
   }
 });
 
+test("retired rooms walk to the nearest surviving room", async () => {
+  const routes = new Map([
+    ["/lookbook/archive", "/lookbook/inside"],
+    ["/eidos/embed", "/eidos"],
+    ["/eidos/deck", "/eidos"],
+    ["/taste", "/eidos"],
+    ["/archive", "/eidos"],
+    ["/at-work", "/eidos"],
+    ["/feed", "/eidos"],
+    ["/modus-operandi", "/eidos"],
+    ["/hokku", "/basho"],
+    ["/pond", "/basho"],
+    ["/lab/shader", "/basho"],
+    ["/dance", "/"],
+  ]);
+
+  for (const [from, to] of routes) {
+    for (const suffix of ["", "/", "/index.html", "/anything"]) {
+      const r = await worker.fetch(new Request(`https://dmklochko.com${from}${suffix}`), env());
+      assert.equal(r.status, 301, `${from}${suffix} did not redirect permanently`);
+      assert.equal(new URL(r.headers.get("location")).pathname, to, `${from}${suffix} went to the wrong room`);
+    }
+  }
+});
+
 test("an absolute favorite is a first-class positive verdict", async () => {
   const bindings = env();
   const cookie = await login(bindings);

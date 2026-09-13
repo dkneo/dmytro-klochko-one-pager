@@ -810,6 +810,27 @@ export default {
       return Response.redirect(new URL("/eidos/map", url).toString(), 301);
     }
 
+    // Retired rooms keep their old links, but no longer ship duplicate pages.
+    // Match the whole subtree so /, /index.html, case variants and stale deep
+    // links cannot fall through to the asset layer's 404 page.
+    const retired = [
+      ["/lookbook/archive", "/lookbook/inside"],
+      ["/eidos/embed", "/eidos"],
+      ["/eidos/deck", "/eidos"],
+      ["/taste", "/eidos"],
+      ["/archive", "/eidos"],
+      ["/at-work", "/eidos"],
+      ["/feed", "/eidos"],
+      ["/modus-operandi", "/eidos"],
+      ["/hokku", "/basho"],
+      ["/pond", "/basho"],
+      ["/lab/shader", "/basho"],
+      ["/dance", "/"],
+    ];
+    const retiredPath = url.pathname.toLowerCase().replace(/\/+$/, "");
+    const oldRoom = retired.find(([from]) => retiredPath === from || retiredPath.startsWith(`${from}/`));
+    if (oldRoom) return Response.redirect(new URL(oldRoom[1], url).toString(), 301);
+
     // The inbox: adding a link is a write, listing is his to see.
     if (url.pathname === "/api/eidos/bookmark" && request.method === "POST") return inboxAdd(request, env);
     if (url.pathname === "/api/eidos/summary" && request.method === "POST") return inboxSummary(request, env);

@@ -938,33 +938,6 @@ body::after {
   height: auto;
 }
 
-/* ── ascii shader ───────────────────────────────────────────────────────────
-   The canvas reads its palette from CSS so the art stays on the site's colours
-   without the script hardcoding hexes. */
-
-.ascii {
-  --ink-void: #0e0a11;
-  --ink-bone: #e9e5d8;
-  --ink-hot: #ff6fae;
-
-  width: 100%;
-  margin: 0;
-}
-
-.ascii canvas {
-  display: block;
-  width: 100%;
-  cursor: crosshair;
-}
-
-.ascii figcaption {
-  margin-top: var(--sp-1);
-  color: var(--dim);
-  font-size: var(--t-xs);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-}
-
 /* The log is a list again. Numbers in the photo captions point back at the
    lines; threading the pictures through the rows was never the ask and it
    wrecked the grid. */
@@ -1108,10 +1081,6 @@ body::after {
   }
 }
 
-.joi-col {
-  padding-top: 0.4rem;
-}
-
 .crumb {
   color: var(--dim);
   font-size: var(--t-sm);
@@ -1123,42 +1092,6 @@ body::after {
   .wall {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
-
-/* The record spins next to the shelf and is the whole link. */
-.record {
-  display: block;
-  width: 100%;
-  transition: color var(--dur) var(--ease);
-}
-
-.ascii--vinyl {
-  pointer-events: none;
-}
-
-.record-meta {
-  display: grid;
-  gap: 0.2rem;
-  margin-top: var(--sp-2);
-}
-
-.record-meta b {
-  font-size: var(--t-md);
-  font-weight: 400;
-  letter-spacing: var(--ls-tight);
-  text-transform: uppercase;
-}
-
-.record-meta em {
-  color: var(--dim);
-  font-size: var(--t-xs);
-  font-style: normal;
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-}
-
-.record:hover {
-  color: var(--hot);
 }
 
 /* ── the arrow ──────────────────────────────────────────────────────────────
@@ -1188,7 +1121,6 @@ a:focus-visible .arw {
   left: 0.16em;
 }
 
-.record-meta b,
 .receipt-src,
 .ways a {
   background-image: linear-gradient(currentColor, currentColor);
@@ -1200,7 +1132,6 @@ a:focus-visible .arw {
     color var(--dur) var(--ease);
 }
 
-.record:hover .record-meta b,
 .receipt-src:hover,
 .ways a:hover {
   background-size: 100% 1px;

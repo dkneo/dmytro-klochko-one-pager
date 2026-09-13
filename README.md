@@ -15,8 +15,8 @@ header, hamburger, footer, or the sitemap.
 ## Hidden rooms
 
 Kept on disk, unlinked, and marked unlisted / noindex:
-`/writing`, `/eidos`, `/today`, `/taste`, `/basho`, `/hokku`, `/pond`,
-`/dance`, `/curate`, `/vault`, `/map`. Studio doors already behind a
+`/writing`, `/eidos`, `/today`, `/basho`, `/curate`, `/vault`, `/map`.
+Studio doors already behind a
 password or Access stay that way (`/names`, `/ask`, `/scout`; `/curate`
 when Access is configured).
 

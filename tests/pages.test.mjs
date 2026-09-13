@@ -21,37 +21,40 @@ test("the homepage introduces dmytro once while inner pages keep a way home", ()
     "inner pages still need the masthead as their home link");
 });
 
-test("the pond is whole", () => {
-  const html = read("dist/pond/index.html");
+test("the foyer keeps learning available without advertising it in the header", () => {
+  const home = read("dist/index.html");
+  const learning = read("dist/learning/index.html");
+  const nav = home.match(/<nav class="site-nav"[\s\S]*?<\/nav>/)?.[0] ?? "";
 
-  // both artworks, with their responsive derivatives wired
-  assert.match(html, /\/images\/pond\/frog\.webp/);
-  assert.match(html, /\/images\/pond\/fuji\.webp/);
-  assert.match(html, /\/images\/responsive\/pond\/fuji-800\.webp 800w/);
-  assert.match(html, /\/images\/responsive\/pond\/frog-340\.webp 340w/);
-
-  // the poem is present but withheld
-  assert.match(html, /hidden/);
-  assert.equal(html.match(/pond-haiku-lines/g).length >= 1, true);
-  for (const line of ["the old pond", "a frog jumps in", "the sound of water"]) {
-    assert.ok(html.includes(line), `haiku line missing: ${line}`);
-  }
-
-  // the credits point at the real sources
-  assert.match(html, /commons\.wikimedia\.org\/wiki\/File:Frog_by_Matsumoto_Hoji/);
-  assert.match(html, /commons\.wikimedia\.org\/wiki\/File:Red_Fuji/);
-
-  // the stillness override for demos survives minification
-  const js = html + bundled("dist/pond/index.html", html);
-  assert.match(js, /still/);
+  assert.match(learning, /<h1[^>]*>learning now<\/h1>/, "the learning room itself was removed");
+  assert.doesNotMatch(nav, /href="\/learning"/, "the global header still advertises learning");
+  assert.match(nav, /href="\/press"/, "removing learning also removed the surviving press door");
 });
 
-test("the pond's stylesheet keeps its floors", () => {
-  const css = bundledCss("dist/pond/index.html");
-  assert.match(css, /touch-action:manipulation/);
-  assert.match(css, /prefers-reduced-motion/);
-  // the fuji mask uses the sumi token, not a bare literal
-  assert.match(css, /mask-image:linear-gradient\(to bottom, var\(--sumi\)/);
+test("retired experiments no longer ship duplicate or orphaned pages", () => {
+  for (const page of [
+    "dist/lookbook/archive.html",
+    "dist/eidos/embed/index.html",
+    "dist/eidos/deck/index.html",
+    "dist/taste/index.html",
+    "dist/hokku/index.html",
+    "dist/pond/index.html",
+    "dist/dance/index.html",
+    "dist/lab/shader/index.html",
+    "dist/archive/index.html",
+    "dist/at-work/index.html",
+    "dist/feed/index.html",
+    "dist/modus-operandi/index.html",
+  ]) {
+    assert.ok(!exists(page), `${page} still ships instead of retiring behind a redirect`);
+  }
+});
+
+test("the retired shader has no remaining public runtime", () => {
+  const home = read("dist/index.html");
+
+  assert.doesNotMatch(home, /data-ascii|bebop-pop|signoff-btn/,
+    "the footer still boots the hidden shader interaction");
 });
 
 test("the terminal guide is intact", () => {
@@ -170,15 +173,14 @@ test("the sitemap lists the public pages and only those", () => {
     assert.ok(xml.includes(url), `sitemap missing ${url}`);
   }
   for (const gated of ["/names", "/ask", "/scout", "/curate",
-                       "/eidos/sit", "/eidos/map", "/eidos/orbit", "/eidos/deck",
-                       "/today/", "/hokku/", "/pond/", "/eidos/", "/taste/",
-                       "/writing/", "/basho", "/dance/", "/vault/", "/map/"]) {
+                       "/eidos/sit", "/eidos/map", "/eidos/orbit",
+                       "/today/", "/eidos/", "/writing/", "/basho", "/vault/", "/map/"]) {
     assert.ok(!xml.includes(gated), `sitemap leaks ${gated}`);
   }
 });
 
 test("every hidden room tells search engines to leave it unlisted", () => {
-  for (const room of ["eidos", "hokku", "pond", "today"]) {
+  for (const room of ["eidos", "today"]) {
     const html = read(`dist/${room}/index.html`);
     assert.match(
       html,
@@ -207,7 +209,7 @@ test("the foyer tells readers which public room they are in", () => {
   const press = read("dist/press/index.html");
 
   assert.match(learning, /class="crumb">\/ learning</);
-  assert.match(learning, /href="\/learning" aria-current="page"/);
+  assert.doesNotMatch(learning, /class="site-nav"[\s\S]*?href="\/learning"/);
   assert.match(press, /class="crumb">\/ press</);
   assert.match(press, /href="\/press" aria-current="page"/);
 });
@@ -241,13 +243,12 @@ test("the 404 is a page in the site's voice with doors out", () => {
   }
 });
 
-test("every route carries the four security headers; nothing forbids framing the embed", () => {
+test("every route carries the four security headers", () => {
   const headers = read("public/_headers");
   const all = headers.match(/^\/\*\n([\s\S]*?)\n\n/m)?.[1] ?? "";
   for (const h of ["X-Content-Type-Options: nosniff", "Referrer-Policy: strict-origin-when-cross-origin", "Permissions-Policy:", "Strict-Transport-Security: max-age="]) {
     assert.ok(all.includes(h), `/* lacks ${h}`);
   }
-  assert.doesNotMatch(headers, /X-Frame-Options|frame-ancestors/, "the embed could not be framed");
 });
 
 // ── the worker sees its own doors ────────────────────────────────────────
@@ -255,7 +256,7 @@ test("every path the worker owns runs the worker first", () => {
   const cfg = read("wrangler.jsonc").replace(/^\s*\/\/.*$/gm, "");
   const list = JSON.parse(cfg.match(/"run_worker_first":\s*(\[[\s\S]*?\])/)[1]);
   const covers = (p) => list.some((g) => g === p || (g.endsWith("/*") && p.startsWith(g.slice(0, -1))) || (g.endsWith("*") && p.startsWith(g.slice(0, -1))));
-  for (const p of ["/names", "/names/old", "/names/ii", "/ask", "/ask/x", "/api/ask/x", "/scout", "/scout/x", "/api/eidos/verdict", "/api/eidos/bookmark", "/api/curate/queue", "/eidos/sit", "/curate"]) {
+  for (const p of ["/names", "/names/old", "/names/ii", "/ask", "/ask/x", "/api/ask/x", "/scout", "/scout/x", "/api/eidos/verdict", "/api/eidos/bookmark", "/api/curate/queue", "/eidos/sit", "/curate", "/lookbook/archive", "/eidos/embed", "/eidos/deck", "/taste", "/archive", "/at-work", "/feed", "/modus-operandi", "/hokku", "/pond", "/lab/shader", "/dance"]) {
     assert.ok(covers(p), `the asset layer would answer ${p} before the worker`);
   }
   // and a 404 page exists, which is exactly why the list matters
