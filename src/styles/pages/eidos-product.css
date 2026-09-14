@@ -558,7 +558,24 @@ html[data-eidos-product] body {
   border: 1px solid var(--ep-rule);
   box-shadow: 0 30px 90px rgb(41 39 35 / 32%);
 }
-.ep-detail::backdrop { background: rgb(41 39 35 / 62%); backdrop-filter: blur(4px); }
+/* M09: the lightbox grows from the plate that opened it (--from-x/--from-y
+   are set by the click), 220ms in on the exit curve, 140ms out; the
+   backdrop fades with it. Browsers without @starting-style open instantly. */
+.ep-detail {
+  opacity: 0;
+  transform: scale(0.96) translateY(8px);
+  transform-origin: var(--from-x, 50%) var(--from-y, 50%);
+  transition:
+    opacity 140ms var(--ease-out),
+    transform 140ms var(--ease-out),
+    overlay 140ms allow-discrete,
+    display 140ms allow-discrete;
+}
+.ep-detail[open] { opacity: 1; transform: none; transition-duration: 180ms, 220ms, 220ms, 220ms; }
+@starting-style { .ep-detail[open] { opacity: 0; transform: scale(0.96) translateY(8px); } }
+.ep-detail::backdrop { background: rgb(41 39 35 / 62%); backdrop-filter: blur(4px); opacity: 0; transition: opacity 140ms var(--ease-out), overlay 140ms allow-discrete, display 140ms allow-discrete; }
+.ep-detail[open]::backdrop { opacity: 1; transition-duration: 180ms, 180ms, 180ms; }
+@starting-style { .ep-detail[open]::backdrop { opacity: 0; } }
 .ep-detail-close { position: sticky; top: 0; z-index: 2; float: right; min-width: 44px; min-height: 44px; color: var(--ep-paper-light); background: var(--ep-ink); border: 0; cursor: pointer; }
 .ep-detail .ep-piece { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.34fr); margin: 0; box-shadow: none; }
 .ep-detail .ep-piece:hover { transform: none; }

@@ -70,6 +70,10 @@ const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u2
       const clone = piece.cloneNode(true);
       clone.querySelector(".ep-visual-open").disabled = true;
       body.replaceChildren(clone);
+      // the detail grows from where the plate is (M09)
+      const r = button.getBoundingClientRect();
+      detail.style.setProperty("--from-x", `${((r.left + r.width / 2) / innerWidth * 100).toFixed(1)}%`);
+      detail.style.setProperty("--from-y", `${((r.top + r.height / 2) / innerHeight * 100).toFixed(1)}%`);
       detail.showModal();
     }));
     root.querySelector(".ep-detail-close")?.addEventListener("click", () => detail.close());

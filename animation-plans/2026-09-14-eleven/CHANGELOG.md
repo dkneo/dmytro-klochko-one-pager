@@ -92,3 +92,9 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 ## M08 — Crossfades that do not double-expose
 - `src/styles/dream.css` — the easel's outgoing print leaves in 140ms while the incoming arrives in 220ms, so no frame holds two faces at half strength; the "dm 📨 klochko" title swaps with no overlap (envelope out at once, letters in 110ms later; the reverse at rest). No blur (boundary). The universal entrance stagger and the kept-shelf stagger from the plan were **not applied** (boundary: no universal entrance staggering).
 - `tests/homepage-motion.test.mjs` — new: asymmetric easel durations, no blur, dm delays.
+
+## M09 — Things appear from where they came (the deal and the lightbox only)
+- `src/pages/eidos/inbox.astro`, `src/pages/eidos/reads.astro` — `next(origin)`: after a pointer or button verdict the next card rises 10px into place (220ms transform, 160ms opacity, both on `--ease-out` read from the token file); on a key it appears instantly; under reduced motion it appears instantly. Discover's `.in-next-edge` loses a leaf as the card lands. Total from swipe to next card stays inside the documented 240ms budget.
+- `src/styles/pages/eidos-product.css`, `src/components/eidos/EidosMoodboard.astro` — the moodboard lightbox opens from the plate that was clicked (`--from-x/--from-y` from the plate's rect), 220ms in, 140ms out, backdrop fading with it, via `@starting-style` and `allow-discrete`; browsers without them open instantly as before. Three lines added to the moodboard's click handler; no restructuring.
+- **Not applied** (boundary: no motion to every dialog): the keys sheet, the comparison dialog, the chapter compass list and the atlas tip keep their instant open.
+- `tests/reads-room.test.mjs` — new: origin-aware deal in both rooms with the keyboard excluded, no literal curves, lightbox open state, starting style and origin variables.

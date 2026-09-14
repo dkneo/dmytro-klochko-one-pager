@@ -199,6 +199,8 @@ const description = "links thrown in, read once, judged, and kept as notes in hi
     (() => {
       const harvested = JSON.parse(document.getElementById("in-data").textContent);
       const $ = (id) => document.getElementById(id);
+      const EASE_OUT = getComputedStyle(document.documentElement).getPropertyValue("--ease-out").trim() || "ease-out";
+      const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
       const card = $("card"), noteLine = $("note-line"), say = $("say"), trail = $("session-trail");
       const edgeIn = document.querySelector(".in-edge--in");
       const edgeOut = document.querySelector(".in-edge--out");
@@ -273,13 +275,28 @@ const description = "links thrown in, read once, judged, and kept as notes in hi
           if (cur && cur.id === c.id) show(c);
         } catch {}
       }
-      function next() {
+      function next(origin = "pointer") {
         cur = deck.shift() || null;
         if (!cur) return rest_();
         show(cur);
         card.hidden = false;
         card.classList.remove("is-flying", "is-home");
         card.style.transform = ""; card.style.opacity = "";
+        // The deal (M09): the next card rises into place instead of simply
+        // existing — pointer and button only; a key deals instantly. The
+        // curve comes from the token file so the literal lives in one place.
+        card.style.transitionDuration = "";
+        if (origin !== "keyboard" && !REDUCED) {
+          card.style.transition = "none";
+          card.style.transform = "translateY(10px) scale(0.985)";
+          card.style.opacity = "0";
+          requestAnimationFrame(() => {
+            card.style.transition = `transform 220ms ${EASE_OUT}, opacity 160ms ${EASE_OUT}`;
+            card.style.transform = "";
+            card.style.opacity = "";
+            setTimeout(() => { card.style.transition = ""; }, 240);
+          });
+        }
         edgeIn.style.opacity = 0; edgeOut.style.opacity = 0;
         noteLine.hidden = true; busy = false;
         count();
@@ -371,12 +388,12 @@ const description = "links thrown in, read once, judged, and kept as notes in hi
       function pass(origin = "pointer") {
         if (!cur || busy) return;
         busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "pass", say: line }; $("undo").disabled = false;
-        record(cand, "pass"); fly(-1, origin); send(cand, "pass", "", line); sat++; setTimeout(next, decisionDelay(origin));
+        record(cand, "pass"); fly(-1, origin); send(cand, "pass", "", line); sat++; setTimeout(() => next(origin), decisionDelay(origin));
       }
       function keep(origin = "pointer") {
         if (!cur || busy) return;
         busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "keep", say: line }; $("undo").disabled = false;
-        keptThis.push(cand); record(cand, "keep"); send(cand, "keep", cand.weather, line); sat++; fly(1, origin); setTimeout(next, decisionDelay(origin));
+        keptThis.push(cand); record(cand, "keep"); send(cand, "keep", cand.weather, line); sat++; fly(1, origin); setTimeout(() => next(origin), decisionDelay(origin));
       }
       function undo() {
         if (!last || busy) return;

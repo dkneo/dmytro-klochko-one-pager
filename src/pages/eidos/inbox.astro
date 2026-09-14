@@ -210,6 +210,9 @@ const description = "discover paintings and posters for the moodboard.";
       const harvested = JSON.parse(document.getElementById("in-data").textContent);
       const archive = JSON.parse(document.getElementById("in-archive").textContent);
       const $ = (id) => document.getElementById(id);
+      const EASE_OUT = getComputedStyle(document.documentElement).getPropertyValue("--ease-out").trim() || "ease-out";
+      const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const nextEdge = document.querySelector(".in-next-edge");
       const card = $("card"), art = $("art"), noteLine = $("note-line"), plateLoader = $("plate-loader");
       const faunGuide = document.querySelector("[data-faun-guide]");
       const edgeIn = document.querySelector(".in-edge--in");
@@ -345,7 +348,7 @@ const description = "discover paintings and posters for the moodboard.";
         $("rec-role").textContent = c.role;
         $("rec-reason").textContent = c.reason;
       }
-      function next() {
+      function next(origin = "pointer") {
         const pick = activeFilter === "all" ? 0 : deck.findIndex(matchesFilter);
         cur = pick >= 0 ? deck.splice(pick, 1)[0] : null;
         if (!cur) return rest_(deck.length ? "nothing else waits on this shelf. choose another." : "ten works, fully considered.");
@@ -367,6 +370,22 @@ const description = "discover paintings and posters for the moodboard.";
         card.classList.remove("is-flying", "is-home", "is-favorite");
         card.style.transform = "";
         card.style.opacity = "";
+        // The deal (M09): the next card rises into place instead of simply
+        // existing — pointer and button only; a key deals instantly. The
+        // curve comes from the token file so the literal lives in one place.
+        card.style.transitionDuration = "";
+        if (origin !== "keyboard" && !REDUCED) {
+          card.style.transition = "none";
+          card.style.transform = "translateY(10px) scale(0.985)";
+          card.style.opacity = "0";
+          requestAnimationFrame(() => {
+            card.style.transition = `transform 220ms ${EASE_OUT}, opacity 160ms ${EASE_OUT}`;
+            card.style.transform = "";
+            card.style.opacity = "";
+            setTimeout(() => { card.style.transition = ""; }, 240);
+          });
+          nextEdge?.animate([{ transform: "rotate(0.8deg)" }, { transform: "rotate(1.6deg)" }, { transform: "rotate(0.8deg)" }], { duration: 220, easing: EASE_OUT });
+        }
         edgeIn.style.opacity = 0; edgeOut.style.opacity = 0;
         noteLine.hidden = true;
         busy = false;
@@ -514,13 +533,13 @@ const description = "discover paintings and posters for the moodboard.";
         if (!cur || busy) return;
         busy = true; const cand = cur; last = { cand, verdict: "pass" }; $("undo").disabled = false;
         record(cand, "pass");
-        reactFaun("pass", origin); fly(-1, origin); send(cand, "pass", ""); sat++; setTimeout(next, decisionDelay(origin));
+        reactFaun("pass", origin); fly(-1, origin); send(cand, "pass", ""); sat++; setTimeout(() => next(origin), decisionDelay(origin));
       }
       function keep(origin = "button") {
         if (!cur || busy) return;
         busy = true; const cand = cur; last = { cand, verdict: "keep" }; $("undo").disabled = false;
         positiveThis.push(cand); record(cand, "keep");
-        reactFaun("keep", origin); send(cand, "keep", ""); sat++; fly(1, origin); setTimeout(() => { next(); maybeCompare(); }, decisionDelay(origin));
+        reactFaun("keep", origin); send(cand, "keep", ""); sat++; fly(1, origin); setTimeout(() => { next(origin); maybeCompare(); }, decisionDelay(origin));
       }
       function favorite(origin = "button") {
         if (!cur || busy) return;
@@ -529,7 +548,7 @@ const description = "discover paintings and posters for the moodboard.";
         if (origin !== "keyboard") card.classList.add("is-favorite");
         reactFaun("favorite", origin); send(cand, "favorite", ""); sat++;
         const favoriteDelay = origin === "keyboard" ? 0 : 360;
-        setTimeout(() => { fly(1, origin); setTimeout(() => { next(); maybeCompare(); }, decisionDelay(origin)); }, favoriteDelay);
+        setTimeout(() => { fly(1, origin); setTimeout(() => { next(origin); maybeCompare(); }, decisionDelay(origin)); }, favoriteDelay);
       }
       function undo() {
         if (!last || busy) return;

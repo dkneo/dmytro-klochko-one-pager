@@ -66,3 +66,19 @@ test("both rooms judge a swipe by distance or velocity, re-grab from the live of
   assert.doesNotMatch(studio, /\.in-card \{[^}]*will-change: transform;/s, "a permanent compositor layer on the card");
   assert.match(studio, /\.in-edge \{[^}]*transition: transform 120ms var\(--ease-out\)/, "the stamp only fades");
 });
+
+// ── things appear from where they came (M09) ─────────────────────────────
+test("the deal rises into place for the pointer and not for a key; the lightbox grows from its plate", () => {
+  for (const f of ["src/pages/eidos/inbox.astro", "src/pages/eidos/reads.astro"]) {
+    const src = read(f);
+    assert.match(src, /function next\(origin = "pointer"\)/, `${f}: next does not know its origin`);
+    assert.match(src, /if \(origin !== "keyboard" && !REDUCED\) \{[\s\S]*translateY\(10px\) scale\(0\.985\)/, `${f}: no deal entrance, or it runs on the keyboard`);
+    assert.match(src, /getPropertyValue\("--ease-out"\)/, `${f}: the curve is not read from the token`);
+    assert.doesNotMatch(src, /cubic-bezier\(/, `${f}: a literal curve`);
+  }
+  const product = read("src/styles/pages/eidos-product.css");
+  assert.match(product, /\.ep-detail\[open\] \{ opacity: 1; transform: none;/, "the lightbox has no open state");
+  assert.match(product, /@starting-style \{ \.ep-detail\[open\]/, "the lightbox has no entrance");
+  assert.match(product, /transform-origin: var\(--from-x, 50%\) var\(--from-y, 50%\)/, "the lightbox grows from its centre, not the plate");
+  assert.match(read("src/components/eidos/EidosMoodboard.astro"), /setProperty\("--from-x"/, "the click does not tell the lightbox where it came from");
+});
