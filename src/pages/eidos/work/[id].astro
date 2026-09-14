@@ -1,0 +1,101 @@
+---
+import path from "node:path";
+import sharp from "sharp";
+import EidosLayout from "../../../layouts/EidosLayout.astro";
+import EidosHeader from "../../../components/eidos/EidosHeader.astro";
+import { relatedWorks } from "../../../lib/eidos-related.mjs";
+import map from "../../../data/map.json";
+import "../../../styles/pages/eidos-work.css";
+
+export function getStaticPaths() {
+  const artworkTypes = new Set(["painting", "print", "poster"]);
+  return map.items
+    .filter((item: any) => artworkTypes.has(item.type) && item.src && !item.id.startsWith("his-"))
+    .map((work: any) => ({ params: { id: work.id }, props: { work } }));
+}
+
+const { work } = Astro.props;
+const artworkTypes = new Set(["painting", "print", "poster"]);
+const works = map.items.filter((item: any) => artworkTypes.has(item.type) && item.src && !item.id.startsWith("his-"));
+const metadata = await sharp(path.join(process.cwd(), "public", work.src)).metadata();
+const related = relatedWorks(work, works, 4);
+const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+const dimensionText = work.heightCm && work.widthCm
+  ? `${work.heightCm} × ${work.widthCm} cm`
+  : "";
+const heldBy = work.collection && !/^his own|google art project$/i.test(work.collection);
+const title = `${work.title || work.line} · eidos`;
+const description = `${work.title || work.line}${work.who ? ` by ${work.who}` : ""}, kept in Dmytro Klochko's Eidos moodboard.`;
+---
+
+<EidosLayout title={title} description={description} ogImage={work.src}>
+  <div class="eidos-work">
+    <EidosHeader current="moodboard" />
+
+    <article class="ew-shell">
+      <a class="ew-back" href="/eidos#collection">← moodboard</a>
+
+      <div class="ew-record">
+        <figure class="ew-art">
+          <img
+            src={work.src}
+            alt={work.title || work.line || work.type}
+            width={metadata.width}
+            height={metadata.height}
+            decoding="async"
+          />
+        </figure>
+
+        <div class="ew-file">
+          <p class="ew-kind">{work.type}</p>
+          <h1>{work.title || work.line}</h1>
+          <p class="ew-maker">{work.who}{work.year ? <span>{work.year}</span> : null}</p>
+
+          {(work.medium || dimensionText || heldBy || work.displayStatus) && (
+            <dl>
+              {work.medium && <div><dt>medium</dt><dd>{work.medium}</dd></div>}
+              {dimensionText && <div><dt>size</dt><dd>{dimensionText}</dd></div>}
+              {heldBy && (
+                <div>
+                  <dt>collection</dt>
+                  <dd>{work.collection}{work.collectionCity && !work.collection.includes(work.collectionCity) ? `, ${work.collectionCity}` : ""}</dd>
+                </div>
+              )}
+              {work.displayStatus && <div><dt>on view</dt><dd>{work.displayStatus}</dd></div>}
+              {work.statusChecked && <div><dt>checked</dt><dd>{work.statusChecked}</dd></div>}
+            </dl>
+          )}
+
+          {work.note && <p class="ew-note">{work.note}</p>}
+          {work.source && <a class="ew-source" href={work.source}>source record ↗</a>}
+          {work.licence && <small class="ew-licence">image: {work.licence}</small>}
+        </div>
+      </div>
+
+      {related.length > 0 && (
+        <section class="ew-related" aria-labelledby="related-title">
+          <header>
+            <p>why these are nearby</p>
+            <h2 id="related-title">follow a real thread.</h2>
+          </header>
+          <div class="ew-related-grid">
+            {related.map(({ item, reason }: any) => (
+              <a href={`/eidos/work/${item.id}`}>
+                <img src={plateFor(item.src)} alt="" loading="lazy" decoding="async" />
+                <span>{reason}</span>
+                <b>{item.title || item.line}</b>
+                <small>{item.who}{item.year ? ` · ${item.year}` : ""}</small>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+    </article>
+
+    <footer class="ep-footer ew-footer">
+      <a href="/eidos#collection">moodboard</a>
+      <a href="/eidos/inbox">discover another</a>
+      <a href="/eidos/places">map</a>
+    </footer>
+  </div>
+</EidosLayout>

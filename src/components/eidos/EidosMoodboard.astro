@@ -41,6 +41,7 @@ const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u2
           <span><i aria-hidden="true"></i>{item.type}</span>
           <b>{glue(item.line || item.title)}</b>
           {item.who && <small>{item.who}{item.year ? ` · ${item.year}` : ""}</small>}
+          <a class="ep-visual-record" href={`/eidos/work/${item.id}`}>open record</a>
           {item.collection && !/^his own|google art project$/i.test(item.collection) && (
             item.collectionUrl
               ? <a class="ep-visual-location" href={item.collectionUrl}>{item.collection}{item.collectionCity && !item.collection.includes(item.collectionCity) ? `, ${item.collectionCity}` : ""} ↗</a>
