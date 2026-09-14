@@ -115,8 +115,11 @@
   padding: var(--sp-3) 0.9rem;
   border-top: 1px solid rgb(236 230 217 / 16%);
   border-radius: var(--r-row);
-  transition: background-color var(--dur-fast) var(--ease);
+  transition: background-color var(--dur-fast) var(--ease), scale 90ms var(--ease-out);
 }
+
+/* a full-width row: the dip is subtle, the release snaps */
+[data-mode="dream"] .pr-row:active { scale: 0.99; transition-duration: 160ms; transition-timing-function: var(--ease-out); }
 
 /* The whole row is the target. The click used to be one line of title text
    adrift in a very wide row, with three empty columns beside it that looked

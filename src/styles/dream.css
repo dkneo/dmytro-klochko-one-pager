@@ -650,7 +650,7 @@ html.is-shook .scenes {
   border: 1px solid rgb(255 155 192 / 45%); border-radius: 999px;
   color: var(--hot); font-family: var(--mono); font-size: var(--t-xs); letter-spacing: var(--ls-wide); text-transform: uppercase;
   white-space: nowrap;
-  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease), scale 90ms var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -2886,8 +2886,27 @@ html[data-motion="paused"] .scenes .firelight {
    attempt did. Transform only, so it runs on the compositor. */
 
 [data-mode="dream"] button:active,
+[data-mode="dream"] [role="button"]:active,
+[data-mode="dream"] .menu > summary:active,
+[data-mode="dream"] .me-door:active,
+[data-mode="dream"] .chapter-rail a:active,
 [data-mode="dream"] .cv-job > summary:active .cv-more {
   scale: 0.97;
+}
+
+/* Press and release are not the same event: the press is the deliberate
+   phase (160ms, exit curve), the release is the system answering (90ms). */
+[data-mode="dream"] button:active,
+[data-mode="dream"] [role="button"]:active,
+[data-mode="dream"] .menu > summary:active,
+[data-mode="dream"] .me-door:active,
+[data-mode="dream"] .chapter-rail a:active {
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease-out);
+}
+[data-mode="dream"] [role="button"],
+[data-mode="dream"] .menu > summary {
+  transition: scale 90ms var(--ease-out);
 }
 
 /* The release eases where the control already owns its transition; where it
@@ -2901,7 +2920,7 @@ html[data-motion="paused"] .scenes .firelight {
     background var(--dur) var(--ease),
     border-color var(--dur) var(--ease),
     color var(--dur) var(--ease),
-    scale 90ms var(--ease);
+    scale 90ms var(--ease-out);
 }
 
 /* Origin-aware: the panel grows from the corner it comes out of rather than

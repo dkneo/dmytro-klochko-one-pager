@@ -42,7 +42,7 @@ The 11/10 is not a feeling; it is the right-hand column, all of it, plus the fee
 | P06 | An ambient budget: pay only for motion that is on screen | HIGH | DONE |
 | M01 | The reading room answers keys instantly, like discover already does | HIGH | DONE |
 | M02 | A swipe that knows how fast the hand moved | HIGH | TODO |
-| M03 | Every control answers the finger (and shows its focus) | HIGH | TODO |
+| M03 | Every control answers the finger (and shows its focus) | HIGH | DONE |
 | M04 | One motion vocabulary: tokens, curves, budgets | MEDIUM | DONE |
 | M05 | Reversible things use transitions, not keyframes | MEDIUM | TODO |
 | M06 | Only transform and opacity move | MEDIUM | TODO |

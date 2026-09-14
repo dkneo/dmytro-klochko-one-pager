@@ -51,3 +51,10 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 ## M01 — The reading room answers keys instantly
 - `src/pages/eidos/reads.astro` — `origin` threaded through `fly`, `pass`, `keep`, the button listeners (`event.detail === 0` is the keyboard), the key map and ⌘↵; `decisionDelay(origin)` is 0 for the keyboard, 240ms for the pointer; `onCancel` returns the card home without posting. Mirrors `inbox.astro` name for name.
 - `tests/reads-room.test.mjs` — the key map, the delay, the keyboard branch and the cancel handler are pinned.
+
+## M03 — Every control answers the finger (and shows its focus)
+- `src/styles/pages/eidos-product.css` — one element-level press rule for the whole product and studio (`button`, `[role="button"]`, `summary`, `.ep-action`, `.ep-visual-open`): scale 0.97, 160ms down on `--ease-out`, 90ms up; a focus ring for every studio control (the studio had none of its own).
+- `src/styles/dream.css` — press reaches `[role="button"]` (journey rows), the header hamburger `summary`, the `.me-door` pill and the chapter-rail dots; press/release made asymmetric (160/90) where releases were symmetric; the release curve is `--ease-out`.
+- `src/styles/pages/press.css` — the press row dips to 0.99 and snaps back.
+- `src/styles/pages/eidos.css` — release curve on the atlas buttons.
+- `tests/house-rules.test.mjs` — new: press rules on both surfaces, studio focus ring, asymmetric timing, no release on the slow-start curve.

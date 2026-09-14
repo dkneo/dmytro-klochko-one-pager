@@ -215,6 +215,23 @@ html[data-eidos-product] body {
   transition: transform var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
 .ep-action:hover { color: var(--ep-raspberry); }
+
+/* ── press feedback (M03) ──────────────────────────────────────────────
+   Written against the element, as dream.css does, because the product's
+   buttons carry many classes and a list would miss one. Press 160ms on the
+   exit curve, release 90ms: the hand is deliberate, the system snaps back.
+   Transform only, so it runs on the compositor. */
+[data-eidos-product] :is(button, [role="button"], summary, .ep-action, .ep-visual-open):active {
+  transform: scale(0.97);
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease-out);
+}
+[data-eidos-product] :is(.ep-visual-open, .ep-more, .ep-surprise, .ep-detail-close, .in-btn, .in-filters button, .in-comparison-pair button, .in-comparison-skip, .in-gate button, .in-throw button, .in-add summary) {
+  transition: transform 90ms var(--ease-out);
+}
+/* the studio had no focus ring of its own; one ring, every control, no transition (keyboard) */
+.eidos-studio :is(button, [role="button"], summary, a, input, textarea):focus-visible { outline: 2px solid var(--ep-raspberry); outline-offset: 2px; }
+.eidos-studio :is(button, [role="button"], summary, a, input, textarea):focus:not(:focus-visible) { outline: none; }
 .ep-action--solid { background: var(--ep-ink); color: var(--ep-paper-light) !important; border: 1px solid var(--ep-ink); }
 .ep-action--solid:hover { background: var(--ep-raspberry); border-color: var(--ep-raspberry); color: var(--ep-paper-light) !important; }
 

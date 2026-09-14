@@ -211,3 +211,16 @@ test("every text face has a metric-matched fallback in its stack", () => {
   const layout = fs.readFileSync(path.join(root, "src/layouts/Layout.astro"), "utf8");
   for (const f of ["zodiak-300", "newsreader-400", "zodiak-400i", "newsreader-400i"]) assert.match(layout, new RegExp(`preload[^>]*/fonts/${f}.woff2`), `${f} not preloaded`);
 });
+
+// ── every control answers the finger ────────────────────────────────────
+test("press feedback reaches every kind of control on both surfaces", () => {
+  const product = fs.readFileSync(path.join(root, "src/styles/pages/eidos-product.css"), "utf8");
+  const dream = fs.readFileSync(path.join(root, "src/styles/dream.css"), "utf8");
+  const press = fs.readFileSync(path.join(root, "src/styles/pages/press.css"), "utf8");
+  assert.match(product, /\[data-eidos-product\] :is\(button, \[role="button"\], summary, \.ep-action, \.ep-visual-open\):active \{\s*transform: scale\(0\.97\);/, "eidos controls are inert under the finger");
+  assert.match(product, /\.eidos-studio :is\(button, \[role="button"\], summary, a, input, textarea\):focus-visible \{ outline: 2px solid var\(--ep-raspberry\)/, "the studio has no focus ring");
+  for (const sel of ['[role="button"]:active', ".menu > summary:active", ".me-door:active", ".chapter-rail a:active"]) assert.ok(dream.includes(`[data-mode="dream"] ${sel}`), `${sel} does not press`);
+  assert.match(press, /\.pr-row:active \{ scale: 0\.99;/, "the press row does not press");
+  assert.match(dream, /:active \{\s*transition-duration: 160ms;/);
+  assert.doesNotMatch(dream + product + fs.readFileSync(path.join(root, "src/styles/pages/eidos.css"), "utf8"), /scale 90ms var\(--ease\)[;,]/, "a release still rides the slow-start curve");
+});
