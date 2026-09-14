@@ -28,8 +28,10 @@ test("the reading room has the composer, the read card, his line, and what staye
   assert.ok(payload.some((c) => /substack\.com/.test(c.url)), "no substack in the queue");
 });
 
-test("the reading room is a door in the eidos nav, and discover points at it", () => {
-  assert.match(read("dist/eidos/index.html"), /href="\/eidos\/reads"[^>]*>reads</, "no door in the nav");
+test("the reading room stays secondary while discover still points at it", () => {
+  const moodboard = read("dist/eidos/index.html");
+  const nav = moodboard.match(/<nav class="ep-nav"[\s\S]*?<\/nav>/)?.[0] || "";
+  assert.doesNotMatch(nav, /href="\/eidos\/reads"/, "the reading room displaced a primary visual-product door");
   assert.match(read("dist/eidos/inbox/index.html"), /href="\/eidos\/reads"[^>]*>the reading room</, "discover does not point at the reading room");
   // and discover itself stays pictures only
   assert.doesNotMatch(read("dist/eidos/inbox/index.html"), /id="throw"|id="say"/, "intake leaked back into discover");
