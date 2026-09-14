@@ -33,6 +33,9 @@ test("the portrait shows exact works behind every observation", () => {
   assert.match(html, /what is still forming\./);
   assert.match(html, /what to look at next\./);
   assert.match(html, /data-constellation/);
+  assert.match(html, /data-constellation-controls/);
+  assert.match(source, /\/api\/eidos\/constellations/);
+  assert.match(source, /\/api\/eidos\/constellation/);
   assert.match(html, /href="\/eidos\/work\//);
   assert.match(source, /buildConstellations/);
   assert.doesNotMatch(html, /\d+%|points of|your (?:soul|personality) is/i);

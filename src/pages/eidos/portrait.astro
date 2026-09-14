@@ -49,6 +49,19 @@ const description = "an evidence-backed portrait of what keeps returning in Dmyt
                 <p>proposed thread · {group.count} works</p>
                 <h3>{group.title}</h3>
                 <span>{group.basis}</span>
+                <details class="epr-thread-actions" data-constellation-controls data-key={group.key}>
+                  <summary>decide this thread</summary>
+                  <div>
+                    <button type="button" data-action="confirm">keep thread</button>
+                    <button type="button" data-action="reject">not mine</button>
+                    <label>
+                      <span>name it yourself</span>
+                      <input type="text" maxlength="80" aria-label={`rename ${group.title}`} />
+                      <button type="button" data-action="rename">save</button>
+                    </label>
+                    <output aria-live="polite"></output>
+                  </div>
+                </details>
               </div>
               <div class="epr-evidence" aria-label={`works behind ${group.title}`}>
                 {group.evidence.slice(0, 6).map((work: any) => (
@@ -125,4 +138,58 @@ const description = "an evidence-backed portrait of what keeps returning in Dmyt
       <a href="#eidos-main">back to top ↑</a>
     </footer>
   </div>
+
+  <script>
+    (() => {
+      const controls = [...document.querySelectorAll("[data-constellation-controls]")];
+      if (!controls.length) return;
+
+      const show = (control, state) => {
+        const card = control.closest("[data-constellation]");
+        const output = control.querySelector("output");
+        const summary = control.querySelector("summary");
+        if (!state) { card.dataset.state = "proposed"; output.textContent = ""; summary.textContent = "decide this thread"; return; }
+        card.dataset.state = state.action;
+        if (state.name) card.querySelector("h3").textContent = state.name;
+        summary.textContent = state.action === "confirm" ? "confirmed thread" : state.action === "reject" ? "rejected thread" : "named thread";
+        output.textContent = state.action === "confirm"
+          ? "kept as a real thread"
+          : state.action === "reject"
+            ? "left out of the portrait"
+            : `renamed ${state.name}`;
+      };
+
+      fetch("/api/eidos/constellations")
+        .then((response) => response.ok ? response.json() : null)
+        .then((data) => controls.forEach((control) => show(control, data?.state?.[control.dataset.key])))
+        .catch(() => {});
+
+      controls.forEach((control) => control.addEventListener("click", async (event) => {
+        const button = event.target.closest("button[data-action]");
+        if (!button) return;
+        const action = button.dataset.action;
+        const input = control.querySelector("input");
+        const body = { key: control.dataset.key, action, ...(action === "rename" ? { name: input.value.trim() } : {}) };
+        if (action === "rename" && !body.name) { input.focus(); return; }
+        button.disabled = true;
+        const output = control.querySelector("output");
+        output.textContent = "saving";
+        try {
+          const response = await fetch("/api/eidos/constellation", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(body),
+          });
+          if (response.status === 401) {
+            output.textContent = "open the private door at /names, then try again";
+          } else if (!response.ok) {
+            output.textContent = "that decision did not save";
+          } else {
+            show(control, { ...body });
+          }
+        } catch { output.textContent = "that decision did not save"; }
+        button.disabled = false;
+      }));
+    })();
+  </script>
 </EidosLayout>

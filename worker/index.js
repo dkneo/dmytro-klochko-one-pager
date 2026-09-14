@@ -336,6 +336,15 @@ async function eidosPortrait(env) {
   return json({ runs: runs.length, latest: runs[runs.length - 1] || null });
 }
 
+/** The latest state of each proposed thread, rebuilt from its append-only log. */
+async function eidosConstellations(env) {
+  if (!env.VAULT) return json({ events: 0, state: {} });
+  const events = (await env.VAULT.get("eidos:constellations", "json")) || [];
+  const state = {};
+  for (const event of events) state[event.key] = { ...(state[event.key] || {}), ...event };
+  return json({ events: events.length, state });
+}
+
 // ── the inbox ────────────────────────────────────────────────────────────
 //
 // Where he throws links. The page posts a url; the worker reads that page
@@ -518,6 +527,19 @@ async function eidosWrite(request, env, url) {
     runs.push({ axes, kept: kept || 0, seen: seen || 0, at: now });
     await env.VAULT.put("eidos:portrait", JSON.stringify(runs.slice(-50)));
     return json({ ok: true, runs: runs.length });
+  }
+  if (url.pathname.endsWith("/constellation")) {
+    const key = String(body?.key || "").trim();
+    const action = String(body?.action || "").trim();
+    const name = String(body?.name || "").trim().slice(0, 80);
+    if (!key || key.length > 160 || !["confirm", "rename", "reject"].includes(action)) {
+      return json({ error: "key and action:confirm|rename|reject required" }, 400);
+    }
+    if (action === "rename" && !name) return json({ error: "a new name is required" }, 400);
+    const events = (await env.VAULT.get("eidos:constellations", "json")) || [];
+    events.push({ key, action, ...(name ? { name } : {}), at: now });
+    await env.VAULT.put("eidos:constellations", JSON.stringify(events));
+    return json({ ok: true, events: events.length });
   }
   if (url.pathname.endsWith("/pair")) {
     const { weather, winner, pair } = body || {};
@@ -840,6 +862,7 @@ export default {
     if (url.pathname === "/api/eidos/ask" && request.method === "POST") return eidosAsk(request, env);
     if (url.pathname === "/api/eidos/judged" && request.method === "GET") return eidosJudged(env);
     if (url.pathname === "/api/eidos/portrait" && request.method === "GET") return eidosPortrait(env);
+    if (url.pathname === "/api/eidos/constellations" && request.method === "GET") return eidosConstellations(env);
     if (url.pathname.startsWith("/api/eidos/") && request.method === "POST") return eidosWrite(request, env, url);
 
     // Anything that is not the curation api is the site.

@@ -90,6 +90,38 @@ test("an absolute favorite is a first-class positive verdict", async () => {
   assert.equal(stored["painting-one"].verdict, "favorite");
 });
 
+test("constellation decisions append instead of rewriting their history", async () => {
+  const bindings = env();
+  const shut = await worker.fetch(new Request("https://dmklochko.com/api/eidos/constellation", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ key: "night", action: "confirm" }),
+  }), bindings);
+  assert.equal(shut.status, 401);
+
+  const cookie = await login(bindings);
+  for (const decision of [
+    { key: "night", action: "confirm" },
+    { key: "night", action: "rename", name: "the hour after light" },
+    { key: "night", action: "reject" },
+  ]) {
+    const response = await worker.fetch(new Request("https://dmklochko.com/api/eidos/constellation", {
+      method: "POST",
+      headers: { "content-type": "application/json", cookie },
+      body: JSON.stringify(decision),
+    }), bindings);
+    assert.equal(response.status, 200);
+  }
+
+  const events = JSON.parse(bindings._store["eidos:constellations"]);
+  assert.equal(events.length, 3);
+  assert.deepEqual(events.map((event) => event.action), ["confirm", "rename", "reject"]);
+  const state = await (await worker.fetch(new Request("https://dmklochko.com/api/eidos/constellations"), bindings)).json();
+  assert.equal(state.events, 3);
+  assert.equal(state.state.night.action, "reject");
+  assert.equal(state.state.night.name, "the hour after light");
+});
+
 test("the inbox is his: adding and listing both need the door", async () => {
   const bindings = env();
   const add = await worker.fetch(new Request("https://dmklochko.com/api/eidos/bookmark", {
