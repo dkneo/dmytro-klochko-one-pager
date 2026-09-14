@@ -573,7 +573,9 @@
   text-align: left;
   cursor: pointer;
 }
-.eidos-studio .in-comparison-pair button:hover { border-color: var(--ep-raspberry); transform: translateY(-2px); }
+@media (hover: hover) and (pointer: fine) {
+  .eidos-studio .in-comparison-pair button:hover { border-color: var(--ep-raspberry); transform: translateY(-2px); }
+}
 .eidos-studio .in-comparison-pair img { width: 100%; height: 100%; min-height: 0; object-fit: contain; background: var(--ep-paper-light); }
 .eidos-studio .in-comparison-skip { display: block; margin: 1rem 0 0 auto; padding: 0.45rem; color: var(--ep-quiet); background: transparent; border: 0; font-family: var(--mono); font-size: 0.65rem; cursor: pointer; }
 
@@ -649,18 +651,20 @@
 
 @media (prefers-reduced-motion: reduce) {
   .eidos-studio .in-stage { transition: none; }
-  .eidos-studio .in-card.is-flying, .eidos-studio .in-card.is-home { transition: opacity var(--dur-fast) var(--ease); }
+  .eidos-studio .in-card.is-flying, .eidos-studio .in-card.is-home { transform: none !important; transition: opacity var(--dur-fast) var(--ease); }
   .eidos-studio .in-link-loader { display: none; }
   .eidos-studio .in-plate-loader { transform: translate(-50%, -50%); }
+  /* the faun's keep/pass colour and opacity still answer the drag; only its 2–4px travel goes */
   .eidos-studio .in-loader-faun,
   .eidos-studio .in-loader-proof,
   .eidos-studio .in-faun-key,
   .eidos-studio .in-faun-echo,
-  .eidos-studio .in-faun-signal { animation: none !important; transition: none !important; }
-  .eidos-studio .in-loader-faun--ink { opacity: 1; transform: none; }
-  .eidos-studio .in-loader-faun--pink { opacity: 0.18; transform: translate(1px, -1px); }
-  .eidos-studio .in-loader-proof { transform: scaleX(1); }
-  .eidos-studio .in-card.is-favorite .in-favorite-stamp { animation: none; opacity: 1; transform: translate(-50%, -50%) rotate(-7deg); }
+  .eidos-studio .in-faun-signal { animation: none !important; transform: none !important; }
+  .eidos-studio .in-loader-faun--ink { opacity: 1; }
+  .eidos-studio .in-loader-faun--pink { opacity: 0.18; }
+  .eidos-studio .in-loader-proof { transform: scaleX(1) !important; }
+  /* the stamp confirms and leaves; pinned visible it would pile up */
+  .eidos-studio .in-card.is-favorite .in-favorite-stamp { animation: favorite-fade 900ms ease both; transform: translate(-50%, -50%) rotate(-7deg); }
 }
 
 /* The inbox predates the product shell and still carries scoped component
@@ -724,3 +728,4 @@ body .eidos-studio .in-note-panel .in-say textarea {
 body .eidos-studio .in-note-panel .in-say textarea:focus { border-color: var(--ep-raspberry); }
 body .eidos-studio .in-note-panel .in-file dt { color: var(--ep-quiet); }
 body .eidos-studio .in-note-panel .in-file dd { color: var(--ep-ink); }
+@keyframes favorite-fade { 0% { opacity: 0; } 20%, 70% { opacity: 1; } 100% { opacity: 0; } }

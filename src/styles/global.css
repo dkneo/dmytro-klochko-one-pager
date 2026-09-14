@@ -759,11 +759,23 @@ svg.pin {
     scroll-behavior: auto;
   }
 
+  /* Fewer and gentler, not zero. Travel goes; opacity and colour stay, so a
+     state is still communicated. The ambient movers stop and stand still. */
   *,
   *::before,
   *::after {
+    transition-property: opacity, color, background-color, border-color, fill, stroke !important;
+    transition-duration: 160ms !important;
+  }
+
+  .dream-sky b,
+  .scenes i,
+  .scenes .sunpulse,
+  .scenes .firelight,
+  .scenes .glints s,
+  .weather s {
     animation: none !important;
-    transition-duration: 120ms !important;
+    transform: none !important;
   }
 }
 
@@ -1031,8 +1043,10 @@ body::after {
   transition: transform var(--dur) var(--ease);
 }
 
-.wall figure:hover img {
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  .wall figure:hover img {
+    transform: scale(1.05);
+  }
 }
 
 .wall figcaption {

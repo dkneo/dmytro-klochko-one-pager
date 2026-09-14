@@ -311,6 +311,7 @@ const isHomepage = Astro.url.pathname === "/";
           if (e.metaKey || e.ctrlKey || e.altKey) return;
           buf = (buf + (e.key || "").toLowerCase()).slice(-4);
           if (buf !== "lisa") return;
+          if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
           buf = "";
           const sky = document.querySelector(".dream-sky");
           if (!sky) return;

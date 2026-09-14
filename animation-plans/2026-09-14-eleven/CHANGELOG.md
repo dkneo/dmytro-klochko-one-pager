@@ -58,3 +58,11 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 - `src/styles/pages/press.css` — the press row dips to 0.99 and snaps back.
 - `src/styles/pages/eidos.css` — release curve on the atlas buttons.
 - `tests/house-rules.test.mjs` — new: press rules on both surfaces, studio focus ring, asymmetric timing, no release on the slow-start curve.
+
+## M07 — Reduced motion keeps the feedback and drops only the travel
+- `src/styles/global.css` — the blanket (`animation: none !important; transition-duration: 120ms !important` on `*`) is replaced: transitions are limited to opacity and colour properties at 160ms; the ambient movers (`.dream-sky b`, `.scenes i`, `.sunpulse`, `.firelight`, `.weather s`, `.glints s`) stop and stand still; everything else keeps its fades. `.wall figure:hover img` gated to fine pointers.
+- `src/styles/dream.css` — the scene layers keep their 900ms crossfade under reduced motion (only the parallax goes); nine `:hover` transforms wrapped in `@media (hover: hover) and (pointer: fine)` so a tap never leaves a print, a card or a mark displaced (`.lib-card` and the rail label keep their `:focus-visible` twins outside the gate; `.cv-media--screen:hover .cell { transform: none }` left as is because it removes movement); `.hero-stack` gets the reduced-motion rule its twin `.hi-stack` already had.
+- `src/styles/pages/eidos-studio.css` — the faun's keep/pass colour and opacity feedback survive (only its 2–4px travel is removed); the card leaves by fade; the favourite stamp fades in and out (`favorite-fade`) instead of sticking; the comparison pair's hover lift gated.
+- `src/styles/pages/eidos-product.css` — `.ep-action`/`.ep-weather` keep their colour transitions; movers nulled by `transform`, not by deleting every transition; the nav underline stays instant.
+- `src/layouts/Layout.astro` — the `lisa` petal shower checks reduced motion like its sibling egg.
+- `tests/house-rules.test.mjs` — new: no blanket on `*`; the crossfade survives; the stamp fades; every `:hover` rule that moves sits inside a hover-capable media block (a small CSS scanner that judges values, so `transform: none` is not movement).

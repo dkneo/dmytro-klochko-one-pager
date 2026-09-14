@@ -726,11 +726,14 @@ html[data-eidos-product] body {
   :root[data-eidos-product] { scroll-behavior: auto; }
   .ep-hero-poster img { transform: none; }
   .ep-hero-note { opacity: 1; transform: none !important; }
+  /* travel goes, colour and opacity feedback stay (the global rule limits
+     transitions to those); the nav underline is keyboard-reached and instant */
   .ep-action,
   .ep-hero-poster img,
   .ep-hero-note,
-  .ep-nav a::after,
   .ep-piece,
   .ep-weather,
-  .ep-weather-preview { transition: none !important; }
+  .ep-weather-preview,
+  .ep-visual-open { transform: none !important; }
+  .ep-nav a::after { transition: none !important; }
 }

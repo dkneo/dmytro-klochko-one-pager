@@ -162,11 +162,13 @@
   position: relative;
 }
 
-[data-mode="dream"] .journey-bay:hover .easel .cell {
-  transform: rotate(0.6deg) translateY(-4px);
-  box-shadow:
-    0 3px 8px rgb(8 10 22 / 62%),
-    0 26px 54px rgb(8 10 22 / 48%);
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .journey-bay:hover .easel .cell {
+    transform: rotate(0.6deg) translateY(-4px);
+    box-shadow:
+      0 3px 8px rgb(8 10 22 / 62%),
+      0 26px 54px rgb(8 10 22 / 48%);
+  }
 }
 
 /* The road's company beads carry their marks, pink like the sentence's. */
@@ -631,8 +633,10 @@ html.is-shook .scenes {
 
 [data-mode="dream"] .hero-stack figure:nth-child(4) .cell { transform: rotate(4.2deg); }
 
-[data-mode="dream"] .hero-stack figure:hover .cell {
-  transform: rotate(0deg) scale(1.025);
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .hero-stack figure:hover .cell {
+    transform: rotate(0deg) scale(1.025);
+  }
 }
 
 /* the door to the library, under the wall: one sentence, one pill */
@@ -1066,9 +1070,11 @@ html[data-mode="dream"] .scenes[data-progressive] i[data-s] {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* the parallax goes; the 900ms crossfade between paintings stays, because
+     a hard cut between two full-screen pictures is the jarring change a fade
+     exists to prevent */
   .scenes i {
       transform: none;
-      transition: none;
     }
 }
 
@@ -1197,11 +1203,17 @@ html[data-mode="dream"] .scenes[data-progressive] i[data-s] {
               box-shadow var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .lib-card:hover,
 [data-mode="dream"] .lib-card:focus-visible {
   transform: translateY(-2px);
   border-color: var(--dim);
   box-shadow: 0 14px 30px var(--shadow-deep);
+}
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .lib-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--dim);
+    box-shadow: 0 14px 30px var(--shadow-deep);
+  }
 }
 
 /* Its own shape. A square cell either crops the work or floats it in
@@ -1391,8 +1403,10 @@ html[data-mode="dream"] .scenes[data-progressive] i[data-s] {
 
 [data-mode="dream"] .wall figure:nth-child(even) .cell { transform: rotate(1.1deg); }
 
-[data-mode="dream"] .wall figure:hover .cell {
-  transform: rotate(0deg) translateY(-3px);
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .wall figure:hover .cell {
+    transform: rotate(0deg) translateY(-3px);
+  }
 }
 
 [data-mode="dream"] .wall figcaption {
@@ -2071,8 +2085,10 @@ html[data-motion="paused"] .scenes .firelight {
   border-radius: 1px;
 }
 
-[data-mode="dream"] .cv-media:hover .cell {
-  transform: rotate(0deg);
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .cv-media:hover .cell {
+    transform: rotate(0deg);
+  }
 }
 
 [data-mode="dream"] .cv-media--screen .cell,
@@ -2441,8 +2457,10 @@ html[data-motion="paused"] .scenes .firelight {
   transition: transform var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .share-btn:hover .arw {
-  transform: translate(0.15em, 0.1em);
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .share-btn:hover .arw {
+    transform: translate(0.15em, 0.1em);
+  }
 }
 
 /* The poem is set at prose size, so its own paragraphs need the room the
@@ -2852,11 +2870,16 @@ html[data-motion="paused"] .scenes .firelight {
       pointer-events: none;
     }
 
-  [data-mode="dream"] .chapter-rail a:hover span,
-    [data-mode="dream"] .chapter-rail a:focus-visible span {
+  [data-mode="dream"] .chapter-rail a:focus-visible span {
       opacity: 1;
       transform: translateX(0);
     }
+  @media (hover: hover) and (pointer: fine) {
+    [data-mode="dream"] .chapter-rail a:hover span {
+        opacity: 1;
+        transform: translateX(0);
+      }
+  }
 
   [data-mode="dream"] .chapter-rail a[aria-current="location"] i {
       border-color: var(--hot);
@@ -3010,8 +3033,10 @@ html[data-motion="paused"] .scenes .firelight {
 
 [data-mode="dream"] .hi-stack figure:nth-child(3) .cell { transform: rotate(-1.2deg); }
 
-[data-mode="dream"] .hi-stack figure:hover .cell {
-  transform: rotate(0deg) scale(1.02);
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .hi-stack figure:hover .cell {
+    transform: rotate(0deg) scale(1.02);
+  }
 }
 
 /* Reaching for a way to say hi gently clears the three prints apart. The
@@ -3137,7 +3162,9 @@ html[data-motion="paused"] .scenes .firelight {
   color: var(--hot);
 }
 
-[data-mode="dream"] .em-mark:hover { scale: 1.12; z-index: 4; }
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .em-mark:hover { scale: 1.12; z-index: 4; }
+}
 
 [data-mode="dream"] .em-mark:active { scale: 1.04; }
 
@@ -3288,4 +3315,12 @@ html[data-motion="paused"] .scenes .firelight {
 [data-mode="dream"] .poems {
   gap: var(--sp-4);
   margin-top: var(--sp-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mode="dream"] .hero-stack figure,
+  [data-mode="dream"] .hero-stack figure:hover .cell {
+    transform: none;
+    transition: none;
+  }
 }

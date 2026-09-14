@@ -224,3 +224,34 @@ test("press feedback reaches every kind of control on both surfaces", () => {
   assert.match(dream, /:active \{\s*transition-duration: 160ms;/);
   assert.doesNotMatch(dream + product + fs.readFileSync(path.join(root, "src/styles/pages/eidos.css"), "utf8"), /scale 90ms var\(--ease\)[;,]/, "a release still rides the slow-start curve");
 });
+
+// ── reduced motion drops travel, keeps feedback ─────────────────────────
+test("reduced motion keeps opacity and colour feedback and gates every hover that moves", () => {
+  const css = { global: fs.readFileSync(path.join(root, "src/styles/global.css"), "utf8"), dream: fs.readFileSync(path.join(root, "src/styles/dream.css"), "utf8"), studio: fs.readFileSync(path.join(root, "src/styles/pages/eidos-studio.css"), "utf8"), product: fs.readFileSync(path.join(root, "src/styles/pages/eidos-product.css"), "utf8") };
+  assert.doesNotMatch(css.global, /\*::after \{\s*animation: none !important;/, "the blanket is back");
+  assert.match(css.global, /transition-property: opacity, color, background-color, border-color, fill, stroke !important;/);
+  assert.match(css.dream, /\.scenes i \{\s*transform: none;\s*\}/, "the scene crossfade is cut under reduced motion");
+  assert.match(css.studio, /animation: favorite-fade 900ms ease both/, "the favourite stamp sticks under reduced motion");
+  assert.doesNotMatch(css.studio, /\.in-faun-signal \{ animation: none !important; transition: none !important; \}/, "the faun's colour feedback is deleted under reduced motion");
+  // every :hover rule that moves sits inside a hover-capable media block
+  for (const [name, raw] of Object.entries(css)) {
+    const text = raw.replace(/\/\*[\s\S]*?\*\//g, "");
+    const stack = []; const offenders = []; let pending = "rule";
+    const re = /[^{}]+(?=\{)|\{|\}/g; let m;
+    while ((m = re.exec(text))) {
+      const tok = m[0];
+      if (tok === "{") { stack.push(pending); pending = "rule"; continue; }
+      if (tok === "}") { stack.pop(); continue; }
+      const sel = tok.trim();
+      if (sel.startsWith("@")) { pending = /^@media[^{]*hover: hover/.test(sel) ? "hover" : "media"; continue; }
+      pending = "rule";
+      if (/:hover/.test(sel)) {
+        const body = text.slice(re.lastIndex + 1, text.indexOf("}", re.lastIndex));
+        // a hover that only removes movement (transform: none) is not movement
+        const moves = [...body.matchAll(/(?:^|[\s;{])(?:transform|scale|translate|rotate):\s*([^;}]+)/g)].some((d) => d[1].trim() !== "none");
+        if (moves && !stack.includes("hover")) offenders.push(sel.replace(/\s+/g, " ").slice(0, 70));
+      }
+    }
+    assert.deepEqual(offenders, [], `${name}: hover transforms fire on touch`);
+  }
+});
