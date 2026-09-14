@@ -66,6 +66,45 @@
   font-display: swap;
 }
 
+/* Metric-matched fallbacks (fontpie, 14 Sep 2026, against the woff2 files in
+   public/fonts). The words render at once in the fallback and the real face
+   swaps in without moving a line: same ascent, descent, gap and advance.
+   Italic variants matter because the hero's accents are italic. */
+@font-face {
+  font-family: "Zodiak Fallback";
+  src: local("Times New Roman");
+  ascent-override: 82.66%;
+  descent-override: 20.87%;
+  line-gap-override: 7.51%;
+  size-adjust: 119.77%;
+}
+@font-face {
+  font-family: "Zodiak Fallback";
+  font-style: italic;
+  src: local("Times New Roman");
+  ascent-override: 77.91%;
+  descent-override: 22.04%;
+  line-gap-override: 7.08%;
+  size-adjust: 127.07%;
+}
+@font-face {
+  font-family: "Newsreader Fallback";
+  src: local("Times New Roman");
+  ascent-override: 70.13%;
+  descent-override: 25.29%;
+  line-gap-override: 0%;
+  size-adjust: 104.80%;
+}
+@font-face {
+  font-family: "Newsreader Fallback";
+  font-style: italic;
+  src: local("Times New Roman");
+  ascent-override: 75.44%;
+  descent-override: 27.20%;
+  line-gap-override: 0%;
+  size-adjust: 97.43%;
+}
+
 @font-face {
   font-family: "Noto Emoji";
   src: url("/fonts/noto-emoji-pins.woff2") format("woff2");
@@ -90,7 +129,11 @@
   --mono:
     ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono",
     monospace;
-  --serif: "Newsreader", "Iowan Old Style", Baskerville, Georgia, serif;
+  --serif: "Newsreader", "Newsreader Fallback", "Iowan Old Style", Baskerville, Georgia, serif;
+  /* Every display setting in the repo reads var(--display, "Zodiak", var(--serif)).
+     The token was never defined, so the inline fallback did the work; naming it
+     here lets the metric-matched fallback ride along everywhere at once. */
+  --display: "Zodiak", "Zodiak Fallback", var(--serif);
 
   /* Four sizes. A monospace system does not need more, and every extra size
      was what made the old page read as a circus. */

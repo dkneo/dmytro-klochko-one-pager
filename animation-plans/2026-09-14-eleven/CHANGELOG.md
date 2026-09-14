@@ -17,3 +17,8 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 ## P04 — Cache the media that never changes
 - `public/_headers` — `/fonts/*` and `/video/*` immutable for a year; `/images/*` one day fresh plus thirty days stale-while-revalidate.
 - `tests/pages.test.mjs` — new: the three rules present, images never immutable.
+
+## P02 — Metric-matched fallbacks so type never shifts the page
+- `src/styles/global.css` — four fallback `@font-face`s (Zodiak/Newsreader, upright and italic) with fontpie metrics against Times New Roman; `--serif` names its fallback; new `--display` token (the 25 `var(--display, "Zodiak", …)` uses resolve to it).
+- `src/layouts/Layout.astro` — the two italic faces the hero uses are preloaded alongside the two uprights.
+- `tests/house-rules.test.mjs` — new: fallback faces, stacks and preloads present.

@@ -198,3 +198,16 @@ test("no hand-typed easing curve outside the token file", () => {
   }
   assert.deepEqual(offenders, [], "curves belong in global.css as tokens");
 });
+
+// ── type that does not move the page ─────────────────────────────────────
+test("every text face has a metric-matched fallback in its stack", () => {
+  const css = fs.readFileSync(path.join(root, "src/styles/global.css"), "utf8");
+  for (const face of ["Zodiak", "Newsreader"]) {
+    assert.match(css, new RegExp(`font-family: "${face} Fallback";\\s*src: local\\("Times New Roman"\\);\\s*ascent-override`), `${face} has no fallback face`);
+    assert.match(css, new RegExp(`font-family: "${face} Fallback";\\s*font-style: italic;`), `${face} has no italic fallback`);
+  }
+  assert.match(css, /--serif: "Newsreader", "Newsreader Fallback",/);
+  assert.match(css, /--display: "Zodiak", "Zodiak Fallback", var\(--serif\);/);
+  const layout = fs.readFileSync(path.join(root, "src/layouts/Layout.astro"), "utf8");
+  for (const f of ["zodiak-300", "newsreader-400", "zodiak-400i", "newsreader-400i"]) assert.match(layout, new RegExp(`preload[^>]*/fonts/${f}.woff2`), `${f} not preloaded`);
+});

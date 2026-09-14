@@ -35,7 +35,7 @@ The 11/10 is not a feeling; it is the right-hand column, all of it, plus the fee
 | # | title | severity | status |
 | --- | --- | --- | --- |
 | P01 | Retire three.js from the petal field; keep every petal | HIGH | TODO |
-| P02 | Metric-matched fallbacks so type never shifts the page | HIGH | TODO |
+| P02 | Metric-matched fallbacks so type never shifts the page | HIGH | DONE |
 | P03 | Inline the stylesheets so no request blocks first paint | MEDIUM | TODO |
 | P04 | Cache the media that never changes | MEDIUM | DONE |
 | P05 | Serve every picture at the size it is seen, in the format that costs least | HIGH | TODO |
