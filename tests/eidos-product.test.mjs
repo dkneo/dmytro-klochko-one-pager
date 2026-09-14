@@ -233,6 +233,20 @@ test("discover queues only distinct paintings, prints, and posters", async () =>
   assert.match(source, /slice\(-5\)/);
 });
 
+test("discover is a finite explained sitting and never records a search bucket as taste", () => {
+  const source = read("src/pages/eidos/inbox.astro");
+  const html = read("dist/eidos/inbox/index.html");
+
+  assert.match(source, /planDiscoverySession\(\{ candidates: source, judged, archive, limit: 10 \}\)/);
+  assert.match(html, /id="in-archive"/);
+  assert.match(html, /id="recommendation"/);
+  assert.match(html, /id="rec-role"/);
+  assert.match(html, /id="rec-reason"/);
+  assert.match(source, /another\.textContent = "another ten"/);
+  assert.doesNotMatch(source, /weather:\s*weather\s*\|\|\s*cand\.weather/);
+  assert.doesNotMatch(source, /send\(cand, "(?:keep|favorite)", cand\.weather\)/);
+});
+
 test("discover treats editions of one artwork as one decision", async () => {
   const { prepareCandidateQueue } = await import("../src/lib/eidos-candidates.mjs");
   const candidates = [
@@ -322,7 +336,7 @@ test("the visual Studio has shelves, an absolute favorite, and a comparison ritu
   assert.match(source, /positiveThis\.length\s*>=\s*12/);
   assert.match(source, /fetch\("\/api\/eidos\/pair"/);
   assert.match(source, /weather:\s*"overall"/);
-  assert.match(source, /send\(cand, "favorite", cand\.weather\)/);
+  assert.match(source, /send\(cand, "favorite", ""\)/);
 });
 
 test("the studio uses one finite Faun loader and no reaction films", () => {

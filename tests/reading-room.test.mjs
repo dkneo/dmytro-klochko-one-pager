@@ -83,7 +83,7 @@ test("discover names its narrow queue without exposing non-visual intake", () =>
 
 test("the visual deck introduces available artists before repeating one", () => {
   const src = read("src/pages/eidos/inbox.astro");
-  assert.match(src, /prepareCandidateQueue/, "the artist-balanced queue is not used");
+  assert.match(src, /planDiscoverySession/, "the finite artist-balanced sitting is not used");
   assert.ok(scripts("dist/eidos/inbox/index.html").length > 500, "the inbox ships no script");
 });
 
@@ -147,7 +147,7 @@ test("the visual studio does not ask for commentary before a verdict", () => {
   const src = read("src/pages/eidos/inbox.astro");
   assert.doesNotMatch(html, /field note|id="say"|what held you here/);
   assert.doesNotMatch(src, /draftKey|localStorage|say\.value/);
-  assert.match(src, /send\(cand, "keep", cand\.weather\)/);
+  assert.match(src, /send\(cand, "keep", ""\)/);
   assert.match(src, /send\(cand, "pass", ""\)/);
 });
 

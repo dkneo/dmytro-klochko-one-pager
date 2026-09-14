@@ -3,6 +3,7 @@ import EidosLayout from "../../layouts/EidosLayout.astro";
 import EidosHeader from "../../components/eidos/EidosHeader.astro";
 import "../../styles/pages/eidos-studio.css";
 import inbox from "../../../public/inbox.json";
+import map from "../../data/map.json";
 import { groupCandidateEditions } from "../../lib/eidos-candidates.mjs";
 
 // Discover is deliberately only paintings, prints and posters. The source
@@ -37,6 +38,18 @@ const rawCandidates = (inbox.candidates || [])
     licence: c.licence || "",
   }));
 const candidates = groupCandidateEditions(rawCandidates);
+const archive = map.items
+  .filter((item: any) => item.src && artworkTypes.has(item.type) && !item.id.startsWith("his-"))
+  .map((item: any) => ({
+    id: item.id,
+    type: item.type,
+    who: item.who || "",
+    title: item.title || item.line || "",
+    year: item.year || "",
+    weather: item.weather || "",
+    medium: item.medium || "",
+    collection: item.collection || "",
+  }));
 const pictures = candidates.length;
 const shelfCount = (types) => candidates.filter((c) => types.includes(c.type)).length;
 const shelves = [
@@ -83,7 +96,7 @@ const description = "discover paintings and posters for the moodboard.";
           </div>
           <p class="in-shelf" id="shelf">
             <strong>paintings and posters only</strong>
-            <span>{pictures} distinct works archived</span>
+            <span>{pictures} distinct works waiting</span>
             <small>earlier swipes and other media stay safely archived.</small>
             <small>links have <a href="/eidos/reads">the reading room</a>.</small>
           </p>
@@ -114,6 +127,10 @@ const description = "discover paintings and posters for the moodboard.";
             <div class="in-next-edge" aria-hidden="true"></div>
             <article class="in-card" id="card" hidden>
               <div class="in-leaf in-leaf--it">
+                <p class="in-recommendation" id="recommendation">
+                  <span id="rec-role"></span>
+                  <b id="rec-reason"></b>
+                </p>
                 <div class="in-art" id="art-wrap">
                   <div class="in-plate-loader" id="plate-loader" data-plate-loader hidden aria-hidden="true">
                     <img class="in-loader-faun in-loader-faun--pink" src="/images/eidos/product/faun-mark.webp" width="720" height="720" alt="" />
@@ -413,11 +430,13 @@ const description = "discover paintings and posters for the moodboard.";
   </style>
 
   <script is:inline type="application/json" id="in-data" set:html={JSON.stringify(candidates)} />
+  <script is:inline type="application/json" id="in-archive" set:html={JSON.stringify(archive)} />
   <script>
-    import { prepareCandidateQueue } from "../../lib/eidos-candidates.mjs";
+    import { planDiscoverySession } from "../../lib/eidos-session.mjs";
 
     (() => {
       const harvested = JSON.parse(document.getElementById("in-data").textContent);
+      const archive = JSON.parse(document.getElementById("in-archive").textContent);
       const $ = (id) => document.getElementById(id);
       const card = $("card"), art = $("art"), noteLine = $("note-line"), plateLoader = $("plate-loader");
       const faunGuide = document.querySelector("[data-faun-guide]");
@@ -425,7 +444,8 @@ const description = "discover paintings and posters for the moodboard.";
       const edgeOut = document.querySelector(".in-edge--out");
       const trail = $("session-trail");
       const LOADER_DELAY = 700;
-      let deck = [], cur = null, sat = 0, positiveThis = [], last = null, busy = false;
+      let deck = [], backlog = [], cur = null, sat = 0, positiveThis = [], last = null, busy = false;
+      let sessionSize = 0;
       let activeFilter = "all", comparisonPair = [], comparisonShown = false;
       let loaderTimer = 0, faunTimer = 0;
       const session = [];
@@ -493,10 +513,21 @@ const description = "discover paintings and posters for the moodboard.";
       const count = () => {
         const all = [...deck, ...(cur ? [cur] : [])];
         const left = all.filter(matchesFilter).length;
-        const suffix = activeFilter === "all" ? `${left} left` : `${left} here · ${all.length} total left`;
-        $("count").textContent = all.length ? `${sat} judged${sat ? " today" : ""} · ${suffix}` : "";
+        const position = cur?.sessionPosition || Math.max(0, sessionSize - deck.length);
+        const shelf = activeFilter === "all" ? "" : ` · ${left} on this shelf`;
+        $("count").textContent = all.length ? `${position} of ${sessionSize}${shelf} · ${backlog.length} wait after this sitting` : "";
         renderFilters();
       };
+
+      function startSitting(source, judged = new Set()) {
+        const plan = planDiscoverySession({ candidates: source, judged, archive, limit: 10 });
+        deck = plan.cards;
+        backlog = plan.remaining;
+        sessionSize = deck.length;
+        session.length = 0;
+        renderTrail();
+        return deck.length;
+      }
 
       // ── the visual deck ─────────────────────────────────────────────
       async function build() {
@@ -513,8 +544,7 @@ const description = "discover paintings and posters for the moodboard.";
         let seed = Number(new Date().toISOString().slice(0, 10).replace(/-/g, "")) % 2147483647;
         const rnd = () => (seed = (seed * 48271) % 2147483647) / 2147483647;
         const shuffled = harvested.slice().sort(() => rnd() - 0.5);
-        deck = prepareCandidateQueue(shuffled, judged);
-        if (!deck.length) return rest_("nothing visual waits. let the harvester bring more artists.");
+        if (!startSitting(shuffled, judged)) return rest_("nothing visual waits. let the harvester bring more artists.");
         if (!(await doorOpen())) return shutOut(null);
         next();
       }
@@ -541,11 +571,13 @@ const description = "discover paintings and posters for the moodboard.";
         $("c-title").textContent = c.title;
         $("c-who").textContent = `${c.who}${c.year ? " · " + c.year : ""}${c.type && c.type !== "painting" ? " · " + c.type : ""}`;
         $("c-source").href = c.source || "#";
+        $("rec-role").textContent = c.role;
+        $("rec-reason").textContent = c.reason;
       }
       function next() {
         const pick = activeFilter === "all" ? 0 : deck.findIndex(matchesFilter);
         cur = pick >= 0 ? deck.splice(pick, 1)[0] : null;
-        if (!cur) return rest_(deck.length ? "nothing else waits on this shelf. choose another." : "that is all of the visual queue. let the harvester bring more.");
+        if (!cur) return rest_(deck.length ? "nothing else waits on this shelf. choose another." : "ten works, fully considered.");
         art.onload = () => {
           const ratio = art.naturalWidth / art.naturalHeight;
           $("stage").dataset.orientation = ratio < 0.82 ? "portrait" : ratio > 1.22 ? "landscape" : "square";
@@ -579,6 +611,19 @@ const description = "discover paintings and posters for the moodboard.";
         const p = document.createElement("span");
         p.textContent = text || `that is all of them. ${positiveThis.length} kept; they appear in the library once they are taken in.`;
         noteLine.append(p);
+        if (!deck.length && backlog.length) {
+          const another = document.createElement("button");
+          another.type = "button";
+          another.className = "in-btn in-another";
+          another.textContent = "another ten";
+          another.addEventListener("click", () => {
+            const waiting = backlog;
+            if (!startSitting(waiting)) return rest_("nothing visual waits. let the harvester bring more artists.");
+            $("do").hidden = false;
+            next();
+          });
+          noteLine.append(another);
+        }
         if (positiveThis.length) {
           const row = document.createElement("span");
           row.className = "in-kept";
@@ -607,7 +652,7 @@ const description = "discover paintings and posters for the moodboard.";
         try {
           const r = await fetch("/api/eidos/verdict", {
             method: "POST", headers: { "content-type": "application/json" },
-            body: JSON.stringify({ id: cand.id, verdict, weather: weather || cand.weather || "" }),
+            body: JSON.stringify({ id: cand.id, verdict, weather: weather || "" }),
           });
           if (r.status === 401) { shutOut({ cand, verdict, weather }); return false; }
           if (!r.ok) {
@@ -704,14 +749,14 @@ const description = "discover paintings and posters for the moodboard.";
         if (!cur || busy) return;
         busy = true; const cand = cur; last = { cand, verdict: "keep" }; $("undo").disabled = false;
         positiveThis.push(cand); record(cand, "keep");
-        reactFaun("keep", origin); send(cand, "keep", cand.weather); sat++; fly(1, origin); setTimeout(() => { next(); maybeCompare(); }, decisionDelay(origin));
+        reactFaun("keep", origin); send(cand, "keep", ""); sat++; fly(1, origin); setTimeout(() => { next(); maybeCompare(); }, decisionDelay(origin));
       }
       function favorite(origin = "button") {
         if (!cur || busy) return;
         busy = true; const cand = cur; last = { cand, verdict: "favorite" }; $("undo").disabled = false;
         positiveThis.push(cand); record(cand, "favorite");
         if (origin !== "keyboard") card.classList.add("is-favorite");
-        reactFaun("favorite", origin); send(cand, "favorite", cand.weather); sat++;
+        reactFaun("favorite", origin); send(cand, "favorite", ""); sat++;
         const favoriteDelay = origin === "keyboard" ? 0 : 360;
         setTimeout(() => { fly(1, origin); setTimeout(() => { next(); maybeCompare(); }, decisionDelay(origin)); }, favoriteDelay);
       }
