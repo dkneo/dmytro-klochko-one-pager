@@ -34,9 +34,9 @@ The 11/10 is not a feeling; it is the right-hand column, all of it, plus the fee
 
 | # | title | severity | status |
 | --- | --- | --- | --- |
-| P01 | Retire three.js from the petal field; keep every petal | HIGH | TODO |
+| P01 | Retire three.js from the petal field; keep every petal | HIGH | MEASURED, not applied (see CHANGELOG) |
 | P02 | Metric-matched fallbacks so type never shifts the page | HIGH | DONE |
-| P03 | Inline the stylesheets so no request blocks first paint | MEDIUM | TODO |
+| P03 | Inline the stylesheets so no request blocks first paint | MEDIUM | MEASURED, not applied (see CHANGELOG) |
 | P04 | Cache the media that never changes | MEDIUM | DONE |
 | P05 | Serve every picture at the size it is seen, in the format that costs least | HIGH | DONE |
 | P06 | An ambient budget: pay only for motion that is on screen | HIGH | DONE |
@@ -50,7 +50,7 @@ The 11/10 is not a feeling; it is the right-hand column, all of it, plus the fee
 | M08 | Crossfades that do not double-expose; entrances that arrive one by one | MEDIUM | DONE (crossfades only; stagger out of scope) |
 | M09 | Things appear from where they came: the deal, the lightbox, the dialogs | MEDIUM | DONE (deal + lightbox; dialogs out of scope) |
 | M10 | The rare moments get their delight budget | LOW–MEDIUM | DONE (no flying hostname) |
-| M11 | Pages that change without a blink (native view transitions) | optional | TODO |
+| M11 | Pages that change without a blink (native view transitions) | optional | not applied (separate decision) |
 
 ## Order, and why
 

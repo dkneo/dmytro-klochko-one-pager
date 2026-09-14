@@ -103,3 +103,32 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 - `src/pages/eidos/inbox.astro`, `src/pages/eidos/reads.astro` — the end of the deck: the closing line unrolls (clip-path + opacity, 300ms) and in discover the kept pictures deal onto the shelf one by one (≤ 8, 50ms apart, starting after the line); the gate: the workbench dims (120ms, fill released afterwards so it returns opaque) and the gate rises into view (240ms) with a smooth scroll; the record: the new trail line slides in at the top (180ms) and the counter blinks once (opacity only; the digits never move). All of it skipped under reduced motion. Curves read from the token file.
 - **Not applied** (boundary): the flying-hostname ghost when a link is thrown.
 - `tests/reads-room.test.mjs` — new: the three moments in both rooms, the released fade, no ghost.
+
+## P03 — Inline the stylesheets (optional: measured, not applied)
+Measured on the branch build served locally (uncompressed, no CDN), Lighthouse 12 mobile, same machine, same minute:
+
+| page | config | FCP | LCP | CLS | render-blocking | HTML (gz) |
+| --- | --- | --- | --- | --- | --- | --- |
+| home | external CSS (branch as is) | 1.8 s | 6.0 s | 0.063 | 2 requests, 567 ms | 14 KB |
+| home | inlined | 1.5 s | 5.8 s | 0 | none | 28 KB |
+| eidos | external CSS | 2.4 s | 5.4 s | 0 | 2 requests, 509 ms | 33 KB |
+| eidos | inlined | 2.1 s | 5.3 s | 0 | none | 42 KB |
+
+Absolute numbers are from an uncompressed local server and are not comparable to production; the deltas are. Note the homepage CLS: it survives P02's font fallbacks locally and disappears with inlining, so the remaining shift is the late external stylesheet, not the type.
+Decision left to review: inlining removes the render-blocking stylesheet requests at the cost of ~11 KB more HTML per page and no cross-page CSS cache. The change is one line in `astro.config.mjs` (`build: { inlineStylesheets: "always" }`); the tests already read CSS from both inline and bundled sources.
+
+## P01 — Retire three.js from the petal field (optional: measured, not applied)
+`dist/_astro/petal-field.*.js` is 520 KB raw / 129 KB gzipped and costs 614 ms of script evaluation on desktop (Lighthouse, 14 Sep); it is the homepage's single largest asset and the only reason "unused JavaScript" appears in the audit. The plan (P01) specifies a ~250-line WebGL replacement with identical petals; it is a renderer rewrite with a visual side-by-side as its acceptance test and was held back for a separate, measured pass. P06 already stops the loop in hidden tabs.
+
+## M11 — Cross-document view transitions (optional: not applied)
+One at-rule and two `view-transition-name`s (see the plan); adds motion between pages, which the brief reserved for a separate decision.
+
+## Not touched, by boundary
+Eidos information architecture, navigation labels, page hierarchy, copy, card content, artwork selection and sorting, taxonomy, recommendation logic, data formats, APIs, KV records, vault notes; every swipe, verdict, favourite, annotation and candidate. Faun and Gryphon keep their `data-state`/`data-preview` model; every state added here rides transitions on those attributes, so new states (explanations, constellations, learning, favourites) slot in as more attribute values.
+
+## How to review
+```bash
+git fetch origin eleven && git checkout eleven
+npm run build && node --test tests/*.test.mjs     # 208 tests
+```
+Each plan is one commit; `git log --oneline master..eleven` lists them in execution order. The pane checks recorded above were made against the local build; production numbers need the branch deployed to a preview.
