@@ -74,3 +74,11 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 - `src/pages/eidos/map.astro` — wheel zoom disables the stage transition while the wheel turns (the drag path's `is-dragging`) and meets rising resistance past the limits, settling back 120ms after the last tick; the zoom buttons keep their hard clamp (discrete actions).
 - `tests/house-rules.test.mjs` — new: no `transition` in `src/styles/**` names a layout property (allow-list: the documented `.arw` hop).
 - Measured, not applied: the five `box-shadow` hover transitions (small, hover-scoped, one element at a time; a `::after` duplicate would add markup-facing CSS to Codex's `.ep-piece`).
+
+## M05 — Reversible things use transitions, not keyframes
+- `src/styles/dream.css` — the header menu and the read-more disclosures animate their `::details-content` with transitions and `@starting-style` (180/200ms in, 120/140ms out, retarget mid-flight; browsers without `::details-content` get an instant open/close, which is what they had minus the one-shot keyframe); `menu-open`, `cv-unfold` and `em-rise` keyframes removed.
+- `src/styles/pages/eidos-studio.css` — the favourite stamp is driven by the card's `is-favorite` class with transitions (a fast second favourite retargets instead of replaying from zero); the faun's favourite bob rides the key's own transition from `data-state`; `favorite-press` and `faun-favorite` keyframes removed. The faun halo (`faun-halo`) stays a one-shot flourish on `data-state`, which returns to idle after the reaction — modular for the states Codex will add.
+- `src/styles/pages/eidos.css` — the atlas detail panel transitions on `[hidden]` with `display allow-discrete`, so it leaves as well as arrives.
+- `src/pages/eidos/inbox.astro` — the plate loader no longer forces a reflow (`void offsetWidth`) to restart; its class already toggles across frames behind `LOADER_DELAY`.
+- `tests/house-rules.test.mjs` — new: the five keyframes are gone, the `::details-content` and `[hidden]` transitions exist, the stamp is class-driven, no forced reflow.
+- Not changed: `EidosCollection.astro`'s surprise wobble (the component is imported by no page).

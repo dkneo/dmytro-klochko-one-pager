@@ -280,3 +280,16 @@ test("no transition animates a layout property", () => {
   }
   assert.deepEqual(offenders, [], "layout properties re-lay out the page on every frame; animate transform or opacity instead");
 });
+
+// ── reversible things use transitions ───────────────────────────────────
+test("no reversible UI is driven by keyframes", () => {
+  const dream = fs.readFileSync(path.join(root, "src/styles/dream.css"), "utf8");
+  const studio = fs.readFileSync(path.join(root, "src/styles/pages/eidos-studio.css"), "utf8");
+  const atlas = fs.readFileSync(path.join(root, "src/styles/pages/eidos.css"), "utf8");
+  for (const k of ["menu-open", "cv-unfold", "em-rise", "favorite-press", "faun-favorite"]) assert.doesNotMatch(dream + studio + atlas, new RegExp(`@keyframes ${k}\\b`), `${k} is still a keyframe`);
+  assert.match(dream, /\.menu\[open\]::details-content \{/, "the menu does not transition its content");
+  assert.match(dream, /\.cv-job\[open\]::details-content \{/, "read-more does not transition its content");
+  assert.match(studio, /\.in-favorite-stamp \{[^}]*transition: opacity 120ms var\(--ease-out\), transform 260ms var\(--ease-out\);/s, "the stamp is not class-driven");
+  assert.match(atlas, /\.em-detail\[hidden\] \{/, "the atlas panel cannot leave");
+  assert.doesNotMatch(fs.readFileSync(path.join(root, "src/pages/eidos/inbox.astro"), "utf8"), /void plateLoader\.offsetWidth/, "the loader still forces a reflow");
+});

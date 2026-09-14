@@ -2261,8 +2261,27 @@ html[data-motion="paused"] .scenes .firelight {
   font-style: normal;
 }
 
-[data-mode="dream"] .cv-open {
-  animation: cv-unfold 200ms var(--ease-out) both;
+/* the same for read-more: an interrupted toggle reverses from where it is */
+[data-mode="dream"] .cv-job::details-content {
+  opacity: 0;
+  translate: 0 -4px;
+  transition:
+    opacity 140ms var(--ease-out),
+    translate 140ms var(--ease-out),
+    content-visibility 140ms allow-discrete;
+}
+
+[data-mode="dream"] .cv-job[open]::details-content {
+  opacity: 1;
+  translate: 0 0;
+  transition-duration: 200ms, 200ms, 200ms;
+}
+
+@starting-style {
+  [data-mode="dream"] .cv-job[open]::details-content {
+    opacity: 0;
+    translate: 0 -4px;
+  }
 }
 
 [data-mode="dream"] .cv-open .cv-points {
@@ -2273,10 +2292,6 @@ html[data-motion="paused"] .scenes .firelight {
   padding-bottom: 0;
 }
 
-@keyframes cv-unfold {
-  from { opacity: 0; transform: translateY(-4px); }
-  to   { opacity: 1; transform: none; }
-}
 
 /* An entry with evidence keeps the rail it had, now inside the open panel. */
 
@@ -2959,12 +2974,36 @@ html[data-motion="paused"] .scenes .firelight {
 
 [data-mode="dream"] .menu-drop {
   transform-origin: top right;
-  animation: menu-open 180ms var(--ease-out) both;
 }
 
-@keyframes menu-open {
-  from { opacity: 0; scale: 0.94; translate: 0 -4px; }
-  to   { opacity: 1; scale: 1; translate: 0 0; }
+/* Transitions, not keyframes: a keyframe restarts from zero on a fast re-open
+   and cannot play the close. The details content grows from its corner
+   (Emil's fifth tip), 180ms in, 120ms out, and retargets mid-flight. */
+[data-mode="dream"] .menu::details-content {
+  transform-origin: top right;
+  opacity: 0;
+  translate: 0 -4px;
+  scale: 0.94;
+  transition:
+    opacity 120ms var(--ease-out),
+    translate 120ms var(--ease-out),
+    scale 120ms var(--ease-out),
+    content-visibility 120ms allow-discrete;
+}
+
+[data-mode="dream"] .menu[open]::details-content {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+  transition-duration: 180ms, 180ms, 180ms, 180ms;
+}
+
+@starting-style {
+  [data-mode="dream"] .menu[open]::details-content {
+    opacity: 0;
+    translate: 0 -4px;
+    scale: 0.94;
+  }
 }
 
 /* ── the three by say hi ────────────────────────────────────────────────
@@ -3213,7 +3252,6 @@ html[data-motion="paused"] .scenes .firelight {
 
 [data-mode="dream"] .em-axis i { flex: 1; height: 1px; background: rgb(236 230 217 / 16%); }
 
-@keyframes em-rise { from { opacity: 0; transform: translateY(6px); } }
 
 @media (max-width: 700px) {
   [data-mode="dream"] .em-mark img { width: 28px; height: 28px; }

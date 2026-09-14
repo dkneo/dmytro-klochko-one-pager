@@ -813,7 +813,24 @@
   border: 1px solid rgb(236 230 217 / 22%);
   background: rgb(20 24 40 / 72%);
   max-width: var(--measure-wide);
-  animation: em-rise var(--dur) var(--ease);
+  opacity: 1;
+  translate: 0 0;
+  transition:
+    opacity var(--dur) var(--ease-out),
+    translate var(--dur) var(--ease-out),
+    display var(--dur) allow-discrete;
+}
+
+[data-mode="dream"] .em-detail[hidden] {
+  opacity: 0;
+  translate: 0 6px;
+}
+
+@starting-style {
+  [data-mode="dream"] .em-detail:not([hidden]) {
+    opacity: 0;
+    translate: 0 6px;
+  }
 }
 
 [data-mode="dream"] .em-detail img {

@@ -261,14 +261,9 @@
 .eidos-studio .in-faun-guide[data-state="keep"] .in-faun-signal { background: var(--ep-pink); transform: translateX(3px) scale(1); }
 .eidos-studio .in-faun-guide[data-preview="pass"] .in-faun-signal,
 .eidos-studio .in-faun-guide[data-state="pass"] .in-faun-signal { background: var(--ep-ink); transform: translateX(-3px) scale(0.58); }
-.eidos-studio .in-faun-guide[data-state="favorite"] .in-faun-key { animation: faun-favorite 260ms var(--ease-out) both; }
+.eidos-studio .in-faun-guide[data-state="favorite"] .in-faun-key { transform: translateY(-2px) scale(1.04); } /* rides the key's own transition; data-state returns it */
 .eidos-studio .in-faun-guide[data-state="favorite"] .in-faun-echo { opacity: 0.2; transform: translate(2px, -1px); }
 .eidos-studio .in-faun-guide[data-state="favorite"] .in-faun-stack::after { animation: faun-halo 260ms var(--ease-out) both; }
-@keyframes faun-favorite {
-  0% { transform: scale(1); }
-  45% { transform: scale(0.975); }
-  100% { transform: scale(1); }
-}
 @keyframes faun-halo {
   0% { opacity: 0; transform: scale(0.76) rotate(-18deg); }
   52% { opacity: 0.9; }
@@ -445,15 +440,12 @@
   opacity: 0;
   transform: translate(-50%, -50%) rotate(-7deg) scale(1.45);
   pointer-events: none;
+  /* driven by the card's class, so a second favourite a moment later retargets instead of replaying from zero */
+  transition: opacity 120ms var(--ease-out), transform 260ms var(--ease-out);
 }
 .eidos-studio .in-favorite-stamp b { font-size: 0.78rem; letter-spacing: 0.17em; }
 .eidos-studio .in-favorite-stamp small { font-size: 0.52rem; letter-spacing: 0.1em; }
-.eidos-studio .in-card.is-favorite .in-favorite-stamp { animation: favorite-press 260ms var(--ease-out) both; }
-@keyframes favorite-press {
-  0% { opacity: 0; transform: translate(-50%, -50%) rotate(-7deg) scale(1.45); }
-  42%, 78% { opacity: 1; transform: translate(-50%, -50%) rotate(-7deg) scale(1); }
-  100% { opacity: 0; transform: translate(-50%, -50%) rotate(-7deg) scale(0.98); }
-}
+.eidos-studio .in-card.is-favorite .in-favorite-stamp { opacity: 1; transform: translate(-50%, -50%) rotate(-7deg) scale(1); }
 
 .eidos-studio .in-do { display: flex; justify-content: center; gap: 0.5rem; margin: 1.2rem 0 0; }
 .eidos-studio .in-btn {

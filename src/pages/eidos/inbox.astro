@@ -241,7 +241,6 @@ const description = "discover paintings and posters for the moodboard.";
         loaderTimer = window.setTimeout(() => {
           if (!art.classList.contains("is-loading")) return;
           plateLoader.hidden = false;
-          void plateLoader.offsetWidth;
           plateLoader.classList.add("is-active");
         }, LOADER_DELAY);
       }
