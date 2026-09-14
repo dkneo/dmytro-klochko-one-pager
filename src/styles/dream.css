@@ -248,8 +248,10 @@
   overflow: hidden;
   opacity: 0;
   transform: scale(0.985);
+  /* asymmetric: the outgoing print is gone at 140ms while the incoming is
+     still arriving at 220ms, so no frame holds two faces at half strength */
   transition:
-    opacity 220ms var(--ease-out),
+    opacity 140ms var(--ease-out),
     transform 220ms var(--ease-out);
   pointer-events: none;
 }
@@ -258,6 +260,7 @@
   z-index: 1;
   opacity: 1;
   transform: scale(1);
+  transition-duration: 220ms, 220ms;
 }
 
 /* The picture always lands whole inside the mat, whatever its shape. */
@@ -3294,13 +3297,18 @@ html[data-motion="paused"] .scenes .firelight {
   opacity: 0.92;
 }
 
-[data-mode="dream"] .dm-ytro { opacity: 0; }
+[data-mode="dream"] .dm-ytro { opacity: 0; transition: opacity 180ms var(--ease); }
+
+/* No overlap inside a word: on hover the envelope leaves at once (120ms) and
+   the letters arrive after it (110ms later); at rest the letters leave first
+   and the envelope returns after them. */
+[data-mode="dream"] .dm-mail { transition: opacity 120ms var(--ease) 110ms; }
 
 [data-mode="dream"] .card-title:hover .dm-mail,
-[data-mode="dream"] .card-title:focus-within .dm-mail { opacity: 0; }
+[data-mode="dream"] .card-title:focus-within .dm-mail { opacity: 0; transition-delay: 0ms; }
 
 [data-mode="dream"] .card-title:hover .dm-ytro,
-[data-mode="dream"] .card-title:focus-within .dm-ytro { opacity: 0.42; }
+[data-mode="dream"] .card-title:focus-within .dm-ytro { opacity: 0.42; transition-delay: 110ms; }
 
 /* Reduced motion keeps the joke and drops the crossfade. Touch has no
    hover, so the name is what everyone else already reads. */

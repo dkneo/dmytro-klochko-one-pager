@@ -47,7 +47,7 @@ The 11/10 is not a feeling; it is the right-hand column, all of it, plus the fee
 | M05 | Reversible things use transitions, not keyframes | MEDIUM | DONE |
 | M06 | Only transform and opacity move | MEDIUM | DONE |
 | M07 | Reduced motion keeps the feedback and drops only the travel | HIGH | DONE |
-| M08 | Crossfades that do not double-expose; entrances that arrive one by one | MEDIUM | TODO |
+| M08 | Crossfades that do not double-expose; entrances that arrive one by one | MEDIUM | DONE (crossfades only; stagger out of scope) |
 | M09 | Things appear from where they came: the deal, the lightbox, the dialogs | MEDIUM | TODO |
 | M10 | The rare moments get their delight budget | LOW–MEDIUM | TODO |
 | M11 | Pages that change without a blink (native view transitions) | optional | TODO |

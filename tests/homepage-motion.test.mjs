@@ -297,3 +297,13 @@ test("ambient loops pause off-act and in a hidden tab; pointer writes are batche
   assert.doesNotMatch(layout, /addEventListener\("pointermove", \(e\) => \{[^}]*setProperty\("--mx"/s, "--mx is written on every pointer event");
   assert.match(layout, /requestAnimationFrame\(\(\) => \{ raf = 0; pile\.style\.setProperty\("--tx", nx\)/, "pile tilt is not batched");
 });
+
+// ── crossfades that do not double-expose ─────────────────────────────────
+test("the easel and the dm title swap without showing two states at once", () => {
+  const css = read("src/styles/dream.css");
+  assert.match(css, /\.easel-layer \{[^}]*opacity 140ms var\(--ease-out\),\s*transform 220ms var\(--ease-out\)/s, "the outgoing print does not leave faster");
+  assert.match(css, /\.easel-layer\.is-active \{[^}]*transition-duration: 220ms, 220ms;/s, "the incoming print does not take its own duration");
+  assert.doesNotMatch(css, /\.easel-layer[^}]*filter: blur/, "no blur on the easel (boundary)");
+  assert.match(css, /\.dm-mail \{ transition: opacity 120ms var\(--ease\) 110ms; \}/, "the envelope returns before the letters have gone");
+  assert.match(css, /:hover \.dm-ytro,[^}]*\{ opacity: 0\.42; transition-delay: 110ms; \}/, "the letters arrive on top of the envelope");
+});

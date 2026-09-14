@@ -88,3 +88,7 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 - `src/styles/pages/eidos-studio.css` — the permanent `will-change` on `.in-card` removed; `.in-edge` transitions its transform (120ms).
 - `tests/reads-room.test.mjs` — new: thresholds, velocity commit, live-offset re-grab, velocity-scaled flight, gesture-scoped will-change, no permanent layer, stamps that land.
 - **Tested** in the browser pane with synthetic pointer sequences on the local build: desktop mouse at 1440 — 80px flick in 60ms commits, 60px slow drag settles, 115px slow drag commits; touch at 375 — 72px flick commits, 50px slow settles, 120px slow commits, a `pointercancel` mid-drag returns the card without a verdict. The re-grab-from-live-offset path could not be observed in the pane (it freezes CSS transitions, so the settling card reads as already home); it is pinned by test and needs a hand on a real trackpad and a real phone before this ships — per the brief, that check is the owner's.
+
+## M08 — Crossfades that do not double-expose
+- `src/styles/dream.css` — the easel's outgoing print leaves in 140ms while the incoming arrives in 220ms, so no frame holds two faces at half strength; the "dm 📨 klochko" title swaps with no overlap (envelope out at once, letters in 110ms later; the reverse at rest). No blur (boundary). The universal entrance stagger and the kept-shelf stagger from the plan were **not applied** (boundary: no universal entrance staggering).
+- `tests/homepage-motion.test.mjs` — new: asymmetric easel durations, no blur, dm delays.
