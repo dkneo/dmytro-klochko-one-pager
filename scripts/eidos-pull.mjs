@@ -14,6 +14,7 @@ import { join } from "node:path";
 import sharp from "sharp";
 
 import { paintingNote, bookmarkNote, wordNote } from "./lib/vault-note.mjs";
+import { planCandidateImports } from "../src/lib/eidos-candidates.mjs";
 
 const NS = "d5e466fe143e4b8aadce72dd01da4507";
 const UA = "dmklochko-site/1.0 (https://dmklochko.com; keeping a painting)";
@@ -110,26 +111,28 @@ for (const [id, v] of Object.entries(placed)) {
 // anyway, which is an answer.
 const inbox = JSON.parse(readFileSync("public/inbox.json", "utf8")).candidates || [];
 const kept = Object.entries(verdicts).filter(([, v]) => v.verdict === "keep" || v.verdict === "favorite");
+const map = JSON.parse(readFileSync("src/data/map.json", "utf8"));
+const primaryTypes = ["painting", "print", "poster"];
+const importPlan = planCandidateImports({
+  candidates: inbox,
+  verdicts,
+  existing: (map.items || []).filter((item) => primaryTypes.includes(item.type)),
+  allowedTypes: primaryTypes,
+});
 const born = [];
-for (const [id, v] of kept) {
-  const c = inbox.find((x) => x.id === id);
-  if (!c) { born.push(`  ? ${id}: kept, but no longer in the inbox`); continue; }
-  const dirFor = { object: "vault/objects", building: "vault/buildings", poster: "vault/posters", print: "vault/prints", photograph: "vault/photographs", poem: "vault/poems", quote: "vault/quotes", song: "vault/songs" };
+for (const c of importPlan.ready) {
+  const id = c.id;
+  const decisions = c.verdictIds.map((verdictId) => verdicts[verdictId]).filter(Boolean);
+  const v = decisions.find((decision) => decision.verdict === "favorite")
+    || decisions.find((decision) => decision.say)
+    || decisions[0]
+    || {};
+  const dirFor = { poster: "vault/posters", print: "vault/prints" };
   const file = `${dirFor[c.type] || "vault/paintings"}/${id}.md`;
   if (existsSync(file)) { born.push(`  = ${id}: already a note`); continue; }
-
-  // A kept poem, quote or song has no picture to bring home: the candidate
-  // carries its note as written, and the keep files it with today's date and
-  // the weather he saw on the card.
-  if (c.type === "poem" || c.type === "quote" || c.type === "song") {
-    born.push(`  + ${id} → ${c.who}, ${c.type}`);
-    if (!apply) continue;
-    mkdirSync(file.slice(0, file.lastIndexOf("/")), { recursive: true });
-    writeFileSync(file, wordNote(c, { weather: v.weather || c.weather || "", added: new Date().toISOString().slice(0, 10), say: v.say }));
-    continue;
-  }
   const remote = !(c.src || "").startsWith("/");
-  born.push(`  + ${id} → ${c.who}, ${c.title}${remote ? " (bringing the picture home)" : ""}`);
+  const editions = c.verdictIds.length > 1 ? ` (${c.verdictIds.length} judged editions → one work)` : "";
+  born.push(`  + ${id} → ${c.who}, ${c.title}${editions}${remote ? " (bringing the picture home)" : ""}`);
   if (!apply) continue;
 
   mkdirSync(file.slice(0, file.lastIndexOf("/")), { recursive: true });
@@ -146,9 +149,40 @@ for (const [id, v] of kept) {
     src,
     added: new Date().toISOString().slice(0, 10),
     say: v.say,
-    favorite: v.verdict === "favorite",
+    favorite: c.favorite,
   }));
 }
+
+for (const item of importPlan.represented) {
+  born.push(`  = ${item.verdictIds.join(", ")}: already represented by ${item.existingId}`);
+}
+for (const item of importPlan.blocked) {
+  born.push(`  ! ${item.verdictIds.join(", ")}: held for ${item.missing.join(", ")}`);
+}
+for (const item of importPlan.held) {
+  if (["poem", "quote", "song"].includes(item.type)) continue;
+  born.push(`  · ${item.verdictIds.join(", ")}: verdict preserved outside the paintings room`);
+}
+
+// Words keep their existing route into the reading room. They are deliberately
+// excluded from the primary visual-art import plan, not discarded.
+for (const c of inbox.filter((candidate) => ["poem", "quote", "song"].includes(candidate.type))) {
+  const v = verdicts[c.id];
+  if (!v || (v.verdict !== "keep" && v.verdict !== "favorite")) continue;
+  const file = `vault/${c.type === "poem" ? "poems" : c.type === "quote" ? "quotes" : "songs"}/${c.id}.md`;
+  if (existsSync(file)) { born.push(`  = ${c.id}: already a note`); continue; }
+  born.push(`  + ${c.id} → ${c.who}, ${c.type}`);
+  if (!apply) continue;
+  mkdirSync(file.slice(0, file.lastIndexOf("/")), { recursive: true });
+  writeFileSync(file, wordNote(c, {
+    weather: v.weather || c.weather || "",
+    added: new Date().toISOString().slice(0, 10),
+    say: v.say,
+  }));
+}
+
+const missingCandidates = kept.filter(([id]) => !inbox.some((candidate) => candidate.id === id));
+for (const [id] of missingCandidates) born.push(`  ? ${id}: kept, but no longer in the inbox`);
 if (apply && born.some((b) => b.startsWith("  +"))) {
   console.log("\n  run `node scripts/image-build.mjs --apply` next: the new");
   console.log("  paintings need their thumbnails before the map can show them.");

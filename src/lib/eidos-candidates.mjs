@@ -79,3 +79,68 @@ export function prepareCandidateQueue(candidates, judged = new Set()) {
     .filter((candidate) => !candidate.verdictIds.some((id) => decided.has(id)));
   return artistRoundRobin(unseen);
 }
+
+/**
+ * Reconcile the remote judgment ledger with the vault before writing notes.
+ *
+ * Editions collapse into one work, but every source verdict id stays attached
+ * to that work. Existing works become aliases instead of duplicate notes, and
+ * incomplete records stop at the boundary rather than inventing attribution.
+ */
+export function planCandidateImports({ candidates = [], verdicts = {}, existing = [], allowedTypes } = {}) {
+  const kept = (candidates || []).filter((candidate) => {
+    const verdict = verdicts?.[candidate.id]?.verdict;
+    return verdict === "keep" || verdict === "favorite";
+  });
+
+  const existingByWork = new Map();
+  const existingById = new Map();
+  for (const work of existing || []) {
+    const key = canonicalWorkKey(work);
+    if (!existingByWork.has(key)) existingByWork.set(key, work);
+    if (work.id) existingById.set(work.id, work);
+  }
+
+  const ready = [];
+  const represented = [];
+  const blocked = [];
+  const held = [];
+  const allowed = allowedTypes ? new Set(allowedTypes) : null;
+
+  for (const candidate of groupCandidateEditions(kept)) {
+    const groupedVerdicts = candidate.verdictIds
+      .map((id) => verdicts?.[id])
+      .filter(Boolean);
+    const item = {
+      ...candidate,
+      favorite: groupedVerdicts.some((verdict) => verdict.verdict === "favorite"),
+    };
+
+    if (allowed && !allowed.has(candidate.type || "painting")) {
+      held.push({ ...item, reason: "outside-primary-collection" });
+      continue;
+    }
+
+    const existingWork = candidate.verdictIds
+      .map((id) => existingById.get(id))
+      .find(Boolean)
+      || existingByWork.get(candidate.workKey);
+    if (existingWork) {
+      represented.push({ ...item, existingId: existingWork.id });
+      continue;
+    }
+
+    const missing = [];
+    if (!String(candidate.who || "").trim()) missing.push("maker");
+    if (!String(candidate.source || "").trim()) missing.push("source");
+    if (!String(candidate.src || "").trim()) missing.push("image");
+    if (missing.length) {
+      blocked.push({ ...item, missing });
+      continue;
+    }
+
+    ready.push(item);
+  }
+
+  return { ready, represented, blocked, held };
+}
