@@ -1,0 +1,100 @@
+.eidos-portrait-page { min-height: 100vh; color: var(--ep-ink); }
+.epr-main { width: min(var(--ep-max), calc(100% - 4rem)); margin: 0 auto; }
+
+.epr-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.5fr);
+  gap: clamp(3rem, 8vw, 9rem);
+  align-items: end;
+  padding: clamp(5rem, 10vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
+}
+.epr-hero h1,
+.epr-section-head h2,
+.epr-next h2 {
+  margin: 0;
+  font-family: var(--display, "Zodiak", var(--serif));
+  font-weight: 300;
+  letter-spacing: -0.052em;
+  line-height: 0.93;
+}
+.epr-hero h1 { max-width: 12ch; font-size: clamp(4rem, 7vw, 8rem); }
+.epr-hero > div > p:last-child { max-width: 44rem; margin: 2rem 0 0; color: var(--ep-quiet); font-size: 1.12rem; line-height: 1.6; }
+.epr-ledger { display: grid; margin: 0; border-top: 1px solid var(--ep-rule); }
+.epr-ledger div { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: baseline; padding: 0.8rem 0; border-bottom: 1px solid var(--ep-rule); }
+.epr-ledger dt { color: var(--ep-quiet); font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.epr-ledger dd { margin: 0; font-family: var(--display, "Zodiak", var(--serif)); font-size: 1.35rem; }
+
+.epr-section { padding: clamp(4rem, 8vw, 8rem) 0; border-top: 1px solid var(--ep-rule); }
+.epr-section-head { display: grid; grid-template-columns: 10rem minmax(0, 0.9fr) minmax(19rem, 0.42fr); gap: 2rem; align-items: end; margin-bottom: 3rem; }
+.epr-section-head > p { margin: 0; color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; }
+.epr-section-head h2 { font-size: clamp(3.6rem, 6vw, 7rem); }
+.epr-section-head > span { color: var(--ep-quiet); font-size: 0.95rem; line-height: 1.55; }
+
+.epr-constellations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.epr-constellation { display: grid; grid-template-columns: minmax(12rem, 0.55fr) minmax(0, 1fr); min-height: 18rem; background: var(--ep-paper-light); border: 1px solid var(--ep-rule); box-shadow: 0 16px 35px var(--ep-shadow); }
+.epr-constellation-copy { display: flex; flex-direction: column; justify-content: flex-end; padding: 1.3rem; }
+.epr-constellation-copy p { margin: 0 0 auto; color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.61rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.epr-constellation-copy h3 { margin: 2rem 0 0.7rem; font-family: var(--display, "Zodiak", var(--serif)); font-size: clamp(1.8rem, 2.8vw, 3.4rem); font-weight: 300; line-height: 0.98; letter-spacing: -0.035em; }
+.epr-constellation-copy span { color: var(--ep-quiet); font-size: 0.78rem; }
+.epr-evidence { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); min-height: 18rem; background: var(--ep-ink); }
+.epr-evidence a { min-width: 0; min-height: 0; overflow: hidden; }
+.epr-evidence img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9); transition: transform 220ms var(--ease), filter 220ms var(--ease); }
+.epr-evidence a:hover img { transform: scale(1.035); filter: saturate(1.08); }
+
+.epr-artist-list { border-top: 1px solid var(--ep-rule); }
+.epr-artist-list article { display: grid; grid-template-columns: 3rem minmax(14rem, 1fr) 7rem 15rem; gap: 1rem; align-items: center; min-height: 5.5rem; border-bottom: 1px solid var(--ep-rule); }
+.epr-artist-list article > span,
+.epr-artist-list article > p { margin: 0; color: var(--ep-quiet); font-family: var(--mono); font-size: 0.67rem; }
+.epr-artist-list h3 { margin: 0; font-family: var(--display, "Zodiak", var(--serif)); font-size: clamp(1.4rem, 2vw, 2.4rem); font-weight: 300; }
+.epr-artist-list article > div { display: grid; grid-template-columns: repeat(3, 1fr); height: 4rem; }
+.epr-artist-list a { min-width: 0; overflow: hidden; }
+.epr-artist-list img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.epr-latest { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(0.8rem, 1.5vw, 1.4rem); }
+.epr-latest a { display: grid; grid-template-rows: 15rem auto auto; gap: 0.45rem; min-width: 0; text-decoration: none; }
+.epr-latest img { display: block; width: 100%; height: 100%; object-fit: contain; background: var(--ep-paper-light); }
+.epr-latest b { margin-top: 0.35rem; font-family: var(--display, "Zodiak", var(--serif)); font-size: 1rem; font-weight: 400; line-height: 1.15; }
+.epr-latest small { color: var(--ep-quiet); font-family: var(--mono); font-size: 0.62rem; }
+.epr-media { display: grid; grid-template-columns: 10rem 1fr; gap: 2rem; margin-top: 4rem; padding-top: 1.2rem; border-top: 1px solid var(--ep-rule); }
+.epr-media > p { margin: 0; color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; }
+.epr-media ul { display: flex; flex-wrap: wrap; gap: 0.7rem 2rem; margin: 0; padding: 0; list-style: none; }
+.epr-media li { display: flex; gap: 0.55rem; align-items: baseline; }
+.epr-media b { font-weight: 400; }
+.epr-media span { color: var(--ep-quiet); font-family: var(--mono); font-size: 0.62rem; }
+
+.epr-next { display: grid; grid-template-columns: minmax(16rem, 0.48fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 7rem); align-items: center; padding: clamp(4rem, 8vw, 8rem) 0; border-top: 1px solid var(--ep-rule); }
+.epr-next > img { display: block; width: 100%; max-width: 28rem; mix-blend-mode: multiply; }
+.epr-next p { margin: 0 0 1rem; color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.epr-next h2 { max-width: 11ch; font-size: clamp(3.5rem, 6vw, 7rem); }
+.epr-next span { display: block; max-width: 40rem; margin: 1.5rem 0; color: var(--ep-quiet); font-size: 1.02rem; line-height: 1.55; }
+.epr-footer { width: min(var(--ep-max), calc(100% - 4rem)); }
+
+@media (max-width: 1000px) {
+  .epr-hero { grid-template-columns: 1fr; gap: 3rem; }
+  .epr-ledger { grid-template-columns: repeat(2, 1fr); }
+  .epr-section-head { grid-template-columns: 8rem 1fr; }
+  .epr-section-head > span { grid-column: 2; }
+  .epr-constellations { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 680px) {
+  .epr-main, .epr-footer { width: calc(100% - 2rem); }
+  .epr-hero { padding: 3.5rem 0 4rem; }
+  .epr-hero h1 { font-size: clamp(3.6rem, 17vw, 5rem); }
+  .epr-ledger { grid-template-columns: 1fr; }
+  .epr-section { padding: 4rem 0; }
+  .epr-section-head { display: block; margin-bottom: 2rem; }
+  .epr-section-head h2 { margin-top: 0.7rem; font-size: clamp(3.4rem, 16vw, 4.8rem); }
+  .epr-section-head > span { display: block; margin-top: 1rem; }
+  .epr-constellation { grid-template-columns: 1fr; }
+  .epr-constellation-copy { min-height: 12rem; }
+  .epr-evidence { min-height: 16rem; }
+  .epr-artist-list article { grid-template-columns: 2rem minmax(0, 1fr) auto; min-height: 6rem; }
+  .epr-artist-list article > div { display: none; }
+  .epr-latest { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .epr-latest a { grid-template-rows: 11rem auto auto; }
+  .epr-media { grid-template-columns: 1fr; gap: 1rem; }
+  .epr-media ul { display: grid; gap: 0.65rem; }
+  .epr-next { grid-template-columns: 7rem minmax(0, 1fr); align-items: start; }
+  .epr-next h2 { font-size: clamp(2.4rem, 11vw, 3.5rem); }
+}

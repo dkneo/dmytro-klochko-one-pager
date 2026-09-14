@@ -1,0 +1,128 @@
+---
+import EidosLayout from "../../layouts/EidosLayout.astro";
+import EidosHeader from "../../components/eidos/EidosHeader.astro";
+import { buildConstellations } from "../../lib/eidos-constellations.mjs";
+import map from "../../data/map.json";
+import "../../styles/pages/eidos-portrait.css";
+
+const artworkTypes = new Set(["painting", "print", "poster"]);
+const artwork = map.items.filter((item: any) => item.src && artworkTypes.has(item.type) && !item.id.startsWith("his-"));
+const portrait = buildConstellations(artwork);
+const strongest = portrait.motifs.slice(0, 6);
+const returningArtists = portrait.artists.slice(0, 8);
+const recurringMedia = portrait.media.slice(0, 5);
+const latest = portrait.latest.slice(0, 8);
+const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+const title = "portrait · eidos";
+const description = "an evidence-backed portrait of what keeps returning in Dmytro Klochko's visual collection.";
+---
+
+<EidosLayout title={title} description={description}>
+  <div class="eidos-portrait-page">
+    <EidosHeader current="portrait" />
+
+    <main class="epr-main">
+      <header class="epr-hero">
+        <div>
+          <p class="ep-index">the collection, read carefully</p>
+          <h1>a portrait made only from what i kept.</h1>
+          <p>no personality score. no invented diagnosis. just the artists, subjects and materials that return often enough to inspect.</p>
+        </div>
+        <dl class="epr-ledger">
+          <div><dt>works</dt><dd>{portrait.works.length}</dd></div>
+          <div><dt>makers</dt><dd>{portrait.makerCount}</dd></div>
+          {portrait.yearSpan.length > 0 && <div><dt>dated from</dt><dd>{portrait.yearSpan.join(" to ")}</dd></div>}
+          <div><dt>absolute favorites</dt><dd>{portrait.favorite.length}</dd></div>
+        </dl>
+      </header>
+
+      <section class="epr-section" aria-labelledby="returns-title">
+        <header class="epr-section-head">
+          <p>observed, not interpreted</p>
+          <h2 id="returns-title">what keeps returning.</h2>
+          <span>these are proposed threads from titles you kept. open the evidence before naming the pattern.</span>
+        </header>
+        <div class="epr-constellations">
+          {strongest.map((group: any) => (
+            <article class="epr-constellation" data-constellation={group.key}>
+              <div class="epr-constellation-copy">
+                <p>proposed thread · {group.count} works</p>
+                <h3>{group.title}</h3>
+                <span>{group.basis}</span>
+              </div>
+              <div class="epr-evidence" aria-label={`works behind ${group.title}`}>
+                {group.evidence.slice(0, 6).map((work: any) => (
+                  <a href={`/eidos/work/${work.id}`} aria-label={`open ${work.title || work.line}`}>
+                    <img src={plateFor(work.src)} alt={work.title || work.line} loading="lazy" decoding="async" />
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="epr-section epr-returns" aria-labelledby="artists-title">
+        <header class="epr-section-head">
+          <p>repeat visits</p>
+          <h2 id="artists-title">artists i return to.</h2>
+        </header>
+        <div class="epr-artist-list">
+          {returningArtists.map((group: any, index: number) => (
+            <article data-constellation={group.key}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{group.title}</h3>
+              <p>{group.count} works</p>
+              <div>
+                {group.evidence.slice(0, 3).map((work: any) => (
+                  <a href={`/eidos/work/${work.id}`}><img src={plateFor(work.src)} alt={work.title || work.line} loading="lazy" decoding="async" /></a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="epr-section epr-forming" aria-labelledby="forming-title">
+        <header class="epr-section-head">
+          <p>new evidence</p>
+          <h2 id="forming-title">what is still forming.</h2>
+          <span>{latest.length} of the works kept on {portrait.latestDate || "the latest collection day"}. repetition needs time, so these stay unresolved.</span>
+        </header>
+        <div class="epr-latest">
+          {latest.map((work: any) => (
+            <a href={`/eidos/work/${work.id}`}>
+              <img src={plateFor(work.src)} alt={work.title || work.line} loading="lazy" decoding="async" />
+              <b>{work.title || work.line}</b>
+              <small>{work.who}{work.year ? ` · ${work.year}` : ""}</small>
+            </a>
+          ))}
+        </div>
+        {recurringMedia.length > 0 && (
+          <div class="epr-media">
+            <p>materials now documented</p>
+            <ul>{recurringMedia.map((group: any) => <li><b>{group.title}</b><span>{group.count} sourced records</span></li>)}</ul>
+          </div>
+        )}
+      </section>
+
+      {portrait.learningIntent && (
+        <section class="epr-next" aria-labelledby="next-title">
+          <img src="/images/eidos/product/faun-mark.webp" width="720" height="720" alt="the Faun" loading="lazy" decoding="async" />
+          <div>
+            <p>what to look at next.</p>
+            <h2 id="next-title">{portrait.learningIntent.title}</h2>
+            <span>{portrait.learningIntent.detail}</span>
+            <a class="ep-action ep-action--solid" href="/eidos/inbox">begin a ten-work sitting</a>
+          </div>
+        </section>
+      )}
+    </main>
+
+    <footer class="ep-footer epr-footer">
+      <a href="/eidos">moodboard</a>
+      <a href="/eidos/reads">words and reads</a>
+      <a href="#eidos-main">back to top ↑</a>
+    </footer>
+  </div>
+</EidosLayout>
