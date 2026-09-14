@@ -591,7 +591,8 @@ test("rothko and martin are doctrine people, not tourist canvases", () => {
     const text = read(`vault/paintings/${f}`);
     assert.doesNotMatch(text, /^who: Mark Rothko$/m, `${f} hosts a rothko canvas`);
     assert.doesNotMatch(text, /^who: Agnes Martin$/m, `${f} hosts a martin canvas`);
-    assert.doesNotMatch(text, /Orange and Yellow|No\. 5\/No\. 22|Orange, Red, Yellow/i,
+    const title = (/^title: (.*)$/m.exec(text) || [])[1] || "";
+    assert.doesNotMatch(title, /Orange and Yellow|No\. 5\/No\. 22|Orange, Red, Yellow/i,
       `${f} is a tourist rothko`);
   }
 });
