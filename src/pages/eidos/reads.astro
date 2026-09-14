@@ -220,10 +220,18 @@ const description = "links thrown in, read once, judged, and kept as notes in hi
           li.append(mark, label); trail.append(li);
         }
       };
-      const record = (cand, verdict) => { session.push({ cand, verdict }); renderTrail(); };
+      const record = (cand, verdict) => {
+        session.push({ cand, verdict }); renderTrail();
+        // M10: the new line slides in at the top; the rest of the trail is unchanged
+        const li = trail.firstElementChild;
+        if (li && !REDUCED) li.animate([{ opacity: 0, transform: "translateY(-6px)" }, { opacity: 1, transform: "none" }], { duration: 180, easing: EASE_OUT });
+      };
+      let lastSat = 0;
       const count = () => {
         const left = deck.length + (cur ? 1 : 0);
         $("count").textContent = left ? `${sat} judged${sat ? " today" : ""} · ${left} left` : "";
+        if (sat !== lastSat && !REDUCED) $("count").animate([{ opacity: 1 }, { opacity: 0.35 }, { opacity: 1 }], { duration: 160, easing: "ease" });
+        lastSat = sat;
       };
 
       // ── the queue: harvest first, then whatever he threw in ─────────
@@ -305,6 +313,8 @@ const description = "links thrown in, read once, judged, and kept as notes in hi
         cur = null; card.hidden = true; $("do").hidden = true; $("say-wrap").hidden = true;
         noteLine.hidden = false;
         noteLine.textContent = text || `that is all of them. ${keptThis.length} kept; each becomes a note once it is pulled into the vault.`;
+        // M10: the closing line unrolls instead of appearing (rare moment, delight budget)
+        if (!REDUCED) noteLine.animate([{ clipPath: "inset(0 0 100% 0)", opacity: 0 }, { clipPath: "inset(0 0 0 0)", opacity: 1 }], { duration: 300, easing: EASE_OUT, fill: "backwards" });
         count();
       }
 
@@ -328,9 +338,18 @@ const description = "links thrown in, read once, judged, and kept as notes in hi
         if (unsaved) pending.push(unsaved);
         if (gated) return;
         gated = true;
-        $("gate").hidden = false; $("workbench").hidden = true; $("do").hidden = true; $("say-wrap").hidden = true;
         $("gate-note").textContent = pending.length ? `${pending.length} judgement${pending.length > 1 ? "s" : ""} waiting to be saved.` : "";
-        $("gate").scrollIntoView({ block: "center", behavior: "instant" });
+        // M10: the workbench dims, then the gate rises into view; a jump cut here read as a bug
+        const gateIn = () => {
+          $("workbench").hidden = true; $("do").hidden = true; $("say-wrap").hidden = true;
+          $("gate").hidden = false;
+          if (!REDUCED) $("gate").animate([{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }], { duration: 240, easing: EASE_OUT });
+          $("gate").scrollIntoView({ block: "center", behavior: REDUCED ? "instant" : "smooth" });
+        };
+        const bench = $("workbench");
+        if (REDUCED || bench.hidden) gateIn();
+        else { const fade = bench.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "ease", fill: "forwards" }); fade.finished.then(() => { fade.cancel(); gateIn(); }); }
+
       }
       async function doorOpen() {
         try { const r = await fetch("/api/eidos/verdict", { method: "POST", headers: { "content-type": "application/json" }, body: "{}" }); return r.status !== 401; }

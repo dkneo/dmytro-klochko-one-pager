@@ -98,3 +98,8 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 - `src/styles/pages/eidos-product.css`, `src/components/eidos/EidosMoodboard.astro` — the moodboard lightbox opens from the plate that was clicked (`--from-x/--from-y` from the plate's rect), 220ms in, 140ms out, backdrop fading with it, via `@starting-style` and `allow-discrete`; browsers without them open instantly as before. Three lines added to the moodboard's click handler; no restructuring.
 - **Not applied** (boundary: no motion to every dialog): the keys sheet, the comparison dialog, the chapter compass list and the atlas tip keep their instant open.
 - `tests/reads-room.test.mjs` — new: origin-aware deal in both rooms with the keyboard excluded, no literal curves, lightbox open state, starting style and origin variables.
+
+## M10 — The rare moments get their delight budget (three of four)
+- `src/pages/eidos/inbox.astro`, `src/pages/eidos/reads.astro` — the end of the deck: the closing line unrolls (clip-path + opacity, 300ms) and in discover the kept pictures deal onto the shelf one by one (≤ 8, 50ms apart, starting after the line); the gate: the workbench dims (120ms, fill released afterwards so it returns opaque) and the gate rises into view (240ms) with a smooth scroll; the record: the new trail line slides in at the top (180ms) and the counter blinks once (opacity only; the digits never move). All of it skipped under reduced motion. Curves read from the token file.
+- **Not applied** (boundary): the flying-hostname ghost when a link is thrown.
+- `tests/reads-room.test.mjs` — new: the three moments in both rooms, the released fade, no ghost.

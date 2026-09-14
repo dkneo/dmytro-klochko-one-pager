@@ -272,7 +272,13 @@ const description = "discover paintings and posters for the moodboard.";
           li.append(mark, label); trail.append(li);
         });
       };
-      const record = (cand, verdict) => { session.push({ cand, verdict }); renderTrail(); };
+      const record = (cand, verdict) => {
+        session.push({ cand, verdict }); renderTrail();
+        // M10: the new line slides in at the top; the rest of the trail is unchanged
+        const li = trail.firstElementChild;
+        if (li && !REDUCED) li.animate([{ opacity: 0, transform: "translateY(-6px)" }, { opacity: 1, transform: "none" }], { duration: 180, easing: EASE_OUT });
+      };
+      let lastSat = 0;
 
       const renderFilters = () => {
         document.querySelectorAll("[data-queue-filter]").forEach((button) => {
@@ -290,6 +296,9 @@ const description = "discover paintings and posters for the moodboard.";
         const position = cur?.sessionPosition || Math.max(0, sessionSize - deck.length);
         const shelf = activeFilter === "all" ? "" : ` · ${left} on this shelf`;
         $("count").textContent = all.length ? `${position} of ${sessionSize}${shelf} · ${backlog.length} wait after this sitting` : "";
+        // the counter blinks once when a verdict lands; the digits are tabular and never move
+        if (sat !== lastSat && !REDUCED) $("count").animate([{ opacity: 1 }, { opacity: 0.35 }, { opacity: 1 }], { duration: 160, easing: "ease" });
+        lastSat = sat;
         renderFilters();
       };
 
@@ -422,7 +431,11 @@ const description = "discover paintings and posters for the moodboard.";
             else { const i = document.createElement("i"); i.textContent = (k.site || "link").slice(0, 10); i.title = k.title || k.url; row.append(i); }
           }
           noteLine.append(row);
+          // the kept pictures deal onto the shelf one by one (≤ 8, 50ms apart)
+          if (!REDUCED) row.querySelectorAll("img, i").forEach((el, i) => el.animate([{ opacity: 0, transform: "translateY(8px) scale(0.94)" }, { opacity: 1, transform: "none" }], { duration: 260, easing: EASE_OUT, delay: 300 + Math.min(i, 8) * 50, fill: "backwards" }));
         }
+        // M10: the closing line unrolls instead of appearing (rare moment, delight budget)
+        if (!REDUCED) noteLine.animate([{ clipPath: "inset(0 0 100% 0)", opacity: 0 }, { clipPath: "inset(0 0 0 0)", opacity: 1 }], { duration: 300, easing: EASE_OUT, fill: "backwards" });
         count();
       }
 
@@ -460,13 +473,19 @@ const description = "discover paintings and posters for the moodboard.";
         if (unsaved) pending.push(unsaved);
         if (gated) return;
         gated = true;
-        $("gate").hidden = false;
-        $("workbench").hidden = true;
-        $("do").hidden = true;
-        $("stage").hidden = true;
         $("gate-note").textContent = pending.length
           ? `${pending.length} judgement${pending.length > 1 ? "s" : ""} waiting to be saved.` : "";
-        $("gate").scrollIntoView({ block: "center", behavior: "instant" });
+        // M10: the workbench dims, then the gate rises into view; a jump cut here read as a bug
+        const gateIn = () => {
+          $("workbench").hidden = true; $("do").hidden = true; $("stage").hidden = true;
+          $("gate").hidden = false;
+          if (!REDUCED) $("gate").animate([{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }], { duration: 240, easing: EASE_OUT });
+          $("gate").scrollIntoView({ block: "center", behavior: REDUCED ? "instant" : "smooth" });
+        };
+        const bench = $("workbench");
+        if (REDUCED || bench.hidden) gateIn();
+        else { const fade = bench.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "ease", fill: "forwards" }); fade.finished.then(() => { fade.cancel(); gateIn(); }); }
+
       }
       async function doorOpen() {
         try {

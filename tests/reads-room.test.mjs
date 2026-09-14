@@ -82,3 +82,17 @@ test("the deal rises into place for the pointer and not for a key; the lightbox 
   assert.match(product, /transform-origin: var\(--from-x, 50%\) var\(--from-y, 50%\)/, "the lightbox grows from its centre, not the plate");
   assert.match(read("src/components/eidos/EidosMoodboard.astro"), /setProperty\("--from-x"/, "the click does not tell the lightbox where it came from");
 });
+
+// ── the rare moments get their budget (M10) ──────────────────────────────
+test("the end of the deck unrolls, the gate rises, the record acknowledges; nothing flies across the page", () => {
+  for (const f of ["src/pages/eidos/inbox.astro", "src/pages/eidos/reads.astro"]) {
+    const src = read(f);
+    assert.match(src, /noteLine\.animate\(\[\{ clipPath: "inset\(0 0 100% 0\)", opacity: 0 \}/, `${f}: the closing line appears by teleport`);
+    assert.match(src, /behavior: REDUCED \? "instant" : "smooth"/, `${f}: the gate scroll is a jump`);
+    assert.match(src, /\$\("gate"\)\.animate\(\[\{ opacity: 0, transform: "translateY\(12px\)" \}/, `${f}: the gate has no entrance`);
+    assert.match(src, /fade\.finished\.then\(\(\) => \{ fade\.cancel\(\); gateIn\(\); \}\)/, `${f}: the workbench fade is not released`);
+    assert.match(src, /li\.animate\(\[\{ opacity: 0, transform: "translateY\(-6px\)" \}/, `${f}: the new trail line teleports`);
+    assert.match(src, /if \(sat !== lastSat && !REDUCED\) \$\("count"\)\.animate/, `${f}: the counter does not acknowledge`);
+    assert.doesNotMatch(src, /in-ghost|hostname\).*animate/, `${f}: a flying hostname (boundary)`);
+  }
+});

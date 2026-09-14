@@ -49,7 +49,7 @@ The 11/10 is not a feeling; it is the right-hand column, all of it, plus the fee
 | M07 | Reduced motion keeps the feedback and drops only the travel | HIGH | DONE |
 | M08 | Crossfades that do not double-expose; entrances that arrive one by one | MEDIUM | DONE (crossfades only; stagger out of scope) |
 | M09 | Things appear from where they came: the deal, the lightbox, the dialogs | MEDIUM | DONE (deal + lightbox; dialogs out of scope) |
-| M10 | The rare moments get their delight budget | LOW–MEDIUM | TODO |
+| M10 | The rare moments get their delight budget | LOW–MEDIUM | DONE (no flying hostname) |
 | M11 | Pages that change without a blink (native view transitions) | optional | TODO |
 
 ## Order, and why
