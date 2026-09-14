@@ -57,6 +57,30 @@ test("a kept note parses as the builds will read it", () => {
   assert.match(body, /who: \[\[John Constable\]\]/);
 });
 
+test("a sourced museum record keeps collection, medium and measured dimensions", () => {
+  const md = paintingNote({
+    ...constable,
+    collection: "The Metropolitan Museum of Art",
+    collectionCity: "New York",
+    collectionUrl: "https://www.metmuseum.org/art/collection/search/123",
+    medium: "Watercolor on paper",
+    heightCm: 29.5,
+    widthCm: 35.6,
+  }, {
+    weather: "dissolution",
+    src: "/images/vault/seascape-study-with-rain-cloud.webp",
+    added: "2026-09-14",
+  });
+  const { data } = frontmatter(md);
+
+  assert.equal(data.collection, "The Metropolitan Museum of Art");
+  assert.equal(data.collection_city, "New York");
+  assert.equal(data.collection_url, "https://www.metmuseum.org/art/collection/search/123");
+  assert.equal(data.medium, "Watercolor on paper");
+  assert.equal(data.height_cm, "29.5");
+  assert.equal(data.width_cm, "35.6");
+});
+
 test("a note refuses to point at someone else's server", () => {
   // vault-build throws on a painting that is not on disk, so this must fail
   // here, loudly, rather than three steps later inside a build.

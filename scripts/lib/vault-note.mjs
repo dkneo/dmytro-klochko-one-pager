@@ -14,6 +14,7 @@ export function paintingNote(c, { weather, src, added, say, favorite = false }) 
   // paintings were first; objects and buildings arrived when the library
   // opened its doors to design. the note shape is one shape.
   const kind = ["painting", "object", "building", "poster", "print", "photograph"].includes(c.type) ? c.type : "painting";
+  const q = (value) => JSON.stringify(String(value));
   const front = [
     `type: ${kind}`,
     `who: ${c.who}`,
@@ -22,6 +23,14 @@ export function paintingNote(c, { weather, src, added, say, favorite = false }) 
     `src: ${src}`,
     c.source ? `source: "${c.source}"` : "",
     c.licence ? `licence: ${c.licence}` : "",
+    c.collection ? `collection: ${q(c.collection)}` : "",
+    c.collectionCity ? `collection_city: ${q(c.collectionCity)}` : "",
+    c.collectionUrl ? `collection_url: ${q(c.collectionUrl)}` : "",
+    c.medium ? `medium: ${q(c.medium)}` : "",
+    Number(c.heightCm) > 0 ? `height_cm: ${Number(c.heightCm)}` : "",
+    Number(c.widthCm) > 0 ? `width_cm: ${Number(c.widthCm)}` : "",
+    c.displayStatus ? `display_status: ${q(c.displayStatus)}` : "",
+    c.statusChecked ? `status_checked: ${q(c.statusChecked)}` : "",
     weather ? `weather: ${weather}` : "",
     favorite ? "favorite: true" : "",
     `added: ${added}`,
