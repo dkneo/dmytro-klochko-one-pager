@@ -126,7 +126,7 @@
 .ew-footer { border-top: 1px solid var(--ep-rule); }
 
 @media (hover: hover) and (pointer: fine) {
-  .ew-related-grid a img { transition: transform 200ms cubic-bezier(0.2, 0, 0.2, 1); }
+  .ew-related-grid a img { transition: transform var(--dur) var(--ease); }
   .ew-related-grid a:hover img { transform: translateY(-3px); }
 }
 

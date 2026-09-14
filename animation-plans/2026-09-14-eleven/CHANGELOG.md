@@ -132,3 +132,7 @@ git fetch origin eleven && git checkout eleven
 npm run build && node --test tests/*.test.mjs     # 208 tests
 ```
 Each plan is one commit; `git log --oneline master..eleven` lists them in execution order. The pane checks recorded above were made against the local build; production numbers need the branch deployed to a preview.
+
+## Rebase onto master d6ac2d2 (15 Sep)
+- Conflicts resolved in favour of the redesigned Eidos: the studio card keeps its new leaf rows and recommendation block with the token transitions; the derivatives manifest is master's plus the picture entries (regenerated idempotently, nothing else re-encoded); `map.astro` is master's places page entirely — the M06 wheel-zoom change no longer has a stage to apply to and was dropped; discover's keep verdict sends what master sends (no weather) and deals with `next(origin)`; the counter reads master's "N of session" copy and still blinks once per verdict.
+- `src/styles/pages/eidos-places.css`, `src/styles/pages/eidos-work.css` — two literal curves that arrived with the redesign moved onto the tokens (M04's rule).
