@@ -47,3 +47,7 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 - `tests/pages.test.mjs` — the inbox radius check reads eidos-studio.css now that the dead block is gone.
 - Measured, not applied: direct `element.style.transform` writes instead of parent variables (six descendants; the scroll half is a documented decision), `animation-timeline: scroll()` (would duplicate five per-layer formulas in CSS), `content-visibility` on the moodboard columns (CSS multi-column balancing jumps as items become visible; not worth the risk to Codex's layout).
 - Verified in the browser: at rest in the fire act the ember and estuary layers carry `is-off`, `data-weather-idle` is set; in the estuary act fire and ember are off and the estuary layer on.
+
+## M01 — The reading room answers keys instantly
+- `src/pages/eidos/reads.astro` — `origin` threaded through `fly`, `pass`, `keep`, the button listeners (`event.detail === 0` is the keyboard), the key map and ⌘↵; `decisionDelay(origin)` is 0 for the keyboard, 240ms for the pointer; `onCancel` returns the card home without posting. Mirrors `inbox.astro` name for name.
+- `tests/reads-room.test.mjs` — the key map, the delay, the keyboard branch and the cancel handler are pinned.

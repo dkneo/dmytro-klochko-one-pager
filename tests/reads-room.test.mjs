@@ -39,8 +39,14 @@ test("the reading room stays secondary while discover still points at it", () =>
 
 test("the reading room answers the keyboard like discover does", () => {
   const src = read("src/pages/eidos/reads.astro");
-  assert.match(src, /const KEYS = \{[\s\S]*ArrowRight: keep, l: keep,[\s\S]*"\/": \(\) => \$\("url"\)\.focus\(\),[\s\S]*"\?": toggleKeys,/);
+  assert.match(src, /const KEYS = \{[\s\S]*ArrowRight: \(\) => keep\("keyboard"\), l: \(\) => keep\("keyboard"\),[\s\S]*"\/": \(\) => \$\("url"\)\.focus\(\),[\s\S]*"\?": toggleKeys,/);
+  // M01: the keyboard path has no flight and no wait; a cancelled pointer never commits
+  assert.match(src, /const decisionDelay = \(origin\) => \(origin === "keyboard" \? 0 : 240\);/);
+  assert.match(src, /if \(origin === "keyboard"\) \{ card\.style\.opacity = "0"; return; \}/);
+  assert.match(src, /pass\(e\.detail === 0 \? "keyboard" : "button"\)/);
+  assert.match(src, /card\.addEventListener\("pointercancel", onCancel\);/);
+  assert.doesNotMatch(src, /card\.addEventListener\("pointercancel", onUp\)/);
   assert.match(src, /closest\("input,textarea,select"\)\) return;/);
   assert.match(src, /if \(e\.repeat && act !== undo\) return;/);
-  assert.match(src, /e\.key === "Enter" && \(e\.metaKey \|\| e\.ctrlKey\)[\s\S]*keep\(\)/, "⌘↵ does not keep from the line");
+  assert.match(src, /e\.key === "Enter" && \(e\.metaKey \|\| e\.ctrlKey\)[\s\S]*keep\("keyboard"\)/, "⌘↵ does not keep from the line");
 });

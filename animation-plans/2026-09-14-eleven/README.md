@@ -40,7 +40,7 @@ The 11/10 is not a feeling; it is the right-hand column, all of it, plus the fee
 | P04 | Cache the media that never changes | MEDIUM | DONE |
 | P05 | Serve every picture at the size it is seen, in the format that costs least | HIGH | DONE |
 | P06 | An ambient budget: pay only for motion that is on screen | HIGH | DONE |
-| M01 | The reading room answers keys instantly, like discover already does | HIGH | TODO |
+| M01 | The reading room answers keys instantly, like discover already does | HIGH | DONE |
 | M02 | A swipe that knows how fast the hand moved | HIGH | TODO |
 | M03 | Every control answers the finger (and shows its focus) | HIGH | TODO |
 | M04 | One motion vocabulary: tokens, curves, budgets | MEDIUM | DONE |

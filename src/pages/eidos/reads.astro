@@ -359,16 +359,24 @@ const description = "links thrown in, read once, judged, and kept as notes in hi
       });
 
       // ── the two motions ─────────────────────────────────────────────
-      function fly(dir) { card.classList.add("is-flying"); card.style.transform = `translateX(${dir * 120}vw) rotate(${dir * 16}deg)`; card.style.opacity = "0"; }
-      function pass() {
+      // The keyboard is the 100-a-day path: no flight, no wait. Same rule as
+      // discover (inbox.astro): a verdict knows where it came from.
+      const decisionDelay = (origin) => (origin === "keyboard" ? 0 : 240);
+      function fly(dir, origin) {
+        if (origin === "keyboard") { card.style.opacity = "0"; return; }
+        card.classList.add("is-flying");
+        card.style.transform = `translateX(${dir * 120}vw) rotate(${dir * 16}deg)`;
+        card.style.opacity = "0";
+      }
+      function pass(origin = "pointer") {
         if (!cur || busy) return;
         busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "pass", say: line }; $("undo").disabled = false;
-        record(cand, "pass"); fly(-1); send(cand, "pass", "", line); sat++; setTimeout(next, 240);
+        record(cand, "pass"); fly(-1, origin); send(cand, "pass", "", line); sat++; setTimeout(next, decisionDelay(origin));
       }
-      function keep() {
+      function keep(origin = "pointer") {
         if (!cur || busy) return;
         busy = true; const cand = cur; const line = say.value.trim(); last = { cand, verdict: "keep", say: line }; $("undo").disabled = false;
-        keptThis.push(cand); record(cand, "keep"); send(cand, "keep", cand.weather, line); sat++; fly(1); setTimeout(next, 240);
+        keptThis.push(cand); record(cand, "keep"); send(cand, "keep", cand.weather, line); sat++; fly(1, origin); setTimeout(next, decisionDelay(origin));
       }
       function undo() {
         if (!last || busy) return;
@@ -382,20 +390,21 @@ const description = "links thrown in, read once, judged, and kept as notes in hi
       }
       function openSource() { const href = cur && (cur.url || cur.source); if (href && href !== "#") window.open(href, "_blank", "noopener,noreferrer"); }
       $("undo").addEventListener("click", undo);
-      $("pass").addEventListener("click", pass);
-      $("keep").addEventListener("click", keep);
+      // a button reached by Tab and pressed with Enter reports detail 0: that is the keyboard too
+      $("pass").addEventListener("click", (e) => pass(e.detail === 0 ? "keyboard" : "button"));
+      $("keep").addEventListener("click", (e) => keep(e.detail === 0 ? "keyboard" : "button"));
       const keys = $("keys");
       const toggleKeys = () => (keys.open ? keys.close() : keys.showModal());
       $("keys-open").addEventListener("click", toggleKeys);
       keys.addEventListener("click", (e) => { if (e.target === keys) keys.close(); });
       say.addEventListener("keydown", (e) => {
         if (e.key === "Escape") { say.blur(); e.preventDefault(); }
-        if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); say.blur(); keep(); }
+        if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); say.blur(); keep("keyboard"); }
       });
       $("url").addEventListener("keydown", (e) => { if (e.key === "Escape") { $("url").blur(); e.preventDefault(); } });
       const KEYS = {
-        ArrowRight: keep, l: keep,
-        ArrowLeft: pass, h: pass,
+        ArrowRight: () => keep("keyboard"), l: () => keep("keyboard"),
+        ArrowLeft: () => pass("keyboard"), h: () => pass("keyboard"),
         u: undo, z: undo,
         n: () => { if (cur) say.focus(); },
         "/": () => $("url").focus(),
@@ -427,14 +436,16 @@ const description = "links thrown in, read once, judged, and kept as notes in hi
       const onUp = () => {
         if (!dragging) return;
         dragging = false;
-        if (dx > 110) keep(); else if (dx < -110) pass();
+        if (dx > 110) keep("pointer"); else if (dx < -110) pass("pointer");
         else { card.classList.add("is-home"); card.style.transform = ""; edgeIn.style.opacity = 0; edgeOut.style.opacity = 0; }
         dx = 0;
       };
       card.addEventListener("pointerdown", onDown);
       card.addEventListener("pointermove", onMove);
       card.addEventListener("pointerup", onUp);
-      card.addEventListener("pointercancel", onUp);
+      // a cancelled pointer (scroll takeover, palm) never commits a verdict: the card goes home
+      const onCancel = () => { if (!dragging) return; dragging = false; dx = 0; card.classList.add("is-home"); card.style.transform = ""; edgeIn.style.opacity = 0; edgeOut.style.opacity = 0; };
+      card.addEventListener("pointercancel", onCancel);
 
       build();
     })();
