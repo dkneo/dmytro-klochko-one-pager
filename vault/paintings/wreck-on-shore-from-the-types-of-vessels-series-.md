@@ -6,7 +6,6 @@ year: 1889
 src: /images/vault/wreck-on-shore-from-the-types-of-vessels-series-.webp
 source: "https://www.metmuseum.org/art/collection/search/640373"
 licence: cc0
-weather: nerve
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -18,6 +17,6 @@ width_cm: 10.6
 
 ![[wreck-on-shore-from-the-types-of-vessels-series-.webp]]
 
-weather: [[nerve]] · who: [[W. Duke, Sons & Co.]]
+who: [[W. Duke, Sons & Co.]]
 
 kept from the queue on /eidos.

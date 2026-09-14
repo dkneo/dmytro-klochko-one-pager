@@ -6,7 +6,6 @@ year: ca. 1833–34
 src: /images/vault/evening-snow-at-kanbara-from-the-series-fifty-th.webp
 source: "https://www.metmuseum.org/art/collection/search/56915"
 licence: cc0
-weather: cold clarity
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -18,6 +17,6 @@ width_cm: 34.9
 
 ![[evening-snow-at-kanbara-from-the-series-fifty-th.webp]]
 
-weather: [[cold clarity]] · who: [[Utagawa Hiroshige]]
+who: [[Utagawa Hiroshige]]
 
 kept from the queue on /eidos.

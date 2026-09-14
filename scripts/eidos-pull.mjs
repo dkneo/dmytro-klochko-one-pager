@@ -14,7 +14,7 @@ import { join } from "node:path";
 import sharp from "sharp";
 
 import { paintingNote, bookmarkNote, wordNote } from "./lib/vault-note.mjs";
-import { planCandidateImports } from "../src/lib/eidos-candidates.mjs";
+import { confirmedCandidateWeather, planCandidateImports } from "../src/lib/eidos-candidates.mjs";
 
 const NS = "d5e466fe143e4b8aadce72dd01da4507";
 const UA = "dmklochko-site/1.0 (https://dmklochko.com; keeping a painting)";
@@ -143,7 +143,10 @@ for (const c of importPlan.ready) {
     born.push(`  ! ${id}: ${e.message} — note not written`);
     continue;
   }
-  const weather = v.weather || c.weather;
+  // The current studio writes the harvester's search bucket into every
+  // verdict automatically. A keep says "this stays"; it does not confirm a
+  // taste category. Only a separately recorded category choice may place it.
+  const weather = confirmedCandidateWeather(v);
   writeFileSync(file, paintingNote(c, {
     weather,
     src,

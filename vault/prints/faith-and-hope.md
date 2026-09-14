@@ -6,7 +6,6 @@ year: 1867–69
 src: /images/vault/faith-and-hope.webp
 source: "https://www.metmuseum.org/art/collection/search/17449"
 licence: cc0
-weather: cold clarity
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -20,6 +19,6 @@ status_checked: "2026-09-14"
 
 ![[faith-and-hope.webp]]
 
-weather: [[cold clarity]] · who: [[Henry E. Sharp]]
+who: [[Henry E. Sharp]]
 
 kept from the queue on /eidos.

@@ -5,7 +5,6 @@ title: Gazing at a Waterfall
 src: /images/vault/gazing-at-a-waterfall.webp
 source: "https://www.metmuseum.org/art/collection/search/45772"
 licence: cc0
-weather: vastness
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -17,6 +16,6 @@ width_cm: 24.8
 
 ![[gazing-at-a-waterfall.webp]]
 
-weather: [[vastness]] · who: [[Tang Yin]]
+who: [[Tang Yin]]
 
 kept from the queue on /eidos.

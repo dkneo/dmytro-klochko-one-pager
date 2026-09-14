@@ -6,7 +6,6 @@ year: ca. 1885–89
 src: /images/vault/snow-landscape.webp
 source: "https://www.metmuseum.org/art/collection/search/54646"
 licence: cc0
-weather: cold clarity
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -18,6 +17,6 @@ width_cm: 26.7
 
 ![[snow-landscape.webp]]
 
-weather: [[cold clarity]] · who: [[Hashimoto Gahō]]
+who: [[Hashimoto Gahō]]
 
 kept from the queue on /eidos.

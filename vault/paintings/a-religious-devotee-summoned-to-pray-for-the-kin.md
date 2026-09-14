@@ -6,7 +6,6 @@ year: 17th century
 src: /images/vault/a-religious-devotee-summoned-to-pray-for-the-kin.webp
 source: "https://www.metmuseum.org/art/collection/search/446600"
 licence: cc0
-weather: invincible summer
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -16,6 +15,6 @@ medium: "Ink, opaque watercolor, and gold on paper"
 
 ![[a-religious-devotee-summoned-to-pray-for-the-kin.webp]]
 
-weather: [[invincible summer]] · who: [[Sa'di]]
+who: [[Sa'di]]
 
 kept from the queue on /eidos.

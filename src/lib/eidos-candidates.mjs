@@ -80,6 +80,11 @@ export function prepareCandidateQueue(candidates, judged = new Set()) {
   return artistRoundRobin(unseen);
 }
 
+/** A search bucket becomes taste data only after a separate, explicit choice. */
+export function confirmedCandidateWeather(verdict) {
+  return verdict?.weatherChosen === true ? String(verdict.weather || "").trim() : "";
+}
+
 /**
  * Reconcile the remote judgment ledger with the vault before writing notes.
  *

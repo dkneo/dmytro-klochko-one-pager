@@ -6,7 +6,6 @@ year: ca. 1900
 src: /images/vault/golden-pheasant-in-the-snow.webp
 source: "https://www.metmuseum.org/art/collection/search/57124"
 licence: cc0
-weather: cold clarity
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -18,6 +17,6 @@ width_cm: 36.8
 
 ![[golden-pheasant-in-the-snow.webp]]
 
-weather: [[cold clarity]] · who: [[Itō Jakuchū]]
+who: [[Itō Jakuchū]]
 
 kept from the queue on /eidos.

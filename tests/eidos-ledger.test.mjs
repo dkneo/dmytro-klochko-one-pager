@@ -155,3 +155,11 @@ test("an existing note id wins even when museum metadata changed its title", () 
   assert.equal(plan.ready.length, 0);
   assert.equal(plan.represented[0].existingId, "moon-over-river");
 });
+
+test("a harvester search bucket is not mistaken for a chosen taste category", () => {
+  assert.equal(ledger.confirmedCandidateWeather({ weather: "nerve" }), "");
+  assert.equal(
+    ledger.confirmedCandidateWeather({ weather: "nerve", weatherChosen: true }),
+    "nerve",
+  );
+});

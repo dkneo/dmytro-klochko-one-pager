@@ -6,7 +6,6 @@ year: ca. 1887
 src: /images/vault/waterfall-eagle-and-monkey.webp
 source: "https://www.metmuseum.org/art/collection/search/54620"
 licence: cc0
-weather: vastness
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -18,6 +17,6 @@ width_cm: 27.3
 
 ![[waterfall-eagle-and-monkey.webp]]
 
-weather: [[vastness]] · who: [[Kawanabe Kyōsai 河鍋暁斎]]
+who: [[Kawanabe Kyōsai 河鍋暁斎]]
 
 kept from the queue on /eidos.

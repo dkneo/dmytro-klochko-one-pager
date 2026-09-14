@@ -6,7 +6,6 @@ year: 1782
 src: /images/vault/a-shipwreck-in-a-storm.webp
 source: "https://www.metmuseum.org/art/collection/search/437292"
 licence: cc0
-weather: nerve
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -18,6 +17,6 @@ width_cm: 91.4
 
 ![[a-shipwreck-in-a-storm.webp]]
 
-weather: [[nerve]] · who: [[Jean Pillement]]
+who: [[Jean Pillement]]
 
 kept from the queue on /eidos.

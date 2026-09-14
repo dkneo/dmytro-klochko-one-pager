@@ -6,7 +6,6 @@ year: ca. 1828
 src: /images/vault/the-river-elbe-downstream-of-hamburg-by-moonligh.webp
 source: "https://www.metmuseum.org/art/collection/search/366205"
 licence: cc0
-weather: vastness
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -18,6 +17,6 @@ width_cm: 58.5
 
 ![[the-river-elbe-downstream-of-hamburg-by-moonligh.webp]]
 
-weather: [[vastness]] · who: [[Christian Ernst Morgenstern]]
+who: [[Christian Ernst Morgenstern]]
 
 kept from the queue on /eidos.

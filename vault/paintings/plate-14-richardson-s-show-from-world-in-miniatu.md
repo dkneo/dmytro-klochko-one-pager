@@ -6,7 +6,6 @@ year: 1816
 src: /images/vault/plate-14-richardson-s-show-from-world-in-miniatu.webp
 source: "https://www.metmuseum.org/art/collection/search/788988"
 licence: cc0
-weather: weight and grace
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -18,6 +17,6 @@ width_cm: 24.3
 
 ![[plate-14-richardson-s-show-from-world-in-miniatu.webp]]
 
-weather: [[weight and grace]] · who: [[Thomas Rowlandson]]
+who: [[Thomas Rowlandson]]
 
 kept from the queue on /eidos.

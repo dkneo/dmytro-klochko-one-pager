@@ -6,7 +6,6 @@ year: 1605
 src: /images/vault/a-moonlit-scene-depicting-the-areopagite-judged-.webp
 source: "https://www.metmuseum.org/art/collection/search/650772"
 licence: cc0
-weather: the dark and the lamp
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -18,6 +17,6 @@ width_cm: 37
 
 ![[a-moonlit-scene-depicting-the-areopagite-judged-.webp]]
 
-weather: [[the dark and the lamp]] · who: [[Willem van Swanenburg]]
+who: [[Willem van Swanenburg]]
 
 kept from the queue on /eidos.

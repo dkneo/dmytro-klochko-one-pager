@@ -6,7 +6,6 @@ year: ca. 1902–08
 src: /images/vault/harbor-and-orchard.webp
 source: "https://www.metmuseum.org/art/collection/search/359418"
 licence: cc0
-weather: invincible summer
 favorite: true
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
@@ -19,6 +18,6 @@ width_cm: 12.4
 
 ![[harbor-and-orchard.webp]]
 
-weather: [[invincible summer]] · who: [[Arthur Wesley Dow]]
+who: [[Arthur Wesley Dow]]
 
 kept from the queue on /eidos.

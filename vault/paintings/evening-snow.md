@@ -6,7 +6,6 @@ year: 1797–1861
 src: /images/vault/evening-snow.webp
 source: "https://www.metmuseum.org/art/collection/search/57044"
 licence: cc0
-weather: cold clarity
 added: 2026-09-14
 collection: "The Metropolitan Museum of Art"
 collection_city: "New York"
@@ -18,6 +17,6 @@ width_cm: 37.1
 
 ![[evening-snow.webp]]
 
-weather: [[cold clarity]] · who: [[Utagawa Hiroshige]]
+who: [[Utagawa Hiroshige]]
 
 kept from the queue on /eidos.
