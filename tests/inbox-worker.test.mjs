@@ -49,6 +49,14 @@ test("the duplicate orbit walks to the atlas", async () => {
   }
 });
 
+test("the old places address walks to the one canonical map", async () => {
+  for (const suffix of ["", "/", "/index.html", "/anything"]) {
+    const r = await worker.fetch(new Request(`https://dmklochko.com/eidos/places${suffix}`), env());
+    assert.equal(r.status, 301);
+    assert.equal(new URL(r.headers.get("location")).pathname, "/eidos/map");
+  }
+});
+
 test("retired rooms walk to the nearest surviving room", async () => {
   const routes = new Map([
     ["/lookbook/archive", "/lookbook/inside"],

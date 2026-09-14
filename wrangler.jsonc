@@ -23,6 +23,7 @@
       "/scout", "/scout/*",
       "/api/*",
       "/eidos/sit", "/eidos/sit/",
+      "/eidos/places", "/eidos/places/*",
       "/lookbook/archive", "/lookbook/archive/*",
       "/eidos/embed", "/eidos/embed/*",
       "/eidos/deck", "/eidos/deck/*",

@@ -832,6 +832,12 @@ export default {
       return Response.redirect(new URL("/eidos/map", url).toString(), 301);
     }
 
+    // The museum geography was briefly called places. Keep old bookmarks,
+    // but give the product one literal map and one canonical address.
+    if (/^\/eidos\/places(?:\/|$)/i.test(url.pathname)) {
+      return Response.redirect(new URL("/eidos/map", url).toString(), 301);
+    }
+
     // Retired rooms keep their old links, but no longer ship duplicate pages.
     // Match the whole subtree so /, /index.html, case variants and stale deep
     // links cannot fall through to the asset layer's 404 page.

@@ -75,20 +75,20 @@ test("the image derivative check rejects a changed source even when its decoded 
   }
 });
 
-test("eidos map marks use small derivatives", async () => {
-  // the sketch moved to /eidos/map when the library took the front door
+test("eidos map preserves artwork proportions with uncropped plates", async () => {
   const html = read("dist/eidos/map/index.html");
-  const stage = html.slice(html.indexOf('id="stage"'), html.indexOf('class="em-zoom"'));
-  const tags = [...stage.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
+  const tags = [...html.matchAll(/<article class="epl-work"[\s\S]*?<img\b[^>]*>/g)]
+    .map((match) => match[0].match(/<img\b[^>]*>/)?.[0])
+    .filter(Boolean);
 
   assert.ok(tags.length > 0);
   for (const tag of tags) {
     const src = attr(tag, "src");
-    assert.match(src, /^\/images\/thumbs\//, src);
-    const metadata = await sharp(localFile(src)).metadata();
-    assert.ok(metadata.width <= 320, `${src} is ${metadata.width}px wide`);
-    assert.equal(Number(attr(tag, "width")), metadata.width, `${src} width`);
-    assert.equal(Number(attr(tag, "height")), metadata.height, `${src} height`);
+    assert.match(src, /^\/images\/plates\//, src);
+    const plate = await sharp(localFile(src)).metadata();
+    const source = await sharp(localFile(src.replace("/images/plates/", "/images/"))).metadata();
+    assert.ok(plate.width <= 440, `${src} is ${plate.width}px wide`);
+    assert.ok(Math.abs((plate.width / plate.height) - (source.width / source.height)) < 0.02, `${src} was cropped`);
   }
 });
 

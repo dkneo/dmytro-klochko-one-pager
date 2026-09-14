@@ -256,7 +256,7 @@ test("every path the worker owns runs the worker first", () => {
   const cfg = read("wrangler.jsonc").replace(/^\s*\/\/.*$/gm, "");
   const list = JSON.parse(cfg.match(/"run_worker_first":\s*(\[[\s\S]*?\])/)[1]);
   const covers = (p) => list.some((g) => g === p || (g.endsWith("/*") && p.startsWith(g.slice(0, -1))) || (g.endsWith("*") && p.startsWith(g.slice(0, -1))));
-  for (const p of ["/names", "/names/old", "/names/ii", "/ask", "/ask/x", "/api/ask/x", "/scout", "/scout/x", "/api/eidos/verdict", "/api/eidos/bookmark", "/api/curate/queue", "/eidos/sit", "/curate", "/lookbook/archive", "/eidos/embed", "/eidos/deck", "/taste", "/archive", "/at-work", "/feed", "/modus-operandi", "/hokku", "/pond", "/lab/shader", "/dance"]) {
+  for (const p of ["/names", "/names/old", "/names/ii", "/ask", "/ask/x", "/api/ask/x", "/scout", "/scout/x", "/api/eidos/verdict", "/api/eidos/bookmark", "/api/curate/queue", "/eidos/sit", "/eidos/places", "/curate", "/lookbook/archive", "/eidos/embed", "/eidos/deck", "/taste", "/archive", "/at-work", "/feed", "/modus-operandi", "/hokku", "/pond", "/lab/shader", "/dance"]) {
     assert.ok(covers(p), `the asset layer would answer ${p} before the worker`);
   }
   // and a 404 page exists, which is exactly why the list matters

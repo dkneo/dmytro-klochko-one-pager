@@ -81,7 +81,7 @@ test("the product opens as one visual moodboard with plain doors", () => {
   assert.match(html, /class="ep-header"/);
   assert.match(html, />moodboard</);
   assert.match(html, /href="\/eidos\/inbox"[^>]*>discover</);
-  assert.match(html, /href="\/eidos\/places"[^>]*>map</);
+  assert.match(html, /href="\/eidos\/map"[^>]*>map</);
   assert.doesNotMatch(html, /href="\/eidos\/deck"/, "the legacy experiment is still a competing product door");
   assert.match(html, /a beautiful, endless moodboard of things i love\./);
   assert.match(html, /paintings, prints and posters/);
@@ -152,23 +152,25 @@ test("the moodboard keeps quiet museum labels without a scale mode", () => {
   const html = read("dist/eidos/index.html");
   assert.match(moodboard, /ep-visual-location/);
   assert.doesNotMatch(moodboard, /data-mood-view="scale"|data-scale-ruler|1 px = 1 cm/);
-  assert.match(html, /href="\/eidos\/places"/);
+  assert.match(html, /href="\/eidos\/map"/);
 });
 
-test("the pilgrimage room groups collectable visits by city", () => {
-  const html = read("dist/eidos/places/index.html");
+test("the map is literal museum geography and admits what is not yet located", () => {
+  const html = read("dist/eidos/map/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-  // Unsat harvests sit on the ring with no weather and no museum card.
-  // The pilgrimage is for works already placed; do not invent collections
-  // just to keep the ratio.
-  const artworks = map.items.filter((item) => ["painting", "print", "poster"].includes(item.type) && item.src && !item.id.startsWith("his-") && item.weather);
+  const artworks = map.items.filter((item) => ["painting", "print", "poster"].includes(item.type) && item.src && !item.id.startsWith("his-"));
   const located = artworks.filter((item) => item.collectionCity && item.collection && item.collectionUrl);
-  assert.match(html, /works i can meet in person\./);
+  const unlocated = artworks.length - located.length;
+
+  assert.match(html, /the works have addresses\./);
   assert.match(html, /data-place-city/);
   assert.match(html, /data-place-work/);
+  assert.match(html, new RegExp(`${located.length} works`));
+  assert.match(html, new RegExp(`${unlocated} works still need`));
+  assert.match(html, /research queue/);
   assert.doesNotMatch(html, /data-kind="(?:person|object|building|photograph)"/);
-  assert.ok(located.length >= Math.ceil(artworks.length * 0.75), "most artworks still have no museum record");
   assert.match(html, /names the institution holding a work\. it is not a promise that the work is on view today/);
+  assert.doesNotMatch(html, /cold to warm|one thing to everything|class="ea-map-frame"/);
 });
 
 test("words remain intact on their own quiet page", () => {
@@ -380,14 +382,12 @@ test("a cancelled drag always returns the artwork home", () => {
   assert.doesNotMatch(source, /pointercancel", onUp/);
 });
 
-test("the atlas is the product's one map and keeps private tools secondary", () => {
+test("the product has one useful map, not a second abstract taste diagram", () => {
   const html = read("dist/eidos/map/index.html");
   assert.match(html, /data-eidos-product/);
-  assert.match(html, /class="eidos-atlas"/);
-  assert.doesNotMatch(html, /class="ep-nav"[\s\S]*?>atlas</, "the technical atlas returned to the primary product navigation");
-  assert.match(html, /class="ea-map-frame"/);
-  assert.match(html, /<details class="ea-private-tools"/);
-  assert.match(html, /<summary>open the private instruments/);
+  assert.match(html, /class="eidos-places"/);
+  assert.match(html, /aria-current="page">map</);
+  assert.doesNotMatch(html, /class="ea-map-frame"|open the private instruments|ask it|teach it/);
   assert.doesNotMatch(html, /data-scene="nightcourt"/);
 });
 
