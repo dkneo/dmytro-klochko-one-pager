@@ -1,0 +1,781 @@
+<title>Eleven</title>
+<meta name="description" content="The performance and motion plan for dmklochko.com: where it stands, where it has to be, seventeen plans, and the loop that proves it.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#f3e6d3; --paper-2:#f8efe2; --ink:#1d1a18; --quiet:#6b5f57; --rule:#d9c9b3; --accent:#b4304f; --accent-soft:#f0c9d3; --hot:#c2436a; --code-bg:#ebdcc6;
+  --serif:"Newsreader","Newsreader Fallback","Times New Roman",serif; --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --paper:#131a2b; --paper-2:#182035; --ink:#e8e2d6; --quiet:#a49c92; --rule:#2a3448; --accent:#ff9bc0; --accent-soft:#3a2a3a; --hot:#ffb3cf; --code-bg:#0f1522; } }
+:root[data-theme="dark"]{ --paper:#131a2b; --paper-2:#182035; --ink:#e8e2d6; --quiet:#a49c92; --rule:#2a3448; --accent:#ff9bc0; --accent-soft:#3a2a3a; --hot:#ffb3cf; --code-bg:#0f1522; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--serif);font-optical-sizing:auto;padding-block:0 6rem;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{width:min(100% - 2.5rem, 72rem);margin-inline:auto}
+header.top{padding:2.6rem 0 1.6rem;border-bottom:1px solid var(--rule);display:grid;gap:.6rem}
+.eyebrow{font:500 .7rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font:300 clamp(3rem,7vw,5.4rem)/.95 var(--serif);letter-spacing:-.02em;margin:0;text-wrap:balance}
+.brief{max-width:62ch;margin:.4rem 0 0;font-size:1.15rem;color:var(--quiet)}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;font:400 .74rem/1.6 var(--mono);color:var(--quiet)}
+.meta b{color:var(--ink);font-weight:500}
+main{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+@media (min-width: 64rem){ main{grid-template-columns:13rem minmax(0,1fr);gap:3rem} nav.toc{position:sticky;top:1.4rem;align-self:start;padding-top:2.4rem} }
+nav.toc{display:none}
+@media (min-width: 64rem){ nav.toc{display:block} }
+nav.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:.35rem;font:400 .72rem/1.4 var(--mono)}
+nav.toc a{color:var(--quiet);text-decoration:none}
+nav.toc a:hover{color:var(--accent)}
+nav.toc .k{color:var(--ink)}
+article{max-width:68rem;padding-top:2.2rem}
+article>section{padding:0 0 2.2rem}
+h2{font:400 1.9rem/1.15 var(--serif);letter-spacing:-.01em;margin:2.4rem 0 .8rem;text-wrap:balance}
+h3{font:500 1.1rem/1.3 var(--serif);margin:1.6rem 0 .4rem}
+h4{font:500 .72rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--quiet);margin:1.4rem 0 .4rem}
+p,li{max-width:68ch}
+ul,ol{padding-left:1.2rem}
+li{margin:.25rem 0}
+code{font:400 .84em/1.4 var(--mono);background:var(--code-bg);padding:.08em .35em;border-radius:2px}
+pre{background:var(--code-bg);border:1px solid var(--rule);border-radius:3px;padding:.9rem 1rem;overflow-x:auto;font:400 .78rem/1.5 var(--mono);max-width:100%}
+pre code{background:none;padding:0;font-size:inherit}
+.tw{overflow-x:auto;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.94rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .7rem;border-bottom:1px solid var(--rule)}
+th{font:500 .68rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--quiet)}
+td:nth-child(2),td:nth-child(3){font-variant-numeric:tabular-nums}
+strong{font-weight:500}
+details.plan{border-top:1px solid var(--rule)}
+details.plan:last-of-type{border-bottom:1px solid var(--rule)}
+details.plan summary{display:grid;grid-template-columns:3.2rem minmax(0,1fr) auto;gap:1rem;align-items:baseline;padding:.95rem 0;cursor:pointer;list-style:none}
+details.plan summary::-webkit-details-marker{display:none}
+details.plan summary .no{font:500 .72rem/1 var(--mono);color:var(--quiet)}
+details.plan summary .t{font:400 1.18rem/1.3 var(--serif)}
+details.plan[open] summary .t{color:var(--accent)}
+.sev{font:500 .62rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:.3rem .5rem;border:1px solid var(--rule);border-radius:2px;color:var(--quiet);white-space:nowrap}
+.sev.high{color:var(--accent);border-color:var(--accent)}
+.sev.med{color:var(--ink)}
+details.plan .body{padding:0 0 1.6rem 4.2rem}
+@media (max-width: 40rem){ details.plan summary{grid-template-columns:2.4rem minmax(0,1fr)} .sev{grid-column:2} details.plan .body{padding-left:0} }
+.cat,.scope{font:400 .74rem/1.6 var(--mono);color:var(--quiet);margin:.2rem 0}
+.scope span{color:var(--accent);margin-right:.5rem;text-transform:uppercase;letter-spacing:.1em;font-size:.66rem}
+details.plan .body h3{font:500 .72rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--quiet);margin:1.5rem 0 .5rem}
+details.plan .body h4{margin-top:1rem}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion: no-preference){ details.plan .body{animation:rise 180ms cubic-bezier(.23,1,.32,1)} }
+@keyframes rise{from{opacity:0;transform:translateY(4px)}}
+</style>
+<div class="wrap">
+<header class="top">
+  <p class="eyebrow">dmklochko.com · performance and motion</p>
+  <h1>Eleven</h1>
+  <p class="brief">Where the homepage and eidos stand, where they have to be, and the seventeen plans between the two. Performance only goes up; nothing visible gets worse. The bar is the right-hand column of the scorecard, all of it, twice in a row.</p>
+  <p class="meta"><span>written <b>14 sep 2026</b></span><span>commit <b>bb2e3f5</b></span><span>measured with <b>lighthouse 12</b>, browser probes, four independent audits</span><span>files <b>animation-plans/2026-09-14-eleven/</b></span></p>
+</header>
+<main>
+<nav class="toc" aria-label="on this page"><ol>
+<li><a href="#state" class="k">the scorecard</a></li><li><a href="#plans" class="k">the plans</a></li><li><a href="#order" class="k">order</a></li><li><a href="#loop" class="k">the audit loop</a></li><li><a href="#decided" class="k">decided, not planned</a></li><li style="margin-top:.6rem"><a href="#P01">P01 petals without three.js</a></li><li><a href="#P02">P02 fonts that do not shift</a></li><li><a href="#P03">P03 inline stylesheets</a></li><li><a href="#P04">P04 cache media</a></li><li><a href="#P05">P05 pictures at their size</a></li><li><a href="#P06">P06 ambient budget</a></li><li><a href="#M01">M01 keys instantly</a></li><li><a href="#M02">M02 swipe with velocity</a></li><li><a href="#M03">M03 press feedback</a></li><li><a href="#M04">M04 one vocabulary</a></li><li><a href="#M05">M05 transitions not keyframes</a></li><li><a href="#M06">M06 transform and opacity</a></li><li><a href="#M07">M07 reduced motion</a></li><li><a href="#M08">M08 crossfades, stagger</a></li><li><a href="#M09">M09 from where they came</a></li><li><a href="#M10">M10 the rare moments</a></li><li><a href="#M11">M11 pages without a blink</a></li>
+</ol></nav>
+<article>
+
+<h3>Where it stands, and where it has to be</h3>
+<div class="tw"><table><thead><tr><th>measure</th><th>now</th><th>done means</th></tr></thead><tbody><tr><td>Lighthouse performance, home (desktop / mobile)</td><td>94 / 91</td><td>≥ 98 / ≥ 95</td></tr><tr><td>Lighthouse performance, eidos (desktop / mobile)</td><td>88 / 73</td><td>≥ 97 / ≥ 92</td></tr><tr><td>Lighthouse performance, press · reads (mobile)</td><td>91 · 95</td><td>≥ 95 · ≥ 97</td></tr><tr><td>LCP, eidos mobile</td><td>7.7 s</td><td>≤ 2.5 s</td></tr><tr><td>CLS, home mobile</td><td>0.065</td><td>≤ 0.01</td></tr><tr><td>JavaScript on the homepage (gz)</td><td>134 KB, of which three.js 129 KB</td><td>≤ 20 KB</td></tr><tr><td>Main-thread script evaluation, home desktop</td><td>837 ms</td><td>≤ 150 ms</td></tr><tr><td>Render-blocking stylesheet requests</td><td>2–3 per page</td><td>0</td></tr><tr><td>Infinite CSS animations at rest on <code>/</code></td><td>43 (16 of them invisible snow)</td><td>≤ 15 in the fire act, 0 when the tab is hidden</td></tr><tr><td>Media cache TTL (fonts, video, images)</td><td>0 s, must-revalidate</td><td>1 y immutable / 1 y / 1 d + 30 d stale</td></tr><tr><td>Controls with press feedback on eidos</td><td>0</td><td>all of them</td></tr><tr><td>Hand-typed easing curves outside the token file</td><td>16</td><td>0</td></tr><tr><td>Keyboard-initiated actions that animate</td><td>reads room (4), skip link, two focus reveals</td><td>0</td></tr><tr><td>Reversible UI driven by <code>@keyframes</code></td><td>7</td><td>0</td></tr><tr><td>Transitions on layout properties</td><td>6 (+1 documented exception)</td><td>0 (+1)</td></tr><tr><td>Reduced motion</td><td>kills every keyframe, keeps every movement</td><td>drops travel, keeps every opacity/colour feedback</td></tr><tr><td>Open/close events with no motion</td><td>lightbox, 2 dialogs, compass, deal, gate</td><td>0</td></tr><tr><td>Cross-page navigation</td><td>hard cut</td><td>180 ms dissolve, wordmark still (where supported)</td></tr></tbody></table></div>
+<p>The 11/10 is not a feeling; it is the right-hand column, all of it, plus the feel checks in each plan passing on a trackpad and on a phone.</p>
+<h3>The plans</h3>
+<div class="tw"><table><thead><tr><th>#</th><th>title</th><th>severity</th><th>status</th></tr></thead><tbody><tr><td><a href="#P01">P01</a></td><td>Retire three.js from the petal field; keep every petal</td><td>HIGH</td><td>TODO</td></tr><tr><td><a href="#P02">P02</a></td><td>Metric-matched fallbacks so type never shifts the page</td><td>HIGH</td><td>TODO</td></tr><tr><td><a href="#P03">P03</a></td><td>Inline the stylesheets so no request blocks first paint</td><td>MEDIUM</td><td>TODO</td></tr><tr><td><a href="#P04">P04</a></td><td>Cache the media that never changes</td><td>MEDIUM</td><td>TODO</td></tr><tr><td><a href="#P05">P05</a></td><td>Serve every picture at the size it is seen, in the format that costs least</td><td>HIGH</td><td>TODO</td></tr><tr><td><a href="#P06">P06</a></td><td>An ambient budget: pay only for motion that is on screen</td><td>HIGH</td><td>TODO</td></tr><tr><td><a href="#M01">M01</a></td><td>The reading room answers keys instantly, like discover already does</td><td>HIGH</td><td>TODO</td></tr><tr><td><a href="#M02">M02</a></td><td>A swipe that knows how fast the hand moved</td><td>HIGH</td><td>TODO</td></tr><tr><td><a href="#M03">M03</a></td><td>Every control answers the finger (and shows its focus)</td><td>HIGH</td><td>TODO</td></tr><tr><td><a href="#M04">M04</a></td><td>One motion vocabulary: tokens, curves, budgets</td><td>MEDIUM</td><td>TODO</td></tr><tr><td><a href="#M05">M05</a></td><td>Reversible things use transitions, not keyframes</td><td>MEDIUM</td><td>TODO</td></tr><tr><td><a href="#M06">M06</a></td><td>Only transform and opacity move</td><td>MEDIUM</td><td>TODO</td></tr><tr><td><a href="#M07">M07</a></td><td>Reduced motion keeps the feedback and drops only the travel</td><td>HIGH</td><td>TODO</td></tr><tr><td><a href="#M08">M08</a></td><td>Crossfades that do not double-expose; entrances that arrive one by one</td><td>MEDIUM</td><td>TODO</td></tr><tr><td><a href="#M09">M09</a></td><td>Things appear from where they came: the deal, the lightbox, the dialogs</td><td>MEDIUM</td><td>TODO</td></tr><tr><td><a href="#M10">M10</a></td><td>The rare moments get their delight budget</td><td>LOW–MEDIUM</td><td>TODO</td></tr><tr><td><a href="#M11">M11</a></td><td>Pages that change without a blink (native view transitions)</td><td>optional</td><td>TODO</td></tr></tbody></table></div>
+<h3>Order, and why</h3>
+<ol><li><strong>M04 first.</strong> It creates the tokens (<code>--ease-out</code>, <code>--ease-in-out</code>, <code>--ease-drawer</code>, <code>--dur-fast</code>, <code>--dur-mid</code>) every later motion plan writes against. Half a day.</li><li><strong>P04, P03, P02</strong> in one sitting: config and CSS only, no visual change, immediate Lighthouse gains. Verify with one Lighthouse run per page.</li><li><strong>P05</strong> (pictures) and <strong>P01</strong> (petals) — the two big weights. Independent of each other; P01 is the harder one and the one that most changes the homepage's numbers.</li><li><strong>M01, M03, M07</strong> — the three HIGH corrections that touch what the owner does a hundred times a day and what a reduced-motion visitor sees. M01 before M02.</li><li><strong>P06</strong> and <strong>M06</strong> together: both are about what the compositor does at rest and during a deal.</li><li><strong>M05, M02, M08</strong> — interruptibility and the gesture, then the crossfades.</li><li><strong>M09, M10</strong> — the additive motion, only after everything above is green, so delight lands on a calm surface.</li><li><strong>M11</strong> last, and only if the owner wants it; it is the one plan that adds motion between pages.</li></ol>
+<p>Dependencies: M02, M03, M05, M08, M09, M10, M11 use tokens from M04. M02 assumes M01's <code>onCancel</code> in the reading room. P06 assumes P01's renderer if P01 has landed (otherwise patch <code>petal-field.js:333</code> as written). M07 and M08 both touch the reduced-motion blocks; apply M07 first.</p>
+<h3>The audit loop, so this is not one pass</h3>
+<p>After each group above, run all of it again and write the numbers into the table:</p>
+<pre><code># performance, all four pages, both forms
+for p in "/ home" "/eidos/ eidos" "/eidos/reads/ reads" "/press/ press"; do set -- $p; for f in mobile desktop; do
+  npx lighthouse@12 "https://dmklochko.com$1" --quiet --output=json --output-path="lh/$2-$f.json" --only-categories=performance,accessibility $( [ $f = desktop ] &amp;&amp; echo --preset=desktop ); done; done
+# motion at rest, in the pane on /: document.getAnimations().length   (≤ 15; 0 with the tab hidden)
+# suite
+node --test tests/*.test.mjs</code></pre>
+<p>Then re-run the four category audits (the prompts are in the session that produced this plan; each is read-only and returns a findings table) and accept the work only when every audit returns an empty table for HIGH and MEDIUM. Two consecutive clean loops is the bar; one is a coincidence.</p>
+<h3>Decided, and not planned</h3>
+<ul><li><strong>Moodboard plates stay 440 px.</strong> Lighthouse flags them at 1× DPR; at 2× they are exactly right. Re-encoding would cost quality on every retina screen.</li><li><strong>Fonts are not subset.</strong> The library sets French, German, Polish, Japanese and Russian names and lines; a Latin subset would break glyphs the site is proud of. The metric-matched fallbacks (P02) remove the visible cost instead.</li><li><strong>No SPA router.</strong> The site's scripts expect full loads; M11 uses the browser's own cross-document transition instead.</li><li><strong>Cloudflare Web Analytics beacon</strong> (<code>static.cloudflareinsights.com</code>, 6 KB, third party) is injected by the Cloudflare account setting, not by the repo. Keep it if the numbers are read; switch it off in the dashboard if not. Either way it is not in this repo's power.</li><li><strong>The three ambient tempos, the 0.9 s entrances, the 900 ms scene crossfade, the <code>.arw</code> hop on layout offsets, the <code>.gloss-note</code> popover, the easel's instant width</strong> are all documented decisions in the code and stay as they are.</li></ul>
+<h3>Later, if wanted (LOW polish, exact values recorded so nobody has to re-audit)</h3>
+<ul><li><code>.ep-nav a::after</code> underline from <code>scaleX(0)</code>: acceptable as a drawn rule; if changed, <code>clip-path: inset(0 100% 0 0)</code> → <code>inset(0)</code>.</li><li>Loader proof line held at <code>scaleX(0)</code> for 234 ms: start at <code>scaleX(0.05)</code> with <code>opacity: 0</code> → 1.</li><li>Atlas zoom limits: soft-clamp <code>limit + excess * 0.25</code> (in M06) — done there; here only the wheel-lag fix remains if M06 is split.</li><li><code>.em-tip</code> tooltip origin: <code>transform-origin: top center</code>, <code>translateY(-4px) scale(0.96)</code> → rest, 150 ms.</li><li><code>.in-edge</code> stamps riding the drag: in M02.</li><li>Symmetric press/release on <code>eidos.css:799</code>, <code>dream.css:3089</code>, <code>dream.css:1654</code>: in M03.</li></ul>
+</section>
+<section id="detail"><h2>Every plan, in full</h2><p class="brief" style="font-size:1rem">Each one is written for an executor with no context: the current code at its line, the exact target values, the steps, the boundaries, and how to feel-check the result before calling it done.</p>
+<details class="plan" id="P01"><summary><span class="no">P01</span><span class="t">Retire three.js from the petal field; keep every petal</span><span class="sev high">HIGH</span></summary><div class="body"><p class="cat">Performance — script weight and main-thread cost</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; 1 file rewritten (<code>src/scripts/petal-field.js</code>, 355 lines), 1 dependency removed, tests unchanged&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>The homepage's single largest asset is the petal field's bundle, and almost all of it is three.js:</p>
+<pre><code>dist/_astro/petal-field.*.js   520,574 bytes raw   129,422 bytes gzipped</code></pre>
+<p>Lighthouse, home desktop: <code>petal-field.js total 639ms (script 614ms)</code>; main thread "Script Evaluation 837ms"; TBT 120ms; "unused-javascript: 54KB of 132KB". Everything else on the page combined is a fraction of that. The module imports the whole renderer:</p>
+<pre><code>// src/scripts/petal-field.js:15 — current
+import * as THREE from "three";</code></pre>
+<p>and uses sixteen symbols of it (<code>WebGLRenderer</code>, <code>Scene</code>, <code>PerspectiveCamera</code>, <code>InstancedMesh</code>, <code>PlaneGeometry</code>, <code>MeshBasicMaterial</code>, <code>CanvasTexture</code>, <code>Matrix4</code>, <code>Quaternion</code>, <code>Euler</code>, <code>Vector3</code>, <code>Color</code>, <code>AdditiveBlending</code>, <code>DoubleSide</code>, <code>SRGBColorSpace</code>, <code>DynamicDrawUsage</code>). <code>WebGLRenderer</code> alone drags ~400KB of shader and material machinery in for what is, visually, 44 soft pink sprites with depth, a two-axis tumble, a slow wind, and a parting around the cursor.</p>
+<p>The field loads on idle and only on desktop fine-pointer with motion welcome (<code>src/layouts/Layout.astro:348-358</code>), so first paint is not blocked. It still costs every desktop visitor ~130KB and ~600ms of main-thread time a few seconds in, which is exactly when they start scrolling.</p>
+<h3>Target</h3>
+<p>The same field, drawn by ~250 lines of hand-written WebGL (or Canvas 2D if WebGL is unavailable), bundle ≤ 8KB gzipped, script evaluation ≤ 15ms. Nothing visible changes:</p>
+<ul><li>same petal count (44), same sprite (the <code>dotTexture</code> / petal texture code stays verbatim — it is Canvas 2D already),</li><li>same depth: perspective divide <code>s = f / (f + z)</code> for size and <code>alpha *= s</code> for distance fade,</li><li>same two-axis tumble (rotation about x and y per petal, per frame), same slow wind, same cursor parting (repulsion falloff), same additive blending,</li><li>same lifecycle: <code>start()</code> export, <code>sky-3d</code> class on <code>&lt;html&gt;</code> when running, pause on <code>visibilitychange</code>, stop when motion tier changes, canvas <code>aria-hidden</code>.</li></ul>
+<p>Implementation shape (WebGL 1, no extensions required):</p>
+<pre><code>// one program: position (vec2), size (float), alpha (float), rotation (vec2 cos/sin of tilt) per petal
+// draw as instanced quads via ANGLE_instanced_arrays when present, else 44 draw calls (trivial)
+// gl.blendFunc(gl.SRC_ALPHA, gl.ONE)  → additive, identical to THREE.AdditiveBlending
+// texture: the existing petal canvas, uploaded once with gl.texImage2D, premultiplied off</code></pre>
+<p>Fallback when <code>canvas.getContext("webgl")</code> is null: Canvas 2D with <code>globalCompositeOperation = "lighter"</code>, petals sorted by z each frame, <code>drawImage</code> with <code>setTransform</code> for scale and tilt. This is the same visual within a pixel; the CSS petals remain the fallback below that, as now.</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>The module is loaded lazily from <code>src/layouts/Layout.astro:348-358</code> via <code>import("../scripts/petal-field.js").then((m) =&gt; m.start())</code>. Keep the <code>start</code> export and the <code>sky-3d</code> handshake so the CSS petals stand down exactly as before.</li><li>Derived, not invented: the sprite is the CSS petal redrawn (<code>dotTexture</code>, the petal shape <code>border-radius 100% 6% 100% 6%</code>). Do not design a new petal.</li><li>Reduced motion, data saver and phones never load the field (<code>root.dataset.motionTier !== "rich"</code> gate). Do not touch the gate.</li><li>Tests: <code>tests/homepage-motion.test.mjs</code> "the phone stylesheet leaves the hero films as its only ambient motion" and <code>tests/house-rules.test.mjs</code> must stay green.</li></ul>
+<h3>Steps</h3>
+<ol><li>Read <code>src/scripts/petal-field.js</code> in full. Copy out, verbatim, the texture builders (<code>dotTexture</code>, the petal canvas), the petal state model (positions, z range, spin rates, wind, cursor parting maths), the <code>start()</code>/stop lifecycle and the <code>visibilitychange</code> handling.</li><li>Replace the three.js scene with a WebGL program as described in Target: one vertex shader that takes per-petal <code>aCenter (vec2, clip space)</code>, <code>aSize</code>, <code>aAlpha</code>, <code>aTilt (vec2)</code>, builds a quad from a unit corner attribute, applies the tilt as a 2D squash (<code>cos</code> on x, <code>cos</code> on y of the two tumble angles — this is exactly what a camera sees of a plane tumbling on two axes), and a fragment shader that samples the petal texture and multiplies by <code>aAlpha</code>. Blend <code>SRC_ALPHA, ONE</code>.</li><li>Keep the per-frame simulation identical (same constants). Write the 44 petals' attributes into one <code>Float32Array</code> and <code>bufferSubData</code> it per frame; draw with <code>ANGLE_instanced_arrays</code> if available, else loop <code>drawArrays</code> per petal.</li><li>Add the Canvas 2D fallback path behind <code>if (!gl)</code>.</li><li>Remove <code>three</code> from <code>package.json</code> dependencies (<code>npm uninstall three</code>). Confirm nothing else imports it: <code>grep -rn "from \"three\"" src</code> must return only the old line you replaced.</li><li>Build. Confirm <code>ls -la dist/_astro/petal-field*.js</code> is under 12KB raw and there is no other bundle over 60KB raw except CSS.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT change the petal count, colours, speeds, sprite, wind or cursor behaviour. This is a renderer swap, not a redesign.</li><li>Do NOT touch the loader gate in <code>Layout.astro</code> or the CSS petal fallback in <code>dream.css</code>.</li><li>Do NOT add a new dependency (no pixi, no ogl, no regl).</li><li>If the current code does not match the excerpts above (drift since bb2e3f5), STOP and report.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: <code>npm run build</code> green; <code>node --test tests/*.test.mjs</code> green; bundle size as in step 6; Lighthouse home desktop "Script Evaluation" under 150ms total and "unused-javascript" no longer lists the field.</li><li><strong>Feel check</strong>: open <code>/</code> on a desktop with a mouse, wait four seconds. Confirm 44 petals fall with depth (far ones smaller, dimmer, slower), tumble on two axes, lean with the wind, part around the cursor within the same radius as before, and glow additively where two overlap. Record 5 seconds before and after at 60fps and step through frame by frame side by side: the two fields must be indistinguishable in density, size range, and brightness.</li><li><strong>Done when</strong>: the bundle is ≤ 8KB gzipped, <code>three</code> is gone from <code>package.json</code>, and the side-by-side frame check shows no visible difference.</li></ul></div></details>
+<details class="plan" id="P02"><summary><span class="no">P02</span><span class="t">Metric-matched fallbacks so type never shifts the page</span><span class="sev high">HIGH</span></summary><div class="body"><p class="cat">Performance — layout stability and text rendering</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; 1 file (<code>src/styles/global.css</code> @font-face block), 2 layouts (preload lines)&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>Lighthouse home mobile: CLS 0.065, the single shifting element is the hero print pile (<code>div.hero-side &gt; div.hero-stack &gt; figure &gt; span.cell</code>). Nothing in the pile changes size; what moves it is the text above it swapping from the fallback face to Zodiak and Newsreader, whose metrics differ from the system fallback. Every face is <code>font-display: swap</code> with no metric overrides:</p>
+<pre><code>/* src/styles/global.css:45-51 — current */
+@font-face {
+  font-family: "Zodiak";
+  font-weight: 300;
+  src: url("/fonts/zodiak-300.woff2") format("woff2");
+  font-display: swap;
+}</code></pre>
+<p>LCP on both home and press is the <code>h1</code>, with a render delay of 1.2–1.7s on the simulated mobile: the block is waiting on stylesheets (see P03) and then repaints when the real face lands.</p>
+<h3>Target</h3>
+<p>Keep <code>font-display: swap</code> (the words must appear at once). Add one metric-matched local fallback per text face so the swap is invisible in layout: same line heights, same wrap points within a glyph or two. Values below were computed with fontpie against the actual woff2 files in <code>public/fonts</code> on 14 Sep 2026; copy them exactly.</p>
+<pre><code>/* target — add after the existing @font-face blocks in src/styles/global.css */
+@font-face {
+  font-family: "Zodiak Fallback";
+  src: local("Times New Roman");
+  ascent-override: 82.66%;
+  descent-override: 20.87%;
+  line-gap-override: 7.51%;
+  size-adjust: 119.77%;
+}
+@font-face {
+  font-family: "Zodiak Fallback Italic";
+  font-style: italic;
+  src: local("Times New Roman");
+  ascent-override: 77.91%;
+  descent-override: 22.04%;
+  line-gap-override: 7.08%;
+  size-adjust: 127.07%;
+}
+@font-face {
+  font-family: "Newsreader Fallback";
+  src: local("Times New Roman");
+  ascent-override: 70.13%;
+  descent-override: 25.29%;
+  line-gap-override: 0%;
+  size-adjust: 104.80%;
+}
+@font-face {
+  font-family: "Newsreader Fallback Italic";
+  font-style: italic;
+  src: local("Times New Roman");
+  ascent-override: 75.44%;
+  descent-override: 27.20%;
+  line-gap-override: 0%;
+  size-adjust: 97.43%;
+}</code></pre>
+<p>and the stacks become:</p>
+<pre><code>--serif: "Newsreader", "Newsreader Fallback", "Times New Roman", serif;
+--display: "Zodiak", "Zodiak Fallback", "Times New Roman", serif;</code></pre>
+<p>(Find the current <code>--serif</code> / display token names in <code>src/styles/global.css</code> and keep them; only the fallback entries are added.)</p>
+<p>Preload the two italics the hero uses on first paint alongside the two already preloaded, so the pink italic accents do not arrive a beat late:</p>
+<pre><code>&lt;!-- src/layouts/Layout.astro:55-56 — add --&gt;
+&lt;link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/zodiak-400i.woff2" /&gt;
+&lt;link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/newsreader-400i.woff2" /&gt;</code></pre>
+<h3>Repo conventions to follow</h3>
+<ul><li>Tokens live in <code>src/styles/global.css</code> near line 90 (<code>--mono</code>) and the <code>@font-face</code> blocks at lines 18–75. Add the fallback faces right after the last real <code>@font-face</code>.</li><li>Preloads live in <code>src/layouts/Layout.astro:55-56</code> (two lines already there); <code>src/layouts/EidosLayout.astro:26-27</code> preloads Newsreader 400 and Zodiak 400 for the eidos surfaces — add the same fallback stacks there through the shared <code>global.css</code>, no change needed to that layout unless it declares its own stacks.</li></ul>
+<h3>Steps</h3>
+<ol><li>Add the four fallback <code>@font-face</code> blocks exactly as in Target.</li><li>Insert the fallback family names into the serif and display font stacks wherever they are declared (grep <code>"Newsreader"</code> and <code>"Zodiak"</code> in <code>src/styles/<em>.css</code> and <code>src/styles/pages/</em>.css</code>; there should be one token each; if a stack is repeated inline, update every copy identically).</li><li>Add the two italic preloads to <code>Layout.astro</code>.</li><li>Build and run the suite.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT switch to <code>font-display: optional</code> (the site's words must render immediately, in the fallback if need be).</li><li>Do NOT subset or re-encode the woff2 files in this plan.</li><li>Do NOT add Google Fonts or any remote font host.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: <code>npm run build</code>; <code>node --test tests/*.test.mjs</code>; Lighthouse home mobile CLS ≤ 0.01 and "layout-shift-elements" no longer lists <code>.hero-stack</code>.</li><li><strong>Feel check</strong>: DevTools → Network → throttle "Slow 3G", disable cache, reload <code>/</code>. Watch the hero title and the print pile: the pile must not move when the real faces arrive; the title's line breaks may change by at most one word. Repeat on <code>/press/</code>.</li><li><strong>Done when</strong>: CLS on home mobile is under 0.01 in two consecutive Lighthouse runs and the pile is still in the swap.</li></ul></div></details>
+<details class="plan" id="P03"><summary><span class="no">P03</span><span class="t">Inline the stylesheets so no request blocks first paint</span><span class="sev med">MEDIUM</span></summary><div class="body"><p class="cat">Performance — render-blocking resources</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; 1 file (<code>astro.config.mjs</code>), verify 1 test&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>Every page waits on two or three external stylesheets before it can paint:</p>
+<pre><code>home mobile   Layout.css 557ms + global.css 249ms   (Lighthouse: "Est savings of 310 ms")
+eidos mobile  EidosHeader.css 509ms + global.css 181ms
+reads mobile  eidos-studio.css 481ms + EidosHeader.css 481ms + global.css 168ms
+press mobile  Layout.css 615ms + press.css 165ms + global.css 465ms</code></pre>
+<p>The files are small (5–13KB gzipped) — the cost is the round trips, not the bytes. Astro's default <code>inlineStylesheets: "auto"</code> inlines only stylesheets under 4KB, so the large layout sheet is always external.</p>
+<pre><code>// astro.config.mjs — current
+export default defineConfig({
+  site: "https://dmklochko.com",
+  output: "static",
+});</code></pre>
+<h3>Target</h3>
+<pre><code>// astro.config.mjs — target
+export default defineConfig({
+  site: "https://dmklochko.com",
+  output: "static",
+  build: { inlineStylesheets: "always" },
+});</code></pre>
+<p>Trade, stated so it is a decision and not an accident: each HTML grows by its CSS (home 13KB → ~24KB gzipped; eidos 32KB → ~44KB) and CSS is no longer cached across pages. For a site of a dozen pages served from Cloudflare's edge, one fewer blocking round trip on every first visit outweighs a cross-page cache that most visitors never reuse.</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>Tests read CSS from both inline <code>&lt;style&gt;</code> blocks and <code>dist/_astro/*.css</code> through the <code>styles()</code> / <code>allCss()</code> helpers in <code>tests/</code> (see <code>tests/reading-room.test.mjs</code> and <code>tests/house-rules.test.mjs</code>); they were written for exactly this switch. <code>tests/homepage-motion.test.mjs</code> "fingerprinted bundles can stay cached while the html remains fresh" checks <code>_headers</code>, not that CSS is external — read it before assuming.</li></ul>
+<h3>Steps</h3>
+<ol><li>Edit <code>astro.config.mjs</code> as in Target.</li><li><code>npm run build</code>. Confirm <code>dist/index.html</code> contains <code>&lt;style&gt;</code> and that <code>dist/_astro/</code> holds no <code>Layout.*.css</code>.</li><li><code>node --test tests/<em>.test.mjs</code>. If a test reads only <code>dist/_astro/</em>.css</code>, switch it to the <code>allCss()</code> helper rather than reverting the config.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT hand-inline critical CSS or split "above the fold" CSS; the whole sheet goes inline or nothing does.</li><li>Do NOT change <code>_headers</code>.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: Lighthouse home mobile and eidos mobile: "render-blocking-resources" lists no stylesheet; FCP improves by ≥ 150ms in each.</li><li><strong>Feel check</strong>: hard-reload <code>/</code> on a phone over a slow connection: the dark ground and the serif title appear together, with no unstyled flash.</li><li><strong>Done when</strong>: no <code>.css</code> request appears in the Network panel on any page and the suite is green.</li></ul></div></details>
+<details class="plan" id="P04"><summary><span class="no">P04</span><span class="t">Cache the media that never changes</span><span class="sev med">MEDIUM</span></summary><div class="body"><p class="cat">Performance — caching</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; 1 file (<code>public/_headers</code>)&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>Every font, image and video is served with <code>cache-control: public, max-age=0, must-revalidate</code> (verified live on 14 Sep 2026 for <code>/fonts/zodiak-300.woff2</code>, <code>/images/scenes/estuary.webp</code>, <code>/video/dokfest.mp4</code>, <code>/images/plates/vault/hokusai-wave.webp</code>). A returning visitor revalidates 30–50 requests per page. Lighthouse home desktop: "uses-long-cache-ttl: 7 resources found", all videos. Only <code>/_astro/*</code> is cached:</p>
+<pre><code># public/_headers — current
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable</code></pre>
+<h3>Target</h3>
+<pre><code># public/_headers — add after the /_astro/* block
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/video/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=2592000</code></pre>
+<p>Fonts and videos never change under the same name (a new film gets a new filename, as <code>app-loop.mp4</code> did). Images can be regenerated under the same name by <code>scripts/image-build.mjs --apply</code>, so they get one day fresh and a month of stale-while-revalidate: the visitor sees the cached picture instantly and the edge fetches the new one behind it.</p>
+<h3>Repo conventions to follow</h3>
+<ul><li><code>_headers</code> already groups rules per path with a blank line between blocks; keep that shape. The <code>/*</code> security block at the top stays first.</li><li><code>tests/pages.test.mjs</code> "every route carries the four security headers" parses the <code>/*</code> block — do not move it.</li></ul>
+<h3>Steps</h3>
+<ol><li>Add the three blocks to <code>public/_headers</code> exactly as in Target.</li><li>Ship. After deploy, <code>curl -sI https://dmklochko.com/fonts/zodiak-300.woff2 | grep -i cache-control</code> must show <code>immutable</code>.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT make <code>/images/*</code> immutable.</li><li>Do NOT touch the <code>/*</code> block or the <code>X-Robots-Tag</code> blocks.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: the three <code>curl -sI</code> checks (a font, a video, an image) show the new headers; Lighthouse "uses-long-cache-ttl" is clean on home.</li><li><strong>Done when</strong>: a second load of <code>/</code> in DevTools shows fonts and videos "(memory cache)" or "(disk cache)" with no 304s.</li></ul></div></details>
+<details class="plan" id="P05"><summary><span class="no">P05</span><span class="t">Serve every picture at the size it is seen, in the format that costs least</span><span class="sev high">HIGH</span></summary><div class="body"><p class="cat">Performance — images</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/components/eidos/EidosHero.astro</code>, <code>src/components/eidos/EidosHeader.astro</code>, <code>src/pages/eidos/inbox.astro</code> (faun guide), <code>src/pages/press.astro</code>, <code>src/pages/index.astro</code> (5 images), <code>scripts/image-build.mjs</code> (new recipes), <code>public/images/**</code> derivatives&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>Lighthouse, 14 Sep 2026:</p>
+<pre><code>eidos mobile   LCP 7.7 s   LCP element: picture.ep-hero-poster &gt; img   "Properly size images: 609 KiB"
+eidos desktop  LCP 2.4 s   hero-desktop-poster.webp 1536×1024, 608 KB, waste 467 KB
+reads mobile   faun-mark.webp 720×720, 149 KB, rendered ~44 px, waste 148 KB
+press mobile   LCP 3.3 s   times-radio-studio.webp 1600×1200, waste 64 KB
+home desktop   pirate-flag-mark.png (23 KB waste, not modern), lynch.jpg, journey/lecture.jpg,
+               cv-meta-poster.jpg, busking-poster.jpg (jpg → webp saves ~57 KB); wall w04/w05/w13 no `sizes`</code></pre>
+<p>The eidos hero image carries the wrong intrinsic size too:</p>
+<pre><code>&lt;!-- src/components/eidos/EidosHero.astro:16 — current --&gt;
+&lt;img src="/images/eidos/product/hero-desktop-poster.webp" width="1920" height="1080" alt="…"&gt;</code></pre>
+<p>The file is 1536×1024 (3:2), not 1920×1080 (16:9). The ratio lie is small but it is a lie.</p>
+<h3>Target</h3>
+<p>No picture loses a pixel of visible quality. Every picture is offered at 1×, 2× and, where it is large, 3× of its rendered size, in AVIF with a WebP fallback, encoded at a quality where a side-by-side at 200% zoom shows no difference (AVIF q 63, WebP q 82 for photographs; WebP lossless for the faun mark, which is line art).</p>
+<h4>Eidos hero (the LCP)</h4>
+<pre><code>&lt;!-- target --&gt;
+&lt;picture class="ep-hero-poster"&gt;
+  &lt;source media="(max-width: 680px)" type="image/avif"
+          srcset="/images/eidos/product/hero-mobile-poster-480.avif 480w, /images/eidos/product/hero-mobile-poster-960.avif 960w" sizes="100vw" /&gt;
+  &lt;source media="(max-width: 680px)" type="image/webp"
+          srcset="/images/eidos/product/hero-mobile-poster-480.webp 480w, /images/eidos/product/hero-mobile-poster-960.webp 960w" sizes="100vw" /&gt;
+  &lt;source type="image/avif"
+          srcset="/images/eidos/product/hero-desktop-poster-768.avif 768w, /images/eidos/product/hero-desktop-poster-1152.avif 1152w, /images/eidos/product/hero-desktop-poster-1536.avif 1536w"
+          sizes="(min-width: 1200px) 58vw, 100vw" /&gt;
+  &lt;img src="/images/eidos/product/hero-desktop-poster-1152.webp"
+       srcset="/images/eidos/product/hero-desktop-poster-768.webp 768w, /images/eidos/product/hero-desktop-poster-1152.webp 1152w, /images/eidos/product/hero-desktop-poster-1536.webp 1536w"
+       sizes="(min-width: 1200px) 58vw, 100vw"
+       width="1536" height="1024" fetchpriority="high" decoding="async" alt="…same alt…" /&gt;
+&lt;/picture&gt;</code></pre>
+<p>Measure the real rendered width of <code>.ep-hero-art</code> at 1440 and at 390 before writing <code>sizes</code>; the values above are the expected ones from <code>eidos-product.css:156</code> (<code>minmax(38rem, 1.5fr)</code> column) and must be confirmed.</p>
+<h4>Faun mark</h4>
+<p>Header renders it at ~44 px, the inbox rail guide at ~180 px. Two derivatives, lossless WebP: <code>faun-mark-96.webp</code> and <code>faun-mark-384.webp</code>, with <code>srcset="…-96.webp 96w, …-384.webp 384w"</code> and <code>sizes="44px"</code> in the header, <code>sizes="180px"</code> in the rail. Keep the <code>width="720" height="720"</code> ratio attributes (they only fix the box shape).</p>
+<h4>Press portrait</h4>
+<p><code>times-radio-studio.webp</code> → <code>-800</code>, <code>-1200</code>, <code>-1600</code> WebP + AVIF; <code>sizes="(min-width: 861px) 40vw, 100vw"</code>; the lead portrait keeps <code>fetchpriority="high"</code>.</p>
+<h4>Homepage</h4>
+<ul><li><code>pirate-flag-mark.png</code> → <code>pirate-flag-mark.webp</code> (lossless) sized to 2× its rendered box; or, if the source is vector, an inline SVG.</li><li><code>lynch.jpg</code>, <code>journey/lecture.jpg</code>, <code>video/cv-meta-poster.jpg</code>, <code>video/busking-poster.jpg</code> → WebP q82 at their current pixel size (same dimensions, same look, ~40% lighter). Update every <code>src</code>/<code>poster</code> reference (grep the four basenames across <code>src/</code>).</li><li>Wall prints (<code>/images/wall/w01…w15.webp</code>, 474 px): add <code>sizes="(min-width: 861px) 23vw, 46vw"</code>; they are already right for 2× screens — no re-encode.</li></ul>
+<h4>Moodboard plates</h4>
+<p>The 440 px plates are displayed at ~250 px in the <code>columns: 5 14rem</code> grid. Lighthouse counts them as oversized at 1× DPR; at 2× they are exactly right. <strong>Leave the plates alone.</strong> Record this as the reason in the plan status so the next audit does not re-report it.</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>Derivatives are made by <code>scripts/image-build.mjs</code> (recipes at lines 28–90: <code>recipeFor({ width, height, fit, quality })</code>, <code>responsive/today</code> already emits <code>[480, 960]</code> widths). Add recipes there, run <code>node scripts/image-build.mjs --apply</code> <strong>after</strong> <code>astro build</code>, then build again (AGENTS.md: apply reads <code>map.json</code>). Never hand-edit files in <code>public/images/responsive/</code>.</li><li><code>image-build --check</code> runs in <code>npm run build</code> and fails when a derivative is missing — that is the test.</li><li><code>tests/lookbook.test.mjs</code> shows the pattern for asserting <code>width</code>/<code>height</code> attributes match the file on disk; copy it for the hero and the faun.</li><li>House rule: screenshots and UI captures are not matted; photographs are. Do not change markup around images beyond the attributes named here.</li></ul>
+<h3>Steps</h3>
+<ol><li>Add AVIF output to <code>image-build.mjs</code> (sharp: <code>.avif({ quality: 63, effort: 6 })</code>) beside the existing WebP output for a new <code>responsive/eidos</code> recipe with the widths listed above, and a <code>lossless</code> recipe for the faun mark.</li><li>Build once, <code>node scripts/image-build.mjs --apply</code>, build again. Confirm the files exist under <code>public/images/eidos/product/</code> (or wherever the recipe's <code>out</code> puts them — follow the existing <code>responsive/today</code> convention).</li><li>Rewrite the hero <code>&lt;picture&gt;</code> as in Target, with the corrected <code>width="1536" height="1024"</code>.</li><li>Header and inbox faun: <code>srcset</code> + <code>sizes</code> as above.</li><li>Press portrait: <code>srcset</code> + <code>sizes</code> + <code>&lt;picture&gt;</code> with AVIF source.</li><li>Homepage: convert the five raster files, update references, add <code>sizes</code> to the wall.</li><li>Add a test (<code>tests/pictures.test.mjs</code>): every <code>&lt;img&gt;</code> on <code>/eidos/</code>, <code>/press/</code>, <code>/</code> with <code>width</code>/<code>height</code> matches the file; every hero/portrait has <code>srcset</code>; no <code>.png</code>/<code>.jpg</code> is referenced from the homepage HTML except the OG image.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT re-encode the 440 px plates or the wall prints.</li><li>Do NOT lower any quality below the values stated; if a side-by-side shows a difference, raise the quality and re-measure rather than accept it.</li><li>Do NOT touch the lookbook (it has its own normaliser, <code>scripts/lookbook-images.mjs</code>).</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: <code>npm run build</code> green (the <code>--check</code> step proves every derivative exists); the new test green; Lighthouse eidos mobile LCP ≤ 2.5 s and "uses-responsive-images" ≤ 20 KB total on every page.</li><li><strong>Feel check</strong>: open the eidos hero at 1440 and at 390 next to the current one at 200% zoom: identical detail in the graphite hatching and the salmon edges; no banding in the pink field. Faun mark in the header: crisp on a 2× screen.</li><li><strong>Done when</strong>: eidos mobile Lighthouse performance ≥ 92 and no page lists an image with more than 20 KB of waste.</li></ul></div></details>
+<details class="plan" id="P06"><summary><span class="no">P06</span><span class="t">An ambient budget: pay only for motion that is on screen</span><span class="sev high">HIGH</span></summary><div class="body"><p class="cat">Performance — compositor and main-thread work at rest</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/styles/dream.css</code>, <code>src/styles/global.css</code>, <code>src/layouts/Layout.astro</code> (sky/pile handlers), <code>src/scripts/motion-control.js</code>, <code>src/scripts/petal-field.js</code>, <code>src/components/eidos/EidosHero.astro</code>, <code>src/styles/pages/eidos-product.css</code>, <code>src/pages/eidos/inbox.astro</code> (dead style block)&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p><strong>Forty-three infinite CSS animations run on the homepage at rest</strong>, and none pause when the tab is hidden or the element is off screen:</p>
+<div class="tw"><table><thead><tr><th>loop</th><th>elements</th><th>file:line</th><th>on screen?</th></tr></thead><tbody><tr><td><code>scene-breathe</code> (full-viewport image layers, <code>inset: -6%</code>)</td><td>3</td><td>dream.css:843</td><td>one at a time; the other two are <code>opacity: 0</code> and still scaling</td></tr><tr><td><code>snow-fall</code></td><td>16</td><td>dream.css:1558</td><td>never — the homepage has no snow scene; <code>.weather--snow</code> is <code>opacity: 0</code> forever (dream.css:1479, 1485)</td></tr><tr><td><code>ember-rise</code></td><td>10</td><td>dream.css:1517</td><td>only in the ember act</td></tr><tr><td><code>petal-fall</code></td><td>9</td><td>dream.css:1099</td><td>yes (until the WebGL field stands them down)</td></tr><tr><td><code>glint-drift</code></td><td>4</td><td>dream.css:962</td><td>only in the fire act; also missing from the <code>data-motion="paused"</code> list (dream.css:1491-1497)</td></tr><tr><td><code>fire-flicker</code></td><td>1</td><td>dream.css:922</td><td>only in the fire act</td></tr></tbody></table></div>
+<p><code>motion-control.js:30</code> hardcodes <code>paused: false</code>, so the whole <code>animation-play-state: paused</code> block is unreachable in production and <code>visibilitychange</code> (line 52) re-syncs only <code>&lt;video&gt;</code>.</p>
+<p><strong>Child transforms are driven by CSS variables written on a parent</strong>, which restyles every descendant on every write:</p>
+<pre><code>// src/layouts/Layout.astro:220-221 — current, inside the raw pointermove handler (no rAF)
+sky.style.setProperty("--mx", …); sky.style.setProperty("--my", …);
+// src/layouts/Layout.astro:244-249 — hero and hi piles, same pattern, no rAF
+pile.style.setProperty("--tx", …);
+// src/components/eidos/EidosHero.astro:49-50 — rAF-batched, still a parent variable
+hero.style.setProperty("--hero-x", x.toFixed(3));</code></pre>
+<p>with <code>dream.css:840-841, 888-889, 915-916, 946-947, 515-519</code> and <code>eidos-product.css:232, 250, 268-270</code> reading the variables in <code>calc()</code> transforms.</p>
+<p><strong>Dead weight kept warm</strong>: <code>global.css:814</code> holds <code>will-change: transform, opacity</code> on four fixed <code>.stars</code> layers that are <code>display: none</code> in dream mode on every page (dream.css:45). <code>src/pages/eidos/inbox.astro:182</code> ships a 230-line <code>&lt;style media="not all"&gt;</code> block that never applies. <code>petal-field.js:333</code> starts its render loop before checking <code>document.hidden</code>.</p>
+<p><strong>The moodboard lays out 3 288 elements</strong> (398 figures) on every style change; Lighthouse eidos mobile "Style &amp; Layout 157 ms".</p>
+<h3>Target</h3>
+<ol><li><strong>Weather loops run only in their act.</strong> The active scene is already on <code>&lt;html data-scene="…"&gt;</code> (set by <code>scene-choreography.js:26-30</code>). Gate every weather layer the way <code>sun-pulse</code> already is (dream.css:894-901):</li></ol>
+<pre><code>/* target — dream.css, next to the sun-pulse gate */
+html:not([data-scene="snow"]) .weather--snow s,
+html:not([data-scene="fire"]) .weather--fire s,
+html:not([data-scene="fire"]) .scenes .glints s,
+html:not([data-scene="fire"]) .firelight,
+html:not([data-scene="ember"]) .weather--ember s,
+.scenes i:not(.is-on) { animation-play-state: paused; }</code></pre>
+<p>For the scene layers, have <code>scene-choreography.js</code> toggle <code>is-on</code> on the active <code>.scenes i</code> (it already knows which one it is fading in) so the two invisible layers stop breathing. Expected count at rest in the fire act: 3 breathe → 1, glints 4, flicker 1, petals 9 (or 0 with the WebGL field) = <strong>≤ 15</strong>, and <strong>0</strong> anywhere off-act.</p>
+<ol><li><strong>Hidden tab pauses everything.</strong> In <code>motion-control.js</code>, compute <code>paused: document.hidden</code> in <code>apply()</code> and call <code>apply()</code> from the existing <code>visibilitychange</code> listener; add <code>.scenes .glints s</code> to the paused selector list at dream.css:1491. In <code>petal-field.js:333</code>, start with <code>renderer.setAnimationLoop(document.hidden ? null : tick)</code> (or the equivalent in the P01 renderer).</li></ol>
+<ol><li><strong>Transforms written directly, in one rAF.</strong> In <code>Layout.astro</code>, keep the variables for the CSS-only fallback but set <code>el.style.transform</code> on each <code>.scenes i</code>, <code>.sunpulse</code>, <code>.firelight</code>, <code>.glints</code>, and each pile <code>figure</code> inside the existing <code>ease()</code> rAF; move the <code>--mx/--my</code> writes into that rAF. In <code>EidosHero.astro</code>, write <code>poster.style.transform</code> and the two notes' transforms inside the rAF that already exists at line 47. Read the per-layer constants (<code>-34px/-22px</code>, depth 5/11/18/24, etc.) once from the current CSS and put them in a small table in the script so the motion is identical.</li></ol>
+<p>   Where the browser supports it, the scroll half of the parallax should not be JS at all: <code>animation-timeline: scroll()</code> with a <code>@keyframes</code> that moves each layer by its current <code>vh</code> factor, gated <code>@supports (animation-timeline: scroll())</code>, with the JS <code>--scroll</code> path as fallback. Same motion, zero main-thread work per scroll.</p>
+<ol><li><strong>Delete the dead</strong>: the <code>.stars</code> block (global.css:789-890) or at minimum its <code>will-change</code>; the <code>media="not all"</code> style block in <code>inbox.astro</code>.</li></ol>
+<ol><li><strong>Moodboard containment</strong>: <code>.ep-visual { content-visibility: auto; contain-intrinsic-size: auto 260px 340px; }</code> for figures after the first two rows (<code>.ep-visual:nth-child(n+11)</code>), so off-screen figures skip layout and paint. Measure "Style &amp; Layout" before and after.</li></ol>
+<h3>Repo conventions to follow</h3>
+<ul><li>The gate pattern to imitate: <code>dream.css:894-901</code> (<code>sun-pulse</code> only in the fire act).</li><li>Pause plumbing: <code>motion-control.js</code> <code>apply()</code>/<code>motionPolicy()</code> and the <code>html[data-motion]</code> attribute (dream.css:1491-1497).</li><li>Tests: <code>tests/homepage-motion.test.mjs</code> "the homepage lights weather only while the hero owns the sky" already asserts scene gating for weather; extend it with a count of <code>animation:</code> declarations that are not gated.</li></ul>
+<h3>Steps</h3>
+<ol><li>Add the gating block (Target 1); make <code>scene-choreography.js</code> set <code>is-on</code> on the active layer and remove it from the others when it changes <code>data-scene</code>.</li><li>Wire <code>paused</code> to <code>document.hidden</code> (Target 2); add the glints selector.</li><li>Refactor the three pointer handlers to direct transforms in rAF (Target 3); add the <code>@supports (animation-timeline: scroll())</code> scroll path with the JS fallback.</li><li>Remove <code>.stars</code> and the dead inbox style block (Target 4).</li><li>Add <code>content-visibility</code> to the moodboard (Target 5).</li><li>Build, run the suite, then in the pane on <code>/</code> at rest: <code>document.getAnimations().length</code> ≤ 15 in the fire act, 0 after <code>document.hidden</code> (simulate with the Rendering panel "emulate a focused page" off).</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT change any keyframe's shape, duration or count of petals/embers/snow; this is about when they run, not how they look.</li><li>Do NOT remove the CSS-variable fallback path; the transform writes replace the <em>hot path</em>, the variables stay for <code>@supports</code>-less browsers.</li><li>Do NOT touch the video autoplay policy.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: <code>npm run build</code>; suite green; pane: <code>getAnimations().length</code> as above; Lighthouse home mobile "Style &amp; Layout" ≤ 250 ms; eidos mobile "Style &amp; Layout" ≤ 90 ms.</li><li><strong>Feel check</strong>: scroll <code>/</code> slowly through all three acts: fire lights only in act one, embers only in act two, nothing runs in the estuary but the petals; move the mouse over the hero: the sky and the print pile answer the hand exactly as before (record before/after and compare frame by frame). Switch tabs and back: motion resumes from where it was.</li><li><strong>Done when</strong>: ≤ 15 animations at rest in the fire act, 0 with the tab hidden, and the before/after parallax recordings are indistinguishable.</li></ul></div></details>
+<details class="plan" id="M01"><summary><span class="no">M01</span><span class="t">The reading room answers keys instantly, like discover already does</span><span class="sev high">HIGH</span></summary><div class="body"><p class="cat">1. Purpose &amp; frequency · 4. Interruptibility</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; 1 file (<code>src/pages/eidos/reads.astro</code>, script block), ~30 lines&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>The owner judges reads with <code>→</code>/<code>l</code> and <code>←</code>/<code>h</code>, 100+ times a day. Every keystroke pays the 240ms pointer animation and the 240ms wait:</p>
+<pre><code>// src/pages/eidos/reads.astro:362-372 — current
+function fly(dir) { card.classList.add("is-flying"); card.style.transform = `translateX(${dir * 120}vw) rotate(${dir * 16}deg)`; card.style.opacity = "0"; }
+function pass() {
+  …
+  record(cand, "pass"); fly(-1); send(cand, "pass", "", line); sat++; setTimeout(next, 240);
+}
+function keep() {
+  …
+  keptThis.push(cand); record(cand, "keep"); send(cand, "keep", cand.weather, line); sat++; fly(1); setTimeout(next, 240);
+}</code></pre>
+<p>and a <code>pointercancel</code> (scroll takeover, palm) commits a verdict if the finger had travelled 110px:</p>
+<pre><code>// src/pages/eidos/reads.astro:437 — current
+card.addEventListener("pointercancel", onUp);</code></pre>
+<p><code>src/pages/eidos/inbox.astro</code> already solves both (<code>origin</code> threading at 697-717, <code>decisionDelay(origin)</code>, <code>onCancel</code> at 790-798). The reading room was written a day later without them.</p>
+<h3>Target</h3>
+<p>Mirror the inbox exactly:</p>
+<pre><code>// target
+const decisionDelay = (origin) =&gt; (origin === "keyboard" ? 0 : 240);
+function fly(dir, origin) {
+  if (origin === "keyboard") { card.style.opacity = "0"; return; }   // no flight on the 100+/day path
+  card.classList.add("is-flying");
+  card.style.transform = `translateX(${dir * 120}vw) rotate(${dir * 16}deg)`;
+  card.style.opacity = "0";
+}
+function pass(origin = "pointer") { …; fly(-1, origin); send(…); sat++; setTimeout(next, decisionDelay(origin)); }
+function keep(origin = "pointer") { …; fly(1, origin); send(…); sat++; setTimeout(next, decisionDelay(origin)); }
+
+$("pass").addEventListener("click", (e) =&gt; pass(e.detail === 0 ? "keyboard" : "button"));
+$("keep").addEventListener("click", (e) =&gt; keep(e.detail === 0 ? "keyboard" : "button"));
+const KEYS = { ArrowRight: () =&gt; keep("keyboard"), l: () =&gt; keep("keyboard"), ArrowLeft: () =&gt; pass("keyboard"), h: () =&gt; pass("keyboard"), … };
+// ⌘↵ inside the line field is a keyboard keep too
+if (e.key === "Enter" &amp;&amp; (e.metaKey || e.ctrlKey)) { e.preventDefault(); say.blur(); keep("keyboard"); }
+
+const onCancel = () =&gt; { if (!dragging) return; dragging = false; dx = 0; card.classList.add("is-home"); card.style.transform = ""; edgeIn.style.opacity = 0; edgeOut.style.opacity = 0; };
+card.addEventListener("pointercancel", onCancel);</code></pre>
+<p>Drag release (<code>onUp</code>) keeps <code>keep("pointer")</code> / <code>pass("pointer")</code>.</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>The exemplar is <code>src/pages/eidos/inbox.astro:690-720</code> and <code>:785-798</code>. Copy its names (<code>origin</code>, <code>decisionDelay</code>, <code>onCancel</code>) so the two rooms read the same.</li><li><code>tests/reads-room.test.mjs</code> "the reading room answers the keyboard like discover does" asserts the key map shape; extend it to assert <code>decisionDelay</code> and <code>onCancel</code> exist in the source.</li></ul>
+<h3>Steps</h3>
+<ol><li>Add <code>decisionDelay</code>; thread <code>origin</code> through <code>fly</code>, <code>pass</code>, <code>keep</code>, the button listeners, the key map and the ⌘↵ handler as in Target.</li><li>Add <code>onCancel</code>; point <code>pointercancel</code> at it.</li><li>Extend the test; build; run the suite.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT change the pointer path's timing or curves here (M02 owns the gesture).</li><li>Do NOT touch <code>src/pages/eidos/inbox.astro</code>.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: <code>node --test tests/reads-room.test.mjs</code> green; <code>grep -c 'origin' src/pages/eidos/reads.astro</code> ≥ 10.</li><li><strong>Feel check</strong>: on <code>/eidos/reads</code> hold <code>l</code> down for two seconds: cards advance one per keypress with no flight and no 240ms wait (a held key still fires once, the <code>e.repeat</code> guard is unchanged). Click keep with the mouse: the card flies as before. Start a drag, then scroll the page mid-drag: the card returns home and no verdict is sent (Network panel shows no POST).</li><li><strong>Done when</strong>: keyboard judging is instant, pointer judging is unchanged, and a cancelled drag never posts.</li></ul></div></details>
+<details class="plan" id="M02"><summary><span class="no">M02</span><span class="t">A swipe that knows how fast the hand moved</span><span class="sev high">HIGH</span></summary><div class="body"><p class="cat">4. Interruptibility · 3. Physicality</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/pages/eidos/inbox.astro</code> (drag block ~765-798), <code>src/pages/eidos/reads.astro</code> (drag block ~419-437), <code>src/styles/pages/eidos-studio.css:314-315, 407-409</code>&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>The card is the product's one gesture and it is judged on distance alone:</p>
+<pre><code>// src/pages/eidos/inbox.astro:785 — current (reads.astro:430 identical)
+if (dx &gt; 110) keep("pointer"); else if (dx &lt; -110) pass("pointer");</code></pre>
+<p>A fast 90px flick "puts it back"; a slow 115px drag commits. <code>onDown</code> records only <code>x0</code>, never a time. Re-grabbing a card mid-settle teleports it:</p>
+<pre><code>// src/pages/eidos/inbox.astro:765 — current
+const onDown = (e) =&gt; { …; card.classList.remove("is-flying", "is-home"); x0 = e.clientX; … };</code></pre>
+<p>The leave and the return are fixed tweens regardless of release speed:</p>
+<pre><code>/* src/styles/pages/eidos-studio.css:314-315 — current */
+.eidos-studio .in-card.is-flying { transition: transform 240ms cubic-bezier(0.2, 0, 0.2, 1), opacity 220ms var(--ease); }
+.eidos-studio .in-card.is-home   { transition: transform 220ms cubic-bezier(0.18, 0.72, 0.18, 1); }</code></pre>
+<p>and the keep/pass stamps only fade (<code>edgeIn.style.opacity = dx / 90</code>), never move with the hand.</p>
+<h3>Target</h3>
+<pre><code>// target — both rooms, identical code
+let x0 = 0, t0 = 0, dx = 0, vx = 0, lastX = 0, lastT = 0, dragging = false;
+const onDown = (e) =&gt; {
+  if (!cur || busy || e.target.closest("a, button, input, textarea, label")) return;
+  // read the live offset so a re-grab continues from where the card is, not from zero
+  const live = new DOMMatrix(getComputedStyle(card).transform).m41 || 0;
+  card.classList.remove("is-flying", "is-home");
+  dragging = true; x0 = e.clientX - live; lastX = e.clientX; lastT = t0 = performance.now(); vx = 0;
+  card.setPointerCapture?.(e.pointerId);
+  card.style.willChange = "transform";
+};
+const onMove = (e) =&gt; {
+  if (!dragging) return;
+  const now = performance.now();
+  vx = 0.7 * vx + 0.3 * ((e.clientX - lastX) / Math.max(1, now - lastT));  // px/ms, smoothed
+  lastX = e.clientX; lastT = now;
+  dx = e.clientX - x0;
+  card.style.transform = `translateX(${dx}px) rotate(${dx / 22}deg)`;
+  const k = Math.min(1, Math.abs(dx) / 90);
+  (dx &gt; 0 ? edgeIn : edgeOut).style.opacity = k;
+  (dx &gt; 0 ? edgeIn : edgeOut).style.transform = `${dx &gt; 0 ? "rotate(6deg)" : "rotate(-6deg)"} scale(${0.9 + 0.1 * k})`;
+  (dx &gt; 0 ? edgeOut : edgeIn).style.opacity = 0;
+};
+const onUp = () =&gt; {
+  if (!dragging) return;
+  dragging = false;
+  const commit = Math.abs(dx) &gt; 110 || Math.abs(vx) &gt; 0.11;   // distance OR velocity (AUDIT: ~0.11 px/ms)
+  if (commit) {
+    // the flight lasts as long as the hand implies: fast flick, fast exit; clamp 160–300ms
+    const ms = Math.round(Math.min(300, Math.max(160, 260 - Math.abs(vx) * 400)));
+    card.style.transitionDuration = `${ms}ms, ${ms}ms`;
+    (dx &gt; 0 || vx &gt; 0.11) ? keep("pointer") : pass("pointer");
+  } else {
+    card.classList.add("is-home"); card.style.transform = ""; edgeIn.style.opacity = 0; edgeOut.style.opacity = 0;
+  }
+  card.style.willChange = ""; dx = 0; vx = 0;
+};</code></pre>
+<pre><code>/* target — eidos-studio.css */
+.eidos-studio .in-card.is-flying { transition: transform 240ms var(--ease-out), opacity 200ms var(--ease-out); }  /* duration overridden inline from velocity */
+.eidos-studio .in-card.is-home   { transition: transform 300ms cubic-bezier(0.32, 0.72, 0, 1); }                 /* the drawer curve: settles like a spring without one */
+.eidos-studio .in-edge { transition: transform 120ms var(--ease-out); }  /* the stamp lands, it does not only fade */</code></pre>
+<p><code>--ease-out: cubic-bezier(0.23, 1, 0.32, 1)</code> is added in M04; if M04 is not applied yet, write the literal.</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>The two rooms must stay identical in gesture code; <code>src/pages/eidos/inbox.astro</code> is the source of truth, <code>reads.astro</code> copies it.</li><li><code>will-change</code> is set only for the life of the gesture (P06 removes the permanent one at <code>eidos-studio.css:311</code>).</li><li>Reduced motion: <code>eidos-studio.css:605-618</code> already drops the flight; leave that branch.</li></ul>
+<h3>Steps</h3>
+<ol><li>Replace the drag block in <code>inbox.astro</code> with Target; then copy the identical block into <code>reads.astro</code> (after M01 has added <code>onCancel</code>, keep it).</li><li>Change the three CSS rules.</li><li>Build; suite; pane check with a synthetic pointer sequence (pointerdown at x=300, three pointermoves to x=380 within 60ms, pointerup) → the card commits on velocity though it moved only 80px.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT add a physics library; the drawer curve + velocity-scaled duration is the whole "spring".</li><li>Do NOT change the 120vw / 16deg exit pose.</li><li>Do NOT touch the keyboard path (M01).</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: suite green; the synthetic-pointer pane check above commits; a slow 100px drag returns home.</li><li><strong>Feel check</strong>: on a trackpad, flick a card 70px hard: it commits and leaves fast. Drag it 115px slowly and release: it commits and leaves at the base speed. Drag 60px and release: it settles home on the drawer curve with no bounce-back and no snap. Grab a card while it is settling: it continues from where it is. The keep stamp grows as the card travels and is at full size at the commit line.</li><li><strong>Done when</strong>: all five feel checks pass on a trackpad and on a phone.</li></ul></div></details>
+<details class="plan" id="M03"><summary><span class="no">M03</span><span class="t">Every control answers the finger</span><span class="sev high">HIGH</span></summary><div class="body"><p class="cat">3. Physicality — press feedback · 4. Asymmetric timing</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/styles/pages/eidos-product.css</code>, <code>src/styles/pages/eidos-studio.css</code>, <code>src/styles/dream.css</code> (~4 rules), <code>src/styles/pages/press.css</code>&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>The whole eidos surface has no press feedback. There is no <code>:active</code> rule in <code>eidos-product.css</code> and one in <code>eidos-studio.css</code> (not on the buttons). The homepage's press rule is written against <code>button:active</code> under <code>[data-mode="dream"]</code> (dream.css:2876), and the eidos layout renders <code>&lt;html data-eidos-product&gt;</code> with no <code>data-mode</code>, so keep, pass, favorite, undo, every filter, <code>.ep-action</code>, <code>.ep-weather</code>, <code>.ep-visual-open</code>, <code>.ep-more</code>, <code>.ep-surprise</code>, <code>.ep-detail-close</code>, the comparison pair and the gate/throw submits all do nothing under the finger.</p>
+<p>On the homepage the same rule misses three kinds of control: <code>div.log-bead[role="button"]</code> (index.astro:653), the header hamburger <code>&lt;summary&gt;</code> (dream.css:2523; the chapter compass summary <em>does</em> press at 2710), and three link-shaped controls (<code>.me-door</code> dream.css:647, <code>.pr-row</code> press.css:108, <code>.chapter-rail a</code> dream.css:2798).</p>
+<p>Where press feedback exists it is symmetric (dream.css:2888 <code>scale 90ms</code>; eidos.css:799; dream.css:3089, 1654): press and release take the same time.</p>
+<h3>Target</h3>
+<pre><code>/* target — src/styles/pages/eidos-product.css, one element-level rule, mirrors dream.css:2870-2876 */
+[data-eidos-product] button:active,
+[data-eidos-product] [role="button"]:active,
+[data-eidos-product] summary:active,
+[data-eidos-product] .ep-action:active,
+[data-eidos-product] .ep-visual-open:active { transform: scale(0.97); transition: transform 160ms var(--ease-out); }
+/* release snaps: the system answers faster than the hand pressed */
+[data-eidos-product] button, [data-eidos-product] [role="button"], [data-eidos-product] summary,
+[data-eidos-product] .ep-action, [data-eidos-product] .ep-visual-open { transition: transform 90ms var(--ease-out); }</code></pre>
+<p>Where a control already transitions <code>color</code>/<code>background</code> (<code>.ep-action</code> 214, <code>.ep-weather</code> 445, <code>.in-btn</code> studio 438), <em>add</em> <code>transform</code> to its list rather than replacing it, keeping the 160ms press / 90ms release split via a <code>:active { transition-duration: 160ms }</code> override.</p>
+<pre><code>/* target — dream.css, beside line 2876 */
+[data-mode="dream"] [role="button"]:active,
+[data-mode="dream"] .menu &gt; summary:active,
+[data-mode="dream"] .me-door:active,
+[data-mode="dream"] .chapter-rail a:active { scale: 0.97; }
+[data-mode="dream"] .pr-row:active { scale: 0.99; }   /* a full-width row: subtle */</code></pre>
+<p>and the existing symmetric releases (dream.css:2888 <code>scale 90ms</code>, eidos.css:799, dream.css:3089, dream.css:1654) become press 160ms / release 90ms by adding <code>:active { transition-duration: 160ms; }</code> next to each.</p>
+<p><code>--ease-out</code> comes from M04; use the literal <code>cubic-bezier(0.23, 1, 0.32, 1)</code> if M04 is not in yet.</p>
+<h4>Focus, while we are here</h4>
+<p><code>src/styles/pages/eidos-studio.css</code> has no <code>:focus-visible</code> rule at all (product: 7, dream: 19). The studio's controls fall back to the browser's default ring, which differs per browser and clips against the paper. One rule, the same on every studio control:</p>
+<pre><code>/* target — eidos-studio.css */
+.eidos-studio :is(button, [role="button"], summary, a, input, textarea):focus-visible { outline: 2px solid var(--ep-raspberry); outline-offset: 2px; border-radius: inherit; }
+.eidos-studio :is(button, [role="button"], summary, a, input, textarea):focus:not(:focus-visible) { outline: none; }</code></pre>
+<p>No transition on it (keyboard-initiated).</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>Exemplar: <code>dream.css:2869-2895</code> ("written against the element rather than a list of class names… transform only, so it runs on the compositor"). Keep that voice; the eidos rule is the same idea under a different root attribute.</li><li>The <code>.hero-stack figure</code> and pile tilts are not controls; leave them.</li><li><code>tests/house-rules.test.mjs</code> checks radii and hover weights; add one assertion: every stylesheet that styles a <code>button</code> also contains <code>button:active</code>.</li></ul>
+<h3>Steps</h3>
+<ol><li>Add the eidos press rule block (Target) to <code>eidos-product.css</code>; it covers the studio too because <code>.eidos-studio</code> lives under <code>[data-eidos-product]</code>.</li><li>Add the four homepage selectors beside dream.css:2876 and the <code>.pr-row</code> rule in <code>press.css</code>.</li><li>Make the four symmetric releases asymmetric.</li><li>Extend the house-rules test; build; suite.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT add press feedback to inline text links in prose (they are exempt by the same reasoning as the tap-target rule in dream.css:2915).</li><li>Do NOT change any hover rule here.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: suite green; in the pane on <code>/eidos/inbox</code>, <code>getComputedStyle(document.getElementById("keep")).transition</code> includes <code>transform</code>.</li><li><strong>Feel check</strong>: on a phone, tap keep, pass, a filter, the faun guide, "open moodboard", a plate, the header hamburger on <code>/</code>, a journey row, the "more of what i love" pill, a press row: each dips to 0.97 (0.99 for the row) on touch and snaps back faster than it went down. In DevTools Animations panel at 10%: press ≈ 160ms, release ≈ 90ms.</li><li><strong>Done when</strong>: no pressable thing on either surface is inert under the finger.</li></ul></div></details>
+<details class="plan" id="M04"><summary><span class="no">M04</span><span class="t">One motion vocabulary: tokens, curves, budgets</span><span class="sev med">MEDIUM</span></summary><div class="body"><p class="cat">2. Easing &amp; duration · 7. Cohesion &amp; tokens</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/styles/global.css</code> (tokens), <code>src/styles/dream.css</code> (~14 rules), <code>src/styles/pages/eidos-product.css</code> (~8), <code>src/styles/pages/eidos-studio.css</code> (~8), <code>src/styles/pages/eidos-atlas.css</code> (2), <code>src/components/eidos/EidosCollection.astro</code> (delete), <code>DESIGN.md</code>&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>The site has one general curve and it starts slow:</p>
+<pre><code>/* src/styles/global.css:176-179 — current */
+--ease: cubic-bezier(0.2, 0, 0.2, 1);
+--ease-slick: cubic-bezier(0.62, 0.05, 0.01, 0.99); /* hold, then snap to rest; entrances only */
+--dur: 200ms;
+--dur-slow: 320ms;</code></pre>
+<p><code>--ease</code> is an ease-in-out shape used for everything, including entrances and exits, which should start fast. The eidos surfaces never use the tokens at all: <strong>16 hand-typed copies</strong> of <code>cubic-bezier(0.2, 0, 0.2, 1)</code> in two spellings (<code>eidos-product.css:144, 236, 251, 350×2, 499</code>; <code>eidos-studio.css:207, 212, 225, 314, 367-369</code>; <code>eidos-atlas.css:93, 106</code>; <code>dream.css:520</code>; <code>EidosCollection.astro:114</code>), a private duration scale (120/160/180/220/240/260/520ms), two near-duplicate strong ease-outs (<code>cubic-bezier(0.18, 0.8, 0.24, 1)</code> at studio 264/266/430 and <code>cubic-bezier(0.18, 0.72, 0.18, 1)</code> at studio 315), bare <code>ease</code> at dream.css:89 and atlas 106, and a documented token <code>ease-text</code> (DESIGN.md:115) that is defined nowhere.</p>
+<p>Durations over the 300ms UI ceiling on frequent elements: <code>cv-unfold 0.34s</code> (dream.css:2237), hover lifts at <code>--dur-slow</code> 320ms (dream.css:576, 1385-1387, 2051, 2942, 230-233, 165), <code>.dm-swap</code> 320ms (3174), <code>.wall img</code> 320ms (global.css:978), the underline sweep 320ms (global.css:1130), the loader rings 520ms (studio 367-369), <code>favorite-press</code> and <code>faun-favorite</code> 340ms (studio 430, 264).</p>
+<p>Keyboard-initiated motion: the skip link slides in over 200ms (global.css:255); the eidos nav underline sweeps on <code>:focus-visible</code> (eidos-product.css:134-147); the weather preview fades in on focus (459-466).</p>
+<h3>Target</h3>
+<pre><code>/* target — src/styles/global.css:176-181 */
+--ease: cubic-bezier(0.2, 0, 0.2, 1);                  /* hover, colour, state that is neither entering nor leaving */
+--ease-out: cubic-bezier(0.23, 1, 0.32, 1);            /* anything entering or exiting; the default */
+--ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);        /* something already on screen, moving to a new place */
+--ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);         /* gestures settling */
+--ease-slick: cubic-bezier(0.62, 0.05, 0.01, 0.99);    /* unchanged: one-shot 0.9s entrances only */
+--dur-fast: 160ms;  --dur: 200ms;  --dur-mid: 240ms;  --dur-slow: 300ms;</code></pre>
+<p>Rules, then applied everywhere (one find-and-replace pass per file, then the per-rule retargets):</p>
+<div class="tw"><table><thead><tr><th>what</th><th>now</th><th>target</th></tr></thead><tbody><tr><td>every literal <code>cubic-bezier(0.2, 0, 0.2, 1)</code> / <code>(.2,0,.2,1)</code></td><td>16 copies</td><td><code>var(--ease)</code></td></tr><tr><td><code>cubic-bezier(0.18, 0.8, 0.24, 1)</code>, <code>(0.18, 0.72, 0.18, 1)</code></td><td>4 copies</td><td><code>var(--ease-out)</code> (the settle uses <code>var(--ease-drawer)</code>, see M02)</td></tr><tr><td>bare <code>ease</code> (dream 89, atlas 106)</td><td></td><td><code>var(--ease)</code></td></tr><tr><td>eidos durations 180ms → <code>var(--dur-fast)</code>; 220/240/260ms → <code>var(--dur-mid)</code>; 120/160ms → <code>var(--dur-fast)</code></td><td></td><td></td></tr><tr><td>entrances/exits on <code>--ease</code>: <code>.menu-drop</code> (dream 2901), <code>.cv-open</code> (2237), <code>.easel-layer</code> (250-253), <code>.gloss-note</code> (1323-1331), rail label (2831-2839), <code>.chapter-rail</code> (2632-2635), <code>.ep-hero-note</code> (product 249-252), hero settle (236), <code>.in-card.is-flying</code> (studio 314)</td><td><code>var(--ease)</code></td><td><code>var(--ease-out)</code></td></tr><tr><td><code>cv-unfold 0.34s</code></td><td>340ms</td><td><code>200ms var(--ease-out)</code> (M05 turns it into a transition)</td></tr><tr><td>hover lifts at <code>--dur-slow</code> (dream 165, 230-233, 576, 1385-1387, 2051, 2942; global 978, 1130)</td><td>320ms</td><td><code>var(--dur)</code> 200ms</td></tr><tr><td><code>.dm-swap &gt; *</code></td><td>320ms</td><td><code>var(--dur)</code>, plus the asymmetry in M08</td></tr><tr><td>loader rings (studio 367-369)</td><td>520ms</td><td><code>280ms var(--ease-out)</code></td></tr><tr><td><code>favorite-press</code>, <code>faun-favorite</code>, <code>faun-halo</code></td><td>340ms</td><td><code>260ms var(--ease-out)</code></td></tr><tr><td>skip link (global 255)</td><td>slide 200ms</td><td><code>transition: none</code> — instant on Tab</td></tr><tr><td><code>.ep-nav a:focus-visible::after</code></td><td>220ms sweep</td><td>instant on focus (<code>transition: none</code> inside <code>:focus-visible</code>); keep the sweep for <code>[aria-current]</code> only, on <code>var(--ease-out)</code></td></tr><tr><td><code>.ep-weather:focus-visible .ep-weather-preview</code></td><td>180ms fade</td><td>instant on focus</td></tr><tr><td>press release <code>scale 90ms</code> (dream 2888)</td><td>90ms <code>--ease</code></td><td><code>160ms var(--ease-out)</code> press, 90ms release (M03)</td></tr><tr><td>DESIGN.md <code>ease-text</code></td><td>documented, undefined</td><td>delete the line (the <code>--ease-slick</code> entrance is the text entrance)</td></tr><tr><td><code>EidosCollection.astro</code></td><td>unused, own vocabulary</td><td>delete the file</td></tr></tbody></table></div>
+<h3>Repo conventions to follow</h3>
+<ul><li>Tokens live at <code>global.css:176-179</code>; DESIGN.md <code>motion:</code> block at line 113 mirrors them — update both in the same commit.</li><li><code>tests/house-rules.test.mjs</code> is the place to pin "no literal cubic-bezier outside global.css": add a test that greps <code>src/styles/**/*.css</code> and <code>src/**/*.astro</code> for <code>cubic-bezier(</code> and allows matches only in <code>global.css</code> (and the one documented <code>--ease-slick</code> use).</li></ul>
+<h3>Steps</h3>
+<ol><li>Add the tokens; update DESIGN.md.</li><li>Per file, replace literals with tokens (table rows 1–4).</li><li>Retarget the entrances to <code>--ease-out</code> (row 5) and cap the durations (rows 6–10).</li><li>Make the three keyboard-triggered reveals instant (rows 11–13).</li><li>Delete <code>EidosCollection.astro</code>; <code>grep -rn EidosCollection src</code> must return nothing.</li><li>Add the no-literal test; build; suite.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT change <code>--ease-slick</code> or the 0.9s <code>.enter-anim</code> entrances (settled, DESIGN.md:116).</li><li>Do NOT alter the three ambient tempos (48s/88s/132s) or any <code>infinite</code> loop.</li><li>Do NOT convert keyframes to transitions here (M05).</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: suite green including the new no-literal test; <code>grep -rn "cubic-bezier(" src --include=<em>.css --include=</em>.astro | grep -v global.css</code> returns nothing.</li><li><strong>Feel check</strong>: open the header menu, a read-more, hover a journey row, open the gloss popover: each now starts moving on the first frame instead of hesitating; nothing on either surface takes longer than 300ms except the three documented exceptions (0.9s entrances, ambient loops, the 900ms scene crossfade). Tab to the skip link: it is simply there.</li><li><strong>Done when</strong>: one token file describes every curve and duration in use, and the DevTools Animations panel shows no UI transition over 300ms.</li></ul></div></details>
+<details class="plan" id="M05"><summary><span class="no">M05</span><span class="t">Reversible things use transitions, not keyframes</span><span class="sev med">MEDIUM</span></summary><div class="body"><p class="cat">4. Interruptibility</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/styles/dream.css</code> (menu, cv-open), <code>src/styles/pages/eidos-studio.css</code> (loader, stamp, faun), <code>src/styles/pages/eidos.css:816</code> (atlas detail), <code>src/pages/eidos/inbox.astro:449-469</code> (loader/faun JS), <code>src/components/eidos/EidosMoodboard.astro</code> (surprise wobble)&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>Keyframes restart from zero and cannot be reversed; transitions retarget from wherever they are. Six reversible or rapidly re-triggered pieces of UI use keyframes:</p>
+<pre><code>/* src/styles/dream.css:2899-2907 — current: the header menu, opens with a keyframe, closes with a hard cut */
+[data-mode="dream"] .menu-drop { transform-origin: top right; animation: menu-open 0.18s var(--ease) both; }
+/* src/styles/dream.css:2572 — a second, dead animation on the same element */
+[data-mode="dream"] .menu-drop { … animation: cv-unfold 0.2s var(--ease) both; }
+/* src/styles/dream.css:2236-2251 — read-more: 340ms open, instant close */
+[data-mode="dream"] .cv-open { animation: cv-unfold 0.34s var(--ease) both; }
+/* src/styles/pages/eidos-studio.css:367-381 + inbox.astro:449-454 — the loader is force-restarted with a reflow */
+plateLoader.classList.remove("is-active"); void plateLoader.offsetWidth; plateLoader.classList.add("is-active");
+/* eidos-studio.css:430-435, 264-266 — favourite stamp and faun reaction, keyframes on a control fired many times a minute */
+/* src/styles/pages/eidos.css:816 — the atlas detail panel: em-rise keyframe, teleports or replays */
+/* EidosMoodboard.astro (surprise): piece.animate([rotate(-1deg), rotate(1deg), none], { duration: 420 }) stacks on mash */</code></pre>
+<p><code>.gloss-note</code> (dream.css:1318-1339) already shows the right shape: transitions + <code>@starting-style</code>, asymmetric 140ms in / 190ms out, trigger-anchored origin.</p>
+<h3>Target</h3>
+<pre><code>/* target — header menu (dream.css), replaces both animation declarations */
+[data-mode="dream"] .menu-drop {
+  transform-origin: top right;
+  opacity: 0; transform: translateY(-4px) scale(0.94);
+  transition: opacity 120ms var(--ease-out), transform 120ms var(--ease-out), display 120ms allow-discrete;
+}
+[data-mode="dream"] .menu[open] &gt; .menu-drop { opacity: 1; transform: none; transition-duration: 180ms, 180ms, 180ms; }
+@starting-style { [data-mode="dream"] .menu[open] &gt; .menu-drop { opacity: 0; transform: translateY(-4px) scale(0.94); } }
+
+/* target — read-more */
+[data-mode="dream"] .cv-open { opacity: 0; transform: translateY(-4px); transition: opacity 140ms var(--ease-out), transform 140ms var(--ease-out); }
+[data-mode="dream"] .cv-job[open] .cv-open { opacity: 1; transform: none; transition-duration: 200ms, 200ms; }
+@starting-style { [data-mode="dream"] .cv-job[open] .cv-open { opacity: 0; transform: translateY(-4px); } }
+
+/* target — favourite stamp: same look, driven by the class, retargets on a fast second favourite */
+.eidos-studio .in-favorite-stamp { opacity: 0; transform: translate(-50%, -50%) rotate(-7deg) scale(0.92); transition: opacity 120ms var(--ease-out), transform 260ms var(--ease-out); }
+.eidos-studio .in-card.is-favorite .in-favorite-stamp { opacity: 1; transform: translate(-50%, -50%) rotate(-7deg) scale(1); }
+
+/* target — faun reaction: the same transition vocabulary the [data-preview] states already use (studio 252-263) */
+.eidos-studio [data-state="favorite"] .in-faun-key { transform: translateY(-3px) scale(1.04); transition: transform 260ms var(--ease-out); }
+
+/* target — atlas detail panel */
+[data-mode="dream"] .em-detail { opacity: 0; transform: translateY(6px); transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out); }
+[data-mode="dream"] .em-detail[data-open] { opacity: 1; transform: none; }</code></pre>
+<p>Loader: keep the print-registration feel but stop forcing reflows — drive the rings from <code>data-state="loading" | "done"</code> with transitions on <code>opacity</code>/<code>transform</code> (280ms <code>var(--ease-out)</code>), and gate re-entry: if a new plate is requested within 280ms of the last, do not restart, only extend.</p>
+<p>Surprise wobble: before starting a new <code>animate()</code>, <code>previous?.cancel()</code>; set <code>duration: 240</code>, easing <code>var(--ease-out)</code> literal <code>cubic-bezier(0.23, 1, 0.32, 1)</code>; or replace with an <code>is-found</code> class carrying a <code>transform</code> transition.</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>Exemplar: <code>dream.css:1318-1339</code> (<code>.gloss-note</code>).</li><li><code>display … allow-discrete</code> and <code>@starting-style</code> are already used by the gloss popover; keep the <code>[hidden]</code>/<code>details[open]</code> mechanics as they are.</li><li>Reduced motion: keep the opacity half of each transition and drop the transform half (see M07).</li></ul>
+<h3>Steps</h3>
+<ol><li>Menu: delete the <code>animation</code> line at dream.css:2572 and replace the block at 2899-2907 with Target; check that closing now fades out (120ms).</li><li>Read-more: replace the keyframe at 2236-2251 with Target.</li><li>Studio: stamp, faun state, loader as in Target; remove <code>void plateLoader.offsetWidth</code> and the timer-plus-keyframe pairing at inbox.astro:462-469 in favour of <code>dataset.state</code> toggles.</li><li>Atlas detail: set <code>data-open</code> from the script that fills the panel; remove <code>em-rise</code> usage.</li><li>Moodboard surprise: cancel-before-start.</li><li>Build; suite; pane: open/close the menu five times in a second — it never jumps back to <code>scale(0.94)</code>.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT change the <code>transform-origin: top right</code> of the menu (settled, Emil's fifth tip, dream.css:2895-2898).</li><li>Do NOT alter the ambient keyframes or the <code>fly</code> keyframe in global.css.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: suite green; <code>grep -n "menu-open\|cv-unfold\|em-rise\|favorite-press\|faun-favorite" src/styles/<em>.css src/styles/pages/</em>.css</code> returns only the <code>@keyframes</code> definitions if any remain unused (delete those too).</li><li><strong>Feel check</strong>: mash the hamburger: the panel follows the taps, retargeting mid-flight, and it fades out rather than vanishing. Toggle a read-more twice quickly: it reverses from wherever it was. Favourite two cards in a row with the mouse: the second stamp does not flash from zero. Rapid-fire plates: the loader never stutters.</li><li><strong>Done when</strong>: nothing reversible in the UI is driven by <code>@keyframes</code>.</li></ul></div></details>
+<details class="plan" id="M06"><summary><span class="no">M06</span><span class="t">Only transform and opacity move</span><span class="sev med">MEDIUM</span></summary><div class="body"><p class="cat">5. Performance (layout-triggering transitions)</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/styles/pages/eidos-studio.css:286</code>, <code>src/styles/dream.css:230-233, 2446-2447</code>, <code>src/styles/global.css:1126-1132</code>, five <code>box-shadow</code> transitions (dream 149, 233, 1197, 1387; product 499), <code>src/pages/eidos/map.astro</code> wheel zoom&lt;/p&gt;</p>
+<h3>Problem</h3>
+<pre><code>/* src/styles/pages/eidos-studio.css:286 — current: the card stage reflows for 220ms on every deal */
+.eidos-studio .in-stage { transition: max-width 220ms var(--ease), margin 220ms var(--ease); }
+/* src/styles/dream.css:230-233 — current: the easel's height animates although its width was deliberately stopped (205-208) */
+transition: aspect-ratio 220ms var(--ease), transform var(--dur-slow) var(--ease), box-shadow …;
+/* src/styles/dream.css:2446-2447 — SVG geometry */
+[data-mode="dream"] .map-node &gt; circle + circle { transition: r var(--dur) var(--ease), fill var(--dur) var(--ease); }
+/* src/styles/global.css:1126-1132 — paint on every frame of a 320ms sweep */
+background-size: 0% 1px; transition: background-size var(--dur-slow) var(--ease), …;</code></pre>
+<p>Five transitions animate <code>box-shadow</code> (repaint each frame); the atlas wheel zoom pushes a continuous gesture through a fixed 220ms tween (<code>eidos.css:657-659</code>, <code>map.astro:272-283</code>) and dead-stops at the zoom limits (<code>map.astro:276, 302-303</code>).</p>
+<h3>Target</h3>
+<pre><code>/* .in-stage: the frame takes its new size at once; the card crossfade covers the change (the homepage's own answer, dream.css:205-208) */
+.eidos-studio .in-stage { transition: none; }
+
+/* easel: drop the layout property, keep the rest */
+transition: transform var(--dur) var(--ease), box-shadow …;   /* aspect-ratio removed */
+
+/* map node: scale instead of r */
+[data-mode="dream"] .map-node &gt; circle + circle { transform-box: fill-box; transform-origin: center; transition: transform var(--dur) var(--ease), fill var(--dur) var(--ease); }
+[data-mode="dream"] .map-node.is-on &gt; circle + circle { transform: scale(1.35); }   /* choose the factor that reproduces the current r change exactly */
+
+/* underline sweep: a bar, not a background */
+.receipt-src, .ways a { position: relative; }
+.receipt-src::after, .ways a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -0.1em; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform var(--dur) var(--ease); }
+.receipt-src:hover::after, .ways a:hover::after { transform: scaleX(1); }
+
+/* shadows: cross-fade a duplicate on ::after */
+.x { position: relative; } .x::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: &lt;the hover shadow&gt;; opacity: 0; transition: opacity var(--dur) var(--ease); pointer-events: none; }
+.x:hover::after { opacity: 1; }</code></pre>
+<p>Atlas wheel: while wheel events arrive, add <code>is-dragging</code> (the class that already disables the transition for drags) and clear it 120ms after the last event; soft-clamp beyond the limits: <code>z = limit + (z - limit) * 0.25</code> during the gesture and ease back to <code>limit</code> on end.</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>The written reason at <code>dream.css:205-208</code> is the doctrine: "the frame now takes its new width at once and only the picture fades." Apply the same sentence to the stage.</li><li><code>tests/house-rules.test.mjs</code>: add a test that no <code>transition</code> in <code>src/styles/**</code> names <code>width</code>, <code>height</code>, <code>max-width</code>, <code>margin</code>, <code>padding</code>, <code>top</code>, <code>left</code>, <code>inset</code>, <code>aspect-ratio</code>, <code>r</code>, or <code>background-size</code> — allow-list the one documented exception (<code>.arw</code> top/left, global.css:1102-1116).</li></ul>
+<h3>Steps</h3>
+<ol><li>Apply the five CSS changes above.</li><li>Atlas wheel: <code>is-dragging</code> on wheel + idle timeout; soft clamp.</li><li>Add the layout-property test; build; suite.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT touch <code>.arw</code> (documented exception).</li><li>Do NOT change what the hover states look like at rest or at the end of the transition — only what animates in between.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: suite green; DevTools Performance recording while dealing 10 cards shows no purple "Layout" blocks longer than 2ms during the deal.</li><li><strong>Feel check</strong>: deal cards: the stage snaps to the new width and the card fades in (no rubbery stage). Hover a map node: it grows the same amount as before. Hover an email in the contact list: the underline sweeps identically. Wheel-zoom the atlas: it follows the wheel without a lag and resists softly at the limits.</li><li><strong>Done when</strong>: the layout-property test passes and the deal recording is clean.</li></ul></div></details>
+<details class="plan" id="M07"><summary><span class="no">M07</span><span class="t">Reduced motion keeps the feedback and drops only the travel</span><span class="sev high">HIGH</span></summary><div class="body"><p class="cat">6. Accessibility</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/styles/global.css:704-713</code>, <code>src/styles/dream.css</code> (1068-1073, eight hover rules, hero-stack), <code>src/styles/pages/eidos-studio.css:605-618</code>, <code>src/styles/pages/eidos-product.css:705-716</code>, <code>src/layouts/Layout.astro:297-324</code>&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>The global reduced-motion rule is wrong on both halves:</p>
+<pre><code>/* src/styles/global.css:708-713 — current */
+*, *::before, *::after { animation: none !important; transition-duration: 120ms !important; }</code></pre>
+<p>It kills every keyframe including pure-opacity/colour feedback (<code>faun-register-<em></code>, <code>faun-proof</code>, <code>cv-unfold</code>, <code>menu-open</code>, <code>em-rise</code>), and it </em>keeps* every movement transition — <code>.wall figure:hover img { transform: scale(1.05) }</code>, <code>.lib-card:hover { translateY(-2px) }</code>, the parallax — just faster. Reduced motion means fewer and gentler, not zero; and it must drop position changes first.</p>
+<p>Also: <code>dream.css:1068-1073</code> sets <code>transition: none</code> on <code>.scenes i</code>, which removes the 900ms opacity crossfade between full-screen paintings, giving reduced-motion users a hard cut. <code>eidos-studio.css:610-614</code> and <code>eidos-product.css:710-716</code> blanket <code>transition: none !important</code>, deleting the opacity/colour feedback on the swipe direction indicators and on <code>.ep-action</code>/<code>.ep-weather</code>. <code>eidos-studio.css:618</code> pins the favourite stamp permanently visible. Eight <code>:hover</code> transforms are not gated to <code>(hover: hover) and (pointer: fine)</code> (dream.css:165, 634, 1200, 1394, 2982, 3109; global.css:981; studio 556), so a tap on a phone leaves cards and marks displaced. The <code>lisa</code> easter egg (Layout.astro:297-324) injects sixteen falling petals with no reduced-motion check. <code>.hero-stack figure</code> has no reduced-motion counterpart while its twin <code>.hi-stack</code> does (dream.css:3006-3011).</p>
+<h3>Target</h3>
+<pre><code>/* target — src/styles/global.css, replaces 708-713 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  /* travel goes; opacity and colour stay */
+  *, *::before, *::after { transition-property: opacity, color, background-color, border-color, fill, stroke !important; transition-duration: 160ms !important; }
+  /* anything that moves for atmosphere stops; anything that moves as the sole feedback becomes a fade */
+  .dream-sky b, .scenes i, .sunpulse, .firelight, .weather s, .glints s, .enter-anim { animation: none !important; transform: none !important; }
+}</code></pre>
+<p>Then per surface, the fades that must survive:</p>
+<pre><code>/* dream.css:1068-1073 — target: parallax off, crossfade kept */
+@media (prefers-reduced-motion: reduce) { .scenes i { transform: none; } }   /* transition: opacity 900ms stays */
+
+/* eidos-studio.css:610-618 — target */
+@media (prefers-reduced-motion: reduce) {
+  .eidos-studio .in-faun-key, .eidos-studio .in-faun-echo, .eidos-studio .in-faun-signal { transform: none !important; }   /* opacity 120ms and background 120ms stay */
+  .eidos-studio .in-card.is-flying, .eidos-studio .in-card.is-home { transform: none !important; transition: opacity 160ms var(--ease) !important; }
+  .eidos-studio .in-card.is-favorite .in-favorite-stamp { animation: favorite-fade 900ms ease both; transform: translate(-50%, -50%) rotate(-7deg); }
+}
+@keyframes favorite-fade { 0% { opacity: 0; } 20%, 70% { opacity: 1; } 100% { opacity: 0; } }
+
+/* eidos-product.css:710-716 — target: keep colour/opacity, null the transform */
+@media (prefers-reduced-motion: reduce) { .ep-action, .ep-weather, .ep-hero-note, .ep-visual-open { transform: none !important; } }
+
+/* dream.css — add beside 3006-3011 */
+@media (prefers-reduced-motion: reduce) { [data-mode="dream"] .hero-stack figure, [data-mode="dream"] .hero-stack figure:hover .cell { transform: none; transition: none; } }</code></pre>
+<p>Wrap the eight hover transforms in <code>@media (hover: hover) and (pointer: fine) { … }</code> exactly as <code>eidos-product.css:547-556</code> and <code>dream.css:92, 656</code> already do. In <code>Layout.astro:297</code>, after the <code>buf !== "lisa"</code> check add <code>if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;</code> (mirrors line 274).</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>CHECKLIST.md §6: "Reduced motion drops the transition and keeps the colour"; DESIGN.md:424: "reduced motion removes travel while preserving quiet state feedback". The target above is those two sentences as CSS.</li><li>Exemplar hover gate: <code>eidos-product.css:547-556</code>.</li><li><code>tests/reading-room.test.mjs</code> and <code>tests/house-rules.test.mjs</code> read CSS via <code>allCss()</code>; add a test that the reduced-motion block does not contain <code>animation: none !important</code> on <code>*</code> and that every <code>:hover</code> rule with <code>transform</code> sits inside a <code>(hover: hover)</code> media block.</li></ul>
+<h3>Steps</h3>
+<ol><li>Replace the global blanket with Target.</li><li>Apply the four surface-level corrections.</li><li>Gate the eight hover transforms.</li><li>Guard the <code>lisa</code> egg.</li><li>Add the tests; build; suite.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT remove any reduced-motion branch that already keeps opacity (e.g. <code>.gloss-note</code> dream.css:1355-1361).</li><li>Do NOT change what happens for users without reduced motion.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: suite green; with DevTools Rendering → "prefers-reduced-motion: reduce": <code>document.getAnimations()</code> on <code>/</code> at rest returns 0; hover a wall print: no scale; scroll between acts: the paintings still crossfade.</li><li><strong>Feel check</strong> (reduced motion on): open the menu — it fades in; keep a card — it fades out; favourite — the stamp fades in and out, never sticks; the faun's keep/pass colour still changes as you drag. On a phone with reduced motion off: tap a wall print, then tap elsewhere — nothing stays enlarged.</li><li><strong>Done when</strong>: every state on both surfaces is still communicated under reduced motion, by opacity or colour, and nothing travels.</li></ul></div></details>
+<details class="plan" id="M08"><summary><span class="no">M08</span><span class="t">Crossfades that do not double-expose; entrances that arrive one by one</span><span class="sev med">MEDIUM</span></summary><div class="body"><p class="cat">7. Cohesion (crossfades, stagger)</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/styles/dream.css:248-261, 3174-3205, 1252-1265</code>, <code>src/layouts/Layout.astro:334-345</code>, <code>src/pages/eidos/inbox.astro:580-589</code>&lt;/p&gt;</p>
+<h3>Problem</h3>
+<pre><code>/* src/styles/dream.css:248-261 — current: two full prints in one mat, symmetric dissolve */
+[data-mode="dream"] .easel-layer { opacity: 0; transition: opacity 220ms var(--ease), transform 220ms var(--ease); }</code></pre>
+<p>For ~110ms two photographs — often two faces — sit superimposed at ~50% each. The <code>dm</code> heading does the same inside a word: <code>.dm-swap &gt; *</code> crossfades 📨 and "ytro" symmetrically over 320ms (dream.css:3174-3205).</p>
+<p>Every <code>.enter-anim</code> target already on screen at load gets <code>is-in</code> in the same IntersectionObserver callback (Layout.astro:334-345), so groups of rows rise in perfect unison. The end-of-deck kept shelf paints all thumbnails in one frame (inbox.astro:580-589).</p>
+<h3>Target</h3>
+<pre><code>/* easel: the outgoing print leaves faster than the incoming arrives, and a 2px blur masks the overlap */
+[data-mode="dream"] .easel-layer { opacity: 0; filter: blur(2px); transition: opacity 140ms var(--ease-out), transform 220ms var(--ease-out), filter 220ms var(--ease-out); }
+[data-mode="dream"] .easel-layer.is-active { opacity: 1; filter: blur(0); transition-duration: 220ms, 220ms, 220ms; }
+
+/* dm: no overlap — the envelope is gone before the letters arrive */
+[data-mode="dream"] .dm-mail { transition: opacity 120ms var(--ease) 110ms; }          /* rest state: arrives after ytro has gone */
+[data-mode="dream"] .dm-ytro { transition: opacity 180ms var(--ease); }
+[data-mode="dream"] .card-title:hover .dm-mail { transition-delay: 0ms; }             /* leaves at once */
+[data-mode="dream"] .card-title:hover .dm-ytro { transition-delay: 110ms; }           /* arrives after */</code></pre>
+<pre><code>// Layout.astro:334-345 — target: 60ms stagger inside each observer batch, capped at 240ms, decorative only
+entries.filter((e) =&gt; e.isIntersecting).forEach((e, i) =&gt; {
+  e.target.style.transitionDelay = `${Math.min(i, 4) * 60}ms`;
+  e.target.classList.add("is-in");
+  e.target.addEventListener("transitionend", () =&gt; { e.target.style.transitionDelay = ""; }, { once: true });
+  io.unobserve(e.target);
+});
+// inbox.astro:580-589 — target: the kept shelf deals its thumbnails
+row.querySelectorAll("img, i").forEach((el, i) =&gt; el.animate(
+  [{ opacity: 0, transform: "translateY(8px) scale(0.94)" }, { opacity: 1, transform: "none" }],
+  { duration: 260, easing: "cubic-bezier(0.23, 1, 0.32, 1)", delay: Math.min(i, 8) * 50, fill: "backwards" }));</code></pre>
+<p>Under reduced motion the stagger stays (it is opacity-timing) but the blur and the transforms go (M07's block already nulls transforms; add <code>filter: none</code> to it).</p>
+<h3>Repo conventions to follow</h3>
+<ul><li><code>.easel-layer</code> keeps its <code>scale(0.985) → 1</code> (dream.css:236-238, settled: two layers trading places).</li><li>The <code>dm</code> joke's reduced-motion branch (dream.css:3199-3204) stays.</li><li><code>tests/homepage-motion.test.mjs</code> "the journey easel has two media buffers" must stay green; add an assertion that <code>.easel-layer</code> transitions <code>filter</code>.</li></ul>
+<h3>Steps</h3>
+<ol><li>Easel and dm CSS as in Target.</li><li>Observer stagger in <code>Layout.astro</code>.</li><li>Kept-shelf WAAPI in <code>inbox.astro</code> (and the same in <code>reads.astro</code> if it ever shows a shelf).</li><li>Build; suite.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT exceed <code>blur(2px)</code>; do NOT add blur to anything else.</li><li>Stagger must never delay interactivity: rows are clickable from the first frame.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: suite green; DevTools Animations at 10%: the outgoing easel print is gone at 140ms while the incoming is still arriving.</li><li><strong>Feel check</strong>: hover down the journey rows quickly: no ghost faces; the swap reads as one print replacing another. Hover the "dm klochko" title: the envelope leaves, then the letters arrive, never both. Reload <code>/</code> at the top: the first rows rise one after another, 60ms apart, and are clickable immediately.</li><li><strong>Done when</strong>: no frame of the easel swap shows two faces, and the load entrance is staggered.</li></ul></div></details>
+<details class="plan" id="M09"><summary><span class="no">M09</span><span class="t">Things appear from where they came: the deal, the lightbox, the dialogs</span><span class="sev med">MEDIUM</span></summary><div class="body"><p class="cat">8. Missed opportunities · 3. Origin</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/pages/eidos/inbox.astro</code> + <code>reads.astro</code> (<code>next()</code>), <code>src/components/eidos/EidosMoodboard.astro:66-73</code>, <code>src/styles/pages/eidos-product.css:533-542</code>, <code>src/styles/pages/eidos-studio.css</code> (<code>.in-keys</code>, <code>.in-comparison</code>, <code>.in-next-edge</code>), <code>src/styles/dream.css:2719-2733</code> (chapter compass), <code>src/styles/pages/eidos.css:748-770</code> (atlas tip)&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>Three of the product's primary interactions have no motion at all, and one has motion that says nothing about where the thing came from:</p>
+<ul><li><strong>The deal.</strong> After a card flies, the next one simply exists (<code>inbox.astro:545-570</code>: <code>card.hidden = false; card.style.transform = ""</code>), while <code>.in-next-edge</code> already draws the edge of the next card behind it.</li><li><strong>The lightbox.</strong> <code>EidosMoodboard.astro:66-73</code> calls <code>detail.showModal()</code> on a <code>&lt;dialog&gt;</code> with zero open/close motion (<code>eidos-product.css:533-542</code> has no <code>[open]</code> rule, no <code>@starting-style</code>). This is the moodboard's main action, under a <code>zoom-in</code> cursor.</li><li><strong>The dialogs</strong> <code>.in-keys</code> and <code>.in-comparison</code> (studio 520, 529) open and close with a hard cut.</li><li><strong>The chapter compass list</strong> (dream.css:2719-2733) opens above its pill by teleport, and its positioning <code>translateX(50%)</code> means any scale would grow from its centre, not the pill. <strong>The atlas tip</strong> (eidos.css:748-770) fades in place with no origin.</li></ul>
+<h3>Target</h3>
+<pre><code>// the deal — inbox.astro / reads.astro next(), pointer and button origins only (keyboard stays instant)
+if (origin !== "keyboard") {
+  card.style.transition = "none";
+  card.style.transform = "translateY(10px) scale(0.985)"; card.style.opacity = "0";
+  requestAnimationFrame(() =&gt; {
+    card.style.transition = "transform 220ms cubic-bezier(0.23, 1, 0.32, 1), opacity 160ms cubic-bezier(0.23, 1, 0.32, 1)";
+    card.style.transform = ""; card.style.opacity = "";
+  });
+  nextEdge.animate([{ transform: "rotate(0.8deg)" }, { transform: "rotate(1.6deg)" }], { duration: 220, easing: "cubic-bezier(0.23, 1, 0.32, 1)" });
+}</code></pre>
+<pre><code>/* the lightbox — grows from the plate it came from */
+.ep-detail { opacity: 0; transform: scale(0.96) translateY(8px); transform-origin: var(--from-x, 50%) var(--from-y, 50%);
+  transition: opacity 180ms var(--ease-out), transform 220ms var(--ease-out), overlay 220ms allow-discrete, display 220ms allow-discrete; }
+.ep-detail[open] { opacity: 1; transform: none; }
+@starting-style { .ep-detail[open] { opacity: 0; transform: scale(0.96) translateY(8px); } }
+.ep-detail::backdrop { opacity: 0; transition: opacity 180ms var(--ease-out), overlay 180ms allow-discrete, display 180ms allow-discrete; }
+.ep-detail[open]::backdrop { opacity: 1; }
+@starting-style { .ep-detail[open]::backdrop { opacity: 0; } }
+/* close is faster than open */
+.ep-detail:not([open]) { transition-duration: 140ms, 140ms, 140ms, 140ms; }</code></pre>
+<pre><code>// EidosMoodboard.astro click handler: set the origin from the clicked figure
+const r = figure.getBoundingClientRect();
+detail.style.setProperty("--from-x", `${((r.left + r.width / 2) / innerWidth * 100).toFixed(1)}%`);
+detail.style.setProperty("--from-y", `${((r.top + r.height / 2) / innerHeight * 100).toFixed(1)}%`);
+detail.showModal();</code></pre>
+<p>The same three rules (base, <code>[open]</code>, <code>@starting-style</code>) apply to <code>.in-keys</code> and <code>.in-comparison</code> with <code>transform-origin: center</code> (modals are exempt from trigger-origin), 180ms open / 140ms close. Chapter compass list: <code>transform-origin: bottom center</code>, from <code>translateY(6px) scale(0.96)</code>, 180ms <code>var(--ease-out)</code>, with <code>@starting-style</code>. Atlas tip: <code>transform: translateX(-50%) translateY(-4px) scale(0.96)</code> → <code>translateX(-50%)</code>, <code>transform-origin: top center</code>, 150ms.</p>
+<p><code>--ease-out</code> from M04 (<code>cubic-bezier(0.23, 1, 0.32, 1)</code>).</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>DESIGN.md:424 "Repeated decisions finish in 240ms or less": the deal entrance is 220ms and runs in parallel with nothing else; the total from swipe to next card ready stays ≤ 240ms.</li><li><code>@starting-style</code> + <code>allow-discrete</code> is the pattern the gloss popover already uses (dream.css:1318-1339).</li><li>Reduced motion: opacity only (M07).</li></ul>
+<h3>Steps</h3>
+<ol><li>Deal entrance in both rooms, gated by <code>origin</code>.</li><li>Lightbox CSS + origin variables in the click handler.</li><li><code>.in-keys</code>, <code>.in-comparison</code>, chapter compass, atlas tip.</li><li>Build; suite; pane: open the lightbox from a plate at the top-left and one at the bottom-right — it grows from each.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT animate on the keyboard path (<code>origin === "keyboard"</code>), including <code>?</code> opening the keys sheet — the sheet may still fade (opacity only, 120ms) since it is a rare action, but it must not scale.</li><li>Do NOT change any dialog's content or focus behaviour.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: suite green; the Animations panel shows the lightbox's <code>transform-origin</code> changing per plate.</li><li><strong>Feel check</strong>: click a plate: the detail grows from under the cursor and the plate grid dims behind it; Esc: it shrinks back faster than it grew. Swipe a card with the mouse: the next card rises 10px into place as the pile behind loses a leaf. Press <code>l</code>: no entrance, instant. Open the compass: the list unfolds upward from the pill.</li><li><strong>Done when</strong>: every open/close on both surfaces has an entrance and an exit, and every trigger-anchored panel visibly comes from its trigger.</li></ul></div></details>
+<details class="plan" id="M10"><summary><span class="no">M10</span><span class="t">The rare moments get their delight budget</span><span class="sev med">LOW–MEDIUM</span></summary><div class="body"><p class="cat">8. Missed opportunities</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/pages/eidos/inbox.astro</code> (<code>rest_</code>, <code>shutOut</code>, <code>record</code>/<code>count</code>), <code>src/pages/eidos/reads.astro</code> (same three + the throw handler)&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>Four moments carry meaning and render as a teleport:</p>
+<ol><li><strong>End of the deck</strong> (<code>inbox.astro:573-592</code>, <code>reads.astro rest_</code>): the card vanishes, "that is all of them. N kept…" appears, every kept thumbnail paints in the same frame. The one moment the sitting builds to.</li><li><strong>The gate</strong> (<code>inbox.astro:624-637</code>, <code>reads.astro shutOut</code>): the whole workbench disappears and a password form is suddenly there, scrolled to with <code>behavior: "instant"</code>. The most jarring state change on either studio page; it reads as a bug.</li><li><strong>The sitting's record</strong> (<code>inbox.astro:470-502</code>, <code>reads.astro:210-228</code>): the trail is rebuilt and the counter rewritten on every verdict with no acknowledgement — the one confirmation that the verdict landed is invisible. This fires tens of times per sitting, so it gets the smallest budget.</li><li><strong>The first thrown link</strong> (<code>reads.astro:338-359</code>): saved to the queue beside the composer, the connection stated only in prose.</li></ol>
+<h3>Target</h3>
+<pre><code>// 1 — end of the deck: reveal the sentence, then deal the shelf
+noteLine.animate([{ clipPath: "inset(0 0 100% 0)", opacity: 0 }, { clipPath: "inset(0 0 0 0)", opacity: 1 }], { duration: 300, easing: "cubic-bezier(0.23, 1, 0.32, 1)", fill: "backwards" });
+row.querySelectorAll("img, i").forEach((el, i) =&gt; el.animate([{ opacity: 0, transform: "translateY(8px) scale(0.94)" }, { opacity: 1, transform: "none" }], { duration: 260, easing: "cubic-bezier(0.23, 1, 0.32, 1)", delay: 300 + Math.min(i, 8) * 50, fill: "backwards" }));
+
+// 2 — the gate: workbench fades, gate rises, scroll is smooth unless reduced motion
+workbench.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 120, easing: "ease", fill: "forwards" }).finished.then(() =&gt; {
+  workbench.hidden = true; gate.hidden = false;
+  gate.animate([{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }], { duration: 240, easing: "cubic-bezier(0.23, 1, 0.32, 1)" });
+  gate.scrollIntoView({ block: "center", behavior: reduced ? "instant" : "smooth" });
+});
+
+// 3 — the record: prepend one row and animate only it; tick the digits by opacity
+const li = rowFor(entry); trail.prepend(li); while (trail.children.length &gt; 5) trail.lastChild.remove();
+li.animate([{ opacity: 0, transform: "translateY(-6px)" }, { opacity: 1, transform: "none" }], { duration: 180, easing: "cubic-bezier(0.23, 1, 0.32, 1)" });
+countEl.animate([{ opacity: 1 }, { opacity: 0.35 }, { opacity: 1 }], { duration: 160, easing: "ease" });   // digits are tabular-nums; they must not move
+
+// 4 — the thrown link flies to the stage
+const from = urlField.getBoundingClientRect(), to = stage.getBoundingClientRect();
+const ghost = document.createElement("span"); ghost.className = "in-ghost"; ghost.textContent = host(url); document.body.append(ghost);
+Object.assign(ghost.style, { position: "fixed", left: `${from.left}px`, top: `${from.top}px`, width: `${from.width}px`, pointerEvents: "none" });
+ghost.animate([{ transform: "none", opacity: 1 }, { transform: `translate(${to.left - from.left}px, ${to.top - from.top}px) scale(0.6)`, opacity: 0 }], { duration: 320, easing: "cubic-bezier(0.23, 1, 0.32, 1)" }).finished.then(() =&gt; ghost.remove());
+stage.animate([{ transform: "translateY(-4px)" }, { transform: "none" }], { duration: 180, easing: "cubic-bezier(0.23, 1, 0.32, 1)", delay: 260 });</code></pre>
+<p>All four: <code>if (matchMedia("(prefers-reduced-motion: reduce)").matches)</code> → keep only the opacity halves (no <code>clipPath</code>, no <code>transform</code>), and no ghost.</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>WAAPI (<code>el.animate</code>) is already the repo's tool for one-off JS motion (<code>EidosMoodboard.astro</code> surprise); CSS handles predetermined motion.</li><li>Digits everywhere are <code>tabular-nums</code> (CHECKLIST.md); the counter tick must not change layout.</li><li>Budget: DESIGN.md:424 — repeated decisions ≤ 240ms. Item 3 is 180ms; items 1, 2, 4 are rare and may exceed it.</li></ul>
+<h3>Steps</h3>
+<ol><li><code>rest_</code> in both rooms (item 1).</li><li><code>shutOut</code> in both rooms (item 2).</li><li><code>record</code>/<code>renderTrail</code>/<code>count</code> in both rooms (item 3): stop <code>replaceChildren()</code>; prepend.</li><li>The throw handler in <code>reads.astro</code> (item 4); when the deck was empty and <code>next()</code> deals at once, skip the ghost and let M09's deal entrance carry it.</li><li>Build; suite; feel check.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT add motion to the verdict itself beyond M02/M09.</li><li>Do NOT stagger more than 8 thumbnails or exceed 350ms total on the shelf.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: suite green; no layout shift on the counter (CLS in the pane stays 0 while judging ten cards).</li><li><strong>Feel check</strong>: judge a whole shelf to the end: the closing line unrolls, then the kept pictures deal onto the shelf one by one. Log out in another tab and swipe: the workbench dims and the gate rises into view smoothly. Watch the sitting trail while judging: each new line slides in at the top and the count blinks once. Throw a link: its hostname flies from the field to the stage, which nods.</li><li><strong>Done when</strong>: all four moments are visible as events, and the reduced-motion path shows each as a fade.</li></ul></div></details>
+<details class="plan" id="M11"><summary><span class="no">M11</span><span class="t">Pages that change without a blink (native cross-document view transitions)</span><span class="sev med">LOW–MEDIUM</span></summary><div class="body"><p class="cat">8. Missed opportunities · 1. Purpose (spatial consistency)</p><p>&lt;p class="scope"&gt;&lt;span&gt;scope&lt;/span&gt; <code>src/styles/global.css</code> (one at-rule + two names), <code>src/layouts/Layout.astro</code>, <code>src/components/eidos/EidosHeader.astro</code> (one attribute each); zero JavaScript&lt;/p&gt;</p>
+<h3>Problem</h3>
+<p>Every navigation on the site is a hard cut: <code>/</code> → <code>/press/</code> → <code>/eidos/</code> each flash to the ground colour and repaint. Inside a page the site spends real care on continuity (two easel buffers so a memory "cannot teleport in", 900ms scene crossfades); between pages it has none. The greats the homepage was measured against (rauno.me, paco.me) keep the wordmark still while the page changes under it.</p>
+<h3>Target</h3>
+<p>The native, JavaScript-free cross-document View Transitions API. Where the browser supports it (Chrome 126+, Safari 18.2+), the old page crossfades into the new one over 180ms and the wordmark stays put; everywhere else nothing changes.</p>
+<pre><code>/* target — src/styles/global.css */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 180ms; animation-timing-function: var(--ease-out); }
+::view-transition-group(masthead) { animation-duration: 220ms; animation-timing-function: var(--ease-in-out); }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}</code></pre>
+<pre><code>&lt;!-- src/layouts/Layout.astro:149 — the masthead keeps its place across pages --&gt;
+&lt;a class="masthead" href="/" style="view-transition-name: masthead"&gt;dmytro klochko&lt;/a&gt;
+&lt;!-- src/components/eidos/EidosHeader.astro:9 --&gt;
+&lt;a class="ep-wordmark" href="/eidos" style="view-transition-name: masthead" …&gt;</code></pre>
+<p>The homepage has no masthead (the hero is the masthead); the name will therefore fade with the page there, which is right: leaving home is leaving the poster. <code>view-transition-name</code> must be unique per page — only one element carries <code>masthead</code>.</p>
+<h3>Repo conventions to follow</h3>
+<ul><li>No new dependencies and no Astro <code>&lt;ClientRouter /&gt;</code>: the site's scripts (<code>is:inline</code> egg handlers, the scene choreography) are written for full document loads and would double-bind under a SPA router. The native API keeps full loads.</li><li>Reduced motion: the block above nulls every transition; the hard cut returns, which is the correct fallback.</li><li>Tests: add to <code>tests/pages.test.mjs</code> that exactly one element per built page has <code>view-transition-name: masthead</code>, and that <code>global.css</code> carries <code>@view-transition</code>.</li></ul>
+<h3>Steps</h3>
+<ol><li>Add the at-rule and pseudo-element rules to <code>global.css</code>.</li><li>Add the attribute to the two wordmarks.</li><li>Build; suite; test in Chrome and Safari: navigate <code>/press/</code> → <code>/learning/</code> → <code>/eidos/</code> → back.</li></ol>
+<h3>Boundaries</h3>
+<ul><li>Do NOT add <code>view-transition-name</code> to anything else in this plan (a persisted header rail can come later, once the crossfade has lived for a week).</li><li>Do NOT touch the in-page motion.</li></ul>
+<h3>Verification</h3>
+<ul><li><strong>Mechanical</strong>: suite green; DevTools → Animations shows a <code>::view-transition</code> pseudo tree on navigation in Chrome.</li><li><strong>Feel check</strong>: click "press" in the header: the wordmark holds still while the page dissolves under it in under 200ms; click the browser back button: same in reverse. In Firefox: a plain load, no artefacts. With reduced motion: a plain load.</li><li><strong>Done when</strong>: navigation between any two chrome-bearing pages is a dissolve, the wordmark never moves, and unsupported browsers see exactly what they see today.</li></ul></div></details>
+</section>
+</article>
+</main>
+</div>
