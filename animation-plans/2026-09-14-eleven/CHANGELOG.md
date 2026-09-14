@@ -34,3 +34,16 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 - `tests/pictures.test.mjs` — new: hero/portrait attributes true to the file and offer `srcset`; faun offered small; homepage ships no png/jpg but icons and the social image.
 - `tests/eidos-product.test.mjs`, `tests/reading-room.test.mjs` — five pins widened from exact filenames to `…-poster[^"]*.webp`; the one pin that asserted the wrong hero size (1920×1080) now asserts the true one.
 - Left alone on purpose: the 440 px moodboard plates render at 259 px on a 2× screen, i.e. they are already slightly under-served; shrinking them would cost quality.
+
+## P06 — An ambient budget: pay only for motion that is on screen
+- `src/styles/dream.css` — weather and glint loops pause once their act has faded (`html[data-weather-idle]` gate, 950ms after the last change); scene layers at zero weight (`.is-off`) stop breathing; glints join the `data-motion="paused"` list. Keyframes, tempos and counts untouched.
+- `src/scripts/scene-choreography.js` — toggles `is-off` on invisible layers; sets `data-weather-idle` on `<html>` 950ms after each scene/weather change.
+- `src/scripts/motion-control.js` — `paused: document.hidden`; `visibilitychange` re-applies the policy (CSS loops, films and the petal field all stop in a hidden tab).
+- `src/scripts/petal-field.js` — the render loop never starts into a hidden tab.
+- `src/layouts/Layout.astro` — sky `--mx/--my` and pile `--tx/--ty` writes batched into one rAF per frame (were one per pointer event).
+- `src/styles/global.css` — permanent `will-change` removed from the `.stars` layers dream mode never displays.
+- `src/pages/eidos/inbox.astro` — the 232-line `<style media="not all">` block that never applied is gone (its reduced-motion rules were not policy; eidos-studio.css is).
+- `tests/homepage-motion.test.mjs` — new: gates, paused list, hidden-tab pause, loop guard, batched writes.
+- `tests/pages.test.mjs` — the inbox radius check reads eidos-studio.css now that the dead block is gone.
+- Measured, not applied: direct `element.style.transform` writes instead of parent variables (six descendants; the scroll half is a documented decision), `animation-timeline: scroll()` (would duplicate five per-layer formulas in CSS), `content-visibility` on the moodboard columns (CSS multi-column balancing jumps as items become visible; not worth the risk to Codex's layout).
+- Verified in the browser: at rest in the fire act the ember and estuary layers carry `is-off`, `data-weather-idle` is set; in the estuary act fire and ember are off and the estuary layer on.

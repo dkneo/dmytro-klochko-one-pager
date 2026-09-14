@@ -865,7 +865,6 @@ body::after {
     radial-gradient(1.2px 1.2px at 55% 95%, rgb(255 111 174 / 45%) 50%, transparent 50%);
   background-size: 300px 300px;
   opacity: 0;
-  will-change: transform, opacity;
   animation: fly 9s linear infinite;
 }
 

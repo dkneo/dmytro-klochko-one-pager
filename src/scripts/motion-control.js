@@ -27,7 +27,8 @@ export function setupMotionControl() {
       fine: richScreen.matches,
       reduced: reduced.matches,
       saveData: Boolean(navigator.connection?.saveData),
-      paused: false,
+      // a hidden tab is a paused site: CSS loops, films and the petal field all stop
+      paused: document.hidden,
     });
     root.dataset.motionTier = policy.rich ? "rich" : "quiet";
     root.dataset.motion = policy.paused ? "paused" : "running";
@@ -49,7 +50,7 @@ export function setupMotionControl() {
 
   for (const media of [reduced, richScreen]) media.addEventListener("change", apply);
   addEventListener("resize", apply, { passive: true });
-  document.addEventListener("visibilitychange", () => videos.forEach(syncVideo));
+  document.addEventListener("visibilitychange", apply);
   apply();
   return policy;
 }

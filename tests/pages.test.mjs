@@ -114,7 +114,9 @@ test("the studio judges pictures while the private link pipeline waits", () => {
   // href="/_astro/inbox.*.css"> — so a scan of inline <style> found nothing
   // and passed on an empty list. The page's own sheet is the one to read,
   // and the test insists it exists so it can never pass on air again.
-  const ownSheet = html.match(/href="(\/_astro\/inbox\.[^"]+\.css)"/)?.[1];
+  // P06 removed the inbox's dead inline block (media="not all"); the page's
+  // sheet is now eidos-studio.css, which is the one that actually styles it.
+  const ownSheet = html.match(/href="(\/_astro\/(?:inbox|eidos-studio)\.[^"]+\.css)"/)?.[1];
   assert.ok(ownSheet, "the inbox has no stylesheet of its own to check");
   const own = read(path.join("dist", ownSheet));
   assert.match(own, /in-card/, "the sheet found is not the inbox's");

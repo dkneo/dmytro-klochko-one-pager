@@ -278,3 +278,22 @@ test("fingerprinted bundles can stay cached while the html remains fresh", () =>
   assert.match(read(headers), /\/_astro\/\*/);
   assert.match(read(headers), /Cache-Control: public, max-age=31536000, immutable/);
 });
+
+// ── an ambient budget ────────────────────────────────────────────────────
+test("ambient loops pause off-act and in a hidden tab; pointer writes are batched", () => {
+  const css = read("src/styles/dream.css");
+  assert.match(css, /html\[data-weather-idle\]:not\(\[data-scene="snow"\]\) \.weather--snow s,/, "snow runs where no snow is shown");
+  assert.match(css, /html\[data-weather-idle\]:not\(\[data-weather="fire"\]\) \.weather--fire s,/, "embers run outside the fire act");
+  assert.match(css, /\.scenes i\.is-off \{ animation-play-state: paused; \}/, "invisible scene layers keep breathing");
+  assert.match(css, /html\[data-motion="paused"\] \.scenes \.glints s,/, "glints escape the paused list");
+  const choreo = read("src/scripts/scene-choreography.js");
+  assert.match(choreo, /classList\.toggle\("is-off", weights\[index\] < 0\.01\)/);
+  assert.match(choreo, /root\.dataset\.weatherIdle = ""/);
+  const motion = read("src/scripts/motion-control.js");
+  assert.match(motion, /paused: document\.hidden,/, "a hidden tab does not pause the site");
+  assert.match(motion, /visibilitychange", apply\)/);
+  assert.match(read("src/scripts/petal-field.js"), /setAnimationLoop\(document\.hidden \? null : tick\)/);
+  const layout = read("src/layouts/Layout.astro");
+  assert.doesNotMatch(layout, /addEventListener\("pointermove", \(e\) => \{[^}]*setProperty\("--mx"/s, "--mx is written on every pointer event");
+  assert.match(layout, /requestAnimationFrame\(\(\) => \{ raf = 0; pile\.style\.setProperty\("--tx", nx\)/, "pile tilt is not batched");
+});

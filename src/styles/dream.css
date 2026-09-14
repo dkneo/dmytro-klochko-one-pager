@@ -1484,6 +1484,18 @@ html[data-weather="fire"] .weather--fire { opacity: var(--fire-weather-opacity, 
 
 html[data-scene="snow"] .weather--snow { opacity: 1; }
 
+/* Pay only for motion that is on screen. Forty-three loops ran at rest on
+   the homepage, sixteen of them snow that no homepage act ever shows. A
+   weather layer's loop pauses once its 900ms fade has finished (the
+   choreography sets data-weather-idle 950ms after the last change), and a
+   scene layer's breathe pauses while its weight is zero. Same keyframes,
+   same tempos, same look — only when they run changes. */
+html[data-weather-idle]:not([data-scene="snow"]) .weather--snow s,
+html[data-weather-idle]:not([data-weather="fire"]) .weather--fire s,
+html[data-weather-idle]:not([data-weather="fire"]) .scenes .firelight,
+html[data-weather-idle]:not([data-scene="swim"]):not([data-scene="fuji"]):not([data-scene="estuary"]) .scenes .glints s,
+.scenes i.is-off { animation-play-state: paused; }
+
 html[data-scene="estuary"] .scenes .glints s {
   animation-duration: 24s;
 }
@@ -1492,6 +1504,7 @@ html[data-motion="paused"] .dream-sky b,
 html[data-motion="paused"] .scenes i,
 html[data-motion="paused"] .scenes .sunpulse,
 html[data-motion="paused"] .scenes .firelight,
+html[data-motion="paused"] .scenes .glints s,
 html[data-motion="paused"] .weather s {
   animation-play-state: paused !important;
 }

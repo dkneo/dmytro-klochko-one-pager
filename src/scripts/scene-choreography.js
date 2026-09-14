@@ -36,6 +36,14 @@ export function setupSceneChoreography(doc = document, view = window) {
   root.dataset.weather = acts[0].weather;
 
   let queued = false;
+  let idleTimer = 0;
+  // Weather loops may pause only after their 900ms fade has settled; the
+  // attribute that lets CSS pause them arrives 950ms after the last change.
+  const settle = () => {
+    delete root.dataset.weatherIdle;
+    view.clearTimeout(idleTimer);
+    idleTimer = view.setTimeout(() => { root.dataset.weatherIdle = ""; }, 950);
+  };
   const update = () => {
     queued = false;
     const weights = sceneWeights(
@@ -45,12 +53,15 @@ export function setupSceneChoreography(doc = document, view = window) {
     let active = 0;
     for (let index = 0; index < acts.length; index += 1) {
       acts[index].layer?.style.setProperty("--scene-opacity", weights[index].toFixed(4));
+      // a layer at zero weight is invisible: its breathe can rest
+      acts[index].layer?.classList.toggle("is-off", weights[index] < 0.01);
       if (weights[index] >= weights[active]) active = index;
     }
     root.style.setProperty(
       "--fire-weather-opacity",
       String(acts[0].weather === "fire" ? weights[0].toFixed(4) : 0),
     );
+    if (root.dataset.scene !== acts[active].scene || root.dataset.weather !== acts[active].weather) settle();
     root.dataset.scene = acts[active].scene;
     root.dataset.weather = acts[active].weather;
   };
@@ -65,6 +76,7 @@ export function setupSceneChoreography(doc = document, view = window) {
   view.addEventListener("scroll", queue, { passive: true });
   view.addEventListener("resize", queue, { passive: true });
   update();
+  settle();
 
   const warm = () => {
     for (const layer of sky.querySelectorAll("i[data-s]")) {

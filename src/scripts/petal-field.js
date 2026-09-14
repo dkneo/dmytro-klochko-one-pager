@@ -330,7 +330,7 @@ export function start() {
 
     renderer.render(scene, camera);
   };
-  renderer.setAnimationLoop(tick);
+  renderer.setAnimationLoop(document.hidden ? null : tick);
 
   let running = true;
   const applyMotion = (policy) => {

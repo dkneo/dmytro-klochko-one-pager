@@ -216,16 +216,21 @@ const isHomepage = Astro.url.pathname === "/";
         addEventListener("scroll", onScroll, { passive: true });
         onScroll();
         let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+        let mx = "50%", my = "50%";
         addEventListener("pointermove", (e) => {
           tx = (e.clientX / innerWidth - 0.5) * 2;
           ty = (e.clientY / innerHeight - 0.5) * 2;
-          sky.style.setProperty("--mx", (e.clientX / innerWidth) * 100 + "%");
-          sky.style.setProperty("--my", (e.clientY / innerHeight) * 100 + "%");
+          mx = (e.clientX / innerWidth) * 100 + "%";
+          my = (e.clientY / innerHeight) * 100 + "%";
           if (!raf) raf = requestAnimationFrame(ease);
         }, { passive: true });
+        // one style write per frame, not per pointer event (120Hz mice
+        // fire twice per frame; each write restyles every sky layer)
         function ease() {
           x += (tx - x) * 0.06;
           y += (ty - y) * 0.06;
+          sky.style.setProperty("--mx", mx);
+          sky.style.setProperty("--my", my);
           sky.style.setProperty("--px", x.toFixed(4));
           sky.style.setProperty("--py", y.toFixed(4));
           raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.001 ? requestAnimationFrame(ease) : 0;
@@ -241,10 +246,13 @@ const isHomepage = Astro.url.pathname === "/";
         if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
         if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
         for (const pile of document.querySelectorAll(".hero-stack, .hi-stack")) {
+          let raf = 0, nx = "0", ny = "0";
           pile.addEventListener("pointermove", (e) => {
             const r = pile.getBoundingClientRect();
-            pile.style.setProperty("--tx", (((e.clientX - r.left) / r.width - 0.5) * 2).toFixed(3));
-            pile.style.setProperty("--ty", (((e.clientY - r.top) / r.height - 0.5) * 2).toFixed(3));
+            nx = (((e.clientX - r.left) / r.width - 0.5) * 2).toFixed(3);
+            ny = (((e.clientY - r.top) / r.height - 0.5) * 2).toFixed(3);
+            // batched: one write per frame for the four figures that read it
+            if (!raf) raf = requestAnimationFrame(() => { raf = 0; pile.style.setProperty("--tx", nx); pile.style.setProperty("--ty", ny); });
           }, { passive: true });
           pile.addEventListener("pointerleave", () => {
             pile.style.setProperty("--tx", "0");
