@@ -111,11 +111,15 @@ mat:
   mat-snapshot: "0.45rem"
   mat-print: "0.6rem"
 motion:
-  ease: "cubic-bezier(0.2, 0, 0.2, 1)"
-  ease-text: "cubic-bezier(0.3, 0, 0, 1)"  # hard ease-out for type entering; docs/kprkr-study.md
+  ease: "cubic-bezier(0.2, 0, 0.2, 1)"  # hover, colour, state that is neither arriving nor leaving
+  ease-out: "cubic-bezier(0.23, 1, 0.32, 1)"  # anything entering or exiting; the default
+  ease-in-out: "cubic-bezier(0.77, 0, 0.175, 1)"  # already on screen, moving to a new place
+  ease-drawer: "cubic-bezier(0.32, 0.72, 0, 1)"  # a gesture settling
   ease-slick: "cubic-bezier(0.62, 0.05, 0.01, 0.99)"  # hold, then snap to rest; one-shot entrances only
+  dur-fast: "160ms"
   dur: "200ms"
-  dur-slow: "320ms"
+  dur-mid: "240ms"
+  dur-slow: "300ms"  # the UI ceiling; nothing interactive runs longer
 ---
 
 # Design System: dmytro klochko

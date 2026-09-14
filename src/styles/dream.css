@@ -86,7 +86,7 @@
   margin-inline: -0.8rem;
   padding: 0.42rem 0.8rem calc(var(--sp-2) - 0.1rem);
   border-radius: var(--r-row);
-  transition: background-color 160ms ease;
+  transition: background-color var(--dur-fast) var(--ease);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -229,8 +229,8 @@
   transform: rotate(1.2deg);
   transition:
     aspect-ratio 220ms var(--ease),
-    transform var(--dur-slow) var(--ease),
-    box-shadow var(--dur-slow) var(--ease);
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
 }
 
 /* Two prints occupy the same mat. The incoming memory resolves before it
@@ -248,8 +248,8 @@
   opacity: 0;
   transform: scale(0.985);
   transition:
-    opacity 220ms var(--ease),
-    transform 220ms var(--ease);
+    opacity 220ms var(--ease-out),
+    transform 220ms var(--ease-out);
   pointer-events: none;
 }
 
@@ -517,7 +517,7 @@ html.is-shook .scenes {
     rotateY(calc(var(--tx, 0) * 5deg))
     rotateX(calc(var(--ty, 0) * -4deg))
     translate3d(calc(var(--tx, 0) * var(--depth, 6) * 1px), calc(var(--ty, 0) * var(--depth, 6) * 1px), 0);
-  transition: transform 260ms cubic-bezier(0.2, 0, 0.2, 1);
+  transition: transform 260ms var(--ease);
 }
 
 [data-mode="dream"] .hero-stack figure:nth-child(1) { --depth: 5; }
@@ -573,7 +573,7 @@ html.is-shook .scenes {
   box-shadow:
     0 2px 5px rgb(8 10 22 / 58%),
     0 18px 40px rgb(8 10 22 / 42%);
-  transition: transform var(--dur-slow) var(--ease);
+  transition: transform var(--dur) var(--ease);
 }
 
 [data-mode="dream"] .hero-stack img {
@@ -1321,8 +1321,8 @@ html[data-mode="dream"] .scenes[data-progressive] i[data-s] {
   opacity: 0;
   transform: translateY(5px) scale(0.96);
   transition:
-    opacity 140ms var(--ease),
-    transform 140ms var(--ease);
+    opacity 140ms var(--ease-out),
+    transform 140ms var(--ease-out);
 }
 
 [data-mode="dream"] .gloss-note:popover-open {
@@ -1383,8 +1383,8 @@ html[data-mode="dream"] .scenes[data-progressive] i[data-s] {
   border-radius: var(--r-panel);
   box-shadow: 0 8px 20px rgb(10 10 26 / 38%);
   transition:
-    transform var(--dur-slow) var(--ease),
-    box-shadow var(--dur-slow) var(--ease);
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
 }
 
 [data-mode="dream"] .wall figure:nth-child(odd) .cell { transform: rotate(-1.4deg); }
@@ -2048,7 +2048,7 @@ html[data-motion="paused"] .scenes .firelight {
     0 2px 5px rgb(8 10 22 / 55%),
     0 14px 32px rgb(8 10 22 / 40%);
   transform: rotate(-1.2deg);
-  transition: transform var(--dur-slow) var(--ease);
+  transition: transform var(--dur) var(--ease);
 }
 
 /* the print sits one pixel inside the mat's corner, as it does in every
@@ -2234,7 +2234,7 @@ html[data-motion="paused"] .scenes .firelight {
 }
 
 [data-mode="dream"] .cv-open {
-  animation: cv-unfold 0.34s var(--ease) both;
+  animation: cv-unfold 200ms var(--ease-out) both;
 }
 
 [data-mode="dream"] .cv-open .cv-points {
@@ -2569,7 +2569,6 @@ html[data-motion="paused"] .scenes .firelight {
   border: 1px solid rgb(236 230 217 / 14%);
   border-radius: var(--r-row);
   box-shadow: 0 18px 44px rgb(6 9 18 / 55%);
-  animation: cv-unfold 0.2s var(--ease) both;
 }
 
 [data-mode="dream"] .menu-drop a {
@@ -2631,8 +2630,8 @@ html[data-motion="paused"] .scenes .firelight {
       opacity: 1;
       transform: translateX(-50%);
       transition:
-        opacity 200ms var(--ease),
-        transform 200ms var(--ease);
+        opacity 200ms var(--ease-out),
+        transform 200ms var(--ease-out);
     }
 
   [data-mode="dream"] .chapter-rail[data-enhanced][data-visible="false"] {
@@ -2835,8 +2834,8 @@ html[data-motion="paused"] .scenes .firelight {
       opacity: 0;
       transform: translateX(-4px);
       transition:
-        opacity 160ms var(--ease),
-        transform 160ms var(--ease);
+        opacity 160ms var(--ease-out),
+        transform 160ms var(--ease-out);
       pointer-events: none;
     }
 
@@ -2898,7 +2897,7 @@ html[data-motion="paused"] .scenes .firelight {
 
 [data-mode="dream"] .menu-drop {
   transform-origin: top right;
-  animation: menu-open 0.18s var(--ease) both;
+  animation: menu-open 180ms var(--ease-out) both;
 }
 
 @keyframes menu-open {
@@ -2939,7 +2938,7 @@ html[data-motion="paused"] .scenes .firelight {
   box-shadow:
     0 2px 5px rgb(8 10 22 / 58%),
     0 18px 40px rgb(8 10 22 / 42%);
-  transition: transform var(--dur-slow) var(--ease);
+  transition: transform var(--dur) var(--ease);
 }
 
 [data-mode="dream"] .hi-stack img {
@@ -3171,7 +3170,7 @@ html[data-motion="paused"] .scenes .firelight {
   grid-area: 1 / 1;
   font-style: inherit;
   color: inherit;
-  transition: opacity var(--dur-slow) var(--ease);
+  transition: opacity var(--dur) var(--ease);
 }
 
 [data-mode="dream"] .dm-mail {

@@ -115,7 +115,7 @@
   padding: var(--sp-3) 0.9rem;
   border-top: 1px solid rgb(236 230 217 / 16%);
   border-radius: var(--r-row);
-  transition: background-color 160ms ease;
+  transition: background-color var(--dur-fast) var(--ease);
 }
 
 /* The whole row is the target. The click used to be one line of title text

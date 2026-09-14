@@ -439,6 +439,9 @@ test("frequent product gestures stay quick, interruptible and respectful", () =>
 
   assert.match(product, /@media \(hover: hover\) and \(pointer: fine\)/, "pointer-only flourishes are not gated");
   assert.match(product, /@media \(prefers-reduced-motion: reduce\)/);
-  assert.match(studio, /is-flying \{ transition: transform 2[0-9]{2}ms cubic-bezier/);
+  // the card leaves on the shared exit token (240ms, ease-out) and settles on the drawer curve (300ms);
+  // both under the 300ms UI ceiling — see animation-plans/2026-09-14-eleven/M04
+  assert.match(studio, /is-flying \{ transition: transform var\(--dur-mid\) var\(--ease-out\)/);
+  assert.match(studio, /is-home \{ transition: transform var\(--dur-slow\) var\(--ease-drawer\)/);
   assert.doesNotMatch(studio, /is-(?:flying|home)[^{]*\{[^}]*transition:[^;}]*(?:3[1-9][0-9]|[4-9][0-9]{2})ms/);
 });

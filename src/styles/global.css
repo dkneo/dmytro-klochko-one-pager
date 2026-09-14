@@ -173,10 +173,21 @@
      break. The replika copy was running 71 characters. */
   --measure: min(100%, 62ch);
 
+  /* One vocabulary. --ease is for hover, colour and state that is neither
+     arriving nor leaving; anything entering or exiting takes --ease-out, so
+     it starts moving on the first frame; something already on screen moving
+     to a new place takes --ease-in-out; a gesture settling takes the drawer
+     curve. Durations: fast for feedback, mid for panels and cards, slow is
+     the UI ceiling. Nothing interactive runs longer than --dur-slow. */
   --ease: cubic-bezier(0.2, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-slick: cubic-bezier(0.62, 0.05, 0.01, 0.99); /* hold, then snap to rest; entrances only */
+  --dur-fast: 160ms;
   --dur: 200ms;
-  --dur-slow: 320ms;
+  --dur-mid: 240ms;
+  --dur-slow: 300ms;
 }
 
 * {
@@ -252,7 +263,7 @@ img {
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
   transform: translateY(-200%);
-  transition: transform var(--dur) var(--ease);
+  transition: none; /* revealed by Tab: a keyboard action never waits on motion */
 }
 
 .skip-link:focus {
@@ -975,7 +986,7 @@ body::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--dur-slow) var(--ease);
+  transition: transform var(--dur) var(--ease);
 }
 
 .wall figure:hover img {
@@ -1128,7 +1139,7 @@ a:focus-visible .arw {
   background-position: 0 100%;
   background-size: 0% 1px;
   transition:
-    background-size var(--dur-slow) var(--ease),
+    background-size var(--dur) var(--ease),
     color var(--dur) var(--ease);
 }
 

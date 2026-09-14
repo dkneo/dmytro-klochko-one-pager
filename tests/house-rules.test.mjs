@@ -177,3 +177,24 @@ test("every documented token ships with the value the document claims", () => {
   }
   assert.ok(checked >= 12, `only ${checked} tokens cross-checked`);
 });
+
+// ── one motion vocabulary ─────────────────────────────────────────────────
+// Every curve lives in global.css. The two allowed literals: the name-shake
+// easter egg (a documented wink) and EidosCollection, an unused component.
+test("no hand-typed easing curve outside the token file", () => {
+  const files = [];
+  const walk = (d) => { for (const f of fs.readdirSync(d)) { const p = path.join(d, f); fs.statSync(p).isDirectory() ? walk(p) : /\.(css|astro|js|mjs)$/.test(f) && files.push(p); } };
+  walk(path.join(root, "src"));
+  const offenders = [];
+  for (const f of files) {
+    const rel = path.relative(root, f);
+    if (rel === "src/styles/global.css" || rel === "src/components/eidos/EidosCollection.astro") continue;
+    const src = fs.readFileSync(f, "utf8");
+    for (const m of src.matchAll(/cubic-bezier\([^)]*\)/g)) {
+      const line = src.slice(0, m.index).split("\n").length;
+      if (rel === "src/styles/dream.css" && /name-shake/.test(src.split("\n")[line - 1])) continue;
+      offenders.push(`${rel}:${line} ${m[0]}`);
+    }
+  }
+  assert.deepEqual(offenders, [], "curves belong in global.css as tokens");
+});

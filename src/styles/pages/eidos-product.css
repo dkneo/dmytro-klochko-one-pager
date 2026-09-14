@@ -141,8 +141,9 @@ html[data-eidos-product] body {
   background: var(--ep-raspberry);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 220ms cubic-bezier(0.2, 0, 0.2, 1);
+  transition: transform var(--dur-mid) var(--ease-out);
 }
+.ep-nav a:focus-visible::after { transition: none; } /* keyboard: instant */
 .ep-nav a:focus-visible::after,
 .ep-nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
 .ep-parent { justify-self: end; gap: 0.35rem; }
@@ -211,7 +212,7 @@ html[data-eidos-product] body {
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-decoration: none;
-  transition: transform 180ms var(--ease), color 180ms var(--ease), background 180ms var(--ease);
+  transition: transform var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
 .ep-action:hover { color: var(--ep-raspberry); }
 .ep-action--solid { background: var(--ep-ink); color: var(--ep-paper-light) !important; border: 1px solid var(--ep-ink); }
@@ -233,7 +234,7 @@ html[data-eidos-product] body {
   transform-origin: center;
   will-change: transform;
 }
-.ep-hero-art.is-settling .ep-hero-poster img { transition: transform 260ms cubic-bezier(0.2, 0, 0.2, 1); }
+.ep-hero-art.is-settling .ep-hero-poster img { transition: transform var(--dur-mid) var(--ease-out); }
 .ep-hero-note {
   position: absolute;
   z-index: 3;
@@ -248,7 +249,7 @@ html[data-eidos-product] body {
   text-transform: uppercase;
   opacity: 0;
   transform: translate3d(calc(var(--hero-x) * 4px), 7px, 0);
-  transition: opacity 180ms var(--ease), transform 220ms cubic-bezier(0.2, 0, 0.2, 1);
+  transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-mid) var(--ease-out);
 }
 .ep-hero-note i {
   width: 0.46rem;
@@ -347,7 +348,7 @@ html[data-eidos-product] body {
   box-shadow: 0 1px 0 var(--ep-rule), 0 13px 32px var(--ep-shadow);
   cursor: zoom-in;
 }
-.ep-visual-open img { display: block; width: 100%; height: auto; transition: transform 240ms cubic-bezier(.2, 0, .2, 1), filter 240ms cubic-bezier(.2, 0, .2, 1); }
+.ep-visual-open img { display: block; width: 100%; height: auto; transition: transform var(--dur-mid) var(--ease), filter var(--dur-mid) var(--ease); }
 .ep-visual figcaption { display: grid; gap: 0.25rem; padding-top: 0.75rem; }
 .ep-visual figcaption > span { display: flex; align-items: center; gap: 0.35rem; color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; }
 .ep-visual figcaption > span i { width: 0.48rem; height: 0.48rem; flex: none; background: var(--piece-color); border: 1px solid color-mix(in srgb, var(--ep-ink) 18%, transparent); border-radius: 50%; }
@@ -443,7 +444,7 @@ html[data-eidos-product] body {
   border-right: 1px solid var(--ep-rule);
   border-bottom: 1px solid var(--ep-rule);
   cursor: pointer;
-  transition: background 180ms var(--ease), transform 180ms var(--ease);
+  transition: background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
 }
 .ep-weather:nth-child(4n) { border-right: 0; }
 .ep-weather:hover, .ep-weather:focus-visible, .ep-weather.is-active { background: var(--ep-paper-light); }
@@ -461,10 +462,10 @@ html[data-eidos-product] body {
   gap: 0.3rem;
   opacity: 0;
   transform: translateY(6px);
-  transition: opacity 180ms var(--ease), transform 180ms var(--ease);
+  transition: opacity var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
 }
 .ep-weather-preview img { width: auto; height: 3.7rem; max-width: 30%; object-fit: contain; box-shadow: 0 4px 12px var(--ep-shadow); }
-.ep-weather:focus-visible .ep-weather-preview { opacity: 1; transform: none; }
+.ep-weather:focus-visible .ep-weather-preview { opacity: 1; transform: none; transition: none; } /* keyboard: instant */
 .ep-weather:focus-visible small { opacity: 0; }
 .ep-weather--all { min-height: 6rem; align-content: center; background: var(--ep-ink); color: var(--ep-paper-light); }
 .ep-weather--all:hover, .ep-weather--all:focus-visible, .ep-weather--all.is-active { background: var(--ep-raspberry); }
@@ -497,7 +498,7 @@ html[data-eidos-product] body {
   vertical-align: top;
   background: var(--ep-paper-light);
   box-shadow: 0 0 0 1px var(--ep-rule), 0 12px 30px var(--ep-shadow);
-  transition: transform 220ms cubic-bezier(0.2, 0, 0.2, 1), box-shadow 220ms var(--ease);
+  transition: transform var(--dur-mid) var(--ease), box-shadow var(--dur-mid) var(--ease);
 }
 .ep-piece[hidden] { display: none; }
 .ep-piece-open { display: block; width: 100%; padding: 0; color: inherit; background: transparent; border: 0; cursor: zoom-in; text-align: left; }
