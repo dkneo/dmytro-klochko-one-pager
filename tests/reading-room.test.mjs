@@ -69,8 +69,9 @@ test("the homepage folds the library into literally me", () => {
 test("the library opens as a product with a static-first character scene", () => {
   const html = read("dist/eidos/index.html");
   assert.match(html, /class="ep-hero"/, "no hero");
-  assert.match(html, /hero-desktop-poster\.webp" width="1920" height="1080"/, "the desktop hero declares the wrong size");
-  assert.match(html, /hero-mobile-poster\.webp/, "the mobile hero has no poster");
+  // P05: the poster is 1536×1024 and says so; it used to declare 1920×1080, which was the wrong size
+  assert.match(html, /hero-desktop-poster-1152\.webp"[^>]*width="1536" height="1024"/, "the desktop hero declares the wrong size");
+  assert.match(html, /hero-mobile-poster[^"]*\.webp/, "the mobile hero has no poster");
   assert.match(styles("dist/eidos/index.html"), /\.ep-action[^}]*min-height:\s*44px/, "hero actions lost their tap floor");
 });
 

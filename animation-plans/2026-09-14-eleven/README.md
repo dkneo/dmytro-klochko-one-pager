@@ -38,7 +38,7 @@ The 11/10 is not a feeling; it is the right-hand column, all of it, plus the fee
 | P02 | Metric-matched fallbacks so type never shifts the page | HIGH | DONE |
 | P03 | Inline the stylesheets so no request blocks first paint | MEDIUM | TODO |
 | P04 | Cache the media that never changes | MEDIUM | DONE |
-| P05 | Serve every picture at the size it is seen, in the format that costs least | HIGH | TODO |
+| P05 | Serve every picture at the size it is seen, in the format that costs least | HIGH | DONE |
 | P06 | An ambient budget: pay only for motion that is on screen | HIGH | TODO |
 | M01 | The reading room answers keys instantly, like discover already does | HIGH | TODO |
 | M02 | A swipe that knows how fast the hand moved | HIGH | TODO |

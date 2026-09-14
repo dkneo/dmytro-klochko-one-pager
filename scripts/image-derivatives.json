@@ -1,6 +1,51 @@
 {
   "version": 1,
   "jobs": {
+    "/images/thumbs/vault/a-moonlit-scene-depicting-the-areopagite-judged-.webp": {
+      "src": "/images/vault/a-moonlit-scene-depicting-the-areopagite-judged-.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7ca4309fa0c3bc7e1e9af1fa207b09dee5f8935a5364b95f6107c5e50f0f2f90",
+      "outputSha256": "7116f07156a291326faf67ebf932e995b385cc9051ee9d6fde160d8fb27fe1e7"
+    },
+    "/images/thumbs/vault/a-religious-devotee-summoned-to-pray-for-the-kin.webp": {
+      "src": "/images/vault/a-religious-devotee-summoned-to-pray-for-the-kin.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "03cc35589048a44c336d8843261f248ba99f26269f223f056da1dac5822bc5b9",
+      "outputSha256": "8c0781d4966a323ba7dad7c6137124fdacf5736538631cf7ee1b288ab2c9c662"
+    },
+    "/images/thumbs/vault/a-sea-storm.webp": {
+      "src": "/images/vault/a-sea-storm.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c877774a30370e13d76a18bc2561cf4e66b147150374575e5593ed8ad9e36d92",
+      "outputSha256": "b032d71b760aca08c9a7f6437d79d49656a4f47f505ab914cd8295b56119349e"
+    },
     "/images/thumbs/vault/a-ship-in-a-rough-sea.webp": {
       "src": "/images/vault/a-ship-in-a-rough-sea.webp",
       "recipe": {
@@ -15,6 +60,21 @@
       },
       "sourceSha256": "310b18f1f5de71f347932e6bd6a12f76c84474f30003b058db171cdcbebb0fde",
       "outputSha256": "7a691e2444dbe2ea29ce423777ca14978b973c22a382e3a743421da467b9f329"
+    },
+    "/images/thumbs/vault/a-shipwreck-in-a-storm.webp": {
+      "src": "/images/vault/a-shipwreck-in-a-storm.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9b592816f31b9e1405c44043b287a4ba7c9609d3545b064a1a930591223d7f88",
+      "outputSha256": "997d5f5f19bcb124c23684fd844500512574ea92ed4aa127d7cbf84dffeef31b"
     },
     "/images/thumbs/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp": {
       "src": "/images/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp",
@@ -181,6 +241,21 @@
       "sourceSha256": "3352fe3761cdd5158d269226a16ec865446e0e404d49dbb6f8dc5c0fdd750ff2",
       "outputSha256": "1119ea33f3d0fb816f5b08d32890ed71fcbb3181f4cf9c1f01ae9b22824bbb47"
     },
+    "/images/thumbs/vault/bar-harbor-twilight.webp": {
+      "src": "/images/vault/bar-harbor-twilight.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "3be7e36d6c5881b7c0a0c2ec7a5a7faadcc724e68c7a81aa59dcf6bc7d84bf9e",
+      "outputSha256": "9d0ce594a3cd3d5a08b66f904fd08e399d24c2a38f4335ef7a24c7d6214dae36"
+    },
     "/images/thumbs/vault/bashkirtseff-meeting.webp": {
       "src": "/images/vault/bashkirtseff-meeting.webp",
       "recipe": {
@@ -301,6 +376,21 @@
       "sourceSha256": "fb79be8ec887120928a566fb65f46efb94d28dbf87f63fee0dd02702193ff6b0",
       "outputSha256": "283eeb7c37f05956621dde5ac414b699aae8bddc6f33c075c21b26f3c8eb67fd"
     },
+    "/images/thumbs/vault/before-the-storm.webp": {
+      "src": "/images/vault/before-the-storm.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0fd64fcc114855f1467b53edcfa9cdee7eb6877aa1e98f61d6ca33a07274ec2e",
+      "outputSha256": "16bb81866dc133e10cd0da2fd2cea6ba6cdc2b14cbd81f5d0f596d20fa661d00"
+    },
     "/images/thumbs/vault/bernard-meadow.webp": {
       "src": "/images/vault/bernard-meadow.webp",
       "recipe": {
@@ -405,6 +495,21 @@
       },
       "sourceSha256": "6335ebcdc06c44c624a49fd39d69239a30034f768779d6f83cb3f33361de4ae0",
       "outputSha256": "7ed6f0d6ad0b68ba92ae76ba59d5a072f35836ba485f14ce3e6854144f24e60e"
+    },
+    "/images/thumbs/vault/blaues-pferd-i.webp": {
+      "src": "/images/vault/blaues-pferd-i.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "22e76bd6ee832f0f0863712c939744eb49549853eb86a26d6b1ecb6b83343a9c",
+      "outputSha256": "49f8bf31d3d076902b2e3b36ea0161d7013c745bcf68ba55c7d7a0c42030e019"
     },
     "/images/thumbs/vault/boccioni-city-rises.webp": {
       "src": "/images/vault/boccioni-city-rises.webp",
@@ -841,6 +946,21 @@
       "sourceSha256": "1714655da6c020653eff7dfb51807013633525568e03eb87d9a223e6ca44b0fc",
       "outputSha256": "21420b6d3f7021790b7e6e62ff3441955920d4da71d434236767695340373241"
     },
+    "/images/thumbs/vault/constable-study-for-the-painting-the-leaping-hor.webp": {
+      "src": "/images/vault/constable-study-for-the-painting-the-leaping-hor.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1ba83cd6bb0dc11de01045927b97c1cf39c6e0b297a3c43f5f934811b17a97a0",
+      "outputSha256": "99b686c13f64c66bc3a97ffdb3c54c6f1ac947d70620cdd56d9d329fb3d1b8fd"
+    },
     "/images/thumbs/vault/corinth-delphinium.webp": {
       "src": "/images/vault/corinth-delphinium.webp",
       "recipe": {
@@ -960,6 +1080,21 @@
       },
       "sourceSha256": "b2eeeecb5c171982f99cd0f9b4322375dea39ad77d01586082c1cf516626c0e6",
       "outputSha256": "6f3a17556195c9c1d541f9a5cc701f12ad8fc8d0f0eedc38c3243091a503a9d1"
+    },
+    "/images/thumbs/vault/defeat-of-the-mongols-in-the-western-sea.webp": {
+      "src": "/images/vault/defeat-of-the-mongols-in-the-western-sea.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0d845f270f022413bb4986b39a4304e1e330c2e159681ede90ece65c73c6e2e9",
+      "outputSha256": "63ea80e9811e41ef4d96570660f6a19467666f59d62b669c6559b5e3f92f45f7"
     },
     "/images/thumbs/vault/delaunay-circular-moon.webp": {
       "src": "/images/vault/delaunay-circular-moon.webp",
@@ -1081,6 +1216,21 @@
       "sourceSha256": "e265a87156e680ef1034d6296b397999c6085451a9a9f018cd5443619efe60a0",
       "outputSha256": "2ea8639df6c207f0f449dc32804b8c5f1c696b283da93d228819896cfd8c692a"
     },
+    "/images/thumbs/vault/doctor.webp": {
+      "src": "/images/vault/doctor.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c165d3da3eec794d2881a692d47f2d7381f1af12496dc88bd6f0e5bf97d8845f",
+      "outputSha256": "030c701cd8eabc5fd7b9ed25d57337adc221b917abfe4f08c039b4ccc4296457"
+    },
     "/images/thumbs/vault/eakins-concert-singer.webp": {
       "src": "/images/vault/eakins-concert-singer.webp",
       "recipe": {
@@ -1141,6 +1291,21 @@
       "sourceSha256": "c685be246c58d3dbc4518349f699a9eee5245f796fb034c1434db6da8af0b8b1",
       "outputSha256": "6603aa2ab05439d0e4e81613e278a7c12ff3c42559db71fbe4b2039bbbef382f"
     },
+    "/images/thumbs/vault/egrets-in-a-tree-at-night.webp": {
+      "src": "/images/vault/egrets-in-a-tree-at-night.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "11b542377a3a08612f44b71aaa74ab90b0b995bf4486788053fb69a42f61f144",
+      "outputSha256": "449b7ef1b9b92d4a52a62772ff2c537b920597253397bc7430b1e5078e62975c"
+    },
     "/images/thumbs/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp": {
       "src": "/images/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp",
       "recipe": {
@@ -1171,6 +1336,51 @@
       "sourceSha256": "5508205aa2bd0695d2da508071ec0c5bcd31de22db5f056898e473b792a54acb",
       "outputSha256": "3c433092763720e912f427f3dca34a5b8fb6b194327e0466ba3e82c8e2292c19"
     },
+    "/images/thumbs/vault/eruption-of-the-volcano-vesuvius.webp": {
+      "src": "/images/vault/eruption-of-the-volcano-vesuvius.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "64bbefe05e566e46f4fbf71b6846799f695d7956cb43b249e8e6a58c1b157c96",
+      "outputSha256": "7102f40595e7dc7925d412b015e95c9df85e92835f8a2d0dee77c819e1601939"
+    },
+    "/images/thumbs/vault/evening-snow-at-kanbara-from-the-series-fifty-th.webp": {
+      "src": "/images/vault/evening-snow-at-kanbara-from-the-series-fifty-th.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e715315ffc718acf3cbb803079d9be5462d4aef7309c2eb14532d1d83221556d",
+      "outputSha256": "c8b290f2020dde386b684a1d30c57a016a9499ade24a4749972ee9b407d2161e"
+    },
+    "/images/thumbs/vault/evening-snow.webp": {
+      "src": "/images/vault/evening-snow.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f58d782656d50c62301bbf33be0847c92820ae17761b8f25aae315b86ec34f57",
+      "outputSha256": "bc987a5ac8302e36ed752e29dcd9d3918aeca2232619a7256f21acd378d8ea7d"
+    },
     "/images/thumbs/vault/figure-of-a-lady-laura.webp": {
       "src": "/images/vault/figure-of-a-lady-laura.webp",
       "recipe": {
@@ -1200,6 +1410,36 @@
       },
       "sourceSha256": "b8ddcfb88e6ee7dd6b60867cfa0d5b1ed0ed2bbfbd29f9eaf513c6143dace1e3",
       "outputSha256": "5d7b7d03adb882953f2fe5611bbb3238fac3d8a9dfc8947a1c63428aadc16af1"
+    },
+    "/images/thumbs/vault/figures-beside-a-waterfall-and-pool-in-a-wooded-.webp": {
+      "src": "/images/vault/figures-beside-a-waterfall-and-pool-in-a-wooded-.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ba12488897b2b47f26e3f603261cb4d9e0b78d47c9f736081b373b64dce5ed9a",
+      "outputSha256": "1253a1c9a2d317c06189438342c1cbe77682fdb3d0487712bdc0244c2b0787e4"
+    },
+    "/images/thumbs/vault/formes-circulaires-circular-forms.webp": {
+      "src": "/images/vault/formes-circulaires-circular-forms.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2916beb2059bede7e57237cace1a77412fb2e11c81b8b8ca3ab67804f192caa0",
+      "outputSha256": "706c5b0cb852f24b1e92a07b3ad6eceba2d015f1a140782d1790891cd0155fe8"
     },
     "/images/thumbs/vault/friedrich-fog.webp": {
       "src": "/images/vault/friedrich-fog.webp",
@@ -1396,6 +1636,36 @@
       "sourceSha256": "c7ddcc3a0597c5842acb4832dfe4928b3b183807cb174b71921d44e46b507b49",
       "outputSha256": "dc3744d8787c0a9e83d43bb32bc394b8d31a57f243ce7a3d050959221c26ecbb"
     },
+    "/images/thumbs/vault/gazing-at-a-waterfall.webp": {
+      "src": "/images/vault/gazing-at-a-waterfall.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4eae710f80d7ca7bf4efdb2a044ad856ca9b3df485ed9edbcd196861441a9ef6",
+      "outputSha256": "603421a6c9cba367a9d391779d4008fc4555533e1e2d8394b5f7c5b506b8729a"
+    },
+    "/images/thumbs/vault/generalprobe-des-balletts-auf-der-b-hne.webp": {
+      "src": "/images/vault/generalprobe-des-balletts-auf-der-b-hne.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "fb036429293d00d860e0368827a15fb2ef22aee54be40c2d869b14cd70210496",
+      "outputSha256": "8ac297fca7d683c4163946e83a8fccf84ddd0414fec35042409e7f39b9cfd50d"
+    },
     "/images/thumbs/vault/girodet-atala.webp": {
       "src": "/images/vault/girodet-atala.webp",
       "recipe": {
@@ -1486,6 +1756,36 @@
       "sourceSha256": "237afddfb93e366acb889af87894792bb4acc3d1c0611f611e821227ce4cb3a2",
       "outputSha256": "da1778bdaad4a4a6e0ac18264e6b7ef64624bd1b17e1ede3ef2e3ebbe7361816"
     },
+    "/images/thumbs/vault/goyu.webp": {
+      "src": "/images/vault/goyu.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9b82f86f3a9ee9ba82fd557d82119910953c585c564ca42aa85b3c9dfd634720",
+      "outputSha256": "a3308b730cd0ce0ab47cd6264c9dfee12c2d9dc4760f118182456517370c57e6"
+    },
+    "/images/thumbs/vault/grey-and-silver-old-battersea-reach.webp": {
+      "src": "/images/vault/grey-and-silver-old-battersea-reach.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "008fdf235e77ca62a44794f9f11d898eb6d8f31beb2e7ecd3f90126d17b697ea",
+      "outputSha256": "43045d40eb8f8a60aebdb3f766859dff04493e9d288c04a0c49ff322e17f1e1c"
+    },
     "/images/thumbs/vault/gwen-john-cloak.webp": {
       "src": "/images/vault/gwen-john-cloak.webp",
       "recipe": {
@@ -1575,6 +1875,21 @@
       },
       "sourceSha256": "43e5fc7cb5951081dc5d6bca3b4c29f34563490cb6bdda1e39c11bdacae4bd0c",
       "outputSha256": "8404d535af5d416b24cfc0e382315a67764819447aaa52f60405ee6873d1d65a"
+    },
+    "/images/thumbs/vault/harbor-and-orchard.webp": {
+      "src": "/images/vault/harbor-and-orchard.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8a5e00c5f6040f85d6326d91ebb90751690fff64a2b83fc6b1cba074ca501a66",
+      "outputSha256": "2fc774738fa7e9de63d060a4209f0289a925f60583c46d2fa73f0071f09cafe8"
     },
     "/images/thumbs/vault/hayami-enbu.webp": {
       "src": "/images/vault/hayami-enbu.webp",
@@ -1756,6 +2071,21 @@
       "sourceSha256": "99a9b3c41177b50aa7d991b73de3bf180518dfe77ecff0c06fd9899cccb60d59",
       "outputSha256": "9f334298d7cc5adde04167379a5a9957c3a24e6bfc59386b78303e48f9b6d741"
     },
+    "/images/thumbs/vault/in-verdant-mountains-hoping-for-snow.webp": {
+      "src": "/images/vault/in-verdant-mountains-hoping-for-snow.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "c4fed4d2e5efd11c232f89769769b7e9cdafc3b1701f9ef1689fa1ce79a9f14f",
+      "outputSha256": "37c185e9daa805e3bf29e5054802c35d94cddb9e4906baa16a2c4cccf56beb6b"
+    },
     "/images/thumbs/today/turner.webp": {
       "src": "/images/today/turner.webp",
       "recipe": {
@@ -1860,6 +2190,21 @@
       },
       "sourceSha256": "f2330af0638a26a58f664c0fc7484a88ff1690eaec2bfc205c47aae2cceeac79",
       "outputSha256": "ca3a6119345be365e94e3f45b6e260db1c2e793a2448e057cb7bcbaf5bb186e1"
+    },
+    "/images/thumbs/vault/july-amusements-on-the-water-juillet-les-diverti.webp": {
+      "src": "/images/vault/july-amusements-on-the-water-juillet-les-diverti.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b1da8787bbea9e7b8b59efa123230368201170c7946470ae1c125235584c2912",
+      "outputSha256": "303222c1ca12ab561d94ed04a7d56e12cd01ac0092e89caf3ee1321e337c48f5"
     },
     "/images/thumbs/vault/kakabadze-abstraction.webp": {
       "src": "/images/vault/kakabadze-abstraction.webp",
@@ -2085,6 +2430,21 @@
       },
       "sourceSha256": "3d8ac030560951d76c0f672cc4e8a5458d629aeacf9cce6e8c7cb816b87da65f",
       "outputSha256": "f56dbd92b442a212b2acbc42c1839c18ccf5cc905f3b26167bc6cf60f33fb069"
+    },
+    "/images/thumbs/vault/kitchen-interior.webp": {
+      "src": "/images/vault/kitchen-interior.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f9f0579f5010fca55f8a32d5c0dd8fd7e551ded1d640f42145124a518f848c59",
+      "outputSha256": "d45e7e622dde55436179734687542f380fa2437761dd4667ac24c03873083df0"
     },
     "/images/thumbs/vault/koide-sea.webp": {
       "src": "/images/vault/koide-sea.webp",
@@ -2911,6 +3271,21 @@
       "sourceSha256": "db2a197b766f0995d7d1299d722315b3dd7c12d36715f4b9db74405088ba61ea",
       "outputSha256": "3f5ecc99582824ff87bba4e46a870deb7d4f0e93c81f78cba767c38bfa5521ff"
     },
+    "/images/thumbs/vault/moonlight-by-nordseter.webp": {
+      "src": "/images/vault/moonlight-by-nordseter.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "72cb1c69262d0f55960dabf76a36659f6d76246aebeebf789f3327dfe83ae3ac",
+      "outputSha256": "e56382e1a3af41b707115ba3e234e8968764467cfff5f4d6be6097ebb0799498"
+    },
     "/images/thumbs/vault/moonlight-reflection-through-the-mist-1930.webp": {
       "src": "/images/vault/moonlight-reflection-through-the-mist-1930.webp",
       "recipe": {
@@ -2985,6 +3360,21 @@
       },
       "sourceSha256": "007c316c2510517743d99be357272bfa0b5d7a324dff522417caf64626f4e481",
       "outputSha256": "7525711d11a5953e9dac3aa716241b66917e56c6ed0dd06b8549fa9cab99d0e7"
+    },
+    "/images/thumbs/vault/morgenlandschaft-aurora.webp": {
+      "src": "/images/vault/morgenlandschaft-aurora.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "dcff222d322c85639d8b7aed129e0a8ba18c3f8f6a74de9937a69638604e4aa6",
+      "outputSha256": "cbf00992c02fdf4ff45d913965cf4f8fc70a4607b57b5606303d00aaa6697e34"
     },
     "/images/thumbs/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp": {
       "src": "/images/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp",
@@ -3226,6 +3616,21 @@
       "sourceSha256": "3455aeed976c8d32cdcf9118f6ba38177f597c93e77ddcb2d85191d48132f0c9",
       "outputSha256": "9023aab3716e4fe4fb46b46c963f82e873a1e2e0eba8ac19418a69efa4e6128c"
     },
+    "/images/thumbs/vault/ochanomizu.webp": {
+      "src": "/images/vault/ochanomizu.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1a2e5fe3529e03655fc6d75246b752c43b86c09653be2fdf17a20e762fd6a41f",
+      "outputSha256": "809ebe96e9b07dd8342fb23a61096b59c874a5117640fdc19583676334132ada"
+    },
     "/images/thumbs/vault/orchard.webp": {
       "src": "/images/vault/orchard.webp",
       "recipe": {
@@ -3375,6 +3780,81 @@
       },
       "sourceSha256": "3007d67448c01aad8af65c45ee9acb2a22618475a733c5ee7d3879dd74674b88",
       "outputSha256": "8bc3321f3f5b110d82479808b9272b29be9b8026327310b140ceb41274f6d822"
+    },
+    "/images/thumbs/vault/plate-107-the-wreck-of-ceyx-s-ship-ceyx-clarium-.webp": {
+      "src": "/images/vault/plate-107-the-wreck-of-ceyx-s-ship-ceyx-clarium-.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2602294b9f4e1b3f5326a9d34f18218aa7c391dc0dffb4473a8585003c63ba4f",
+      "outputSha256": "edaf9205151848b7ffb5fab3daf1bde56f684215efb8df7718d1c62b6a27f8a2"
+    },
+    "/images/thumbs/vault/plate-14-richardson-s-show-from-world-in-miniatu.webp": {
+      "src": "/images/vault/plate-14-richardson-s-show-from-world-in-miniatu.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7884cfe6bbdbf64cc99c78a874ac13020dfe99271b12f045d58af3e23349795a",
+      "outputSha256": "b1d8b35d90935b7b815d7e3b236c78d961228b31a4367a4fb8df7a0e8cd33cd9"
+    },
+    "/images/thumbs/vault/plate-7-a-triple-waterfall-a-dead-tree-to-right-.webp": {
+      "src": "/images/vault/plate-7-a-triple-waterfall-a-dead-tree-to-right-.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "eaa474a16cb9383d952bd3299ec0fb9011762676c55c0ed7c6dfdfed0554234e",
+      "outputSha256": "33e3fce062aa9c2418d67e45e5ef27996ee9e32df8988410bb8ef8253810936e"
+    },
+    "/images/thumbs/vault/points.webp": {
+      "src": "/images/vault/points.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "bfa44161af9e1a353da21199e7436987990c39f0719ec314275c84949b35d4ef",
+      "outputSha256": "ace635b0a11f474d7c55f85031729db92bc1092fa5dc85f0ea98e5dd24f87978"
+    },
+    "/images/thumbs/vault/portrait-of-franz-marc.webp": {
+      "src": "/images/vault/portrait-of-franz-marc.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b847fddf2f7e6523aac2159d0a25dcd4520467081a239775b77a51ecb805a5b5",
+      "outputSha256": "47143d00dc9bdeba64808a3a1b383fee1b24a3a6888dfe4b4cf79e8c916aa160"
     },
     "/images/thumbs/vault/puvis-girls-seaside.webp": {
       "src": "/images/vault/puvis-girls-seaside.webp",
@@ -3601,6 +4081,21 @@
       "sourceSha256": "9998d8110e720510ee8cce82d1ce9d2612a54b929020351fd03e7b11227286ce",
       "outputSha256": "4cb5f189e95ae667f6576dc8917d982f2b1c03ee4bac10c4425426c2010340ac"
     },
+    "/images/thumbs/vault/saguenay-river-lower-rapids.webp": {
+      "src": "/images/vault/saguenay-river-lower-rapids.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "79a86e7ebf2d44c288d9fba3866f1f5899b9e7765e1bb9ec7a8fd0f80b6efc1a",
+      "outputSha256": "4e06031b6d12850c21047949114bbb739810fcd96f816414c025756348331193"
+    },
     "/images/thumbs/vault/schjerfbeck-clothes-drying.webp": {
       "src": "/images/vault/schjerfbeck-clothes-drying.webp",
       "recipe": {
@@ -3766,6 +4261,21 @@
       "sourceSha256": "4eff736bb1c80ba6f1cb998e63626db76eddf49660b46d7955c8f2969d00a773",
       "outputSha256": "50ede4a852cc5b7580bd9d10bf0fb54cb1abe30d679334eaa48eae314f72b533"
     },
+    "/images/thumbs/vault/sea-stores.webp": {
+      "src": "/images/vault/sea-stores.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "7650fa4a8a757c6ca978ee80aaa1c894cc4a221f1fd690d0101f33d4d4453bef",
+      "outputSha256": "dc4831a9bcb74db938422c0650aed6f463fca5b3c3f7f47da20b1b09b2d9eaae"
+    },
     "/images/thumbs/vault/seascape-study-with-rain-cloud-rainstorm-over-th.webp": {
       "src": "/images/vault/seascape-study-with-rain-cloud-rainstorm-over-th.webp",
       "recipe": {
@@ -3916,6 +4426,21 @@
       "sourceSha256": "d3acae31e78b055fe52824957179c84742b51967cdab44424b8385d8e25dd3d7",
       "outputSha256": "4fecafb0d792a49635f4041890c85de3f26953cfd1cbccd02d7489d243f61782"
     },
+    "/images/thumbs/vault/shooting-the-rapids-saguenay-river.webp": {
+      "src": "/images/vault/shooting-the-rapids-saguenay-river.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "51e9bdd578c7c1af01bcfd7edb6df9c87220fa2bc155187fe4fcf4bd6c1d0f80",
+      "outputSha256": "315187454ee491aaa73a5b26cceace84b41775a79493e3e67dfe63c8586efe0d"
+    },
     "/images/thumbs/vault/sickert-camden-dawn.webp": {
       "src": "/images/vault/sickert-camden-dawn.webp",
       "recipe": {
@@ -4035,6 +4560,36 @@
       },
       "sourceSha256": "a15031dfad85338a913c4d3e9c99ca273bf3f0e68a3ef7f023bc39ec06a7643b",
       "outputSha256": "dc5b7aa11c118e3fed6b6635bcb43ed4309cc6fb758f0d518864341ef8e646cd"
+    },
+    "/images/thumbs/vault/snow-landscape.webp": {
+      "src": "/images/vault/snow-landscape.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "75dc829385dcab05a9dce92d8083ef219ef9ea80236d562f70f0f44d6ee163a1",
+      "outputSha256": "5d06597a66be492a119444c62ab559607d6763aa07f359523c76189d4cd300a3"
+    },
+    "/images/thumbs/vault/snow.webp": {
+      "src": "/images/vault/snow.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "fdf912a2dae793a700d4d5b22cfb2beac222283752212a79f519cb01281db880",
+      "outputSha256": "5abc635c3b2aa5fc24a72dfcab0082d97ca54085980049caad314593f5545c6b"
     },
     "/images/thumbs/vault/sorolla-alcazar.webp": {
       "src": "/images/vault/sorolla-alcazar.webp",
@@ -4441,6 +4996,51 @@
       "sourceSha256": "31bb7ac34f2fb80ce3f629deaab2ddfe66313d9238d264e6225bb6fd53f7100c",
       "outputSha256": "99f42c2fa3121c8dff12dd6268cd9814298c9ff7e31afb77249428b64d23548f"
     },
+    "/images/thumbs/vault/the-heights-over-foilhummerum-bay-valentia-the-w.webp": {
+      "src": "/images/vault/the-heights-over-foilhummerum-bay-valentia-the-w.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "825169aabb33aa7d53aa09738b6aaf692655b993c51fb281dbf4de990d4cfa9d",
+      "outputSha256": "3d4487d10c028c6712e43e5930c45f2d89ae8fd491d26d29d391b6001aeb697b"
+    },
+    "/images/thumbs/vault/the-landlady-at-your-service-sir-you-will-find-y.webp": {
+      "src": "/images/vault/the-landlady-at-your-service-sir-you-will-find-y.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "ee588148d1c9821b8e1cd23157663748a58ff2a2c7b735e039ef9bd9870ff672",
+      "outputSha256": "0def41f90b13435818249d9107933adcc2b953f6808267d3bf400f6d6e226f5a"
+    },
+    "/images/thumbs/vault/the-last-voyage-of-henry-hudson.webp": {
+      "src": "/images/vault/the-last-voyage-of-henry-hudson.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d63b2887928e62a08dd065aae661a6b9132133e6d9b113a65ed475881ca4b26e",
+      "outputSha256": "b218bf38183ba2c65f62bf769e6072271f1a1cc16a13c59a1d29923a852bd2a4"
+    },
     "/images/thumbs/vault/the-louvre-under-snow.webp": {
       "src": "/images/vault/the-louvre-under-snow.webp",
       "recipe": {
@@ -4500,6 +5100,21 @@
       },
       "sourceSha256": "f6116246587b98fa66dd6aec31343e0f4b3b14e83a84b70aed7b07cf435556c3",
       "outputSha256": "b74bd82d76e28f49750ff20b3d89c3079a6e712811b560bcdce873c3b21bd2d8"
+    },
+    "/images/thumbs/vault/the-river-elbe-downstream-of-hamburg-by-moonligh.webp": {
+      "src": "/images/vault/the-river-elbe-downstream-of-hamburg-by-moonligh.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f8bf85da8c29e926e6dce0d676bd651fb0f9c45d81a35030015b1e47952a127e",
+      "outputSha256": "00c6ac02471a77cdd0683480d69972bd8ee836640355fa9d70d80b72cdb6d0ef"
     },
     "/images/thumbs/vault/the-starry-night.webp": {
       "src": "/images/vault/the-starry-night.webp",
@@ -4620,6 +5235,21 @@
       },
       "sourceSha256": "232129c3cf54c84ba497f91f6cfd894d8947c1c5c2f8ff5c1ee4911ed22d7918",
       "outputSha256": "dea6646927702a98b974b1b803357b04ab0a47f5f904db1e67e87851e07658ca"
+    },
+    "/images/thumbs/vault/twilight.webp": {
+      "src": "/images/vault/twilight.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8e11ea49fb0251fad3a4842175cc996cba9b1e185e8ba302f1428f085c6935d8",
+      "outputSha256": "ad2d52d3912d82e7849b1c41a997f33012de8f1a08e37cd6e223e7eebe596c96"
     },
     "/images/thumbs/vault/two-stage-rocket-painting-by-chesley-bonestell.webp": {
       "src": "/images/vault/two-stage-rocket-painting-by-chesley-bonestell.webp",
@@ -4906,6 +5536,21 @@
       "sourceSha256": "278c34e9183dc2348994b760129ae4d316e218b6bfe0a7b5859b212edcc9c3fb",
       "outputSha256": "d036697c97030034f05446338f5bb4dcca1c459d9555ae21fd9632f5d791b5bb"
     },
+    "/images/thumbs/vault/vesuvius.webp": {
+      "src": "/images/vault/vesuvius.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4a3eaab76571b0fe497d7826b4082920a3d11d83a4c66fd3ad09f8c6975b7c91",
+      "outputSha256": "6fdab1d6c35d8563bd4edc3c65eb3fcc9867e46e1a7a1c74afe9895c282159bb"
+    },
     "/images/thumbs/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp": {
       "src": "/images/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp",
       "recipe": {
@@ -4920,6 +5565,21 @@
       },
       "sourceSha256": "0d2df64e0ba80543f0fa7e96d20c9324a19a40850424c4c778701233a6a75901",
       "outputSha256": "ccfb51e7b46b9295a20199816c336dcc556d30c0c0148de4f93ee17c7bc44aec"
+    },
+    "/images/thumbs/vault/view-of-lebanon-after-an-english-engraving-and-a.webp": {
+      "src": "/images/vault/view-of-lebanon-after-an-english-engraving-and-a.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "8eb3d9ec269b47bbbbaad060765e6e0f8d5befc696dd8ebeddc38368ca902d4d",
+      "outputSha256": "227ba1bf4fbb098ca278bb12a36d41831ebb6e77666f931ac1ee70d57cc10b72"
     },
     "/images/thumbs/vault/view-of-sugarloaf-mountain-from-the-silvestre-ro.webp": {
       "src": "/images/vault/view-of-sugarloaf-mountain-from-the-silvestre-ro.webp",
@@ -5086,6 +5746,21 @@
       "sourceSha256": "41952438824c43a72ebe1be3153981bf0c50ece0ab6c917658d52b4e669ed567",
       "outputSha256": "a1749d61fe4498840e63badac7210561b1fb82cc7df7bc654dc4a3c02b2690c6"
     },
+    "/images/thumbs/vault/waterfall-eagle-and-monkey.webp": {
+      "src": "/images/vault/waterfall-eagle-and-monkey.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "fb094aa288993cf6a840560a6ece1260af0e3fbd5e5062a41065de79afa802fb",
+      "outputSha256": "73c9a414d40603ca47fd047e529a64a683ead5242ddf9eb7d7e4710c51d5891f"
+    },
     "/images/thumbs/vault/waterfall-on-a-cold-cliff.webp": {
       "src": "/images/vault/waterfall-on-a-cold-cliff.webp",
       "recipe": {
@@ -5190,6 +5865,36 @@
       },
       "sourceSha256": "0ddf8e80974094a3f3a4cd908d39eee7bfd0e511528a6f7811ccb972e7877aa3",
       "outputSha256": "10820642993951d35f4ac0f9e58e2c0f5be8319ff69c391f64e67f0e14db8e5a"
+    },
+    "/images/thumbs/vault/woman-with-a-child-in-the-garden-looking-at-the-.webp": {
+      "src": "/images/vault/woman-with-a-child-in-the-garden-looking-at-the-.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "cf8a63bbfbf6e9175e92dc86a6bd9f63eb10b1c0bc35737b4698eb980f46421b",
+      "outputSha256": "092c821f0dc56a354defac201d4b23be3be49bca2b8df49a2f87d1789f7a4d47"
+    },
+    "/images/thumbs/vault/wreck-on-shore-from-the-types-of-vessels-series-.webp": {
+      "src": "/images/vault/wreck-on-shore-from-the-types-of-vessels-series-.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "0ebababb5ecd76670eb3b16f1bc899e328c407578a60e2fe7cb890f7c67df4bc",
+      "outputSha256": "f3067687c40618a8faf55beabaea58e3a82ee530329d9b9fd4b0514681dbbcff"
     },
     "/images/thumbs/vault/wright-air-pump.webp": {
       "src": "/images/vault/wright-air-pump.webp",
@@ -5866,6 +6571,51 @@
       "sourceSha256": "8e3e98f31df218d52cbdbc1ec07d6d00770dad27304e49a48fc2cee011f05df0",
       "outputSha256": "31815fcbbdf780eceb593cf1140ee1ba76d74bb6cc6446d1b00d920e2d27269e"
     },
+    "/images/thumbs/vault/bay-of-biscay.webp": {
+      "src": "/images/vault/bay-of-biscay.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "e06db8924ed8a1b974a317769513f5095dc132f141d42c9d73298d7715220500",
+      "outputSha256": "6ebae5d607118c6f0089f9771cdb5be939820acba9c965481401541cf2a7f00f"
+    },
+    "/images/thumbs/vault/faith-and-hope.webp": {
+      "src": "/images/vault/faith-and-hope.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "2a1995de762d56f8da9ab08dfc6f99c6c7f810c88ac60c4f088fe2003c7108bd",
+      "outputSha256": "a2f305844f5271a42215987d59496c46f73b6705887659c121eb72b35db567df"
+    },
+    "/images/thumbs/vault/fireworks-display-celebrating-the-end-of-the-thi.webp": {
+      "src": "/images/vault/fireworks-display-celebrating-the-end-of-the-thi.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "cc2f3a84e4d73423bc4e59d11c7f96d37dcddacaaf728440d06a4f42b839de0e",
+      "outputSha256": "88a8691bb4772daca8b2e1498fdf9edd1c2fb5e35c3f7a3f23c6584ce5913438"
+    },
     "/images/thumbs/vault/fujikawa-sanchu-yamanaka-no-sato-miyajiyama.webp": {
       "src": "/images/vault/fujikawa-sanchu-yamanaka-no-sato-miyajiyama.webp",
       "recipe": {
@@ -5896,6 +6646,36 @@
       "sourceSha256": "392e5764c92be51d155f8001d774bfc1e5ef48c188b2623129bf126217458baf",
       "outputSha256": "204ff51e95044bb53d032d8bd919f3bd6919df67b9be7de62c872d489e4c2ea5"
     },
+    "/images/thumbs/vault/gathering-manna.webp": {
+      "src": "/images/vault/gathering-manna.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "1afd32ae5632d14b97c213900a3bd28e5dc5e8ad0b4cbb9397e139692a9a87c5",
+      "outputSha256": "b94933058d35a99acc7b2f6e2db204caa1dc95c642d761fdfec91054c481fc59"
+    },
+    "/images/thumbs/vault/golden-pheasant-in-the-snow.webp": {
+      "src": "/images/vault/golden-pheasant-in-the-snow.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "750d514e1050fa50a4936a71342baf9930345554a519a12285a12fff9adf6341",
+      "outputSha256": "c86569981f08593637bf9874c908576e602cde68d3943104eb853021c9cc954e"
+    },
     "/images/thumbs/vault/goyo-woman-after-bath.webp": {
       "src": "/images/vault/goyo-woman-after-bath.webp",
       "recipe": {
@@ -5910,6 +6690,36 @@
       },
       "sourceSha256": "f64c790dd2ca7b34437c7f20b3cacb7d5cadc0250152e747e71097efede94ac4",
       "outputSha256": "82ab03310b83e66d4d8a59ee4dcbd6992e556cade3bf87131ec46dd7c7a7330f"
+    },
+    "/images/thumbs/vault/impressions-of-rain-rouen.webp": {
+      "src": "/images/vault/impressions-of-rain-rouen.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d71a321fbffffd8bba8eeccb62b95aeb147eb2c2e0daac5dca2feebafd19881e",
+      "outputSha256": "7913a25116f829dfc7a0eec7badbd1e88c4b4fd77d98cf417b82806e637e95b9"
+    },
+    "/images/thumbs/vault/jubal-and-miriam.webp": {
+      "src": "/images/vault/jubal-and-miriam.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "9169dc68dbe1d986fadf9e2cae3b3136a9d4a5b337a969f3540acff4e95492ef",
+      "outputSha256": "8a8eb5da86068d8c3008fd9823cd94e44b151626acda13b3b1f9f0685b316799"
     },
     "/images/thumbs/vault/kollwitz-arbeiterfrau.webp": {
       "src": "/images/vault/kollwitz-arbeiterfrau.webp",
@@ -6031,6 +6841,21 @@
       "sourceSha256": "79861ed5fbb837595fc92142872089e0be75dbeb5f3cb57bc975fa7d746f2cc1",
       "outputSha256": "d442f39426879944ac5f2380e99a77562053d24a7f6123b1a879c89d424f07f4"
     },
+    "/images/thumbs/vault/mount-yuga-in-bizen-province-bizen-yugasan-from-.webp": {
+      "src": "/images/vault/mount-yuga-in-bizen-province-bizen-yugasan-from-.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "4937011c6374ce2fb23c6ca342f48ab0524335256d156dffe42b5a2abf467ea2",
+      "outputSha256": "7befb4c74ac033c93746644e2b8e6230f0026c8f54ae92431b38f8732f2aa208"
+    },
     "/images/thumbs/vault/night-rain-at-gankir.webp": {
       "src": "/images/vault/night-rain-at-gankir.webp",
       "recipe": {
@@ -6076,6 +6901,21 @@
       "sourceSha256": "0692af4c2fc3815a54cfa754f2d53423938aa42481ead7efc8fc2f3ce38ee570",
       "outputSha256": "087b93066be4ea5d2a525cc538aa34c8abe70b6b1c815a4a0fecbb6c1a0dcdf5"
     },
+    "/images/thumbs/vault/rocky-landscape-with-st-jerome.webp": {
+      "src": "/images/vault/rocky-landscape-with-st-jerome.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "14ca881260188d24f602e4cdb59244082d224d8ed43fb05283c90fb714d5082e",
+      "outputSha256": "f0646a2c8b46a90f6ef3f28671e59ff555c68be41360c805954f39f75acb3783"
+    },
     "/images/thumbs/vault/seaside-village-in-winter-from-hokusai-s-album-o.webp": {
       "src": "/images/vault/seaside-village-in-winter-from-hokusai-s-album-o.webp",
       "recipe": {
@@ -6091,6 +6931,36 @@
       "sourceSha256": "dec1af65ce9fc3d6d61cb531c749efcc70dcebe276a87861f5e7fe2cc705c34b",
       "outputSha256": "d1be976c3c33a23c36e58033580cf4861d2c528380bf33c697e7f3b36ad7ddba"
     },
+    "/images/thumbs/vault/shower-at-the-new-yanagi-bridge.webp": {
+      "src": "/images/vault/shower-at-the-new-yanagi-bridge.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "d1d9f2d4461793fe9051b8b141e1af167d2a5cca0f7b9836f2bb4538f0e03d80",
+      "outputSha256": "504b1923268fb71feb8144dad4fd2b9a9e116d5a1df56855153041a2ee2005b1"
+    },
+    "/images/thumbs/vault/still-life-with-origami.webp": {
+      "src": "/images/vault/still-life-with-origami.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "fc2f4a5aeca7c40afd1046aadd966cf475db90abdd277f3209533b7364692d13",
+      "outputSha256": "d06b99ebee1a4c901e5685c428fcba309adc36936e297819119d8554fe38ca02"
+    },
     "/images/thumbs/vault/vallotton-guitare.webp": {
       "src": "/images/vault/vallotton-guitare.webp",
       "recipe": {
@@ -6105,6 +6975,21 @@
       },
       "sourceSha256": "7dd9fea8427ec60316663ba594e738387b980ea2780e3bccff0158a48e1bf0f9",
       "outputSha256": "688e4e7b3463b8c6ed63809e994e0008e95fd47cfd250a77291937f02ce64ecd"
+    },
+    "/images/thumbs/vault/view-of-the-asakusa-kinryuzan-temple-from-the-az.webp": {
+      "src": "/images/vault/view-of-the-asakusa-kinryuzan-temple-from-the-az.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "b0d281004c29e316401b63d51a62c0ed35d679a427c9282e24449ff3025d71f4",
+      "outputSha256": "afda04ed16372cf3ef11261b0d1f9ff843b6d895c26cc7092bffcd468ac661de"
     },
     "/images/thumbs/vault/yoshida-funatsu.webp": {
       "src": "/images/vault/yoshida-funatsu.webp",
@@ -6135,6 +7020,21 @@
       },
       "sourceSha256": "1fd9240714b852cf0e5aa99df4e0bc63abd16e1d11b6f4a66dbb567b496665fa",
       "outputSha256": "0a2ecb81ec46379f5a99cd56ac2121fca8cdae643c421a3e2565976e7ea2f3ed"
+    },
+    "/images/thumbs/vault/zojoji-temple-at-shiba-in-snow.webp": {
+      "src": "/images/vault/zojoji-temple-at-shiba-in-snow.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "f7e6d36ada72c7d53fca7c6c2f9e0963759fbfcb0acbebb53b5a90d868fac568",
+      "outputSha256": "6735c0f325a9fb553249506890650437cab4fda3bbaffad4d5037da77e39d2fe"
     },
     "/images/thumbs/vault/adelaide-labille-guiard.webp": {
       "src": "/images/vault/adelaide-labille-guiard.webp",
@@ -7141,6 +8041,48 @@
       "sourceSha256": "acb15d96e0f92ed2df8b6a48bc4592a0fdca5cb1ad87f7d31cd7548822977434",
       "outputSha256": "01d918cc4ed037d7ae37fff8ddd7c3e31960e1a3bff81b08e07117626ec9d34c"
     },
+    "/images/plates/vault/a-moonlit-scene-depicting-the-areopagite-judged-.webp": {
+      "src": "/images/vault/a-moonlit-scene-depicting-the-areopagite-judged-.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7ca4309fa0c3bc7e1e9af1fa207b09dee5f8935a5364b95f6107c5e50f0f2f90",
+      "outputSha256": "fad919d04cd75a2605a63d53a58b936e1448cede5b4c7b0222e45e256d5a0c48"
+    },
+    "/images/plates/vault/a-religious-devotee-summoned-to-pray-for-the-kin.webp": {
+      "src": "/images/vault/a-religious-devotee-summoned-to-pray-for-the-kin.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "03cc35589048a44c336d8843261f248ba99f26269f223f056da1dac5822bc5b9",
+      "outputSha256": "5e4cbab612b184945d07ac5643b52d1613e9fed5b0a59567e6912cbbbca0657b"
+    },
+    "/images/plates/vault/a-sea-storm.webp": {
+      "src": "/images/vault/a-sea-storm.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c877774a30370e13d76a18bc2561cf4e66b147150374575e5593ed8ad9e36d92",
+      "outputSha256": "6991ba8dc7cbaa4b0c099a410c766ab4d4f2990fffa90ee294be8c94aeaa09cd"
+    },
     "/images/plates/vault/a-ship-in-a-rough-sea.webp": {
       "src": "/images/vault/a-ship-in-a-rough-sea.webp",
       "recipe": {
@@ -7154,6 +8096,20 @@
       },
       "sourceSha256": "310b18f1f5de71f347932e6bd6a12f76c84474f30003b058db171cdcbebb0fde",
       "outputSha256": "7b268982eae23355f2f0197362919981c4eb9cc834790209a72085d81b67a5ae"
+    },
+    "/images/plates/vault/a-shipwreck-in-a-storm.webp": {
+      "src": "/images/vault/a-shipwreck-in-a-storm.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9b592816f31b9e1405c44043b287a4ba7c9609d3545b064a1a930591223d7f88",
+      "outputSha256": "211aa8ac4a86b07a19f06974194b399657298c0a9a763e9a2fb86c98c0339da1"
     },
     "/images/plates/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp": {
       "src": "/images/vault/a-smalschip-with-two-dutch-east-indiamen-coming-.webp",
@@ -7309,6 +8265,20 @@
       "sourceSha256": "3352fe3761cdd5158d269226a16ec865446e0e404d49dbb6f8dc5c0fdd750ff2",
       "outputSha256": "bbdc0755d6e8a90e7defe5585626e677d2cdf9680111b4dc177439c901489c28"
     },
+    "/images/plates/vault/bar-harbor-twilight.webp": {
+      "src": "/images/vault/bar-harbor-twilight.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "3be7e36d6c5881b7c0a0c2ec7a5a7faadcc724e68c7a81aa59dcf6bc7d84bf9e",
+      "outputSha256": "f6c3bf42a8c8297355a505c07aba934057ddaace3f437e4befc8b1b5d18655f3"
+    },
     "/images/plates/vault/bashkirtseff-meeting.webp": {
       "src": "/images/vault/bashkirtseff-meeting.webp",
       "recipe": {
@@ -7421,6 +8391,20 @@
       "sourceSha256": "fb79be8ec887120928a566fb65f46efb94d28dbf87f63fee0dd02702193ff6b0",
       "outputSha256": "319af4c0bcff09bb7e5a6c02e97495d1dc3184419514d86b6b61023515a3d143"
     },
+    "/images/plates/vault/before-the-storm.webp": {
+      "src": "/images/vault/before-the-storm.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0fd64fcc114855f1467b53edcfa9cdee7eb6877aa1e98f61d6ca33a07274ec2e",
+      "outputSha256": "42f2ccc623aaee6eb3f0fbb1708d404ae84cdd5eb5647b74972a579c147d1239"
+    },
     "/images/plates/vault/bernard-meadow.webp": {
       "src": "/images/vault/bernard-meadow.webp",
       "recipe": {
@@ -7518,6 +8502,20 @@
       },
       "sourceSha256": "6335ebcdc06c44c624a49fd39d69239a30034f768779d6f83cb3f33361de4ae0",
       "outputSha256": "7717f39605def26a3193be6b663e80e84bc4ea1b168439ee66df446eaa3f05f1"
+    },
+    "/images/plates/vault/blaues-pferd-i.webp": {
+      "src": "/images/vault/blaues-pferd-i.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "22e76bd6ee832f0f0863712c939744eb49549853eb86a26d6b1ecb6b83343a9c",
+      "outputSha256": "8ccbf3deb77ad517a1cf3da3bbe4ceaeee26807352042b94ee6d9588ad3766f5"
     },
     "/images/plates/vault/boccioni-city-rises.webp": {
       "src": "/images/vault/boccioni-city-rises.webp",
@@ -7925,6 +8923,20 @@
       "sourceSha256": "1714655da6c020653eff7dfb51807013633525568e03eb87d9a223e6ca44b0fc",
       "outputSha256": "9aa20817f7018b1c24c6da84eb3d381de103bec1bbaa274e3b136e842cd2164a"
     },
+    "/images/plates/vault/constable-study-for-the-painting-the-leaping-hor.webp": {
+      "src": "/images/vault/constable-study-for-the-painting-the-leaping-hor.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1ba83cd6bb0dc11de01045927b97c1cf39c6e0b297a3c43f5f934811b17a97a0",
+      "outputSha256": "8dabedfd1807b369d43b03052e7ef01f8f80120eda44b9facc2aacefd8e4087e"
+    },
     "/images/plates/vault/corinth-delphinium.webp": {
       "src": "/images/vault/corinth-delphinium.webp",
       "recipe": {
@@ -8036,6 +9048,20 @@
       },
       "sourceSha256": "b2eeeecb5c171982f99cd0f9b4322375dea39ad77d01586082c1cf516626c0e6",
       "outputSha256": "b0da446d83cacda5f3ebd448518a7cc0b603047f6049a93c2ccb173573ea9abd"
+    },
+    "/images/plates/vault/defeat-of-the-mongols-in-the-western-sea.webp": {
+      "src": "/images/vault/defeat-of-the-mongols-in-the-western-sea.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0d845f270f022413bb4986b39a4304e1e330c2e159681ede90ece65c73c6e2e9",
+      "outputSha256": "8eee74adfd193bbcf4f46368a7058317ec8eb6ccd3478e0d3edbb51478cad0c1"
     },
     "/images/plates/vault/delaunay-circular-moon.webp": {
       "src": "/images/vault/delaunay-circular-moon.webp",
@@ -8149,6 +9175,20 @@
       "sourceSha256": "e265a87156e680ef1034d6296b397999c6085451a9a9f018cd5443619efe60a0",
       "outputSha256": "f4e4be8c1d2c398d8b2acc8d7eaf6fb49d15a95d9e0ae676731564cade85d35b"
     },
+    "/images/plates/vault/doctor.webp": {
+      "src": "/images/vault/doctor.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c165d3da3eec794d2881a692d47f2d7381f1af12496dc88bd6f0e5bf97d8845f",
+      "outputSha256": "0b2a5d6cbadb53e493a59afa6c588737a3711f96cc745d5e82bc7fc777462bcf"
+    },
     "/images/plates/vault/eakins-concert-singer.webp": {
       "src": "/images/vault/eakins-concert-singer.webp",
       "recipe": {
@@ -8205,6 +9245,20 @@
       "sourceSha256": "c685be246c58d3dbc4518349f699a9eee5245f796fb034c1434db6da8af0b8b1",
       "outputSha256": "74361bde5cd9a766e83fc6227d1f4fe37646549013cbf27e25489d9b9f2a34a8"
     },
+    "/images/plates/vault/egrets-in-a-tree-at-night.webp": {
+      "src": "/images/vault/egrets-in-a-tree-at-night.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "11b542377a3a08612f44b71aaa74ab90b0b995bf4486788053fb69a42f61f144",
+      "outputSha256": "364fd6971c9023502e225d18f00f17d8e88221c99cc99997c8652adf6b9c5bb8"
+    },
     "/images/plates/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp": {
       "src": "/images/vault/ejiri-number-19-from-the-series-fifty-three-stat.webp",
       "recipe": {
@@ -8233,6 +9287,48 @@
       "sourceSha256": "5508205aa2bd0695d2da508071ec0c5bcd31de22db5f056898e473b792a54acb",
       "outputSha256": "07ddcb9b402bc13e33ccb19c4a5c1277500611f350b964584070deeb0080a0ef"
     },
+    "/images/plates/vault/eruption-of-the-volcano-vesuvius.webp": {
+      "src": "/images/vault/eruption-of-the-volcano-vesuvius.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "64bbefe05e566e46f4fbf71b6846799f695d7956cb43b249e8e6a58c1b157c96",
+      "outputSha256": "e1672ec0f676a06a4b7d77feb6d342d05b40ce43865e1410afb3c94f6bfceea9"
+    },
+    "/images/plates/vault/evening-snow-at-kanbara-from-the-series-fifty-th.webp": {
+      "src": "/images/vault/evening-snow-at-kanbara-from-the-series-fifty-th.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e715315ffc718acf3cbb803079d9be5462d4aef7309c2eb14532d1d83221556d",
+      "outputSha256": "61dc13c1746d9c6ed83a4bc7e03f272defca2f529fb0a54906ab0fdfa07f6511"
+    },
+    "/images/plates/vault/evening-snow.webp": {
+      "src": "/images/vault/evening-snow.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f58d782656d50c62301bbf33be0847c92820ae17761b8f25aae315b86ec34f57",
+      "outputSha256": "5ef05f6aab14144e08d3a24f2115bef0c5eb75b5eebe88c0beac76db6ed121cf"
+    },
     "/images/plates/vault/figure-of-a-lady-laura.webp": {
       "src": "/images/vault/figure-of-a-lady-laura.webp",
       "recipe": {
@@ -8260,6 +9356,34 @@
       },
       "sourceSha256": "b8ddcfb88e6ee7dd6b60867cfa0d5b1ed0ed2bbfbd29f9eaf513c6143dace1e3",
       "outputSha256": "ee2db5bc3f74211e64a4ac183347fdce9124093b5b011bc9b1355ba4bc6fb503"
+    },
+    "/images/plates/vault/figures-beside-a-waterfall-and-pool-in-a-wooded-.webp": {
+      "src": "/images/vault/figures-beside-a-waterfall-and-pool-in-a-wooded-.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ba12488897b2b47f26e3f603261cb4d9e0b78d47c9f736081b373b64dce5ed9a",
+      "outputSha256": "c570816c9958c7bcd10d2d318b1be0b8aef415e195be9f9e7a0722bb474b9a07"
+    },
+    "/images/plates/vault/formes-circulaires-circular-forms.webp": {
+      "src": "/images/vault/formes-circulaires-circular-forms.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2916beb2059bede7e57237cace1a77412fb2e11c81b8b8ca3ab67804f192caa0",
+      "outputSha256": "e4c004c9ff542a77713092d1c21e92853ec3a47fec06c3c0b63a926a362f49cd"
     },
     "/images/plates/vault/friedrich-fog.webp": {
       "src": "/images/vault/friedrich-fog.webp",
@@ -8443,6 +9567,34 @@
       "sourceSha256": "c7ddcc3a0597c5842acb4832dfe4928b3b183807cb174b71921d44e46b507b49",
       "outputSha256": "62fb4b127bbe50e23473eaa3438cc301e300845388a5b1101be22b7dff329652"
     },
+    "/images/plates/vault/gazing-at-a-waterfall.webp": {
+      "src": "/images/vault/gazing-at-a-waterfall.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4eae710f80d7ca7bf4efdb2a044ad856ca9b3df485ed9edbcd196861441a9ef6",
+      "outputSha256": "f441fd77aaf40cbc459766d58eb5852fa45d4f0229fa271c40507a05bffdb739"
+    },
+    "/images/plates/vault/generalprobe-des-balletts-auf-der-b-hne.webp": {
+      "src": "/images/vault/generalprobe-des-balletts-auf-der-b-hne.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "fb036429293d00d860e0368827a15fb2ef22aee54be40c2d869b14cd70210496",
+      "outputSha256": "9cbe622fd1fd1a2a20e5d10aeb2e1ef2861bba7f8ecbbefca8393d3fb13c8a8d"
+    },
     "/images/plates/vault/girodet-atala.webp": {
       "src": "/images/vault/girodet-atala.webp",
       "recipe": {
@@ -8527,6 +9679,34 @@
       "sourceSha256": "237afddfb93e366acb889af87894792bb4acc3d1c0611f611e821227ce4cb3a2",
       "outputSha256": "e5f6e07d463862045606d323a0b8509876ba5c3b17baa3fad3d054ed3bb8d83e"
     },
+    "/images/plates/vault/goyu.webp": {
+      "src": "/images/vault/goyu.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9b82f86f3a9ee9ba82fd557d82119910953c585c564ca42aa85b3c9dfd634720",
+      "outputSha256": "3509e9671017cbd1aa0f1737ef7f4e7a9a72fe8d2f1938dce5a82540d4a9045f"
+    },
+    "/images/plates/vault/grey-and-silver-old-battersea-reach.webp": {
+      "src": "/images/vault/grey-and-silver-old-battersea-reach.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "008fdf235e77ca62a44794f9f11d898eb6d8f31beb2e7ecd3f90126d17b697ea",
+      "outputSha256": "bb38624b003df70bbf3b449ed6c81cf591f2bac85936d32c4a6b831e06fafe46"
+    },
     "/images/plates/vault/gwen-john-cloak.webp": {
       "src": "/images/vault/gwen-john-cloak.webp",
       "recipe": {
@@ -8610,6 +9790,20 @@
       },
       "sourceSha256": "43e5fc7cb5951081dc5d6bca3b4c29f34563490cb6bdda1e39c11bdacae4bd0c",
       "outputSha256": "a6f9d36d631a0cb95ea7a13331837811d686c935e236b5ef6cdd9e7951ed3129"
+    },
+    "/images/plates/vault/harbor-and-orchard.webp": {
+      "src": "/images/vault/harbor-and-orchard.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "8a5e00c5f6040f85d6326d91ebb90751690fff64a2b83fc6b1cba074ca501a66",
+      "outputSha256": "f8838b0f4009d8a24c95d3a23ce365bc11569cbd7f792a452e208344d1cf7059"
     },
     "/images/plates/vault/hayami-enbu.webp": {
       "src": "/images/vault/hayami-enbu.webp",
@@ -8779,6 +9973,20 @@
       "sourceSha256": "99a9b3c41177b50aa7d991b73de3bf180518dfe77ecff0c06fd9899cccb60d59",
       "outputSha256": "53817ee5f214ab93dbf6717180bb408f103946cb21324f21d84b720b8ee37429"
     },
+    "/images/plates/vault/in-verdant-mountains-hoping-for-snow.webp": {
+      "src": "/images/vault/in-verdant-mountains-hoping-for-snow.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "c4fed4d2e5efd11c232f89769769b7e9cdafc3b1701f9ef1689fa1ce79a9f14f",
+      "outputSha256": "974da5bee4b61ccae90dfee9e3f7c4365f7d36ad103c6463c0d929927f1f3bd3"
+    },
     "/images/plates/today/turner.webp": {
       "src": "/images/today/turner.webp",
       "recipe": {
@@ -8876,6 +10084,20 @@
       },
       "sourceSha256": "f2330af0638a26a58f664c0fc7484a88ff1690eaec2bfc205c47aae2cceeac79",
       "outputSha256": "c8fa40c3f8352682ba0c3e5dfb6b6e59ed779db540e7688b9761fa607e9ee515"
+    },
+    "/images/plates/vault/july-amusements-on-the-water-juillet-les-diverti.webp": {
+      "src": "/images/vault/july-amusements-on-the-water-juillet-les-diverti.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b1da8787bbea9e7b8b59efa123230368201170c7946470ae1c125235584c2912",
+      "outputSha256": "fd685140aa295f07d3f39f050e32e6528a411a1d88693f8ca402027094de47bc"
     },
     "/images/plates/vault/kakabadze-abstraction.webp": {
       "src": "/images/vault/kakabadze-abstraction.webp",
@@ -9086,6 +10308,20 @@
       },
       "sourceSha256": "3d8ac030560951d76c0f672cc4e8a5458d629aeacf9cce6e8c7cb816b87da65f",
       "outputSha256": "4df56f7385c5a502ffd54f29b08fb9dd2448563f80e38d3e47bb9eb62856e2c2"
+    },
+    "/images/plates/vault/kitchen-interior.webp": {
+      "src": "/images/vault/kitchen-interior.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f9f0579f5010fca55f8a32d5c0dd8fd7e551ded1d640f42145124a518f848c59",
+      "outputSha256": "92f46e0dff97b839cf8ed5eb1c319edce685a81d55874abc391287ee2686777a"
     },
     "/images/plates/vault/koide-sea.webp": {
       "src": "/images/vault/koide-sea.webp",
@@ -9857,6 +11093,20 @@
       "sourceSha256": "db2a197b766f0995d7d1299d722315b3dd7c12d36715f4b9db74405088ba61ea",
       "outputSha256": "5f841c87567165aa4c0d1df2b5092cc883c893448df903ce497a02633181da9c"
     },
+    "/images/plates/vault/moonlight-by-nordseter.webp": {
+      "src": "/images/vault/moonlight-by-nordseter.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "72cb1c69262d0f55960dabf76a36659f6d76246aebeebf789f3327dfe83ae3ac",
+      "outputSha256": "07c8b9b75edf4720f69e164c238c73c607bec204af09d70c334e6a39e769751d"
+    },
     "/images/plates/vault/moonlight-reflection-through-the-mist-1930.webp": {
       "src": "/images/vault/moonlight-reflection-through-the-mist-1930.webp",
       "recipe": {
@@ -9926,6 +11176,20 @@
       },
       "sourceSha256": "007c316c2510517743d99be357272bfa0b5d7a324dff522417caf64626f4e481",
       "outputSha256": "e133f4def1cd3aa3d226af0dd57760a8b14c93af6918b29d98b17fa3421e6990"
+    },
+    "/images/plates/vault/morgenlandschaft-aurora.webp": {
+      "src": "/images/vault/morgenlandschaft-aurora.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "dcff222d322c85639d8b7aed129e0a8ba18c3f8f6a74de9937a69638604e4aa6",
+      "outputSha256": "59c9534fb0cdb2072974886091d5f87e635ace4f559c58ce3b98382c0b86f64a"
     },
     "/images/plates/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp": {
       "src": "/images/vault/morning-after-the-snow-at-koishikawa-in-edo-kois.webp",
@@ -10151,6 +11415,20 @@
       "sourceSha256": "3455aeed976c8d32cdcf9118f6ba38177f597c93e77ddcb2d85191d48132f0c9",
       "outputSha256": "7e1d0d234c50c383e38bc7063bba138c931ff8acf28dc25085ecc3b0fb4aba75"
     },
+    "/images/plates/vault/ochanomizu.webp": {
+      "src": "/images/vault/ochanomizu.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1a2e5fe3529e03655fc6d75246b752c43b86c09653be2fdf17a20e762fd6a41f",
+      "outputSha256": "c1cfa4c4702a7c259a4a39dfebd01e4e6385f1624e2206aa41b0a2cdb34fa93a"
+    },
     "/images/plates/vault/orchard.webp": {
       "src": "/images/vault/orchard.webp",
       "recipe": {
@@ -10290,6 +11568,76 @@
       },
       "sourceSha256": "3007d67448c01aad8af65c45ee9acb2a22618475a733c5ee7d3879dd74674b88",
       "outputSha256": "8c1bc29517411f0c04543649b6dcd4ee0d1f5c191361d26ad27891b6c9b4a19d"
+    },
+    "/images/plates/vault/plate-107-the-wreck-of-ceyx-s-ship-ceyx-clarium-.webp": {
+      "src": "/images/vault/plate-107-the-wreck-of-ceyx-s-ship-ceyx-clarium-.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2602294b9f4e1b3f5326a9d34f18218aa7c391dc0dffb4473a8585003c63ba4f",
+      "outputSha256": "19aeddbb3a435fcfba1b1811ff44782aff3bd237d76626f6aaff17d383381542"
+    },
+    "/images/plates/vault/plate-14-richardson-s-show-from-world-in-miniatu.webp": {
+      "src": "/images/vault/plate-14-richardson-s-show-from-world-in-miniatu.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7884cfe6bbdbf64cc99c78a874ac13020dfe99271b12f045d58af3e23349795a",
+      "outputSha256": "3fbbd1b732616122f8e2a3e31ec45bb7293272d1f0118479d6771bc266dbeb59"
+    },
+    "/images/plates/vault/plate-7-a-triple-waterfall-a-dead-tree-to-right-.webp": {
+      "src": "/images/vault/plate-7-a-triple-waterfall-a-dead-tree-to-right-.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "eaa474a16cb9383d952bd3299ec0fb9011762676c55c0ed7c6dfdfed0554234e",
+      "outputSha256": "52fe196e8c828c83406ba7bab8c005aebdbd598f632454db122188a360b396fe"
+    },
+    "/images/plates/vault/points.webp": {
+      "src": "/images/vault/points.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "bfa44161af9e1a353da21199e7436987990c39f0719ec314275c84949b35d4ef",
+      "outputSha256": "51efe75d15d850b6982328be9907a56bc0df11982e701c842b2a558951b7c901"
+    },
+    "/images/plates/vault/portrait-of-franz-marc.webp": {
+      "src": "/images/vault/portrait-of-franz-marc.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b847fddf2f7e6523aac2159d0a25dcd4520467081a239775b77a51ecb805a5b5",
+      "outputSha256": "bc449061572de47e89e0f45c368b58f913486a95ad602d8564189644da87d94b"
     },
     "/images/plates/vault/puvis-girls-seaside.webp": {
       "src": "/images/vault/puvis-girls-seaside.webp",
@@ -10501,6 +11849,20 @@
       "sourceSha256": "9998d8110e720510ee8cce82d1ce9d2612a54b929020351fd03e7b11227286ce",
       "outputSha256": "18db61156480cfbf7c5d20030c2023f3faf6996c442ac1c08b4d0bcbdbcc7036"
     },
+    "/images/plates/vault/saguenay-river-lower-rapids.webp": {
+      "src": "/images/vault/saguenay-river-lower-rapids.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "79a86e7ebf2d44c288d9fba3866f1f5899b9e7765e1bb9ec7a8fd0f80b6efc1a",
+      "outputSha256": "0278beed0bd2b099d6cadc8369bca13ccdebc7443f785c07a8761f8653e7252f"
+    },
     "/images/plates/vault/schjerfbeck-clothes-drying.webp": {
       "src": "/images/vault/schjerfbeck-clothes-drying.webp",
       "recipe": {
@@ -10655,6 +12017,20 @@
       "sourceSha256": "4eff736bb1c80ba6f1cb998e63626db76eddf49660b46d7955c8f2969d00a773",
       "outputSha256": "57282be35367df2693d50c12df4f4bfea45eaf8116e7ba9ece2fe087c455c58b"
     },
+    "/images/plates/vault/sea-stores.webp": {
+      "src": "/images/vault/sea-stores.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "7650fa4a8a757c6ca978ee80aaa1c894cc4a221f1fd690d0101f33d4d4453bef",
+      "outputSha256": "7c388b53ae6bc08807ae73ca099516af46f3b74b38df49dc06eed80371c631d2"
+    },
     "/images/plates/vault/seascape-study-with-rain-cloud-rainstorm-over-th.webp": {
       "src": "/images/vault/seascape-study-with-rain-cloud-rainstorm-over-th.webp",
       "recipe": {
@@ -10795,6 +12171,20 @@
       "sourceSha256": "d3acae31e78b055fe52824957179c84742b51967cdab44424b8385d8e25dd3d7",
       "outputSha256": "cde6cff8b1de4bdf52adac4353946c188ed2b4707b6b26b265a2845ef4ae24d8"
     },
+    "/images/plates/vault/shooting-the-rapids-saguenay-river.webp": {
+      "src": "/images/vault/shooting-the-rapids-saguenay-river.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "51e9bdd578c7c1af01bcfd7edb6df9c87220fa2bc155187fe4fcf4bd6c1d0f80",
+      "outputSha256": "edf4c67abbaf7722081ae53735da3cf2979df94d66889df4c52f1de894eca81d"
+    },
     "/images/plates/vault/sickert-camden-dawn.webp": {
       "src": "/images/vault/sickert-camden-dawn.webp",
       "recipe": {
@@ -10906,6 +12296,34 @@
       },
       "sourceSha256": "a15031dfad85338a913c4d3e9c99ca273bf3f0e68a3ef7f023bc39ec06a7643b",
       "outputSha256": "46af1da6f033aa912a2a30f8e9fc667df6b2bb38c65480705eeea16bdc20c14c"
+    },
+    "/images/plates/vault/snow-landscape.webp": {
+      "src": "/images/vault/snow-landscape.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "75dc829385dcab05a9dce92d8083ef219ef9ea80236d562f70f0f44d6ee163a1",
+      "outputSha256": "fbf612fc5681b9fbb59ed744137848409c7f7afb2c1bc5574e1f899ce723a1e2"
+    },
+    "/images/plates/vault/snow.webp": {
+      "src": "/images/vault/snow.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "fdf912a2dae793a700d4d5b22cfb2beac222283752212a79f519cb01281db880",
+      "outputSha256": "9aea2f72e9fe8ede025f60a30e53391cf9af3a521e76a454bbc14bb658a57b73"
     },
     "/images/plates/vault/sorolla-alcazar.webp": {
       "src": "/images/vault/sorolla-alcazar.webp",
@@ -11285,6 +12703,48 @@
       "sourceSha256": "31bb7ac34f2fb80ce3f629deaab2ddfe66313d9238d264e6225bb6fd53f7100c",
       "outputSha256": "34bf111df55fcd388d2e4680677f04aa9da6d00d771d9674cd0adbfb233d308b"
     },
+    "/images/plates/vault/the-heights-over-foilhummerum-bay-valentia-the-w.webp": {
+      "src": "/images/vault/the-heights-over-foilhummerum-bay-valentia-the-w.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "825169aabb33aa7d53aa09738b6aaf692655b993c51fb281dbf4de990d4cfa9d",
+      "outputSha256": "ee0b80a96721a6d6f75f61b8d8f3fd54ff013b3c56e967449faba567123e9e19"
+    },
+    "/images/plates/vault/the-landlady-at-your-service-sir-you-will-find-y.webp": {
+      "src": "/images/vault/the-landlady-at-your-service-sir-you-will-find-y.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "ee588148d1c9821b8e1cd23157663748a58ff2a2c7b735e039ef9bd9870ff672",
+      "outputSha256": "95ef7fc74a452c9d24734ca25f29bc80efdeaf634247ddf8e2c8bbe767ea360d"
+    },
+    "/images/plates/vault/the-last-voyage-of-henry-hudson.webp": {
+      "src": "/images/vault/the-last-voyage-of-henry-hudson.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d63b2887928e62a08dd065aae661a6b9132133e6d9b113a65ed475881ca4b26e",
+      "outputSha256": "d9776bd50d50b64c6e211593b840e58b4f8b9bdfc7e5e5ab3dac61835dcae6dd"
+    },
     "/images/plates/vault/the-louvre-under-snow.webp": {
       "src": "/images/vault/the-louvre-under-snow.webp",
       "recipe": {
@@ -11340,6 +12800,20 @@
       },
       "sourceSha256": "f6116246587b98fa66dd6aec31343e0f4b3b14e83a84b70aed7b07cf435556c3",
       "outputSha256": "2badcf55e92bda3b851bf0cf1e9eb26e41eb222cc20425157fdcf683da13f1f8"
+    },
+    "/images/plates/vault/the-river-elbe-downstream-of-hamburg-by-moonligh.webp": {
+      "src": "/images/vault/the-river-elbe-downstream-of-hamburg-by-moonligh.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f8bf85da8c29e926e6dce0d676bd651fb0f9c45d81a35030015b1e47952a127e",
+      "outputSha256": "9f371c746f6c32fcca9054918bc55c4827bf5328964d06da8d621b6ac9000e1a"
     },
     "/images/plates/vault/the-starry-night.webp": {
       "src": "/images/vault/the-starry-night.webp",
@@ -11452,6 +12926,20 @@
       },
       "sourceSha256": "232129c3cf54c84ba497f91f6cfd894d8947c1c5c2f8ff5c1ee4911ed22d7918",
       "outputSha256": "92079b2698598f2b8c5818ddffdd1ea6682048bd33d238296047c0e82955a008"
+    },
+    "/images/plates/vault/twilight.webp": {
+      "src": "/images/vault/twilight.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "8e11ea49fb0251fad3a4842175cc996cba9b1e185e8ba302f1428f085c6935d8",
+      "outputSha256": "2c14ca8ee87da372d98a9ac114cb21f628a2c131ba07e9270f360db1340ccaf5"
     },
     "/images/plates/vault/two-stage-rocket-painting-by-chesley-bonestell.webp": {
       "src": "/images/vault/two-stage-rocket-painting-by-chesley-bonestell.webp",
@@ -11719,6 +13207,20 @@
       "sourceSha256": "278c34e9183dc2348994b760129ae4d316e218b6bfe0a7b5859b212edcc9c3fb",
       "outputSha256": "31a1f1d816c20ac507194ab67c2f4dea192a8663ca36cae489e67a1eeb2b41d7"
     },
+    "/images/plates/vault/vesuvius.webp": {
+      "src": "/images/vault/vesuvius.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4a3eaab76571b0fe497d7826b4082920a3d11d83a4c66fd3ad09f8c6975b7c91",
+      "outputSha256": "14ae1f77c2a1b2f71086480f13acf71b6ac679b9a26c25422e89c3c094a06e87"
+    },
     "/images/plates/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp": {
       "src": "/images/vault/vesuvs-udbrud-1820-eruption-of-the-volcano-vesuv.webp",
       "recipe": {
@@ -11732,6 +13234,20 @@
       },
       "sourceSha256": "0d2df64e0ba80543f0fa7e96d20c9324a19a40850424c4c778701233a6a75901",
       "outputSha256": "9ff8a6465d4ecd61cfbbd3204adc1164157cac9490038868cce4de588f3b3a7d"
+    },
+    "/images/plates/vault/view-of-lebanon-after-an-english-engraving-and-a.webp": {
+      "src": "/images/vault/view-of-lebanon-after-an-english-engraving-and-a.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "8eb3d9ec269b47bbbbaad060765e6e0f8d5befc696dd8ebeddc38368ca902d4d",
+      "outputSha256": "d87c583b8fa2d84e5a5ba7575938a7fed7742089ecb6f3bab4c8f2a8b5b6854c"
     },
     "/images/plates/vault/view-of-sugarloaf-mountain-from-the-silvestre-ro.webp": {
       "src": "/images/vault/view-of-sugarloaf-mountain-from-the-silvestre-ro.webp",
@@ -11887,6 +13403,20 @@
       "sourceSha256": "41952438824c43a72ebe1be3153981bf0c50ece0ab6c917658d52b4e669ed567",
       "outputSha256": "54d66754850cdac4f361acfd917caf016138d940a0b720821b93dfc91ccb3051"
     },
+    "/images/plates/vault/waterfall-eagle-and-monkey.webp": {
+      "src": "/images/vault/waterfall-eagle-and-monkey.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "fb094aa288993cf6a840560a6ece1260af0e3fbd5e5062a41065de79afa802fb",
+      "outputSha256": "c9acaa429e55d815149f82eaa8ee96a1ed4ad016c8f837c7ab1a3a0c248afe6e"
+    },
     "/images/plates/vault/waterfall-on-a-cold-cliff.webp": {
       "src": "/images/vault/waterfall-on-a-cold-cliff.webp",
       "recipe": {
@@ -11984,6 +13514,34 @@
       },
       "sourceSha256": "0ddf8e80974094a3f3a4cd908d39eee7bfd0e511528a6f7811ccb972e7877aa3",
       "outputSha256": "a7a05ed7a196a004ae4289bdea64243febe299bae1b9517bd9887906a7b0d993"
+    },
+    "/images/plates/vault/woman-with-a-child-in-the-garden-looking-at-the-.webp": {
+      "src": "/images/vault/woman-with-a-child-in-the-garden-looking-at-the-.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "cf8a63bbfbf6e9175e92dc86a6bd9f63eb10b1c0bc35737b4698eb980f46421b",
+      "outputSha256": "e98d51563e8cb66fa4f477628ae10b331595e1553e1e838b45d4024b7cdb47af"
+    },
+    "/images/plates/vault/wreck-on-shore-from-the-types-of-vessels-series-.webp": {
+      "src": "/images/vault/wreck-on-shore-from-the-types-of-vessels-series-.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "0ebababb5ecd76670eb3b16f1bc899e328c407578a60e2fe7cb890f7c67df4bc",
+      "outputSha256": "100ab16105d50d111396278465f4ed60b5f644660891abad0c1845f8aebaadf4"
     },
     "/images/plates/vault/wright-air-pump.webp": {
       "src": "/images/vault/wright-air-pump.webp",
@@ -12615,6 +14173,48 @@
       "sourceSha256": "8e3e98f31df218d52cbdbc1ec07d6d00770dad27304e49a48fc2cee011f05df0",
       "outputSha256": "95e4e577ceb48242876aa5b63d67410eff491856f433230733e128f5c4321cfb"
     },
+    "/images/plates/vault/bay-of-biscay.webp": {
+      "src": "/images/vault/bay-of-biscay.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "e06db8924ed8a1b974a317769513f5095dc132f141d42c9d73298d7715220500",
+      "outputSha256": "9aa192d9d36e51fb8ff4bce91f60d9a5fb049266ebe2cb0a55970bcf02db8ccd"
+    },
+    "/images/plates/vault/faith-and-hope.webp": {
+      "src": "/images/vault/faith-and-hope.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "2a1995de762d56f8da9ab08dfc6f99c6c7f810c88ac60c4f088fe2003c7108bd",
+      "outputSha256": "c03613d958f89a1394964abbe3285a5976409247fc7c4d7fe8e1ae1fba986862"
+    },
+    "/images/plates/vault/fireworks-display-celebrating-the-end-of-the-thi.webp": {
+      "src": "/images/vault/fireworks-display-celebrating-the-end-of-the-thi.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "cc2f3a84e4d73423bc4e59d11c7f96d37dcddacaaf728440d06a4f42b839de0e",
+      "outputSha256": "258d34de5c295ed2c0b3cfefd8e5da5eec0a2d32cb1b7bba324a6f546d3fcdb6"
+    },
     "/images/plates/vault/fujikawa-sanchu-yamanaka-no-sato-miyajiyama.webp": {
       "src": "/images/vault/fujikawa-sanchu-yamanaka-no-sato-miyajiyama.webp",
       "recipe": {
@@ -12643,6 +14243,34 @@
       "sourceSha256": "392e5764c92be51d155f8001d774bfc1e5ef48c188b2623129bf126217458baf",
       "outputSha256": "0eba9dfba7ccd7008f7c75984fb6f644b7917af696992823ab9b1e4beb2f7d12"
     },
+    "/images/plates/vault/gathering-manna.webp": {
+      "src": "/images/vault/gathering-manna.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "1afd32ae5632d14b97c213900a3bd28e5dc5e8ad0b4cbb9397e139692a9a87c5",
+      "outputSha256": "115c01513a04e069af964a272da497136bdba3b94d8ab3a4ae9ec5dabdf03c67"
+    },
+    "/images/plates/vault/golden-pheasant-in-the-snow.webp": {
+      "src": "/images/vault/golden-pheasant-in-the-snow.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "750d514e1050fa50a4936a71342baf9930345554a519a12285a12fff9adf6341",
+      "outputSha256": "a9316c889ede210304134d45ab09da4139b591d6d66bcbaed808d31e9a859e18"
+    },
     "/images/plates/vault/goyo-woman-after-bath.webp": {
       "src": "/images/vault/goyo-woman-after-bath.webp",
       "recipe": {
@@ -12656,6 +14284,34 @@
       },
       "sourceSha256": "f64c790dd2ca7b34437c7f20b3cacb7d5cadc0250152e747e71097efede94ac4",
       "outputSha256": "d8f80730e736e6bd1492d9052c167cd55ad5d4efb5755b2068f5f248a372e6f7"
+    },
+    "/images/plates/vault/impressions-of-rain-rouen.webp": {
+      "src": "/images/vault/impressions-of-rain-rouen.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d71a321fbffffd8bba8eeccb62b95aeb147eb2c2e0daac5dca2feebafd19881e",
+      "outputSha256": "c3f0d3a6f94023f5007f57bcca286c32e5f2c097bef74f6387ad383fd89b7f6a"
+    },
+    "/images/plates/vault/jubal-and-miriam.webp": {
+      "src": "/images/vault/jubal-and-miriam.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "9169dc68dbe1d986fadf9e2cae3b3136a9d4a5b337a969f3540acff4e95492ef",
+      "outputSha256": "03075e1ef0f16fe29980f70a9ebf860f9fe673cbb69ff2f98a93abc4482c6649"
     },
     "/images/plates/vault/kollwitz-arbeiterfrau.webp": {
       "src": "/images/vault/kollwitz-arbeiterfrau.webp",
@@ -12769,6 +14425,20 @@
       "sourceSha256": "79861ed5fbb837595fc92142872089e0be75dbeb5f3cb57bc975fa7d746f2cc1",
       "outputSha256": "1740bcf54075e9475962102290c19e9ea9db27f25dbc54465263e0332178af6c"
     },
+    "/images/plates/vault/mount-yuga-in-bizen-province-bizen-yugasan-from-.webp": {
+      "src": "/images/vault/mount-yuga-in-bizen-province-bizen-yugasan-from-.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "4937011c6374ce2fb23c6ca342f48ab0524335256d156dffe42b5a2abf467ea2",
+      "outputSha256": "5ce62cd5aad13840b4ec68cd134e4142532409325ca6bbc33dcf340cafe3ffad"
+    },
     "/images/plates/vault/night-rain-at-gankir.webp": {
       "src": "/images/vault/night-rain-at-gankir.webp",
       "recipe": {
@@ -12811,6 +14481,20 @@
       "sourceSha256": "0692af4c2fc3815a54cfa754f2d53423938aa42481ead7efc8fc2f3ce38ee570",
       "outputSha256": "d1368591e74a193e31c07d14438b0c8dee234e90663814325172e066d7002cab"
     },
+    "/images/plates/vault/rocky-landscape-with-st-jerome.webp": {
+      "src": "/images/vault/rocky-landscape-with-st-jerome.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "14ca881260188d24f602e4cdb59244082d224d8ed43fb05283c90fb714d5082e",
+      "outputSha256": "ad0914e581ba73204cc222d43b9e07c5dabf2f03b970b0023aaa9b0942012e35"
+    },
     "/images/plates/vault/seaside-village-in-winter-from-hokusai-s-album-o.webp": {
       "src": "/images/vault/seaside-village-in-winter-from-hokusai-s-album-o.webp",
       "recipe": {
@@ -12825,6 +14509,34 @@
       "sourceSha256": "dec1af65ce9fc3d6d61cb531c749efcc70dcebe276a87861f5e7fe2cc705c34b",
       "outputSha256": "0c75a62d70534fd20a96de742fda196fdda59b749e52be428119e701939805cc"
     },
+    "/images/plates/vault/shower-at-the-new-yanagi-bridge.webp": {
+      "src": "/images/vault/shower-at-the-new-yanagi-bridge.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "d1d9f2d4461793fe9051b8b141e1af167d2a5cca0f7b9836f2bb4538f0e03d80",
+      "outputSha256": "3c5e0d2460cda11437db1d844a630004915fcd16be379dd9bc3633e331e37be8"
+    },
+    "/images/plates/vault/still-life-with-origami.webp": {
+      "src": "/images/vault/still-life-with-origami.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "fc2f4a5aeca7c40afd1046aadd966cf475db90abdd277f3209533b7364692d13",
+      "outputSha256": "6e49661cf01385afe6520d8c169fc4da08909da683d35d7dff093de99007ea90"
+    },
     "/images/plates/vault/vallotton-guitare.webp": {
       "src": "/images/vault/vallotton-guitare.webp",
       "recipe": {
@@ -12838,6 +14550,20 @@
       },
       "sourceSha256": "7dd9fea8427ec60316663ba594e738387b980ea2780e3bccff0158a48e1bf0f9",
       "outputSha256": "f7cd0f2887c0761f145928a19757a6ad142adfff0562c7b644ee61da2342f844"
+    },
+    "/images/plates/vault/view-of-the-asakusa-kinryuzan-temple-from-the-az.webp": {
+      "src": "/images/vault/view-of-the-asakusa-kinryuzan-temple-from-the-az.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "b0d281004c29e316401b63d51a62c0ed35d679a427c9282e24449ff3025d71f4",
+      "outputSha256": "76ede65604dafc8fbbb54271abb8a44a17ff547f6ce18b95f3f5fc5d08a9f1c0"
     },
     "/images/plates/vault/yoshida-funatsu.webp": {
       "src": "/images/vault/yoshida-funatsu.webp",
@@ -12866,6 +14592,20 @@
       },
       "sourceSha256": "1fd9240714b852cf0e5aa99df4e0bc63abd16e1d11b6f4a66dbb567b496665fa",
       "outputSha256": "74c70f53cd6ab6e41fabc36d62f1ce6dd7bbe5899eab5dafba2a6aece8276e68"
+    },
+    "/images/plates/vault/zojoji-temple-at-shiba-in-snow.webp": {
+      "src": "/images/vault/zojoji-temple-at-shiba-in-snow.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "f7e6d36ada72c7d53fca7c6c2f9e0963759fbfcb0acbebb53b5a90d868fac568",
+      "outputSha256": "271713836353dcfae84e5ab00697839effab9ce63fa82c50f0421add206438ba"
     },
     "/images/plates/vault/adelaide-labille-guiard.webp": {
       "src": "/images/vault/adelaide-labille-guiard.webp",
@@ -15737,38 +17477,24 @@
       "sourceSha256": "5cf21ca5fd5302bbd5d0be2f87e3ae661cbb61b66f85a871c3222caa11bd87ff",
       "outputSha256": "fe5bc9beb6ea90bf17fea436d059bd47bbbb400b674cddf06de003f3416c7155"
     },
-    "/images/responsive/pond/fuji-800.webp": {
-      "src": "/images/pond/fuji.webp",
+    "/images/responsive/eidos/hero-desktop-poster-768.avif": {
+      "src": "/images/eidos/product/hero-desktop-poster.webp",
       "recipe": {
-        "width": 800,
+        "width": 768,
         "fit": "inside",
         "position": "centre",
         "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 78,
+        "format": "avif",
+        "quality": 63,
         "effort": 6
       },
-      "sourceSha256": "171ba94a9a33415cf5160b7bc25ac1e926b61e7263f9ce76a03e3e945808f003",
-      "outputSha256": "a65558f0c058b700633f49018b0224af17211630367565eb3ef95bcb2409e6ab"
+      "sourceSha256": "80e75fbfffb578ea0f6e13dd475c61673dd97d79f9bb404716c4cb937a9bbb27",
+      "outputSha256": "15a131065109a4badce59265405d895c63876e459de79b1074d2228dbccc7255"
     },
-    "/images/responsive/pond/fuji-1280.webp": {
-      "src": "/images/pond/fuji.webp",
+    "/images/responsive/eidos/hero-desktop-poster-768.webp": {
+      "src": "/images/eidos/product/hero-desktop-poster.webp",
       "recipe": {
-        "width": 1280,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "171ba94a9a33415cf5160b7bc25ac1e926b61e7263f9ce76a03e3e945808f003",
-      "outputSha256": "3a99108a45068dab49604f3a09fc6baf2f777e07ac84800c72c9433c47093efb"
-    },
-    "/images/responsive/pond/frog-340.webp": {
-      "src": "/images/pond/frog.webp",
-      "recipe": {
-        "width": 340,
+        "width": 768,
         "fit": "inside",
         "position": "centre",
         "withoutEnlargement": true,
@@ -15776,1748 +17502,358 @@
         "quality": 82,
         "effort": 6
       },
-      "sourceSha256": "486779e075b07e658c7b74290447f315102376024e10d57a6364dc3680a18730",
-      "outputSha256": "f2e2eab441c4e51abbe62e4c7c5292fd44aa58bc68e7a9120a186df0fc10b77f"
+      "sourceSha256": "80e75fbfffb578ea0f6e13dd475c61673dd97d79f9bb404716c4cb937a9bbb27",
+      "outputSha256": "da2b119482f8e205b706df23b3f2c2485ecf32a1aa8f785cb8270a6cbb7baac3"
     },
-    "/images/thumbs/vault/a-moonlit-scene-depicting-the-areopagite-judged-.webp": {
-      "src": "/images/vault/a-moonlit-scene-depicting-the-areopagite-judged-.webp",
+    "/images/responsive/eidos/hero-desktop-poster-1152.avif": {
+      "src": "/images/eidos/product/hero-desktop-poster.webp",
       "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
+        "width": 1152,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "avif",
+        "quality": 63,
+        "effort": 6
+      },
+      "sourceSha256": "80e75fbfffb578ea0f6e13dd475c61673dd97d79f9bb404716c4cb937a9bbb27",
+      "outputSha256": "ac407dfec97eff8f8f995123e71e5aa088c5bf5da0da73f069bd423fc1cc1781"
+    },
+    "/images/responsive/eidos/hero-desktop-poster-1152.webp": {
+      "src": "/images/eidos/product/hero-desktop-poster.webp",
+      "recipe": {
+        "width": 1152,
+        "fit": "inside",
         "position": "centre",
         "withoutEnlargement": true,
         "format": "webp",
-        "quality": 76,
+        "quality": 82,
         "effort": 6
       },
-      "sourceSha256": "7ca4309fa0c3bc7e1e9af1fa207b09dee5f8935a5364b95f6107c5e50f0f2f90",
-      "outputSha256": "7116f07156a291326faf67ebf932e995b385cc9051ee9d6fde160d8fb27fe1e7"
+      "sourceSha256": "80e75fbfffb578ea0f6e13dd475c61673dd97d79f9bb404716c4cb937a9bbb27",
+      "outputSha256": "62b42e07ac78b8755f30c47fa9967da5188fda0f0a7b6c019304341a35a4a683"
     },
-    "/images/plates/vault/a-moonlit-scene-depicting-the-areopagite-judged-.webp": {
-      "src": "/images/vault/a-moonlit-scene-depicting-the-areopagite-judged-.webp",
+    "/images/responsive/eidos/hero-desktop-poster-1536.avif": {
+      "src": "/images/eidos/product/hero-desktop-poster.webp",
+      "recipe": {
+        "width": 1536,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "avif",
+        "quality": 63,
+        "effort": 6
+      },
+      "sourceSha256": "80e75fbfffb578ea0f6e13dd475c61673dd97d79f9bb404716c4cb937a9bbb27",
+      "outputSha256": "a1926378fb533a4afc2416b5108b061088dcbe9dcc3f0021a08462c8e9df04fa"
+    },
+    "/images/responsive/eidos/hero-desktop-poster-1536.webp": {
+      "src": "/images/eidos/product/hero-desktop-poster.webp",
+      "recipe": {
+        "width": 1536,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "80e75fbfffb578ea0f6e13dd475c61673dd97d79f9bb404716c4cb937a9bbb27",
+      "outputSha256": "ee129ba870c2bf43858eceadae625b56af9da10c468f254af82ed092a1269535"
+    },
+    "/images/responsive/eidos/hero-mobile-poster-480.avif": {
+      "src": "/images/eidos/product/hero-mobile-poster.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "avif",
+        "quality": 63,
+        "effort": 6
+      },
+      "sourceSha256": "61fcf3ffa1854108d60a4454cdd91f28e73a96e475792f536b972ea08d025317",
+      "outputSha256": "255624dd698c1e18e1b0e203116dc178385d266a1012cc92eb85601385c78303"
+    },
+    "/images/responsive/eidos/hero-mobile-poster-480.webp": {
+      "src": "/images/eidos/product/hero-mobile-poster.webp",
+      "recipe": {
+        "width": 480,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "61fcf3ffa1854108d60a4454cdd91f28e73a96e475792f536b972ea08d025317",
+      "outputSha256": "b840dbc38d067cc670720e76c29675a69a14bf7892d25e5478fe6cd15d1f2a38"
+    },
+    "/images/responsive/eidos/hero-mobile-poster-960.avif": {
+      "src": "/images/eidos/product/hero-mobile-poster.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "avif",
+        "quality": 63,
+        "effort": 6
+      },
+      "sourceSha256": "61fcf3ffa1854108d60a4454cdd91f28e73a96e475792f536b972ea08d025317",
+      "outputSha256": "4af40c00b327566d33e504c05d11138355341211499b251d1b9a81b14141083d"
+    },
+    "/images/responsive/eidos/hero-mobile-poster-960.webp": {
+      "src": "/images/eidos/product/hero-mobile-poster.webp",
+      "recipe": {
+        "width": 960,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "61fcf3ffa1854108d60a4454cdd91f28e73a96e475792f536b972ea08d025317",
+      "outputSha256": "0d50dc1654d077663ea6c6ed0367f491d35c0280897a821a36264fa10f65ba63"
+    },
+    "/images/responsive/eidos/faun-mark-96.webp": {
+      "src": "/images/eidos/product/faun-mark.webp",
+      "recipe": {
+        "width": 96,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 85,
+        "effort": 6
+      },
+      "sourceSha256": "943601b5f24cfdd34d8191bab3b9a552f8c4ab2ef1652f258eb6bdc1479b03df",
+      "outputSha256": "cb033fd713af8f4f4b669d542c91a1f8b924353020abc316f814cc4dddd9962f"
+    },
+    "/images/responsive/eidos/faun-mark-540.webp": {
+      "src": "/images/eidos/product/faun-mark.webp",
+      "recipe": {
+        "width": 540,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 85,
+        "effort": 6
+      },
+      "sourceSha256": "943601b5f24cfdd34d8191bab3b9a552f8c4ab2ef1652f258eb6bdc1479b03df",
+      "outputSha256": "b7da4c061ecf4644113a6ca1251c6a3bee810832716cc2018b7833b0a719f6ae"
+    },
+    "/images/responsive/press/times-radio-studio-800.avif": {
+      "src": "/images/press/times-radio-studio.webp",
+      "recipe": {
+        "width": 800,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "avif",
+        "quality": 63,
+        "effort": 6
+      },
+      "sourceSha256": "df1d6b27a86296ed5cd330a4380148237ad990b79dd3b49cb91a42baa7487a54",
+      "outputSha256": "fb821e3e10d6c16b9e6a74a5df9aaf905fe353058f2b161f97a56c79b1612b5f"
+    },
+    "/images/responsive/press/times-radio-studio-800.webp": {
+      "src": "/images/press/times-radio-studio.webp",
+      "recipe": {
+        "width": 800,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "df1d6b27a86296ed5cd330a4380148237ad990b79dd3b49cb91a42baa7487a54",
+      "outputSha256": "aed424b173d7cc583c657fdabac2304c63ade8eb1670e29da767cf7778c9e3df"
+    },
+    "/images/responsive/press/times-radio-studio-1200.avif": {
+      "src": "/images/press/times-radio-studio.webp",
+      "recipe": {
+        "width": 1200,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "avif",
+        "quality": 63,
+        "effort": 6
+      },
+      "sourceSha256": "df1d6b27a86296ed5cd330a4380148237ad990b79dd3b49cb91a42baa7487a54",
+      "outputSha256": "0f31bf2429c4598c6fe022847f072188d7345cf9b8afef589a74d101028ae03a"
+    },
+    "/images/responsive/press/times-radio-studio-1200.webp": {
+      "src": "/images/press/times-radio-studio.webp",
+      "recipe": {
+        "width": 1200,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "df1d6b27a86296ed5cd330a4380148237ad990b79dd3b49cb91a42baa7487a54",
+      "outputSha256": "6f2775b03b61fc8d57b7c05eb5d40b507a2f6e0678c698ce4ea9ab132f78c530"
+    },
+    "/images/responsive/press/times-radio-studio-1600.avif": {
+      "src": "/images/press/times-radio-studio.webp",
+      "recipe": {
+        "width": 1600,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "avif",
+        "quality": 63,
+        "effort": 6
+      },
+      "sourceSha256": "df1d6b27a86296ed5cd330a4380148237ad990b79dd3b49cb91a42baa7487a54",
+      "outputSha256": "d00549388cb7ab8072870ad783e2bce184aa95bda720dd96c433b68bee70ccaa"
+    },
+    "/images/responsive/press/times-radio-studio-1600.webp": {
+      "src": "/images/press/times-radio-studio.webp",
+      "recipe": {
+        "width": 1600,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "df1d6b27a86296ed5cd330a4380148237ad990b79dd3b49cb91a42baa7487a54",
+      "outputSha256": "b52f010b322ecdff8929f7b1171bf049be5e0dfc45b1554b84a5393c145e9410"
+    },
+    "/images/responsive/home/pirate-flag-mark-64.webp": {
+      "src": "/images/pirate-flag-mark.png",
+      "recipe": {
+        "width": 64,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "lossless": true,
+        "effort": 6
+      },
+      "sourceSha256": "62ab633cf540caefe0c0f6bfd89a647ceb2ab940d9285ed52dbcc24f7f3fe3b7",
+      "outputSha256": "e6ef39fda922755a5ad073541a1525bb2469e4e3993731b4e98adbfb1ad4b4b5"
+    },
+    "/images/responsive/home/lynch-640.webp": {
+      "src": "/images/lynch.jpg",
+      "recipe": {
+        "width": 640,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "f54d5136d5cdd09d6ddec303a4e9a2b63ce8d36b616f4ecdf95fab861fcff146",
+      "outputSha256": "66f3112618c568c5cd031abae0e08ccc59fc88238d86ab902226a088c23e23f8"
+    },
+    "/images/responsive/home/lecture-900.webp": {
+      "src": "/images/journey/lecture.jpg",
+      "recipe": {
+        "width": 900,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "57f948f7d26bfe9c1f715fbc9204a2ccfddf861f7b9af8d11baa33ab1985c5f3",
+      "outputSha256": "6aba0d4b2c281b1166528da085ad874da71f59ab36f361114e8f84f736547157"
+    },
+    "/images/responsive/home/cv-meta-poster-720.webp": {
+      "src": "/video/cv-meta-poster.jpg",
+      "recipe": {
+        "width": 720,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "0aefe2dc7c9631047d1c67c275e243cc5fad5909dd7c07298f16e46693b01bda",
+      "outputSha256": "577141788b592d2c0d36a4dca6dd91b54c8d31ce6542d636c9fe9de2af1871e7"
+    },
+    "/images/responsive/home/busking-poster-440.webp": {
+      "src": "/video/busking-poster.jpg",
       "recipe": {
         "width": 440,
         "fit": "inside",
         "position": "centre",
         "withoutEnlargement": true,
         "format": "webp",
-        "quality": 80,
+        "quality": 82,
         "effort": 6
       },
-      "sourceSha256": "7ca4309fa0c3bc7e1e9af1fa207b09dee5f8935a5364b95f6107c5e50f0f2f90",
-      "outputSha256": "fad919d04cd75a2605a63d53a58b936e1448cede5b4c7b0222e45e256d5a0c48"
+      "sourceSha256": "6c0810b64b7d3c9f5ec27986a2b981673ab535845cf9c69dea7836cb65e5bbba",
+      "outputSha256": "d19575b588940b116d15589f9277fcf83ccc3a17d3da999c9fe3b2bae27b69c8"
     },
-    "/images/thumbs/vault/a-religious-devotee-summoned-to-pray-for-the-kin.webp": {
-      "src": "/images/vault/a-religious-devotee-summoned-to-pray-for-the-kin.webp",
+    "/images/responsive/home/cv-lecture-1100.webp": {
+      "src": "/images/cv-lecture.jpg",
       "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "03cc35589048a44c336d8843261f248ba99f26269f223f056da1dac5822bc5b9",
-      "outputSha256": "8c0781d4966a323ba7dad7c6137124fdacf5736538631cf7ee1b288ab2c9c662"
-    },
-    "/images/plates/vault/a-religious-devotee-summoned-to-pray-for-the-kin.webp": {
-      "src": "/images/vault/a-religious-devotee-summoned-to-pray-for-the-kin.webp",
-      "recipe": {
-        "width": 440,
+        "width": 1100,
         "fit": "inside",
         "position": "centre",
         "withoutEnlargement": true,
         "format": "webp",
-        "quality": 80,
+        "quality": 82,
         "effort": 6
       },
-      "sourceSha256": "03cc35589048a44c336d8843261f248ba99f26269f223f056da1dac5822bc5b9",
-      "outputSha256": "5e4cbab612b184945d07ac5643b52d1613e9fed5b0a59567e6912cbbbca0657b"
+      "sourceSha256": "5bee116fbac505b5e9ad6fd06488161b34442940bda91f693ffa36eaa9d92324",
+      "outputSha256": "bdeb726601cf8ba1193c63474dcd2b5da8117eb63f9e71d207012070eee5f3af"
     },
-    "/images/thumbs/vault/a-sea-storm.webp": {
-      "src": "/images/vault/a-sea-storm.webp",
+    "/images/responsive/home/war-16-520.webp": {
+      "src": "/images/war-16.jpg",
       "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "c877774a30370e13d76a18bc2561cf4e66b147150374575e5593ed8ad9e36d92",
-      "outputSha256": "b032d71b760aca08c9a7f6437d79d49656a4f47f505ab914cd8295b56119349e"
-    },
-    "/images/plates/vault/a-sea-storm.webp": {
-      "src": "/images/vault/a-sea-storm.webp",
-      "recipe": {
-        "width": 440,
+        "width": 520,
         "fit": "inside",
         "position": "centre",
         "withoutEnlargement": true,
         "format": "webp",
-        "quality": 80,
+        "quality": 82,
         "effort": 6
       },
-      "sourceSha256": "c877774a30370e13d76a18bc2561cf4e66b147150374575e5593ed8ad9e36d92",
-      "outputSha256": "6991ba8dc7cbaa4b0c099a410c766ab4d4f2990fffa90ee294be8c94aeaa09cd"
+      "sourceSha256": "c2c9c0be9dc6e868602e1a899d425ba75481478f0d882fb81703713e38ae6ac5",
+      "outputSha256": "0e083eb5743499b9d31eb896adebbcdb09fd4c5c8d58bfeeae2648af81b4b36a"
     },
-    "/images/thumbs/vault/a-shipwreck-in-a-storm.webp": {
-      "src": "/images/vault/a-shipwreck-in-a-storm.webp",
+    "/images/responsive/home/theatre-poster-760.webp": {
+      "src": "/video/theatre-poster.jpg",
       "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "9b592816f31b9e1405c44043b287a4ba7c9609d3545b064a1a930591223d7f88",
-      "outputSha256": "997d5f5f19bcb124c23684fd844500512574ea92ed4aa127d7cbf84dffeef31b"
-    },
-    "/images/plates/vault/a-shipwreck-in-a-storm.webp": {
-      "src": "/images/vault/a-shipwreck-in-a-storm.webp",
-      "recipe": {
-        "width": 440,
+        "width": 760,
         "fit": "inside",
         "position": "centre",
         "withoutEnlargement": true,
         "format": "webp",
-        "quality": 80,
+        "quality": 82,
         "effort": 6
       },
-      "sourceSha256": "9b592816f31b9e1405c44043b287a4ba7c9609d3545b064a1a930591223d7f88",
-      "outputSha256": "211aa8ac4a86b07a19f06974194b399657298c0a9a763e9a2fb86c98c0339da1"
+      "sourceSha256": "4c09bc2f406f820fc0fc22580f5ef61baec2cef06b8a7e0fd0f4e5da6ded4678",
+      "outputSha256": "148a9b2234e86f48bf29e96a80ff7c66df1d02eddb7e688baa40bb91c7df5cf6"
     },
-    "/images/thumbs/vault/bar-harbor-twilight.webp": {
-      "src": "/images/vault/bar-harbor-twilight.webp",
+    "/images/responsive/home/actor-poster-640.webp": {
+      "src": "/video/actor-poster.jpg",
       "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "3be7e36d6c5881b7c0a0c2ec7a5a7faadcc724e68c7a81aa59dcf6bc7d84bf9e",
-      "outputSha256": "9d0ce594a3cd3d5a08b66f904fd08e399d24c2a38f4335ef7a24c7d6214dae36"
-    },
-    "/images/plates/vault/bar-harbor-twilight.webp": {
-      "src": "/images/vault/bar-harbor-twilight.webp",
-      "recipe": {
-        "width": 440,
+        "width": 640,
         "fit": "inside",
         "position": "centre",
         "withoutEnlargement": true,
         "format": "webp",
-        "quality": 80,
+        "quality": 82,
         "effort": 6
       },
-      "sourceSha256": "3be7e36d6c5881b7c0a0c2ec7a5a7faadcc724e68c7a81aa59dcf6bc7d84bf9e",
-      "outputSha256": "f6c3bf42a8c8297355a505c07aba934057ddaace3f437e4befc8b1b5d18655f3"
-    },
-    "/images/thumbs/vault/bay-of-biscay.webp": {
-      "src": "/images/vault/bay-of-biscay.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "e06db8924ed8a1b974a317769513f5095dc132f141d42c9d73298d7715220500",
-      "outputSha256": "6ebae5d607118c6f0089f9771cdb5be939820acba9c965481401541cf2a7f00f"
-    },
-    "/images/plates/vault/bay-of-biscay.webp": {
-      "src": "/images/vault/bay-of-biscay.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "e06db8924ed8a1b974a317769513f5095dc132f141d42c9d73298d7715220500",
-      "outputSha256": "9aa192d9d36e51fb8ff4bce91f60d9a5fb049266ebe2cb0a55970bcf02db8ccd"
-    },
-    "/images/thumbs/vault/before-the-storm.webp": {
-      "src": "/images/vault/before-the-storm.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "0fd64fcc114855f1467b53edcfa9cdee7eb6877aa1e98f61d6ca33a07274ec2e",
-      "outputSha256": "16bb81866dc133e10cd0da2fd2cea6ba6cdc2b14cbd81f5d0f596d20fa661d00"
-    },
-    "/images/plates/vault/before-the-storm.webp": {
-      "src": "/images/vault/before-the-storm.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "0fd64fcc114855f1467b53edcfa9cdee7eb6877aa1e98f61d6ca33a07274ec2e",
-      "outputSha256": "42f2ccc623aaee6eb3f0fbb1708d404ae84cdd5eb5647b74972a579c147d1239"
-    },
-    "/images/thumbs/vault/blaues-pferd-i.webp": {
-      "src": "/images/vault/blaues-pferd-i.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "22e76bd6ee832f0f0863712c939744eb49549853eb86a26d6b1ecb6b83343a9c",
-      "outputSha256": "49f8bf31d3d076902b2e3b36ea0161d7013c745bcf68ba55c7d7a0c42030e019"
-    },
-    "/images/plates/vault/blaues-pferd-i.webp": {
-      "src": "/images/vault/blaues-pferd-i.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "22e76bd6ee832f0f0863712c939744eb49549853eb86a26d6b1ecb6b83343a9c",
-      "outputSha256": "8ccbf3deb77ad517a1cf3da3bbe4ceaeee26807352042b94ee6d9588ad3766f5"
-    },
-    "/images/thumbs/vault/constable-study-for-the-painting-the-leaping-hor.webp": {
-      "src": "/images/vault/constable-study-for-the-painting-the-leaping-hor.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "1ba83cd6bb0dc11de01045927b97c1cf39c6e0b297a3c43f5f934811b17a97a0",
-      "outputSha256": "99b686c13f64c66bc3a97ffdb3c54c6f1ac947d70620cdd56d9d329fb3d1b8fd"
-    },
-    "/images/plates/vault/constable-study-for-the-painting-the-leaping-hor.webp": {
-      "src": "/images/vault/constable-study-for-the-painting-the-leaping-hor.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "1ba83cd6bb0dc11de01045927b97c1cf39c6e0b297a3c43f5f934811b17a97a0",
-      "outputSha256": "8dabedfd1807b369d43b03052e7ef01f8f80120eda44b9facc2aacefd8e4087e"
-    },
-    "/images/thumbs/vault/defeat-of-the-mongols-in-the-western-sea.webp": {
-      "src": "/images/vault/defeat-of-the-mongols-in-the-western-sea.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "0d845f270f022413bb4986b39a4304e1e330c2e159681ede90ece65c73c6e2e9",
-      "outputSha256": "63ea80e9811e41ef4d96570660f6a19467666f59d62b669c6559b5e3f92f45f7"
-    },
-    "/images/plates/vault/defeat-of-the-mongols-in-the-western-sea.webp": {
-      "src": "/images/vault/defeat-of-the-mongols-in-the-western-sea.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "0d845f270f022413bb4986b39a4304e1e330c2e159681ede90ece65c73c6e2e9",
-      "outputSha256": "8eee74adfd193bbcf4f46368a7058317ec8eb6ccd3478e0d3edbb51478cad0c1"
-    },
-    "/images/thumbs/vault/doctor.webp": {
-      "src": "/images/vault/doctor.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "c165d3da3eec794d2881a692d47f2d7381f1af12496dc88bd6f0e5bf97d8845f",
-      "outputSha256": "030c701cd8eabc5fd7b9ed25d57337adc221b917abfe4f08c039b4ccc4296457"
-    },
-    "/images/plates/vault/doctor.webp": {
-      "src": "/images/vault/doctor.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "c165d3da3eec794d2881a692d47f2d7381f1af12496dc88bd6f0e5bf97d8845f",
-      "outputSha256": "0b2a5d6cbadb53e493a59afa6c588737a3711f96cc745d5e82bc7fc777462bcf"
-    },
-    "/images/thumbs/vault/egrets-in-a-tree-at-night.webp": {
-      "src": "/images/vault/egrets-in-a-tree-at-night.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "11b542377a3a08612f44b71aaa74ab90b0b995bf4486788053fb69a42f61f144",
-      "outputSha256": "449b7ef1b9b92d4a52a62772ff2c537b920597253397bc7430b1e5078e62975c"
-    },
-    "/images/plates/vault/egrets-in-a-tree-at-night.webp": {
-      "src": "/images/vault/egrets-in-a-tree-at-night.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "11b542377a3a08612f44b71aaa74ab90b0b995bf4486788053fb69a42f61f144",
-      "outputSha256": "364fd6971c9023502e225d18f00f17d8e88221c99cc99997c8652adf6b9c5bb8"
-    },
-    "/images/thumbs/vault/eruption-of-the-volcano-vesuvius.webp": {
-      "src": "/images/vault/eruption-of-the-volcano-vesuvius.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "64bbefe05e566e46f4fbf71b6846799f695d7956cb43b249e8e6a58c1b157c96",
-      "outputSha256": "7102f40595e7dc7925d412b015e95c9df85e92835f8a2d0dee77c819e1601939"
-    },
-    "/images/plates/vault/eruption-of-the-volcano-vesuvius.webp": {
-      "src": "/images/vault/eruption-of-the-volcano-vesuvius.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "64bbefe05e566e46f4fbf71b6846799f695d7956cb43b249e8e6a58c1b157c96",
-      "outputSha256": "e1672ec0f676a06a4b7d77feb6d342d05b40ce43865e1410afb3c94f6bfceea9"
-    },
-    "/images/thumbs/vault/evening-snow-at-kanbara-from-the-series-fifty-th.webp": {
-      "src": "/images/vault/evening-snow-at-kanbara-from-the-series-fifty-th.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "e715315ffc718acf3cbb803079d9be5462d4aef7309c2eb14532d1d83221556d",
-      "outputSha256": "c8b290f2020dde386b684a1d30c57a016a9499ade24a4749972ee9b407d2161e"
-    },
-    "/images/plates/vault/evening-snow-at-kanbara-from-the-series-fifty-th.webp": {
-      "src": "/images/vault/evening-snow-at-kanbara-from-the-series-fifty-th.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "e715315ffc718acf3cbb803079d9be5462d4aef7309c2eb14532d1d83221556d",
-      "outputSha256": "61dc13c1746d9c6ed83a4bc7e03f272defca2f529fb0a54906ab0fdfa07f6511"
-    },
-    "/images/thumbs/vault/evening-snow.webp": {
-      "src": "/images/vault/evening-snow.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "f58d782656d50c62301bbf33be0847c92820ae17761b8f25aae315b86ec34f57",
-      "outputSha256": "bc987a5ac8302e36ed752e29dcd9d3918aeca2232619a7256f21acd378d8ea7d"
-    },
-    "/images/plates/vault/evening-snow.webp": {
-      "src": "/images/vault/evening-snow.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "f58d782656d50c62301bbf33be0847c92820ae17761b8f25aae315b86ec34f57",
-      "outputSha256": "5ef05f6aab14144e08d3a24f2115bef0c5eb75b5eebe88c0beac76db6ed121cf"
-    },
-    "/images/thumbs/vault/faith-and-hope.webp": {
-      "src": "/images/vault/faith-and-hope.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "2a1995de762d56f8da9ab08dfc6f99c6c7f810c88ac60c4f088fe2003c7108bd",
-      "outputSha256": "a2f305844f5271a42215987d59496c46f73b6705887659c121eb72b35db567df"
-    },
-    "/images/plates/vault/faith-and-hope.webp": {
-      "src": "/images/vault/faith-and-hope.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "2a1995de762d56f8da9ab08dfc6f99c6c7f810c88ac60c4f088fe2003c7108bd",
-      "outputSha256": "c03613d958f89a1394964abbe3285a5976409247fc7c4d7fe8e1ae1fba986862"
-    },
-    "/images/thumbs/vault/figures-beside-a-waterfall-and-pool-in-a-wooded-.webp": {
-      "src": "/images/vault/figures-beside-a-waterfall-and-pool-in-a-wooded-.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "ba12488897b2b47f26e3f603261cb4d9e0b78d47c9f736081b373b64dce5ed9a",
-      "outputSha256": "1253a1c9a2d317c06189438342c1cbe77682fdb3d0487712bdc0244c2b0787e4"
-    },
-    "/images/plates/vault/figures-beside-a-waterfall-and-pool-in-a-wooded-.webp": {
-      "src": "/images/vault/figures-beside-a-waterfall-and-pool-in-a-wooded-.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "ba12488897b2b47f26e3f603261cb4d9e0b78d47c9f736081b373b64dce5ed9a",
-      "outputSha256": "c570816c9958c7bcd10d2d318b1be0b8aef415e195be9f9e7a0722bb474b9a07"
-    },
-    "/images/thumbs/vault/fireworks-display-celebrating-the-end-of-the-thi.webp": {
-      "src": "/images/vault/fireworks-display-celebrating-the-end-of-the-thi.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "cc2f3a84e4d73423bc4e59d11c7f96d37dcddacaaf728440d06a4f42b839de0e",
-      "outputSha256": "88a8691bb4772daca8b2e1498fdf9edd1c2fb5e35c3f7a3f23c6584ce5913438"
-    },
-    "/images/plates/vault/fireworks-display-celebrating-the-end-of-the-thi.webp": {
-      "src": "/images/vault/fireworks-display-celebrating-the-end-of-the-thi.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "cc2f3a84e4d73423bc4e59d11c7f96d37dcddacaaf728440d06a4f42b839de0e",
-      "outputSha256": "258d34de5c295ed2c0b3cfefd8e5da5eec0a2d32cb1b7bba324a6f546d3fcdb6"
-    },
-    "/images/thumbs/vault/formes-circulaires-circular-forms.webp": {
-      "src": "/images/vault/formes-circulaires-circular-forms.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "2916beb2059bede7e57237cace1a77412fb2e11c81b8b8ca3ab67804f192caa0",
-      "outputSha256": "706c5b0cb852f24b1e92a07b3ad6eceba2d015f1a140782d1790891cd0155fe8"
-    },
-    "/images/plates/vault/formes-circulaires-circular-forms.webp": {
-      "src": "/images/vault/formes-circulaires-circular-forms.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "2916beb2059bede7e57237cace1a77412fb2e11c81b8b8ca3ab67804f192caa0",
-      "outputSha256": "e4c004c9ff542a77713092d1c21e92853ec3a47fec06c3c0b63a926a362f49cd"
-    },
-    "/images/thumbs/vault/gathering-manna.webp": {
-      "src": "/images/vault/gathering-manna.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "1afd32ae5632d14b97c213900a3bd28e5dc5e8ad0b4cbb9397e139692a9a87c5",
-      "outputSha256": "b94933058d35a99acc7b2f6e2db204caa1dc95c642d761fdfec91054c481fc59"
-    },
-    "/images/plates/vault/gathering-manna.webp": {
-      "src": "/images/vault/gathering-manna.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "1afd32ae5632d14b97c213900a3bd28e5dc5e8ad0b4cbb9397e139692a9a87c5",
-      "outputSha256": "115c01513a04e069af964a272da497136bdba3b94d8ab3a4ae9ec5dabdf03c67"
-    },
-    "/images/thumbs/vault/gazing-at-a-waterfall.webp": {
-      "src": "/images/vault/gazing-at-a-waterfall.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "4eae710f80d7ca7bf4efdb2a044ad856ca9b3df485ed9edbcd196861441a9ef6",
-      "outputSha256": "603421a6c9cba367a9d391779d4008fc4555533e1e2d8394b5f7c5b506b8729a"
-    },
-    "/images/plates/vault/gazing-at-a-waterfall.webp": {
-      "src": "/images/vault/gazing-at-a-waterfall.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "4eae710f80d7ca7bf4efdb2a044ad856ca9b3df485ed9edbcd196861441a9ef6",
-      "outputSha256": "f441fd77aaf40cbc459766d58eb5852fa45d4f0229fa271c40507a05bffdb739"
-    },
-    "/images/thumbs/vault/generalprobe-des-balletts-auf-der-b-hne.webp": {
-      "src": "/images/vault/generalprobe-des-balletts-auf-der-b-hne.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "fb036429293d00d860e0368827a15fb2ef22aee54be40c2d869b14cd70210496",
-      "outputSha256": "8ac297fca7d683c4163946e83a8fccf84ddd0414fec35042409e7f39b9cfd50d"
-    },
-    "/images/plates/vault/generalprobe-des-balletts-auf-der-b-hne.webp": {
-      "src": "/images/vault/generalprobe-des-balletts-auf-der-b-hne.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "fb036429293d00d860e0368827a15fb2ef22aee54be40c2d869b14cd70210496",
-      "outputSha256": "9cbe622fd1fd1a2a20e5d10aeb2e1ef2861bba7f8ecbbefca8393d3fb13c8a8d"
-    },
-    "/images/thumbs/vault/golden-pheasant-in-the-snow.webp": {
-      "src": "/images/vault/golden-pheasant-in-the-snow.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "750d514e1050fa50a4936a71342baf9930345554a519a12285a12fff9adf6341",
-      "outputSha256": "c86569981f08593637bf9874c908576e602cde68d3943104eb853021c9cc954e"
-    },
-    "/images/plates/vault/golden-pheasant-in-the-snow.webp": {
-      "src": "/images/vault/golden-pheasant-in-the-snow.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "750d514e1050fa50a4936a71342baf9930345554a519a12285a12fff9adf6341",
-      "outputSha256": "a9316c889ede210304134d45ab09da4139b591d6d66bcbaed808d31e9a859e18"
-    },
-    "/images/thumbs/vault/goyu.webp": {
-      "src": "/images/vault/goyu.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "9b82f86f3a9ee9ba82fd557d82119910953c585c564ca42aa85b3c9dfd634720",
-      "outputSha256": "a3308b730cd0ce0ab47cd6264c9dfee12c2d9dc4760f118182456517370c57e6"
-    },
-    "/images/plates/vault/goyu.webp": {
-      "src": "/images/vault/goyu.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "9b82f86f3a9ee9ba82fd557d82119910953c585c564ca42aa85b3c9dfd634720",
-      "outputSha256": "3509e9671017cbd1aa0f1737ef7f4e7a9a72fe8d2f1938dce5a82540d4a9045f"
-    },
-    "/images/thumbs/vault/grey-and-silver-old-battersea-reach.webp": {
-      "src": "/images/vault/grey-and-silver-old-battersea-reach.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "008fdf235e77ca62a44794f9f11d898eb6d8f31beb2e7ecd3f90126d17b697ea",
-      "outputSha256": "43045d40eb8f8a60aebdb3f766859dff04493e9d288c04a0c49ff322e17f1e1c"
-    },
-    "/images/plates/vault/grey-and-silver-old-battersea-reach.webp": {
-      "src": "/images/vault/grey-and-silver-old-battersea-reach.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "008fdf235e77ca62a44794f9f11d898eb6d8f31beb2e7ecd3f90126d17b697ea",
-      "outputSha256": "bb38624b003df70bbf3b449ed6c81cf591f2bac85936d32c4a6b831e06fafe46"
-    },
-    "/images/thumbs/vault/harbor-and-orchard.webp": {
-      "src": "/images/vault/harbor-and-orchard.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "8a5e00c5f6040f85d6326d91ebb90751690fff64a2b83fc6b1cba074ca501a66",
-      "outputSha256": "2fc774738fa7e9de63d060a4209f0289a925f60583c46d2fa73f0071f09cafe8"
-    },
-    "/images/plates/vault/harbor-and-orchard.webp": {
-      "src": "/images/vault/harbor-and-orchard.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "8a5e00c5f6040f85d6326d91ebb90751690fff64a2b83fc6b1cba074ca501a66",
-      "outputSha256": "f8838b0f4009d8a24c95d3a23ce365bc11569cbd7f792a452e208344d1cf7059"
-    },
-    "/images/thumbs/vault/impressions-of-rain-rouen.webp": {
-      "src": "/images/vault/impressions-of-rain-rouen.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "d71a321fbffffd8bba8eeccb62b95aeb147eb2c2e0daac5dca2feebafd19881e",
-      "outputSha256": "7913a25116f829dfc7a0eec7badbd1e88c4b4fd77d98cf417b82806e637e95b9"
-    },
-    "/images/plates/vault/impressions-of-rain-rouen.webp": {
-      "src": "/images/vault/impressions-of-rain-rouen.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "d71a321fbffffd8bba8eeccb62b95aeb147eb2c2e0daac5dca2feebafd19881e",
-      "outputSha256": "c3f0d3a6f94023f5007f57bcca286c32e5f2c097bef74f6387ad383fd89b7f6a"
-    },
-    "/images/thumbs/vault/in-verdant-mountains-hoping-for-snow.webp": {
-      "src": "/images/vault/in-verdant-mountains-hoping-for-snow.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "c4fed4d2e5efd11c232f89769769b7e9cdafc3b1701f9ef1689fa1ce79a9f14f",
-      "outputSha256": "37c185e9daa805e3bf29e5054802c35d94cddb9e4906baa16a2c4cccf56beb6b"
-    },
-    "/images/plates/vault/in-verdant-mountains-hoping-for-snow.webp": {
-      "src": "/images/vault/in-verdant-mountains-hoping-for-snow.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "c4fed4d2e5efd11c232f89769769b7e9cdafc3b1701f9ef1689fa1ce79a9f14f",
-      "outputSha256": "974da5bee4b61ccae90dfee9e3f7c4365f7d36ad103c6463c0d929927f1f3bd3"
-    },
-    "/images/thumbs/vault/jubal-and-miriam.webp": {
-      "src": "/images/vault/jubal-and-miriam.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "9169dc68dbe1d986fadf9e2cae3b3136a9d4a5b337a969f3540acff4e95492ef",
-      "outputSha256": "8a8eb5da86068d8c3008fd9823cd94e44b151626acda13b3b1f9f0685b316799"
-    },
-    "/images/plates/vault/jubal-and-miriam.webp": {
-      "src": "/images/vault/jubal-and-miriam.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "9169dc68dbe1d986fadf9e2cae3b3136a9d4a5b337a969f3540acff4e95492ef",
-      "outputSha256": "03075e1ef0f16fe29980f70a9ebf860f9fe673cbb69ff2f98a93abc4482c6649"
-    },
-    "/images/thumbs/vault/july-amusements-on-the-water-juillet-les-diverti.webp": {
-      "src": "/images/vault/july-amusements-on-the-water-juillet-les-diverti.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "b1da8787bbea9e7b8b59efa123230368201170c7946470ae1c125235584c2912",
-      "outputSha256": "303222c1ca12ab561d94ed04a7d56e12cd01ac0092e89caf3ee1321e337c48f5"
-    },
-    "/images/plates/vault/july-amusements-on-the-water-juillet-les-diverti.webp": {
-      "src": "/images/vault/july-amusements-on-the-water-juillet-les-diverti.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "b1da8787bbea9e7b8b59efa123230368201170c7946470ae1c125235584c2912",
-      "outputSha256": "fd685140aa295f07d3f39f050e32e6528a411a1d88693f8ca402027094de47bc"
-    },
-    "/images/thumbs/vault/kitchen-interior.webp": {
-      "src": "/images/vault/kitchen-interior.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "f9f0579f5010fca55f8a32d5c0dd8fd7e551ded1d640f42145124a518f848c59",
-      "outputSha256": "d45e7e622dde55436179734687542f380fa2437761dd4667ac24c03873083df0"
-    },
-    "/images/plates/vault/kitchen-interior.webp": {
-      "src": "/images/vault/kitchen-interior.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "f9f0579f5010fca55f8a32d5c0dd8fd7e551ded1d640f42145124a518f848c59",
-      "outputSha256": "92f46e0dff97b839cf8ed5eb1c319edce685a81d55874abc391287ee2686777a"
-    },
-    "/images/thumbs/vault/moonlight-by-nordseter.webp": {
-      "src": "/images/vault/moonlight-by-nordseter.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "72cb1c69262d0f55960dabf76a36659f6d76246aebeebf789f3327dfe83ae3ac",
-      "outputSha256": "e56382e1a3af41b707115ba3e234e8968764467cfff5f4d6be6097ebb0799498"
-    },
-    "/images/plates/vault/moonlight-by-nordseter.webp": {
-      "src": "/images/vault/moonlight-by-nordseter.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "72cb1c69262d0f55960dabf76a36659f6d76246aebeebf789f3327dfe83ae3ac",
-      "outputSha256": "07c8b9b75edf4720f69e164c238c73c607bec204af09d70c334e6a39e769751d"
-    },
-    "/images/thumbs/vault/morgenlandschaft-aurora.webp": {
-      "src": "/images/vault/morgenlandschaft-aurora.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "dcff222d322c85639d8b7aed129e0a8ba18c3f8f6a74de9937a69638604e4aa6",
-      "outputSha256": "cbf00992c02fdf4ff45d913965cf4f8fc70a4607b57b5606303d00aaa6697e34"
-    },
-    "/images/plates/vault/morgenlandschaft-aurora.webp": {
-      "src": "/images/vault/morgenlandschaft-aurora.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "dcff222d322c85639d8b7aed129e0a8ba18c3f8f6a74de9937a69638604e4aa6",
-      "outputSha256": "59c9534fb0cdb2072974886091d5f87e635ace4f559c58ce3b98382c0b86f64a"
-    },
-    "/images/thumbs/vault/mount-yuga-in-bizen-province-bizen-yugasan-from-.webp": {
-      "src": "/images/vault/mount-yuga-in-bizen-province-bizen-yugasan-from-.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "4937011c6374ce2fb23c6ca342f48ab0524335256d156dffe42b5a2abf467ea2",
-      "outputSha256": "7befb4c74ac033c93746644e2b8e6230f0026c8f54ae92431b38f8732f2aa208"
-    },
-    "/images/plates/vault/mount-yuga-in-bizen-province-bizen-yugasan-from-.webp": {
-      "src": "/images/vault/mount-yuga-in-bizen-province-bizen-yugasan-from-.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "4937011c6374ce2fb23c6ca342f48ab0524335256d156dffe42b5a2abf467ea2",
-      "outputSha256": "5ce62cd5aad13840b4ec68cd134e4142532409325ca6bbc33dcf340cafe3ffad"
-    },
-    "/images/thumbs/vault/ochanomizu.webp": {
-      "src": "/images/vault/ochanomizu.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "1a2e5fe3529e03655fc6d75246b752c43b86c09653be2fdf17a20e762fd6a41f",
-      "outputSha256": "809ebe96e9b07dd8342fb23a61096b59c874a5117640fdc19583676334132ada"
-    },
-    "/images/plates/vault/ochanomizu.webp": {
-      "src": "/images/vault/ochanomizu.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "1a2e5fe3529e03655fc6d75246b752c43b86c09653be2fdf17a20e762fd6a41f",
-      "outputSha256": "c1cfa4c4702a7c259a4a39dfebd01e4e6385f1624e2206aa41b0a2cdb34fa93a"
-    },
-    "/images/thumbs/vault/plate-107-the-wreck-of-ceyx-s-ship-ceyx-clarium-.webp": {
-      "src": "/images/vault/plate-107-the-wreck-of-ceyx-s-ship-ceyx-clarium-.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "2602294b9f4e1b3f5326a9d34f18218aa7c391dc0dffb4473a8585003c63ba4f",
-      "outputSha256": "edaf9205151848b7ffb5fab3daf1bde56f684215efb8df7718d1c62b6a27f8a2"
-    },
-    "/images/plates/vault/plate-107-the-wreck-of-ceyx-s-ship-ceyx-clarium-.webp": {
-      "src": "/images/vault/plate-107-the-wreck-of-ceyx-s-ship-ceyx-clarium-.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "2602294b9f4e1b3f5326a9d34f18218aa7c391dc0dffb4473a8585003c63ba4f",
-      "outputSha256": "19aeddbb3a435fcfba1b1811ff44782aff3bd237d76626f6aaff17d383381542"
-    },
-    "/images/thumbs/vault/plate-14-richardson-s-show-from-world-in-miniatu.webp": {
-      "src": "/images/vault/plate-14-richardson-s-show-from-world-in-miniatu.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "7884cfe6bbdbf64cc99c78a874ac13020dfe99271b12f045d58af3e23349795a",
-      "outputSha256": "b1d8b35d90935b7b815d7e3b236c78d961228b31a4367a4fb8df7a0e8cd33cd9"
-    },
-    "/images/plates/vault/plate-14-richardson-s-show-from-world-in-miniatu.webp": {
-      "src": "/images/vault/plate-14-richardson-s-show-from-world-in-miniatu.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "7884cfe6bbdbf64cc99c78a874ac13020dfe99271b12f045d58af3e23349795a",
-      "outputSha256": "3fbbd1b732616122f8e2a3e31ec45bb7293272d1f0118479d6771bc266dbeb59"
-    },
-    "/images/thumbs/vault/plate-7-a-triple-waterfall-a-dead-tree-to-right-.webp": {
-      "src": "/images/vault/plate-7-a-triple-waterfall-a-dead-tree-to-right-.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "eaa474a16cb9383d952bd3299ec0fb9011762676c55c0ed7c6dfdfed0554234e",
-      "outputSha256": "33e3fce062aa9c2418d67e45e5ef27996ee9e32df8988410bb8ef8253810936e"
-    },
-    "/images/plates/vault/plate-7-a-triple-waterfall-a-dead-tree-to-right-.webp": {
-      "src": "/images/vault/plate-7-a-triple-waterfall-a-dead-tree-to-right-.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "eaa474a16cb9383d952bd3299ec0fb9011762676c55c0ed7c6dfdfed0554234e",
-      "outputSha256": "52fe196e8c828c83406ba7bab8c005aebdbd598f632454db122188a360b396fe"
-    },
-    "/images/thumbs/vault/points.webp": {
-      "src": "/images/vault/points.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "bfa44161af9e1a353da21199e7436987990c39f0719ec314275c84949b35d4ef",
-      "outputSha256": "ace635b0a11f474d7c55f85031729db92bc1092fa5dc85f0ea98e5dd24f87978"
-    },
-    "/images/plates/vault/points.webp": {
-      "src": "/images/vault/points.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "bfa44161af9e1a353da21199e7436987990c39f0719ec314275c84949b35d4ef",
-      "outputSha256": "51efe75d15d850b6982328be9907a56bc0df11982e701c842b2a558951b7c901"
-    },
-    "/images/thumbs/vault/portrait-of-franz-marc.webp": {
-      "src": "/images/vault/portrait-of-franz-marc.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "b847fddf2f7e6523aac2159d0a25dcd4520467081a239775b77a51ecb805a5b5",
-      "outputSha256": "47143d00dc9bdeba64808a3a1b383fee1b24a3a6888dfe4b4cf79e8c916aa160"
-    },
-    "/images/plates/vault/portrait-of-franz-marc.webp": {
-      "src": "/images/vault/portrait-of-franz-marc.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "b847fddf2f7e6523aac2159d0a25dcd4520467081a239775b77a51ecb805a5b5",
-      "outputSha256": "bc449061572de47e89e0f45c368b58f913486a95ad602d8564189644da87d94b"
-    },
-    "/images/thumbs/vault/rocky-landscape-with-st-jerome.webp": {
-      "src": "/images/vault/rocky-landscape-with-st-jerome.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "14ca881260188d24f602e4cdb59244082d224d8ed43fb05283c90fb714d5082e",
-      "outputSha256": "f0646a2c8b46a90f6ef3f28671e59ff555c68be41360c805954f39f75acb3783"
-    },
-    "/images/plates/vault/rocky-landscape-with-st-jerome.webp": {
-      "src": "/images/vault/rocky-landscape-with-st-jerome.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "14ca881260188d24f602e4cdb59244082d224d8ed43fb05283c90fb714d5082e",
-      "outputSha256": "ad0914e581ba73204cc222d43b9e07c5dabf2f03b970b0023aaa9b0942012e35"
-    },
-    "/images/thumbs/vault/saguenay-river-lower-rapids.webp": {
-      "src": "/images/vault/saguenay-river-lower-rapids.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "79a86e7ebf2d44c288d9fba3866f1f5899b9e7765e1bb9ec7a8fd0f80b6efc1a",
-      "outputSha256": "4e06031b6d12850c21047949114bbb739810fcd96f816414c025756348331193"
-    },
-    "/images/plates/vault/saguenay-river-lower-rapids.webp": {
-      "src": "/images/vault/saguenay-river-lower-rapids.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "79a86e7ebf2d44c288d9fba3866f1f5899b9e7765e1bb9ec7a8fd0f80b6efc1a",
-      "outputSha256": "0278beed0bd2b099d6cadc8369bca13ccdebc7443f785c07a8761f8653e7252f"
-    },
-    "/images/thumbs/vault/sea-stores.webp": {
-      "src": "/images/vault/sea-stores.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "7650fa4a8a757c6ca978ee80aaa1c894cc4a221f1fd690d0101f33d4d4453bef",
-      "outputSha256": "dc4831a9bcb74db938422c0650aed6f463fca5b3c3f7f47da20b1b09b2d9eaae"
-    },
-    "/images/plates/vault/sea-stores.webp": {
-      "src": "/images/vault/sea-stores.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "7650fa4a8a757c6ca978ee80aaa1c894cc4a221f1fd690d0101f33d4d4453bef",
-      "outputSha256": "7c388b53ae6bc08807ae73ca099516af46f3b74b38df49dc06eed80371c631d2"
-    },
-    "/images/thumbs/vault/shooting-the-rapids-saguenay-river.webp": {
-      "src": "/images/vault/shooting-the-rapids-saguenay-river.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "51e9bdd578c7c1af01bcfd7edb6df9c87220fa2bc155187fe4fcf4bd6c1d0f80",
-      "outputSha256": "315187454ee491aaa73a5b26cceace84b41775a79493e3e67dfe63c8586efe0d"
-    },
-    "/images/plates/vault/shooting-the-rapids-saguenay-river.webp": {
-      "src": "/images/vault/shooting-the-rapids-saguenay-river.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "51e9bdd578c7c1af01bcfd7edb6df9c87220fa2bc155187fe4fcf4bd6c1d0f80",
-      "outputSha256": "edf4c67abbaf7722081ae53735da3cf2979df94d66889df4c52f1de894eca81d"
-    },
-    "/images/thumbs/vault/shower-at-the-new-yanagi-bridge.webp": {
-      "src": "/images/vault/shower-at-the-new-yanagi-bridge.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "d1d9f2d4461793fe9051b8b141e1af167d2a5cca0f7b9836f2bb4538f0e03d80",
-      "outputSha256": "504b1923268fb71feb8144dad4fd2b9a9e116d5a1df56855153041a2ee2005b1"
-    },
-    "/images/plates/vault/shower-at-the-new-yanagi-bridge.webp": {
-      "src": "/images/vault/shower-at-the-new-yanagi-bridge.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "d1d9f2d4461793fe9051b8b141e1af167d2a5cca0f7b9836f2bb4538f0e03d80",
-      "outputSha256": "3c5e0d2460cda11437db1d844a630004915fcd16be379dd9bc3633e331e37be8"
-    },
-    "/images/thumbs/vault/snow-landscape.webp": {
-      "src": "/images/vault/snow-landscape.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "75dc829385dcab05a9dce92d8083ef219ef9ea80236d562f70f0f44d6ee163a1",
-      "outputSha256": "5d06597a66be492a119444c62ab559607d6763aa07f359523c76189d4cd300a3"
-    },
-    "/images/plates/vault/snow-landscape.webp": {
-      "src": "/images/vault/snow-landscape.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "75dc829385dcab05a9dce92d8083ef219ef9ea80236d562f70f0f44d6ee163a1",
-      "outputSha256": "fbf612fc5681b9fbb59ed744137848409c7f7afb2c1bc5574e1f899ce723a1e2"
-    },
-    "/images/thumbs/vault/snow.webp": {
-      "src": "/images/vault/snow.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "fdf912a2dae793a700d4d5b22cfb2beac222283752212a79f519cb01281db880",
-      "outputSha256": "5abc635c3b2aa5fc24a72dfcab0082d97ca54085980049caad314593f5545c6b"
-    },
-    "/images/plates/vault/snow.webp": {
-      "src": "/images/vault/snow.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "fdf912a2dae793a700d4d5b22cfb2beac222283752212a79f519cb01281db880",
-      "outputSha256": "9aea2f72e9fe8ede025f60a30e53391cf9af3a521e76a454bbc14bb658a57b73"
-    },
-    "/images/thumbs/vault/still-life-with-origami.webp": {
-      "src": "/images/vault/still-life-with-origami.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "fc2f4a5aeca7c40afd1046aadd966cf475db90abdd277f3209533b7364692d13",
-      "outputSha256": "d06b99ebee1a4c901e5685c428fcba309adc36936e297819119d8554fe38ca02"
-    },
-    "/images/plates/vault/still-life-with-origami.webp": {
-      "src": "/images/vault/still-life-with-origami.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "fc2f4a5aeca7c40afd1046aadd966cf475db90abdd277f3209533b7364692d13",
-      "outputSha256": "6e49661cf01385afe6520d8c169fc4da08909da683d35d7dff093de99007ea90"
-    },
-    "/images/thumbs/vault/the-heights-over-foilhummerum-bay-valentia-the-w.webp": {
-      "src": "/images/vault/the-heights-over-foilhummerum-bay-valentia-the-w.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "825169aabb33aa7d53aa09738b6aaf692655b993c51fb281dbf4de990d4cfa9d",
-      "outputSha256": "3d4487d10c028c6712e43e5930c45f2d89ae8fd491d26d29d391b6001aeb697b"
-    },
-    "/images/plates/vault/the-heights-over-foilhummerum-bay-valentia-the-w.webp": {
-      "src": "/images/vault/the-heights-over-foilhummerum-bay-valentia-the-w.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "825169aabb33aa7d53aa09738b6aaf692655b993c51fb281dbf4de990d4cfa9d",
-      "outputSha256": "ee0b80a96721a6d6f75f61b8d8f3fd54ff013b3c56e967449faba567123e9e19"
-    },
-    "/images/thumbs/vault/the-landlady-at-your-service-sir-you-will-find-y.webp": {
-      "src": "/images/vault/the-landlady-at-your-service-sir-you-will-find-y.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "ee588148d1c9821b8e1cd23157663748a58ff2a2c7b735e039ef9bd9870ff672",
-      "outputSha256": "0def41f90b13435818249d9107933adcc2b953f6808267d3bf400f6d6e226f5a"
-    },
-    "/images/plates/vault/the-landlady-at-your-service-sir-you-will-find-y.webp": {
-      "src": "/images/vault/the-landlady-at-your-service-sir-you-will-find-y.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "ee588148d1c9821b8e1cd23157663748a58ff2a2c7b735e039ef9bd9870ff672",
-      "outputSha256": "95ef7fc74a452c9d24734ca25f29bc80efdeaf634247ddf8e2c8bbe767ea360d"
-    },
-    "/images/thumbs/vault/the-last-voyage-of-henry-hudson.webp": {
-      "src": "/images/vault/the-last-voyage-of-henry-hudson.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "d63b2887928e62a08dd065aae661a6b9132133e6d9b113a65ed475881ca4b26e",
-      "outputSha256": "b218bf38183ba2c65f62bf769e6072271f1a1cc16a13c59a1d29923a852bd2a4"
-    },
-    "/images/plates/vault/the-last-voyage-of-henry-hudson.webp": {
-      "src": "/images/vault/the-last-voyage-of-henry-hudson.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "d63b2887928e62a08dd065aae661a6b9132133e6d9b113a65ed475881ca4b26e",
-      "outputSha256": "d9776bd50d50b64c6e211593b840e58b4f8b9bdfc7e5e5ab3dac61835dcae6dd"
-    },
-    "/images/thumbs/vault/the-river-elbe-downstream-of-hamburg-by-moonligh.webp": {
-      "src": "/images/vault/the-river-elbe-downstream-of-hamburg-by-moonligh.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "f8bf85da8c29e926e6dce0d676bd651fb0f9c45d81a35030015b1e47952a127e",
-      "outputSha256": "00c6ac02471a77cdd0683480d69972bd8ee836640355fa9d70d80b72cdb6d0ef"
-    },
-    "/images/plates/vault/the-river-elbe-downstream-of-hamburg-by-moonligh.webp": {
-      "src": "/images/vault/the-river-elbe-downstream-of-hamburg-by-moonligh.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "f8bf85da8c29e926e6dce0d676bd651fb0f9c45d81a35030015b1e47952a127e",
-      "outputSha256": "9f371c746f6c32fcca9054918bc55c4827bf5328964d06da8d621b6ac9000e1a"
-    },
-    "/images/thumbs/vault/twilight.webp": {
-      "src": "/images/vault/twilight.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "8e11ea49fb0251fad3a4842175cc996cba9b1e185e8ba302f1428f085c6935d8",
-      "outputSha256": "ad2d52d3912d82e7849b1c41a997f33012de8f1a08e37cd6e223e7eebe596c96"
-    },
-    "/images/plates/vault/twilight.webp": {
-      "src": "/images/vault/twilight.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "8e11ea49fb0251fad3a4842175cc996cba9b1e185e8ba302f1428f085c6935d8",
-      "outputSha256": "2c14ca8ee87da372d98a9ac114cb21f628a2c131ba07e9270f360db1340ccaf5"
-    },
-    "/images/thumbs/vault/vesuvius.webp": {
-      "src": "/images/vault/vesuvius.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "4a3eaab76571b0fe497d7826b4082920a3d11d83a4c66fd3ad09f8c6975b7c91",
-      "outputSha256": "6fdab1d6c35d8563bd4edc3c65eb3fcc9867e46e1a7a1c74afe9895c282159bb"
-    },
-    "/images/plates/vault/vesuvius.webp": {
-      "src": "/images/vault/vesuvius.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "4a3eaab76571b0fe497d7826b4082920a3d11d83a4c66fd3ad09f8c6975b7c91",
-      "outputSha256": "14ae1f77c2a1b2f71086480f13acf71b6ac679b9a26c25422e89c3c094a06e87"
-    },
-    "/images/thumbs/vault/view-of-lebanon-after-an-english-engraving-and-a.webp": {
-      "src": "/images/vault/view-of-lebanon-after-an-english-engraving-and-a.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "8eb3d9ec269b47bbbbaad060765e6e0f8d5befc696dd8ebeddc38368ca902d4d",
-      "outputSha256": "227ba1bf4fbb098ca278bb12a36d41831ebb6e77666f931ac1ee70d57cc10b72"
-    },
-    "/images/plates/vault/view-of-lebanon-after-an-english-engraving-and-a.webp": {
-      "src": "/images/vault/view-of-lebanon-after-an-english-engraving-and-a.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "8eb3d9ec269b47bbbbaad060765e6e0f8d5befc696dd8ebeddc38368ca902d4d",
-      "outputSha256": "d87c583b8fa2d84e5a5ba7575938a7fed7742089ecb6f3bab4c8f2a8b5b6854c"
-    },
-    "/images/thumbs/vault/view-of-the-asakusa-kinryuzan-temple-from-the-az.webp": {
-      "src": "/images/vault/view-of-the-asakusa-kinryuzan-temple-from-the-az.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "b0d281004c29e316401b63d51a62c0ed35d679a427c9282e24449ff3025d71f4",
-      "outputSha256": "afda04ed16372cf3ef11261b0d1f9ff843b6d895c26cc7092bffcd468ac661de"
-    },
-    "/images/plates/vault/view-of-the-asakusa-kinryuzan-temple-from-the-az.webp": {
-      "src": "/images/vault/view-of-the-asakusa-kinryuzan-temple-from-the-az.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "b0d281004c29e316401b63d51a62c0ed35d679a427c9282e24449ff3025d71f4",
-      "outputSha256": "76ede65604dafc8fbbb54271abb8a44a17ff547f6ce18b95f3f5fc5d08a9f1c0"
-    },
-    "/images/thumbs/vault/waterfall-eagle-and-monkey.webp": {
-      "src": "/images/vault/waterfall-eagle-and-monkey.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "fb094aa288993cf6a840560a6ece1260af0e3fbd5e5062a41065de79afa802fb",
-      "outputSha256": "73c9a414d40603ca47fd047e529a64a683ead5242ddf9eb7d7e4710c51d5891f"
-    },
-    "/images/plates/vault/waterfall-eagle-and-monkey.webp": {
-      "src": "/images/vault/waterfall-eagle-and-monkey.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "fb094aa288993cf6a840560a6ece1260af0e3fbd5e5062a41065de79afa802fb",
-      "outputSha256": "c9acaa429e55d815149f82eaa8ee96a1ed4ad016c8f837c7ab1a3a0c248afe6e"
-    },
-    "/images/thumbs/vault/woman-with-a-child-in-the-garden-looking-at-the-.webp": {
-      "src": "/images/vault/woman-with-a-child-in-the-garden-looking-at-the-.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "cf8a63bbfbf6e9175e92dc86a6bd9f63eb10b1c0bc35737b4698eb980f46421b",
-      "outputSha256": "092c821f0dc56a354defac201d4b23be3be49bca2b8df49a2f87d1789f7a4d47"
-    },
-    "/images/plates/vault/woman-with-a-child-in-the-garden-looking-at-the-.webp": {
-      "src": "/images/vault/woman-with-a-child-in-the-garden-looking-at-the-.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "cf8a63bbfbf6e9175e92dc86a6bd9f63eb10b1c0bc35737b4698eb980f46421b",
-      "outputSha256": "e98d51563e8cb66fa4f477628ae10b331595e1553e1e838b45d4024b7cdb47af"
-    },
-    "/images/thumbs/vault/wreck-on-shore-from-the-types-of-vessels-series-.webp": {
-      "src": "/images/vault/wreck-on-shore-from-the-types-of-vessels-series-.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "0ebababb5ecd76670eb3b16f1bc899e328c407578a60e2fe7cb890f7c67df4bc",
-      "outputSha256": "f3067687c40618a8faf55beabaea58e3a82ee530329d9b9fd4b0514681dbbcff"
-    },
-    "/images/plates/vault/wreck-on-shore-from-the-types-of-vessels-series-.webp": {
-      "src": "/images/vault/wreck-on-shore-from-the-types-of-vessels-series-.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "0ebababb5ecd76670eb3b16f1bc899e328c407578a60e2fe7cb890f7c67df4bc",
-      "outputSha256": "100ab16105d50d111396278465f4ed60b5f644660891abad0c1845f8aebaadf4"
-    },
-    "/images/thumbs/vault/zojoji-temple-at-shiba-in-snow.webp": {
-      "src": "/images/vault/zojoji-temple-at-shiba-in-snow.webp",
-      "recipe": {
-        "width": 320,
-        "height": 320,
-        "fit": "cover",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 76,
-        "effort": 6
-      },
-      "sourceSha256": "f7e6d36ada72c7d53fca7c6c2f9e0963759fbfcb0acbebb53b5a90d868fac568",
-      "outputSha256": "6735c0f325a9fb553249506890650437cab4fda3bbaffad4d5037da77e39d2fe"
-    },
-    "/images/plates/vault/zojoji-temple-at-shiba-in-snow.webp": {
-      "src": "/images/vault/zojoji-temple-at-shiba-in-snow.webp",
-      "recipe": {
-        "width": 440,
-        "fit": "inside",
-        "position": "centre",
-        "withoutEnlargement": true,
-        "format": "webp",
-        "quality": 80,
-        "effort": 6
-      },
-      "sourceSha256": "f7e6d36ada72c7d53fca7c6c2f9e0963759fbfcb0acbebb53b5a90d868fac568",
-      "outputSha256": "271713836353dcfae84e5ab00697839effab9ce63fa82c50f0421add206438ba"
+      "sourceSha256": "32fbe287e468e513897600d097ff2bd49a5e9ac2e6fb4032130d5dd394f46251",
+      "outputSha256": "ce41a2a61c198f7a03e662aabe32b34398e13c43415da4bdd823f5c56260679c"
     }
   }
 }

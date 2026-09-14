@@ -25,14 +25,14 @@ if (apply && check) {
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(root, file), "utf8"));
 const publicFile = (url) => path.join(root, "public", url.replace(/^\//, ""));
 const sha256 = (buffer) => crypto.createHash("sha256").update(buffer).digest("hex");
-const recipeFor = ({ width, height, fit, quality }) => ({
+const recipeFor = ({ width, height, fit, quality, format = "webp", lossless = false }) => ({
   width,
   ...(height ? { height } : {}),
   fit,
   position: "centre",
   withoutEnlargement: true,
-  format: "webp",
-  quality,
+  format,
+  ...(lossless ? { lossless: true } : { quality }),
   effort: 6,
 });
 const thumbnailFor = (src) => {
@@ -40,6 +40,38 @@ const thumbnailFor = (src) => {
   const parsed = path.posix.parse(relative);
   return path.posix.join("/images/thumbs", parsed.dir, `${parsed.name}.webp`);
 };
+
+// Pictures that are looked at, served at the sizes they are actually seen
+// (measured in the browser, 14 Sep 2026, see animation-plans/…/P05). A 2×
+// screen gets twice the rendered width; AVIF where it costs least, WebP
+// beside it; the faun mark is graphite, not line art: lossy at 85 keeps every grain.
+const pictureFor = (src, stem, width, format, quality) => ({
+  src,
+  out: `/images/responsive/${stem}-${width}.${format}`,
+  width,
+  fit: "inside",
+  format,
+  quality,
+});
+const pictures = [
+  // eidos hero: 860 px wide at 1440 (60vw), full width on phones
+  ...[768, 1152, 1536].flatMap((w) => [pictureFor("/images/eidos/product/hero-desktop-poster.webp", "eidos/hero-desktop-poster", w, "avif", 63), pictureFor("/images/eidos/product/hero-desktop-poster.webp", "eidos/hero-desktop-poster", w, "webp", 82)]),
+  ...[480, 960].flatMap((w) => [pictureFor("/images/eidos/product/hero-mobile-poster.webp", "eidos/hero-mobile-poster", w, "avif", 63), pictureFor("/images/eidos/product/hero-mobile-poster.webp", "eidos/hero-mobile-poster", w, "webp", 82)]),
+  // faun mark: 34 px in the header, 261 px in the discover rail
+  ...[96, 540].map((w) => ({ src: "/images/eidos/product/faun-mark.webp", out: `/images/responsive/eidos/faun-mark-${w}.webp`, width: w, fit: "inside", format: "webp", quality: 85 })),
+  // press portrait: 530 px at 1440, 341 px on phones
+  ...[800, 1200, 1600].flatMap((w) => [pictureFor("/images/press/times-radio-studio.webp", "press/times-radio-studio", w, "avif", 63), pictureFor("/images/press/times-radio-studio.webp", "press/times-radio-studio", w, "webp", 82)]),
+  // homepage rasters, same pixel size, modern format
+  { src: "/images/pirate-flag-mark.png", out: "/images/responsive/home/pirate-flag-mark-64.webp", width: 64, fit: "inside", format: "webp", lossless: true },
+  pictureFor("/images/lynch.jpg", "home/lynch", 640, "webp", 82),
+  pictureFor("/images/journey/lecture.jpg", "home/lecture", 900, "webp", 82),
+  pictureFor("/video/cv-meta-poster.jpg", "home/cv-meta-poster", 720, "webp", 82),
+  pictureFor("/video/busking-poster.jpg", "home/busking-poster", 440, "webp", 82),
+  pictureFor("/images/cv-lecture.jpg", "home/cv-lecture", 1100, "webp", 82),
+  pictureFor("/images/war-16.jpg", "home/war-16", 520, "webp", 82),
+  pictureFor("/video/theatre-poster.jpg", "home/theatre-poster", 760, "webp", 82),
+  pictureFor("/video/actor-poster.jpg", "home/actor-poster", 640, "webp", 82),
+];
 
 const map = readJson("src/data/map.json");
 const today = readJson("src/data/today.json");
@@ -83,27 +115,30 @@ const jobs = [
       quality: width === 480 ? 76 : 80,
     }));
   }),
+  ...pictures,
 ];
 
 const render = (job) => {
   const recipe = recipeFor(job);
-  return sharp(publicFile(job.src))
+  const image = sharp(publicFile(job.src))
     .resize({
       width: recipe.width,
       height: recipe.height,
       fit: recipe.fit,
       position: recipe.position,
       withoutEnlargement: recipe.withoutEnlargement,
-    })
-    .webp({ quality: recipe.quality, effort: recipe.effort })
-    .toBuffer();
+    });
+  if (recipe.format === "avif") return image.avif({ quality: recipe.quality, effort: recipe.effort }).toBuffer();
+  if (recipe.lossless) return image.webp({ lossless: true, effort: recipe.effort }).toBuffer();
+  return image.webp({ quality: recipe.quality, effort: recipe.effort }).toBuffer();
 };
 
 const inspect = async (job) => {
   const out = publicFile(job.out);
   if (!fs.existsSync(out)) return "missing";
   const metadata = await sharp(out).metadata();
-  if (metadata.format !== "webp") return `format ${metadata.format}`;
+  const expected = recipeFor(job).format === "avif" ? "heif" : "webp";
+  if (metadata.format !== expected) return `format ${metadata.format}`;
   if (metadata.width !== job.width) return `width ${metadata.width}`;
   if (job.height && metadata.height !== job.height) return `height ${metadata.height}`;
   const recorded = manifest.jobs[job.out];
@@ -147,6 +182,10 @@ let before = 0;
 let after = 0;
 const nextManifest = { version: 1, jobs: {} };
 for (const job of jobs) {
+  // Idempotent: a derivative that already matches its manifest entry is kept
+  // byte for byte. Re-encoding is not deterministic across sharp builds, and
+  // five hundred churned plates would bury a real change.
+  if ((await inspect(job)) === "ready") { nextManifest.jobs[job.out] = manifest.jobs[job.out]; continue; }
   const source = publicFile(job.src);
   const out = publicFile(job.out);
   const temporary = `${out}.tmp`;

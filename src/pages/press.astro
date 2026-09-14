@@ -57,9 +57,14 @@ const description =
 
       <figure class="pr-portrait">
         <span class="pr-portrait-frame">
+          <picture>
+            <source type="image/avif" sizes="(min-width: 861px) 37vw, 88vw"
+                    srcset="/images/responsive/press/times-radio-studio-800.avif 800w, /images/responsive/press/times-radio-studio-1200.avif 1200w, /images/responsive/press/times-radio-studio-1600.avif 1600w" />
           <img
             data-press-portrait="lead"
-            src="/images/press/times-radio-studio.webp"
+            src="/images/responsive/press/times-radio-studio-1600.webp"
+            srcset="/images/responsive/press/times-radio-studio-800.webp 800w, /images/responsive/press/times-radio-studio-1200.webp 1200w, /images/responsive/press/times-radio-studio-1600.webp 1600w"
+            sizes="(min-width: 861px) 37vw, 88vw"
             width="1600"
             height="1200"
             alt="Dmytro Klochko wearing headphones at a studio microphone"
@@ -67,6 +72,7 @@ const description =
             fetchpriority="high"
             decoding="async"
           />
+          </picture>
         </span>
       </figure>
     </div>

@@ -101,10 +101,11 @@ test("the Faun is the product mark and visibly guides discovery", () => {
   const studio = read("src/pages/eidos/inbox.astro");
   const css = read("src/styles/pages/eidos-product.css") + read("src/styles/pages/eidos-studio.css");
 
-  assert.match(header, /class="ep-faun-mark"[^>]*src="\/images\/eidos\/product\/faun-mark\.webp"/);
+  // P05: the mark is served at 96/540 px from /images/responsive/eidos; the 720 px source stays in place
+  assert.match(header, /class="ep-faun-mark"[^>]*src="\/images\/(?:eidos\/product|responsive\/eidos)\/faun-mark[^"]*\.webp"/);
   assert.doesNotMatch(header, /<i aria-hidden="true"><\/i>/, "the half-moon still occupies the wordmark");
   assert.match(studio, /class="in-faun-guide"/);
-  assert.match(studio, /src="\/images\/eidos\/product\/faun-mark\.webp"/);
+  assert.match(studio, /src="\/images\/(?:eidos\/product|responsive\/eidos)\/faun-mark[^"]*\.webp"/);
   assert.match(css, /\.ep-faun-mark\s*\{/);
   assert.match(css, /\.in-faun-guide\s*\{/);
   assert.ok(fs.existsSync(path.join(root, "public/images/eidos/product/faun-mark.webp")), "the Faun crop is missing");
@@ -192,8 +193,9 @@ test("an opened artwork does not leave an inert nested opener in the detail view
 test("the hero is a precise door, not a looping film", () => {
   const hero = read("src/components/eidos/EidosHero.astro");
 
-  assert.match(hero, /hero-desktop-poster\.webp/);
-  assert.match(hero, /hero-mobile-poster\.webp/);
+  // P05: the posters are served from width-suffixed derivatives (…-poster-1152.webp)
+  assert.match(hero, /hero-desktop-poster[^"]*\.webp/);
+  assert.match(hero, /hero-mobile-poster[^"]*\.webp/);
   assert.match(hero, /href="#collection"[^>]*>open moodboard</);
   assert.match(hero, /href="\/eidos\/inbox"[^>]*>discover paintings</);
   assert.match(hero, /data-eidos-hero/);
@@ -400,7 +402,7 @@ test("the mobile product keeps its doors visible without loading a hero film", (
   assert.match(header, /ep-parent-mobile[^>]*>site</);
   assert.match(tablet, /\.ep-nav \{[\s\S]*?display: flex;/);
   assert.doesNotMatch(hero, /<video|hero-ambient-/);
-  assert.match(hero, /media="\(max-width: 680px\)"[^>]*hero-mobile-poster\.webp/);
+  assert.match(hero, /media="\(max-width: 680px\)"[^>]*hero-mobile-poster[^"]*\.webp/);
 });
 
 test("the mobile workbench preserves generous controls", () => {

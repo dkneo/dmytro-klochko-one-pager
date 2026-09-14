@@ -11,9 +11,20 @@
     </div>
   </div>
   <figure class="ep-hero-art" data-eidos-hero>
+    {/* Served at the size it is seen: 860 px wide at 1440 (~60vw), full width
+        on a phone, twice that on 2× screens. AVIF first, WebP beside it. The
+        intrinsic size is the real one, 1536×1024. */}
     <picture class="ep-hero-poster">
-      <source media="(max-width: 680px)" srcset="/images/eidos/product/hero-mobile-poster.webp" />
-      <img src="/images/eidos/product/hero-desktop-poster.webp" width="1920" height="1080" alt="a graphite Faun beside an olive and salmon Gryphon, held by an open pink circle" fetchpriority="high" decoding="async" />
+      <source media="(max-width: 680px)" type="image/avif" sizes="100vw"
+              srcset="/images/responsive/eidos/hero-mobile-poster-480.avif 480w, /images/responsive/eidos/hero-mobile-poster-960.avif 960w" />
+      <source media="(max-width: 680px)" type="image/webp" sizes="100vw"
+              srcset="/images/responsive/eidos/hero-mobile-poster-480.webp 480w, /images/responsive/eidos/hero-mobile-poster-960.webp 960w" />
+      <source type="image/avif" sizes="(min-width: 1200px) 60vw, 100vw"
+              srcset="/images/responsive/eidos/hero-desktop-poster-768.avif 768w, /images/responsive/eidos/hero-desktop-poster-1152.avif 1152w, /images/responsive/eidos/hero-desktop-poster-1536.avif 1536w" />
+      <img src="/images/responsive/eidos/hero-desktop-poster-1152.webp"
+           srcset="/images/responsive/eidos/hero-desktop-poster-768.webp 768w, /images/responsive/eidos/hero-desktop-poster-1152.webp 1152w, /images/responsive/eidos/hero-desktop-poster-1536.webp 1536w"
+           sizes="(min-width: 1200px) 60vw, 100vw"
+           width="1536" height="1024" alt="a graphite Faun beside an olive and salmon Gryphon, held by an open pink circle" fetchpriority="high" decoding="async" />
     </picture>
     <span class="ep-hero-note ep-hero-note--faun" data-hero-faun aria-hidden="true"><i></i><b>faun notices</b></span>
     <span class="ep-hero-note ep-hero-note--gryphon" aria-hidden="true"><i></i><b>gryphon remembers</b></span>
