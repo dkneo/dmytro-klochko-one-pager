@@ -262,3 +262,11 @@ test("every path the worker owns runs the worker first", () => {
   // and a 404 page exists, which is exactly why the list matters
   assert.ok(fs.existsSync("dist/404.html"));
 });
+
+test("fonts and films are immutable; images stay a day fresh and a month stale", () => {
+  const headers = read("public/_headers");
+  assert.match(headers, /^\/fonts\/\*\n  Cache-Control: public, max-age=31536000, immutable/m);
+  assert.match(headers, /^\/video\/\*\n  Cache-Control: public, max-age=31536000, immutable/m);
+  assert.match(headers, /^\/images\/\*\n  Cache-Control: public, max-age=86400, stale-while-revalidate=2592000/m);
+  assert.doesNotMatch(headers, /^\/images\/\*\n[^\n]*immutable/m, "images must not be immutable: image-build regenerates them under the same names");
+});

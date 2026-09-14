@@ -13,3 +13,7 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 - `tests/house-rules.test.mjs` — new: no `cubic-bezier(` outside `global.css` (allow-list: name-shake egg, unused `EidosCollection.astro`).
 - `tests/eidos-product.test.mjs` — the gesture test reads the tokens instead of a literal curve.
 - Not changed: `EidosCollection.astro` (unused, Codex's; its one literal is allow-listed rather than edited).
+
+## P04 — Cache the media that never changes
+- `public/_headers` — `/fonts/*` and `/video/*` immutable for a year; `/images/*` one day fresh plus thirty days stale-while-revalidate.
+- `tests/pages.test.mjs` — new: the three rules present, images never immutable.

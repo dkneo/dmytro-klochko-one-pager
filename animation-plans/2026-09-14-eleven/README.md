@@ -37,7 +37,7 @@ The 11/10 is not a feeling; it is the right-hand column, all of it, plus the fee
 | P01 | Retire three.js from the petal field; keep every petal | HIGH | TODO |
 | P02 | Metric-matched fallbacks so type never shifts the page | HIGH | TODO |
 | P03 | Inline the stylesheets so no request blocks first paint | MEDIUM | TODO |
-| P04 | Cache the media that never changes | MEDIUM | TODO |
+| P04 | Cache the media that never changes | MEDIUM | DONE |
 | P05 | Serve every picture at the size it is seen, in the format that costs least | HIGH | TODO |
 | P06 | An ambient budget: pay only for motion that is on screen | HIGH | TODO |
 | M01 | The reading room answers keys instantly, like discover already does | HIGH | TODO |
