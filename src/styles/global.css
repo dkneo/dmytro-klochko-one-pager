@@ -1190,18 +1190,31 @@ a:focus-visible .arw {
 
 .receipt-src,
 .ways a {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  background-size: 0% 1px;
-  transition:
-    background-size var(--dur) var(--ease),
-    color var(--dur) var(--ease);
+  position: relative;
+  transition: color var(--dur) var(--ease);
 }
 
-.receipt-src:hover,
-.ways a:hover {
-  background-size: 100% 1px;
+/* the sweep is a bar scaled by transform (compositor), not a background-size
+   repaint on every frame */
+.receipt-src::after,
+.ways a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .receipt-src:hover::after,
+  .ways a:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 /* The say-hi links already carried a permanent underline, which would fight

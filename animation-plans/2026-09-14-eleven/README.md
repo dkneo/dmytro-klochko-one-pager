@@ -45,7 +45,7 @@ The 11/10 is not a feeling; it is the right-hand column, all of it, plus the fee
 | M03 | Every control answers the finger (and shows its focus) | HIGH | DONE |
 | M04 | One motion vocabulary: tokens, curves, budgets | MEDIUM | DONE |
 | M05 | Reversible things use transitions, not keyframes | MEDIUM | TODO |
-| M06 | Only transform and opacity move | MEDIUM | TODO |
+| M06 | Only transform and opacity move | MEDIUM | DONE |
 | M07 | Reduced motion keeps the feedback and drops only the travel | HIGH | DONE |
 | M08 | Crossfades that do not double-expose; entrances that arrive one by one | MEDIUM | TODO |
 | M09 | Things appear from where they came: the deal, the lightbox, the dialogs | MEDIUM | TODO |

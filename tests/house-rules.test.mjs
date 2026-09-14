@@ -255,3 +255,28 @@ test("reduced motion keeps opacity and colour feedback and gates every hover tha
     assert.deepEqual(offenders, [], `${name}: hover transforms fire on touch`);
   }
 });
+
+// ── only transform and opacity move ─────────────────────────────────────
+test("no transition animates a layout property", () => {
+  const layout = new Set(["width", "height", "max-width", "min-width", "max-height", "min-height", "margin", "margin-top", "margin-left", "padding", "top", "left", "right", "bottom", "inset", "aspect-ratio", "r", "background-size", "flex-basis", "gap", "font-size", "letter-spacing"]);
+  const files = [];
+  const walk = (d) => { for (const f of fs.readdirSync(d)) { const p = path.join(d, f); fs.statSync(p).isDirectory() ? walk(p) : /\.css$/.test(f) && files.push(p); } };
+  walk(path.join(root, "src/styles"));
+  const offenders = [];
+  for (const f of files) {
+    const rel = path.relative(root, f);
+    const css = fs.readFileSync(f, "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
+    for (const m of css.matchAll(/transition:\s*([^;}]+)/g)) {
+      for (const part of m[1].split(",")) {
+        const prop = part.trim().split(/\s+/)[0];
+        if (!layout.has(prop)) continue;
+        // the one documented exception: .arw hops on relative offsets because inline cannot carry a transform (global.css)
+        const before = css.slice(Math.max(0, m.index - 400), m.index);
+        if (rel === "src/styles/global.css" && /\.arw\s*\{[^}]*$/.test(before)) continue;
+        const line = css.slice(0, m.index).split("\n").length;
+        offenders.push(`${rel}:${line} ${prop}`);
+      }
+    }
+  }
+  assert.deepEqual(offenders, [], "layout properties re-lay out the page on every frame; animate transform or opacity instead");
+});

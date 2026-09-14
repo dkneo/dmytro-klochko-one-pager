@@ -283,7 +283,9 @@
   padding: 0 0.8rem 0.8rem 0;
   overflow: visible;
   touch-action: pan-y;
-  transition: max-width var(--dur-mid) var(--ease), margin var(--dur-mid) var(--ease);
+  /* no transition on max-width/margin: those re-lay out the whole stage
+     for a quarter second on every deal; the frame takes its new size at
+     once and the card's own motion covers the change */
 }
 .eidos-studio .in-stage[data-orientation="portrait"] { max-width: 54rem; margin-inline: auto; }
 .eidos-studio .in-stage[data-orientation="square"] { max-width: 68rem; margin-inline: auto; }

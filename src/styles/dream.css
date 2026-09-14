@@ -230,7 +230,6 @@
     0 18px 40px rgb(8 10 22 / 42%);
   transform: rotate(1.2deg);
   transition:
-    aspect-ratio 220ms var(--ease),
     transform var(--dur) var(--ease),
     box-shadow var(--dur) var(--ease);
 }
@@ -2475,13 +2474,21 @@ html[data-motion="paused"] .scenes .firelight {
 }
 
 [data-mode="dream"] .map-node > circle + circle {
-  transition: r var(--dur) var(--ease), fill var(--dur) var(--ease);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform var(--dur) var(--ease), fill var(--dur) var(--ease);
 }
 
-[data-mode="dream"] .map-node:hover > circle + circle,
-[data-mode="dream"] .map-node.is-on > circle + circle {
-  r: 10;
-}
+/* the dot used to grow by animating r, which re-rasterises the svg every
+   frame; a compositor scale reaches the same 10-unit radius */
+[data-mode="dream"] .map-node.is-on > circle + circle[r="7"] { transform: scale(1.43); }
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .map-node:hover > circle + circle[r="7"] { transform: scale(1.43); }
+}  /* 7 → 10 */
+[data-mode="dream"] .map-node.is-on > circle + circle[r="5"] { transform: scale(2); }
+@media (hover: hover) and (pointer: fine) {
+  [data-mode="dream"] .map-node:hover > circle + circle[r="5"] { transform: scale(2); }
+}     /* 5 → 10 */
 
 [data-mode="dream"] .map-node:focus-visible {
   outline: 2px solid var(--hot);

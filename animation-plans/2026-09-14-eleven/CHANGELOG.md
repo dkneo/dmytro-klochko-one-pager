@@ -66,3 +66,11 @@ One commit per plan. Every file touched is listed. Optional plans (P01, P03, M11
 - `src/styles/pages/eidos-product.css` — `.ep-action`/`.ep-weather` keep their colour transitions; movers nulled by `transform`, not by deleting every transition; the nav underline stays instant.
 - `src/layouts/Layout.astro` — the `lisa` petal shower checks reduced motion like its sibling egg.
 - `tests/house-rules.test.mjs` — new: no blanket on `*`; the crossfade survives; the stamp fades; every `:hover` rule that moves sits inside a hover-capable media block (a small CSS scanner that judges values, so `transform: none` is not movement).
+
+## M06 — Only transform and opacity move
+- `src/styles/pages/eidos-studio.css` — the card stage no longer transitions `max-width`/`margin` on every deal (the frame takes its size at once; the card's own motion covers it — the homepage easel's documented answer).
+- `src/styles/dream.css` — the easel's `aspect-ratio` transition removed (its width had already been stopped for the same reason); the atlas dot grows by `transform: scale` (7→10, 5→10) instead of animating the SVG `r`; its `:hover` half gated to fine pointers, `.is-on` stays for everyone.
+- `src/styles/global.css` — the contact/receipt underline sweep is a `::after` bar scaled by transform, not a `background-size` repaint; gated to fine pointers like every other hover that moves.
+- `src/pages/eidos/map.astro` — wheel zoom disables the stage transition while the wheel turns (the drag path's `is-dragging`) and meets rising resistance past the limits, settling back 120ms after the last tick; the zoom buttons keep their hard clamp (discrete actions).
+- `tests/house-rules.test.mjs` — new: no `transition` in `src/styles/**` names a layout property (allow-list: the documented `.arw` hop).
+- Measured, not applied: the five `box-shadow` hover transitions (small, hover-scoped, one element at a time; a `::after` duplicate would add markup-facing CSS to Codex's `.ep-piece`).
