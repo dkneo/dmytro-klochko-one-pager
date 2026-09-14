@@ -50,3 +50,19 @@ test("the reading room answers the keyboard like discover does", () => {
   assert.match(src, /if \(e\.repeat && act !== undo\) return;/);
   assert.match(src, /e\.key === "Enter" && \(e\.metaKey \|\| e\.ctrlKey\)[\s\S]*keep\("keyboard"\)/, "⌘↵ does not keep from the line");
 });
+
+// ── the swipe knows how fast the hand moved (M02) ────────────────────────
+test("both rooms judge a swipe by distance or velocity, re-grab from the live offset, and hold will-change only while dragging", () => {
+  for (const f of ["src/pages/eidos/inbox.astro", "src/pages/eidos/reads.astro"]) {
+    const src = read(f);
+    assert.match(src, /const COMMIT_PX = 110, COMMIT_V = 0\.11;/, `${f}: thresholds`);
+    assert.match(src, /const commit = Math\.abs\(dx\) > COMMIT_PX \|\| \(fast && Math\.abs\(dx\) > 24\);/, `${f}: velocity does not commit`);
+    assert.match(src, /x0 = e\.clientX - live;/, `${f}: a re-grab jumps to zero`);
+    assert.match(src, /Math\.min\(300, Math\.max\(160, 260 - Math\.abs\(vx\) \* 400\)\)/, `${f}: the flight ignores the hand`);
+    assert.match(src, /card\.style\.willChange = "transform";/, `${f}: no layer for the gesture`);
+    assert.match(src, /card\.style\.willChange = "";/, `${f}: the layer is never released`);
+  }
+  const studio = read("src/styles/pages/eidos-studio.css");
+  assert.doesNotMatch(studio, /\.in-card \{[^}]*will-change: transform;/s, "a permanent compositor layer on the card");
+  assert.match(studio, /\.in-edge \{[^}]*transition: transform 120ms var\(--ease-out\)/, "the stamp only fades");
+});

@@ -305,7 +305,7 @@
   box-shadow: 0 22px 48px var(--ep-shadow);
   cursor: grab;
   user-select: none;
-  will-change: transform;
+  /* will-change is set by the hand for the life of the gesture, not held for the life of the page */
 }
 .eidos-studio .in-card:active { cursor: grabbing; }
 .eidos-studio .in-card.is-flying { transition: transform var(--dur-mid) var(--ease-out), opacity var(--dur-mid) var(--ease-out); }
@@ -420,7 +420,7 @@
 .eidos-studio .in-credit span { color: var(--ep-quiet); }
 .eidos-studio .in-credit a { display: inline-flex; align-items: center; min-height: 28px; margin-left: auto; color: var(--ep-raspberry); font-family: var(--mono); font-size: 0.66rem; }
 
-.eidos-studio .in-edge { position: absolute; top: 1.6rem; z-index: 3; padding: 0.35rem 0.55rem; border: 2px solid; opacity: 0; pointer-events: none; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.eidos-studio .in-edge { position: absolute; top: 1.6rem; z-index: 3; padding: 0.35rem 0.55rem; border: 2px solid; opacity: 0; pointer-events: none; transition: transform 120ms var(--ease-out); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
 .eidos-studio .in-edge--in { right: 1.5rem; color: var(--ep-raspberry); transform: rotate(6deg); }
 .eidos-studio .in-edge--out { left: 1.5rem; color: var(--ep-ink); transform: rotate(-6deg); }
 .eidos-studio .in-favorite-stamp {
