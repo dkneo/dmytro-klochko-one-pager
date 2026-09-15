@@ -1,0 +1,79 @@
+{
+  "project": "eidos-motion-rebuild",
+  "version": "2026-09-11",
+  "audited_commit": "9474e4b",
+  "principle": "living print, not living character",
+  "budget": {
+    "audition_cap_usd": 4,
+    "cumulative_final_cap_usd": 8,
+    "approval_required_between_gates": true
+  },
+  "fal": {
+    "allowed_endpoint": "fal-ai/ltx-2.3-22b/image-to-video",
+    "audio": false,
+    "audition_resolution": "720p_or_lower",
+    "candidates_per_asset": 2,
+    "same_start_and_end_frame": true,
+    "stop_after_two_geometry_failures": true
+  },
+  "assets": [
+    {
+      "id": "hero-ambient-desktop-overlay",
+      "prd": "prds/10-HERO-AMBIENT.md",
+      "source": "reference/hero-desktop-master.png",
+      "fal_eligible": true,
+      "delivery": "1920x1080_24fps_8s_alpha_webm",
+      "allowed_motion": ["salmon_feather_underprint_mask", "open_circle_segment_mask"],
+      "locked": ["faun", "gryphon_graphite", "gryphon_eye", "gryphon_beak", "foliage", "dots", "paper_grain"]
+    },
+    {
+      "id": "hero-ambient-mobile-overlay",
+      "prd": "prds/10-HERO-AMBIENT.md",
+      "source": "reference/hero-mobile-master.png",
+      "fal_eligible": true,
+      "delivery": "1080x1920_24fps_8s_alpha_webm",
+      "allowed_motion": ["salmon_feather_underprint_mask", "open_circle_segment_mask"],
+      "locked": ["faun", "gryphon_graphite", "gryphon_eye", "gryphon_beak", "foliage", "dots", "paper_grain"]
+    },
+    {
+      "id": "artwork-registration-loader",
+      "prd": "prds/11-LOADING-THE-PAINTING.md",
+      "fal_eligible": false,
+      "delivery": "interruptible_runtime_prototype",
+      "input": "actual_candidate_thumbnail"
+    },
+    {
+      "id": "discovery-actions",
+      "prd": "prds/12-DISCOVERY-ACTIONS.md",
+      "fal_eligible": false,
+      "delivery": "interruptible_runtime_prototype",
+      "states": ["dragging", "threshold", "return", "keep", "pass", "next"]
+    },
+    {
+      "id": "favorite-ink-impact-alpha",
+      "prd": "prds/13-ABSOLUTE-FAVORITE.md",
+      "fal_eligible": true,
+      "delivery": "768x768_24fps_0.46s_alpha_webm_and_png_sequence",
+      "allowed_motion": ["localized_dry_ink_impact"],
+      "locked": ["all_character_geometry", "all_artwork", "all_ui"]
+    },
+    {
+      "id": "session-complete-and-error",
+      "prd": "prds/14-SESSION-COMPLETE-AND-ERROR.md",
+      "fal_eligible": false,
+      "delivery": "runtime_prototype",
+      "input": "actual_kept_thumbnails_and_real_request_state"
+    }
+  ],
+  "automatic_rejection": {
+    "first_last_composite_ssim_min": 0.995,
+    "locked_region_pixel_difference_allowed": 0,
+    "routine_ui_duration_ms_max": 220,
+    "favorite_duration_ms_max": 460,
+    "hero_event_duration_ms_max": 1300,
+    "opaque_overlay_rectangles_allowed": false,
+    "character_morphing_allowed": false,
+    "painting_pixel_mutation_allowed": false
+  }
+}
+
