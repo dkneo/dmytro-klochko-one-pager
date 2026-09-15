@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>eidos living portrait storyboard</title>
+  <style>
+    @font-face{font-family:Zodiak;src:url('../reference/fonts/zodiak-400i.woff2')}@font-face{font-family:Newsreader;src:url('../reference/fonts/newsreader-400.woff2')}
+    *{box-sizing:border-box}html,body{margin:0;background:#171613;color:#292723}body{padding:54px;font-family:Newsreader,Georgia,serif}
+    .board{width:2200px;margin:auto;background:#ead8bb;padding:70px 70px 80px;box-shadow:0 36px 120px #000a}
+    .board-head{display:grid;grid-template-columns:1.55fr .85fr;gap:100px;align-items:end;margin-bottom:56px}
+    h1{font:78px/.92 Zodiak,Georgia,serif;letter-spacing:-.045em;margin:0;max-width:1250px}.board-head p{font:26px/1.42 Newsreader,Georgia,serif;margin:0;color:#65594e}.pink{color:#a8425d}
+    .hero{position:relative;height:1158px;background:#f2e2c9;overflow:hidden;isolation:isolate}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 71% 49%,transparent 0 34%,rgba(242,226,201,.3) 53%,rgba(242,226,201,.92) 75%);z-index:4}
+    .hero-copy{position:absolute;left:64px;top:82px;z-index:15;width:765px}.label{font:17px/1.2 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase}.hero-copy h2{font:86px/.93 Zodiak,Georgia,serif;letter-spacing:-.05em;margin:265px 0 28px}.hero-copy p{font:27px/1.45 Newsreader,Georgia,serif;max-width:560px;color:#62564d}.hero .portrait{position:absolute;width:1230px;height:1230px;right:-15px;top:-34px;z-index:8}.hero .circle{position:absolute;width:1110px;height:1110px;right:45px;top:24px;border:8px solid #ff82ad;border-radius:50%;z-index:7;mix-blend-mode:multiply}.hero .circle:after{content:"";position:absolute;width:22px;height:22px;border-radius:50%;background:#ff6538;right:-15px;top:48%}.hero-count{position:absolute;right:60px;bottom:46px;z-index:15;font:18px/1.2 ui-monospace,monospace;letter-spacing:.12em;color:#a8425d;text-transform:uppercase}
+    .hero .circle{overflow:hidden}.hero .circle:before{content:"";position:absolute;inset:0;background:url('../reference/artworks/01-redon-vase-of-flowers.webp') center 46%/cover;opacity:.42;filter:saturate(.88) contrast(1.03)}
+    .rule{display:grid;grid-template-columns:repeat(3,1fr);gap:42px;margin:28px 0 76px;font:20px/1.45 ui-monospace,monospace;color:#65594e}.rule b{display:block;color:#292723;margin-bottom:3px}.rule p{margin:0}
+    .sequence-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:26px}.sequence-head h2{font:55px/1 Zodiak,Georgia,serif;letter-spacing:-.035em;margin:0}.sequence-head p{font:17px/1.3 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;margin:0;color:#a8425d}
+    .sequence{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.shot{position:relative;height:390px;background:#f2e2c9;overflow:hidden;isolation:isolate}.shot .num{position:absolute;left:20px;top:18px;z-index:20;font:14px/1 ui-monospace,monospace;letter-spacing:.12em;color:#a8425d}.shot .state{position:absolute;left:20px;bottom:18px;z-index:20;font:14px/1.25 ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase;background:#f2e2c9e8;padding:7px 9px}.shot .portrait{position:absolute;width:390px;height:390px;right:0;top:0;z-index:8}.shot .circle{position:absolute;width:345px;height:345px;right:20px;top:22px;border:3px solid #ff82ad;border-radius:50%;z-index:7}.shot .work{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 44%;z-index:2}.shot.pick .work{filter:saturate(.92)}.shot.pick .portrait{opacity:.16}.shot.press .work{opacity:.82}.shot.press .trail{position:absolute;width:360px;height:4px;background:#ff82ad;left:70px;top:195px;z-index:9;transform:rotate(-3deg);transform-origin:left}.shot.transfer .work{opacity:.28;filter:saturate(.75)}.shot.key .work,.shot.final .work{opacity:.16;filter:saturate(.7)}.shot.wait .portrait{opacity:.11;filter:grayscale(1);mix-blend-mode:multiply}.shot.wait .circle{opacity:.46}.shot.wait:before{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#ff6538;right:13px;top:48%;z-index:10}.shot.key .portrait{width:430px;height:430px;right:-20px;top:-18px}.shot.final .portrait{width:450px;height:450px;right:-28px;top:-28px}.shot.final .circle{width:370px;height:370px;right:9px;top:10px}.timing{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin-top:54px;padding-top:32px;border-top:1px solid rgba(41,39,35,.2);font:18px/1.48 ui-monospace,monospace;color:#65594e}.timing b{display:block;color:#292723;margin-bottom:4px}.timing p{margin:0}
+  </style>
+</head>
+<body>
+  <main class="board">
+    <header class="board-head"><h1>one work stays large. <span class="pink">choosing it changes the portrait.</span></h1><p>Keep a work. Its color passes through Faun. Faun registers sharply above it. One clear visual rule connects the hero, loader and favorite.</p></header>
+    <section class="hero">
+      <div class="hero-copy"><span class="label">eidos / living portrait</span><h2>what you keep<br>becomes <span class="pink">you.</span></h2><p>the painting stays intact. your choice changes the portrait.</p></div>
+      <div class="circle"></div><div class="portrait" data-step="5"></div><span class="hero-count">one work visible / still becoming</span>
+    </section>
+    <section class="rule"><p><b>faun is the black key plate</b>His identity stays exact. No AI redraw and no morphing face.</p><p><b>the artwork is the color plate</b>One real work stays legible instead of becoming decorative texture.</p><p><b>one save changes the whole</b>The cause and effect stays legible, fast and interruptible.</p></section>
+    <header class="sequence-head"><h2>one impression, six frames</h2><p>first-load reveal / never loops</p></header>
+    <section class="sequence">
+      <article class="shot wait"><span class="num">01</span><div class="circle"></div><div class="portrait" data-step="0"></div><span class="state">faun is already visible</span></article>
+      <article class="shot pick"><span class="num">02</span><img class="work" src="../reference/artworks/01-redon-vase-of-flowers.webp" alt=""><div class="portrait" data-step="0"></div><span class="state">the painting is kept</span></article>
+      <article class="shot press"><span class="num">03</span><img class="work" src="../reference/artworks/01-redon-vase-of-flowers.webp" alt=""><i class="trail"></i><div class="portrait" data-step="1"></div><span class="state">its color enters faun</span></article>
+      <article class="shot transfer"><span class="num">04</span><img class="work" src="../reference/artworks/01-redon-vase-of-flowers.webp" alt=""><div class="portrait" data-step="2"></div><span class="state">the painting remains visible through him</span></article>
+      <article class="shot key"><span class="num">05</span><img class="work" src="../reference/artworks/01-redon-vase-of-flowers.webp" alt=""><div class="portrait" data-step="4"></div><span class="state">the black faun plate sharpens</span></article>
+      <article class="shot final"><span class="num">06</span><img class="work" src="../reference/artworks/01-redon-vase-of-flowers.webp" alt=""><div class="circle"></div><div class="portrait" data-step="5"></div><span class="state">resting state / the next choice can change it</span></article>
+    </section>
+    <footer class="timing"><p><b>motion grammar</b>contact, pressure, ink transfer, key plate, settle. No float, orbit, bounce or ambient drift.</p><p><b>continuity</b>The kept artwork stays visible through the entire action. Nothing teleports into a badge.</p><p><b>reduced motion</b>One 120ms color impression, then the resolved still. Meaning survives without travel.</p></footer>
+  </main>
+  <script>
+    const arts=[
+      {src:'../reference/artworks/01-redon-vase-of-flowers.webp',x:-20,y:-40,w:760,h:800,r:-2,o:.96,blend:'normal'},
+      {src:'../reference/artworks/03-hammershoi-courtyard.webp',x:0,y:-30,w:720,h:790,r:2,o:.28,blend:'multiply'},
+      {src:'../reference/artworks/05-turner-norham-castle.webp',x:-35,y:0,w:790,h:720,r:-1,o:.24,blend:'screen'},
+      {src:'../reference/artworks/10-af-klint-swan-10.webp',x:5,y:-10,w:710,h:750,r:1,o:.18,blend:'overlay'}
+    ];
+    function portraitMarkup(id,step){
+      const shown=step===0?0:1;
+      const layers=arts.slice(0,shown).map(a=>`<image href="${a.src}" x="${a.x}" y="${a.y}" width="${a.w}" height="${a.h}" opacity="${a.o}" preserveAspectRatio="xMidYMid slice" transform="rotate(${a.r} 360 360)" style="mix-blend-mode:${a.blend}"/>`).join('');
+      const keyOpacity=step===0?.08:step===1?.14:step===2?.2:step===3?.28:step===4?.5:.38;
+      return `<svg viewBox="0 0 720 720" width="100%" height="100%"><defs><filter id="inv${id}" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/><feComponentTransfer><feFuncR type="gamma" amplitude="1.25" exponent="1.35" offset="-.04"/><feFuncG type="gamma" amplitude="1.25" exponent="1.35" offset="-.04"/><feFuncB type="gamma" amplitude="1.25" exponent="1.35" offset="-.04"/></feComponentTransfer></filter><mask id="m${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="720" height="720" style="mask-type:luminance"><image href="../reference/brand/faun-mark.webp" width="720" height="720" filter="url(#inv${id})"/></mask></defs><g mask="url(#m${id})">${layers}<rect width="720" height="720" fill="#171613" opacity="${step>=4?.22:.08}"/></g><image href="../reference/brand/faun-mark.webp" width="720" height="720" opacity="${keyOpacity}" style="mix-blend-mode:multiply" filter="grayscale(1) contrast(1.7)"/></svg>`;
+    }
+    document.querySelectorAll('.portrait').forEach((node,i)=>node.innerHTML=portraitMarkup(i,Number(node.dataset.step)));
+  </script>
+</body>
+</html>

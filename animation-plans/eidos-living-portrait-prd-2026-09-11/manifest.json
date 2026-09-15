@@ -1,0 +1,43 @@
+{
+  "package": "eidos-living-portrait-prd-2026-09-11",
+  "version": 4,
+  "date": "2026-09-12",
+  "working_product_name": "Eidos",
+  "north_star": "the artwork is the color plate; Faun is the black key plate",
+  "default_fal_spend_usd": 0,
+  "optional_material_audition_hard_cap_usd": 4,
+  "storyboards": [
+    "storyboards-v3/01-living-portrait-storyboard.png",
+    "storyboards-v3/02-absolute-favorite-storyboard.png",
+    "storyboards-v3/03-loader-storyboard.png",
+    "storyboards-v3/04-mobile-product-storyboard.png",
+    "storyboards-v3/05-desktop-hero-in-product.png",
+    "storyboards-v3/06-studio-faun-feedback.png"
+  ],
+  "p0": [
+    "desktop living portrait",
+    "separately composed mobile living portrait",
+    "direct keep pass undo",
+    "delayed finite loader",
+    "absolute favorite second ink pass",
+    "reduced motion and interruption states"
+  ],
+  "deferred": [
+    "square share portrait",
+    "session completion ceremony",
+    "ambient hero loop",
+    "generated UI video"
+  ],
+  "automatic_rejection": {
+    "hero_active_artwork_count_max": 1,
+    "faun_locked_region_pixel_difference": 0,
+    "artwork_redraw_allowed": false,
+    "baked_generated_text_allowed": false,
+    "routine_ui_video_allowed": false,
+    "routine_ui_duration_ms_max": 220,
+    "favorite_duration_ms_max": 500,
+    "loader_delay_ms_min": 700,
+    "blue_dominant_creature_allowed": false,
+    "reduced_motion_required": true
+  }
+}

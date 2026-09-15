@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>eidos loader storyboard</title>
+  <style>
+    @font-face{font-family:Zodiak;src:url('../reference/fonts/zodiak-400i.woff2')}
+    @font-face{font-family:Newsreader;src:url('../reference/fonts/newsreader-400.woff2')}
+    *{box-sizing:border-box}html,body{margin:0;background:#171613;color:#292723}body{padding:54px}
+    .board{width:1920px;margin:auto;background:#ead8bb;padding:64px 64px 72px;box-shadow:0 40px 120px #000a}
+    .head{display:grid;grid-template-columns:1.15fr .85fr;gap:100px;align-items:end;margin-bottom:48px}
+    h1{margin:0;font:74px/.92 Zodiak,Georgia,serif;letter-spacing:-.048em}h1 em{color:#a8425d;font-weight:normal}
+    .head p{margin:0;font:25px/1.45 Newsreader,Georgia,serif;color:#65594e}
+    .strip{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .frame{position:relative;height:520px;background:#f2e2c9;overflow:hidden}
+    .frame:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px #29272320;pointer-events:none}
+    .n{position:absolute;left:15px;top:15px;z-index:20;font:13px/1 ui-monospace,monospace;letter-spacing:.1em;color:#a8425d}
+    .caption{position:absolute;left:15px;right:15px;bottom:16px;z-index:20;text-align:center;font:13px/1.25 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase}
+    .mark{position:absolute;left:50%;top:48%;width:300px;height:300px;transform:translate(-50%,-50%);filter:grayscale(1) contrast(1.6);mix-blend-mode:multiply}
+    .quiet .mark{opacity:.07}.pink .mark{opacity:.72;filter:sepia(1) saturate(6) hue-rotate(292deg) contrast(1.25);transform:translate(-48.5%,-51%)}
+    .black .mark{opacity:.86}.settled .mark{opacity:.92}.settled:before{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:#ff6538;right:44px;top:50%;z-index:10}
+    .ring{position:absolute;left:50%;top:48%;width:330px;height:330px;transform:translate(-50%,-50%);border:3px solid #ff82ad;border-radius:50%;opacity:.3}
+    .pink .ring{opacity:.7}.black .ring,.settled .ring{opacity:.85}
+    .rule{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:42px;padding-top:28px;border-top:1px solid #2927232b;font:18px/1.48 ui-monospace,monospace;color:#65594e}.rule b{display:block;color:#292723;margin-bottom:4px}.rule p{margin:0}
+  </style>
+</head>
+<body>
+  <main class="board">
+    <header class="head"><h1>the loader is a <em>printing state,</em> not a little movie.</h1><p>Nothing appears for fast responses. After 700 ms, Faun is printed in two imperfect passes and held. The same mark loads a card, a link and the studio.</p></header>
+    <section class="strip">
+      <article class="frame quiet"><span class="n">01 / 700 ms</span><div class="ring"></div><img class="mark" src="../reference/brand/faun-mark.webp" alt=""><span class="caption">paper relief becomes barely visible</span></article>
+      <article class="frame pink"><span class="n">02 / 760 ms</span><div class="ring"></div><img class="mark" src="../reference/brand/faun-mark.webp" alt=""><span class="caption">pink plate lands 3 px high</span></article>
+      <article class="frame black"><span class="n">03 / 860 ms</span><div class="ring"></div><img class="mark" src="../reference/brand/faun-mark.webp" alt=""><span class="caption">black key catches the pink plate</span></article>
+      <article class="frame black"><span class="n">04 / 960 ms</span><div class="ring"></div><img class="mark" src="../reference/brand/faun-mark.webp" alt=""><span class="caption">pressure builds only in tone</span></article>
+      <article class="frame settled"><span class="n">05 / held</span><div class="ring"></div><img class="mark" src="../reference/brand/faun-mark.webp" alt=""><span class="caption">resolved until content replaces it</span></article>
+    </section>
+    <footer class="rule"><p><b>no flash on fast loads</b>The mark enters only after 700 ms, so normal navigation feels instantaneous.</p><p><b>no infinite loop</b>The two passes are CSS masks over the real Faun asset. No generated loader video and no download penalty.</p><p><b>reduced motion</b>Show the resolved mark at 8% opacity after 700 ms. Preserve state, remove travel.</p></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>absolute favorite storyboard</title>
+  <style>
+    @font-face{font-family:Zodiak;src:url('../reference/fonts/zodiak-400i.woff2')}
+    @font-face{font-family:Newsreader;src:url('../reference/fonts/newsreader-400.woff2')}
+    *{box-sizing:border-box}html,body{margin:0;background:#171613;color:#292723}body{padding:54px}
+    .board{width:1920px;margin:auto;background:#ead8bb;padding:64px 64px 72px;box-shadow:0 40px 120px #000a}
+    .head{display:grid;grid-template-columns:1.18fr .82fr;gap:100px;align-items:end;margin-bottom:42px}
+    .head h1{margin:0;font:74px/.92 Zodiak,Georgia,serif;letter-spacing:-.048em}.head h1 em{color:#a8425d;font-weight:normal}
+    .head p{margin:0;font:25px/1.45 Newsreader,Georgia,serif;color:#65594e}
+    .sequence{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .frame{position:relative;height:430px;overflow:hidden;background:#f2e2c9;isolation:isolate}
+    .frame:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(41,39,35,.13);pointer-events:none}
+    .work{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%}
+    .n,.caption{position:absolute;z-index:20;font:13px/1.15 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase}
+    .n{top:15px;left:17px;color:#a8425d}.caption{left:17px;bottom:15px;background:#f2e2c9e8;padding:7px 9px}
+    .logo{position:absolute;right:17px;top:17px;width:64px;height:64px;z-index:18;overflow:hidden;background:#f2e2c9}.logo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.3);mix-blend-mode:multiply}
+    .control{position:absolute;z-index:19;right:17px;bottom:17px;font:14px/1 ui-monospace,monospace;letter-spacing:.06em;background:#f2e2c9e8;padding:12px 14px}
+    .press .control{background:#a8425d;color:#f2e2c9;transform:translateY(2px)}.press:before{content:"";position:absolute;inset:0;background:#ff82ad;opacity:.1;z-index:6}
+    .stamp{position:absolute;width:390px;height:390px;left:89px;top:16px;z-index:10}.stamp.offset{transform:translate(5px,-3px)}
+    .key{position:absolute;width:390px;height:390px;left:89px;top:16px;z-index:11;filter:grayscale(1) contrast(1.6);mix-blend-mode:multiply;opacity:.75}
+    .transfer .work{opacity:.32;filter:saturate(.85)}.resolve .work{opacity:.18;filter:saturate(.8)}.resolve .stamp{opacity:.72}
+    .settle .work{object-position:58% center}.settle .logo{box-shadow:inset 0 -4px #ff82ad}.settle .control{color:#a8425d}
+    .timing{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:40px;padding-top:28px;border-top:1px solid #2927232b;font:18px/1.48 ui-monospace,monospace;color:#65594e}.timing b{display:block;color:#292723;margin-bottom:4px}.timing p{margin:0}
+  </style>
+</head>
+<body>
+  <main class="board">
+    <header class="head"><h1>an absolute favorite gets a <em>second ink pass.</em></h1><p>No star, confetti, badge flight or miniature artwork. The work stays large. One rare decision gives Faun a richer impression, then the next work arrives.</p></header>
+    <section class="sequence">
+      <article class="frame"><span class="n">01 / held</span><img class="work" src="../reference/artworks/01-redon-vase-of-flowers.webp" alt=""><span class="logo"><img src="../reference/brand/faun-mark.webp" alt=""></span><span class="control">absolute favorite</span><span class="caption">the artwork never leaves the frame</span></article>
+      <article class="frame press"><span class="n">02 / 0 to 110 ms</span><img class="work" src="../reference/artworks/01-redon-vase-of-flowers.webp" alt=""><span class="logo"><img src="../reference/brand/faun-mark.webp" alt=""></span><span class="control">absolute favorite</span><span class="caption">deliberate press / immediate depth</span></article>
+      <article class="frame transfer"><span class="n">03 / 110 to 230 ms</span><img class="work" src="../reference/artworks/01-redon-vase-of-flowers.webp" alt=""><div class="stamp" data-color="#ff82ad" data-opacity=".88"></div><span class="caption">pink spot plate takes the work</span></article>
+      <article class="frame transfer"><span class="n">04 / 230 to 320 ms</span><img class="work" src="../reference/artworks/01-redon-vase-of-flowers.webp" alt=""><div class="stamp offset" data-color="#ff82ad" data-opacity=".82"></div><img class="key" src="../reference/brand/faun-mark.webp" alt=""><span class="caption">2 px misregistration / black key catches up</span></article>
+      <article class="frame resolve"><span class="n">05 / 320 to 410 ms</span><img class="work" src="../reference/artworks/01-redon-vase-of-flowers.webp" alt=""><div class="stamp" data-color="#a8425d" data-opacity=".72"></div><img class="key" src="../reference/brand/faun-mark.webp" alt=""><span class="caption">the rare state resolves once</span></article>
+      <article class="frame settle"><span class="n">06 / 410 to 500 ms</span><img class="work" src="../reference/artworks/03-hammershoi-courtyard.webp" alt=""><span class="logo"><img src="../reference/brand/faun-mark.webp" alt=""></span><span class="control">absolute / kept</span><span class="caption">next work / persistent richer mark</span></article>
+    </section>
+    <footer class="timing"><p><b>frequency earns ceremony</b>Absolute favorite is rare, so 500 ms is acceptable. Ordinary keep stays under 220 ms.</p><p><b>interruptible</b>A second action retargets from the current state. No canned video must finish before input.</p><p><b>reduced motion</b>The button darkens for 110 ms and the logo receives the pink key instantly. No travel.</p></footer>
+  </main>
+  <script>
+    function stamp(node,i){
+      const color=node.dataset.color;const opacity=node.dataset.opacity;
+      node.innerHTML=`<svg viewBox="0 0 720 720" width="100%" height="100%"><defs><filter id="inv-${i}" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0"/><feComponentTransfer><feFuncR type="gamma" amplitude="1.3" exponent="1.28" offset="-.05"/><feFuncG type="gamma" amplitude="1.3" exponent="1.28" offset="-.05"/><feFuncB type="gamma" amplitude="1.3" exponent="1.28" offset="-.05"/></feComponentTransfer></filter><mask id="m-${i}" maskUnits="userSpaceOnUse" x="0" y="0" width="720" height="720" style="mask-type:luminance"><image href="../reference/brand/faun-mark.webp" width="720" height="720" filter="url(#inv-${i})"/></mask></defs><rect width="720" height="720" fill="${color}" opacity="${opacity}" mask="url(#m-${i})"/></svg>`;
+    }
+    document.querySelectorAll('.stamp').forEach(stamp);
+  </script>
+</body>
+</html>
