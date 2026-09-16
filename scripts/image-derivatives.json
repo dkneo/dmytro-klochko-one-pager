@@ -7471,6 +7471,21 @@
       "sourceSha256": "f912759e875fcc9e44078ac6ae4f4beb6d0b019dad815d2680b5206110d5ad56",
       "outputSha256": "95f432940083b5cd7e2f2f3e44b6bc092d4266eafc654c818a20d717fbb8593c"
     },
+    "/images/thumbs/vault/isamu-noguchi.webp": {
+      "src": "/images/vault/isamu-noguchi.webp",
+      "recipe": {
+        "width": 320,
+        "height": 320,
+        "fit": "cover",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 76,
+        "effort": 6
+      },
+      "sourceSha256": "795d385597fb99de3b0485b12f6fcc08f95f8efce8b2e5f7a41c45d2163dbac7",
+      "outputSha256": "2039a452aa7dbdefb51980a9b13529bfe594b55d77dfaec46d9216ae18aabf08"
+    },
     "/images/thumbs/vault/ivan-trush.webp": {
       "src": "/images/vault/ivan-trush.webp",
       "recipe": {
@@ -15012,6 +15027,20 @@
       },
       "sourceSha256": "f912759e875fcc9e44078ac6ae4f4beb6d0b019dad815d2680b5206110d5ad56",
       "outputSha256": "2cc535b68b46ccc5c77606c102c26f360f77e5acfe7d5c1d648a4cd73e0a30dd"
+    },
+    "/images/plates/vault/isamu-noguchi.webp": {
+      "src": "/images/vault/isamu-noguchi.webp",
+      "recipe": {
+        "width": 440,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 80,
+        "effort": 6
+      },
+      "sourceSha256": "795d385597fb99de3b0485b12f6fcc08f95f8efce8b2e5f7a41c45d2163dbac7",
+      "outputSha256": "5ea90f14e398b02292bb7eff8d5b87cd6891405fada4ca634b40a59151a81fd2"
     },
     "/images/plates/vault/ivan-trush.webp": {
       "src": "/images/vault/ivan-trush.webp",

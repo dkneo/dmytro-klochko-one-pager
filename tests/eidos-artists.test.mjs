@@ -292,6 +292,46 @@ const LINK_ONLY = [
   "Germaine Richier",
   "Alberto Giacometti",
   "Louise Bourgeois",
+  "Yayoi Kusama",
+  "Yoshitomo Nara",
+  "Takashi Murakami",
+  "Chiharu Shiota",
+  "Yasumasa Morimura",
+  "Mariko Mori",
+  "Tabaimo",
+  "Makoto Aida",
+  "Aya Takano",
+  "Tomoko Sawada",
+  "Rinko Kawauchi",
+  "Lieko Shiga",
+  "Mika Ninagawa",
+  "Tadanori Yokoo",
+  "Keiichi Tanaami",
+  "Kishin Shinoyama",
+  "Nobuyoshi Araki",
+  "Daidō Moriyama",
+  "Masahisa Fukase",
+  "Eikoh Hosoe",
+  "Shōmei Tōmatsu",
+  "Toko Shinoda",
+  "Lee Ufan",
+  "Kishio Suga",
+  "Nobuo Sekine",
+  "Tatsuo Miyajima",
+  "Jirō Yoshihara",
+  "Kazuo Shiraga",
+  "Atsuko Tanaka",
+  "Sadamasa Motonaga",
+  "Saburō Murakami",
+  "Shōzō Shimamoto",
+  "On Kawara",
+  "Jirō Takamatsu",
+  "Takuma Nakahira",
+  "Ishiuchi Miyako",
+  "Tetsumi Kudō",
+  "Kōji Enokura",
+  "Yutaka Takanashi",
+  "Tsuruko Yamazaki",
 ];
 
 const workDirs = ["paintings", "prints", "posters", "objects"];
@@ -462,6 +502,16 @@ test("estate and living jp/de names have no hosted canvas", () => {
     "Tsuguharu Foujita", "Kayama Matazō", "Dōmoto Inshō", "Maeda Seison",
     "Hiroshi Sugimoto", "Gabriele Münter", "Christian Schad", "Lotte Laserstein",
     "Otto Dix", "George Grosz", "Hannah Höch", "Lyonel Feininger", "Jeanne Mammen",
+    "Yayoi Kusama", "Yoshitomo Nara", "Takashi Murakami", "Chiharu Shiota",
+    "Yasumasa Morimura", "Mariko Mori", "Tabaimo", "Makoto Aida", "Aya Takano",
+    "Tomoko Sawada", "Rinko Kawauchi", "Lieko Shiga", "Mika Ninagawa",
+    "Tadanori Yokoo", "Keiichi Tanaami", "Kishin Shinoyama", "Nobuyoshi Araki",
+    "Daidō Moriyama", "Masahisa Fukase", "Eikoh Hosoe", "Shōmei Tōmatsu",
+    "Toko Shinoda", "Lee Ufan", "Kishio Suga", "Nobuo Sekine", "Tatsuo Miyajima",
+    "Jirō Yoshihara", "Kazuo Shiraga", "Atsuko Tanaka", "Sadamasa Motonaga",
+    "Saburō Murakami", "Shōzō Shimamoto", "On Kawara", "Jirō Takamatsu",
+    "Takuma Nakahira", "Ishiuchi Miyako", "Tetsumi Kudō", "Kōji Enokura",
+    "Yutaka Takanashi", "Tsuruko Yamazaki",
   ];
   for (const f of list("vault/paintings")) {
     const text = read(`vault/paintings/${f}`);
@@ -470,6 +520,46 @@ test("estate and living jp/de names have no hosted canvas", () => {
         `${f} hosts a canvas for ${name}`);
     }
   }
+});
+
+test("the japan modern pack is living and niche, not the wave", () => {
+  const pack = [
+    "yayoi-kusama", "yoshitomo-nara", "takashi-murakami", "chiharu-shiota",
+    "yasumasa-morimura", "mariko-mori", "tabaimo", "makoto-aida", "aya-takano",
+    "tomoko-sawada", "rinko-kawauchi", "lieko-shiga", "mika-ninagawa",
+    "tadanori-yokoo", "keiichi-tanaami", "kishin-shinoyama", "nobuyoshi-araki",
+    "daido-moriyama", "masahisa-fukase", "eikoh-hosoe", "shomei-tomatsu",
+    "toko-shinoda", "lee-ufan", "kishio-suga", "nobuo-sekine", "tatsuo-miyajima",
+    "jiro-yoshihara", "kazuo-shiraga", "atsuko-tanaka", "sadamasa-motonaga",
+    "saburo-murakami", "shozo-shimamoto", "isamu-noguchi", "on-kawara",
+    "jiro-takamatsu", "takuma-nakahira", "ishiuchi-miyako", "tetsumi-kudo",
+    "koji-enokura", "yutaka-takanashi", "tsuruko-yamazaki",
+  ];
+  const already = [
+    "akira-kurosawa", "aoki-shigeru", "domoto-insho", "fujishima-takeji",
+    "hajime-sorayama", "hashiguchi-goyo", "hayami-gyoshu", "hiroshi-sugimoto",
+    "kayama-matazo", "kishida-ryusei", "kuroda-seiki", "maeda-seison",
+    "murakami-kagaku", "ohara-koson", "onchi-koshiro", "tsuchida-bakusen",
+    "uemura-shoen", "yokoyama-taikan", "yoshida-hiroshi",
+  ];
+  assert.ok(pack.length >= 30, `modern pack is ${pack.length}, wanted ≥30`);
+  for (const id of pack) {
+    assert.ok(fs.existsSync(path.join(root, `vault/people/${id}.md`)), `missing ${id}`);
+    assert.ok(!already.includes(id), `${id} was already in`);
+  }
+  const people = pack.map((id) => read(`vault/people/${id}.md`)).join("\n");
+  assert.doesNotMatch(people, /Hokusai|Hasui|Great Wave|TeamLab|teamlab/);
+  const kusama = read("vault/people/yayoi-kusama.md").toLowerCase();
+  assert.match(kusama, /died in 2026/, "kusama lost the death");
+  assert.doesNotMatch(kusama, /living;/, "kusama is still written as living");
+  const lee = read("vault/people/lee-ufan.md").toLowerCase();
+  assert.match(lee, /korea/, "lee lost korea");
+  assert.match(lee, /japan/, "lee lost japan");
+  assert.match(lee, /not a nationality claim/, "lee became a flag");
+  const noguchi = read("vault/people/isamu-noguchi.md");
+  assert.match(noguchi, /^src: \/images\/vault\/isamu-noguchi\.webp$/m);
+  assert.match(noguchi, /public domain/);
+  assert.ok(fs.existsSync(path.join(root, "public/images/vault/isamu-noguchi.webp")));
 });
 
 test("the japan pack skips the great wave and hasui", () => {
