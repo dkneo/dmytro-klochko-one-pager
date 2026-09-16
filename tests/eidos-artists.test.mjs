@@ -232,6 +232,41 @@ const LINK_ONLY = [
   "Lee Bontecou",
   "Eva Hesse",
   "Mark Rothko",
+  "Sophie Calle",
+  "Annette Messager",
+  "Christian Boltanski",
+  "Pierre Huyghe",
+  "Philippe Parreno",
+  "Anri Sala",
+  "JR",
+  "Orlan",
+  "Camille Henrot",
+  "Latifa Echakhch",
+  "Kapwani Kiwanga",
+  "Claire Fontaine",
+  "Thomas Hirschhorn",
+  "Nils-Udo",
+  "Tatiana Trouvé",
+  "Mircea Cantor",
+  "Mohamed Bourouissa",
+  "Zineb Sedira",
+  "Yves Klein",
+  "Jean Dubuffet",
+  "Marcel Duchamp",
+  "Francis Picabia",
+  "Hans Hartung",
+  "César",
+  "Niki de Saint Phalle",
+  "Arman",
+  "Simon Hantaï",
+  "Claude Viallat",
+  "Louis Cane",
+  "Robert Combas",
+  "Bram van Velde",
+  "Jean Fautrier",
+  "Germaine Richier",
+  "Alberto Giacometti",
+  "Louise Bourgeois",
 ];
 
 const workDirs = ["paintings", "prints", "posters", "objects"];
@@ -605,6 +640,89 @@ test("the figurative spine is porter, freilicher, dodd and guston", () => {
   const dodd = read("vault/people/lois-dodd.md").toLowerCase();
   assert.match(dodd, /window|laundry/, "dodd lost the looking");
   assert.match(dodd, /living/, "dodd lost that she is alive");
+});
+
+test("estate and living fr modern names have no hosted canvas", () => {
+  const banned = [
+    "Sophie Calle", "Annette Messager", "Christian Boltanski", "Pierre Huyghe",
+    "Philippe Parreno", "Anri Sala", "JR", "Orlan", "Camille Henrot",
+    "Latifa Echakhch", "Kapwani Kiwanga", "Claire Fontaine", "Thomas Hirschhorn",
+    "Nils-Udo", "Tatiana Trouvé", "Mircea Cantor", "Mohamed Bourouissa",
+    "Zineb Sedira", "Yves Klein", "Jean Dubuffet", "Marcel Duchamp",
+    "Francis Picabia", "Hans Hartung", "César", "Niki de Saint Phalle",
+    "Arman", "Simon Hantaï", "Claude Viallat", "Louis Cane", "Robert Combas",
+    "Bram van Velde", "Jean Fautrier", "Germaine Richier", "Alberto Giacometti",
+    "Louise Bourgeois",
+  ];
+  for (const f of list("vault/paintings")) {
+    const text = read(`vault/paintings/${f}`);
+    for (const name of banned) {
+      assert.doesNotMatch(text, new RegExp(`^who: ${name}$`, "m"),
+        `${f} hosts a canvas for ${name}`);
+    }
+  }
+});
+
+test("the fr modern pack skips monet, van gogh and kapoor", () => {
+  assert.ok(!fs.existsSync(path.join(root, "vault/people/claude-monet.md")),
+    "monet got a person page");
+  assert.ok(!fs.existsSync(path.join(root, "vault/people/vincent-van-gogh.md")),
+    "van gogh got a person page");
+  assert.ok(!fs.existsSync(path.join(root, "vault/people/anish-kapoor.md")),
+    "kapoor got a person page");
+  const people = list("vault/people").map((f) => read(`vault/people/${f}`)).join("\n");
+  assert.doesNotMatch(people, /^name: Claude Monet$/m);
+  assert.doesNotMatch(people, /^name: Vincent van Gogh$/m);
+  assert.doesNotMatch(people, /^name: Anish Kapoor$/m);
+  const works = list("vault/paintings")
+    .filter((f) => /^(klein|duchamp|picabia|dubuffet|calle|huyghe)-/.test(f))
+    .map((f) => {
+      const text = read(`vault/paintings/${f}`);
+      const title = (/^title: (.*)$/m.exec(text) || [])[1] || "";
+      return `${f}\n${title}`;
+    }).join("\n");
+  assert.doesNotMatch(works, /Water Lilies|Nymphéas|Starry Night|Nuit étoilée|Fountain|IKB/i);
+});
+
+test("giacometti names the swiss birth and the paris studio", () => {
+  const text = read("vault/people/alberto-giacometti.md").toLowerCase();
+  assert.match(text, /borgonovo|swiss/, "giacometti lost the swiss birth");
+  assert.match(text, /paris/, "giacometti lost the paris studio");
+  assert.match(text, /nationality claim|not a nationality/, "giacometti became a french claim");
+  assert.doesNotMatch(text, /^src:/m);
+});
+
+test("bourgeois names paris then new york", () => {
+  const text = read("vault/people/louise-bourgeois.md").toLowerCase();
+  assert.match(text, /paris/, "bourgeois lost paris");
+  assert.match(text, /new york/, "bourgeois lost new york");
+  assert.match(text, /2010/, "bourgeois lost the estate date");
+  assert.doesNotMatch(text, /^src:/m);
+});
+
+test("living fr contemporaries say they are living", () => {
+  const living = [
+    "sophie-calle", "annette-messager", "pierre-huyghe", "philippe-parreno",
+    "anri-sala", "jr", "orlan", "camille-henrot", "latifa-echakhch",
+    "kapwani-kiwanga", "claire-fontaine", "thomas-hirschhorn", "nils-udo",
+    "tatiana-trouve", "mircea-cantor", "mohamed-bourouissa", "zineb-sedira",
+    "claude-viallat", "louis-cane", "robert-combas",
+  ];
+  for (const id of living) {
+    const text = read(`vault/people/${id}.md`).toLowerCase();
+    assert.match(text, /\bliving\b/, `${id} lost that they are alive`);
+    assert.doesNotMatch(text, /^src:/m, `${id} shipped a face`);
+  }
+});
+
+test("duchamp refuses the urinal and picabia refuses a tourist hang", () => {
+  const duchamp = read("vault/people/marcel-duchamp.md").toLowerCase();
+  assert.match(duchamp, /urinal|fountain|readymade/, "duchamp lost the refusal");
+  assert.doesNotMatch(duchamp, /^src:/m);
+  const picabia = read("vault/people/francis-picabia.md").toLowerCase();
+  assert.match(picabia, /tourist/, "picabia lost the tourist refusal");
+  assert.match(picabia, /1953/, "picabia lost the death date");
+  assert.doesNotMatch(picabia, /^src:/m);
 });
 
 test("estate and living ua names have no hosted canvas", () => {
