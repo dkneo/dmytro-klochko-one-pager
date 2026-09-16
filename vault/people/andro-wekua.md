@@ -4,7 +4,7 @@ name: Andro Wekua
 url: "https://en.wikipedia.org/wiki/Andro_Wekua"
 added: 2026-09-11
 note: |-
-  sokhumi, then zurich and berlin. figures and rooms cut from memory. living; the studio pictures stay with him.
+  sokhumi, then zurich and berlin. figures and rooms cut from memory. georgian-born, kept on this berlin shelf; no second georgian card. living; the studio pictures stay with him.
 ---
 
 no weather yet: that is his to say.

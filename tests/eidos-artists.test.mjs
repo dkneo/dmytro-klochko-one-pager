@@ -180,6 +180,31 @@ const LINK_ONLY = [
   "Félix Varlamishvili",
   "Thea Djordjadze",
   "Andro Wekua",
+  "Mamuka Japharidze",
+  "Levan Chogoshvili",
+  "Wato Tsereteli",
+  "Tamara Kvesitadze",
+  "Gia Edzgveradze",
+  "Koka Ramishvili",
+  "Nino Sekhniashvili",
+  "Tamuna Sirbiladze",
+  "Salome Machaidze",
+  "Nika Machaidze",
+  "Natalia Vatsadze",
+  "Lado Pochkhua",
+  "Guram Tsibakhashvili",
+  "Yuri Mechitov",
+  "Beso Uznadze",
+  "Alexander Bazhbeuk-Melikyan",
+  "Tamar Abakelia",
+  "Tamara K.E.",
+  "Vajiko Chachkhiani",
+  "Anna K.E.",
+  "Karlo Kacharava",
+  "Merab Abramishvili",
+  "Natela Iankoshvili",
+  "Oleg Timchenko",
+  "Thea Gvetadze",
   "Tsuguharu Foujita",
   "Kayama Matazō",
   "Dōmoto Inshō",
@@ -388,12 +413,19 @@ test("estate and living pl/ge names have no hosted canvas", () => {
     "Jerzy Nowosielski", "Wojciech Fangor", "Andrzej Wróblewski",
     "Ketevan Magalashvili", "Petre Otskheli", "Irakli Parjiani",
     "Dimitri Shevardnadze", "Félix Varlamishvili", "Thea Djordjadze", "Andro Wekua",
+    "Mamuka Japharidze", "Levan Chogoshvili", "Wato Tsereteli", "Tamara Kvesitadze",
+    "Gia Edzgveradze", "Koka Ramishvili", "Nino Sekhniashvili", "Tamuna Sirbiladze",
+    "Salome Machaidze", "Nika Machaidze", "Natalia Vatsadze", "Lado Pochkhua",
+    "Guram Tsibakhashvili", "Yuri Mechitov", "Beso Uznadze",
+    "Alexander Bazhbeuk-Melikyan", "Tamar Abakelia", "Tamara K.E.",
+    "Vajiko Chachkhiani", "Anna K.E.", "Karlo Kacharava", "Merab Abramishvili",
+    "Natela Iankoshvili", "Oleg Timchenko", "Thea Gvetadze",
   ];
   for (const f of list("vault/paintings")) {
     const text = read(`vault/paintings/${f}`);
     for (const name of banned) {
-      assert.doesNotMatch(text, new RegExp(`^who: ${name}$`, "m"),
-        `${f} hosts a canvas for ${name}`);
+      const re = new RegExp(`^who: ${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, "m");
+      assert.doesNotMatch(text, re, `${f} hosts a canvas for ${name}`);
     }
   }
 });
@@ -403,6 +435,17 @@ test("the polish pack skips matejko battles and lempicka memes", () => {
   const works = list("vault/paintings").map((f) => read(`vault/paintings/${f}`)).join("\n");
   assert.doesNotMatch(people, /Jan Matejko|Tamara (de )?Łempicka|Tamara de Lempicka/);
   assert.doesNotMatch(works, /Matejko|Łempicka|Lempicka/);
+});
+
+test("the georgian densify skips tourist tsereteli and does not duplicate wekua", () => {
+  const files = list("vault/people");
+  const people = files.map((f) => read(`vault/people/${f}`)).join("\n");
+  assert.doesNotMatch(people, /Zurab Tsereteli/);
+  const wekua = files.filter((f) => f.includes("wekua"));
+  assert.equal(wekua.length, 1, "andro wekua got a second card");
+  const andro = read("vault/people/andro-wekua.md").toLowerCase();
+  assert.match(andro, /no second georgian card/, "wekua lost the georgian cross-link");
+  assert.match(andro, /sokhumi/, "wekua lost sokhumi");
 });
 
 test("mehoffer hangs the garden and the glass", () => {
