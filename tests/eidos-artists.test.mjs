@@ -332,6 +332,23 @@ const LINK_ONLY = [
   "Kōji Enokura",
   "Yutaka Takanashi",
   "Tsuruko Yamazaki",
+  "Ushio Shinohara",
+  "Tadao Ando",
+  "Izumi Kato",
+  "Kohei Nawa",
+  "Tomoo Gokita",
+  "Tetsuya Ishida",
+  "Shinro Ohtake",
+  "Akira Yamaguchi",
+  "Hisashi Tenmyouya",
+  "Yuko Mohri",
+  "Chim↑Pom from Smappa!Group",
+  "Naoya Hatakeyama",
+  "Tokujin Yoshioka",
+  "Shiro Kuramata",
+  "Ryoji Ikeda",
+  "Kazuyo Sejima",
+  "Yukinori Yanagi",
 ];
 
 const workDirs = ["paintings", "prints", "posters", "objects"];
@@ -512,6 +529,11 @@ test("estate and living jp/de names have no hosted canvas", () => {
     "Saburō Murakami", "Shōzō Shimamoto", "On Kawara", "Jirō Takamatsu",
     "Takuma Nakahira", "Ishiuchi Miyako", "Tetsumi Kudō", "Kōji Enokura",
     "Yutaka Takanashi", "Tsuruko Yamazaki",
+    "Ushio Shinohara", "Tadao Ando", "Izumi Kato", "Kohei Nawa",
+    "Tomoo Gokita", "Tetsuya Ishida", "Shinro Ohtake", "Akira Yamaguchi",
+    "Hisashi Tenmyouya", "Yuko Mohri", "Chim↑Pom from Smappa!Group",
+    "Naoya Hatakeyama", "Tokujin Yoshioka", "Shiro Kuramata",
+    "Ryoji Ikeda", "Kazuyo Sejima", "Yukinori Yanagi",
   ];
   for (const f of list("vault/paintings")) {
     const text = read(`vault/paintings/${f}`);
@@ -534,6 +556,11 @@ test("the japan modern pack is living and niche, not the wave", () => {
     "saburo-murakami", "shozo-shimamoto", "isamu-noguchi", "on-kawara",
     "jiro-takamatsu", "takuma-nakahira", "ishiuchi-miyako", "tetsumi-kudo",
     "koji-enokura", "yutaka-takanashi", "tsuruko-yamazaki",
+    "ushio-shinohara", "tadao-ando", "izumi-kato", "kohei-nawa",
+    "tomoo-gokita", "tetsuya-ishida", "shinro-ohtake", "akira-yamaguchi",
+    "hisashi-tenmyouya", "yuko-mohri", "chim-pom", "naoya-hatakeyama",
+    "tokujin-yoshioka", "shiro-kuramata", "ryoji-ikeda", "kazuyo-sejima",
+    "yukinori-yanagi",
   ];
   const already = [
     "akira-kurosawa", "aoki-shigeru", "domoto-insho", "fujishima-takeji",
@@ -560,6 +587,46 @@ test("the japan modern pack is living and niche, not the wave", () => {
   assert.match(noguchi, /^src: \/images\/vault\/isamu-noguchi\.webp$/m);
   assert.match(noguchi, /public domain/);
   assert.ok(fs.existsSync(path.join(root, "public/images/vault/isamu-noguchi.webp")));
+});
+
+test("the tokyo-circuit densify is doors, not the wave", () => {
+  const pack = [
+    "ushio-shinohara", "tadao-ando", "izumi-kato", "kohei-nawa",
+    "tomoo-gokita", "tetsuya-ishida", "shinro-ohtake", "akira-yamaguchi",
+    "hisashi-tenmyouya", "yuko-mohri", "chim-pom", "naoya-hatakeyama",
+    "tokujin-yoshioka", "shiro-kuramata", "ryoji-ikeda", "kazuyo-sejima",
+    "yukinori-yanagi",
+  ];
+  const people = pack.map((id) => read(`vault/people/${id}.md`)).join("\n");
+  assert.doesNotMatch(people, /Hokusai|Hasui|Great Wave|TeamLab|teamlab/);
+  for (const id of pack) {
+    const text = read(`vault/people/${id}.md`);
+    assert.match(text, /^url: "https?:\/\//m, `${id} has no door out`);
+    assert.doesNotMatch(text, /^src:/m, `${id} shipped a face`);
+  }
+
+  const ando = read("vault/people/tadao-ando.md").toLowerCase();
+  assert.match(ando, /concrete/, "ando lost the material");
+  assert.match(ando, /pritzker/, "ando lost the prize");
+  assert.match(ando, /living/, "ando lost that he is alive");
+
+  const chim = read("vault/people/chim-pom.md");
+  assert.match(chim, /^name: Chim↑Pom from Smappa!Group$/m, "chim-pom lost the group name");
+  assert.match(chim.toLowerCase(), /the group/, "chim-pom became a person");
+
+  const ishida = read("vault/people/tetsuya-ishida.md").toLowerCase();
+  assert.match(ishida, /2005/, "ishida lost the estate date");
+  assert.doesNotMatch(ishida, /\bliving\b/, "ishida is still written as living");
+
+  const kuramata = read("vault/people/shiro-kuramata.md").toLowerCase();
+  assert.match(kuramata, /1991/, "kuramata lost the estate date");
+  assert.match(kuramata, /miss blanche/, "kuramata lost the chair");
+
+  const living = pack.filter((id) => id !== "tetsuya-ishida" && id !== "shiro-kuramata");
+  for (const id of living) {
+    const text = read(`vault/people/${id}.md`).toLowerCase();
+    assert.match(text, /\bliving\b/, `${id} lost that they are alive`);
+  }
 });
 
 test("the japan pack skips the great wave and hasui", () => {
