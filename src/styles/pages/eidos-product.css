@@ -331,9 +331,14 @@ html[data-eidos-product] body {
   font-size: 1.08rem;
   line-height: 1.55;
 }
+.ep-mood-doors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.35rem;
+  margin-top: 1rem;
+}
 .ep-mood-map {
   min-height: 32px;
-  margin-top: 1rem;
   display: inline-flex;
   align-items: center;
   color: var(--ep-raspberry);
@@ -579,6 +584,48 @@ html[data-eidos-product] body {
 .ep-detail-close { position: sticky; top: 0; z-index: 2; float: right; min-width: 44px; min-height: 44px; color: var(--ep-paper-light); background: var(--ep-ink); border: 0; cursor: pointer; }
 .ep-detail .ep-piece { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.34fr); margin: 0; box-shadow: none; }
 .ep-detail .ep-piece:hover { transform: none; }
+.ep-detail.ep-detail--record { width: min(40rem, calc(100% - 4rem)); }
+.ep-record {
+  display: grid;
+  gap: 1rem;
+  padding: 2.75rem clamp(1.25rem, 4vw, 3rem) 3rem;
+}
+.ep-record-kind,
+.ep-record-meta {
+  margin: 0;
+  color: var(--ep-raspberry);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ep-record h3 {
+  margin: 0;
+  font-family: var(--display, "Zodiak", var(--serif));
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+.ep-record-note {
+  margin: 0.35rem 0 0;
+  font-size: 1.13rem;
+  line-height: 1.66;
+}
+.ep-record-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+.ep-record-door {
+  width: fit-content;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--ep-raspberry) !important;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+}
 
 @media (hover: hover) and (pointer: fine) {
   .ep-nav a:hover::after { transform: scaleX(1); transform-origin: left; }
@@ -727,7 +774,9 @@ html[data-eidos-product] body {
   .ep-make-yours > img { width: min(70%, 18rem); margin: 4rem 0 0 auto; }
   .ep-piece-mark { margin-bottom: 1.2rem; }
   .ep-detail { width: calc(100% - 1rem); max-height: calc(100svh - 1rem); }
+  .ep-detail.ep-detail--record { width: calc(100% - 1rem); }
   .ep-detail .ep-piece { display: block; }
+  .ep-record { padding: 1.75rem 1.15rem 2rem; }
   .ep-trace-grid { grid-template-columns: repeat(2, 1fr); }
   .ep-trace-grid div:nth-child(2n) { border-right: 0; }
   .ep-trace-grid div:nth-child(3) { border-right: 1px solid var(--ep-rule); }

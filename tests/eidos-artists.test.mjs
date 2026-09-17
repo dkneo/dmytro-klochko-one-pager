@@ -949,9 +949,9 @@ test("a person without a picture does not ship a broken img", () => {
   assert.equal(person.type, "person");
   assert.ok(!person.src, "bohomazov unexpectedly has a picture");
 
-  // the moodboard is pictures only; people without a face stay off it.
-  // collection / field / reading still gate <img> on src so an empty
-  // face cannot ship as a broken image.
+  // the moodboard is pictures only; people without a face stay off it
+  // and open as a name card. collection / field / reading still gate
+  // <img> on src so an empty face cannot ship as a broken image.
   const surfaces = [
     "src/pages/eidos/index.astro",
     "src/components/eidos/EidosMoodboard.astro",
@@ -962,5 +962,8 @@ test("a person without a picture does not ship a broken img", () => {
   assert.match(surfaces, /item\.src \?/, "a surface paints img without asking for src");
   const html = read("dist/eidos/index.html");
   assert.doesNotMatch(html, /<img[^>]+src=["']\s*["']/, "an empty img src shipped");
-  assert.doesNotMatch(html, /id="oleksandr-bohomazov"[\s\S]*?<img /, "bohomazov shipped an empty face");
+  const start = html.indexOf('data-id="oleksandr-bohomazov"');
+  assert.ok(start > 0, "bohomazov never reached the names wall");
+  const card = html.slice(html.lastIndexOf("<article", start), html.indexOf("</article>", start));
+  assert.doesNotMatch(card, /<img\b/, "bohomazov shipped an empty face");
 });

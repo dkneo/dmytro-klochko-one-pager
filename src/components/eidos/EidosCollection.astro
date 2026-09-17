@@ -5,14 +5,15 @@ const plateFor = (src: string) => src.replace("/images/", "/images/plates/").rep
 const first = 24;
 const wordTypes = new Set(["poem", "quote", "writing"]);
 const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u202F$1").replace(/(«)\s+/g, "$1\u202F");
+const doorOf = (item: any) => String(item.url || item.source || "").trim();
 ---
-<section class="ep-collection ep-section" id="collection" aria-labelledby="collection-title" data-collection>
+<section class="ep-collection ep-section" id="names" aria-labelledby="names-title" data-collection>
   <header class="ep-section-head ep-section-head--split">
     <div>
-      <p class="ep-index">03 · collection</p>
-      <h2 id="collection-title">the evidence, all mixed together.</h2>
+      <p class="ep-index">names</p>
+      <h2 id="names-title">a name, a note, a door out.</h2>
     </div>
-    <p>pictures keep their shape. words keep their language. nothing is generated and every mark keeps its source.</p>
+    <p>people i kept without a face i have the right to hang. the card is the name; open it for the note and the way out.</p>
   </header>
   <div class="ep-collection-tools">
     <div class="ep-form-filters" role="group" aria-label="filter by form">
@@ -24,8 +25,20 @@ const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u2
     <button type="button" class="ep-surprise" data-surprise>surprise me <span aria-hidden="true">↝</span></button>
   </div>
   <div class="ep-grid" data-collection-grid>
-    {profile.collection.map((item: any, index: number) => (
-      <article class={`ep-piece ep-piece--${item.type}`} data-piece data-form={item.type} data-weather={item.weather || "unfiled"} data-id={item.id} hidden={index >= first}>
+    {profile.collection.map((item: any, index: number) => {
+      const door = doorOf(item);
+      return (
+      <article
+        class={`ep-piece ep-piece--${item.type}`}
+        data-piece
+        data-form={item.type}
+        data-weather={item.weather || "unfiled"}
+        data-id={item.id}
+        data-url={door}
+        data-note={item.note || ""}
+        data-who={item.who || ""}
+        hidden={index >= first}
+      >
         {item.src ? (
           <button type="button" class="ep-piece-open" aria-label={`open ${glue(item.title || item.line)}`}>
             <img src={plateFor(item.src)} alt={glue(item.title || item.line || item.type)} width={dimensions[item.id]?.width} height={dimensions[item.id]?.height} loading="lazy" decoding="async" />
@@ -37,18 +50,30 @@ const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u2
             {item.original && <i>{glue(item.original)}</i>}
           </button>
         ) : (
-          <button type="button" class="ep-piece-open ep-piece-record">
+          <button type="button" class="ep-piece-open ep-piece-record" aria-label={`open ${glue(item.who || item.line || item.title)}`}>
             <span class="ep-piece-mark" aria-hidden="true">{item.type === "song" ? "♪" : "◉"}</span>
-            <span>{glue(item.line || item.title)}</span>
+            <span>{glue(item.who || item.line || item.title)}</span>
           </button>
         )}
         <footer>
           <span>{item.type}</span>
-          <b>{glue(item.line || item.title)}</b>
-          {item.who && <small>{item.who}{item.year ? ` · ${item.year}` : ""}{item.translator ? ` · ${item.translator}` : ""}</small>}
+          <b>{glue(item.who || item.line || item.title)}</b>
+          {item.year && <small>{item.year}</small>}
         </footer>
+        <template data-record>
+          <article class={`ep-record ep-record--${item.type}`}>
+            <p class="ep-record-kind">{item.type}</p>
+            <h3>{glue(item.who || item.line || item.title)}</h3>
+            {item.note && <p class="ep-record-note">{item.note}</p>}
+            <p class="ep-record-meta">
+              <span>{item.weather || "unfiled"}</span>
+            </p>
+            {door && <a class="ep-record-door" href={door} rel="noreferrer">open ↗</a>}
+          </article>
+        </template>
       </article>
-    ))}
+      );
+    })}
   </div>
   <button type="button" class="ep-more" data-more>keep exploring <span>{first} / {profile.collection.length}</span></button>
   <p class="ep-empty" data-empty hidden>nothing in this slice yet.</p>
@@ -70,9 +95,8 @@ const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u2
     const detailBody = root.querySelector("[data-detail-body]");
     let shown = 24;
     let form = "all";
-    let weather = "all";
 
-    const matches = (piece) => (form === "all" || piece.dataset.form === form) && (weather === "all" || piece.dataset.weather === weather);
+    const matches = (piece) => form === "all" || piece.dataset.form === form;
     const paint = () => {
       const eligible = pieces.filter(matches);
       pieces.forEach((piece) => { piece.hidden = true; });
@@ -89,19 +113,13 @@ const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u2
         button.setAttribute("aria-pressed", String(on));
       });
     };
+    const pct = (value) => `${Math.min(100, Math.max(0, value * 100)).toFixed(1)}%`;
 
     root.querySelectorAll("[data-form-filter]").forEach((button) => button.addEventListener("click", () => {
       form = button.dataset.formFilter;
       shown = 24;
       setPressed("[data-form-filter]", button);
       paint();
-    }));
-    document.querySelectorAll("[data-weather-filter]").forEach((button) => button.addEventListener("click", () => {
-      weather = button.dataset.weatherFilter;
-      shown = 24;
-      setPressed("[data-weather-filter]", button);
-      paint();
-      root.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
     }));
     more.addEventListener("click", () => { shown += 24; paint(); });
     root.querySelector("[data-surprise]").addEventListener("click", () => {
@@ -115,9 +133,23 @@ const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u2
     });
     root.querySelectorAll(".ep-piece-open").forEach((button) => button.addEventListener("click", () => {
       const piece = button.closest("[data-piece]");
-      detailBody.replaceChildren(piece.cloneNode(true));
+      const record = piece.querySelector("template[data-record]");
+      detail.classList.toggle("ep-detail--record", Boolean(record));
+      if (record) {
+        detailBody.replaceChildren(record.content.cloneNode(true));
+      } else {
+        const clone = piece.cloneNode(true);
+        clone.querySelector(".ep-piece-open")?.setAttribute("disabled", "true");
+        detailBody.replaceChildren(clone);
+      }
+      const box = button.getBoundingClientRect();
+      detail.style.setProperty("--from-x", pct((box.left + box.width / 2) / innerWidth));
+      detail.style.setProperty("--from-y", pct((box.top + box.height / 2) / innerHeight));
       detail.showModal();
     }));
     root.querySelector(".ep-detail-close").addEventListener("click", () => detail.close());
+    detail.addEventListener("click", (event) => {
+      if (event.target === detail) detail.close();
+    });
   })();
 </script>
