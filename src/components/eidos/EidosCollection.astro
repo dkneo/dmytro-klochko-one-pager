@@ -95,9 +95,8 @@ const doorOf = (item: any) => String(item.url || item.source || "").trim();
     const detailBody = root.querySelector("[data-detail-body]");
     let shown = 24;
     let form = "all";
-    let weather = "all";
 
-    const matches = (piece) => (form === "all" || piece.dataset.form === form) && (weather === "all" || piece.dataset.weather === weather);
+    const matches = (piece) => form === "all" || piece.dataset.form === form;
     const paint = () => {
       const eligible = pieces.filter(matches);
       pieces.forEach((piece) => { piece.hidden = true; });
@@ -121,13 +120,6 @@ const doorOf = (item: any) => String(item.url || item.source || "").trim();
       shown = 24;
       setPressed("[data-form-filter]", button);
       paint();
-    }));
-    document.querySelectorAll("[data-weather-filter]").forEach((button) => button.addEventListener("click", () => {
-      weather = button.dataset.weatherFilter;
-      shown = 24;
-      setPressed("[data-weather-filter]", button);
-      paint();
-      root.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
     }));
     more.addEventListener("click", () => { shown += 24; paint(); });
     root.querySelector("[data-surprise]").addEventListener("click", () => {
