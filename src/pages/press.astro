@@ -19,6 +19,10 @@ const langs = new Set([
   ...press.flatMap((p) => (p.also || []).map((a) => a.lang).filter(Boolean)),
 ]);
 const interviews = press.filter((p) => p.kind === "interview").length;
+// The ledger marks translations, syndications and rewrites origin=false and
+// says itself that counting them again inflates the total. The rows stay on
+// the page, labelled; the headline counts only what was said once.
+const originals = press.filter((p) => p.origin).length;
 
 // The ledger's own words for each class, so a reader knows what they are
 // looking at without having to infer it from the summary.
@@ -49,7 +53,7 @@ const description =
         </p>
 
         <dl class="pr-facts">
-          <div><dt>pieces</dt><dd>{press.length}</dd></div>
+          <div><dt>pieces</dt><dd>{originals}</dd></div>
           <div><dt>interviews</dt><dd>{interviews}</dd></div>
           <div><dt>languages</dt><dd>{langs.size}</dd></div>
         </dl>

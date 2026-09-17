@@ -377,7 +377,9 @@
 [data-mode="dream"] .pr-note b { font-style: normal; font-weight: 400; color: var(--bone); }
 
 @media (max-width: 700px) {
-  [data-mode="dream"] .pr-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2) var(--sp-1); }
+  /* three facts stay on one line: two columns left the third alone on a row of its own */
+  [data-mode="dream"] .pr-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-1); }
+  [data-mode="dream"] .pr-facts dd { font-size: var(--t-lede); }
 }
 
 /* ── press: the wall and the quotes ─────────────────────────────────────────
@@ -502,7 +504,8 @@
 [data-mode="dream"] .pr-quote figcaption em { font-style: italic; opacity: 0.72; }
 
 @media (max-width: 700px) {
-  [data-mode="dream"] .pr-marks { gap: var(--sp-2) var(--sp-3); }
+  /* nine marks wrap 4 · 4 · 1 on a phone; centred, the last row reads as chosen rather than left over */
+  [data-mode="dream"] .pr-marks { gap: var(--sp-2) var(--sp-3); justify-content: center; }
 
   [data-mode="dream"] .pr-marks svg { height: calc(var(--mh, 18px) * 0.85); max-width: 108px; }
 }

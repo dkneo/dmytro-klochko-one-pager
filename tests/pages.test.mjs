@@ -272,3 +272,16 @@ test("fonts and films are immutable; images stay a day fresh and a month stale",
   assert.match(headers, /^\/images\/\*\n  Cache-Control: public, max-age=86400, stale-while-revalidate=2592000/m);
   assert.doesNotMatch(headers, /^\/images\/\*\n[^\n]*immutable/m, "images must not be immutable: image-build regenerates them under the same names");
 });
+
+// ── the press page counts what the ledger says it may ───────────────────
+test("press headline facts are derived from the ledger and hold on a phone", () => {
+  const data = JSON.parse(read("src/data/press.json"));
+  const html = read("dist/press/index.html");
+  const originals = data.press.filter((p) => p.origin).length;
+  assert.match(html, new RegExp(`<dt[^>]*>pieces</dt><dd[^>]*>${originals}</dd>`), `pieces should count ${originals} originals, not rewrites`);
+  assert.ok(data.press.length > originals, "the ledger has no rewrites to exclude (check origin flags)");
+  assert.match(html, /RU 5656 Communicative AI/, "the ComAI credit names a single university; the unit is shared");
+  const css = read("src/styles/pages/press.css");
+  assert.match(css, /@media \(max-width: 700px\) \{[\s\S]*?\.pr-facts \{ grid-template-columns: repeat\(3, minmax\(0, 1fr\)\)/, "phone facts wrap to an orphan");
+  assert.match(css, /\.pr-marks \{ gap: var\(--sp-2\) var\(--sp-3\); justify-content: center; \}/, "the ninth mark sits alone left");
+});
