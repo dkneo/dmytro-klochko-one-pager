@@ -158,12 +158,13 @@ test("the product moodboard carries every chosen artwork and parks every word", 
   const words = read("dist/eidos/words/index.html");
   const map = JSON.parse(read("src/data/map.json"));
   const visual = map.items.filter((it) => ["painting", "print", "poster"].includes(it.type) && it.src && !it.id.startsWith("his-"));
-  const verbal = map.items.filter((it) => it.type !== "link" && !it.src);
+  const verbal = map.items.filter((it) => ["poem", "quote", "song", "writing"].includes(it.type));
   const pieces = [...html.matchAll(/<figure class="ep-visual[^>]+data-id="([^"]+)"/g)];
   assert.equal(pieces.length, visual.length, `product shows ${pieces.length} of ${visual.length} visual marks`);
   assert.equal(new Set(pieces.map((match) => match[1])).size, visual.length, "a visual mark appears twice");
   assert.equal([...words.matchAll(/data-word-piece/g)].length, verbal.length, "the word room lost a mark");
-  assert.doesNotMatch(html, /ep-piece-words|ep-piece-record/, "words leaked into the moodboard");
+  const mood = html.slice(html.indexOf("data-visual-moodboard"), html.indexOf('id="names"') === -1 ? html.length : html.indexOf('id="names"'));
+  assert.doesNotMatch(mood, /ep-piece-words|ep-piece-record/, "words leaked into the moodboard");
   assert.ok(!html.includes("api/eidos/verdict"), "the library itself never writes");
   assert.match(html, /property="og:image" content="[^"]*og-eidos\.png/);
   assert.match(html, /property="og:title" content="eidos/);

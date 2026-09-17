@@ -7,6 +7,7 @@ import EidosLayout from "../../layouts/EidosLayout.astro";
 import EidosHeader from "../../components/eidos/EidosHeader.astro";
 import EidosHero from "../../components/eidos/EidosHero.astro";
 import EidosMoodboard from "../../components/eidos/EidosMoodboard.astro";
+import EidosCollection from "../../components/eidos/EidosCollection.astro";
 import { buildProfile } from "../../lib/eidos-view.mjs";
 import map from "../../data/map.json";
 import palettes from "../../data/palettes.json";
@@ -67,6 +68,8 @@ const visuals = artwork.slice().sort((a: any, b: any) =>
   (dominantColors[a.id]?.key ?? Number.MAX_SAFE_INTEGER) - (dominantColors[b.id]?.key ?? Number.MAX_SAFE_INTEGER)
   || String(a.title || a.line).localeCompare(String(b.title || b.line))
 );
+const names = profile.collection.filter((item: any) => item.type === "person" && !item.src);
+const namesProfile = { ...profile, collection: names };
 
 const title = "eidos · dmytro's endless moodboard";
 const description = "a living moodboard of paintings, prints and posters loved by dmytro klochko.";
@@ -81,6 +84,7 @@ const ogVersion = createHash("sha1")
     <EidosHeader current="moodboard" />
     <EidosHero />
     <EidosMoodboard items={visuals} dimensions={dimensions} colors={dominantColors} />
+    <EidosCollection profile={namesProfile} dimensions={{}} />
 
     <section class="ep-make-yours" aria-labelledby="make-yours-title">
       <div>

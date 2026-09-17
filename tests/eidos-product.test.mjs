@@ -92,8 +92,11 @@ test("the product opens as one visual moodboard with plain doors", () => {
   assert.doesNotMatch(html, /data-id="his-/);
   assert.doesNotMatch(html, /ep-reading-grid|ep-weather-list|ep-trace-grid/);
   assert.doesNotMatch(html, /\b(?:poem|quote|song|writing)s?\b[^<]*card/i);
-  assert.doesNotMatch(html, /keep exploring|data-more|data-form-filter|data-weather-filter/);
+  const mood = html.slice(html.indexOf("data-visual-moodboard"), html.indexOf('id="names"'));
+  assert.doesNotMatch(mood, /keep exploring|data-more|data-form-filter|data-weather-filter/);
   assert.doesNotMatch(html, /\b(?:01|02|03) ·/);
+  assert.match(html, /id="names"/);
+  assert.match(html, /data-form-filter="person"/);
 });
 
 test("the Faun is the product mark and visibly guides discovery", () => {
@@ -177,7 +180,7 @@ test("the map is literal museum geography and admits what is not yet located", (
 test("words remain intact on their own quiet page", () => {
   const html = read("dist/eidos/words/index.html");
   const map = JSON.parse(read("src/data/map.json"));
-  const wordCount = map.items.filter((item) => item.type !== "link" && !item.src).length;
+  const wordCount = map.items.filter((item) => ["poem", "quote", "song", "writing"].includes(item.type)).length;
 
   assert.match(html, /the words are resting here\./);
   assert.equal((html.match(/data-word-piece/g) || []).length, wordCount);
