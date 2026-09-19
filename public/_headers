@@ -34,7 +34,16 @@
 /hokku
   X-Robots-Tag: noindex, follow
 
-/eidos/*
+/eidos/inbox
+  X-Robots-Tag: noindex, follow
+
+/eidos/inbox/*
+  X-Robots-Tag: noindex, follow
+
+/eidos/reads
+  X-Robots-Tag: noindex, follow
+
+/eidos/reads/*
   X-Robots-Tag: noindex, follow
 
 /writing/*

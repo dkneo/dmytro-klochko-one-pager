@@ -143,3 +143,20 @@
 @media (prefers-reduced-motion: reduce) {
   .epl-art img, .epl-index a, .epl-now a { transition: none; }
 }
+
+/* ── phone legibility floor ──────────────────────────────────────────
+   The product's labels are set small on purpose; on a phone, small means
+   under twelve pixels for two thirds of the text (Lighthouse: 44% legible).
+   Every such label reads at 12px there. Same idiom, one size larger. */
+@media (max-width: 680px) {
+  .epl-research > p,
+  .epl-intro-copy small,
+  .epl-ledger dt,
+  .epl-now small,
+  .epl-now em,
+  .epl-index a,
+  .epl-city > header span,
+  .epl-work p, .epl-work .epl-museum, .epl-work small,
+  .epl-research a,
+  .epl-footer { font-size: 0.75rem; }
+}

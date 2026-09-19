@@ -17618,6 +17618,34 @@
       "sourceSha256": "61fcf3ffa1854108d60a4454cdd91f28e73a96e475792f536b972ea08d025317",
       "outputSha256": "b840dbc38d067cc670720e76c29675a69a14bf7892d25e5478fe6cd15d1f2a38"
     },
+    "/images/responsive/eidos/hero-mobile-poster-720.avif": {
+      "src": "/images/eidos/product/hero-mobile-poster.webp",
+      "recipe": {
+        "width": 720,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "avif",
+        "quality": 63,
+        "effort": 6
+      },
+      "sourceSha256": "61fcf3ffa1854108d60a4454cdd91f28e73a96e475792f536b972ea08d025317",
+      "outputSha256": "cb69d68e831430ce069be1a34c0c42b64e8d53f3cfe91480a55424355be67e23"
+    },
+    "/images/responsive/eidos/hero-mobile-poster-720.webp": {
+      "src": "/images/eidos/product/hero-mobile-poster.webp",
+      "recipe": {
+        "width": 720,
+        "fit": "inside",
+        "position": "centre",
+        "withoutEnlargement": true,
+        "format": "webp",
+        "quality": 82,
+        "effort": 6
+      },
+      "sourceSha256": "61fcf3ffa1854108d60a4454cdd91f28e73a96e475792f536b972ea08d025317",
+      "outputSha256": "2ffa0afb0e15c3057adcff899b8e40c779a843d89af6b8fb290c143beee27232"
+    },
     "/images/responsive/eidos/hero-mobile-poster-960.avif": {
       "src": "/images/eidos/product/hero-mobile-poster.webp",
       "recipe": {

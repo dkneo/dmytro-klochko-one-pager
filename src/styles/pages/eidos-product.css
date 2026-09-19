@@ -2,7 +2,7 @@
   --ep-paper: #f2e2c9;
   --ep-paper-light: #f8ecd9;
   --ep-ink: #292723;
-  --ep-olive: #777443;
+  --ep-olive: #706d3f; /* paper text on olive reads 4.56:1; #777443 was 4.12 */
   --ep-salmon: #dc6a63;
   --ep-raspberry: #a8425d;
   --ep-tobacco: #60412f;
@@ -802,4 +802,32 @@ html[data-eidos-product] body {
   .ep-weather-preview,
   .ep-visual-open { transform: none !important; }
   .ep-nav a::after { transition: none !important; }
+}
+
+/* ── phone legibility floor ──────────────────────────────────────────
+   The product's labels are set small on purpose; on a phone, small means
+   under twelve pixels for two thirds of the text (Lighthouse: 44% legible).
+   Every such label reads at 12px there. Same idiom, one size larger. */
+@media (max-width: 680px) {
+  .ep-header,
+  .ep-index,
+  .ep-hero-note,
+  .ep-hero-art figcaption,
+  .ep-mood-map,
+  .ep-visual figcaption > span,
+  .ep-visual figcaption small,
+  .ep-visual-record,
+  .ep-visual-location,
+  .ep-word > span,
+  .ep-observation-number,
+  .ep-weather b,
+  .ep-surprise,
+  .ep-piece footer > span,
+  .ep-record-meta,
+  .ep-record-door,
+  .ep-trace-grid dt,
+  .ep-makers li b,
+  .ep-footer,
+  .ep-nav a,
+  .ep-parent { font-size: 0.75rem; }
 }
