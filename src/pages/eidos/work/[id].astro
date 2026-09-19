@@ -20,12 +20,36 @@ const works = map.items.filter((item: any) => artworkTypes.has(item.type) && ite
 const metadata = await sharp(path.join(process.cwd(), "public", work.src)).metadata();
 const related = relatedWorks(work, works, 4);
 const plateFor = (src: string) => src.replace("/images/", "/images/plates/").replace(/\.[^.]+$/, ".webp");
+// the four related plates declare their size so the grid never jumps as they land
+const relatedDims = await Promise.all(related.map(async ({ item }: any) => {
+  try { const m = await sharp(path.join(process.cwd(), "public", plateFor(item.src))).metadata(); return { w: m.width, h: m.height }; } catch { return {}; }
+}));
 const dimensionText = work.heightCm && work.widthCm
   ? `${work.heightCm} × ${work.widthCm} cm`
   : "";
 const heldBy = work.collection && !/^his own|google art project$/i.test(work.collection);
 const title = `${work.title || work.line} · eidos`;
 const description = `${work.title || work.line}${work.who ? ` by ${work.who}` : ""}, kept in Dmytro Klochko's Eidos moodboard.`;
+// A record search engines and link previews can read: the work, its maker,
+// its year, its picture, where it lives, and the licence the picture carries.
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const LICENCE_URL: Record<string, string> = { "public domain": "https://creativecommons.org/publicdomain/mark/1.0/", "cc0": "https://creativecommons.org/publicdomain/zero/1.0/", "cc by 4.0": "https://creativecommons.org/licenses/by/4.0/", "cc by-sa 4.0": "https://creativecommons.org/licenses/by-sa/4.0/" };
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "VisualArtwork",
+  name: work.title || work.line,
+  ...(work.who ? { creator: { "@type": "Person", name: work.who } } : {}),
+  ...(work.year ? { dateCreated: String(work.year) } : {}),
+  artform: work.type,
+  ...(work.medium ? { artMedium: work.medium } : {}),
+  ...(work.heightCm && work.widthCm ? { height: { "@type": "QuantitativeValue", value: work.heightCm, unitCode: "CMT" }, width: { "@type": "QuantitativeValue", value: work.widthCm, unitCode: "CMT" } } : {}),
+  image: new URL(work.src, Astro.site).toString(),
+  url: pageUrl,
+  ...(work.source ? { sameAs: work.source } : {}),
+  ...(heldBy ? { locationCreated: undefined, contentLocation: { "@type": "Place", name: work.collection + (work.collectionCity ? `, ${work.collectionCity}` : "") } } : {}),
+  ...(work.licence && LICENCE_URL[String(work.licence).toLowerCase()] ? { license: LICENCE_URL[String(work.licence).toLowerCase()] } : {}),
+  isPartOf: { "@type": "Collection", name: "eidos", url: new URL("/eidos/", Astro.site).toString() },
+};
 ---
 
 <EidosLayout title={title} description={description} ogImage={work.src}>
@@ -79,9 +103,9 @@ const description = `${work.title || work.line}${work.who ? ` by ${work.who}` : 
             <h2 id="related-title">follow a real thread.</h2>
           </header>
           <div class="ew-related-grid">
-            {related.map(({ item, reason }: any) => (
+            {related.map(({ item, reason }: any, i: number) => (
               <a href={`/eidos/work/${item.id}`}>
-                <img src={plateFor(item.src)} alt="" loading="lazy" decoding="async" />
+                <img src={plateFor(item.src)} alt="" width={relatedDims[i]?.w} height={relatedDims[i]?.h} loading="lazy" decoding="async" />
                 <span>{reason}</span>
                 <b>{item.title || item.line}</b>
                 <small>{item.who}{item.year ? ` · ${item.year}` : ""}</small>
@@ -92,6 +116,7 @@ const description = `${work.title || work.line}${work.who ? ` by ${work.who}` : 
       )}
     </article>
 
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
     <footer class="ep-footer ew-footer">
       <a href="/eidos#collection">moodboard</a>
       <a href="/eidos/inbox">discover another</a>

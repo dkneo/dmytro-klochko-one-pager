@@ -13,8 +13,6 @@ const SKIP = new Set([
   "/writing/",
   "/writing/staying-human",
   "/writing/english-teacher",
-  "/eidos/",
-  "/eidos/map/",
   "/eidos/orbit/",
   "/eidos/inbox/",
   "/today/",

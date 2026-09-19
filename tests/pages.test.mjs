@@ -172,18 +172,24 @@ test("the product moodboard carries every chosen artwork and parks every word", 
 
 test("the sitemap lists the public pages and only those", () => {
   const xml = read("dist/sitemap.xml");
+  // match whole locations, not substrings: a work called "the scout" is not /scout
+  const SITE = "https://dmklochko.com";
   for (const url of ["/learning/", "/learning/terminal", "/press/"]) {
-    assert.ok(xml.includes(url), `sitemap missing ${url}`);
+    assert.ok(xml.includes(SITE + url), `sitemap missing ${url}`);
+  }
+  // eidos is a product now: its public pages are listed, its private rooms are not
+  for (const url of ["/eidos/", "/eidos/map/", "/eidos/words/", "/eidos/work/"]) {
+    assert.ok(xml.includes(SITE + url), `sitemap missing ${url}`);
   }
   for (const gated of ["/names", "/ask", "/scout", "/curate",
-                       "/eidos/sit", "/eidos/map", "/eidos/orbit",
-                       "/today/", "/eidos/", "/writing/", "/basho", "/vault/", "/map/"]) {
-    assert.ok(!xml.includes(gated), `sitemap leaks ${gated}`);
+                       "/eidos/sit", "/eidos/orbit", "/eidos/inbox", "/eidos/reads",
+                       "/today/", "/writing/", "/basho", "/vault/", "/map/"]) {
+    assert.ok(!xml.includes(SITE + gated), `sitemap leaks ${gated}`);
   }
 });
 
 test("every hidden room tells search engines to leave it unlisted", () => {
-  for (const room of ["eidos", "today"]) {
+  for (const room of ["eidos/inbox", "eidos/reads", "today"]) {
     const html = read(`dist/${room}/index.html`);
     assert.match(
       html,

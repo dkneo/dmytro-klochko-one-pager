@@ -6,12 +6,15 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  /** the private rooms (discover, reads) stay out of search; everything else is a product page */
+  unlisted?: boolean;
 }
 
 const {
   title,
   description,
   ogImage = "/og-eidos.png",
+  unlisted = false,
 } = Astro.props;
 ---
 <!doctype html>
@@ -21,7 +24,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#f2e2c9" />
-    <meta name="robots" content="noindex, follow" />
+    {unlisted && <meta name="robots" content="noindex, follow" />}
     <meta name="generator" content={Astro.generator} />
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/newsreader-400.woff2" />
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/zodiak-400.woff2" />
@@ -34,6 +37,7 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="eidos" />
     <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:image" content={new URL(ogImage, Astro.site)} />
     <meta name="twitter:card" content="summary_large_image" />

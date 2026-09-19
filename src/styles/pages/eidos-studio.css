@@ -723,3 +723,39 @@ body .eidos-studio .in-note-panel .in-say textarea:focus { border-color: var(--e
 body .eidos-studio .in-note-panel .in-file dt { color: var(--ep-quiet); }
 body .eidos-studio .in-note-panel .in-file dd { color: var(--ep-ink); }
 @keyframes favorite-fade { 0% { opacity: 0; } 20%, 70% { opacity: 1; } 100% { opacity: 0; } }
+
+/* ── phone legibility floor ──────────────────────────────────────────
+   The product's labels are set small on purpose; on a phone, small means
+   under twelve pixels for two thirds of the text (Lighthouse: 44% legible).
+   Every such label reads at 12px there. Same idiom, one size larger. */
+@media (max-width: 680px) {
+  .eidos-studio .in-label,
+  .eidos-studio .in-shelf,
+  .eidos-studio .in-filters button,
+  .eidos-studio .in-filters small,
+  .eidos-studio .in-add summary,
+  .eidos-studio .in-url span,
+  .eidos-studio .in-throw input,
+  .eidos-studio .in-throw button,
+  .eidos-studio .in-throw-note,
+  .eidos-studio .in-history li,
+  .eidos-studio .in-recommendation span,
+  .eidos-studio .in-plate-loader small,
+  .eidos-studio .in-art-miss,
+  .eidos-studio .in-site,
+  .eidos-studio .in-tags,
+  .eidos-studio .in-credit a,
+  .eidos-studio .in-edge,
+  .eidos-studio .in-favorite-stamp small,
+  .eidos-studio .in-btn,
+  .eidos-studio #draft-status,
+  .eidos-studio .in-say-k,
+  .eidos-studio .in-say-hint,
+  .eidos-studio .in-file-details summary,
+  .eidos-studio .in-file dt, .eidos-studio .in-file dd,
+  .eidos-studio .in-gate label span, .eidos-studio .in-gate-note,
+  .eidos-studio .in-keys dt, .eidos-studio .in-keys dd,
+  .eidos-studio .in-comparison-pair button,
+  .eidos-studio .in-comparison-skip,
+  .eidos-studio .in-faun-guide figcaption { font-size: 0.75rem; }
+}

@@ -7,6 +7,9 @@ import palettes from "../../data/palettes.json";
 
 const wordTypes = new Set(["poem", "quote", "song", "writing"]);
 const words = buildProfile(map, palettes).collection.filter((item: any) => wordTypes.has(item.type));
+// the vault names languages in words; the lang attribute wants BCP 47
+const LANG: Record<string, string> = { english: "en", french: "fr", german: "de", japanese: "ja", chinese: "zh", greek: "el", latin: "la", spanish: "es", italian: "it", polish: "pl", ukrainian: "uk", russian: "ru", portuguese: "pt" };
+const langTag = (v: string) => LANG[String(v || "").toLowerCase()] || undefined;
 const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u202F$1").replace(/(«)\s+/g, "$1\u202F");
 ---
 <EidosLayout title="words · eidos" description="poems, songs, quotes and writing kept outside the visual moodboard.">
@@ -21,7 +24,7 @@ const glue = (text: string) => String(text ?? "").replace(/\s+([!?;:»])/g, "\u2
         <article class={`ep-word ep-word--${item.type}`} data-word-piece>
           <span>{item.type}</span>
           <blockquote>{glue(item.english || item.line || item.title)}</blockquote>
-          {item.original && <p lang={item.lang}>{glue(item.original)}</p>}
+          {item.original && <p lang={langTag(item.lang)}>{glue(item.original)}</p>}
           <footer>{item.who}{item.year ? ` · ${item.year}` : ""}{item.translator ? ` · ${item.translator}` : ""}</footer>
         </article>
       ))}

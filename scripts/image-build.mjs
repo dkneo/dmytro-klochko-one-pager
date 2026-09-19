@@ -56,7 +56,7 @@ const pictureFor = (src, stem, width, format, quality) => ({
 const pictures = [
   // eidos hero: 860 px wide at 1440 (60vw), full width on phones
   ...[768, 1152, 1536].flatMap((w) => [pictureFor("/images/eidos/product/hero-desktop-poster.webp", "eidos/hero-desktop-poster", w, "avif", 63), pictureFor("/images/eidos/product/hero-desktop-poster.webp", "eidos/hero-desktop-poster", w, "webp", 82)]),
-  ...[480, 960].flatMap((w) => [pictureFor("/images/eidos/product/hero-mobile-poster.webp", "eidos/hero-mobile-poster", w, "avif", 63), pictureFor("/images/eidos/product/hero-mobile-poster.webp", "eidos/hero-mobile-poster", w, "webp", 82)]),
+  ...[480, 720, 960].flatMap((w) => [pictureFor("/images/eidos/product/hero-mobile-poster.webp", "eidos/hero-mobile-poster", w, "avif", 63), pictureFor("/images/eidos/product/hero-mobile-poster.webp", "eidos/hero-mobile-poster", w, "webp", 82)]),
   // faun mark: 34 px in the header, 261 px in the discover rail
   ...[96, 540].map((w) => ({ src: "/images/eidos/product/faun-mark.webp", out: `/images/responsive/eidos/faun-mark-${w}.webp`, width: w, fit: "inside", format: "webp", quality: 85 })),
   // press portrait: 530 px at 1440, 341 px on phones

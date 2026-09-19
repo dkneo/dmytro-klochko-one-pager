@@ -26,7 +26,7 @@ const cities = [...new Set(works.map((item: any) => item.collectionCity))].map((
 <EidosLayout title="map · eidos" description="the verified museums and cities holding works in dmytro's moodboard.">
   <div class="eidos-places">
     <EidosHeader current="map" />
-    <main class="epl-shell">
+    <div class="epl-shell">
       <header class="epl-intro">
         <div>
           <p class="epl-kicker">a map made from museum records</p>
@@ -118,6 +118,6 @@ const cities = [...new Set(works.map((item: any) => item.collectionCity))].map((
         <a href="/eidos#collection">back to the moodboard</a>
         <span>faun notices · gryphon keeps the addresses</span>
       </footer>
-    </main>
+    </div>
   </div>
 </EidosLayout>
